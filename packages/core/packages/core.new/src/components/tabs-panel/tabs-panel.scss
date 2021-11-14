@@ -1,0 +1,10 @@
+@import 'mixins';
+@import 'reset';
+
+:host {
+  display: none;
+}
+
+:host(#{boolean(active)}) {
+  display: block;
+}

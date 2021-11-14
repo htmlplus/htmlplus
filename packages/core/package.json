@@ -1,0 +1,19 @@
+{
+  "name": "htmlplus",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "lerna run clean",
+    "clean:hard": "npm run clean && lerna clean",
+    "init": "lerna bootstrap",
+    "prepublishOnly": "npm run preversion",
+    "preversion": "lerna run clean && lerna bootstrap && lerna run build --scope @htmlplus/react --stream && lerna run build --scope @htmlplus/vue --stream",
+    "publish:latest": "npm run publish:version && lerna publish from-package",
+    "publish:next": "npm run publish:version && lerna publish from-package --dist-tag next",
+    "publish:version": "lerna version --no-private --preid next",
+    "start": "lerna run start --scope @htmlplus/core --stream"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

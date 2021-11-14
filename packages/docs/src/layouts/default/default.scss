@@ -1,0 +1,15 @@
+// TODO
+.layout-default {
+  plus-sticky.menu {
+    .box {
+      // padding: 0 spacing(4) spacing(3);
+      overflow: auto;
+    }
+    &[state="normal"] .box {
+      height: calc(100vh - 104px);
+    }
+    &[state="sticky"] .box {
+      height: calc(100vh - 0px);
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.sidebar {
+
+  width: 260px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .collapsed {
+    height: 0;
+  }
+
+  @each $value in (0, 1, 2, 3, 4) {
+    .level-#{$value} > li > div > * {
+      padding-left: spacing(($value + 1) * 6);
+    }
+  }
+
+  ul > li {
+
+    & > div > * {
+
+      border-radius: radius(1);
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: spacing(2);
+      margin-bottom: spacing(1);
+
+      &:hover {
+        background-color: color(main, lighten, 3);
+      }
+
+      // TODO
+      .icon {
+        vertical-align: text-bottom;
+      }
+    }
+
+    &.active > div > * {
+
+      color: color(primary);
+
+      &:hover {
+        background-color: color(primary, lighten, 5);
+      }
+    }
+
+    &.active > div > a {
+      background-color: color(primary, lighten, 5);
+    }
+  }
+
+  .item > :first-child {
+    cursor: pointer;
+  }
+}

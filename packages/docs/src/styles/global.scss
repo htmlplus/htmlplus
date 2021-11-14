@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  height: 100%;
+  line-height: 140%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+:not(pre) > code {
+  background-color: color(secondary, lighten, 5);
+  color: color(secondary);
+  padding: 0 0.4rem;
+  border-radius: 3px;
+  font-size: 85%;
+  font-weight: 900;
+  font-family: monospace;
+}

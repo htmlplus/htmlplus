@@ -1,0 +1,17 @@
+@import './alert.variables';
+
+.alert {
+
+  border-left: $border-left;
+  border-radius: $border-radius;
+  margin-bottom: $margin-bottom;
+  padding: $padding;
+
+  @each $key, $value in $types {
+    &.type-#{$key} {
+      @each $key, $property in $value {
+        #{$key}: #{$property};
+      }
+    }
+  }
+}

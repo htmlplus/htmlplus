@@ -1,0 +1,6 @@
+@import './header.variables';
+
+.header {
+  padding: $padding;
+  border-top: solid $border-color $border-width;
+}

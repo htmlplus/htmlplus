@@ -1,0 +1,14 @@
+@import './parameters.variables';
+
+.parameters {
+  
+  .item {
+    padding: $item-padding;
+  }
+
+  @media (min-width: 1024px) {
+    .default {
+      text-align: right;
+    }
+  }
+}

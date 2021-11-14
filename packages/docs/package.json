@@ -1,22 +1,58 @@
 {
-  "name": "@htmlplus/docs",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.13",
-    "@sveltejs/kit": "next",
-    "svelte": "^3.34.0",
-    "svelte-check": "^2.0.0",
-    "svelte-preprocess": "^4.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
-  }
+	"name": "@htmlplus/docs",
+	"version": "0.0.0",
+	"private": "true",
+	"dependencies": {
+		"@htmlplus/examples": "0.0.0",
+		"@htmlplus/react": "^0.2.1",
+		"@types/classnames": "^2.2.10",
+		"@types/marked": "^1.1.0",
+		"@types/node": "^12.12.62",
+		"@types/prismjs": "^1.16.1",
+		"@types/react": "^16.9.49",
+		"@types/react-dom": "^16.9.8",
+		"@types/react-router-dom": "^5.1.5",
+		"axios": "^0.21.1",
+		"classnames": "^2.2.6",
+		"glob": "^7.1.6",
+		"gray-matter": "^4.0.2",
+		"mobx": "^6.0.1",
+		"mobx-react-lite": "^3.0.0",
+		"next": "^10.0.8",
+		"next-compose-plugins": "^2.2.1",
+		"next-pwa": "^5.0.6",
+		"next-transpile-modules": "^6.0.0",
+		"nookies": "^2.5.1",
+		"prismjs": "^1.21.0",
+		"raw-loader": "^4.0.2",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-markdown": "^5.0.3",
+		"react-select": "^4.0.2",
+		"remark-gfm": "^1.0.0",
+		"rimraf": "^3.0.2",
+		"sass": "^1.27.0",
+		"typescript": "^4.0.3"
+	},
+	"scripts": {
+		"build": "next build",
+		"start": "next dev",
+		"start:prod": "next start",
+		"clean": "rimraf .next"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

@@ -1,0 +1,19 @@
+@function spacing($value1, $value2: null, $value3: null, $value4: null) {
+    @if (not $value2) {
+        @return space($value1);
+    }
+    @else if (not $value3) {
+        @return space($value1) space($value2);
+    }
+    @else if (not $value4) {
+        @return space($value1) space($value2) space($value3);
+    }
+    @else {
+        @return space($value1) space($value2) space($value3) space($value4);
+    }
+}
+
+@function space($value) {
+    @if($value == auto) { @return auto; }
+    @return $value * 4px;
+}

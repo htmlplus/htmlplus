@@ -1,5 +1,20 @@
 # dev
 
+## Structure
+    root                   repository (private)
+    ├── ...
+    ├── packages
+    │  ├── core            subtree    (public)
+    │  ├── docs            subtree    (private)
+    │  ├── examples        subtree    (public)
+    │  ├── playground      local      (private)
+    │  └── ports
+    │      ├── angular     subtree    (public)
+    │      ├── react       subtree    (public)
+    │      ├── svelte      subtree    (public)
+    │      └── vue         subtree    (public)
+    └── ...
+
 ## Subtree Instructions
 
 ### 1- Map the `dev` repository into your system

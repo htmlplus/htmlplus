@@ -1,0 +1,12 @@
+{
+  "name": "@htmlplus/dev",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "lerna run clean",
+    "clean:hard": "npm run clean && lerna clean",
+    "init": "lerna bootstrap"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}

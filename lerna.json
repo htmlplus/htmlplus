@@ -1,0 +1,16 @@
+{
+  "version": "independent",
+  "packages": [
+    "packages/*",
+    "packages/playground/*",
+    "packages/ports/*"
+  ],
+  "command": {
+    "publish": {
+      "allowBranch": "main"
+    },
+    "version": {
+      "allowBranch": "main"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 # dev
 
 ## Structure
+
     root                   repository (private)
     ├── ...
     ├── packages

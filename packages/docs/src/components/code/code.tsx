@@ -35,5 +35,5 @@ export const Code: React.FC<CodeProps> = (props) => {
         </code>
       </pre>
     </div>
-  );
-};
+  )
+}

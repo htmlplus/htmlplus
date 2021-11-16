@@ -1,4 +1,4 @@
-import * as Utils from '@app/utils';
+import * as Case from 'case';
 
 export const classes = (...input): string => {
 
@@ -26,7 +26,7 @@ export const classes = (...input): string => {
 
                     const value = element[key];
 
-                    key = Utils.toKebabCase(key);
+                    key = Case.kebab(key);
 
                     const type = Object.prototype.toString.call(value);
 

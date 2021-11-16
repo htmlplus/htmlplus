@@ -1,3 +1,4 @@
+import * as Case from 'case';
 import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Button } from '@app/components';
@@ -13,7 +14,7 @@ export const TocItem: React.FC<TocItemProps> = observer((props) => {
 
   const element = useRef(null);
 
-  const key = Utils.toKebabCase((children[0]?.props?.children || children || '').toString());
+  const key = Case.kebab((children[0]?.props?.children || children || '').toString());
 
   const scrollTo = () => {
 

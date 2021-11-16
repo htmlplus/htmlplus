@@ -1,16 +1,17 @@
 import React from 'react';
-import { Button, Page, Text } from '@app/components';
+import { Button, Text } from '@app/components';
+import { LayoutError } from '@app/layouts';
 
 const Error: React.FC = () => {
     return (
-        <Page layout="error">
+        <LayoutError>
             <Text size="body">
                 404 | Page Not Found
             </Text>
             <Button text to="ROUTE:HOME">
                 GO TO Home
             </Button>
-        </Page>
+        </LayoutError>
     )
 }
 

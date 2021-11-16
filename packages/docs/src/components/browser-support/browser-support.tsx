@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, PlusGrid, PlusGridItem, Text } from '@app/components';
+import { Box, Grid, Text } from '@app/components';
 import { browsers } from '@app/data';
 import * as Utils from '@app/utils';
 
@@ -15,9 +15,9 @@ export const BrowserSupport: React.FC = () => {
         Full native support
       </Text>
       <Box py={4} />
-      <PlusGrid gutterY="lg">
+      <Grid gutterY="lg">
         {browsers.map((browser) => (
-          <PlusGridItem xs="12" sm="grow" key={browser.key}>
+          <Grid.Item xs="12" sm="grow" key={browser.key}>
             <Box textAlign="center" minWidth="100px">
               <img
                 alt={browser.title}
@@ -28,9 +28,9 @@ export const BrowserSupport: React.FC = () => {
                 {browser.title} {browser.version}
               </Text>
             </Box>
-          </PlusGridItem>
+          </Grid.Item>
         ))}
-      </PlusGrid>
+      </Grid>
     </div>
   )
-};
+}

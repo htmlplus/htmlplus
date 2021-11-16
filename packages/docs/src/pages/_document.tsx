@@ -38,6 +38,23 @@ class MyDocument extends Document {
             `,
           }}
         />
+
+        {/* TODO */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.htmlplus = {
+                components: {
+                  divider: {
+                    properties: {
+                      size: 'sm'
+                    }
+                  }
+                }
+              }
+            `,
+          }}
+        />
       </Html>
     );
   }

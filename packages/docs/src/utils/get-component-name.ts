@@ -1,4 +1,4 @@
-import * as Utils from '@app/utils';
+import * as Case from 'case';
 
 export const getComponentName = (framework, input) => {
 
@@ -6,5 +6,5 @@ export const getComponentName = (framework, input) => {
 
     if (framework !== 'react') return input;
 
-    return Utils.toPascalCase(input);
+    return Case.pascal(input);
 }

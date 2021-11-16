@@ -4,8 +4,8 @@
 
 <br/>
 
-> [info] IE 11, Edge 16-18 Support with bundled polyfills
+<Alert type="info">IE 11, Edge 16-18 Support with bundled polyfills</Alert>
 
 <br/>
 
-<browser-support/>
+<BrowserSupport/>

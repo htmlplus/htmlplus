@@ -1,7 +1,7 @@
+@use 'sass:math';
 @import './button.variables';
 
 .button {
-
   color: color(main, lighten, 5); // TODO
   background-color: color(main, darken, 4); // TODO
   display: inline-flex;
@@ -13,6 +13,10 @@
   padding: 0;
   border-radius: 4px; // TODO
   cursor: pointer;
+
+  &.link:hover {
+    color: color(primary, darken, 3) !important;
+  }
 
   &:focus {
     outline: none;
@@ -48,25 +52,25 @@
   @each $key, $value in $sizes {
     &.size-#{$key} {
       height: $value;
-      padding: 0 $value / 2; // TODO
+      padding: 0 math.div($value, 2); // TODO
       &.icon {
         width: $value;
         padding: 0;
       }
     }
   }
-  
+
   .loading {
     display: inline-block;
     position: absolute;
   }
 
   // TODO
-  i.icon {
+  plus-icon {
     margin-inline-end: 0.25rem;
   }
   text-decoration: none;
-  &[class*=link] {
+  &[class*='link'] {
     height: auto;
     padding: 0;
     color: color(main, darken, 4);
@@ -75,4 +79,13 @@
   &.link-underline {
     text-decoration: underline;
   }
+  // &.size-sm {
+  //   font-size: 14px;
+  // }
+  // &.size-md {
+  //   font-size: 16px;
+  // }
+  // &.size-lg {
+  //   font-size: 18px;
+  // }
 }

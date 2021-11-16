@@ -1,5 +1,12 @@
 import React from 'react';
-import { Code, Markup, Text, PlusDivider, PlusGrid, PlusGridItem } from '@app/components';
+import {
+  Code,
+  Markup,
+  Text,
+  Divider,
+  Grid,
+  Tooltip,
+} from '@app/components';
 import * as Utils from '@app/utils';
 import { ParametersProps } from './parameters.types';
 import { Box } from '../box';
@@ -22,25 +29,35 @@ export const Parameters: React.FC<ParametersProps> = (props) => {
     <div className={classes}>
       {items.map((item, index) => (
         <React.Fragment key={item.name}>
-          <PlusGrid className="item" gutterX="md">
-            <PlusGridItem xs="grow">
+          <Grid className="item" gutterX="md">
+            <Grid.Item xs="grow">
               <Text weight="bold" size="label">Name</Text>
-              <Text size="body" color="error">{item.name}</Text>
-            </PlusGridItem>
-            <PlusGridItem xs="12" sm="6" lg="grow">
+              <Text inline size="body" color="secondary-darken-4">
+                {item.name}
+              </Text>
+              {item.experimental && (
+                <Text inline size="caption" color="primary-lighten-3">
+                  &nbsp; (Experimental)
+                </Text>
+              )}
+            </Grid.Item>
+            <Grid.Item xs="12" sm="6" lg="grow">
               {hasType && <Text weight="bold" size="label">Type</Text>}
               {hasType && (
                 <Text size="body" truncate>
                   {/* TODO: see all types */}
-                  {item.type}
+                  <span>
+                    {item.type}
+                    <Tooltip placement="top">{item.type}</Tooltip>
+                  </span>
                 </Text>
               )}
-            </PlusGridItem>
-            <PlusGridItem className="default" xs="12" lg="auto">
+            </Grid.Item>
+            <Grid.Item className="default" xs="12" lg="auto">
               {hasDefault && <Text size="label" weight='bold'>Default</Text>}
               {hasDefault && <Text size="body">{item.default || 'undefined'}</Text>}
-            </PlusGridItem>
-            <PlusGridItem xs="12">
+            </Grid.Item>
+            <Grid.Item xs="12">
               <Box mt={3}></Box>
               {/* TODO */}
               {/* <Text size="label" weight="bold">Description</Text> */}
@@ -64,22 +81,22 @@ export const Parameters: React.FC<ParametersProps> = (props) => {
                   .map((parameter) => (
                     <React.Fragment key={parameter.name}>
                       <br />
-                        -&nbsp;
+                      -&nbsp;
                       <Markup ignoreParagraph>
                         {`\`${parameter.name}\` ${parameter.description}`}
                       </Markup>
                     </React.Fragment>
                   ))}
               </Text>
-            </PlusGridItem>
+            </Grid.Item>
             {hasValue && (
-              <PlusGridItem xs="12">
+              <Grid.Item xs="12">
                 <Text size="body">Value</Text>
                 <Code language="js" copy={false}>{item.value}</Code>
-              </PlusGridItem>
+              </Grid.Item>
             )}
-          </PlusGrid>
-          {items.length > index + 1 && <PlusDivider />}
+          </Grid>
+          {items.length > index + 1 && <Divider />}
         </React.Fragment>
       ))}
     </div>

@@ -43,10 +43,7 @@ export const Text: React.FC<TextProps> = (props) => {
   }
 
   return (
-    <Tag
-      className={classes}
-      title={truncate ? children : undefined}
-    >
+    <Tag className={classes}>
       {children}
     </Tag>
   );

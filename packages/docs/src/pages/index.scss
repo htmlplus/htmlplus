@@ -40,7 +40,6 @@
 }
 
 .newsletter {
-  
   padding: spacing(10);
 
   .image {
@@ -84,42 +83,21 @@
   }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
+.features {
+  plus-intersection,
+  plus-transition,
+  plus-card,
+  plus-card > .box,
+  plus-grid {
+    height: 100%;
   }
-
-  100% {
-    transform: rotate(50deg);
-  }
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(0.9);
-  }
-
-  100% {
-    transform: scale(1.2);
-  }
-}
-
-@keyframes axis-y {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, -15%);
-  }
-}
-
-@keyframes axis-x {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(25%, 0);
+  plus-card {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-5px);
+      span {
+        color: color(primary, darken, 3)
+      }
+    }
   }
 }

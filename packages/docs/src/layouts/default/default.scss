@@ -2,14 +2,14 @@
 .layout-default {
   plus-sticky.menu {
     .box {
-      // padding: 0 spacing(4) spacing(3);
       overflow: auto;
+      border-right: solid 1px rgba(0, 0, 0, 0.12);
     }
     &[state="normal"] .box {
-      height: calc(100vh - 104px);
+      height: calc(100vh - 112px);
     }
     &[state="sticky"] .box {
-      height: calc(100vh - 0px);
+      height: calc(100vh - 72px);
     }
   }
 }

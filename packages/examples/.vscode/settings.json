@@ -1,5 +1,0 @@
-{
-    "npm.exclude": [
-        "**/packages/examples/build/**"
-    ]
-}

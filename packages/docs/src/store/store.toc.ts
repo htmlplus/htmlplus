@@ -33,7 +33,9 @@ export class TocStore {
 
     const item = this.items.find((item) => item.key === key);
 
-    item.entry = entry;
+    if (item) {
+      item.entry = entry;
+    }
 
     const entries = this.items.filter((item) => item.entry?.isIntersecting);
 

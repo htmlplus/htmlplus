@@ -1,37 +1,15 @@
+import * as Case from 'case';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import htmlParser from 'react-markdown/plugins/html-parser';
+import rehypeRaw from 'rehype-raw';
 import { Alert, Button, Code, Text, TocItem } from '@app/components';
 import * as components from '@app/components';
 import * as Constants from '@app/constants';
 import { router } from '@app/services';
-import * as Utils from '@app/utils';
 import { MarkupProps } from './markup.types';
 
-const renderers = {
-  blockquote: (props) => {
-
-    const value = props.node.children[0].children[0].value.trim();
-
-    const token = ((value.match(/\[\w+\]/) || [])[0] || '');
-
-    const type = token.replace(/\[|\]/g, '');
-
-    return <Alert type={type}>{value.replace(token, '')}</Alert>;
-  },
-  code: (props) => <Code language={props.language}>{props.value}</Code>,
-  heading: (props) => {
-
-    const { children, level } = props;
-
-    const content = level === 1 ? children : <TocItem>{children}</TocItem>;
-
-    return <Text size={level.toString()}>{content}</Text>;
-  },
-  link: (props) => <Button color="secondary" link="underline" to={props.node.url}>{props.children}</Button>,
-  paragraph: (props) => <Text size="paragraph">{props.children}</Text>,
-};
+let renderers;
 
 const tokenizer = (input) => {
 
@@ -64,38 +42,116 @@ const tokenizer = (input) => {
 
 export const Markup: React.FC<MarkupProps> = (props) => {
 
+  if (!renderers) {
+
+    renderers = {};
+
+    Object.keys(components).forEach((key) => renderers['app-' + Case.kebab(key)] = components[key]);
+
+    const heading = (props) => {
+
+      const { children, level } = props;
+
+      const content = level === 1 ? children : <TocItem>{children}</TocItem>;
+
+      return <Text size={level.toString()}>{content}</Text>;
+    }
+
+    renderers.h1 = heading;
+    renderers.h2 = heading;
+    renderers.h3 = heading;
+    renderers.h4 = heading;
+    renderers.h5 = heading;
+    renderers.h6 = heading;
+
+    renderers.blockquote = (props) => {
+
+      const { children } = props;
+
+      let child = children.find((child) => !child.trim || child.trim());
+
+      try {
+        child = child.props.children[0];
+      }
+      catch { }
+
+      return <Alert>{child}</Alert>
+    }
+
+    renderers.a = (props) => {
+
+      const { children, href } = props;
+
+      return (
+        <Button
+          color="secondary-darken-4"
+          link="underline"
+          to={href}
+        >
+          {children}
+        </Button>
+      )
+    }
+
+    renderers.code = (props) => {
+
+      const { children, className, inline } = props;
+
+      if (inline) return <code>{children}</code>
+
+      const language = className.split('-').pop();
+
+      return <Code language={language}>{children}</Code>
+    }
+
+    renderers.p = (props) => {
+
+      const { children, node } = props;
+
+      // TODO
+      if (node.children.length === 1 && node.children[0].type === 'element') return <>{children}</>;
+
+      return <Text size="paragraph">{children}</Text>
+    }
+  }
+
   const { children, ignoreParagraph } = props;
 
-  if (ignoreParagraph) renderers.paragraph = (props) => props.children;
+  let content = children && tokenizer(children.toString().replace(/\r\n/g, ' \r\n '));
 
-  const parseHtml = htmlParser({
-    isValidNode: (node) => node.type !== 'script',
-    processingInstructions: [
-      {
-        replaceChildren: true,
-        shouldProcessNode: (node) => {
-          return node.name.split('-').length > 1;
-        },
-        processNode: (node, children, index) => {
+  if (!content) return null;
 
-          const name = Utils.toPascalCase(node.name);
+  if (ignoreParagraph) renderers.p = (props) => props.children;
 
-          const Tag = components[name];
+  const codes = content.match(/```[^```]*```/g);
 
-          return <Tag />;
-        }
-      }
-    ]
-  })
+  content = content
+    .replace(/<([A-Z]\w+)(.*)\/>/g, (match, name, attribute) => {
+
+      name = `app-${Case.kebab(name)}`;
+
+      return `<${name}${attribute}></${name}>`;
+    })
+    .replace(/<([A-Z]\w+)(.*)>/g, (match, name, attribute) => {
+
+      name = `app-${Case.kebab(name)}`;
+
+      return `<${name}${attribute}>`;
+    })
+    .replace(/<\/([A-Z]\w+)>/g, (match, name) => {
+
+      name = `app-${Case.kebab(name)}`;
+
+      return `</${name}>`;
+    })
+    .replace(/```[^```]*```/g, () => codes.shift());
 
   return (
     <ReactMarkdown
-      renderers={renderers}
-      plugins={[gfm]}
-      astPlugins={[parseHtml]}
-      allowDangerousHtml
-    >
-      {tokenizer(children.toString())}
-    </ReactMarkdown>
-  );
-};
+      children={content}
+      components={renderers}
+      rehypePlugins={[rehypeRaw]}
+      remarkPlugins={[gfm]}
+    />
+  )
+}

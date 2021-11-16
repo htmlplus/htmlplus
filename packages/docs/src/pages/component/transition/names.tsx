@@ -1,7 +1,16 @@
+import * as Case from 'case';
 import React from 'react';
 import * as glob from 'glob';
 import * as Utils from '@app/utils';
-import { Box, Code, Page, PlusGrid, PlusGridItem, PlusTransition, Text, TocItem } from '@app/components';
+import {
+    Box,
+    Code,
+    Grid,
+    Text,
+    TocItem,
+    Transition,
+} from '@app/components';
+import { LayoutDefault } from '@app/layouts';
 import '@htmlplus/react/dist/externals/transition/all.css';
 
 const Names = (props) => {
@@ -11,7 +20,7 @@ const Names = (props) => {
     const categories = data || [];
 
     return (
-        <Page layout="default">
+        <LayoutDefault>
             {/* <Text size="2">
                 <TocItem>Overview</TocItem>
             </Text>
@@ -67,24 +76,24 @@ const Names = (props) => {
                     </Text>
                     {/* TODO */}
                     <Box py={2} />
-                    <PlusGrid gutter="md">
+                    <Grid gutter="md">
                         {category.values.map((value) => (
-                            <PlusGridItem className="transition" key={`${category.key}:${value.key}`}>
+                            <Grid.Item className="transition" key={`${category.key}:${value.key}`}>
                                 <Box width="130px" mb={3}>
                                     <div className="content">
-                                        <PlusTransition className="element" name={value.key} repeat="infinite" />
+                                        <Transition className="element" name={value.key} repeat="infinite" />
                                     </div>
                                     <Text size="caption" align="center">
                                         {value.title}
                                     </Text>
                                 </Box>
-                            </PlusGridItem>
+                            </Grid.Item>
                         ))}
-                    </PlusGrid>
+                    </Grid>
                     <Box py={4} />
                 </React.Fragment>
             ))}
-        </Page>
+        </LayoutDefault>
     )
 }
 
@@ -113,7 +122,7 @@ export const getServerSideProps = async (context) => {
                     current.values = current.values || [];
 
                     const title = key.split('-')
-                        .map((section) => Utils.toCapitalCase(section))
+                        .map((section) => Case.capital(section))
                         .join(' ');
 
                     value = { key, title };

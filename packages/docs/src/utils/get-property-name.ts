@@ -1,8 +1,8 @@
-import * as Utils from '@app/utils';
+import * as Case from 'case';
 
 export const getPropertyName = (framework, input) => {
 
     if (framework !== 'react') return input;
 
-    return Utils.toCamelCase(input);
+    return Case.camel(input);
 }

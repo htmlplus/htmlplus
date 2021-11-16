@@ -1,14 +1,15 @@
 @each $color-key, $color-value in $colors {
-    @each $tone-key, $tone-value in $color-value {
-        @if($tone-key == base) {
-            .color-#{$color-key} {
-                color: $tone-value !important;
-            }
-        }
-        @else {
-            .color-#{$color-key}-#{$tone-key} {
-                color: $tone-value !important;
-            }
-        }
+  @each $tone-key, $tone-value in $color-value {
+    @if ($tone-key == base) {
+      [color='#{$color-key}'],
+      .color-#{$color-key} {
+        color: $tone-value !important;
+      }
+    } @else {
+      [color='#{$color-key}-#{$tone-key}'],
+      .color-#{$color-key}-#{$tone-key} {
+        color: $tone-value !important;
+      }
     }
+  }
 }

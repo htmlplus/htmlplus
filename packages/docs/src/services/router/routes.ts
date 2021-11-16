@@ -1,4 +1,5 @@
 import * as Constants from '@app/constants';
+import { frameworks } from '@app/data';
 import { Router } from './router';
 
 export const router = new Router();
@@ -8,12 +9,19 @@ router.register({
     path: '/'
 });
 
-// INTRODUCTION
+// JOIN
 
 router.register({
-    name: 'ROUTE:INTRODUCTION:VISION',
-    path: '/introduction/vision'
+    name: 'ROUTE:JOIN',
+    path: '/join'
 });
+
+// INTRODUCTION
+
+// router.register({
+//     name: 'ROUTE:INTRODUCTION:VISION',
+//     path: '/introduction/vision'
+// });
 
 router.register({
     name: 'ROUTE:INTRODUCTION:WHAT',
@@ -25,12 +33,24 @@ router.register({
     path: `/introduction/why-${Constants.PLATFORM_KEY}`
 });
 
-// GETTINGSTARTED
+// INSTALLATION
 
 router.register({
-    name: 'ROUTE:GETTINGSTARTED:INSTALLATION',
-    path: '/getting-started/installation'
+    name: 'ROUTE:INSTALLATION',
+    path: '/installation'
 });
+
+frameworks.forEach((framework) => {
+
+    const { key } = framework;
+
+    router.register({
+        name: `ROUTE:INSTALLATION:${key.toUpperCase()}`,
+        path: `/installation/${key}`
+    })
+});
+
+// GETTINGSTARTED
 
 router.register({
     name: 'ROUTE:GETTINGSTARTED:BROWSERSUPPORT',
@@ -49,36 +69,9 @@ router.register({
     path: '/component/transition/names'
 });
 
+// ABOUT
 
-
-
-
-
-
-
-
-// router.register({
-//     name: 'ROUTE:FRAMEWORK:ANGULAR',
-//     path: '/framework/angular'
-// });
-
-// router.register({
-//     name: 'ROUTE:FRAMEWORK:JAVASCRIPT',
-//     path: '/framework/javascript'
-// });
-
-// router.register({
-//     name: 'ROUTE:FRAMEWORK:OVERVIEW',
-//     path: '/framework/overview'
-// });
-
-// router.register({
-//     name: 'ROUTE:FRAMEWORK:REACT',
-//     path: '/framework/react'
-// });
-
-// router.register({
-//     name: 'ROUTE:FRAMEWORK:VUE',
-//     path: '/framework/vue'
-// });
-
+router.register({
+    name: 'ROUTE:ABOUT:CODEOFCONDUCT',
+    path: '/code-of-conduct'
+});

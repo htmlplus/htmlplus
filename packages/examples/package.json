@@ -1,40 +1,45 @@
 {
-	"name": "@htmlplus/examples",
-	"version": "0.0.0",
-	"private": "true",
-	"main": "build/combine/index.js",
-	"files": [
-		"build"
-	],
-	"scripts": {
-		"build": "node ./scripts/build.js",
-		"build:test": "node ./scripts/build.test.js",
-		"clean": ""
-	},
-	"devDependencies": {
-		"@babel/core": "^7.11.6",
-		"@babel/generator": "^7.12.11",
-		"@babel/parser": "^7.12.11",
-		"@babel/plugin-proposal-decorators": "^7.10.5",
-		"@babel/plugin-transform-react-jsx": "^7.10.4",
-		"@babel/plugin-transform-typescript": "^7.11.0",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/preset-react": "^7.10.4",
-		"@babel/preset-typescript": "^7.10.4",
-		"@babel/template": "^7.12.7",
-		"@babel/traverse": "^7.12.12",
-		"@babel/types": "^7.12.12",
-		"codesandboxer": "^1.0.3",
-		"dotenv": "^8.2.0",
-		"lz-string": "^1.4.4",
-		"react": "^16.13.1"
-	},
-	"peerDependencies": {
-		"@htmlplus/react": "latest",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
-	},
-	"dependencies": {
-		"@htmlplus/react": "^0.2.1"
-	}
+  "name": "@htmlplus/examples",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/combine/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./src/build.js",
+    "build:dev": "node ./src/build.dev.js",
+    "clean": "rimraf dist",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/generator": "^7.12.11",
+    "@babel/parser": "^7.12.11",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/plugin-transform-typescript": "^7.11.0",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/template": "^7.12.7",
+    "@babel/traverse": "^7.12.12",
+    "@babel/types": "^7.12.12",
+    "case": "^1.6.3",
+    "codesandboxer": "^1.0.3",
+    "dotenv": "^8.2.0",
+    "glob": "^7.1.7",
+    "handlebars": "^4.7.7",
+    "listr2": "^3.10.0",
+    "lz-string": "^1.4.4",
+    "react": "^17.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "dependencies": {
+    "@htmlplus/react": "0.2.7"
+  }
 }

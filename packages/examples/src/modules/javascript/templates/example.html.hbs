@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="{{reference}}"></script>
+    {{#if style}}
+    <style>
+      {{{indent style 3}}}
+    </style>
+    {{/if}}
+  </head>
+  <body>
+    {{{indent template 2}}}
+    {{#if script}}
+    <script>
+      {{{indent script 3}}}
+    </script>
+    {{/if}}
+  </body>
+</html>

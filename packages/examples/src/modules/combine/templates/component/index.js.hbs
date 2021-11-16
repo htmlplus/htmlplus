@@ -1,0 +1,8 @@
+export default {
+  key: '{{component.key}}',
+  examples: [
+    {{#each component.examples}}
+    require('./{{this.key}}').default,
+    {{/each}}
+  ]
+}

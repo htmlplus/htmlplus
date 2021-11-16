@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import NextLink from 'next/link';
-import { PlusSpinner } from '@app/components';
+import { Spinner } from '@app/components';
 import { router } from '@app/services';
 import * as Utils from '@app/utils';
 import { ButtonProps } from './button.types';
@@ -38,7 +38,19 @@ const Link: React.FC<any> = (props) => {
 
 export const Button: React.FC<ButtonProps> = (props) => {
 
-  const { block, children, color, disabled, icon, link, loading, outlined, size = 'md', text, ...args } = props;
+  const {
+    block,
+    children,
+    color,
+    disabled,
+    icon,
+    link,
+    loading,
+    outlined,
+    size = 'md',
+    text,
+    ...args
+  } = props;
 
   const classes = Utils.classes(
     'button',
@@ -53,9 +65,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       {loading && (
         <>
           <span>{children}</span>
-          <PlusSpinner className="loading" type="dual-ring" size="sm" /> 
+          <Spinner className="loading" type="dual-ring" size="sm" />
         </>
       )}
     </Tag>
   )
-};
+}

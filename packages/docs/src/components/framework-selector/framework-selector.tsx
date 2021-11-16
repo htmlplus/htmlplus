@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import Select, { components } from 'react-select'
-import { Box, PlusGrid, PlusGridItem, Text } from '@app/components';
+import { Box, Grid, Text } from '@app/components';
 import { frameworks } from '@app/data';
 import { useRouter, useStore } from '@app/hooks';
 
@@ -17,28 +17,30 @@ const Option = (props) => {
 }
 
 const SingleValue = (props) => (
-  <PlusGrid alignItems="center" gutterX="sm" wrap="off">
-    <PlusGridItem>
+  <Grid alignItems="center" gutterX="sm" wrap="off">
+    <Grid.Item>
       {/* TODO */}
       <img
         style={{ width: '1.5rem', height: '1.5rem', objectFit: 'contain', display: 'block' }}
         src={`/assets/logo/${props.data.logo}`}
         alt={`${props.data.label} logo`}
       />
-    </PlusGridItem>
-    <PlusGridItem>
+    </Grid.Item>
+    <Grid.Item>
       <Text>
         {props.data.label}
       </Text>
-    </PlusGridItem>
-  </PlusGrid>
+    </Grid.Item>
+  </Grid>
 )
 
-export const FrameworkSelector: React.FC<any> = observer(() => {
+export const FrameworkSelector: React.FC = observer(() => {
 
   const router = useRouter();
 
   const store = useStore();
+
+  if (!router.asPath.startsWith('/component')) return null;
 
   const items = frameworks
     .filter((framework) => !framework.disabled)
@@ -69,5 +71,5 @@ export const FrameworkSelector: React.FC<any> = observer(() => {
         onChange={change}
       />
     </>
-  );
-});
+  )
+})

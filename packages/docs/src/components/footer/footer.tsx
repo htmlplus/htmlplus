@@ -78,9 +78,7 @@ export const Footer = () => {
 
   return (
     <div className={classes}>
-      <Box mb={12} mt={12}>
-        <Socials />
-      </Box>
+      <Socials />
       <Text align="center" size="label">
         &copy; 2020 {Constants.PLATFORM_NAME}. Released under MIT License.
       </Text>

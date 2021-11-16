@@ -1,6 +1,5 @@
 export interface ExampleProps {
-    parent: any;
-    value: any;
+    value?: string;
 }
 
 export enum ExampleLanguage {

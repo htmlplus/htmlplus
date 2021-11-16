@@ -1,9 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Button, Text } from '@app/components';
+import { Button, Icon, Text } from '@app/components';
 import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
 import { SidebarItem, SidebarProps } from './sidebar.types';
-import { Icon } from '../icon';
 
 export const Sidebar: React.FC<SidebarProps> = (props) => {
 
@@ -109,7 +108,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
                   <span>
                     {item.icon && (
                       <>
-                        <Icon name={item.icon as any} size="sm" />
+                        <Icon name={item.icon as any} />
                         &nbsp;
                       </>
                     )}

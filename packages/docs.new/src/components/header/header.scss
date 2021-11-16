@@ -1,0 +1,46 @@
+// TODO
+@import './header.variables';
+
+.header {
+
+  &,
+  .container,
+  .logo {
+    transition: height 0.2s linear;
+  }
+
+  &,
+  .container {
+    height: 72px;
+  }
+
+  &.shrink,
+  &.shrink .container {
+    height: 52px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  &.shrink .logo {
+    height: 32px;
+  }
+
+  .container {
+    --plus-card-background-color: rgba(255, 255, 255, 0.75);
+    --plus-card-box-shadow: 0 0 30px 0 rgba(127, 137, 161, 0.3);
+    box-shadow: var(--plus-card-box-shadow);
+    backdrop-filter: blur(20px);
+    padding: $padding;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .container > * {
+    height: 100%;
+  }
+}

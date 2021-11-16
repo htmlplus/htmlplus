@@ -1,0 +1,91 @@
+@use 'sass:math';
+@import './button.variables';
+
+.button {
+  color: color(main, lighten, 5); // TODO
+  background-color: color(main, darken, 4); // TODO
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  border-radius: 4px; // TODO
+  cursor: pointer;
+
+  &.link:hover {
+    color: color(primary, darken, 3) !important;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.block {
+    display: flex;
+  }
+
+  &.disabled {
+    opacity: 0.5; // TODO
+    cursor: default;
+  }
+
+  &.loading {
+    & > span {
+      visibility: hidden;
+    }
+  }
+
+  &.outlined {
+    color: color(main, darken, 4); // TODO
+    background: transparent;
+    border: solid 1px currentColor; // TODO
+  }
+
+  &.text {
+    color: color(main, darken, 4); // TODO
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  @each $key, $value in $sizes {
+    &.size-#{$key} {
+      height: $value;
+      padding: 0 math.div($value, 2); // TODO
+      &.icon {
+        width: $value;
+        padding: 0;
+      }
+    }
+  }
+
+  .loading {
+    display: inline-block;
+    position: absolute;
+  }
+
+  // TODO
+  plus-icon {
+    margin-inline-end: 0.25rem;
+  }
+  text-decoration: none;
+  &[class*='link'] {
+    height: auto;
+    padding: 0;
+    color: color(main, darken, 4);
+    background-color: transparent;
+  }
+  &.link-underline {
+    text-decoration: underline;
+  }
+  // &.size-sm {
+  //   font-size: 14px;
+  // }
+  // &.size-md {
+  //   font-size: 16px;
+  // }
+  // &.size-lg {
+  //   font-size: 18px;
+  // }
+}

@@ -1,8 +1,24 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import React from 'react';
+import { applyPolyfills, defineCustomElements } from '@htmlplus/react/loader';
+import { AppProps } from 'next/app';
+import { Store, StoreContext } from '@app/store';
+import '../styles/index.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+applyPolyfills().then(() => defineCustomElements());
 
-export default MyApp
+const store = new Store();
+
+const App: React.FC<AppProps> = (props) => {
+
+  const { Component, pageProps } = props;
+
+  return (
+    <React.StrictMode>
+      <StoreContext.Provider value={store}>
+        <Component {...pageProps} />
+      </StoreContext.Provider>
+    </React.StrictMode>
+  );
+};
+
+export default App;

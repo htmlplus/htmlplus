@@ -1,0 +1,103 @@
+@import '@htmlplus/react/dist/externals/transition/attention-seekers/heart-beat.css';
+@import '@htmlplus/react/dist/externals/transition/attention-seekers/shake-x.css';
+@import '@htmlplus/react/dist/externals/transition/attention-seekers/shake-y.css';
+@import '@htmlplus/react/dist/externals/transition/bouncing-entrances/bounce-in.css';
+@import '@htmlplus/react/dist/externals/transition/fading-entrance/fade-in-down.css';
+@import '@htmlplus/react/dist/externals/transition/flippers/flip-in-y.css';
+@import '@htmlplus/react/dist/externals/transition/rotating/rotate.css';
+@import '@htmlplus/react/dist/externals/transition/typing/default.css';
+
+.command {
+  background-color: #000;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: spacing(4);
+  margin-bottom: spacing(4);
+  padding: 1.5rem 1.5rem 4rem 1.5rem;
+}
+
+.installation {
+  position: relative;
+}
+
+.polygon {
+  position: absolute;
+  left: 8rem;
+  top: -5rem;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  right: 1.5rem;
+  bottom: -6.5rem;
+}
+
+.square {
+  position: absolute;
+  left: 1rem;
+  bottom: -10rem;
+}
+
+.newsletter {
+  padding: spacing(10);
+
+  .image {
+    text-align: center;
+  }
+
+  img {
+    height: 120px;
+  }
+
+  h3 {
+    margin: spacing(1) 0;
+  }
+}
+
+.framework {
+  text-align: center;
+  position: relative;
+  margin: auto;
+  width: 3.5rem;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  img {
+    width: inherit;
+    height: 3.5rem;
+    object-fit: contain;
+  }
+
+  .badge {
+    color: #fff;
+    background-color: #333;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0;
+    left: -16px;
+    padding: spacing(0, 1);
+  }
+}
+
+.features {
+  plus-intersection,
+  plus-transition,
+  plus-card,
+  plus-card > .box,
+  plus-grid {
+    height: 100%;
+  }
+  plus-card {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-5px);
+      span {
+        color: color(primary, darken, 3)
+      }
+    }
+  }
+}

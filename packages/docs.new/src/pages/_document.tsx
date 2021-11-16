@@ -1,15 +1,23 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-// import * as Constants from '@app/constants';
+import * as Constants from '@app/constants';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-180789652-1"
-          ></script>
+
+          <title>{Constants.PLATFORM_NAME}</title>
+
+          <link rel="icon" href="/favicon.ico" />
+          {/* <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> */}
+
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" /> */}
+
+          <link rel="manifest" href="/manifest.json" />
+
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180789652-1"></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `

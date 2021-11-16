@@ -1,0 +1,26 @@
+$border-left: solid spacing(2);
+$border-radius: radius(1);
+$margin-bottom: spacing(4);
+$padding: spacing(4);
+$types: (
+  'error': (
+    color: color(error),
+    border-color: color(error, lighten, 4),
+    background-color: color(error, lighten, 5),
+  ),
+  'info': (
+    color: color(info),
+    border-color: color(info, lighten, 4),
+    background-color: color(info, lighten, 5),
+  ),
+  'success': (
+    color: color(success),
+    border-color: color(success, lighten, 4),
+    background-color: color(success, lighten, 5),
+  ),
+  'warning': (
+    color: color(warning),
+    border-color: color(warning, lighten, 4),
+    background-color: color(warning, lighten, 5),
+  )
+);

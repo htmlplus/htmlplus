@@ -2,6 +2,12 @@
   "name": "@htmlplus/docs",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "next build",
+    "clean": "rimraf .next",
+    "start": "next dev",
+    "start:prod": "next start"
+  },
   "dependencies": {
     "@htmlplus/examples": "0.0.0",
     "@htmlplus/react": "0.2.7",
@@ -33,12 +39,6 @@
     "sass": "^1.27.0",
     "terser-webpack-plugin": "^5.1.1",
     "typescript": "^4.3.4"
-  },
-  "scripts": {
-    "build": "next build",
-    "clean": "rimraf .next",
-    "start": "next dev",
-    "start:prod": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"

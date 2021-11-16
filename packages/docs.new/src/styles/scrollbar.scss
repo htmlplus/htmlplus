@@ -1,0 +1,15 @@
+.scrollbar::-webkit-scrollbar {
+  width: spacing(2);
+  height: spacing(2);
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: color(main, lighten, 1);
+  border-radius: radius(1);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: radius(1);
+}

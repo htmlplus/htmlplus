@@ -1,0 +1,68 @@
+@import './box.variables';
+
+.box {
+
+    display: block;
+
+    &.hidden {
+      display: none;
+    }
+
+    @each $key in $margin {
+        &.m-#{$key} {
+            margin: spacing($key);
+        }
+        &.mt-#{$key} {
+            margin-top: spacing($key);
+        }
+        &.mr-#{$key} {
+            margin-right: spacing($key);
+        }
+        &.mb-#{$key} {
+            margin-bottom: spacing($key);
+        }
+        &.ml-#{$key} {
+            margin-left: spacing($key);
+        }
+        &.mx-#{$key} {
+            margin-right: spacing($key);
+            margin-left: spacing($key);
+        }
+        &.my-#{$key} {
+            margin-top: spacing($key);
+            margin-bottom: spacing($key);
+        }
+    }
+
+    @each $key in $padding {
+        &.p-#{$key} {
+            padding: spacing($key);
+        }
+        &.pt-#{$key} {
+            padding-top: spacing($key);
+        }
+        &.pr-#{$key} {
+            padding-right: spacing($key);
+        }
+        &.pb-#{$key} {
+            padding-bottom: spacing($key);
+        }
+        &.pl-#{$key} {
+            padding-left: spacing($key);
+        }
+        &.px-#{$key} {
+            padding-right: spacing($key);
+            padding-left: spacing($key);
+        }
+        &.py-#{$key} {
+            padding-top: spacing($key);
+            padding-bottom: spacing($key);
+        }
+    }
+
+    @each $key in $text-align {
+        &.text-align-#{$key} {
+            text-align: $key;
+        }
+    }
+}

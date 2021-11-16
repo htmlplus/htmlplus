@@ -36,9 +36,9 @@
   },
   "scripts": {
     "build": "next build",
+    "clean": "rimraf .next",
     "start": "next dev",
-    "start:prod": "next start",
-    "clean": "rimraf .next"
+    "start:prod": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"

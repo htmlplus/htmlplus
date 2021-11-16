@@ -24,10 +24,7 @@ const App: React.FC<AppProps> = (props) => {
           {/* <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> */}
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-            /> */}
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" /> */}
 
           <link rel="manifest" href="/manifest.json" />
         </Head>

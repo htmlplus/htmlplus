@@ -4,7 +4,6 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180789652-1"></script>
           <script
@@ -19,27 +18,12 @@ class MyDocument extends Document {
           />
         </Head>
 
-        {/* TODO */}
-        <body style={{ visibility: 'hidden' }}>
+        <body>
           <Main />
           <NextScript />
         </body>
 
-        {/* TODO */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.body.style.visibility = 'hidden';
-              setInterval(function() {
-                if(!document.querySelector('.hydrated')) return;
-                document.body.style.visibility = null;
-                clearInterval(this);
-              }, 100);
-            `,
-          }}
-        />
-
-        {/* TODO */}
+        {/* TODO: global config */}
         <script
           dangerouslySetInnerHTML={{
             __html: `

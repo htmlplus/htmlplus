@@ -5,6 +5,7 @@ const
   withTM = require('next-transpile-modules')(['@htmlplus/examples']),
   root = path.resolve(__dirname);
 
+/** @type {import('next').NextConfig} */
 module.exports = withPlugins([/*[withPWA],*/[withTM]], {
   reactStrictMode: true,
   eslint: {

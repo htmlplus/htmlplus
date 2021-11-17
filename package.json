@@ -1,12 +1,18 @@
 {
   "name": "@htmlplus/dev",
-  "version": "0.0.0",
   "scripts": {
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
-    "init": "lerna bootstrap"
+    "init": "lerna bootstrap",
+    "core:push": "git subtree push --prefix packages/core packages/core main",
+    "docs:push": "git subtree push --prefix packages/docs packages/docs main",
+    "examples:push": "git subtree push --prefix packages/examples packages/examples main",
+    "angular:push": "git subtree push --prefix packages/angular packages/angular main",
+    "react:push": "git subtree push --prefix packages/react packages/react main",
+    "svelte:push": "git subtree push --prefix packages/svelte packages/svelte main",
+    "vue:push": "git subtree push --prefix packages/vue packages/vue main"
   },
-  "devDependencies": {
+  "dependencies": {
     "lerna": "^3.20.2"
   }
 }

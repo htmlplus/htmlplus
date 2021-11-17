@@ -1,11 +1,10 @@
 import babelGenerator from '@babel/generator';
 import { parse } from '@babel/parser';
 import babelTraverse from '@babel/traverse';
-import Case from 'case';
 import fs from 'fs-extra';
 import path, { dirname, resolve } from 'path';
 import * as CONSTANTS from '../configs/constants.js';
-import { getInitializer, getTags, hasDecorator } from '../utils/index.js';
+import { getInitializer, getTags, hasDecorator, toCapitalCase, toKebabCase } from '../utils/index.js';
 
 // TODO
 const generator = babelGenerator.default || babelGenerator;
@@ -260,13 +259,13 @@ export const extract = (config) => {
 
         context.name = component.id.name;
 
-        context.key = Case.kebab(context.name);
+        context.key = toKebabCase(context.name);
 
         context.tag = `${config.prefix}-${context.key}`;
 
         context.tags = getTags(component);
 
-        context.title = Case.capital(context.key);
+        context.title = toCapitalCase(context.key);
 
         context.attributes = children
             .filter((property) => hasDecorator(property, CONSTANTS.TOKEN_DECORATOR_ATTRIBUTES))
@@ -282,7 +281,7 @@ export const extract = (config) => {
 
                 const name = property.key.name;
 
-                const attribute = Case.kebab(name);
+                const attribute = toKebabCase(name);
 
                 const initializer = getInitializer(property);
 

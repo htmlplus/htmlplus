@@ -16,7 +16,8 @@ export const script = (config) => {
             lines.push('<script lang="ts">');
 
         // TODO
-        lines.push('import { updateAttribute, sync, toAttributes, toBoolean, toNumber } from "../../../transformer/modules/custom-element/svelte/utils/index";');
+        lines.push(`import { updateAttribute, sync, toAttributes, toBoolean, toNumber } from "../../../transformer/modules/custom-element/svelte/utils/index";`);
+        // const utils = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), '..', 'utils/index.js');
 
         lines.push('import { get_current_component, onMount, onDestroy } from "svelte/internal";');
 

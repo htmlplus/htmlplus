@@ -5,12 +5,12 @@ import path from 'path';
 import { rollup } from 'rollup';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import { customElementIncrementalDom } from '../transformer/index.js';
+import { customElementSvelte } from '../transformer/index.js';
 
 const config = {
     dev: false,
     prefix: 'plus',
-    include: './src/**/click-outside.tsx',
+    include: './src/**/browse.tsx',
     // docs: './dist/json/docs.json',
     // vscode: './dist/json/html.html-data.json',
     scss: {
@@ -54,7 +54,7 @@ const options = {
         {
             name: 'htmlplus',
             async buildStart() {
-                transformer = await customElementIncrementalDom(config);
+                transformer = await customElementSvelte(config);
             },
             async load(id) {
 
@@ -77,7 +77,7 @@ const options = {
 
         typescript(),
 
-        terser(),
+        // terser(),
     ],
 };
 

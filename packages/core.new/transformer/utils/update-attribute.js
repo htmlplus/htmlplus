@@ -1,8 +1,8 @@
-import Case from 'case';
+import { toKebabCase } from './to-kebab-case.js';
 
 export const updateAttribute = (node, key, value) => {
 
-    key = Case.kebab(key);
+    key = toKebabCase(key);
 
     if (value === undefined) {
         node.removeAttribute(key);

@@ -1,7 +1,7 @@
-import Case from 'case';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
+import { toCapitalCase } from '../utils/index.js';
 
 export const docs = (config) => {
 
@@ -45,7 +45,7 @@ export const docs = (config) => {
 
                     item.key = path.basename(filePath).replace('.md', '');
 
-                    item.title = Case.capital(item.key);
+                    item.title = toCapitalCase(item.key);
 
                     item.readme = content.replace(regex, '').trim();
 

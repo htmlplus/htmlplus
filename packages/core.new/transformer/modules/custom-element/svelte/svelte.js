@@ -36,7 +36,8 @@ export const customElementSvelte = async (config) => {
     }
 
     const finish = async () => {
-        await Promise.all(instances.map((instance) => instance.finish()));
+        // TODO
+        // await Promise.all(instances.map((instance) => instance.finish()));
     }
 
     return {

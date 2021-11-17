@@ -1,8 +1,8 @@
 import babelGenerator from '@babel/generator';
 import babelTraverse from '@babel/traverse';
 import t from '@babel/types';
-import Case from 'case';
 import * as CONSTANTS from '../../../../configs/constants.js';
+import { toCamelCase } from '../utils/index.js';
 
 // TODO
 const generator = babelGenerator.default || babelGenerator;
@@ -11,7 +11,7 @@ const traverse = babelTraverse.default || babelTraverse;
 export const markup = (config) => {
 
     const next = (context) => {
-        
+
         if (context.skip) return;
 
         let markup, render;
@@ -20,9 +20,9 @@ export const markup = (config) => {
             ClassMethod(path) {
 
                 const { node } = path;
-    
+
                 if (node.key.name != CONSTANTS.TOKEN_METHOD_RENDER) return;
-    
+
                 render = t.file(
                     t.program([
                         t.classDeclaration(
@@ -34,7 +34,7 @@ export const markup = (config) => {
                         )
                     ])
                 );
-    
+
                 path.remove();
             }
         });
@@ -64,7 +64,7 @@ export const markup = (config) => {
                      */
                     if (node.name.name.match(/on[A-Z]\w+/g)) {
 
-                        const key = `on:${Case.camel(node.name.name.slice(2))}`;
+                        const key = `on:${toCamelCase(node.name.name.slice(2))}`;
 
                         path.replaceWith(
                             t.jsxAttribute(

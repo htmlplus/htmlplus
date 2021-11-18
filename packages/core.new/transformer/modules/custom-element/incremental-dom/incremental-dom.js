@@ -1,23 +1,16 @@
 import * as common from '../../../plugins/index.js';
 import { docs } from '../../docs.js';
+import { types } from '../../types.js';
 import { vscode } from '../../vscode.js';
 import * as local from './plugins/index.js';
 
 export const customElementIncrementalDom = async (config) => {
 
     const tasks = [
-        common.cache.load,
         common.load,
         common.parse,
-        common.validate,
         common.extract,
-        common.scss,
-        local.markup,
-        local.script,
-        common.script,
-        docs,
-        vscode,
-        common.cache.save,
+        types,
     ];
 
     const instances = await Promise.all(tasks.map((task) => task(config)));
@@ -30,12 +23,14 @@ export const customElementIncrementalDom = async (config) => {
 
         await Promise.all(instances.map((instance) => instance.next(context)));
 
+        // TODO
+        context.code = context.code || '';
+
         return context;
     }
 
     const finish = async () => {
-        // TODO
-        // await Promise.all(instances.map((instance) => instance.finish()));
+        await Promise.all(instances.map((instance) => instance.finish()));
     }
 
     return {

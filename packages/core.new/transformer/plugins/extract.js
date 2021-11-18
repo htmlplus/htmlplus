@@ -226,6 +226,13 @@ export const extract = (config) => {
 
         if (context.skip) return;
 
+        // TODO
+        context.asts = {
+            class: null,
+            events: [],
+            properties: [],
+        };
+
         let
             additions = [],
             children,
@@ -233,6 +240,10 @@ export const extract = (config) => {
 
         traverse(context.ast, {
             ClassDeclaration: {
+                // TODO
+                enter(path) {
+                    context.asts.class = path.node;
+                },
                 exit(path) {
 
                     const { node } = path;
@@ -243,6 +254,15 @@ export const extract = (config) => {
 
                     path.skip();
                 }
+            },
+            // TODO
+            ClassProperty(path) {
+
+                if (hasDecorator(path.node, CONSTANTS.TOKEN_DECORATOR_PROPERTY))
+                    context.asts.properties.push(path.node);
+
+                if (hasDecorator(path.node, CONSTANTS.TOKEN_DECORATOR_EVENT))
+                    context.asts.events.push(path.node);
             },
             Decorator(path) {
 

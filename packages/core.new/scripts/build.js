@@ -10,7 +10,7 @@ import { customElementIncrementalDom } from '../transformer/index.js';
 const config = {
     dev: false,
     prefix: 'plus',
-    include: './src/**/click-outside.tsx',
+    include: './src/**/browse.tsx',
     // docs: './dist/json/docs.json',
     // vscode: './dist/json/html.html-data.json',
     scss: {
@@ -77,7 +77,7 @@ const options = {
 
         typescript(),
 
-        terser(),
+        // terser(),
     ],
 };
 

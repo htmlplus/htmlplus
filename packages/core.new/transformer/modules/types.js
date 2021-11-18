@@ -8,28 +8,146 @@ export const types = (config) => {
 
     const interfaces = [];
 
+    const globals = [];
+
+    const locals = [];
+
     const next = (context) => {
 
-        const ast = t.tsInterfaceDeclaration(
-            context.asts.class.id,
-            null,
-            [],
-            t.tsInterfaceBody(
-                context.asts.properties.map((property) => Object.assign(
-                    t.tSPropertySignature(
-                        property.key,
-                        property.typeAnnotation,
-                        property.value
-                    ),
-                    {
-                        optional: property.optional,
-                        leadingComments: property.leadingComments
-                    }
-                ))
+        // TODO
+        const name = `Plus${context.asts.class.id.name}`;
+        const elementInterface = t.identifier(`HTML${name}Element`);
+
+        interfaces.push(
+            t.tsInterfaceDeclaration(
+                t.identifier(name),
+                null,
+                [],
+                t.tsInterfaceBody(
+                    context.asts.properties.map((property) => Object.assign(
+                        t.tSPropertySignature(
+                            property.key,
+                            property.typeAnnotation,
+                            property.value
+                        ),
+                        {
+                            optional: property.optional,
+                            leadingComments: property.leadingComments
+                        }
+                    ))
+                )
             )
         )
 
-        interfaces.push(ast);
+        globals.push(
+            t.tsInterfaceDeclaration(
+                elementInterface,
+                null,
+                [
+                    t.tSExpressionWithTypeArguments(
+                        t.tSQualifiedName(
+                            t.identifier('Components'),
+                            t.identifier(name),
+                        )
+                    )
+                ],
+                t.tsInterfaceBody([])
+            )
+        )
+
+        globals.push(
+            t.variableDeclaration(
+                'var',
+                [
+                    t.variableDeclarator(
+                        Object.assign(
+                            elementInterface,
+                            {
+                                typeAnnotation: t.tSTypeAnnotation(
+                                    t.tSTypeLiteral(
+                                        [
+                                            t.tSPropertySignature(
+                                                t.identifier('prototype'),
+                                                t.tsTypeAnnotation(
+                                                    t.tSTypeReference(elementInterface)
+                                                )
+                                            ),
+                                            t.tSConstructSignatureDeclaration(
+                                                null,
+                                                [],
+                                                t.tSTypeAnnotation(
+                                                    t.tSTypeReference(elementInterface)
+                                                )
+                                            )
+                                        ]
+                                    )
+                                )
+                            }
+                        )
+                    )
+                ]
+            )
+        )
+
+        locals.push(
+            t.tsInterfaceDeclaration(
+                t.identifier(name),
+                null,
+                [],
+                t.tsInterfaceBody(
+                    [
+                        context.asts.properties.map((property) => Object.assign(
+                            t.tSPropertySignature(
+                                property.key,
+                                property.typeAnnotation,
+                                property.value
+                            ),
+                            {
+                                optional: property.optional,
+                                leadingComments: property.leadingComments
+                            }
+                        )),
+                        context.asts.events.map((event) => Object.assign(
+                            t.tSPropertySignature(
+                                t.identifier(
+                                    `on${event.key.name}`
+                                ),
+                                t.tsTypeAnnotation(
+                                    t.tSFunctionType(
+                                        null,
+                                        [
+                                            Object.assign(
+                                                t.identifier('event'),
+                                                {
+                                                    typeAnnotation: t.tSTypeAnnotation(
+                                                        t.tSTypeReference(
+                                                            t.identifier('CustomEvent'),
+                                                            t.tSTypeParameterInstantiation(
+                                                                [
+                                                                    // TODO
+                                                                    t.tSAnyKeyword()
+                                                                ]
+                                                            )
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        ],
+                                        t.tSTypeAnnotation(
+                                            t.tSVoidKeyword()
+                                        )
+                                    )
+                                )
+                            ),
+                            {
+                                optional: true,
+                                leadingComments: event.leadingComments
+                            }
+                        ))
+                    ].flat()
+                )
+            )
+        )
     }
 
     const finish = () => {
@@ -46,7 +164,7 @@ export const types = (config) => {
                     Object.assign(
                         t.tsModuleDeclaration(
                             t.identifier('global'),
-                            t.tsModuleBlock([])
+                            t.tsModuleBlock(globals)
                         ),
                         {
                             declare: true,
@@ -56,7 +174,7 @@ export const types = (config) => {
                     Object.assign(
                         t.tsModuleDeclaration(
                             t.identifier('LocalJSX'),
-                            t.tsModuleBlock([])
+                            t.tsModuleBlock(locals)
                         ),
                         {
                             declare: true,

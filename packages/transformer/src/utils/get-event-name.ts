@@ -1,0 +1,1 @@
+export const getEventName = (key: string) => key.substr(2).toLowerCase();

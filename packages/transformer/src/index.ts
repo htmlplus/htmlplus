@@ -1,5 +1,6 @@
-import { CallExpression, Expression, transformSync } from '@swc/core';
-import { Visitor } from '@swc/core/Visitor.js';
+import { CallExpression, Expression, transformSync,parseSync,printSync } from '@swc/core';
+import { Visitor } from '@swc/core/Visitor';
+import { getEventName } from './utils';
 
 class ConsoleStripper extends Visitor {
   visitCallExpression(expression: CallExpression): Expression {
@@ -29,16 +30,25 @@ class ConsoleStripper extends Visitor {
   }
 }
 
-const out = transformSync(
+const ast = parseSync(
   `
 if (foo) {
     console.log("Foo") 
 } else {
     console.log("Bar")
-}`,
-  {
-    plugin: (m) => new ConsoleStripper().visitProgram(m),
-  }
+}`
 );
 
-console.log(out)
+const out = transformSync(ast, 
+{   
+  plugin: (m) => new ConsoleStripper().visitProgram(m),
+}
+);
+
+console.log(
+  out, 
+  getEventName('onChange'), 
+  printSync(
+    ast
+  )
+)

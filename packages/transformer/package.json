@@ -1,0 +1,17 @@
+{
+  "name": "@htmlplus/transformer",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "swc src -d dist",
+    "build:watch": "swc src -d dist -w",
+    "start": "concurrently \"npm run build:watch\" \"nodemon dist\""
+  },
+  "dependencies": {
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.111",
+    "chokidar": "^3.5.2",
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,8 +1,8 @@
 export const getTags = (node) => {
 
-    const tags = [];
+    const tags: Array<any> = [];
 
-    const lines = [];
+    const lines: Array<string> = [];
 
     const comments = node
         .leadingComments

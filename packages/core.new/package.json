@@ -13,6 +13,7 @@
     "test:run": "cypress run"
   },
   "devDependencies": {
+    "@htmlplus/transformer": "0.0.0",
     "@babel/generator": "^7.15.4",
     "@babel/parser": "^7.15.7",
     "@babel/traverse": "^7.15.4",

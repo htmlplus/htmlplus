@@ -1,58 +1,29 @@
-import { CallExpression, Expression, transformSync,parseSync,printSync } from '@swc/core';
-import { Visitor } from '@swc/core/Visitor';
-import { getEventName } from './utils';
+export const createTransformer = (...modules: Array<any>) => {
 
-class ConsoleStripper extends Visitor {
-  visitCallExpression(expression: CallExpression): Expression {
-    if (expression.callee.type !== "MemberExpression") {
-      return expression;
-    }
+  const global = {
+    contexts: {}
+  };
 
-    if (
-      expression.callee.object.type === "Identifier" &&
-      expression.callee.object.value === "console"
-    ) {
-      if (expression.callee.property.type === "Identifier") {
-        return {
-          type: "UnaryExpression",
-          span: expression.span,
-          operator: "void",
-          argument: {
-            type: "NumericLiteral",
-            span: expression.span, 
-            value: 0,
-          },
-        };
-      }
-    }
-
-    return expression;
+  const start = async () => {
+    await Promise.all(modules.map((module) => module?.start(global)));
   }
-}
-
-const ast = parseSync(
-  `
-if (foo) {
-    console.log("Foo") 
-} else {
-    console.log("Bar")
-}`
-);
-
-const out = transformSync(ast, 
-{   
-  plugin: (m) => new ConsoleStripper().visitProgram(m),
-}
-);
-
-console.log(
-  out, 
-  getEventName('onChange'), 
-  printSync(
-    ast
-  )
-)
-
-export const transformer = (id: string) => {
   
+  const next = async (filename: string) => {
+
+    const context = {
+        filename
+    };
+
+    await Promise.all(modules.map((module) => module.next(context, global)));
+
+    global.contexts[filename] = context;
+
+    return context;
+  }
+
+  const end = async () => {
+    await Promise.all(modules.map((module) => module?.finish(global)));
+  }
+
+  return { start, next, end }
 }

@@ -1,29 +1,70 @@
 export const createTransformer = (...modules: Array<any>) => {
 
-  const global = {
-    contexts: {}
-  };
-
-  const start = async () => {
-    await Promise.all(modules.map((module) => module?.start(global)));
-  }
-  
-  const next = async (filename: string) => {
-
-    const context = {
-        filename
+    const global = {
+        contexts: {}
     };
 
-    await Promise.all(modules.map((module) => module.next(context, global)));
+    const start = async () => {
 
-    global.contexts[filename] = context;
+        for (const module of modules) {
 
-    return context;
-  }
+            if (!module.start) continue;
 
-  const end = async () => {
-    await Promise.all(modules.map((module) => module?.finish(global)));
-  }
+            await module.start(global);
 
-  return { start, next, end }
+            // TODO
+            console.log(module.name + ' => ' + 'Started successfully.');
+        }
+    }
+
+    const next = async (filename: string) => {
+
+        const context: any = {
+            filename,
+            log(namespace: string, message: string) {
+                console.log(filename.split('\\').pop() + ' => ' + namespace + ' => ' + message);
+            }
+        };
+
+        for (const module of modules) {
+
+            if (module.cache) {
+
+                const cache = await module.cache(context, global);
+
+                if (cache) {
+
+                    context.log(module.name, 'Load from cache.');
+
+                    continue;
+                }
+            }
+
+            if (module.next) {
+
+                await module.next(context, global); 
+
+                context.log(module.name, 'Executed successfully.');
+            }
+        }
+
+        global.contexts[filename] = context;
+
+        return context;
+    }
+
+    const finish = async () => {
+
+        for (const module of modules) {
+
+            if (!module.start) continue;
+
+            await module.finish(global);
+
+            // TODO
+            console.log(module.name + ' => ' + 'Finished successfully.');
+        }
+    }
+
+    return { start, next, finish }
 }

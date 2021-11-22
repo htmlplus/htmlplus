@@ -2,14 +2,11 @@ import { parse as parser } from '@babel/parser';
 
 export const parse = () => {
 
+    const name = 'parse';
+
+    const cache = (context) => !!context.ast;
+
     const next = (context) => {
-
-        if (context.skip) 
-            return context.message(`Skip`);
-
-        if (context.ast)
-            return context.message(`Load ast from cache.`);
-
         context.ast = parser(
             context.content,
             {
@@ -21,9 +18,11 @@ export const parse = () => {
                 ]
             }
         );
-
-        context.message(`Sccessfully parsed.`);
     }
 
-    return { next }
+    return {
+        name,
+        cache,
+        next,
+    }
 }

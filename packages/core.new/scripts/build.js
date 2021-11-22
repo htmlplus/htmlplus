@@ -5,7 +5,7 @@ import path from 'path';
 import { rollup } from 'rollup';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import { customElementSvelte } from '../transformer/index.js';
+import { customElementIncrementalDom } from '../transformer/index.js';
 
 const config = {
     dev: false,
@@ -54,7 +54,7 @@ const options = {
         {
             name: 'htmlplus',
             async buildStart() {
-                transformer = await customElementSvelte(config);
+                transformer = await customElementIncrementalDom(config);
             },
             async load(id) {
 

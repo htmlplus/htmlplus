@@ -1,30 +1,27 @@
-import { 
-  createTransformer, 
-  extract,
-  load,
-  parse,
-  scss, 
-} from './index';
+import { createTransformer } from './transformer';
+import { docs, extract, parse, read, scss, typescript } from './modules';
 
 const transformer = createTransformer(
     // cache.load(),
-    load(),
+    read(),
     parse(),
     // validate(),
-    extract(),
-    // typescript(),
-    scss({
-      includePaths: ['./src/styles']
+    extract({
+      prefix: 'plus',
     }),
+    typescript(),
+    // scss({
+    //   includePaths: ['./src/styles']
+    // }),
     // customElement({
     //   dev: true,
     //   prefix: 'plus',
     //   dist: './dist/components'
     // }),
-    // docs({
-    //   prefix: 'plus',
-    //   dist: './dist/json/docs.json'
-    // }), 
+    docs({
+      prefix: 'plus',
+      dist: './dist/json/docs.json'
+    }), 
     // vscode({
     //   prefix: 'plus',
     //   dist: './dist/json/html.html-data.json'
@@ -36,4 +33,4 @@ const transformer = createTransformer(
     // cache.save(),
 )
 
-transformer.next('filename');
+transformer.next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');

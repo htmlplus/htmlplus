@@ -17,4 +17,4 @@ export const TOKEN_DECORATOR_SLOTS      = 'Slots';
 export const TOKEN_LIFECYCLE_MOUNT      = 'mount';
 export const TOKEN_LIFECYCLE_UNMOUNT    = 'unmount';
 export const TOKEN_METHOD_RENDER        = 'render';
-export const TOKEN_SVELTE_VARIABLE_HOST = 'host';
+export const TOKEN_SVELTE_VARIABLE_HOST = 'host'; // TODO: remove svelte key

@@ -12,11 +12,19 @@ export const types = (config) => {
 
     const locals = [];
 
+    const tags = [];
+
+    // TODO
+    const xxx = '@stencil/core';
+    const jSXBase = 'JSXBase';
+    const localJSX = 'LocalJSX'
+    const components = 'Components';
+
     const next = (context) => {
 
         // TODO
         const name = `Plus${context.asts.class.id.name}`;
-        const elementInterface = t.identifier(`HTML${name}Element`);
+        const elementInterface = `HTML${name}Element`;
 
         interfaces.push(
             t.tsInterfaceDeclaration(
@@ -41,12 +49,12 @@ export const types = (config) => {
 
         globals.push(
             t.tsInterfaceDeclaration(
-                elementInterface,
+                t.identifier(elementInterface),
                 null,
                 [
                     t.tSExpressionWithTypeArguments(
                         t.tSQualifiedName(
-                            t.identifier('Components'),
+                            t.identifier(components),
                             t.identifier(name),
                         )
                     )
@@ -61,7 +69,7 @@ export const types = (config) => {
                 [
                     t.variableDeclarator(
                         Object.assign(
-                            elementInterface,
+                            t.identifier(elementInterface),
                             {
                                 typeAnnotation: t.tSTypeAnnotation(
                                     t.tSTypeLiteral(
@@ -69,14 +77,14 @@ export const types = (config) => {
                                             t.tSPropertySignature(
                                                 t.identifier('prototype'),
                                                 t.tsTypeAnnotation(
-                                                    t.tSTypeReference(elementInterface)
+                                                    t.tSTypeReference(t.identifier(elementInterface))
                                                 )
                                             ),
                                             t.tSConstructSignatureDeclaration(
                                                 null,
                                                 [],
                                                 t.tSTypeAnnotation(
-                                                    t.tSTypeReference(elementInterface)
+                                                    t.tSTypeReference(t.identifier(elementInterface))
                                                 )
                                             )
                                         ]
@@ -148,6 +156,35 @@ export const types = (config) => {
                 )
             )
         )
+
+        tags.push(
+            t.tSPropertySignature(
+                t.stringLiteral(context.tag),
+                t.tSTypeAnnotation(
+                    t.tSIntersectionType(
+                        [
+                            t.tSTypeReference(
+                                t.tSQualifiedName(
+                                    t.identifier(localJSX),
+                                    t.identifier('PlusAspectRatio')
+                                )
+                            ),
+                            t.tSTypeReference(
+                                t.tSQualifiedName(
+                                    t.identifier(jSXBase),
+                                    t.identifier('HTMLAttributes')
+                                ),
+                                t.tSTypeParameterInstantiation(
+                                    [
+                                        t.tSTypeReference(t.identifier(elementInterface))
+                                    ]
+                                )
+                            )
+                        ]
+                    )
+                )
+            )
+        )
     }
 
     const finish = () => {
@@ -157,7 +194,7 @@ export const types = (config) => {
                 [
                     t.exportNamedDeclaration(
                         t.tsModuleDeclaration(
-                            t.identifier('Components'),
+                            t.identifier(components),
                             t.tsModuleBlock(interfaces)
                         )
                     ),
@@ -173,7 +210,7 @@ export const types = (config) => {
                     ),
                     Object.assign(
                         t.tsModuleDeclaration(
-                            t.identifier('LocalJSX'),
+                            t.identifier(localJSX),
                             t.tsModuleBlock(locals)
                         ),
                         {
@@ -184,14 +221,14 @@ export const types = (config) => {
                         null,
                         [
                             t.exportSpecifier(
-                                t.identifier('LocalJSX'),
+                                t.identifier(localJSX),
                                 t.identifier('JSX'),
                             )
                         ]
                     ),
                     Object.assign(
                         t.tsModuleDeclaration(
-                            t.stringLiteral('@stencil/core'),
+                            t.stringLiteral(xxx),
                             t.tsModuleBlock(
                                 [
                                     t.exportNamedDeclaration(
@@ -203,9 +240,7 @@ export const types = (config) => {
                                                         t.identifier('IntrinsicElements'),
                                                         null,
                                                         [],
-                                                        t.tsInterfaceBody(
-                                                            []
-                                                        )
+                                                        t.tsInterfaceBody(tags)
                                                     )
                                                 ]
                                             )
@@ -224,9 +259,7 @@ export const types = (config) => {
             )
         )
 
-        const a = generator(ast).code
-
-        console.log(a)
+        console.log(generator(ast).code)
     }
 
     return {

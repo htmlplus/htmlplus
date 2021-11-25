@@ -5,6 +5,13 @@ export type Plugin = {
   finish?: Function;
 }
 
+const log = (namespace?: string, message?: string) => {
+  if (namespace)
+    console.log(`[${new Date().toLocaleTimeString()}] [${namespace}] ${message}`);
+  else 
+    console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
+}
+
 export const compiler = (...plugins: Array<Plugin>) => {
 
   const global = {
@@ -13,35 +20,33 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
   const start = async () => {
 
+    log(undefined, 'Starting.');
+
     for (const plugin of plugins) {
 
       if (!plugin.start) continue;
 
       await plugin.start(global);
 
-      // TODO
-      console.log(plugin.name + ' => ' + 'Started successfully.');
+      log(plugin.name, 'Started successfully.');
     }
   }
 
   const next = async (filename: string) => {
 
-    const context: any = {
-      filename,
-      log(namespace: string, message: string) {
-        console.log(
-          filename.split('\\').pop() + ' => ' + namespace + ' => ' + message,
-        );
-      },
+    const key = filename.split('\\').pop();
+
+    let context = {
+      filename
     }
 
     for (const plugin of plugins) {
 
       if (!plugin.next) continue;
 
-      await plugin.next(context, global);
+      context = await plugin.next(context, global) || context;
 
-      context.log(plugin.name, 'Executed successfully.'); 
+      log(plugin.name, `[${key}] Executed successfully.`); 
     }
 
     global.contexts[filename] = context;
@@ -57,9 +62,10 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
       await plugin.finish(global);
 
-      // TODO
-      console.log(plugin.name + ' => ' + 'Finished successfully.');
+      log(plugin.name, 'Finished successfully.');
     }
+
+    log(undefined, 'Finished.');
   }
 
   return { 

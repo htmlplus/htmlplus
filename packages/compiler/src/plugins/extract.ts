@@ -1,4 +1,3 @@
-import babelGenerator from '@babel/generator';
 import babelTraverse from '@babel/traverse';
 import fs from 'fs-extra';
 import path from 'path';
@@ -6,7 +5,6 @@ import * as CONSTANTS from '../configs/constants';
 import { getTags, hasDecorator, toCapitalCase, toKebabCase } from '../utils';
 
 // TODO    
-const generator = babelGenerator.default || babelGenerator;
 const traverse = babelTraverse.default || babelTraverse;
 
 export interface ExtractOptions {

@@ -8,7 +8,7 @@ export type Plugin = {
 export const compiler = (...plugins: Array<Plugin>) => {
 
   const global = {
-    contexts: {},
+    contexts: {}
   }
 
   const start = async () => {

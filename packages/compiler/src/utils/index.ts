@@ -3,6 +3,7 @@ export * from './get-initializer';
 export * from './get-tags';
 export * from './has-decorator';
 export * from './is-event';
+export * from './print';
 export * from './sync';
 export * from './to-boolean';
 export * from './to-camel-case';

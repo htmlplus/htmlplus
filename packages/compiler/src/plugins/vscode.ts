@@ -1,9 +1,9 @@
-export interface VSCodeOptions {
+export interface VscodeOptions {
     dist: string;
     prefix: string;
 }
 
-export const vscode = (options: VSCodeOptions) => {
+export const vscode = (options: VscodeOptions) => {
 
     const name = 'vscode';
 

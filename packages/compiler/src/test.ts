@@ -1,5 +1,5 @@
 import { compiler } from './compiler';
-import { docs, extract, parse, read, scss, types, typescript, validate, vscode } from './plugins';
+import { docs, extract, incrementalDom, parse, read, scss, types, typescript, validate, vscode } from './plugins';
 
 const { start, next, finish } = compiler(
   // cache.load(),
@@ -13,11 +13,11 @@ const { start, next, finish } = compiler(
   // scss({
   //   includePaths: ['./src/styles']
   // }),
-  // customElement({
-  //   dev: true,
-  //   prefix: 'plus',
-  //   dist: './dist/components'
-  // }),
+  incrementalDom({
+    dev: true,
+    prefix: 'plus',
+    dist: './dist/components'
+  }),
   types({
     dist: './dist/types'
   }),

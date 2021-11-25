@@ -21,5 +21,8 @@ export const scss = (options?: ScssOptions) => {
         context.styleDependencies = stats.includedFiles;
     }
 
-    return { name, next }
+    return { 
+        name, 
+        next,
+    }
 }

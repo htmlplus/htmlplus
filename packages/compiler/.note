@@ -1,3 +1,13 @@
+fs
+glob
+path
+utils/tocase
+print
+parse
+constants
+traverse
+
+
 // import { CallExpression, Expression, transformSync,parseSync,printSync } from '@swc/core';
 // import { Visitor } from '@swc/core/Visitor';
 // import { getEventName } from './utils';

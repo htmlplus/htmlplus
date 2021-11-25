@@ -4,9 +4,10 @@ export const parse = () => {
 
     const name = 'parse';
 
-    const cache = (context) => !!context.ast;
-
     const next = (context) => {
+
+        if (!!context.ast) return;
+
         context.ast = parser(
             context.content,
             {
@@ -17,12 +18,11 @@ export const parse = () => {
                     'decorators-legacy'
                 ]
             }
-        );
+        )
     }
 
     return {
         name,
-        cache,
         next,
     }
 }

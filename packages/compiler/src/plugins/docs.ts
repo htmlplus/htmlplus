@@ -5,8 +5,8 @@ import { toCapitalCase } from '../utils';
 
 export interface DocsOptions {
     bundle?: boolean;
-    dist?: string;
-    prefix?: string;
+    dist: string;
+    prefix: string;
 }
 
 export const docs = (options: DocsOptions) => {

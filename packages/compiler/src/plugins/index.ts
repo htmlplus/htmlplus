@@ -3,4 +3,7 @@ export * from './extract';
 export * from './parse';
 export * from './read';
 export * from './scss';
+export * from './types';
 export * from './typescript';
+export * from './validate';
+export * from './vscode';

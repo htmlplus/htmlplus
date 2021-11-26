@@ -2,9 +2,9 @@ import babelTraverse from '@babel/traverse';
 import fs from 'fs-extra';
 import path from 'path';
 import * as CONSTANTS from '../configs/constants';
-import { getTags, hasDecorator, toCapitalCase, toKebabCase } from '../utils';
+import { hasDecorator, toCapitalCase, toKebabCase } from '../utils';
 
-// TODO    
+// TODO     
 const traverse = babelTraverse.default || babelTraverse;
 
 export interface ExtractOptions {
@@ -52,9 +52,6 @@ export const extract = (options: ExtractOptions) => {
         context.key = toKebabCase(context.name);
 
         context.tag = `${options.prefix}-${context.key}`;
-
-        // TODO
-        context.tags = getTags(context.component);
 
         context.title = toCapitalCase(context.key);
 

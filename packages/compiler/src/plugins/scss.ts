@@ -18,7 +18,7 @@ export const scss = (options?: ScssOptions) => {
 
         context.styleParsed = css.toString();
 
-        context.styleDependencies = stats.includedFiles;
+        context.styleDependencies = Array.from(stats.includedFiles);
     }
 
     return { 

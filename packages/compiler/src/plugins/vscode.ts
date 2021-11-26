@@ -1,3 +1,7 @@
+import fs from 'fs-extra';
+import path from 'path';
+import { getTags, getType, printType, toKebabCase } from '../utils';
+
 export interface VscodeOptions {
     dist: string;
     prefix: string;
@@ -7,12 +11,113 @@ export const vscode = (options: VscodeOptions) => {
 
     const name = 'vscode';
 
-    const next = (context) => {
+    const start = (global) => {
+        global.vscode = {
+            version: 1.1,
+            tags: [],
+        }
+    }
 
+    const next = (context, global) => {
+
+        const readme = (() => {
+
+            try {
+
+                const source = path.resolve(context.directory, `${context.key}.md`);
+
+                return fs.readFileSync(source, 'utf8');
+            }
+            catch { }
+        })();
+
+        const description = (() => {
+
+            const content = readme || '';
+
+            if (!content.startsWith('# ')) return '';
+
+            const sections = content.split('\n');
+
+            for (let i = 1; i < sections.length; i++) {
+
+                const section = sections[i].trim();
+
+                if (!section) continue;
+
+                return section;
+            }
+
+            return '';
+        })();
+
+        const properties = context
+            .properties
+            .map((property) => {
+
+                const name = toKebabCase(property.key.name);
+
+                const description = getTags(property).find((tag) => !tag.key)?.value;
+
+                const attribute: any = {
+                    name,
+                    description,
+                };
+
+                // TODO
+                let { members = [] } = (() => {
+
+                    const ast = getType(
+                        context.ast,
+                        property.typeAnnotation.typeAnnotation,
+                        {
+                            directory: context.directory,
+                        }
+                    )
+
+                    return printType(ast);
+                })();
+
+                // TODO
+                members = members
+                    .filter((member) => member.key !== member.type)
+                    .map((member) => ({ name: member.key }));
+
+                if (members.length)
+                    attribute.values = members;
+
+                return attribute;
+            });
+
+        global.vscode.tags.push({
+            name: context.key,
+            description: {
+                kind: 'markdown',
+                value: description
+            },
+            attributes: properties,
+            references: [
+                {
+                    name: 'Source code',
+                    url: `https://github.com/htmlplus/core/tree/main/src/components/${context.key}/${context.key}.tsx`
+                }
+            ]
+        });
+    }
+
+    const finish = (global) => {
+
+        global.vscode.tags = global.vscode.tags.sort((a, b) => a.name > b.name ? 1 : -1);
+
+        fs.ensureDirSync(path.dirname(options.dist));
+
+        fs.writeJSONSync(options.dist, global.vscode, { replacer: null, spaces: 2 });
     }
 
     return {
         name,
+        start,
         next,
+        finish,
     }
 }

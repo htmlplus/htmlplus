@@ -1,10 +1,10 @@
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import { toCapitalCase } from '../utils';
+import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils';
 
 export interface DocsOptions {
-    bundle?: boolean;
+    // bundle?: boolean;
     dist: string;
     prefix: string;
 }
@@ -13,20 +13,24 @@ export const docs = (options: DocsOptions) => {
 
     const name = 'docs';
 
-    const json = {
-        prefix: options.prefix,
-        components: []
-    };
+    const start = (global) => {
+        global.docs = {
+            prefix: options.prefix,
+            components: []
+        }
+    }
 
-    const next1 = (context) => {
+    const next = (context, global) => {
 
-        context.development = context.tags.some((tag) => tag.key == 'development');
+        const tags = getTags(context.component);
 
-        context.experimental = context.tags.some((tag) => tag.key == 'experimental');
+        const development = tags.some((tag) => tag.key == 'development');
 
-        context.externals = fs.existsSync(path.resolve(context.directory, 'externals'));
+        const experimental = tags.some((tag) => tag.key == 'experimental');
 
-        context.examples = (() => {
+        const externals = fs.existsSync(path.resolve(context.directory, 'externals'));
+
+        const examples = (() => {
 
             const items = [];
 
@@ -39,7 +43,7 @@ export const docs = (options: DocsOptions) => {
                 .filter((file) => file.endsWith('.md'))
                 .map((file) => {
 
-                    const item = {};
+                    const item: any = {};
 
                     const regex = /```\w+\s\[\w+(:\w+)?\]\s[\S\s]*?```/g;
 
@@ -79,7 +83,7 @@ export const docs = (options: DocsOptions) => {
                 })
         })();
 
-        context.readme = (() => {
+        const readme = (() => {
 
             try {
 
@@ -90,9 +94,9 @@ export const docs = (options: DocsOptions) => {
             catch { }
         })();
 
-        context.description = (() => {
+        const description = (() => {
 
-            const content = context.readme || '';
+            const content = readme || '';
 
             if (!content.startsWith('# ')) return '';
 
@@ -110,8 +114,74 @@ export const docs = (options: DocsOptions) => {
             return '';
         })();
 
-        context.parts = context
-            .tags
+        const properties = context
+            .properties
+            .map((property) => {
+
+                const tags = getTags(property);
+
+                const name = property.key.name;
+
+                const attribute = toKebabCase(name);
+
+                const initializer = getInitializer(property);
+
+                const reflect = (() => {
+
+                    try {
+                        for (const decorator of property.decorators) {
+                            for (const argument of decorator.expression.arguments) {
+                                for (const property of argument.properties) {
+                                    if (property.key.name != 'reflect') continue;
+                                    if (property.value.type != 'BooleanLiteral') continue;
+                                    if (!property.value.value) continue;
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                    catch { }
+
+                    return false;
+                })();
+
+                const required = !property.optional;
+
+                // TODO  
+                const { type, members } = (() => {
+
+                    const ast = getType(
+                        context.ast,
+                        property.typeAnnotation.typeAnnotation,
+                        {
+                            directory: context.directory,
+                        }
+                    )
+
+                    return printType(ast);
+                })();
+
+                const experimental = tags.some((tag) => tag.key == 'experimental');
+
+                const description = tags.find((tag) => !tag.key)?.value;
+
+                const model = tags.some((tag) => tag.key == 'model');
+
+                return {
+                    name,
+                    attribute,
+                    initializer,
+                    reflect,
+                    required,
+                    type,
+                    experimental,
+                    description,
+                    members,
+                    model,
+                }
+            });
+
+        const parts = tags
             .filter((tag) => tag.key == 'part')
             .map((tag) => {
 
@@ -127,8 +197,68 @@ export const docs = (options: DocsOptions) => {
                 }
             });
 
-        context.slots = context
-            .tags
+        const methods = context
+            .methods
+            .map((method) => {
+
+                const tags = getTags(method);
+
+                const name = method.key.name;
+
+                const experimental = tags.some((tag) => tag.key == 'experimental');
+
+                // TODO
+                // const params = printType(getType(
+                //     context.ast,
+                //     method.params,
+                //     {
+                //         directory: context.directory,
+                //     }
+                // ));
+
+                // console.log(111, params)
+
+                // TODO: returnType
+                const type = (() => {
+                    try {
+                        return printType(getType(
+                            context.ast,
+                            method.returnType.typeAnnotation,
+                            {
+                                directory: context.directory,
+                            }
+                        ));
+                    } catch { }
+                })();
+
+                // TODO
+                const signature = `${method.key.name}(${''}) => ${type}`;
+
+                const description = tags.find((tag) => !tag.key)?.value;
+
+                // TODO
+                const parameters = [
+                    // {
+                    //     "name": "offsetX",
+                    //     "description": "Moving size (px) in the `horizontal` direction. Use `null` to ignore this."
+                    // },
+                    // {
+                    //     "name": "offsetY",
+                    //     "description": "Moving size (px) in the `vertical` direction. Use `null` to ignore this."
+                    // }
+                ];
+
+                return {
+                    name,
+                    experimental,
+                    type,
+                    signature,
+                    description,
+                    parameters,
+                }
+            });
+
+        const slots = tags
             .filter((tag) => tag.key == 'slot')
             .map((tag) => {
 
@@ -144,9 +274,65 @@ export const docs = (options: DocsOptions) => {
                 }
             });
 
-        context.styles = (() => {
+        const events = context
+            .events
+            .map((event) => {
 
-            const styles = [];
+                const tags = getTags(event);
+
+                const name = event.key.name;
+
+                const cancelable = (() => {
+
+                    try {
+                        for (const decorator of event.decorators) {
+                            for (const argument of decorator.expression.arguments) {
+                                for (const property of argument.properties) {
+                                    if (property.key.name != 'cancelable') continue;
+                                    if (property.value.type != 'BooleanLiteral') continue;
+                                    if (!property.value.value) continue;
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                    catch { }
+
+                    return false;
+                })();
+
+                // TODO
+                const detail = (() => {
+                    try {
+                        return printType(getType(
+                            context.ast,
+                            event.typeAnnotation.typeAnnotation.typeParameters.params[0],
+                            {
+                                directory: context.directory,
+                            }
+                        ))
+                    } catch { }
+                })()
+
+                const experimental = tags.some((tag) => tag.key == 'experimental');
+
+                const description = tags.find((tag) => !tag.key)?.value;
+
+                const model = tags.some((tag) => tag.key == 'model');
+
+                return {
+                    name,
+                    cancelable,
+                    detail,
+                    experimental,
+                    description,
+                    model,
+                }
+            });
+
+        const styles = (() => {
+
+            const styles: Array<any> = [];
 
             try {
 
@@ -178,38 +364,38 @@ export const docs = (options: DocsOptions) => {
             return styles;
         })();
 
-        context.lastModified = glob
+        const lastModified = glob
             .sync(path.join(context.directory, '**/*.*'))
             .reduce((result, file) => {
 
                 const state = fs.statSync(file);
 
                 return result > state.mtime ? result : state.mtime
-            }, 0)
+            }, 0);
 
-        context.group = (context.tags.find((tag) => tag.key == 'group') || {}).value || null;
+        const group = tags.find((tag) => tag.key == 'group')?.value || null;
 
-        context.main = (context.group && context.key == context.group) || !context.group;
+        const main = (group && context.key == group) || !group;
 
         // TODO
-        context.types = (() => {
-            return [];
-        })();
+        // context.types = (() => {
+        //     return [];
+        // })();
 
-        json.components.push({
+        global.docs.components.push({
             key: context.key,
             tag: context.tag,
             title: context.title,
-            main: context.main,
-            group: context.group,
-            development: context.development,
-            experimental: context.experimental,
+            main,
+            group,
+            development,
+            experimental,
 
             // TODO
             deprecated: false,
 
-            externals: context.externals,
-            lastModified: context.lastModified,
+            externals,
+            lastModified,
 
             // TODO
             tags: [],
@@ -217,30 +403,31 @@ export const docs = (options: DocsOptions) => {
             // TODO
             source: context.key,
 
-            description: context.description,
-            readme: context.readme,
-            properties: context.properties,
-            slots: context.slots,
-            events: context.events,
-            styles: context.styles,
-            parts: context.parts,
-            methods: context.methods,
-            examples: context.examples,
+            description,
+            readme,
+            properties,
+            slots,
+            events,
+            styles,
+            parts,
+            methods,
+            examples,
         });
     }
 
-    const finish1 = () => {
+    const finish = (global) => {
 
-        json.components = json.components.sort((a, b) => a.key > b.key ? 1 : -1);
+        global.docs.components = global.docs.components.sort((a, b) => a.key > b.key ? 1 : -1);
 
-        fs.ensureDirSync(path.dirname(options.docs));
+        fs.ensureDirSync(path.dirname(options.dist));
 
-        fs.writeJSONSync(options.docs, json, { replacer: null, spaces: 2 });
+        fs.writeJSONSync(options.dist, global.docs, { replacer: null, spaces: 2 });
     }
 
     return {
         name,
-        next1,
-        finish1,
+        start,
+        next,
+        finish,
     }
 }

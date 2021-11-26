@@ -8,7 +8,7 @@ export type Plugin = {
 const log = (namespace?: string, message?: string) => {
   if (namespace)
     console.log(`[${new Date().toLocaleTimeString()}] [${namespace}] ${message}`);
-  else 
+  else
     console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
 }
 
@@ -46,7 +46,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
       context = await plugin.next(context, global) || context;
 
-      log(plugin.name, `[${key}] Executed successfully.`); 
+      log(plugin.name, `[${key}] Executed successfully.`);
     }
 
     global.contexts[filename] = context;
@@ -68,9 +68,9 @@ export const compiler = (...plugins: Array<Plugin>) => {
     log(undefined, 'Finished.');
   }
 
-  return { 
+  return {
     start,
-    next, 
+    next,
     finish,
   }
 }

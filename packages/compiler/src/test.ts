@@ -10,9 +10,9 @@ const { start, next, finish } = compiler(
     prefix: 'plus',
   }),
   typescript(),
-  // scss({
-  //   includePaths: ['./src/styles']
-  // }),
+  scss({ 
+    includePaths: ['./src/styles']
+  }),
   incrementalDom({
     dev: true,
     prefix: 'plus',
@@ -46,11 +46,10 @@ const { start, next, finish } = compiler(
 );
 
 (async () => {
-  await start();
 
-  await next(
-    'C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx',
-  );
+  await start();
+ 
+  await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\cropper\\cropper.tsx');
 
   await finish();
 })();

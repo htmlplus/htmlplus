@@ -12,5 +12,6 @@ export * from './to-camel-case';
 export * from './to-capital-case';
 export * from './to-kebab-case';
 export * from './to-number';
+export * from './to-pascal-case';
 export * from './type-of';
 export * from './update-attribute';

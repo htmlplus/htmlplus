@@ -19,27 +19,28 @@ const { start, next, finish } = compiler(
     dist: './dist/components'
   }),
   types({
+    prefix: 'plus',
     dist: './dist/types'
   }),
-  docs({
-    prefix: 'plus',
-    dist: './dist/json/docs.json',
-  }),
-  vscode({
-    prefix: 'plus',
-    dist: './dist/json/html.html-data.json'
-  }),
-  {
-    name: 'test',
-    start() {
+  // docs({
+  //   prefix: 'plus',
+  //   dist: './dist/json/docs.json',
+  // }),
+  // vscode({
+  //   prefix: 'plus',
+  //   dist: './dist/json/html.html-data.json'
+  // }),
+  // {
+  //   name: 'test',
+  //   start() {
 
-    },
-    next() {
+  //   },
+  //   next() {
 
-    },
-    finish() {
+  //   },
+  //   finish() {
 
-    }
+  //   }
   }
   // write(),
   // cache.save(),

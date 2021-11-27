@@ -124,7 +124,7 @@ export const docs = (options: DocsOptions) => {
 
                 const attribute = toKebabCase(name);
 
-                const initializer = getInitializer(property);
+                const initializer = getInitializer(property.value);
 
                 const reflect = (() => {
 

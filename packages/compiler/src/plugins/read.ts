@@ -1,10 +1,10 @@
 import fs from 'fs';
 
 export const read = () => {
-
+    
     const name = 'read';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
         if (!!context.content) return;
 

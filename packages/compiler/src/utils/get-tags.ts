@@ -1,11 +1,17 @@
-export const getTags = (node) => {
+import { Node } from '@babel/types';
 
-    const tags: Array<any> = [];
+export interface Tag {
+    key?: string;
+    value?: string;
+}
+
+export const getTags = (node: Node): Array<Tag> => {
+
+    const tags: Array<Tag> = [];
 
     const lines: Array<string> = [];
 
-    const comments = node
-        .leadingComments
+    const comments = (node.leadingComments || [])
         .map((comment) => comment.value)
         .join('\r\n')
         .split('\r\n');

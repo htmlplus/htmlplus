@@ -1,6 +1,6 @@
 import { toKebabCase } from './to-kebab-case';
 
-export const updateAttribute = (node, key, value) => {
+export const updateAttribute = (node: Element, key: string, value: any): void => {
 
     key = toKebabCase(key);
 

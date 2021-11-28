@@ -22,26 +22,26 @@ const { start, next, finish } = compiler(
     prefix: 'plus',
     dist: './dist/types'
   }),
-  // docs({
-  //   prefix: 'plus',
-  //   dist: './dist/json/docs.json',
-  // }),
-  // vscode({
-  //   prefix: 'plus',
-  //   dist: './dist/json/html.html-data.json'
-  // }),
-  // {
-  //   name: 'test',
-  //   start() {
+  docs({
+    prefix: 'plus',
+    dist: './dist/json/docs.json',
+  }),
+  vscode({
+    prefix: 'plus',
+    dist: './dist/json/html.html-data.json'
+  }),
+//   {
+//     name: 'test',
+//     start() {
 
-  //   },
-  //   next() {
+//     },
+//     next(c) {
+// c.
+//     },
+//     finish() {
 
-  //   },
-  //   finish() {
-
-  //   }
-  }
+//     }
+//   }
   // write(),
   // cache.save(),
 );
@@ -50,7 +50,8 @@ const { start, next, finish } = compiler(
 
   await start();
  
-  await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\cropper\\cropper.tsx');
+  // await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\cropper\\cropper.tsx');
+  await next('C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
 
   await finish();
 })();

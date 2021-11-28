@@ -24,7 +24,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
       await plugin.start(global);
 
-      log(plugin.name, 'Started successfully.');
+      log(plugin.name, 'Started successfully.'); 
     }
   }
 

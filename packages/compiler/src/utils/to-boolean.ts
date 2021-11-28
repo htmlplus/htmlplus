@@ -1,4 +1,4 @@
-export const toBoolean = (input) => {
+export const toBoolean = (input: any): boolean => {
 
     if (input === '') return true;
 

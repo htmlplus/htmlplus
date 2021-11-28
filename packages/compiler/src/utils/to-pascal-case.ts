@@ -1,4 +1,4 @@
-export const toPascalCase = (input) => {
+export const toPascalCase = (input: string): string => {
 
     if (!input) return input;
 

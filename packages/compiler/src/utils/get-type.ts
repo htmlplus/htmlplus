@@ -4,6 +4,7 @@ import t,{ File, Node } from '@babel/types';
 import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
 
+// TODO: return type
 export const getType = (file: File, node: any, options) => {
 
     if (!node) return node;

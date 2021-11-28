@@ -2,6 +2,7 @@ import { getEventName } from './get-event-name';
 import { isEvent } from './is-event';
 import { updateAttribute } from './update-attribute';
 
+// TODO
 export const sync = (node: any, prev: any) => (next: any = {}) => {
 
     const prevClass = (prev.class || '').split(' ');

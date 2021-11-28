@@ -1,4 +1,4 @@
-export const toKebabCase = (input) => {
+export const toKebabCase = (input: string): string => {
 
     if (!input) return input;
 

@@ -1,7 +1,7 @@
-import { Literal } from '@babel/types';
+import { Expression } from '@babel/types';
 
 // TODO: return type
-export const getInitializer = (node: Literal) => {
+export const getInitializer = (node?: Expression) => {
 
     if (!node) return node;
 

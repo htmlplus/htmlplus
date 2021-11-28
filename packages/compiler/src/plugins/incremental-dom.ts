@@ -1,3 +1,4 @@
+import { Context } from '@app/types';
 
 export interface IncrementalDomOptions { 
   dev?: boolean;
@@ -9,7 +10,7 @@ export const incrementalDom = (options: IncrementalDomOptions) => {
   
   const name = 'incremental-dom';
 
-  const next = (context) => {
+  const next = (context: Context) => {
 
   }
 

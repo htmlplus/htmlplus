@@ -1,6 +1,8 @@
 import babelTraverse from '@babel/traverse';
+import { ClassMethod, ClassProperty } from '@babel/types';
 import fs from 'fs-extra';
 import path from 'path';
+import { Context } from '@app/types';
 import * as CONSTANTS from '../configs/constants';
 import { hasDecorator, toCapitalCase, toKebabCase } from '../utils';
 
@@ -15,7 +17,7 @@ export const extract = (options: ExtractOptions) => {
 
     const name = 'extract';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
         const additions: Array<any> = [];
 
@@ -25,7 +27,7 @@ export const extract = (options: ExtractOptions) => {
 
                     context.component = path.node;
 
-                    context.members = context.component.body.body;
+                    context.members = context.component?.body?.body || [];
 
                     path.skip();
                 }
@@ -47,7 +49,7 @@ export const extract = (options: ExtractOptions) => {
 
         context.directory = path.dirname(context.filename);
 
-        context.name = context.component.id.name;
+        context.name = context.component?.id?.name || '';
 
         context.key = toKebabCase(context.name);
 
@@ -70,35 +72,31 @@ export const extract = (options: ExtractOptions) => {
 
         context.events = context
             .members
-            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_EVENT));
+            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_EVENT)) as Array<ClassProperty>;
 
         context.methods = context
             .members
-            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_METHOD));
+            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_METHOD)) as Array<ClassMethod>;
 
         context.properties = context
             .members
-            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_PROPERTY));
-
-        context.slots = context
-            .members
-            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_SLOTS));
+            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_PROPERTY)) as Array<ClassProperty>;
 
         context.states = context
             .members
-            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_STATE));
+            .filter((member) => hasDecorator(member, CONSTANTS.TOKEN_DECORATOR_STATE)) as Array<ClassProperty>;
 
         context.hasMount = context
             .members
-            .some((member) => member.key.name === CONSTANTS.TOKEN_LIFECYCLE_MOUNT);
+            .some((member) => member['key'].name == CONSTANTS.TOKEN_LIFECYCLE_MOUNT);
 
         context.hasUnmount = context
             .members
-            .some((member) => member.key.name === CONSTANTS.TOKEN_LIFECYCLE_UNMOUNT);
+            .some((member) => member['key'].name == CONSTANTS.TOKEN_LIFECYCLE_UNMOUNT);
 
         context.render = context
             .members
-            .some((member) => member.key.name === CONSTANTS.TOKEN_METHOD_RENDER);
+            .find((member) => member['key'].name) as ClassMethod;
 
         additions.forEach((path) => path.remove());
     }

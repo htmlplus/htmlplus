@@ -1,10 +1,11 @@
 import { parse as parser } from '@babel/parser';
+import { Context } from '@app/types';
 
 export const parse = () => {
 
     const name = 'parse';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
         if (!!context.ast) return;
 

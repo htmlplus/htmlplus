@@ -1,3 +1,4 @@
+import path from 'path';
 import { Context, Plugin } from '@app/types';
 
 const log = (namespace?: string, message?: string) => {
@@ -31,8 +32,18 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
     const key = filename.split('\\').pop();
 
+    const directory = path.dirname(filename);
+
     let context: Context = {
-      filename
+      filename,
+      directory,
+      content: '',
+      tag: '',
+      members: [],
+      states: [],
+      properties: [],
+      events: [],
+      methods: [],
     }
 
     for (const plugin of plugins) {

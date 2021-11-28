@@ -1,4 +1,5 @@
-import t from '@babel/types';
+import t, { TSTypeAnnotation } from '@babel/types';
+import { Context } from '@app/types';
 import { print, toPascalCase } from '../utils';
 
 export interface TypesOptions {
@@ -24,7 +25,7 @@ export const types = (options: TypesOptions) => {
     const v3 = 'LocalJSX'
     const v4 = 'Components';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
         // TODO
         const v5 = toPascalCase(options.prefix || '') + context.name;
@@ -39,7 +40,7 @@ export const types = (options: TypesOptions) => {
                     context.properties.map((property) => Object.assign(
                         t.tSPropertySignature(
                             property.key,
-                            property.typeAnnotation,
+                            property.typeAnnotation as TSTypeAnnotation,
                             property.value
                         ),
                         {
@@ -111,7 +112,7 @@ export const types = (options: TypesOptions) => {
                         context.properties.map((property) => Object.assign(
                             t.tSPropertySignature(
                                 property.key,
-                                property.typeAnnotation,
+                                property.typeAnnotation as TSTypeAnnotation,
                                 property.value
                             ),
                             {
@@ -122,7 +123,7 @@ export const types = (options: TypesOptions) => {
                         context.events.map((event) => Object.assign(
                             t.tSPropertySignature(
                                 t.identifier(
-                                    `on${toPascalCase(event.key.name)}`
+                                    `on${toPascalCase(event.key['name'])}`
                                 ),
                                 t.tsTypeAnnotation(
                                     t.tSFunctionType(
@@ -134,7 +135,12 @@ export const types = (options: TypesOptions) => {
                                                     typeAnnotation: t.tSTypeAnnotation(
                                                         t.tSTypeReference(
                                                             t.identifier('CustomEvent'),
-                                                            event.typeAnnotation?.typeAnnotation?.typeParameters
+                                                            (() => {
+                                                                try {
+                                                                    return (event as any).typeAnnotation.typeAnnotation.typeParameters
+                                                                }
+                                                                catch { }
+                                                            })()
                                                         )
                                                     )
                                                 }

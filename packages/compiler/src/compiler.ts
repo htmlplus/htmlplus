@@ -1,9 +1,4 @@
-export type Plugin = {
-  name: string;
-  start?: Function;
-  next?: Function;
-  finish?: Function;
-}
+import { Context, Plugin } from '@app/types';
 
 const log = (namespace?: string, message?: string) => {
   if (namespace)
@@ -36,7 +31,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
     const key = filename.split('\\').pop();
 
-    let context = {
+    let context: Context = {
       filename
     }
 

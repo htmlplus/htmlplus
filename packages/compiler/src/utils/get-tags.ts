@@ -5,7 +5,9 @@ export interface Tag {
     value?: string;
 }
 
-export const getTags = (node: Node): Array<Tag> => {
+export const getTags = (node?: Node): Array<Tag> => {
+
+    if (!node) return [];
 
     const tags: Array<Tag> = [];
 

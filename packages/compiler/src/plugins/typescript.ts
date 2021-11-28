@@ -1,8 +1,10 @@
+import { Context } from '@app/types';
+
 export const typescript = () => {
 
     const name = 'typescript';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
     }
 

@@ -1,4 +1,5 @@
 import core from 'sass';
+import { Context } from '@app/types';
 
 export interface ScssOptions { }
 
@@ -6,7 +7,7 @@ export const scss = (options?: ScssOptions) => {
 
     const name = 'scss';
 
-    const next = (context) => {
+    const next = (context: Context) => {
 
         if (!context.stylePath) return;
 

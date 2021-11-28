@@ -1,18 +1,20 @@
 import { parse } from '@babel/parser';
-import babelTraverse from '@babel/traverse';
+import traverse from '@babel/traverse';
+import t,{ File, Node } from '@babel/types';
 import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
 
-// TODO
-const traverse = babelTraverse.default || babelTraverse;
+export const getType = (file: File, node: any, options) => {
 
-export const getType = (file, node, { directory }) => {
+    if (!node) return node;
 
     if (node.type != 'TSTypeReference') return node;
 
+    const { directory } = options;
+
     let result;
 
-    traverse(file, {
+    (traverse.default || traverse)(file, {
         ClassDeclaration(path) {
 
             if (path.node.id.name != node.typeName.name) return;

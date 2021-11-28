@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
+import { Context } from '@app/types';
 import { getTags, getType, printType, toKebabCase } from '../utils';
 
 export interface VscodeOptions {
@@ -18,7 +19,7 @@ export const vscode = (options: VscodeOptions) => {
         }
     }
 
-    const next = (context, global) => {
+    const next = (context: Context, global) => {
 
         const readme = (() => {
 
@@ -55,7 +56,7 @@ export const vscode = (options: VscodeOptions) => {
             .properties
             .map((property) => {
 
-                const name = toKebabCase(property.key.name);
+                const name = toKebabCase(property.key['name']);
 
                 const description = getTags(property).find((tag) => !tag.key)?.value;
 
@@ -68,8 +69,8 @@ export const vscode = (options: VscodeOptions) => {
                 let { members = [] } = (() => {
 
                     const ast = getType(
-                        context.ast,
-                        property.typeAnnotation.typeAnnotation,
+                        context.ast as any,
+                        (property.typeAnnotation || {})['typeAnnotation'],
                         {
                             directory: context.directory,
                         }

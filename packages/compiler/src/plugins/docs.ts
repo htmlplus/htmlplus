@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
+import { Context } from '@app/types';
 import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils';
 
 export interface DocsOptions {
@@ -20,7 +21,7 @@ export const docs = (options: DocsOptions) => {
         }
     }
 
-    const next = (context, global) => {
+    const next = (context: Context, global) => {
 
         const tags = getTags(context.component);
 
@@ -120,17 +121,21 @@ export const docs = (options: DocsOptions) => {
 
                 const tags = getTags(property);
 
-                const name = property.key.name;
+                const name = property.key['name'];
 
                 const attribute = toKebabCase(name);
 
-                const initializer = getInitializer(property.value);
+                // TODO
+                const initializer = getInitializer(property.value as any);
 
+                // TODO
                 const reflect = (() => {
+
+                    if (!property.decorators) return false;
 
                     try {
                         for (const decorator of property.decorators) {
-                            for (const argument of decorator.expression.arguments) {
+                            for (const argument of decorator.expression['arguments']) {
                                 for (const property of argument.properties) {
                                     if (property.key.name != 'reflect') continue;
                                     if (property.value.type != 'BooleanLiteral') continue;
@@ -151,8 +156,8 @@ export const docs = (options: DocsOptions) => {
                 const { type, members } = (() => {
 
                     const ast = getType(
-                        context.ast,
-                        property.typeAnnotation.typeAnnotation,
+                        context.ast as any,
+                        (property.typeAnnotation || {})['typeAnnotation'],
                         {
                             directory: context.directory,
                         }
@@ -185,7 +190,7 @@ export const docs = (options: DocsOptions) => {
             .filter((tag) => tag.key == 'part')
             .map((tag) => {
 
-                const sections = tag.value.split('-');
+                const sections = tag.value?.split('-') || [];
 
                 const name = sections[0].trim();
 
@@ -203,7 +208,7 @@ export const docs = (options: DocsOptions) => {
 
                 const tags = getTags(method);
 
-                const name = method.key.name;
+                const name = method.key['name'];
 
                 const experimental = tags.some((tag) => tag.key == 'experimental');
 
@@ -222,8 +227,8 @@ export const docs = (options: DocsOptions) => {
                 const type = (() => {
                     try {
                         return printType(getType(
-                            context.ast,
-                            method.returnType.typeAnnotation,
+                            context.ast as any,
+                            (method.returnType || {})['typeAnnotation'],
                             {
                                 directory: context.directory,
                             }
@@ -232,7 +237,7 @@ export const docs = (options: DocsOptions) => {
                 })();
 
                 // TODO
-                const signature = `${method.key.name}(${''}) => ${type}`;
+                const signature = `${method.key['name']}(${''}) => ${type}`;
 
                 const description = tags.find((tag) => !tag.key)?.value;
 
@@ -262,7 +267,7 @@ export const docs = (options: DocsOptions) => {
             .filter((tag) => tag.key == 'slot')
             .map((tag) => {
 
-                const sections = tag.value.split('-');
+                const sections = tag.value?.split('-') || [];
 
                 const name = sections[0].trim();
 
@@ -280,13 +285,15 @@ export const docs = (options: DocsOptions) => {
 
                 const tags = getTags(event);
 
-                const name = event.key.name;
+                const name = event.key['name'];
 
                 const cancelable = (() => {
 
+                    if (!event.decorators) return false;
+
                     try {
                         for (const decorator of event.decorators) {
-                            for (const argument of decorator.expression.arguments) {
+                            for (const argument of decorator.expression['arguments']) {
                                 for (const property of argument.properties) {
                                     if (property.key.name != 'cancelable') continue;
                                     if (property.value.type != 'BooleanLiteral') continue;
@@ -305,8 +312,8 @@ export const docs = (options: DocsOptions) => {
                 const detail = (() => {
                     try {
                         return printType(getType(
-                            context.ast,
-                            event.typeAnnotation.typeAnnotation.typeParameters.params[0],
+                            context.ast as any,
+                            (event.typeAnnotation || {})['typeAnnotation'].typeParameters.params[0],
                             {
                                 directory: context.directory,
                             }
@@ -348,7 +355,7 @@ export const docs = (options: DocsOptions) => {
 
                         description = description.trim();
 
-                        let [initializer] = context.style.split(name).slice(1, 2);
+                        let [initializer] = context.styleParsed?.split(name).slice(1, 2) || [];
 
                         if (initializer) initializer = initializer.split(/;|}/)[0].replace(':', '').trim();
 

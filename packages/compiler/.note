@@ -11,6 +11,33 @@ log/print/
 
 
 
+
+function is_server() {
+  return !(typeof window != 'undefined' && window.document);
+}
+
+const proxy = (k: any) => {
+  if (is_server()) return class {};
+  return class extends HTMLElement {
+    constructor() {
+      super();
+      const a = new k();
+    }
+  };
+};
+
+const define = (name: string, k: any) => {
+  if (is_server()) return;
+  customElements.define(name, k);
+};
+
+class A {}
+
+const AA = proxy(A);
+
+define('a-b', AA);
+
+
 // TODO
 // declare global {
 //     interface HTMLPlusAspectRatioElement {

@@ -10,6 +10,29 @@ traverse
 log/print/
 
 
+
+// TODO
+// declare global {
+//     interface HTMLPlusAspectRatioElement {
+//         value?: AspectRatioValue; // no init
+//         // methods = yes
+//         // events = no
+//     }
+//     var HTMLPlusAspectRatioElement: {
+//         prototype: HTMLPlusAspectRatioElement;
+//         new (): HTMLPlusAspectRatioElement;
+//     };
+//     interface PlusAspectRatio {
+//         value?: AspectRatioValue; // no init
+//         // methods = no
+//         // events = yes
+//     }
+//     interface HTMLElementTagNameMap {
+//         'plus-aspect-ratio': PlusAspectRatio
+//     }
+// }
+
+
 // import { CallExpression, Expression, transformSync,parseSync,printSync } from '@swc/core';
 // import { Visitor } from '@swc/core/Visitor';
 // import { getEventName } from './utils';

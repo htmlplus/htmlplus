@@ -1,4 +1,6 @@
 import t, { TSTypeAnnotation } from '@babel/types';
+import fs from 'fs-extra';
+import path from 'path';
 import { Context } from '@app/types';
 import { print, toPascalCase } from '../utils';
 
@@ -262,9 +264,11 @@ export const types = (options: TypesOptions) => {
                 [],
                 'module'
             )
-        )
+        );
 
-        console.log(print(ast))
+        fs.ensureDirSync(path.dirname(options.dist));
+
+        fs.writeFileSync(options.dist, print(ast));
     }
 
     return {

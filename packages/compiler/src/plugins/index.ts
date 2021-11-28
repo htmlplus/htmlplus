@@ -5,6 +5,7 @@ export * from './parse';
 export * from './read';
 export * from './scss';
 export * from './svelte';
+export * from './type';
 export * from './types';
 export * from './typescript';
 export * from './validate';

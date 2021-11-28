@@ -1,5 +1,5 @@
 import { compiler } from './compiler';
-import { docs, extract, incrementalDom, parse, read, scss, types, typescript, validate, vscode } from './plugins';
+import { docs, extract, incrementalDom, parse, read, scss, type, types, typescript, validate, vscode } from './plugins';
 
 const { start, next, finish } = compiler(
   // cache.load(),
@@ -17,6 +17,9 @@ const { start, next, finish } = compiler(
     dev: true,
     prefix: 'plus',
     dist: './dist/components'
+  }),
+  type({
+    prefix: 'plus',
   }),
   types({
     prefix: 'plus',

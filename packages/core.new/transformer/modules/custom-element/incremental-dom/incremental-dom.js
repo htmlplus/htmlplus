@@ -7,10 +7,18 @@ import * as local from './plugins/index.js';
 export const customElementIncrementalDom = async (config) => {
 
     const tasks = [
+        common.cache.load,
         common.load,
         common.parse,
+        common.validate,
         common.extract,
-        types,
+        common.scss,
+        local.markup,
+        local.script,
+        common.script,
+        docs,
+        vscode,
+        common.cache.save,
     ];
 
     const instances = await Promise.all(tasks.map((task) => task(config)));
@@ -30,7 +38,7 @@ export const customElementIncrementalDom = async (config) => {
     }
 
     const finish = async () => {
-        await Promise.all(instances.map((instance) => instance.finish()));
+        // await Promise.all(instances.map((instance) => instance.finish()));
     }
 
     return {

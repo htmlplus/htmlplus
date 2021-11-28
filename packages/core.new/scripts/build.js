@@ -10,7 +10,7 @@ import { customElementIncrementalDom } from '../transformer/index.js';
 const config = {
     dev: false,
     prefix: 'plus',
-    include: './src/**/browse.tsx',
+    include: './src/**/aspect-ratio.tsx',
     // docs: './dist/json/docs.json',
     // vscode: './dist/json/html.html-data.json',
     scss: {

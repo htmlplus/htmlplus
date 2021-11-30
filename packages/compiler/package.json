@@ -15,9 +15,12 @@
     "@babel/parser": "^7.16.4",
     "@babel/traverse": "^7.16.3",
     "@babel/types": "^7.16.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "case": "^1.6.3",
     "concurrently": "^6.4.0",
     "nodemon": "^2.0.15",
+    "prettier": "^2.5.0",
+    "prettier-plugin-packagejson": "^2.2.15",
     "rimraf": "^3.0.2",
     "sass": "^1.43.4",
     "typescript": "^4.5.2"

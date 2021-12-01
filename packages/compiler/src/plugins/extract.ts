@@ -1,10 +1,9 @@
-import traverse from '@babel/traverse';
 import { ClassMethod, ClassProperty } from '@babel/types';
 import fs from 'fs-extra';
 import path from 'path';
 import { Context } from '@app/types';
 import * as CONSTANTS from '../configs/constants';
-import { hasDecorator, toCapitalCase, toKebabCase } from '../utils';
+import { hasDecorator, toCapitalCase, toKebabCase, visitor } from '../utils';
 
 export interface ExtractOptions {
     prefix?: string;
@@ -18,7 +17,7 @@ export const extract = (options: ExtractOptions) => {
 
         const additions: Array<any> = [];
 
-        (traverse.default || traverse)(context.ast, {
+        visitor(context.ast as any, {
             ClassDeclaration: {
                 exit(path) {
 

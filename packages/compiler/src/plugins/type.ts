@@ -1,8 +1,6 @@
 import t, { TSTypeAnnotation } from '@babel/types';
-import fs from 'fs-extra';
-import path from 'path';
 import { Context } from '@app/types';
-import { print, toPascalCase } from '../utils';
+import { toPascalCase, visitor } from '../utils';
 
 export interface TypeOptions {
     prefix?: string;
@@ -17,10 +15,10 @@ export const type = (options: TypeOptions) => {
         // TODO
         const v5 = toPascalCase(options.prefix || '') + context.name;
         const v6 = `HTML${v5}Element`;
-
-        const ast = t.file(
-            t.program(
-                [
+        
+        visitor(context.ast as any, {
+            Program(path) {
+                path.node.body.push(
                     Object.assign(
                         t.tsModuleDeclaration(
                             t.identifier('global'),
@@ -103,7 +101,7 @@ export const type = (options: TypeOptions) => {
                                                         t.tSIntersectionType(
                                                             [
                                                                 t.tSTypeReference(
-                                                                    t.identifier('PlusAspectRatio')
+                                                                    t.identifier(v5)
                                                                 )
                                                             ]
                                                         )
@@ -120,13 +118,9 @@ export const type = (options: TypeOptions) => {
                             global: true,
                         }
                     )
-                ],
-                [],
-                'module'
-            )
-        );
-
-        console.log(123,  print(ast))
+                )
+            }
+        })
     }
 
     return {

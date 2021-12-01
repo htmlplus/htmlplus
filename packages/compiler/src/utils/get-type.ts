@@ -1,8 +1,8 @@
 import { parse } from '@babel/parser';
-import traverse from '@babel/traverse';
-import t,{ File, Node } from '@babel/types';
+import { File } from '@babel/types';
 import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
+import { visitor } from './visitor';
 
 // TODO: return type
 export const getType = (file: File, node: any, options) => {
@@ -15,7 +15,7 @@ export const getType = (file: File, node: any, options) => {
 
     let result;
 
-    (traverse.default || traverse)(file, {
+    visitor(file, {
         ClassDeclaration(path) {
 
             if (path.node.id.name != node.typeName.name) return;

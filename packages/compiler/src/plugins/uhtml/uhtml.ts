@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { Context } from '@app/types';
-import { visitor } from '../../utils';
+import { print, visitor } from '../../utils';
 
 export interface UhtmlOptions {
   dev?: boolean;
@@ -50,17 +50,37 @@ export const uhtml = (options: UhtmlOptions) => {
     )
 
     visitor(context.ast as any, {
-      ReturnStatement(path) {
-        if (path.getFunctionParent(path).node !== context.render) return;
-        path.replaceWith(
-          t.returnStatement(
-            t.taggedTemplateExpression(
-              t.identifier('html'),
-              t.templateLiteral([t.templateElement({ raw: '' })], [])
+      JSXExpressionContainer: {
+        exit(path) {
+          // path.replaceWith(t.identifier('a'))
+          t.addComment(path.node, 'leading', '$')
+        }
+      },
+      // JSXFragment: {
+      //   enter(path) {
+      //     path.replaceWithMultiple(path.node.children)
+      //   }
+      // },
+      ReturnStatement: {
+        exit(path) {
+          if (path.getFunctionParent(path).node !== context.render) return;
+          path.replaceWith(
+            t.returnStatement(
+              t.taggedTemplateExpression(
+                t.identifier('html'),
+                t.templateLiteral(
+                  [
+                    t.templateElement({
+                      raw: print(path.node.argument).replace(/\\n\/\*\$\*\//g, '$')
+                    })
+                  ],
+                  []
+                )
+              )
             )
           )
-        )
-        path.skip()
+          path.skip()
+        }
       }
     })
   }

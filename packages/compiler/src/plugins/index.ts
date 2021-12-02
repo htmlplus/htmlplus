@@ -1,4 +1,6 @@
 export * from './uhtml';
+export * from './attach';
+export * from './build';
 export * from './docs';
 export * from './extract';
 export * from './parse';

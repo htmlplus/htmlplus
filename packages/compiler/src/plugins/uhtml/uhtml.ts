@@ -15,40 +15,6 @@ export const uhtml = (options: UhtmlOptions) => {
   const next = (context: Context) => {
 
     // TODO
-    if (context.styleParsed)
-      context.component?.body.body.unshift(
-        t.classProperty(
-          t.identifier('styles'),
-          t.stringLiteral(context.styleParsed),
-          undefined,
-          null,
-          undefined,
-          true
-        )
-      )
-
-    // TODO
-    context.component?.body.body.unshift(
-      t.classProperty(
-        t.identifier('members'),
-        t.arrayExpression(
-          [
-            ...context.properties.map((property) => t.arrayExpression(
-              [
-                t.stringLiteral(property.key['name']),
-                t.stringLiteral('any'),
-              ]
-            ))
-          ]
-        ),
-        undefined,
-        undefined,
-        undefined,
-        true,
-      )
-    )
-
-    // TODO
     // context.ast?.program.body.push(
     //   t.exportNamedDeclaration(
     //     t.classDeclaration(
@@ -57,12 +23,12 @@ export const uhtml = (options: UhtmlOptions) => {
     //         t.identifier('proxy'),
     //         [
     //           t.identifier(context.name as any)
-    //         ]
+    //         ] 
     //       ),
-    //       t.classBody([])
+    //       t.classBody([]) 
     //     )
     //   )
-    // )
+    // ) 
 
     context.ast?.program.body.push(
       t.expressionStatement(
@@ -84,7 +50,18 @@ export const uhtml = (options: UhtmlOptions) => {
     )
 
     visitor(context.ast as any, {
-
+      ReturnStatement(path) {
+        if (path.getFunctionParent(path).node !== context.render) return;
+        path.replaceWith(
+          t.returnStatement(
+            t.taggedTemplateExpression(
+              t.identifier('html'),
+              t.templateLiteral([t.templateElement({ raw: '' })], [])
+            )
+          )
+        )
+        path.skip()
+      }
     })
   }
 

@@ -92,7 +92,7 @@ export const extract = (options: ExtractOptions) => {
 
         context.render = context
             .members
-            .find((member) => member['key'].name) as ClassMethod;
+            .find((member) => member['key'].name == CONSTANTS.TOKEN_METHOD_RENDER) as ClassMethod;
 
         additions.forEach((path) => path.remove());
     }

@@ -1,5 +1,18 @@
-import { compiler } from './compiler';
-import { docs, extract, parse, read, scss, type, types, typescript, uhtml, validate, vscode } from './plugins';
+import { compiler } from './compiler'
+import {
+  attach,
+  docs,
+  extract,
+  parse,
+  read,
+  scss,
+  type,
+  types,
+  typescript,
+  uhtml,
+  validate,
+  vscode,
+} from './plugins'
 
 const { start, next, finish } = compiler(
   // cache.load(),
@@ -9,18 +22,22 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus',
   }),
-  scss({
-    includePaths: ['./src/styles']
+  attach({
+    members: true,
+    styles: true,
   }),
+  // scss({
+  //   includePaths: ['./src/styles']
+  // }),
   uhtml({
     dev: true,
     prefix: 'plus',
-    dist: './dist/components'
+    dist: './dist/components',
   }),
   // type({
   //   prefix: 'plus',
   // }),
-  typescript(),
+  typescript()
   // types({
   //   prefix: 'plus',
   //   dist: './dist/types'
@@ -47,14 +64,15 @@ const { start, next, finish } = compiler(
   //   }
   // write(),
   // cache.save(),
-);
+)
 
-(async () => {
+;(async () => {
+  await start()
 
-  await start();
+  // await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
+  await next(
+    'C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx'
+  )
 
-  await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
-  // await next('C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
-
-  await finish();
-})();
+  await finish()
+})()

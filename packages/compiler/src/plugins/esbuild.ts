@@ -1,13 +1,13 @@
 import { Context } from '@app/types';
-import esbuild from 'esbuild';
+import core from 'esbuild';
 
-export const typescript = () => {
+export const esbuild = () => {
 
-    const name = 'typescript';
+    const name = 'esbuild';
 
     const next = (context: Context) => {
 
-        const { code, map, warnings } = esbuild.transformSync(
+        const { code, map, warnings } = core.transformSync(
             context.script || '',
             {
                 loader: 'ts'
@@ -15,7 +15,7 @@ export const typescript = () => {
         );
 
         context.script = code;
-        // console.log(code)
+        console.log(code)
     }
 
     return {

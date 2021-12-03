@@ -16,11 +16,12 @@ export interface Context {
     name?: string;
     properties: Array<ClassProperty>;
     render?: ClassMethod;
+    script?: string;
     states: Array<ClassProperty>;
     // style?: string;
     styleDependencies?: Array<string>;
     styleParsed?: string;
     stylePath?: string;
     tag: string;
-    title?: string;   
+    title?: string;
 }

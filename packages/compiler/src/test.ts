@@ -2,8 +2,10 @@ import { compiler } from './compiler'
 import {
   attach,
   docs,
+  esbuild,
   extract,
   parse,
+  print,
   read,
   scss,
   type,
@@ -22,22 +24,23 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus',
   }),
+  scss({
+    includePaths: ['./src/styles']
+  }),
   attach({
     members: true,
     styles: true,
   }),
-  // scss({
-  //   includePaths: ['./src/styles']
-  // }),
   uhtml({
     dev: true,
     prefix: 'plus',
     dist: './dist/components',
   }),
+  print(),
   // type({
   //   prefix: 'plus',
   // }),
-  typescript()
+  esbuild()
   // types({
   //   prefix: 'plus',
   //   dist: './dist/types'
@@ -63,16 +66,16 @@ const { start, next, finish } = compiler(
   //     }
   //   }
   // write(),
-  // cache.save(),
+  // cache.save(), 
 )
 
-;(async () => {
-  await start()
+  ; (async () => {
+    await start()
 
-  // await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
-  await next(
-    'C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx'
-  )
+    await next('C:\\Users\\Samar\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx');
+    // await next(
+    //   'C:\\Users\\RD110\\Desktop\\dev\\packages\\core.new\\src\\components\\aspect-ratio\\aspect-ratio.tsx'
+    // )
 
-  await finish()
-})()
+    await finish()
+  })()

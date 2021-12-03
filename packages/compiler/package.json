@@ -20,6 +20,7 @@
     "@types/node": "^16.11.11",
     "case": "^1.6.3",
     "concurrently": "^6.4.0",
+    "esbuild": "^0.14.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.0",
     "prettier-plugin-packagejson": "^2.2.15",

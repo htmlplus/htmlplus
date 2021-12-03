@@ -30,6 +30,42 @@ export const uhtml = (options: UhtmlOptions) => {
     //   )
     // ) 
 
+    context.ast?.program.body.unshift(
+      t.importDeclaration(
+        [
+          t.importSpecifier(
+            t.identifier('define'),
+            t.identifier('define'),
+          )
+        ],
+        t.stringLiteral('C:\\Users\\Samar\\Desktop\\dev\\packages\\compiler\\src\\plugins\\uhtml\\define')
+      )
+    )
+
+    context.ast?.program.body.unshift(
+      t.importDeclaration(
+        [
+          t.importSpecifier(
+            t.identifier('proxy'),
+            t.identifier('proxy'),
+          )
+        ],
+        t.stringLiteral('C:\\Users\\Samar\\Desktop\\dev\\packages\\compiler\\src\\plugins\\uhtml\\proxy')
+      )
+    )
+
+    context.ast?.program.body.unshift(
+      t.importDeclaration(
+        [
+          t.importSpecifier(
+            t.identifier('html'),
+            t.identifier('html'),
+          )
+        ],
+        t.stringLiteral('uhtml')
+      )
+    )
+
     context.ast?.program.body.push(
       t.expressionStatement(
         t.callExpression(
@@ -58,7 +94,7 @@ export const uhtml = (options: UhtmlOptions) => {
       },
       // JSXFragment: {
       //   enter(path) {
-      //     path.replaceWithMultiple(path.node.children)
+      //     path.replaceWithMultiple(path.node.children) 
       //   }
       // },
       ReturnStatement: {
@@ -71,7 +107,7 @@ export const uhtml = (options: UhtmlOptions) => {
                 t.templateLiteral(
                   [
                     t.templateElement({
-                      raw: print(path.node.argument).replace(/\\n\/\*\$\*\//g, '$')
+                      raw: print(path.node.argument).replace(/\/\*\$\*\//g, '$')
                     })
                   ],
                   []

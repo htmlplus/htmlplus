@@ -9,6 +9,8 @@
     "build": "npm run clean && node scripts/build.js",
     "clean": "rimraf .cache dist public/build",
     "start": "node scripts/start.js",
+    "start:new1": "node scripts/start.new.js",
+    "start:new2": "node --experimental-specifier-resolution=node scripts/start.new.js",
     "test:open": "cypress open",
     "test:run": "cypress run"
   },

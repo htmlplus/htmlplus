@@ -1,5 +1,6 @@
 import { html, render } from 'uhtml';
-import { isServer, toBoolean } from '../../utils';
+import { isServer } from '../../utils/is-server.js';
+import { toBoolean } from '../../utils/to-boolean.js';
 
 // TODO
 export * from 'uhtml';
@@ -94,12 +95,13 @@ export const proxy = (Class: any) => {
     }
 
     // TODO
-    // static get observedAttributes() {
-    //     return Class
-    //         .properties
-    //         .filter(([, type]) => type != 'method')
-    //         .map(([key]) => key);
-    // }
+    static get observedAttributes() {
+      return []
+      // return Class
+      //   .properties
+      //   .filter(([, type]) => type != 'method')
+      //   .map(([key]) => key);
+    }
 
     attributeChangedCallback(name, prev, next) {
 

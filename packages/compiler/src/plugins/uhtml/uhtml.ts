@@ -46,6 +46,7 @@ export const uhtml = (options: UhtmlOptions) => {
             t.identifier('proxy'),
           )
         ],
+        // TODO
         t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/utils.js')
       )
     )
@@ -73,7 +74,7 @@ export const uhtml = (options: UhtmlOptions) => {
       JSXExpressionContainer: {
         exit(path) {
           // path.replaceWith(t.identifier('a'))
-          t.addComment(path.node, 'leading', '$')
+          // t.addComment(path.node, 'leading', '$')
         }
       },
       // JSXFragment: {
@@ -84,22 +85,23 @@ export const uhtml = (options: UhtmlOptions) => {
       ReturnStatement: {
         exit(path) {
           if (path.getFunctionParent(path).node !== context.render) return;
-          path.replaceWith(
-            t.returnStatement(
-              t.taggedTemplateExpression(
-                t.identifier('html'),
-                t.templateLiteral(
-                  [
-                    t.templateElement({
-                      raw: print(path.node.argument).replace(/\/\*\$\*\//g, '$')
-                    })
-                  ],
-                  []
-                )
-              )
-            )
-          )
-          path.skip()
+          path.remove();
+          // path.replaceWith(
+          //   t.returnStatement(
+          //     t.taggedTemplateExpression(
+          //       t.identifier('html'),
+          //       t.templateLiteral(
+          //         [
+          //           t.templateElement({
+          //             raw: print(path.node.argument).replace(/\/\*\$\*\//g, '$')
+          //           })
+          //         ],
+          //         []
+          //       )
+          //     )
+          //   )
+          // )
+          // path.skip()
         }
       }
     })

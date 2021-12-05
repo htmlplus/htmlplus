@@ -2,6 +2,10 @@ import * as t from '@babel/types';
 import { Context } from '../../types';
 import { print, visitor } from '../../utils';
 
+// TODO
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
 export interface UhtmlOptions {
   dev?: boolean;
   dist: string;
@@ -47,7 +51,14 @@ export const uhtml = (options: UhtmlOptions) => {
           )
         ],
         // TODO
-        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/utils.js')
+        t.stringLiteral(
+          resolve(
+            dirname(
+              fileURLToPath(import.meta.url)
+            ),
+            'utils.js'
+          )
+        )
       )
     )
 

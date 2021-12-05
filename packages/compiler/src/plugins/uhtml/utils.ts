@@ -3,7 +3,7 @@ import { isServer } from '../../utils/is-server.js';
 import { toBoolean } from '../../utils/to-boolean.js';
 
 // TODO
-export * from 'uhtml';
+export { html, render } from 'uhtml';
 
 // TODO: input type
 export const define = (name: string, Class: any) => {
@@ -96,11 +96,10 @@ export const proxy = (Class: any) => {
 
     // TODO
     static get observedAttributes() {
-      return []
-      // return Class
-      //   .properties
-      //   .filter(([, type]) => type != 'method')
-      //   .map(([key]) => key);
+      return Class
+        .properties
+        .filter(([, type]) => type != 'method')
+        .map(([key]) => key);
     }
 
     attributeChangedCallback(name, prev, next) {
@@ -135,11 +134,11 @@ export const proxy = (Class: any) => {
           if (!Class.styles) return html`${instance.render()}`;
 
           return html`
-                        <style>
-                        ${Class.styles}
-                        </style>
-                        ${instance.render()}
-                    `
+              <style>
+              ${Class.styles}
+              </style>
+              ${instance.render()}
+          `
         }
       )
     }

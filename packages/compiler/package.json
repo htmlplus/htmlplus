@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "build": "npm run clean && tsc",
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
     "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/test\"",

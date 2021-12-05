@@ -1,2 +1,2 @@
-export * from './context';
-export * from './plugin';
+export * from './context.js';
+export * from './plugin.js';

@@ -1,4 +1,4 @@
-export * from './uhtml';
+export * from './uhtml/index.js';
 export * from './attach.js';
 export * from './build.js';
 export * from './docs.js';

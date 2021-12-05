@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
-import { Context } from '../types';
-import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils';
+import { Context } from '../types/index.js';
+import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils/index.js';
 
 export interface DocsOptions {
     // bundle?: boolean;

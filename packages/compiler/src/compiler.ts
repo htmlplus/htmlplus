@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Context, Plugin } from './types';
+import { Context, Plugin } from './types/index.js';
 
 const log = (namespace?: string, message?: string) => {
   if (namespace)

@@ -1,5 +1,5 @@
 import core from 'sass';
-import { Context } from '../types';
+import { Context } from '../types/index.js';
 
 export interface ScssOptions { }
 

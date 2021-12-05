@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { TSTypeAnnotation } from '@babel/types';
-import { Context } from '../types';
-import { toPascalCase, visitor } from '../utils';
+import { Context } from '../types/index.js';
+import { toPascalCase, visitor } from '../utils/index.js';
 
 export interface TypeOptions {
     prefix?: string;

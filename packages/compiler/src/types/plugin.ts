@@ -1,4 +1,4 @@
-import { Context } from './context';
+import { Context } from './context.js';
 
 export type Plugin = {
     name: string;

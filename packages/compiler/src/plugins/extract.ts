@@ -1,9 +1,9 @@
 import { ClassMethod, ClassProperty } from '@babel/types';
 import * as fs from 'fs';
 import * as path from 'path';
-import { Context } from '../types';
 import * as CONSTANTS from '../configs/constants.js';
-import { hasDecorator, toCapitalCase, toKebabCase, visitor } from '../utils';
+import { Context } from '../types/index.js';
+import { hasDecorator, toCapitalCase, toKebabCase, visitor } from '../utils/index.js';
 
 export interface ExtractOptions {
     prefix?: string;

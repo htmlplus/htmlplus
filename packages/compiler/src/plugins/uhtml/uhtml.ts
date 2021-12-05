@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
-import { Context } from '../../types';
-import { print, visitor } from '../../utils';
+import { Context } from '../../types/index.js';
+import { print, visitor } from '../../utils/index.js';
 
 // TODO
 import { dirname, resolve } from 'path';

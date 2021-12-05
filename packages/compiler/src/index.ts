@@ -1,2 +1,2 @@
 export * from './compiler.js';
-export * from './plugins';
+export * from './plugins/index.js';

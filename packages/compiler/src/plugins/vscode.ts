@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Context } from '../types';
-import { getTags, getType, printType, toKebabCase } from '../utils';
+import { Context } from '../types/index.js';
+import { getTags, getType, printType, toKebabCase } from '../utils/index.js';
 
 export interface VscodeOptions {
     dist: string;

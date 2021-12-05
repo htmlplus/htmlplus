@@ -1,5 +1,6 @@
-import t, { TSTypeAnnotation } from '@babel/types';
-import { Context } from '@app/types';
+import * as t from '@babel/types';
+import { TSTypeAnnotation } from '@babel/types';
+import { Context } from '../types';
 import { toPascalCase, visitor } from '../utils';
 
 export interface TypeOptions {
@@ -15,7 +16,7 @@ export const type = (options: TypeOptions) => {
         // TODO
         const v5 = toPascalCase(options.prefix || '') + context.name;
         const v6 = `HTML${v5}Element`;
-        
+
         visitor(context.ast as any, {
             Program(path) {
                 path.node.body.push(
@@ -71,7 +72,7 @@ export const type = (options: TypeOptions) => {
                                                 )
                                             )
                                         ]
-                                    ), 
+                                    ),
                                     t.tsInterfaceDeclaration(
                                         t.identifier(v5),
                                         null,

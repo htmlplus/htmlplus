@@ -1,6 +1,6 @@
-import { getEventName } from './get-event-name';
-import { isEvent } from './is-event';
-import { updateAttribute } from './update-attribute';
+import { getEventName } from './get-event-name.js';
+import { isEvent } from './is-event.js';
+import { updateAttribute } from './update-attribute.js';
 
 // TODO
 export const sync = (node: any, prev: any) => (next: any = {}) => {

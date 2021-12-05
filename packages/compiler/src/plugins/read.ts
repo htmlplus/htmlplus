@@ -1,8 +1,8 @@
-import fs from 'fs';
-import { Context } from '@app/types';
+import * as fs from 'fs';
+import { Context } from '../types';
 
 export const read = () => {
-    
+
     const name = 'read';
 
     const next = (context: Context) => {

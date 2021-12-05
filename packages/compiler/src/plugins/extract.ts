@@ -1,8 +1,8 @@
 import { ClassMethod, ClassProperty } from '@babel/types';
-import fs from 'fs-extra';
-import path from 'path';
-import { Context } from '@app/types';
-import * as CONSTANTS from '../configs/constants';
+import * as fs from 'fs';
+import * as path from 'path';
+import { Context } from '../types';
+import * as CONSTANTS from '../configs/constants.js';
 import { hasDecorator, toCapitalCase, toKebabCase, visitor } from '../utils';
 
 export interface ExtractOptions {

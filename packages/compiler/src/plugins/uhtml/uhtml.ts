@@ -1,5 +1,5 @@
-import t from '@babel/types';
-import { Context } from '@app/types';
+import * as t from '@babel/types';
+import { Context } from '../../types';
 import { print, visitor } from '../../utils';
 
 export interface UhtmlOptions {
@@ -38,7 +38,7 @@ export const uhtml = (options: UhtmlOptions) => {
             t.identifier('define'),
           )
         ],
-        t.stringLiteral('C:\\Users\\Samar\\Desktop\\dev\\packages\\compiler\\src\\plugins\\uhtml\\define')
+        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/define.js')
       )
     )
 
@@ -50,7 +50,7 @@ export const uhtml = (options: UhtmlOptions) => {
             t.identifier('proxy'),
           )
         ],
-        t.stringLiteral('C:\\Users\\Samar\\Desktop\\dev\\packages\\compiler\\src\\plugins\\uhtml\\proxy')
+        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/proxy.js')
       )
     )
 

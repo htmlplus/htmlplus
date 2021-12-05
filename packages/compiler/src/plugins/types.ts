@@ -1,7 +1,8 @@
-import t, { TSTypeAnnotation } from '@babel/types';
-import fs from 'fs-extra';
-import path from 'path';
-import { Context } from '@app/types';
+import * as t from '@babel/types';
+import { TSTypeAnnotation } from '@babel/types';
+import * as fs from 'fs';
+import * as path from 'path';
+import { Context } from '../types';
 import { print, toPascalCase } from '../utils';
 
 export interface TypesOptions {
@@ -266,7 +267,8 @@ export const types = (options: TypesOptions) => {
             )
         );
 
-        fs.ensureDirSync(path.dirname(options.dist));
+        // TODO
+        // fs.ensureDirSync(path.dirname(options.dist));
 
         fs.writeFileSync(options.dist, print(ast));
     }

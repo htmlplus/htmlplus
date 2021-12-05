@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
     "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/test\"",
@@ -20,6 +21,7 @@
     "@babel/traverse": "^7.16.3",
     "@babel/types": "^7.16.0",
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^16.11.11",
     "case": "^1.6.3",
     "concurrently": "^6.4.0",

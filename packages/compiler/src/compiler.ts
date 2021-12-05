@@ -1,5 +1,5 @@
-import path from 'path';
-import { Context, Plugin } from '@app/types';
+import * as path from 'path';
+import { Context, Plugin } from './types';
 
 const log = (namespace?: string, message?: string) => {
   if (namespace)
@@ -24,7 +24,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
       await plugin.start(global);
 
-      log(plugin.name, 'Started successfully.'); 
+      log(plugin.name, 'Started successfully.');
     }
   }
 

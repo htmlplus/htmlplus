@@ -82,12 +82,13 @@ export const proxy = (Class: any) => {
             this.attachShadow({ mode: 'open' });
         }
 
-        static get observedAttributes() {
-            return Class
-                .properties
-                .filter(([, type]) => type != 'method')
-                .map(([key]) => key);
-        }
+        // TODO
+        // static get observedAttributes() {
+        //     return Class
+        //         .properties
+        //         .filter(([, type]) => type != 'method')
+        //         .map(([key]) => key);
+        // }
 
         attributeChangedCallback(name, prev, next) {
 

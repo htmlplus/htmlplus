@@ -1,4 +1,4 @@
-import { Context } from '@app/types';
+import { Context } from '../types';
 import { print as core } from '../utils';
 
 export const print = () => {

@@ -1,6 +1,6 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { Context } from '@app/types';
+import * as fs from 'fs';
+import * as path from 'path';
+import { Context } from '../types';
 import { getTags, getType, printType, toKebabCase } from '../utils';
 
 export interface VscodeOptions {
@@ -110,9 +110,11 @@ export const vscode = (options: VscodeOptions) => {
 
         global.vscode.tags = global.vscode.tags.sort((a, b) => a.name > b.name ? 1 : -1);
 
-        fs.ensureDirSync(path.dirname(options.dist));
+        // TODO
+        // fs.ensureDirSync(path.dirname(options.dist));
 
-        fs.writeJSONSync(options.dist, global.vscode, { replacer: null, spaces: 2 });
+        // TODO
+        // fs.writeJSONSync(options.dist, global.vscode, { replacer: null, spaces: 2 });
     }
 
     return {

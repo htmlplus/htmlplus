@@ -1,1 +1,1 @@
-export * from './uhtml';
+export * from './uhtml.js';

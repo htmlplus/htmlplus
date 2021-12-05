@@ -1,4 +1,4 @@
-import { toKebabCase } from './to-kebab-case';
+import { toKebabCase } from './to-kebab-case.js';
 
 export const updateAttribute = (node: Element, key: string, value: any): void => {
 

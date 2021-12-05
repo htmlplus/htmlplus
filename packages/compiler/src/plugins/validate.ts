@@ -1,11 +1,11 @@
-import { Context } from '@app/types';
+import { Context } from '../types';
 
 export const validate = () => {
 
     const name = 'validate';
 
     const next = (context: Context) => {
-        
+
     }
 
     return {

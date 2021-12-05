@@ -1,5 +1,5 @@
-import t from '@babel/types';
-import { Context } from '@app/types'
+import * as t from '@babel/types';
+import { Context } from '../types'
 
 export interface AttachOptions {
   members?: boolean;

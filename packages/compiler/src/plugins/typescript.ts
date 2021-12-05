@@ -1,5 +1,5 @@
-import { Context } from '@app/types';
-import esbuild from 'esbuild';
+import * as esbuild from 'esbuild';
+import { Context } from '../types';
 
 export const typescript = () => {
 

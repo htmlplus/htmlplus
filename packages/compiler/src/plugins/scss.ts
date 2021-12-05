@@ -1,5 +1,5 @@
 import core from 'sass';
-import { Context } from '@app/types';
+import { Context } from '../types';
 
 export interface ScssOptions { }
 
@@ -22,8 +22,8 @@ export const scss = (options?: ScssOptions) => {
         context.styleDependencies = Array.from(stats.includedFiles);
     }
 
-    return { 
-        name, 
+    return {
+        name,
         next,
     }
 }

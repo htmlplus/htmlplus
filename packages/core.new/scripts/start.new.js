@@ -22,6 +22,7 @@ const clients = [],
 
 esbuild
   .build({
+    platform: 'node',
     bundle: true,
     sourcemap: true,
     format: "esm",

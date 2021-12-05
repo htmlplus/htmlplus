@@ -1,5 +1,5 @@
-import { Context } from '@app/types';
-import core from 'esbuild';
+import { Context } from '../types';
+import * as core from 'esbuild';
 
 export const esbuild = () => {
 

@@ -1,7 +1,7 @@
-import fs from 'fs-extra';
-import glob from 'glob';
-import path from 'path';
-import { Context } from '@app/types';
+import * as fs from 'fs';
+import * as glob from 'glob';
+import * as path from 'path';
+import { Context } from '../types';
 import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils';
 
 export interface DocsOptions {
@@ -344,7 +344,7 @@ export const docs = (options: DocsOptions) => {
             try {
 
                 fs
-                    .readFileSync(context.stylePath, 'utf8')
+                    .readFileSync(context.stylePath || '', 'utf8')
                     .split('@prop')
                     .slice(1)
                     .map((section) => {
@@ -371,14 +371,16 @@ export const docs = (options: DocsOptions) => {
             return styles;
         })();
 
-        const lastModified = glob
-            .sync(path.join(context.directory, '**/*.*'))
-            .reduce((result, file) => {
+        // TODO
+        const lastModified = 0;
+        // glob
+        //     .sync(path.join(context.directory, '**/*.*'))
+        //     .reduce((result, file) => {
 
-                const state = fs.statSync(file);
+        //         const state = fs.statSync(file);
 
-                return result > state.mtime ? result : state.mtime
-            }, 0);
+        //         return result > state.mtime ? result : state.mtime
+        //     }, 0);
 
         const group = tags.find((tag) => tag.key == 'group')?.value || null;
 
@@ -426,9 +428,11 @@ export const docs = (options: DocsOptions) => {
 
         global.docs.components = global.docs.components.sort((a, b) => a.key > b.key ? 1 : -1);
 
-        fs.ensureDirSync(path.dirname(options.dist));
+        // TODO
+        // fs.ensureDirSync(path.dirname(options.dist));
 
-        fs.writeJSONSync(options.dist, global.docs, { replacer: null, spaces: 2 });
+        // TODO
+        // fs.writeJSONSync(options.dist, global.docs, { replacer: null, spaces: 2 });
     }
 
     return {

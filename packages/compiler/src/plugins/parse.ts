@@ -1,5 +1,5 @@
 import { parse as parser } from '@babel/parser';
-import { Context } from '@app/types';
+import { Context } from '../types';
 
 export const parse = () => {
 

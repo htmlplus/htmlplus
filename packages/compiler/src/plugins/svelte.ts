@@ -1,12 +1,11 @@
-
-export interface svelteOptions { 
+export interface svelteOptions {
   dev?: boolean;
   dist: string;
   prefix: string;
 }
 
 export const svelte = (options: svelteOptions) => {
-  
+
   const name = 'svelte';
 
   const next = (context) => {
@@ -14,7 +13,7 @@ export const svelte = (options: svelteOptions) => {
   }
 
   return {
-      name,
-      next,
+    name,
+    next,
   }
 }

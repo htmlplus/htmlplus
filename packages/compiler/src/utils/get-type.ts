@@ -1,8 +1,8 @@
 import { parse } from '@babel/parser';
 import { File } from '@babel/types';
-import fs from 'fs-extra';
+import * as fs from 'fs';
 import { dirname, resolve } from 'path';
-import { visitor } from './visitor';
+import { visitor } from './visitor.js';
 
 // TODO: return type
 export const getType = (file: File, node: any, options) => {

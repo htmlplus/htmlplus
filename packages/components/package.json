@@ -6,7 +6,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && node scripts/build.js",
+    "build": "npm run clean && node --experimental-specifier-resolution=node scripts/build.js",
     "clean": "rimraf .cache dist public/build",
     "start": "node --experimental-specifier-resolution=node scripts/start.js",
     "test:open": "cypress open",

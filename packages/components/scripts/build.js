@@ -1,98 +1,98 @@
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import glob from 'glob';
-import path from 'path';
-import { rollup } from 'rollup';
-import resolve from 'rollup-plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import { customElementIncrementalDom } from '../transformer/index.js';
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
+import glob from "glob";
+import path from "path";
+import { rollup } from "rollup";
+import resolve from "rollup-plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
+import * as plugins from "@htmlplus/compiler";
 
-const config = {
-    dev: false,
-    prefix: 'plus',
-    include: './src/**/aspect-ratio.tsx',
-    // docs: './dist/json/docs.json',
-    // vscode: './dist/json/html.html-data.json',
-    scss: {
-        includePaths: ['./src/styles'],
-    },
-    // TODO
-    chunks: []
-}
-
-let transformer;
+const { start, next, finish } = plugins.compiler(
+  plugins.read(),
+  plugins.parse(),
+  plugins.validate(),
+  plugins.extract({
+    prefix: "plus",
+  }),
+  plugins.scss({
+    includePaths: ["./src/styles"],
+  }),
+  plugins.attach({
+    members: true,
+    styles: true,
+  }),
+  plugins.uhtml(),
+  plugins.print(),
+  plugins.esbuild()
+);
 
 /**
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-    input: glob.sync(config.include),
-    output: [
-        {
-            format: 'es',
-            dir: 'dist/esm',
-            chunkFileNames: '[name].js',
-            manualChunks(id) {
+  input: glob.sync("./src/**/aspect-ratio.tsx"),
+  output: [
+    {
+      format: "es",
+      dir: "dist/esm",
+      chunkFileNames: "[name].js",
+      manualChunks(id) {
+        const name = path.basename(id, path.extname(id));
 
-                const name = path.basename(id, path.extname(id));
+        if (id.includes("cropperjs")) return "core.cropperjs";
 
-                if (id.includes('cropperjs')) return 'core.cropperjs';
+        if (id.includes("helpers")) return "core.helpers";
 
-                if (id.includes('helpers')) return 'core.helpers';
+        if (id.includes("popperjs")) return "core.popperjs";
 
-                if (id.includes('popperjs')) return 'core.popperjs';
+        if (id.includes("services")) return "core." + name;
 
-                if (id.includes('services')) return 'core.' + name;
+        if (id.endsWith(".tsx")) return name;
 
-                if (id.endsWith('.tsx')) return name;
+        return "core";
+      },
+    },
+  ],
+  plugins: [
+    {
+      name: "htmlplus",
+      async buildStart() {
+        await start();
+      },
+      async load(id) {
+        if (!id.endsWith(".tsx")) return null;
 
-                return 'core';
-            },
-        }
-    ],
-    plugins: [
-        {
-            name: 'htmlplus',
-            async buildStart() {
-                transformer = await customElementIncrementalDom(config);
-            },
-            async load(id) {
+        const { script } = await next(id);
 
-                if (!id.endsWith('.tsx')) return null;
+        return script;
+      },
+      async buildEnd() {
+        await finish();
+      },
+    },
 
-                const { code } = await transformer.next(id);
+    resolve({
+      browser: true,
+    }),
 
-                return code;
-            },
-            async buildEnd() {
-                await transformer.finish();
-            }
-        },
+    commonjs(),
 
-        resolve({
-            browser: true,
-        }),
+    typescript(),
 
-        commonjs(),
-
-        typescript(),
-
-        // terser(),
-    ],
+    terser(),
+  ],
 };
 
 const build = async () => {
+  const time = Date.now();
 
-    const time = Date.now();
+  const bundle = await rollup(options);
 
-    const bundle = await rollup(options);
+  for (const output of options.output) await bundle.write(output);
 
-    for (const output of options.output)
-        await bundle.write(output);
+  await bundle.close();
 
-    await bundle.close();
-
-    console.log(`Build in ${Date.now() - time}ms`);
-}
+  console.log(`Build in ${Date.now() - time}ms`);
+};
 
 build();

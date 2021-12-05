@@ -15,7 +15,6 @@ export const esbuild = () => {
         );
 
         context.script = code;
-        console.log(code)
     }
 
     return {

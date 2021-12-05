@@ -47,6 +47,8 @@ export const extract = (options: ExtractOptions) => {
 
         context.name = context.component?.id?.name || '';
 
+        context.prefix = options.prefix || '';
+
         context.key = toKebabCase(context.name);
 
         context.tag = `${options.prefix}-${context.key}`;

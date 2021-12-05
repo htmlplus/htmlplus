@@ -14,6 +14,7 @@ export interface Context {
     members: ClassBody['body'];
     methods: Array<ClassMethod>;
     name?: string;
+    prefix?: string;
     properties: Array<ClassProperty>;
     render?: ClassMethod;
     script?: string;

@@ -6,11 +6,7 @@ import { print, visitor } from '../../utils';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-export interface UhtmlOptions {
-  dev?: boolean;
-  dist: string;
-  prefix: string;
-}
+export interface UhtmlOptions { }
 
 export const uhtml = (options: UhtmlOptions) => {
 

@@ -1,133 +1,134 @@
-import { spawn } from 'child_process';
-import esbuild from 'esbuild';
-import glob from 'glob';
-import http from 'http';
-import { customElementIncrementalDom } from '../transformer/index.js';
+import { spawn } from "child_process";
+import esbuild from "esbuild";
+import glob from "glob";
+import http from "http";
+import * as plugins from "@htmlplus/compiler";
 
-const config = {
-	dev: true,
-	port: 3000,
-	prefix: 'plus',
-	// cache: '.cache',
-	include: './src/**/cropper.tsx',
-	scss: {
-		includePaths: ['./src/styles']
-	}
-}
+const clients = [];
+const port = 3000;
+const time = Date.now();
 
-const
-	clients = [],
-	time = Date.now();
+const { start, next, finish } = plugins.compiler(
+  plugins.read(),
+  plugins.parse(),
+  plugins.validate(),
+  plugins.extract({
+    prefix: "plus",
+  }),
+  plugins.scss({
+    includePaths: ["./src/styles"],
+  }),
+  plugins.attach({
+    members: true,
+    styles: true,
+  }),
+  plugins.uhtml(),
+  plugins.print(),
+  plugins.esbuild()
+);
 
 esbuild
-	.build({
-		bundle: true,
-		sourcemap: true,
-		format: 'esm',
-		// TODO
-		outfile: 'public/build/bundle.js',
-		stdin: {
-			resolveDir: '.',
-			contents: glob
-				.sync(config.include)
-				.map((file) => `import '${file}';`)
-				.join('\n')
-		},
-		banner: {
-			js: '(() => new EventSource("/~dev").onmessage = () => location.reload())();'
-		},
-		plugins: [
-			{
-				name: 'htmlplus',
-				async setup(build) {
-
-					const transformer = await customElementIncrementalDom(config);
-
-					build.onLoad({ filter: /\.tsx$/ }, async (args) => {
-
-						const { code, dependencies } = await transformer.next(args.path);
-
-						return {
-							contents: code,
-							watchFiles: dependencies,
-						}
-					})
-				}
-			}
-		],
-		watch: {
-			onRebuild(error) {
-
-				clients.forEach((client) => client.write('data: update\n\n'));
-
-				clients.length = 0;
-
-				console.log(error ? error : `[${new Date().toLocaleTimeString()}] Rebuild.`);
-			},
-		},
-	})
-	.then(() => serve())
-	.catch(() => process.exit(1))
+  .build({
+    platform: "node",
+    bundle: true,
+    sourcemap: true,
+    format: "esm",
+    outfile: "public/build/bundle.js",
+    stdin: {
+      resolveDir: ".",
+      contents: glob
+        .sync("./src/**/aspect-ratio.tsx")
+        .map((file) => `import '${file}';`)
+        .join("\n"),
+    },
+    banner: {
+      js: '(() => new EventSource("/~dev").onmessage = () => location.reload())();',
+    },
+    plugins: [
+      {
+        name: "htmlplus",
+        async setup(build) {
+          await start();
+          build.onLoad({ filter: /\.tsx$/ }, async (args) => {
+            const { script } = await next(args.path);
+            return {
+              contents: script,
+            };
+          });
+        },
+      },
+    ],
+    watch: {
+      onRebuild(error) {
+        clients.forEach((client) => client.write("data: update\n\n"));
+        clients.length = 0;
+        console.log(
+          error ? error : `[${new Date().toLocaleTimeString()}] Rebuild.`
+        );
+      },
+    },
+  })
+  .then(() => serve())
+  .catch(() => process.exit(1));
 
 const serve = () => {
+  esbuild.serve({ servedir: "public" }, {}).then((server) => {
+    http
+      .createServer((req, res) => {
+        const { url, method, headers } = req;
 
-	esbuild
-		// TODO
-		.serve({ servedir: 'public' }, {})
-		.then((server) => {
+        if (url === "/~dev")
+          return clients.push(
+            res.writeHead(200, {
+              "Content-Type": "text/event-stream",
+              "Cache-Control": "no-cache",
+              Connection: "keep-alive",
+            })
+          );
 
-			http.
-				createServer((req, res) => {
+        // TODO
+        const path = ~url.split("/").pop().indexOf(".") ? url : `/index.html`;
 
-					const { url, method, headers } = req;
+        const proxy = http.request(
+          {
+            hostname: "0.0.0.0",
+            port: server.port,
+            path,
+            method,
+            headers,
+          },
+          (response) => {
+            res.writeHead(response.statusCode, response.headers);
 
-					if (url === '/~dev')
-						return clients.push(
-							res.writeHead(200, {
-								'Content-Type': 'text/event-stream',
-								'Cache-Control': 'no-cache',
-								'Connection': 'keep-alive',
-							})
-						)
+            response.pipe(res, { end: true });
+          }
+        );
 
-					// TODO
-					const path = ~url.split('/').pop().indexOf('.') ? url : `/index.html`;
+        req.pipe(proxy, { end: true });
+      })
+      .listen(port);
 
-					const proxy = http.request(
-						{
-							hostname: '0.0.0.0',
-							port: server.port,
-							path,
-							method,
-							headers
-						},
-						(response) => {
+    if (clients.length === 0) {
+      const platforms = {
+        darwin: ["open"],
+        linux: ["xdg-open"],
+        win32: ["cmd", "/c", "start"],
+      };
 
-							res.writeHead(response.statusCode, response.headers);
+      const command = platforms[process.platform][0];
 
-							response.pipe(res, { end: true });
-						}
-					);
+      const args = [
+        ...[platforms[process.platform].slice(1)],
+        `http://localhost:${port}`,
+      ];
 
-					req.pipe(proxy, { end: true });
-				})
-				.listen(config.port);
+      spawn(command, args);
+    }
 
-			if (clients.length === 0) {
-
-				const platforms = {
-					darwin: ['open'],
-					linux: ['xdg-open'],
-					win32: ['cmd', '/c', 'start'],
-				}
-
-				const command = platforms[process.platform][0];
-
-				const args = [...[platforms[process.platform].slice(1)], `http://localhost:${config.port}`];
-
-				spawn(command, args);
-			}
-
-			console.log(`[${new Date().toLocaleTimeString()}] Start on http://localhost:${config.port} in ${Date.now() - time}ms`);
-		})
-}
+    console.log(
+      `[${new Date().toLocaleTimeString()}] Start on http://localhost:${port} in ${
+        Date.now() - time
+      }ms`
+    );
+  });
+};

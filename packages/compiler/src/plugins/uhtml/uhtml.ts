@@ -36,33 +36,17 @@ export const uhtml = (options: UhtmlOptions) => {
           t.importSpecifier(
             t.identifier('define'),
             t.identifier('define'),
-          )
-        ],
-        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/define.js')
-      )
-    )
-
-    context.ast?.program.body.unshift(
-      t.importDeclaration(
-        [
+          ),
+          t.importSpecifier(
+            t.identifier('html'),
+            t.identifier('html'),
+          ),
           t.importSpecifier(
             t.identifier('proxy'),
             t.identifier('proxy'),
           )
         ],
-        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/proxy.js')
-      )
-    )
-
-    context.ast?.program.body.unshift(
-      t.importDeclaration(
-        [
-          t.importSpecifier(
-            t.identifier('html'),
-            t.identifier('html'),
-          )
-        ],
-        t.stringLiteral('uhtml')
+        t.stringLiteral('@htmlplus/compiler/dist/plugins/uhtml/utils.js')
       )
     )
 

@@ -2,9 +2,7 @@ import { spawn } from "child_process";
 import esbuild from "esbuild";
 import glob from "glob";
 import http from "http";
-import * as a from "@htmlplus/compiler";
-
-console.log(123, a);
+import * as plugins from "@htmlplus/compiler";
 
 const config = {
   dev: true,
@@ -42,36 +40,36 @@ esbuild
       {
         name: "htmlplus",
         async setup(build) {
-          debugger;
-          const { start, next, finish } = a.compiler(
-            a.read(),
-            a.parse(),
-            a.validate(),
-            a.extract({
+
+          const { start, next, finish } = plugins.compiler(
+            plugins.read(),
+            plugins.parse(),
+            plugins.validate(),
+            plugins.extract({
               prefix: "plus",
             }),
-            a.scss({
+            plugins.scss({
               includePaths: ["./src/styles"],
             }),
-            a.attach({
+            plugins.attach({
               members: true,
               styles: true,
             }),
-            a.uhtml({
+            plugins.uhtml({
               dev: true,
               prefix: "plus",
               dist: "./dist/components",
             }),
-            a.print(),
-            a.esbuild()
+            plugins.print(),
+            plugins.esbuild()
           );
 
           await start();
 
           build.onLoad({ filter: /\.tsx$/ }, async (args) => {
-            debugger;
+
             const { script } = await next(args.path);
-            console.log(11111111, script);
+            
             return {
               contents: script,
             };
@@ -81,6 +79,7 @@ esbuild
     ],
     watch: {
       onRebuild(error) {
+
         clients.forEach((client) => client.write("data: update\n\n"));
 
         clients.length = 0;
@@ -101,6 +100,7 @@ const serve = () => {
     .then((server) => {
       http
         .createServer((req, res) => {
+
           const { url, method, headers } = req;
 
           if (url === "/~dev")
@@ -124,6 +124,7 @@ const serve = () => {
               headers,
             },
             (response) => {
+
               res.writeHead(response.statusCode, response.headers);
 
               response.pipe(res, { end: true });
@@ -135,6 +136,7 @@ const serve = () => {
         .listen(config.port);
 
       if (clients.length === 0) {
+        
         const platforms = {
           darwin: ["open"],
           linux: ["xdg-open"],

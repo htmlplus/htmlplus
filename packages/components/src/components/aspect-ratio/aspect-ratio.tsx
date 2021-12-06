@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 import { AspectRatioValue } from './aspect-ratio.types';
 
 /**
@@ -12,11 +12,6 @@ export class AspectRatio {
    */
   @Property()
   value?: AspectRatioValue = 1;
-
-  @GlobalConfig('aspectRatio', {
-    value: 1
-  })
-  config?;
 
   get ratio() {
 

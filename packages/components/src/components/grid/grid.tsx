@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 import { GridAlignContent, GridAlignItems, GridGutter, GridJustifyContent, GridWrap } from './grid.types';
 
 /**
@@ -217,14 +217,6 @@ export class Grid {
    */
   @Property()
   wrapXxl?: GridWrap;
-
-  @GlobalConfig('grid', {
-    alignContent: 'stretch',
-    alignItems: 'stretch',
-    justifyContent: 'start',
-    wrap: 'on',
-  })
-  config?;
 
   // TODO: auto keys detect
   get attributes() {

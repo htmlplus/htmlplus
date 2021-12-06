@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { ScrollIndicatorSource } from './scroll-indicator.types';
 
@@ -31,11 +31,6 @@ export class ScrollIndicator {
    */
   @Event()
   plusScroll: EventEmitter<number>;
-
-  @GlobalConfig('scrollIndicator', {
-    source: 'document'
-  })
-  config?;
 
   $indicator!: HTMLElement;
 

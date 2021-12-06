@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
 // import * as Helpers from '@app/helpers';
 import { DividerSize, DividerType } from './divider.types';
 
@@ -36,14 +36,6 @@ export class Divider {
    */
   @Property({ reflect: true })
   vertical?: boolean;
-
-  @GlobalConfig('divider', {
-    // placement: 'center',
-    size: 'md',
-    type: 'solid',
-    variant: 'full',
-  })
-  config?;
 
   @Attributes()
   get attributes() {

@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, GlobalConfig, Property } from '@app/decorators';
+import { Component, Event, EventEmitter, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * @development
@@ -40,9 +40,6 @@ export class Switch {
    */
   @Event()
   plusChange!: EventEmitter<void>;
-
-  @GlobalConfig('switch')
-  config?;
 
   // get inactiveElement() {
 

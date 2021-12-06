@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Property, State, Watch } from '@app/decorators';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { IntersectionBehavior } from './intersection.types';
 
@@ -57,11 +57,6 @@ export class Intersection {
    */
   @Event()
   plusChange!: EventEmitter<IntersectionObserverEntry>;
-
-  @GlobalConfig('intersection', {
-    behavior: 'normal'
-  })
-  config?;
 
   @State()
   isIntersecting?: boolean;

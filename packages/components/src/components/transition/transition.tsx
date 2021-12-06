@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Bind, Component, Event, EventEmitter, Property } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { TransitionDirection, TransitionDuration, TransitionRepeat } from './transition.types';
 
@@ -75,14 +75,6 @@ export class Transition {
    */
   @Event({ cancelable: true })
   plusStart!: EventEmitter<void>;
-
-  @GlobalConfig('transition', {
-    delay: '0s',
-    direction: 'normal',
-    duration: 'normal',
-    repeat: 1,
-  })
-  config?;
 
   parser(input) {
 

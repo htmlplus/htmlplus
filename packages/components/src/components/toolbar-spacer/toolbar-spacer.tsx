@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * @development 
@@ -11,9 +11,6 @@ export class ToolbarSpacer {
    */
   @Property()
   grow?: number = 1;
-
-  @GlobalConfig('toolbarSpacer')
-  config?;
 
   @Attributes()
   get attributes() {

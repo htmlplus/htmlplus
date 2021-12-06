@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * @development 
@@ -30,10 +30,7 @@ export class Toolbar {
    */
   @Property({ reflect: true })
   wrap?: boolean = true;
-
-  @GlobalConfig('toolbar')
-  config?;
-
+  
   render() {
     return (
       <div>

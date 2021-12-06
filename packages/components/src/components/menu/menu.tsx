@@ -1,4 +1,4 @@
-import { Bind, Component, Event, EventEmitter, Property, State, Watch } from '@app/decorators';
+import { Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { MenuAlignX, MenuAlignY, MenuGrowX, MenuGrowY } from './menu.types';
 

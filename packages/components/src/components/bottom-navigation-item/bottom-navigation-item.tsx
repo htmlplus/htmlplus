@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, GlobalConfig, Property, State } from '@app/decorators';
+import { Attributes, Bind, Component, Property, State } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { createLink } from '@app/services';
 
@@ -23,9 +23,6 @@ export class BottomNavigationItem {
    */
   @Property()
   value?: any;
-
-  @GlobalConfig('bottomNavigationItem')
-  config?;
 
   @Inject()
   request?: Function = () => console.log('TODO: can not use out of bottom navigation');

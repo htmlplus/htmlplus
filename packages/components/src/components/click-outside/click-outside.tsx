@@ -1,4 +1,4 @@
-import { Bind, Component, Event, EventEmitter, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { ClickOutside as ClickOutsideCore } from '@app/services';
 
@@ -25,9 +25,6 @@ export class ClickOutside {
   */
   @Event({ cancelable: true })
   plusClickOutside!: EventEmitter<void>;
-
-  @GlobalConfig('clickOutside')
-  config?;
 
   get $host() {
     return Helpers.host(this);

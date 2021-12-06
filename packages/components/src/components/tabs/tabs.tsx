@@ -1,4 +1,4 @@
-import { Attributes, Component, Event, EventEmitter, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Attributes, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
 import { createLink } from '@app/services';
 
 const { Action, Observable, reconnect } = createLink('Tabs');
@@ -37,9 +37,6 @@ export class Tabs {
 
   @Observable()
   tunnel?: any;
-
-  @GlobalConfig('tabs')
-  config?;
 
   @Attributes()
   get attributes() {

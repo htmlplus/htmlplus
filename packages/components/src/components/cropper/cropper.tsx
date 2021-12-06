@@ -1,4 +1,4 @@
-import { Bind, Component, Event, EventEmitter, GlobalConfig, Method, Property, Watch } from '@app/decorators';
+import { Bind, Component, Event, EventEmitter, Method, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import CropperCore from 'cropperjs';
 import { CropperAspectRatio, CropperValue, CropperMode, CropperResizer, CropperResizerShape, CropperResponsive, CropperShape, CropperView, CropperZoomable, CropperZoomData } from './cropper.types';
@@ -131,20 +131,6 @@ export class Cropper {
    */
   @Event({ cancelable: true })
   plusZoom!: EventEmitter<CropperZoomData>;
-
-  @GlobalConfig('cropper', {
-    area: 0.75,
-    backdrop: true,
-    mode: 'move',
-    resizer: 'both',
-    resizerShape: 'square',
-    responsive: 'reset',
-    shape: 'rectangle',
-    view: 'cover',
-    zoomable: true,
-    zoomRatio: 0.1,
-  })
-  config?;
 
   $image!: HTMLImageElement;
 

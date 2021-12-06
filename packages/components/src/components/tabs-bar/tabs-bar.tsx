@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * TODO: Arranges tabs within a bar.
@@ -24,11 +24,6 @@ export class TabsBar {
    */
   @Property({ reflect: true })
   reverse?: boolean;
-
-  @GlobalConfig('tabsBar', {
-    justify: 'start'
-  })
-  config?;
 
   @Attributes()
   get attributes() {

@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 import { CardElevation } from './card.types';
 
 /**
@@ -31,9 +31,6 @@ export class Card {
    */
   @Property({ reflect: true })
   tile?: boolean;
-
-  @GlobalConfig('card')
-  config!: any;
 
   render() {
     return (

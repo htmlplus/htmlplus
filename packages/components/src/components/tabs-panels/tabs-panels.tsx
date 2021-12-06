@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Attributes, Component, Property, Watch } from '@htmlplus/compiler/dist/client';
 import { createLink } from '@app/services';
 
 const { Inject, reconnect } = createLink('Tabs');
@@ -19,9 +19,6 @@ export class TabsPanels {
   // TODO: it's bridge
   @Inject()
   tunnel?: any;
-
-  @GlobalConfig('tabsPanels')
-  config?;
 
   @Attributes()
   get attributes() {

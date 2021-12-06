@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Component, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { Portal as PortalCore, PortalStrategy, PortalTarget } from '@app/services';
 
@@ -27,12 +27,6 @@ export class Portal {
    */
   @Property()
   target?: PortalTarget = 'body';
-
-  @GlobalConfig('portal', {
-    strategy: 'append',
-    target: 'body',
-  })
-  config?;
 
   instance?: PortalCore;
 

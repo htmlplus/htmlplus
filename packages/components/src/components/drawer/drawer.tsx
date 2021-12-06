@@ -1,4 +1,5 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Media, Property, State, Watch } from '@app/decorators';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Media } from '@app/decorators';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Scrollbar, createLink } from '@app/services';
 import { DrawerBackdrop, DrawerBreakpoint, DrawerPlacement, DrawerPlatform, DrawerTemporary } from './drawer.types';
@@ -118,12 +119,6 @@ export class Drawer {
    */
   @Event()
   plusOpened!: EventEmitter<void>;
-
-  @GlobalConfig('drawer', {
-    backdrop: 'auto',
-    breakpoint: 'md'
-  })
-  config?;
 
   @State()
   platform?: DrawerPlatform;

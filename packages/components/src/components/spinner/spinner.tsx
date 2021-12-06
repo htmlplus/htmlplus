@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
 import { SpinnerSize, SpinnerType } from './spinner.types';
 
 /**
@@ -17,12 +17,6 @@ export class Spinner {
    */
   @Property({ reflect: true })
   type?: SpinnerType = 'default';
-
-  @GlobalConfig('spinner', {
-    size: 'md',
-    type: 'default'
-  })
-  config?;
 
   @Attributes()
   get attributes() {

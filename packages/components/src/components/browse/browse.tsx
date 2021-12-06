@@ -1,4 +1,4 @@
-import { Attributes, Component, Bind, Event, EventEmitter, GlobalConfig, Method, Property, State } from '@app/decorators';
+import { Attributes, Component, Bind, Event, EventEmitter, Method, Property, State } from '@htmlplus/compiler/dist/client';
 import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**
@@ -75,9 +75,6 @@ export class Browse {
    */
   @Event()
   plusSuccess!: EventEmitter<BrowseEvent>;
-
-  @GlobalConfig('browse')
-  config?;
 
   $input!: HTMLElement;
 

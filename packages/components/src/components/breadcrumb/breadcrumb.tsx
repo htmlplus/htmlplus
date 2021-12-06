@@ -1,4 +1,4 @@
-import { Bind, Component, GlobalConfig, Property, State, Watch } from '@app/decorators';
+import { Bind, Component, Property, State, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import * as Constants from './breadcrumb.constants';
 
@@ -37,12 +37,6 @@ export class Breadcrumb {
    */
   @Property({ reflect: true })
   separator?: string;
-
-  @GlobalConfig('breadcrumb', {
-    expanderText: 'Show path',
-    offset: 1,
-  })
-  config?;
 
   @State()
   items?: Array<any>;

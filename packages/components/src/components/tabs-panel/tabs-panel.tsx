@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property, State } from '@app/decorators';
+import { Attributes, Component, Property, State } from '@htmlplus/compiler/dist/client';
 import { createLink } from '@app/services';
 
 const { Inject } = createLink('Tabs');
@@ -19,9 +19,6 @@ export class TabsPanel {
   @State()
   @Inject()
   tunnel?: any;
-
-  @GlobalConfig('tabsPanel')
-  config?;
 
   @Attributes()
   get attributes() {

@@ -1,4 +1,4 @@
-import { Component, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * @slot default - The default slot.

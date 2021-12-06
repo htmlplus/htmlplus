@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Portal, Scrollbar, createLink } from '@app/services';
 import {
@@ -147,15 +147,6 @@ export class Dialog {
    */
   @Event()
   plusOpened!: EventEmitter<void>;
-
-  @GlobalConfig('dialog', {
-    backdrop: true,
-    keyboard: true,
-    placement: 'top',
-    portalStrategy: 'append',
-    portalTarget: 'body',
-  })
-  config?;
 
   static instances = [];
 

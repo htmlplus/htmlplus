@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, GlobalConfig, Property, State, Watch } from "@app/decorators";
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { StickyState, StickyTop } from './sticky.types';
 
@@ -40,9 +40,6 @@ export class Sticky {
    */
   @Event({ cancelable: true })
   plusChange!: EventEmitter<StickyState>;
-
-  @GlobalConfig('sticky')
-  config;
 
   $element!: HTMLElement;
 

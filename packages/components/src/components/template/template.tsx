@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 // import { } from './template.types';
 
 /**
@@ -15,9 +15,6 @@ export class Template {
    */
   @Property()
   disabled?: boolean;
-
-  @GlobalConfig('template')
-  config?;
 
   /**
    * External Methods

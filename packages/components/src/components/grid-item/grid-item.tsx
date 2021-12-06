@@ -1,4 +1,4 @@
-import { Component, GlobalConfig, Property } from '@app/decorators';
+import { Component, Property } from '@htmlplus/compiler/dist/client';
 import { GridItemAlignSelf, GridItemColumn, GridItemOffset, GridItemOrder } from './grid-item.types';
 
 /**
@@ -283,11 +283,6 @@ export class GridItem {
    */
   @Property({ reflect: true })
   orderXxl?: GridItemOrder;
-
-  @GlobalConfig('gridItem', {
-    alignSelf: 'auto'
-  })
-  config?;
 
   render() {
     return (

@@ -1,4 +1,4 @@
-import { Attributes, Component, Event, EventEmitter, GlobalConfig, Property, Watch } from '@app/decorators';
+import { Attributes, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
 import * as Helpers from '@app/helpers';
 import { Animation, createLink } from '@app/services';
 import { ToastPlacement, ToastType } from './toast.types';
@@ -110,11 +110,6 @@ export class Toast {
    */
   @Event()
   plusOpened!: EventEmitter<void>;
-
-  @GlobalConfig('toast', {
-    // TODO
-  })
-  config?;
 
   static instances = [];
 

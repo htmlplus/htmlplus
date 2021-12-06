@@ -1,4 +1,4 @@
-import { Attributes, Component, GlobalConfig, Property } from '@app/decorators';
+import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
 
 /**
  * @development
@@ -45,9 +45,6 @@ export class Icon {
    */
   @Property({ reflect: true })
   size?: string;
-
-  @GlobalConfig('icon')
-  config?;
 
   @Attributes()
   get attributes() {

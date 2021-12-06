@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, EventEmitter, GlobalConfig, Property, State, Watch } from '@app/decorators';
+import { Attributes, Bind, Component, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
 import { createPopper, Instance } from '@popperjs/core';
 import * as Helpers from '@app/helpers';
 import { TooltipAnimation, TooltipPlacement, TooltipTrigger, TooltipArrow } from './tooltip.types';
@@ -113,13 +113,6 @@ export class Tooltip {
    */
   // @Event()
   plusOpened!: EventEmitter<void>;
-
-  @GlobalConfig('tooltip', {
-    offset: 0,
-    placement: 'auto',
-    trigger: ['focus', 'hover'],
-  })
-  config;
 
   instance?: Instance;
 

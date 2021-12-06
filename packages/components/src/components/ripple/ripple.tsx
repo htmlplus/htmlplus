@@ -1,14 +1,10 @@
-import { Component, GlobalConfig } from '@app/decorators';
+import { Component } from '@htmlplus/compiler/dist/client';
 
 /**
  * @development
  */
 @Component()
 export class Ripple {
-
-  @GlobalConfig('ripple')
-  config?;
-
   render() {
     return (
       <slot />

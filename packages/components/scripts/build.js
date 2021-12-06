@@ -30,7 +30,7 @@ const { start, next, finish } = plugins.compiler(
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync("./src/**/aspect-ratio.tsx"),
+  input: glob.sync("./src/**/*.tsx"),
   output: [
     {
       format: "es",

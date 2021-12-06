@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 export interface UhtmlOptions { }
 
-export const uhtml = (options: UhtmlOptions) => {
+export const uhtml = (options?: UhtmlOptions) => {
 
   const name = 'uhtml';
 
@@ -86,29 +86,38 @@ export const uhtml = (options: UhtmlOptions) => {
       },
       // JSXFragment: {
       //   enter(path) {
-      //     path.replaceWithMultiple(path.node.children) 
+      //     path.replaceWithMultiple(path.node.children)
       //   }
       // },
       ReturnStatement: {
         exit(path) {
+
           if (path.getFunctionParent(path).node !== context.render) return;
-          path.remove();
-          // path.replaceWith(
-          //   t.returnStatement(
-          //     t.taggedTemplateExpression(
-          //       t.identifier('html'),
-          //       t.templateLiteral(
-          //         [
-          //           t.templateElement({
-          //             raw: print(path.node.argument).replace(/\/\*\$\*\//g, '$')
-          //           })
-          //         ],
-          //         []
-          //       )
-          //     )
-          //   )
-          // )
-          // path.skip()
+
+          // TODO 
+          const markup = print(path.node.argument)
+            .replace(/<>/g, '')
+            .replace(/<\/>/g, '')
+            .replace(/\/\*\$\*\//g, '$')
+            .replace(/={/g, '=${');
+
+          path.replaceWith(
+            t.returnStatement(
+              t.taggedTemplateExpression(
+                t.identifier('html'),
+                t.templateLiteral(
+                  [
+                    t.templateElement({
+                      raw: markup
+                    })
+                  ],
+                  []
+                )
+              )
+            )
+          )
+
+          path.skip()
         }
       }
     })

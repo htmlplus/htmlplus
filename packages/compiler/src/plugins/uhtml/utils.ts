@@ -24,20 +24,12 @@ export const proxy = (Class: any) => {
 
     // update(instance.attributes || {});
 
-    // patch(
-    //     instance.$api.host().shadowRoot,
-    //     () => {
-    //         elementOpen('style');
-    //         text(style);
-    //         elementClose('style');
-    //         instance.render && instance.render();
-    //     }
-    // )
+    // instance.render();
   }
 
   const getValue = (key, value) => {
 
-    const [, type] = Class.properties.find((property) => property[0] == key);
+    const [, type] = Class.members.find((property) => property[0] == key);
 
     switch (type) {
 
@@ -74,12 +66,12 @@ export const proxy = (Class: any) => {
           // if (options.reflect)
           //     updateAttribute(this, name, value);
 
-          flush();
+          this.render();
         },
-        state: () => flush()
+        state: () => this.render()
       };
 
-      for (const [key] of Class.properties) {
+      for (const [key] of Class.members) {
 
         Object.defineProperty(
           this,
@@ -94,10 +86,9 @@ export const proxy = (Class: any) => {
       this.attachShadow({ mode: 'open' });
     }
 
-    // TODO
     static get observedAttributes() {
       return Class
-        .properties
+        .members
         .filter(([, type]) => type != 'method')
         .map(([key]) => key);
     }
@@ -108,14 +99,14 @@ export const proxy = (Class: any) => {
 
       if (!instance.$api.ready) return;
 
-      flush();
+      this.render();
     }
 
     connectedCallback() {
 
       // update = sync(this, {});
 
-      flush();
+      this.render();
 
       instance.mount && instance.mount();
 
@@ -130,9 +121,7 @@ export const proxy = (Class: any) => {
       render(
         this.shadowRoot as any,
         () => {
-
-          if (!Class.styles) return html`${instance.render()}`;
-
+          if (!Class.styles) return instance.render();
           return html`
               <style>
               ${Class.styles}

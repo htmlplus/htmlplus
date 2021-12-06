@@ -1,0 +1,20 @@
+{
+  "name": "@htmlplus/compiler",
+  "version": "0.0.1",
+  "description": "Compiler of HTMLPlus",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htmlplus/compiler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/htmlplus/compiler/issues"
+  },
+  "homepage": "https://github.com/htmlplus/compiler#readme"
+}

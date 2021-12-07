@@ -1,7 +1,7 @@
 {
   "name": "@htmlplus/compiler",
-  "version": "0.0.2",
-  "license": "ISC",
+  "version": "0.0.3",
+  "license": "MIT",
   "author": "Masood Abdolian",
   "description": "Compiler of HTMLPlus",
   "type": "module",

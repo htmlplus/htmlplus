@@ -1,9 +1,9 @@
 {
   "name": "@htmlplus/dev",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
-    "init": "lerna bootstrap",
     "core:push": "git subtree push --prefix packages/core packages/core main",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:push": "git subtree push --prefix packages/document packages/document main",

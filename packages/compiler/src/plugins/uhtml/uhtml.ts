@@ -78,6 +78,33 @@ export const uhtml = (options?: UhtmlOptions) => {
     )
 
     visitor(context.ast as any, {
+      JSXAttribute(path) {
+
+        if (!t.isJSXExpressionContainer(path.node.value)) return;
+
+        if (path.node.name.name == 'ref') {
+
+          path.replaceWith(
+            t.jsxAttribute(
+              path.node.name,
+              t.jSXExpressionContainer(
+                t.arrowFunctionExpression(
+                  [
+                    t.identifier('$el')
+                  ],
+                  t.assignmentExpression(
+                    '=',
+                    path.node.value.expression,
+                    t.identifier('$el')
+                  )
+                )
+              )
+            )
+          );
+
+          path.skip();
+        }
+      },
       JSXExpressionContainer: {
         exit(path) {
           // path.replaceWith(t.identifier('a'))

@@ -1,38 +1,23 @@
 import { compiler } from './compiler.js'
-import {
-  attach,
-  docs,
-  esbuild,
-  extract,
-  parse,
-  print,
-  read,
-  scss,
-  type,
-  types,
-  typescript,
-  uhtml,
-  validate,
-  vscode,
-} from './plugins/index.js'
+import * as plugins from './plugins/index.js'
 
 const { start, next, finish } = compiler(
-  read(),
-  parse(),
-  validate(),
-  extract({
+  plugins.read(),
+  plugins.parse(),
+  plugins.validate(),
+  plugins.extract({
     prefix: "plus",
   }),
-  scss({
+  plugins.scss({
     includePaths: ["./src/styles"],
   }),
-  attach({
+  plugins.attach({
     members: true,
     styles: true,
   }),
-  uhtml(),
-  print(),
-  esbuild()
+  plugins.uhtml(),
+  plugins.print(),
+  plugins.esbuild()
 )
 
   ; (async () => {

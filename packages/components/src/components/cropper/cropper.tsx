@@ -199,7 +199,7 @@ export class Cropper {
        * cropmove        : (e) => console.log('cropmove', e),
        * cropend         : (e) => console.log('cropend', e),
        */
-      autoCropArea: parseFloat(`${this.area}`),
+      autoCropArea: this.area,
       aspectRatio: this.shape === 'rectangle' ? aspectRatio : 1,
       background: this.background,
       center: this.indicator,

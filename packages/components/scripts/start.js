@@ -37,7 +37,7 @@ esbuild
     stdin: {
       resolveDir: ".",
       contents: glob
-        .sync("./src/**/browse.tsx")
+        .sync("./src/**/cropper.tsx")
         .map((file) => `import '${file}';`)
         .join("\n"),
     },

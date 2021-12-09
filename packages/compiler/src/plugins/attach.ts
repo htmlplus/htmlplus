@@ -43,6 +43,16 @@ export const attach = (options: AttachOptions) => {
                   elements.push(t.stringLiteral('number'));
 
                 return t.arrayExpression(elements);
+              }),
+              ...context.methods.map((property) => {
+
+                const elements: Array<any> = [
+                  t.stringLiteral(property.key['name']),
+                  // TODO
+                  t.stringLiteral('method')
+                ];
+
+                return t.arrayExpression(elements);
               })
             ]
           ),

@@ -21,13 +21,6 @@ export const proxy = (Class: any) => {
 
   let instance, update;
 
-  const flush = () => {
-
-    // update(instance.attributes || {});
-
-    // instance.render();
-  }
-
   const getValue = (key, value) => {
 
     const [, type] = Class.members.find((property) => property[0] == key);
@@ -74,6 +67,7 @@ export const proxy = (Class: any) => {
 
       for (const [key] of Class.members) {
 
+        // TODO: methods.bind(instance)
         Object.defineProperty(
           this,
           key,

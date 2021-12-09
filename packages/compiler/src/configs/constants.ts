@@ -16,7 +16,7 @@ export const TOKEN_DECORATOR_METHOD = 'Method';
 // lifecycle
 export const TOKEN_LIFECYCLE_MOUNT = 'connectedCallback';
 export const TOKEN_LIFECYCLE_UNMOUNT = 'disconnectedCallback';
-export const TOKEN_LIFECYCLE_READY = 'loaded';
+export const TOKEN_LIFECYCLE_READY = 'readyCallback';
 
 // methods
 export const TOKEN_METHOD_RENDER = 'render';

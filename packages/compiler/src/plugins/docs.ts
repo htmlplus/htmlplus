@@ -5,7 +5,7 @@ import { Context } from '../types/index.js';
 import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils/index.js';
 
 export interface DocsOptions {
-    // bundle?: boolean;
+    // TODO bundle?: boolean;
     dist: string;
     prefix: string;
 }

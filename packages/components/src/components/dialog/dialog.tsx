@@ -446,7 +446,7 @@ export class Dialog {
    * Lifecycles
    */
 
-  // it's can not be `connectedCallback`, because ClickOutside incompatible 
+  // TODO: it's can not be `connectedCallback`, because ClickOutside incompatible 
   connectedCallback() {
     this.initialize();
   }

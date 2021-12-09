@@ -105,17 +105,6 @@ export const uhtml = (options?: UhtmlOptions) => {
           path.skip();
         }
       },
-      JSXExpressionContainer: {
-        exit(path) {
-          // path.replaceWith(t.identifier('a'))
-          // t.addComment(path.node, 'leading', '$')
-        }
-      },
-      // JSXFragment: {
-      //   enter(path) {
-      //     path.replaceWithMultiple(path.node.children)
-      //   }
-      // },
       ReturnStatement: {
         exit(path) {
 

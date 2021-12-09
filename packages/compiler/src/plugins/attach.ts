@@ -9,7 +9,7 @@ export interface AttachOptions {
 
 export const attach = (options: AttachOptions) => {
 
-  const name = 'attach'
+  const name = 'attach';
 
   const next = (context: Context) => {
 
@@ -28,7 +28,7 @@ export const attach = (options: AttachOptions) => {
     if (options.members)
       context.component?.body.body.unshift(
         t.classProperty(
-          t.identifier('members'),
+          t.identifier(CONSTANTS.TOKEN_STATIC_MEMBERS),
           t.arrayExpression(
             [
               ...context.properties.map((property) => {
@@ -40,10 +40,10 @@ export const attach = (options: AttachOptions) => {
                 ];
 
                 if (type == 'TSBooleanKeyword')
-                  elements.push(t.stringLiteral('boolean')); // TODO
+                  elements.push(t.stringLiteral(CONSTANTS.TYPE_BOOLEAN));
 
                 if (type == 'TSNumberKeyword')
-                  elements.push(t.stringLiteral('number')); // TODO
+                  elements.push(t.stringLiteral(CONSTANTS.TYPE_NUMBER));
 
                 return t.arrayExpression(elements);
               }),
@@ -51,7 +51,7 @@ export const attach = (options: AttachOptions) => {
 
                 const elements: Array<any> = [
                   t.stringLiteral(property.key['name']),
-                  t.stringLiteral('method') // TODO
+                  t.stringLiteral(CONSTANTS.TYPE_FUNCTION)
                 ];
 
                 return t.arrayExpression(elements);

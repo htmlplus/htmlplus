@@ -529,8 +529,7 @@ export class Cropper {
    * Lifecycles
    */
 
-  // TODO: it is should be 'componentDidLoad' after dom render
-  loaded() {
+  readyCallback() {
     this.bind();
   }
 

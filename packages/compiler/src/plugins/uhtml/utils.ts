@@ -74,15 +74,17 @@ export const proxy = (Class: any) => {
 
       for (const [key, type] of members) {
 
-        // TODO: methods.bind(instance)
-        Object.defineProperty(
-          this,
-          key,
-          {
-            get: () => instance[key],
-            set: (value) => { instance[key] = value }
-          }
-        )
+        let get, set;
+
+        if (type === CONSTANTS.TYPE_FUNCTION) {
+          get = () => instance[key].bind(instance);
+        }
+        else {
+          get = () => instance[key];
+          set = (value) => instance[key] = value;
+        }
+
+        Object.defineProperty(this, key, { get, set })
       }
 
       this.attachShadow({ mode: 'open' });
@@ -104,6 +106,8 @@ export const proxy = (Class: any) => {
     }
 
     connectedCallback() {
+
+      // TODO update = sync(this, {});
 
       instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT] && instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT]();
 

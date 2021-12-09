@@ -80,11 +80,11 @@ export class Portal {
    * Lifecycles
    */
 
-  mount() {
+  connectedCallback() {
     this.initialize();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.terminate();
   }
 

@@ -8,7 +8,7 @@ import { TransitionDirection, TransitionDuration, TransitionRepeat } from './tra
 export class Transition {
 
   /**
-   * Specifies the amount of delay before starting the animation to play. 
+   * Specifies the aconnectedCallback of delay before starting the animation to play. 
    * This may be specified in either seconds `s` or milliseconds `ms`.
    */
   @Property()
@@ -157,11 +157,11 @@ export class Transition {
     this.plusStart();
   }
 
-  mount() {
+  connectedCallback() {
     this.events.map(({ event, handler }) => Helpers.on(this.$host, event, handler));
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.events.map(({ event, handler }) => Helpers.off(this.$host, event, handler));
   }
 

@@ -100,7 +100,7 @@ export class Tabs {
     this.initialize();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.terminate();
   }
 

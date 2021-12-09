@@ -270,7 +270,7 @@ export class Menu {
     this.bind();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.clean()
   }
 

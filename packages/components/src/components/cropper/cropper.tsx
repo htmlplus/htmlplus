@@ -529,12 +529,12 @@ export class Cropper {
    * Lifecycles
    */
 
-  // TODO: convert 'componentDidLoad' to 'mount'
-  mount() {
+  // TODO: it is should be 'componentDidLoad' after dom render
+  loaded() {
     this.bind();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.unbind();
   }
 

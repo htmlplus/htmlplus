@@ -1,4 +1,5 @@
 import { html, render } from 'uhtml';
+import * as CONSTANTS from '../../configs/constants.js';
 import { isServer } from '../../utils/is-server.js';
 import { toBoolean } from '../../utils/to-boolean.js';
 
@@ -106,15 +107,18 @@ export const proxy = (Class: any) => {
 
       // update = sync(this, {});
 
+      instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT] && instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT]();
+
       this.render();
 
-      instance.mount && instance.mount();
+      // TODO
+      instance['loaded'] && instance['loaded']();
 
       instance.$api.ready = true;
     }
 
     disconnectedCallback() {
-      instance.unmount && instance.unmount();
+      instance[CONSTANTS.TOKEN_LIFECYCLE_UNMOUNT] && instance[CONSTANTS.TOKEN_LIFECYCLE_UNMOUNT]();
     }
 
     render() {

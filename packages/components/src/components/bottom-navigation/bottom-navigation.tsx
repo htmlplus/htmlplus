@@ -151,11 +151,11 @@ export class BottomNavigation {
    * Lifecycles
    */
 
-  mount() {
+  connectedCallback() {
     this.initialize();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.terminate();
   }
 

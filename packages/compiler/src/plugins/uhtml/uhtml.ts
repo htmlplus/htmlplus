@@ -90,12 +90,12 @@ export const uhtml = (options?: UhtmlOptions) => {
               t.jSXExpressionContainer(
                 t.arrowFunctionExpression(
                   [
-                    t.identifier('$el')
+                    t.identifier('$element')
                   ],
                   t.assignmentExpression(
                     '=',
                     path.node.value.expression,
-                    t.identifier('$el')
+                    t.identifier('$element')
                   )
                 )
               )

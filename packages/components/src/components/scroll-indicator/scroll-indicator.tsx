@@ -118,7 +118,7 @@ export class ScrollIndicator {
     this.bind();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.unbind();
   }
 

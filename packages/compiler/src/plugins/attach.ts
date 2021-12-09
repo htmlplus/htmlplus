@@ -30,12 +30,20 @@ export const attach = (options: AttachOptions) => {
           t.identifier('members'),
           t.arrayExpression(
             [
-              ...context.properties.map((property) => t.arrayExpression(
-                [
-                  t.stringLiteral(property.key['name']),
-                  t.stringLiteral('any'),
-                ]
-              ))
+              ...context.properties.map((property) => {
+
+                const elements: Array<any> = [
+                  t.stringLiteral(property.key['name'])
+                ];
+
+                if ((property as any).typeAnnotation?.typeAnnotation?.type == 'TSBooleanKeyword')
+                  elements.push(t.stringLiteral('boolean'));
+
+                if ((property as any).typeAnnotation?.typeAnnotation?.type == 'TSNumberKeyword')
+                  elements.push(t.stringLiteral('number'));
+
+                return t.arrayExpression(elements);
+              })
             ]
           ),
           undefined,

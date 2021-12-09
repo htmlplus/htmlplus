@@ -385,11 +385,11 @@ export class Drawer {
    * Lifecycles
    */
 
-  mount() {
+  connectedCallback() {
     this.initialize();
   }
 
-  unmount() {
+  disconnectedCallback() {
     this.terminate();
   }
 

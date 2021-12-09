@@ -1,4 +1,5 @@
 import * as t from '@babel/types';
+import * as CONSTANTS from '../configs/constants.js';
 import { Context } from '../types/index.js';
 
 export interface AttachOptions {
@@ -15,7 +16,7 @@ export const attach = (options: AttachOptions) => {
     if (options.styles && context.styleParsed)
       context.component?.body.body.unshift(
         t.classProperty(
-          t.identifier('styles'),
+          t.identifier(CONSTANTS.TOKEN_STATIC_STYLES),
           t.stringLiteral(context.styleParsed),
           undefined,
           null,
@@ -32,15 +33,17 @@ export const attach = (options: AttachOptions) => {
             [
               ...context.properties.map((property) => {
 
+                const type = (property as any).typeAnnotation?.typeAnnotation?.type;
+
                 const elements: Array<any> = [
                   t.stringLiteral(property.key['name'])
                 ];
 
-                if ((property as any).typeAnnotation?.typeAnnotation?.type == 'TSBooleanKeyword')
-                  elements.push(t.stringLiteral('boolean'));
+                if (type == 'TSBooleanKeyword')
+                  elements.push(t.stringLiteral('boolean')); // TODO
 
-                if ((property as any).typeAnnotation?.typeAnnotation?.type == 'TSNumberKeyword')
-                  elements.push(t.stringLiteral('number'));
+                if (type == 'TSNumberKeyword')
+                  elements.push(t.stringLiteral('number')); // TODO
 
                 return t.arrayExpression(elements);
               }),
@@ -48,8 +51,7 @@ export const attach = (options: AttachOptions) => {
 
                 const elements: Array<any> = [
                   t.stringLiteral(property.key['name']),
-                  // TODO
-                  t.stringLiteral('method')
+                  t.stringLiteral('method') // TODO
                 ];
 
                 return t.arrayExpression(elements);

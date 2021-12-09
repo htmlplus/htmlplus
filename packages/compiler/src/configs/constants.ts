@@ -1,19 +1,31 @@
-export const TOKEN_THIS = 'instance';
+// apis
 export const TOKEN_API = '$api';
-export const TOKEN_API_FULL = `${TOKEN_THIS}.$api`;
 export const TOKEN_API_HOST = 'host';
-export const TOKEN_API_ATTRIBUTE = 'attribute';
 export const TOKEN_API_PROPERTY = 'property';
-export const TOKEN_API_SLOTS = 'slots';
+export const TOKEN_API_READY = 'ready';
 export const TOKEN_API_STATE = 'state';
+
+// decorators
 export const TOKEN_DECORATOR_ATTRIBUTES = 'Attributes';
 export const TOKEN_DECORATOR_COMPONENT = 'Component';
 export const TOKEN_DECORATOR_EVENT = 'Event';
 export const TOKEN_DECORATOR_PROPERTY = 'Property';
 export const TOKEN_DECORATOR_STATE = 'State';
 export const TOKEN_DECORATOR_METHOD = 'Method';
-export const TOKEN_DECORATOR_HOST = 'Host';
+
+// lifecycle
 export const TOKEN_LIFECYCLE_MOUNT = 'connectedCallback';
 export const TOKEN_LIFECYCLE_UNMOUNT = 'disconnectedCallback';
+export const TOKEN_LIFECYCLE_READY = 'loaded';
+
+// methods
 export const TOKEN_METHOD_RENDER = 'render';
-export const TOKEN_SVELTE_VARIABLE_HOST = 'host'; // TODO: remove svelte key
+
+// statics
+export const TOKEN_STATIC_MEMBERS = 'members';
+export const TOKEN_STATIC_STYLES = 'styles';
+
+// types
+export const TYPE_BOOLEAN = 'boolean';
+export const TYPE_FUNCTION = 'method';
+export const TYPE_NUMBER = 'number';

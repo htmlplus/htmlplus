@@ -19,18 +19,22 @@ export const proxy = (Class: any) => {
 
   if (isServer()) return class { };
 
-  let instance, update;
+  let instance;
+
+  const members = Class[CONSTANTS.TOKEN_STATIC_MEMBERS] || [];
+
+  const styles = Class[CONSTANTS.TOKEN_STATIC_STYLES];
 
   const getValue = (key, value) => {
 
-    const [, type] = Class.members.find((property) => property[0] == key);
+    const [, type] = members.find((property) => property[0] == key);
 
     switch (type) {
 
-      case 'boolean':
+      case CONSTANTS.TYPE_BOOLEAN:
         return toBoolean(value);
 
-      case 'number':
+      case CONSTANTS.TYPE_NUMBER:
         return parseFloat(value);
 
       default:
@@ -46,26 +50,29 @@ export const proxy = (Class: any) => {
 
       instance = new Class();
 
-      instance.$api = {
-        ready: false,
-        host: () => this,
-        property: (name, value, options: any = {}) => {
+      instance[CONSTANTS.TOKEN_API] = instance[CONSTANTS.TOKEN_API] || {};
 
-          const raw = this.getAttribute(name);
+      instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_READY] = false;
 
-          const parsed = getValue(name, raw);
+      instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_HOST] = () => this;
 
-          if (parsed === value) return;
+      instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_STATE] = () => this.render();
 
-          // if (options.reflect)
-          //     updateAttribute(this, name, value);
+      instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_PROPERTY] = (name, value, options: any = {}) => {
 
-          this.render();
-        },
-        state: () => this.render()
-      };
+        const raw = this.getAttribute(name);
 
-      for (const [key] of Class.members) {
+        const parsed = getValue(name, raw);
+
+        if (parsed === value) return;
+
+        // if (options.reflect)
+        //     updateAttribute(this, name, value);
+
+        this.render();
+      }
+
+      for (const [key, type] of members) {
 
         // TODO: methods.bind(instance)
         Object.defineProperty(
@@ -82,9 +89,8 @@ export const proxy = (Class: any) => {
     }
 
     static get observedAttributes() {
-      return Class
-        .members
-        .filter(([, type]) => type != 'method')
+      return members
+        .filter(([, type]) => type != CONSTANTS.TYPE_FUNCTION)
         .map(([key]) => key);
     }
 
@@ -92,23 +98,20 @@ export const proxy = (Class: any) => {
 
       instance[name] = getValue(name, next);
 
-      if (!instance.$api.ready) return;
+      if (!instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_READY]) return;
 
       this.render();
     }
 
     connectedCallback() {
 
-      // update = sync(this, {});
-
       instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT] && instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT]();
 
       this.render();
 
-      // TODO
-      instance['loaded'] && instance['loaded']();
+      instance[CONSTANTS.TOKEN_LIFECYCLE_READY] && instance[CONSTANTS.TOKEN_LIFECYCLE_READY]();
 
-      instance.$api.ready = true;
+      instance[CONSTANTS.TOKEN_API][CONSTANTS.TOKEN_API_READY] = true;
     }
 
     disconnectedCallback() {
@@ -116,16 +119,18 @@ export const proxy = (Class: any) => {
     }
 
     render() {
+
+      const fn = instance[CONSTANTS.TOKEN_METHOD_RENDER];
+
+      if (!fn) return;
+
       render(
         this.shadowRoot as any,
         () => {
-          if (!Class.styles) return instance.render();
-          return html`
-              <style>
-              ${Class.styles}
-              </style>
-              ${instance.render()}
-          `
+
+          if (!styles) return fn();
+
+          return html`<style>${styles}</style>${fn()}`;
         }
       )
     }

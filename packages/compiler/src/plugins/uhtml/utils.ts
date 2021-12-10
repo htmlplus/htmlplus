@@ -1,7 +1,9 @@
 import { html, render } from 'uhtml';
 import * as CONSTANTS from '../../configs/constants.js';
 import { isServer } from '../../utils/is-server.js';
+import { sync } from '../../utils/sync.js';
 import { toBoolean } from '../../utils/to-boolean.js';
+import { updateAttribute } from '../../utils/update-attribute.js';
 
 // TODO
 export { html, render } from 'uhtml';
@@ -19,7 +21,7 @@ export const proxy = (Class: any) => {
 
   if (isServer()) return class { };
 
-  let instance;
+  let instance, update;
 
   const members = Class[CONSTANTS.TOKEN_STATIC_MEMBERS] || [];
 
@@ -66,8 +68,8 @@ export const proxy = (Class: any) => {
 
         if (parsed === value) return;
 
-        // if (options.reflect)
-        //     updateAttribute(this, name, value);
+        if (options.reflect)
+          updateAttribute(this, name, value);
 
         this.render();
       }
@@ -107,7 +109,7 @@ export const proxy = (Class: any) => {
 
     connectedCallback() {
 
-      // TODO update = sync(this, {});
+      update = sync(this, {});
 
       instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT] && instance[CONSTANTS.TOKEN_LIFECYCLE_MOUNT]();
 
@@ -123,6 +125,9 @@ export const proxy = (Class: any) => {
     }
 
     render() {
+
+      // TODO
+      update(instance.attributes || {});
 
       const fn = instance[CONSTANTS.TOKEN_METHOD_RENDER];
 

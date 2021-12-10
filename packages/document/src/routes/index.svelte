@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+	import Counter from "$lib/Counter.svelte";
 </script>
 
 <svelte:head>
@@ -14,8 +14,8 @@
 	<h1>
 		<div class="welcome">
 			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
+				<source srcset="assets/svelte-welcome.webp" type="image/webp" />
+				<img src="assets/svelte-welcome.png" alt="Welcome" />
 			</picture>
 		</div>
 

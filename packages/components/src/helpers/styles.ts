@@ -1,4 +1,4 @@
-import { toKebabCase } from './to-kebab-case';
+import { paramCase } from 'change-case';
 import { typeOf } from './type-of';
 
 export const styles = (input) => {
@@ -16,6 +16,6 @@ export const styles = (input) => {
 
     return Object
         .keys(input)
-        .map((key) => `${toKebabCase(key)}: ${input[key]}`)
+        .map((key) => `${paramCase(key)}: ${input[key]}`)
         .join('; ');
 }

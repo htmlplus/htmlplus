@@ -1,8 +1,9 @@
+import { capitalCase, paramCase } from 'change-case';
 import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
 import { Context } from '../types/index.js';
-import { getInitializer, getTags, getType, printType, toCapitalCase, toKebabCase } from '../utils/index.js';
+import { getInitializer, getTags, getType, printType } from '../utils/index.js';
 
 export interface DocsOptions {
     // TODO bundle?: boolean;
@@ -54,7 +55,7 @@ export const docs = (options: DocsOptions) => {
 
                     item.key = path.basename(filePath).replace('.md', '');
 
-                    item.title = toCapitalCase(item.key);
+                    item.title = capitalCase(item.key);
 
                     item.readme = content.replace(regex, '').trim();
 
@@ -123,7 +124,7 @@ export const docs = (options: DocsOptions) => {
 
                 const name = property.key['name'];
 
-                const attribute = toKebabCase(name);
+                const attribute = paramCase(name);
 
                 // TODO
                 const initializer = getInitializer(property.value as any);

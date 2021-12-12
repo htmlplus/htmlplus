@@ -1,8 +1,8 @@
-import { toKebabCase } from './to-kebab-case.js';
+import { paramCase } from 'change-case';
 
 export const updateAttribute = (node: Element, key: string, value: any): void => {
 
-    key = toKebabCase(key);
+    key = paramCase(key);
 
     if (value === undefined) {
         node.removeAttribute(key);

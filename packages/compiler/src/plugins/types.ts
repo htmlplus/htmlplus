@@ -1,9 +1,10 @@
 import * as t from '@babel/types';
 import { TSTypeAnnotation } from '@babel/types';
+import { pascalCase } from 'change-case';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Context } from '../types/index.js';
-import { print, toPascalCase } from '../utils/index.js';
+import { print } from '../utils/index.js';
 
 export interface TypesOptions {
     dist: string;
@@ -31,7 +32,7 @@ export const types = (options: TypesOptions) => {
     const next = (context: Context) => {
 
         // TODO
-        const v5 = toPascalCase(options.prefix || '') + context.name;
+        const v5 = pascalCase(options.prefix || '') + context.name;
         const v6 = `HTML${v5}Element`;
 
         interfaces.push(
@@ -126,7 +127,7 @@ export const types = (options: TypesOptions) => {
                         context.events.map((event) => Object.assign(
                             t.tSPropertySignature(
                                 t.identifier(
-                                    `on${toPascalCase(event.key['name'])}`
+                                    `on${pascalCase(event.key['name'])}`
                                 ),
                                 t.tsTypeAnnotation(
                                     t.tSFunctionType(

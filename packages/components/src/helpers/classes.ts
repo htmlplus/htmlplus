@@ -1,4 +1,4 @@
-import { toKebabCase } from './to-kebab-case';
+import { paramCase } from 'change-case';
 import { typeOf } from './type-of';
 
 export const classes = (input, smart?: boolean) => {
@@ -26,7 +26,7 @@ export const classes = (input, smart?: boolean) => {
 
                 const value = input[key];
 
-                const name = toKebabCase(key);
+                const name = paramCase(key);
 
                 const type = typeOf(value);
 

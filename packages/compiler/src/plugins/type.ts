@@ -1,7 +1,8 @@
 import * as t from '@babel/types';
 import { TSTypeAnnotation } from '@babel/types';
+import { pascalCase } from 'change-case';
 import { Context } from '../types/index.js';
-import { toPascalCase, visitor } from '../utils/index.js';
+import { visitor } from '../utils/index.js';
 
 export interface TypeOptions {
     prefix?: string;
@@ -14,7 +15,7 @@ export const type = (options: TypeOptions) => {
     const next = (context: Context) => {
 
         // TODO
-        const v5 = toPascalCase(options.prefix || '') + context.name;
+        const v5 = pascalCase(options.prefix || '') + context.name;
         const v6 = `HTML${v5}Element`;
 
         visitor(context.ast as any, {

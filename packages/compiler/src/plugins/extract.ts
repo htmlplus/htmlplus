@@ -1,9 +1,10 @@
 import { ClassMethod, ClassProperty } from '@babel/types';
+import { capitalCase, paramCase } from 'change-case';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as CONSTANTS from '../configs/constants.js';
 import { Context } from '../types/index.js';
-import { hasDecorator, toCapitalCase, toKebabCase, visitor } from '../utils/index.js';
+import { hasDecorator, visitor } from '../utils/index.js';
 
 export interface ExtractOptions {
     prefix?: string;
@@ -49,11 +50,11 @@ export const extract = (options: ExtractOptions) => {
 
         context.prefix = options.prefix || '';
 
-        context.key = toKebabCase(context.name);
+        context.key = paramCase(context.name);
 
         context.tag = `${options.prefix}-${context.key}`;
 
-        context.title = toCapitalCase(context.key);
+        context.title = capitalCase(context.key);
 
         (() => {
 

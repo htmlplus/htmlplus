@@ -23,8 +23,8 @@
     "build": "npm run clean && tsc",
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
-    "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/test\"",
-    "start:new": "nodemon --watch src --exec node --experimental-specifier-resolution=node --loader ts-node/esm src/test.ts"
+    "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/dev\"",
+    "start:new": "nodemon --watch src --exec node --experimental-specifier-resolution=node --loader ts-node/esm src/dev.ts"
   },
   "dependencies": {
     "@babel/generator": "^7.16.0",

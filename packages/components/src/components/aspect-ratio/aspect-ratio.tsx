@@ -1,6 +1,7 @@
 import { Component, Property } from '@htmlplus/compiler/dist/client';
+import * as Helpers from '@app/helpers';
 import { AspectRatioValue } from './aspect-ratio.types';
-
+console.log(Helpers)
 /**
  * @slot default - The default slot.
  */

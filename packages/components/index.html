@@ -4,9 +4,19 @@
     <title>HTMLPLUS | Core</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="/bundle.ts"></script>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+  <body>  
+    <style>
+      div {
+        background-color: #C5CAE9;
+        padding: 1rem;
+      }
+    </style>
+    <plus-aspect-ratio value="16/9">
+      <div>
+        This box will always be 16/9 (unless you put more stuff in it)
+      </div>
+    </plus-aspect-ratio>
   </body>
 </html>

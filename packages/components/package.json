@@ -9,7 +9,6 @@
     "build": "npm run clean && node scripts/build.js",
     "clean": "rimraf .cache dist public/build",
     "start": "node scripts/start.js",
-    "start:new": "vite --open",
     "test:open": "cypress open",
     "test:run": "cypress run"
   },
@@ -22,7 +21,6 @@
     "change-case": "^4.1.2",
     "cropperjs": "^1.5.12",
     "cypress": "^8.6.0",
-    "esbuild": "^0.13.3",
     "glob": "^7.1.7",
     "rimraf": "^3.0.2",
     "rollup": "^2.58.0",

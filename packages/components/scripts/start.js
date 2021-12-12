@@ -1,22 +1,17 @@
-import { spawn } from "child_process";
-import esbuild from "esbuild";
-import glob from "glob";
-import http from "http";
-import * as plugins from "@htmlplus/compiler";
-
-const clients = [];
-const port = 3000;
-const time = Date.now();
+import * as plugins from '@htmlplus/compiler';
+import glob from 'glob';
+import path from 'path';
+import { createServer } from 'vite';
 
 const { start, next, finish } = plugins.compiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),
   plugins.extract({
-    prefix: "plus",
+    prefix: 'plus',
   }),
   plugins.scss({
-    includePaths: ["./src/styles"],
+    includePaths: ['./src/styles'],
   }),
   plugins.attach({
     members: true,
@@ -27,108 +22,41 @@ const { start, next, finish } = plugins.compiler(
   plugins.esbuild()
 );
 
-esbuild
-  .build({
-    platform: "node",
-    bundle: true,
-    sourcemap: true,
-    format: "esm",
-    outfile: "public/build/bundle.js",
-    stdin: {
-      resolveDir: ".",
-      contents: glob
-        .sync("./src/**/cropper.tsx")
-        .map((file) => `import '${file}';`)
-        .join("\n"),
-    },
-    banner: {
-      js: '(() => new EventSource("/~dev").onmessage = () => location.reload())();',
+(async () => {
+  
+  const server = await createServer({
+    // assetsInclude: '/public',
+    cacheDir: '.cache',
+    // configFile: false,
+    server: {
+      open: true,
     },
     plugins: [
       {
-        name: "htmlplus",
-        async setup(build) {
+        name: 'htmlplus',
+        async buildStart() {
           await start();
-          build.onLoad({ filter: /\.tsx$/ }, async (args) => {
-            const { script } = await next(args.path);
-            return {
-              contents: script,
-            };
-          });
         },
-      },
-    ],
-    watch: {
-      onRebuild(error) {
-        clients.forEach((client) => client.write("data: update\n\n"));
-        clients.length = 0;
-        console.log(
-          error ? error : `[${new Date().toLocaleTimeString()}] Rebuild.`
-        );
-      },
-    },
-  })
-  .then(() => serve())
-  .catch(() => process.exit(1));
+        async load(id) {
 
-const serve = () => {
-  esbuild.serve({ servedir: "public" }, {}).then((server) => {
-    http
-      .createServer((req, res) => {
-        const { url, method, headers } = req;
+          if (id.endsWith('bundle.ts')) 
+            return glob
+              .sync(path.resolve('./src/**/aspect-ratio.tsx'))
+              .map((file) => `import '${file}';`)
+              .join('\n');
 
-        if (url === "/~dev")
-          return clients.push(
-            res.writeHead(200, {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-cache",
-              Connection: "keep-alive",
-            })
-          );
+          if (!id.endsWith('.tsx')) return null;
 
-        // TODO
-        const path = ~url.split("/").pop().indexOf(".") ? url : `/index.html`;
+          const { script } = await next(id);
 
-        const proxy = http.request(
-          {
-            hostname: "0.0.0.0",
-            port: server.port,
-            path,
-            method,
-            headers,
-          },
-          (response) => {
-            res.writeHead(response.statusCode, response.headers);
-
-            response.pipe(res, { end: true });
-          }
-        );
-
-        req.pipe(proxy, { end: true });
-      })
-      .listen(port);
-
-    if (clients.length === 0) {
-      const platforms = {
-        darwin: ["open"],
-        linux: ["xdg-open"],
-        win32: ["cmd", "/c", "start"],
-      };
-
-      const command = platforms[process.platform][0];
-
-      const args = [
-        ...[platforms[process.platform].slice(1)],
-        `http://localhost:${port}`,
-      ];
-
-      spawn(command, args);
-    }
-
-    console.log(
-      `[${new Date().toLocaleTimeString()}] Start on http://localhost:${port} in ${
-        Date.now() - time
-      }ms`
-    );
+          return script;
+        },
+        async buildEnd() {
+          await finish();
+        }
+      }
+    ]
   });
-};
+
+  await server.listen();
+})();

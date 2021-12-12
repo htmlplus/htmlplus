@@ -30,7 +30,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
   const next = async (filename: string) => {
 
-    const key = filename.split('\\').pop();
+    const key = filename.split(/[\/|\\]/g).pop();
 
     const directory = path.dirname(filename);
 

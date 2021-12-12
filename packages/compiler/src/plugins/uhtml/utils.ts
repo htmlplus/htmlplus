@@ -137,9 +137,9 @@ export const proxy = (Class: any) => {
         this.shadowRoot as any,
         () => {
 
-          if (!styles) return fn();
+          if (!styles) return fn.apply(this);
 
-          return html`<style>${styles}</style>${fn()}`;
+          return html`<style>${styles}</style>${fn.apply(this)}`;
         }
       )
     }

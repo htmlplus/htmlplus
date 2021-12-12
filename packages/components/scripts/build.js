@@ -1,21 +1,21 @@
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import glob from "glob";
-import path from "path";
-import { rollup } from "rollup";
-import resolve from "rollup-plugin-node-resolve";
-import { terser } from "rollup-plugin-terser";
-import * as plugins from "@htmlplus/compiler";
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import glob from 'glob';
+import path from 'path';
+import { rollup } from 'rollup';
+import resolve from 'rollup-plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import * as plugins from '@htmlplus/compiler';
 
 const { start, next, finish } = plugins.compiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),
   plugins.extract({
-    prefix: "plus",
+    prefix: 'plus',
   }),
   plugins.scss({
-    includePaths: ["./src/styles"],
+    includePaths: ['./src/styles'],
   }),
   plugins.attach({
     members: true,
@@ -30,37 +30,38 @@ const { start, next, finish } = plugins.compiler(
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync("./src/**/*.tsx"),
+  input: glob.sync('./src/**/*.tsx'),
   output: [
     {
-      format: "es",
-      dir: "dist/esm",
-      chunkFileNames: "[name].js",
+      format: 'es',
+      dir: 'dist/esm',
+      chunkFileNames: '[name].js',
       manualChunks(id) {
         const name = path.basename(id, path.extname(id));
 
-        if (id.includes("cropperjs")) return "core.cropperjs";
+        if (id.includes('cropperjs')) return 'core.cropperjs';
 
-        if (id.includes("helpers")) return "core.helpers";
+        if (id.includes('helpers')) return 'core.helpers';
 
-        if (id.includes("popperjs")) return "core.popperjs";
+        if (id.includes('popperjs')) return 'core.popperjs';
 
-        if (id.includes("services")) return "core." + name;
+        if (id.includes('services')) return 'core.' + name;
 
-        if (id.endsWith(".tsx")) return name;
+        if (id.endsWith('.tsx')) return name;
 
-        return "core";
+        return 'core';
       },
     },
   ],
   plugins: [
     {
-      name: "htmlplus",
+      name: 'htmlplus',
       async buildStart() {
         await start();
       },
       async load(id) {
-        if (!id.endsWith(".tsx")) return null;
+
+        if (!id.endsWith('.tsx')) return null;
 
         const { script } = await next(id);
 
@@ -84,6 +85,7 @@ const options = {
 };
 
 const build = async () => {
+  
   const time = Date.now();
 
   const bundle = await rollup(options);

@@ -2,6 +2,7 @@ import * as plugins from '@htmlplus/compiler';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
+import aliases from 'vite-tsconfig-paths';
 
 const { start, next, finish } = plugins.compiler(
   plugins.read(),
@@ -32,6 +33,7 @@ const { start, next, finish } = plugins.compiler(
       open: true,
     },
     plugins: [
+      aliases(),
       {
         name: 'htmlplus',
         async buildStart() {

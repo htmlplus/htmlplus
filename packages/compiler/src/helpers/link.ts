@@ -45,14 +45,16 @@ export const createLink = (namespace: string) => {
     if (!children.has(source.instance))
       children.set(source.instance, new Set<LinkProperty>());
 
-    const siblings = children.get(source.instance);
+    // TODO: any
+    const siblings = children.get(source.instance) as any;
 
     siblings.add(source);
   }
 
   const unregister = (source: LinkProperty) => {
 
-    source = find(source);
+    // TODO: any
+    source = find(source) as any;
 
     const index = properties.findIndex((property) => property === source);
 
@@ -60,7 +62,8 @@ export const createLink = (namespace: string) => {
 
     properties.splice(index, 1);
 
-    const siblings = children.get(source.instance);
+    // TODO: any
+    const siblings = children.get(source.instance) as any;
 
     siblings.delete(source);
 
@@ -72,11 +75,13 @@ export const createLink = (namespace: string) => {
   }
 
   const get = (source: LinkProperty) => {
-    return source.instance[source.name];
+    // TODO: any
+    return source.instance[source.name as any];
   }
 
   const set = (source: LinkProperty, value: any) => {
-    source.instance[source.name] = value;
+    // TODO: any
+    source.instance[source.name as any] = value;
   }
 
   const reset = (source: LinkProperty) => {
@@ -85,9 +90,10 @@ export const createLink = (namespace: string) => {
 
     if (source.type === 'inject') return set(source, source.value /* TODO */);
 
+    // TODO: any
     Object.defineProperty(
       source.instance,
-      source.name,
+      source.name as any,
       {
         value: get(source), /* TODO */
         enumerable: true,
@@ -110,9 +116,10 @@ export const createLink = (namespace: string) => {
 
     let value = get(source);
 
+    // TODO: any
     Object.defineProperty(
       source.instance,
-      source.name,
+      source.name as any,
       {
         enumerable: true,
         configurable: true,
@@ -138,7 +145,8 @@ export const createLink = (namespace: string) => {
 
     if (cache) return cache;
 
-    let parent = source.element.parentElement;
+    // TODO: element? and any
+    let parent = source.element?.parentElement as any;
 
     while (parent) {
 
@@ -165,18 +173,21 @@ export const createLink = (namespace: string) => {
     // TODO
     if (disconnecting) return source.instance['$scope-prev'];
 
-    let input = config.scope(source.instance);
+    // TODO: &&
+    let input = config.scope && config.scope(source.instance);
 
     if (typeof input !== 'undefined') return input;
 
-    return scope(parent(source)) ?? source.instance['$scope-auto'] ?? (source.instance['$scope-auto'] = Math.random());
+    // TODO: any
+    return scope(parent(source) as any) ?? source.instance['$scope-auto'] ?? (source.instance['$scope-auto'] = Math.random());
   }
 
   const siblings = (source: LinkProperty, types: Array<LinkPropertyType>) => {
 
     return properties.filter((destination) => {
 
-      if (!types.includes(destination.type)) return false;
+      // TODO: any
+      if (!types.includes(destination.type as any)) return false;
 
       if (source === destination) return false;
 
@@ -277,7 +288,8 @@ export const createLink = (namespace: string) => {
 
       if (!property) console.error('TODO: Error log');
 
-      disconnect(property);
+      // TODO: any
+      disconnect(property as any);
     }
   }
 

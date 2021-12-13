@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, EventEmitter, Property, State, Watch, host } from '@htmlplus/compiler/client';
 import { createPopper, Instance } from '@popperjs/core';
 import * as Helpers from '@app/helpers';
 import { TooltipAnimation, TooltipPlacement, TooltipTrigger, TooltipArrow } from './tooltip.types';
@@ -124,7 +124,7 @@ export class Tooltip {
   $arrow!: HTMLElement;
 
   get $activator() {
-    return this.appendTo ?? Helpers.host(this).parentElement as HTMLElement;
+    return this.appendTo ?? host(this).parentElement as HTMLElement;
   }
 
   @Attributes()

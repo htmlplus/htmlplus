@@ -1,4 +1,4 @@
-import { Attributes, Component, Property } from '@htmlplus/compiler/client';
+import { Attributes, Component, Property, host } from '@htmlplus/compiler/client';
 // import * as Helpers from '@app/helpers';
 import { DividerSize, DividerType } from './divider.types';
 
@@ -53,11 +53,11 @@ export class Divider {
   // }
 
   // get hasBefore() {
-  //   return Helper.fromAxis(this.placement, Helpers.host(this)) !== 'start';
+  //   return Helper.fromAxis(this.placement, host(this)) !== 'start';
   // }
 
   // get hasAfter() {
-  //   return Helper.fromAxis(this.placement, Helpers.host(this)) !== 'end';
+  //   return Helper.fromAxis(this.placement, host(this)) !== 'end';
   // }
 
   get orientation() {

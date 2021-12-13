@@ -1,5 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch, host } from '@htmlplus/compiler/client';
 import { IntersectionBehavior } from './intersection.types';
 
 /**
@@ -93,7 +92,7 @@ export class Intersection {
 
     this.observer = new IntersectionObserver(this.onIntersecting, this.option);
 
-    this.observer.observe(Helpers.host(this));
+    this.observer.observe(host(this));
   }
 
   unbind() {

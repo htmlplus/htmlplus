@@ -1,4 +1,4 @@
-import { Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
+import { Bind, Component, Event, EventEmitter, Property, State, Watch, host } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { MenuAlignX, MenuAlignY, MenuGrowX, MenuGrowY } from './menu.types';
 
@@ -87,7 +87,7 @@ export class Menu {
   observer?: any;
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   get getGrowX() {

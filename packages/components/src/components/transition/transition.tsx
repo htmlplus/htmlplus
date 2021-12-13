@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, host } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { TransitionDirection, TransitionDuration, TransitionRepeat } from './transition.types';
 
@@ -98,7 +98,7 @@ export class Transition {
   }
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   @Attributes()

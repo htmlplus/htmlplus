@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Portal, Scrollbar, createLink } from '@app/services';
 import {
@@ -163,7 +163,7 @@ export class Dialog {
   tunnel?: boolean;
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   @Attributes()

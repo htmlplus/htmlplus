@@ -1,4 +1,4 @@
-import * as Helpers from '@app/helpers';
+import { host } from '@htmlplus/compiler/client';
 
 type LinkInstance = any;
 type LinkTarget = any;
@@ -255,7 +255,7 @@ export const createLink = (namespace: string) => {
       connected && connected.bind(this)();
 
       const property: LinkProperty = {
-        element: Helpers.host(this),
+        element: host(this),
         instance: this,
         name,
         type,

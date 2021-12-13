@@ -1,4 +1,4 @@
-import { Bind, Component, Property, State, Watch } from '@htmlplus/compiler/client';
+import { Bind, Component, Property, State, Watch, host } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import * as Constants from './breadcrumb.constants';
 
@@ -58,7 +58,7 @@ export class Breadcrumb {
   }
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   get attributes() {

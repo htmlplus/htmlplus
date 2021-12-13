@@ -1,4 +1,4 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
+import { Attributes, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { Animation, createLink } from '@app/services';
 import { ToastPlacement, ToastType } from './toast.types';
@@ -126,7 +126,7 @@ export class Toast {
   tunnel?: boolean;
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   @Attributes()

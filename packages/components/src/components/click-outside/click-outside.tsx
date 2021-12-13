@@ -1,5 +1,4 @@
-import { Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
-import * as Helpers from '@app/helpers';
+import { Bind, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
 import { ClickOutside as ClickOutsideCore } from '@app/services';
 
 /**
@@ -27,7 +26,7 @@ export class ClickOutside {
   plusClickOutside!: EventEmitter<void>;
 
   get $host() {
-    return Helpers.host(this);
+    return host(this);
   }
 
   /**

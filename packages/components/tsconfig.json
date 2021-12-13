@@ -10,7 +10,7 @@
         ],
         "moduleResolution": "node",
         "module": "ESNext",
-        "target": "ES6",
+        "target": "ES2016",
         "noUnusedLocals": true,
         "noUnusedParameters": false,
         "jsx": "preserve",

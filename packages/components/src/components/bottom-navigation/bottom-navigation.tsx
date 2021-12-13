@@ -1,5 +1,4 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
 import { Animation, createLink } from '@app/services';
 
 const { Action, Observable } = createLink('BottomNavigation');
@@ -113,8 +112,8 @@ export class BottomNavigation {
 
     this.animate = new Animation({
       key: 'state',
-      source: () => Helpers.host(this),
-      target: () => Helpers.host(this),
+      source: () => host(this),
+      target: () => host(this),
       // state: this.open ? 'entered' : 'leaved',
       states: {
         enter: 'open',

@@ -34,8 +34,8 @@ const options = {
   input: glob.sync('./src/**/*.tsx'),
   output: [
     {
-      format: 'es',
-      dir: 'dist/esm',
+      format: 'esm',
+      dir: 'dist',
       chunkFileNames: '[name].js',
       manualChunks(id) {
         
@@ -82,7 +82,11 @@ const options = {
 
     typescript(),
 
-    terser(),
+    terser({ 
+      format: {
+        comments: false
+      }
+    }),
   ],
 };
 

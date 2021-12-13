@@ -1,18 +1,16 @@
 {
   "name": "@htmlplus/compiler",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Masood Abdolian",
   "description": "Compiler of HTMLPlus",
   "type": "module",
   "exports": {
-    "." : {
-      "default": "./dist/index.js",
-      "client": "./dist/client/index.js",
-      "plugins": "./dist/plugins/index.js",
-      "server": "./dist/server/index.js",
-      "package.json": "./package.json"
-    }
+    ".": "./dist/index.js",
+    "./client": "./dist/client/index.js",
+    "./plugins": "./dist/plugins/index.js",
+    "./server": "./dist/server/index.js",
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {

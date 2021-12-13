@@ -4,6 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
+    "compiler:push": "git subtree push --prefix packages/compiler packages/compiler main",
     "core:push": "git subtree push --prefix packages/core packages/core main",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:push": "git subtree push --prefix packages/document packages/document main",

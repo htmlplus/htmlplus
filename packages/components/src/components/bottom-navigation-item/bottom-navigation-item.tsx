@@ -1,6 +1,5 @@
-import { Attributes, Bind, Component, Property, State } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, Property, State, createLink } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
-import { createLink } from '@app/services';
 
 const { Inject } = createLink('BottomNavigation');
 

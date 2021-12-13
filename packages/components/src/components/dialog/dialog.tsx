@@ -1,6 +1,6 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch, createLink, host, isRTL } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
-import { Animation, ClickOutside, Portal, Scrollbar, createLink } from '@app/services';
+import { Animation, ClickOutside, Portal, Scrollbar } from '@app/services';
 import {
   DialogFullscreen,
   DialogPlacement,
@@ -196,7 +196,7 @@ export class Dialog {
 
     y = y || 'center';
 
-    x = Helpers.toAxis(x, Helpers.isRTL(this));
+    x = Helpers.toAxis(x, isRTL(this));
 
     return Helpers.classes([
       'dialog',

@@ -1,4 +1,4 @@
-import { Attributes, Component, Property, host } from '@htmlplus/compiler/client';
+import { Attributes, Component, Property } from '@htmlplus/compiler/client';
 // import * as Helpers from '@app/helpers';
 import { DividerSize, DividerType } from './divider.types';
 
@@ -48,7 +48,7 @@ export class Divider {
   // get Classes() {
   //   return {
   //     'root': true,
-  //     [Helpers.direction(this)]: true,
+  //     [direction(this)]: true,
   //   }
   // }
 

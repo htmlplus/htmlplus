@@ -1,4 +1,6 @@
-import { host } from '@htmlplus/compiler/client';
+import { host } from './host.js';
+
+const links = new Map<string, any>();
 
 type LinkInstance = any;
 type LinkTarget = any;
@@ -15,8 +17,6 @@ type LinkProperty = {
 export type LinkConfig = {
   scope?: Function;
 }
-
-const links = new Map<string, any>();
 
 export const createLink = (namespace: string) => {
 

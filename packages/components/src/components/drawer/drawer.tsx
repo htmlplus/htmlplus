@@ -1,7 +1,7 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch, host } from '@htmlplus/compiler/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch, createLink, host, isRTL } from '@htmlplus/compiler/client';
 import { Media } from '@app/decorators';
 import * as Helpers from '@app/helpers';
-import { Animation, ClickOutside, Scrollbar, createLink } from '@app/services';
+import { Animation, ClickOutside, Scrollbar } from '@app/services';
 import { DrawerBackdrop, DrawerBreakpoint, DrawerPlacement, DrawerPlatform, DrawerTemporary } from './drawer.types';
 
 const { Action, Observable, reconnect } = createLink('Drawer');
@@ -146,7 +146,7 @@ export class Drawer {
 
   get classes() {
 
-    const placement = Helpers.toAxis(this.placement || 'start', Helpers.isRTL(this));
+    const placement = Helpers.toAxis(this.placement || 'start', isRTL(this));
 
     return Helpers.classes([
       'root',

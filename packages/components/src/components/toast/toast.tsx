@@ -1,6 +1,6 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
+import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink, direction, host, isRTL } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
-import { Animation, createLink } from '@app/services';
+import { Animation } from '@app/services';
 import { ToastPlacement, ToastType } from './toast.types';
 
 const { Action, Observable, reconnect } = createLink('Toast');
@@ -148,7 +148,7 @@ export class Toast {
       'full-width': this.fullWidth,
       [x]: !!x,
       [y]: !!y,
-      [Helpers.direction(this)]: true,
+      [direction(this)]: true,
     })
   }
 
@@ -159,10 +159,6 @@ export class Toast {
     const last = instances.length - 1;
 
     return instances[last] === this;
-  }
-
-  get isRTL() {
-    return Helpers.isRTL(this);
   }
 
   get zIndex() {
@@ -238,7 +234,7 @@ export class Toast {
 
     if (!y) y = 'top';
 
-    x = Helpers.toAxis(x, instance.isRTL);
+    x = Helpers.toAxis(x, isRTL(instance));
 
     if (instance.fullWidth) x = undefined;
 

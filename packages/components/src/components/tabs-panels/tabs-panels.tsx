@@ -1,5 +1,4 @@
-import { Attributes, Component, Property, Watch } from '@htmlplus/compiler/client';
-import { createLink } from '@app/services';
+import { Attributes, Component, Property, Watch, createLink } from '@htmlplus/compiler/client';
 
 const { Inject, reconnect } = createLink('Tabs');
 

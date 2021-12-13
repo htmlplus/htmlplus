@@ -1,5 +1,4 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
-import { createLink } from '@app/services';
+import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/compiler/client';
 
 const { Action, Observable, reconnect } = createLink('Tabs');
 

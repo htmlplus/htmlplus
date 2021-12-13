@@ -1,5 +1,5 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/compiler/client';
-import { Animation, createLink } from '@app/services';
+import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink, host } from '@htmlplus/compiler/client';
+import { Animation } from '@app/services';
 
 const { Action, Observable } = createLink('BottomNavigation');
 

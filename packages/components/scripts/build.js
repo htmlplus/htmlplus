@@ -38,6 +38,7 @@ const options = {
       dir: 'dist/esm',
       chunkFileNames: '[name].js',
       manualChunks(id) {
+        
         const name = path.basename(id, path.extname(id));
 
         if (id.includes('cropperjs')) return 'core.cropperjs';

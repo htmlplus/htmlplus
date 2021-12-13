@@ -41,6 +41,9 @@ export class Breadcrumb {
   @State()
   items?: Array<any>;
 
+  // TODO
+  config: any = {}
+
   observer?: MutationObserver;
 
   get $children() {

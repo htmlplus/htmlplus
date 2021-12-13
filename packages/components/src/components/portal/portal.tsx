@@ -1,4 +1,4 @@
-import { Component, Property, Watch } from '@htmlplus/compiler/dist/client';
+import { Component, Property, Watch } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { Portal as PortalCore, PortalStrategy, PortalTarget } from '@app/services';
 

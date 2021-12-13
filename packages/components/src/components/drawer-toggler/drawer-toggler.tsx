@@ -1,4 +1,4 @@
-import { Attributes, Component, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Attributes, Component, Property, State, Watch } from '@htmlplus/compiler/client';
 import { createLink } from '@app/services';
 
 const { Inject, reconnect } = createLink('Drawer');

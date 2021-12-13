@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { ScrollIndicatorSource } from './scroll-indicator.types';
 

@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Property } from '@htmlplus/compiler/dist/client';
+import { Component, Event, EventEmitter, Property } from '@htmlplus/compiler/client';
 
 /**
  * @development

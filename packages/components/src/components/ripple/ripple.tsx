@@ -1,4 +1,4 @@
-import { Component } from '@htmlplus/compiler/dist/client';
+import { Component } from '@htmlplus/compiler/client';
 
 /**
  * @development

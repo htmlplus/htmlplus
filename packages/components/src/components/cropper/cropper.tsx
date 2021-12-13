@@ -1,4 +1,4 @@
-import { Bind, Component, Event, EventEmitter, Method, Property, Watch } from '@htmlplus/compiler/dist/client';
+import { Bind, Component, Event, EventEmitter, Method, Property, Watch } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import CropperCore from 'cropperjs';
 import { CropperAspectRatio, CropperValue, CropperMode, CropperResizer, CropperResizerShape, CropperResponsive, CropperShape, CropperView, CropperZoomable, CropperZoomData } from './cropper.types';

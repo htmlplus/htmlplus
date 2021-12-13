@@ -1,4 +1,4 @@
-import { Attributes, Component, Bind, Event, EventEmitter, Method, Property, State } from '@htmlplus/compiler/dist/client';
+import { Attributes, Component, Bind, Event, EventEmitter, Method, Property, State } from '@htmlplus/compiler/client';
 import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**

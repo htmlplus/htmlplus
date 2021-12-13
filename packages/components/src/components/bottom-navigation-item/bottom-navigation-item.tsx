@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Property, State } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, Property, State } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { createLink } from '@app/services';
 

@@ -1,4 +1,4 @@
-import { Bind, Component, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Bind, Component, Property, State, Watch } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import * as Constants from './breadcrumb.constants';
 

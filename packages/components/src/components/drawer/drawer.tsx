@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
 import { Media } from '@app/decorators';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Scrollbar, createLink } from '@app/services';

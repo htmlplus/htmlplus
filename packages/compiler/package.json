@@ -5,10 +5,24 @@
   "author": "Masood Abdolian",
   "description": "Compiler of HTMLPlus",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client/index.js",
+    "./plugins": "./dist/plugins/index.js",
+    "./server": "./dist/server/index.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "client": ["./dist/client/index.d.ts"],
+      "plugins": ["./dist/plugins/index.d.ts"],
+      "server": ["./dist/server/index.d.ts"]
+    }
+  },
   "files": [
-    "dist"
+    "/build",
+    "/package.json", 
+    "/README.md"
   ],
   "keywords": [],
   "repository": {

@@ -1,4 +1,4 @@
-import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
+import { Attributes, Component, Property } from '@htmlplus/compiler/client';
 
 /**
  * TODO: Arranges tabs within a bar.

@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { TransitionDirection, TransitionDuration, TransitionRepeat } from './transition.types';
 

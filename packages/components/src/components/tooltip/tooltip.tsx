@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
 import { createPopper, Instance } from '@popperjs/core';
 import * as Helpers from '@app/helpers';
 import { TooltipAnimation, TooltipPlacement, TooltipTrigger, TooltipArrow } from './tooltip.types';

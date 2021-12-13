@@ -1,4 +1,4 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/dist/client';
+import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/compiler/client';
 import * as Helpers from '@app/helpers';
 import { StickyState, StickyTop } from './sticky.types';
 

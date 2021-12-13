@@ -1,4 +1,4 @@
-import { Component, Property } from '@htmlplus/compiler/dist/client';
+import { Component, Property } from '@htmlplus/compiler/client';
 import { CardElevation } from './card.types';
 
 /**

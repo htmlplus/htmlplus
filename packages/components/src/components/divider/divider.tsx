@@ -1,4 +1,4 @@
-import { Attributes, Component, Property } from '@htmlplus/compiler/dist/client';
+import { Attributes, Component, Property } from '@htmlplus/compiler/client';
 // import * as Helpers from '@app/helpers';
 import { DividerSize, DividerType } from './divider.types';
 

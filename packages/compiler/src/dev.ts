@@ -1,8 +1,8 @@
 import * as esbuild from 'esbuild';
-import { compiler } from './compiler.js'
+import { createCompiler } from './compiler.js'
 import * as plugins from './plugins/index.js'
 
-const { start, next, finish } = compiler(
+const { start, next, finish } = createCompiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),
@@ -39,9 +39,9 @@ const { start, next, finish } = compiler(
     bundle: true
   })
 
-  console.log(result.outputFiles[0].text)
+  // console.log(result.outputFiles[0].text)
 
-  console.log(script)
+  // console.log(script)  
 
   await finish()
 })()

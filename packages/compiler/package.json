@@ -35,6 +35,7 @@
     "@types/node": "^16.11.11",
     "change-case": "^4.1.2",
     "esbuild": "^0.14.1",
+    "log-update": "^5.0.0",
     "sass": "^1.43.4",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2",

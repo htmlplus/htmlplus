@@ -7,7 +7,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import * as plugins from '@htmlplus/compiler';
 
-const { start, next, finish } = plugins.compiler(
+const { start, next, finish } = plugins.createCompiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),

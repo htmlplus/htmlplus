@@ -1,14 +1,12 @@
+import logUpdate from 'log-update';
 import * as path from 'path';
 import { Context, Plugin } from './types/index.js';
 
-const log = (namespace?: string, message?: string) => {
-  if (namespace)
-    console.log(`[${new Date().toLocaleTimeString()}] [${namespace}] ${message}`);
-  else
-    console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
+const log = (namespace: string, message?: string) => {
+  logUpdate(`${new Date().toLocaleTimeString()} [${namespace}] ${message}`);
 }
 
-export const compiler = (...plugins: Array<Plugin>) => {
+export const createCompiler = (...plugins: Array<Plugin>) => {
 
   const global = {
     contexts: {}
@@ -16,7 +14,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
 
   const start = async () => {
 
-    log(undefined, 'Starting.');
+    console.log(`${new Date().toLocaleTimeString()} Starting.`);
 
     for (const plugin of plugins) {
 
@@ -71,7 +69,7 @@ export const compiler = (...plugins: Array<Plugin>) => {
       log(plugin.name, 'Finished successfully.');
     }
 
-    log(undefined, 'Finished.');
+    console.log(`${new Date().toLocaleTimeString()} Finished.`);
   }
 
   return {

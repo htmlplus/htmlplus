@@ -9,20 +9,32 @@
     ".": "./dist/index.js",
     "./client": "./dist/client/index.js",
     "./plugins": "./dist/plugins/index.js",
+    "./utils": "./dist/plugins/uhtml/utils.js",
     "./server": "./dist/server/index.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
-      "*": ["./dist/index.d.ts"],
-      "client": ["./dist/client/index.d.ts"],
-      "plugins": ["./dist/plugins/index.d.ts"],
-      "server": ["./dist/server/index.d.ts"]
+      "*": [
+        "./dist/index.d.ts"
+      ],
+      "client": [
+        "./dist/client/index.d.ts"
+      ],
+      "plugins": [
+        "./dist/plugins/index.d.ts"
+      ],
+      "utils": [
+        "./dist/plugins/uhtml/utils.d.ts"
+      ],
+      "server": [
+        "./dist/server/index.d.ts"
+      ]
     }
   },
   "files": [
     "dist",
-    "package.json", 
+    "package.json",
     "README.md"
   ],
   "keywords": [],
@@ -38,18 +50,15 @@
     "build": "npm run clean && tsc",
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
-    "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/dev\"",
-    "start:new": "nodemon --watch src --exec node --experimental-specifier-resolution=node --loader ts-node/esm src/dev.ts"
+    "start": "concurrently \"npm run build:watch\" \"nodemon --experimental-specifier-resolution=node dist/dev\""
   },
   "dependencies": {
     "@babel/generator": "^7.16.0",
     "@babel/parser": "^7.16.4",
     "@babel/traverse": "^7.16.3",
     "@babel/types": "^7.16.0",
-    "@types/fs-extra": "^9.0.13",
     "@types/node": "^16.11.11",
     "change-case": "^4.1.2",
-    "esbuild": "^0.14.1",
     "log-update": "^5.0.0",
     "sass": "^1.43.4",
     "ts-node": "^10.4.0",
@@ -57,11 +66,9 @@
     "uhtml": "^2.7.6"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "concurrently": "^6.4.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.0",
-    "prettier-plugin-packagejson": "^2.2.15",
     "rimraf": "^3.0.2"
   }
 }

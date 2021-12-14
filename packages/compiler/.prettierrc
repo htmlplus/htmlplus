@@ -1,14 +1,5 @@
 {
   "quoteProps": "consistent",
   "semi": false,
-  "singleQuote": true,
-  "importOrder": [
-    "^@babel/(.*)$",
-    "<THIRD_PARTY_MODULES>",
-    "^@app/(.*)$",
-    "^[./]"
-  ],
-  "importOrderCaseInsensitive": true,
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "singleQuote": true
 }

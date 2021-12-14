@@ -33,7 +33,7 @@ const { start, next, finish } = createCompiler(
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync('./src/**/*.tsx'),
+  input: glob.sync('./src/**/aspect-ratio.tsx'),
   output: [
     {
       format: 'esm',
@@ -68,6 +68,7 @@ const options = {
         if (!id.endsWith('.tsx')) return null;
 
         const { script } = await next(id);
+        console.log(1111,script)
 
         return script;
       },

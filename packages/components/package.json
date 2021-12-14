@@ -18,7 +18,7 @@
     "test:run": "cypress run"
   },
   "devDependencies": {
-    "@htmlplus/compiler": "0.0.8",
+    "@htmlplus/compiler": "latest",
     "@popperjs/core": "^2.10.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",

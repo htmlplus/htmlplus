@@ -22,9 +22,12 @@ const { start, next, finish } = createCompiler(
     members: true,
     styles: true,
   }),
+  plugins.type({
+    prefix: 'plus'
+  }),
   plugins.uhtml(),
   plugins.print(),
-  plugins.esbuild()
+  plugins.typescript()
 );
 
 /**

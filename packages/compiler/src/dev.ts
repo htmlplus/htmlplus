@@ -18,7 +18,7 @@ const { start, next, finish } = createCompiler(
   }),
   plugins.uhtml(),
   plugins.print(),
-  plugins.esbuild()
+  plugins.typescript()
 );
 
 (async () => {

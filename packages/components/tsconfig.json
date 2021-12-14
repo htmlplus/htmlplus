@@ -2,7 +2,8 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "allowUnreachableCode": false,
-        "declaration": false,
+        "declaration": true,
+        "outDir": "dist",
         "experimentalDecorators": true,
         "lib": [
             "dom",

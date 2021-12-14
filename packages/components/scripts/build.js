@@ -2,11 +2,11 @@ import { createCompiler } from '@htmlplus/compiler';
 import * as plugins from '@htmlplus/compiler/plugins';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
 import glob from 'glob';
 import path from 'path';
 import { rollup } from 'rollup';
 import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 
 const { start, next, finish } = createCompiler(
   plugins.read(),
@@ -27,7 +27,6 @@ const { start, next, finish } = createCompiler(
   }),
   plugins.uhtml(),
   plugins.print(),
-  plugins.typescript()
 );
 
 /**

@@ -1,6 +1,6 @@
 import { Component, Property } from '@htmlplus/compiler/client';
 import { AspectRatioValue } from './aspect-ratio.types';
-
+import { define, html, proxy } from "@htmlplus/compiler/utils";
 /**
  * @slot default - The default slot.
  */

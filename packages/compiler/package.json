@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/compiler",
-  "version": "0.1.0",
+  "version": "0.0.10",
   "license": "MIT",
   "author": "Masood Abdolian",
   "description": "Compiler of HTMLPlus",
@@ -20,11 +20,6 @@
       "server": ["./dist/server/index.d.ts"]
     }
   },
-  "files": [
-    "dist",
-    "package.json", 
-    "README.md"
-  ],
   "keywords": [],
   "repository": {
     "type": "git",

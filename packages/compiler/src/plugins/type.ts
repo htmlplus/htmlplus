@@ -31,7 +31,7 @@ export const type = (options: TypeOptions) => {
                                         null,
                                         [],
                                         t.tsInterfaceBody([
-                                            ...context.properties.slice(0, 1).map((property) => Object.assign(
+                                            ...context.properties.map((property) => Object.assign(
                                                 t.tSPropertySignature(
                                                     property.key,
                                                     property.typeAnnotation as TSTypeAnnotation
@@ -79,7 +79,7 @@ export const type = (options: TypeOptions) => {
                                         null,
                                         [],
                                         t.tsInterfaceBody([
-                                            ...context.properties.slice(0, 1).map((property) => Object.assign(
+                                            ...context.properties.map((property) => Object.assign(
                                                 t.tSPropertySignature(
                                                     property.key,
                                                     property.typeAnnotation as TSTypeAnnotation

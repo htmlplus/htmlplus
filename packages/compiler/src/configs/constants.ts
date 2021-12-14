@@ -26,6 +26,6 @@ export const TOKEN_STATIC_MEMBERS = 'members';
 export const TOKEN_STATIC_STYLES = 'styles';
 
 // types
-export const TYPE_BOOLEAN = 'boolean';
-export const TYPE_FUNCTION = 'method';
-export const TYPE_NUMBER = 'number';
+export const TYPE_BOOLEAN = Boolean;
+export const TYPE_FUNCTION = Function;
+export const TYPE_NUMBER = Number;

@@ -19,7 +19,7 @@ export interface Context {
     render?: ClassMethod;
     script?: string;
     states: Array<ClassProperty>;
-    // style?: string;
+    style?: string;
     styleDependencies?: Array<string>;
     styleParsed?: string;
     stylePath?: string;

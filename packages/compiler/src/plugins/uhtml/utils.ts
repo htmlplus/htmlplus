@@ -1,4 +1,4 @@
-import { html, render } from 'uhtml';
+import { html as htmlBase, render as renderBase } from 'uhtml';
 import * as CONSTANTS from '../../configs/constants.js';
 import { isServer } from '../../utils/is-server.js';
 import { sync } from '../../utils/sync.js';
@@ -6,7 +6,7 @@ import { toBoolean } from '../../utils/to-boolean.js';
 import { updateAttribute } from '../../utils/update-attribute.js';
 
 // TODO
-export { html, render } from 'uhtml';
+export { htmlBase as html, renderBase as render };
 
 // TODO: input type
 export const define = (name: string, Class: any) => {
@@ -133,13 +133,13 @@ export const proxy = (Class: any) => {
 
       if (!fn) return;
 
-      render(
+      renderBase(
         this.shadowRoot as any,
         () => {
 
           if (!styles) return fn.apply(instance);
 
-          return html`<style>${styles}</style>${fn.apply(instance)}`;
+          return htmlBase`<style>${styles}</style>${fn.apply(instance)}`;
         }
       )
     }

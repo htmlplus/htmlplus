@@ -64,22 +64,20 @@ export class Divider {
     return this.vertical ? 'vertical' : 'horizontal';
   }
 
-  render() {
-    return (
-      <>
-        {/* TODO */}
-        {/* <div class={this.classes}>
-          {this.hasBefore && (
-            <div class="before" />
-          )}
-          <div class="content">
-            <slot />
-          </div>
-          {this.hasAfter && (
-            <div class="after" />
-          )}
-        </div> */}
-      </>
-    )
-  }
+  // render() {
+  //   return (
+  //       {/* TODO */}
+  //       {/* <div class={this.classes}>
+  //         {this.hasBefore && (
+  //           <div class="before" />
+  //         )}
+  //         <div class="content">
+  //           <slot />
+  //         </div>
+  //         {this.hasAfter && (
+  //           <div class="after" />
+  //         )}
+  //       </div> */}
+  //   )
+  // }
 }

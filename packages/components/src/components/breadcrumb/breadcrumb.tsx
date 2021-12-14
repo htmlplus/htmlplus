@@ -129,7 +129,7 @@ export class Breadcrumb {
       }
 
       return { start, length };
-    })();
+    })() as any; // TODO
 
     $children.forEach(($child, index) => {
 
@@ -217,62 +217,63 @@ export class Breadcrumb {
   }
 
   render() {
-    return (
-      <div class="container">
-        {(this.items || []).map((item) => {
-          switch (item.type) {
-            case 'item': {
-              return (
-                <div
-                  key={item.key}
-                  part="item"
-                >
-                  <slot name={item.slot} />
-                </div>
-              )
-            }
-            case 'expander': {
-              return (
-                <div
-                  aria-disabled="false"
-                  aria-label={this.expanderText}
-                  class="expander"
-                  key={item.key}
-                  part="expander"
-                  role="button"
-                  tabindex="0"
-                  onClick={() => this.update(true)}
-                  onKeyDown={(event) =>
-                    event.key.match(/Enter| /) && this.update(true)
-                  }
-                >
-                  <slot name="expander">
-                    <svg
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-                    </svg>
-                  </slot>
-                </div>
-              )
-            }
-            case 'separator': {
-              return (
-                <div
-                  key={item.key}
-                  aria-hidden="true"
-                  class="separator"
-                  part="separator"
-                >
-                  {this.template}
-                </div>
-              )
-            }
-          }
-        })}
-      </div>
-    )
+    // TODO
+    // return (
+    //   <div class="container">
+    //     {this.items?.map((item) => {
+    //       switch (item.type) {
+    //         case 'item': {
+    //           return (
+    //             <div
+    //               key={item.key}
+    //               part="item"
+    //             >
+    //               <slot name={item.slot} />
+    //             </div>
+    //           )
+    //         }
+    //         case 'expander': {
+    //           return (
+    //             <div
+    //               aria-disabled="false"
+    //               aria-label={this.expanderText}
+    //               class="expander"
+    //               key={item.key}
+    //               part="expander"
+    //               role="button"
+    //               tabindex="0"
+    //               onClick={() => this.update(true)}
+    //               onKeyDown={(event) =>
+    //                 event.key.match(/Enter| /) && this.update(true)
+    //               }
+    //             >
+    //               <slot name="expander">
+    //                 <svg
+    //                   focusable="false"
+    //                   viewBox="0 0 24 24"
+    //                   aria-hidden="true"
+    //                 >
+    //                   <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+    //                 </svg>
+    //               </slot>
+    //             </div>
+    //           )
+    //         }
+    //         case 'separator': {
+    //           return (
+    //             <div
+    //               key={item.key}
+    //               aria-hidden="true"
+    //               class="separator"
+    //               part="separator"
+    //             >
+    //               {this.template}
+    //             </div>
+    //           )
+    //         }
+    //       }
+    //     })}
+    //   </div>
+    // )
   }
 }

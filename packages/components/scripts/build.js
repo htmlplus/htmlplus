@@ -94,15 +94,22 @@ const options = {
 
 const build = async () => {
   
-  const time = Date.now();
+  try {
 
-  const bundle = await rollup(options);
+    const time = Date.now();
 
-  for (const output of options.output) await bundle.write(output);
+    const bundle = await rollup(options);
 
-  await bundle.close();
+    for (const output of options.output) 
+      await bundle.write(output);
 
-  console.log(`Build in ${Date.now() - time}ms`);
+    await bundle.close();
+
+    console.log(`Build in ${Date.now() - time}ms`);
+  }
+  catch (error) {
+    console.log(error);
+  }
 };
 
 build();

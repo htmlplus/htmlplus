@@ -7,7 +7,5 @@ export * from './print.js';
 export * from './read.js';
 export * from './scss.js';
 export * from './type.js';
-export * from './types.js';
-export * from './typescript.js';
 export * from './validate.js';
 export * from './vscode.js';

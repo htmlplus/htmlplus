@@ -1,9 +1,15 @@
 {
   "name": "@htmlplus/components",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
-    "./*": "./dist/*.js"
+    "./aspect-ratio": "./dist/aspect-ratio.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "aspect-ratio": ["./dist/components/aspect-ratio/aspect-ratio.d.ts"]
+    }
   },
   "files": [
     "dist",

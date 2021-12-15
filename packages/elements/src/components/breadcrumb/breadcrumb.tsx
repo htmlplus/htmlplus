@@ -1,5 +1,5 @@
-import { Bind, Component, Property, State, Watch, host } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Bind, Element, Property, State, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
 import * as Constants from './breadcrumb.constants';
 
 /**
@@ -10,7 +10,7 @@ import * as Constants from './breadcrumb.constants';
  * @slot expander  - The expander slot.
  * @slot separator - The separator slot.
  */
-@Component()
+@Element()
 export class Breadcrumb {
 
   /**
@@ -57,10 +57,6 @@ export class Breadcrumb {
     return Helpers.children(this).filter(($node) => !$node.matches(selectors));
   }
 
-  get $host() {
-    return host(this);
-  }
-
   get attributes() {
     return {
       'aria-label': 'breadcrumb'
@@ -69,7 +65,7 @@ export class Breadcrumb {
 
   get template() {
 
-    const $node = this.$host.querySelector(Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY);
+    const $node = Helpers.query(this, Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY);
 
     const $clone = $node?.cloneNode(true) as HTMLElement;
 
@@ -88,7 +84,7 @@ export class Breadcrumb {
 
     this.observer = new MutationObserver(this.onChange);
 
-    this.observer.observe(this.$host, { childList: true });
+    this.observer.observe(Helpers.host(this), { childList: true });
   }
 
   unbind() {

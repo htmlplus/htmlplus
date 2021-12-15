@@ -1,10 +1,10 @@
-import { Component } from '@htmlplus/element/client';
+import { Element } from '@htmlplus/element/decorators';
 
 /**
  * @development
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class CardBody {
   render() {
     return (

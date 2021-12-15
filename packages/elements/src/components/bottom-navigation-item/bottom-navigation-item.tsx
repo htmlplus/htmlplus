@@ -1,5 +1,6 @@
-import { Attributes, Bind, Component, Property, State, createLink } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Bind, Element, Property, State } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
+import { createLink } from '@htmlplus/element/services';
 
 const { Inject } = createLink('BottomNavigation');
 
@@ -8,7 +9,7 @@ const { Inject } = createLink('BottomNavigation');
  * @group bottom-navigation
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class BottomNavigationItem {
 
   /**

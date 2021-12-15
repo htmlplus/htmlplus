@@ -1,4 +1,6 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink, host } from '@htmlplus/element/client';
+import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
+import { createLink } from '@htmlplus/element/services';
 import { Animation } from '@app/services';
 
 const { Action, Observable } = createLink('BottomNavigation');
@@ -8,7 +10,7 @@ const { Action, Observable } = createLink('BottomNavigation');
  * @group bottom-navigation
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class BottomNavigation {
 
   /**
@@ -112,8 +114,8 @@ export class BottomNavigation {
 
     this.animate = new Animation({
       key: 'state',
-      source: () => host(this),
-      target: () => host(this),
+      source: () => Helpers.host(this),
+      target: () => Helpers.host(this),
       // state: this.open ? 'entered' : 'leaved',
       states: {
         enter: 'open',

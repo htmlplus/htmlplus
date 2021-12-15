@@ -1,10 +1,11 @@
-import { Bind, Component, Event, EventEmitter, Property, Watch, host } from '@htmlplus/element/client';
+import { Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
 import { ClickOutside as ClickOutsideCore } from '@app/services';
 
 /**
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class ClickOutside {
 
   /**
@@ -26,7 +27,7 @@ export class ClickOutside {
   plusClickOutside!: EventEmitter<void>;
 
   get $host() {
-    return host(this);
+    return Helpers.host(this);
   }
 
   /**

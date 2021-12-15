@@ -1,10 +1,10 @@
-import { Component, Property } from '@htmlplus/element/client';
+import { Element, Property } from '@htmlplus/element/decorators';
 import { CardElevation } from './card.types';
 
 /**
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Card {
 
   /**

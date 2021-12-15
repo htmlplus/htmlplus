@@ -1,11 +1,11 @@
-import { Attributes, Component, Bind, Event, EventEmitter, Method, Property, State } from '@htmlplus/element/client';
+import { Attributes, Bind, Element, Event, EventEmitter, Method, Property, State } from '@htmlplus/element/decorators';
 import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**
  * @slot default - The default slot.
  * @examples default
  */
-@Component()
+@Element()
 export class Browse {
 
   /**

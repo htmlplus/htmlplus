@@ -1,5 +1,6 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch, createLink, host, isRTL } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
+import { createLink } from '@htmlplus/element/services';
 import { Animation, ClickOutside, Portal, Scrollbar } from '@app/services';
 import {
   DialogFullscreen,
@@ -15,7 +16,7 @@ const { Action, Observable, reconnect } = createLink('Dialog');
  * @part backdrop - Backdrop element.
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Dialog {
 
   /**
@@ -163,7 +164,7 @@ export class Dialog {
   tunnel?: boolean;
 
   get $host() {
-    return host(this);
+    return Helpers.host(this);
   }
 
   @Attributes()
@@ -196,7 +197,7 @@ export class Dialog {
 
     y = y || 'center';
 
-    x = Helpers.toAxis(x, isRTL(this));
+    x = Helpers.toAxis(x, Helpers.isRTL(this));
 
     return Helpers.classes([
       'dialog',

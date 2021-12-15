@@ -1,3 +1,3 @@
-import { host } from '@htmlplus/element/client';
+import { host } from './host.js';
 
 export const children = (target) => Array.from(host(target).children);

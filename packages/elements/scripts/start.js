@@ -1,5 +1,4 @@
-import { createCompiler } from '@htmlplus/element';
-import * as plugins from '@htmlplus/element/plugins';
+import { createCompiler, plugins } from '@htmlplus/element';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';

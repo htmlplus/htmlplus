@@ -1,4 +1,4 @@
-import { Component, Property } from '@htmlplus/element/client';
+import { Element, Property } from '@htmlplus/element/decorators';
 // import { } from './template.types';
 
 /**
@@ -7,7 +7,7 @@ import { Component, Property } from '@htmlplus/element/client';
  * @slot default - The default slot.
  * @examples default
  */
-@Component()
+@Element()
 export class Template {
 
   /**

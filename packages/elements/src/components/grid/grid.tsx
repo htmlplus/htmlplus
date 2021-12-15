@@ -1,10 +1,10 @@
-import { Component, Property } from '@htmlplus/element/client';
+import { Element, Property } from '@htmlplus/element/decorators';
 import { GridAlignContent, GridAlignItems, GridGutter, GridJustifyContent, GridWrap } from './grid.types';
 
 /**
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Grid {
 
   /**

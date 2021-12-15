@@ -1,5 +1,6 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink, direction, host, isRTL } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
+import { createLink } from '@htmlplus/element/services';
 import { Animation } from '@app/services';
 import { ToastPlacement, ToastType } from './toast.types';
 
@@ -9,7 +10,7 @@ const { Action, Observable, reconnect } = createLink('Toast');
  * @development
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Toast {
 
   /**
@@ -126,7 +127,7 @@ export class Toast {
   tunnel?: boolean;
 
   get $host() {
-    return host(this);
+    return Helpers.host(this);
   }
 
   @Attributes()
@@ -148,7 +149,7 @@ export class Toast {
       'full-width': this.fullWidth,
       [x]: !!x,
       [y]: !!y,
-      [direction(this)]: true,
+      [Helpers.direction(this)]: true,
     })
   }
 
@@ -234,7 +235,7 @@ export class Toast {
 
     if (!y) y = 'top';
 
-    x = Helpers.toAxis(x, isRTL(instance));
+    x = Helpers.toAxis(x, Helpers.isRTL(instance));
 
     if (instance.fullWidth) x = undefined;
 

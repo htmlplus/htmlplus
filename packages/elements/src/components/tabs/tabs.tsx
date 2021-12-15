@@ -1,4 +1,5 @@
-import { Attributes, Component, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element/client';
+import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import { createLink } from '@htmlplus/element/services';
 
 const { Action, Observable, reconnect } = createLink('Tabs');
 
@@ -6,7 +7,7 @@ const { Action, Observable, reconnect } = createLink('Tabs');
  * @development
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Tabs {
 
   /**

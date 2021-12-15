@@ -2,13 +2,7 @@ import { Attributes, Bind, Element, Event, EventEmitter, Property, Watch } from 
 import * as Helpers from '@htmlplus/element/helpers';
 import { createLink } from '@htmlplus/element/services';
 import { Animation, ClickOutside, Portal, Scrollbar } from '@app/services';
-import {
-  DialogFullscreen,
-  DialogPlacement,
-  DialogPortalStrategy,
-  DialogPortalTarget,
-  DialogSize
-} from './dialog.types';
+import { DialogFullscreen, DialogPlacement, DialogPortalStrategy, DialogPortalTarget, DialogSize } from './dialog.types';
 
 const { Action, Observable, reconnect } = createLink('Dialog');
 

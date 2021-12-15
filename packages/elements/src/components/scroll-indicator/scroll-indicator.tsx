@@ -1,11 +1,11 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, Watch } from '@htmlplus/element/client';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
 import * as Helpers from '@app/helpers';
 import { ScrollIndicatorSource } from './scroll-indicator.types';
 
 /**
  * @part indicator - Indicator element.
  */
-@Component()
+@Element()
 export class ScrollIndicator {
 
   /**

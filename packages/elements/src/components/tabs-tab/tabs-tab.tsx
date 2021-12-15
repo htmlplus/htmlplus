@@ -1,4 +1,5 @@
-import { Attributes, Component, Property, State, createLink } from '@htmlplus/element/client';
+import { Attributes, Element, Property, State } from '@htmlplus/element/decorators';
+import { createLink } from '@htmlplus/element/services';
 
 const { Inject } = createLink('Tabs');
 
@@ -6,7 +7,7 @@ const { Inject } = createLink('Tabs');
  * TODO: Tabs make it easy to switch between different views.
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class TabsTab {
 
   /**

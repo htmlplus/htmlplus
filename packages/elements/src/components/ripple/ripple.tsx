@@ -1,9 +1,9 @@
-import { Component } from '@htmlplus/element/client';
+import { Element } from '@htmlplus/element/decorators';
 
 /**
  * @development
  */
-@Component()
+@Element()
 export class Ripple {
   render() {
     return (

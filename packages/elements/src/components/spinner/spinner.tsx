@@ -1,9 +1,9 @@
-import { Attributes, Component, Property } from '@htmlplus/element/client';
+import { Attributes, Element, Property } from '@htmlplus/element/decorators';
 import { SpinnerSize, SpinnerType } from './spinner.types';
 
 /**
  */
-@Component()
+@Element()
 export class Spinner {
 
   /**

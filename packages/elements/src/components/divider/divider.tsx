@@ -1,10 +1,9 @@
-import { Attributes, Component, Property } from '@htmlplus/element/client';
-// import * as Helpers from '@app/helpers';
+import { Attributes, Element, Property } from '@htmlplus/element/decorators';
 import { DividerSize, DividerType } from './divider.types';
 
 /**
  */
-@Component()
+@Element()
 export class Divider {
 
   /**

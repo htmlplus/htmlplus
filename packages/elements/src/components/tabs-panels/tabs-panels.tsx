@@ -1,4 +1,5 @@
-import { Attributes, Component, Property, Watch, createLink } from '@htmlplus/element/client';
+import { Attributes, Element, Property, Watch } from '@htmlplus/element/decorators';
+import { createLink } from '@htmlplus/element/services';
 
 const { Inject, reconnect } = createLink('Tabs');
 
@@ -6,7 +7,7 @@ const { Inject, reconnect } = createLink('Tabs');
  * TODO: This component contains panels.
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class TabsPanels {
 
   /**

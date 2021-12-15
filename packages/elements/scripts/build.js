@@ -21,7 +21,7 @@ const { start, next, finish } = createCompiler(
     members: true,
     styles: true,
   }),
-  plugins.type({
+  plugins.typing({
     prefix: 'plus'
   }),
   plugins.uhtml(),
@@ -32,7 +32,7 @@ const { start, next, finish } = createCompiler(
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync('./src/**/*.tsx'),
+  input: glob.sync('./src/**/browse.tsx'),
   output: [
     {
       format: 'esm',

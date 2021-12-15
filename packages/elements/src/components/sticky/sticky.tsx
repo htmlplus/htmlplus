@@ -1,5 +1,5 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
 import { StickyState, StickyTop } from './sticky.types';
 
 /**
@@ -7,7 +7,7 @@ import { StickyState, StickyTop } from './sticky.types';
  * @slot normal  - The normal slot.
  * @slot sticky  - The sticky slot.
  */
-@Component()
+@Element()
 export class Sticky {
 
   /**

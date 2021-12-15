@@ -1,10 +1,10 @@
-import { Attributes, Component, Property } from '@htmlplus/element/client';
+import { Attributes, Element, Property } from '@htmlplus/element/decorators';
 
 /**
  * TODO: Arranges tabs within a bar.
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class TabsBar {
 
   /**

@@ -1,10 +1,10 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, host } from '@htmlplus/element/client';
-import * as Helpers from '@app/helpers';
+import { Attributes, Bind, Element, Event, EventEmitter, Property } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
 import { TransitionDirection, TransitionDuration, TransitionRepeat } from './transition.types';
 
 /**
  */
-@Component()
+@Element()
 export class Transition {
 
   /**
@@ -98,7 +98,7 @@ export class Transition {
   }
 
   get $host() {
-    return host(this);
+    return Helpers.host(this);
   }
 
   @Attributes()

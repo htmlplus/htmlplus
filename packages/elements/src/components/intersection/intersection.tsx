@@ -1,10 +1,11 @@
-import { Attributes, Bind, Component, Event, EventEmitter, Property, State, Watch, host } from '@htmlplus/element/client';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@htmlplus/element/helpers';
 import { IntersectionBehavior } from './intersection.types';
 
 /**
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class Intersection {
 
   /**
@@ -92,7 +93,7 @@ export class Intersection {
 
     this.observer = new IntersectionObserver(this.onIntersecting, this.option);
 
-    this.observer.observe(host(this));
+    this.observer.observe(Helpers.host(this));
   }
 
   unbind() {

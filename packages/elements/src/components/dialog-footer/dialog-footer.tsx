@@ -1,9 +1,9 @@
-import { Component } from '@htmlplus/element/client';
+import { Element } from '@htmlplus/element/decorators';
 
 /**
  * @slot default - The default slot.
  */
-@Component()
+@Element()
 export class DialogFooter {
   render() {
     return (

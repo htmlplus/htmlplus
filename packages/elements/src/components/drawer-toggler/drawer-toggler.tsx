@@ -1,4 +1,5 @@
-import { Attributes, Component, Property, State, Watch, createLink } from '@htmlplus/element/client';
+import { Attributes, Element, Property, State, Watch } from '@htmlplus/element/decorators';
+import { createLink } from '@htmlplus/element/services';
 
 const { Inject, reconnect } = createLink('Drawer');
 
@@ -7,7 +8,7 @@ const { Inject, reconnect } = createLink('Drawer');
  * @TODO open    - Specifies the content of toggler when it's opened.
  * @TODO close   - Specifies the content of toggler when it's closed.
  */
-@Component()
+@Element()
 export class DrawerToggler {
 
   /**

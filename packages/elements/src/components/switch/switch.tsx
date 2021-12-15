@@ -1,9 +1,9 @@
-import { Component, Event, EventEmitter, Property } from '@htmlplus/element/client';
+import { Element, Event, EventEmitter, Property } from '@htmlplus/element/decorators';
 
 /**
  * @development
  */
-@Component()
+@Element()
 export class Switch {
 
   /**

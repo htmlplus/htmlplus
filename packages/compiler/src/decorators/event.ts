@@ -6,7 +6,7 @@ export interface EventOptions {
     /**
      * A string custom event name to override the default.
      */
-    eventName?: string;
+    name?: string;
     /**
      * A Boolean indicating whether the event bubbles up through the DOM or not.
      */
@@ -25,22 +25,27 @@ export function Event<T = any>(options: EventOptions = {}) {
 
     return function (target: Object, propertyKey: PropertyKey) {
 
+        const config = options;
+
         const descriptor = {
             get() {
-                return (data: T): CustomEvent<T> => {
+                return (data?: T, options?: EventOptions): CustomEvent<T> => {
 
-                    const eventName = options.eventName || String(propertyKey);
+                    options = Object.assign({}, config, options);
 
-                    delete options.eventName;
+                    const name = options.name || String(propertyKey);
+
+                    delete options.name;
 
                     const event = new CustomEvent(
-                        eventName,
+                        name,
                         {
                             ...options,
                             detail: data
                         }
                     )
 
+                    // TODO: add global hook
                     Helpers.host(this).dispatchEvent(event);
 
                     return event;

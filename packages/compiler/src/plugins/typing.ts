@@ -4,13 +4,13 @@ import { pascalCase } from 'change-case';
 import { Context } from '../types/index.js';
 import { visitor } from '../utils/index.js';
 
-export interface TypeOptions {
+export interface TypingOptions {
     prefix?: string;
 }
 
-export const type = (options: TypeOptions) => {
+export const typing = (options: TypingOptions) => {
 
-    const name = 'type';
+    const name = 'typing';
 
     const next = (context: Context) => {
 

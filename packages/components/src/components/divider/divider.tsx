@@ -41,7 +41,7 @@ export class Divider {
   get attributes() {
     return {
       'role': 'separator',
-      'aria-orientation': this.orientation,
+      'aria-orientation': this.vertical ? 'vertical' : 'horizontal',
     }
   }
 
@@ -59,10 +59,6 @@ export class Divider {
   // get hasAfter() {
   //   return Helper.fromAxis(this.placement, host(this)) !== 'end';
   // }
-
-  get orientation() {
-    return this.vertical ? 'vertical' : 'horizontal';
-  }
 
   // render() {
   //   return (

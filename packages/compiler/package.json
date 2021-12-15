@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/compiler",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "author": "Masood Abdolian",
   "description": "Compiler of HTMLPlus",
@@ -9,7 +9,6 @@
     ".": "./dist/index.js",
     "./client": "./dist/client/index.js",
     "./plugins": "./dist/plugins/index.js",
-    "./utils": "./dist/plugins/uhtml/utils.js",
     "./server": "./dist/server/index.js",
     "./package.json": "./package.json"
   },
@@ -23,9 +22,6 @@
       ],
       "plugins": [
         "./dist/plugins/index.d.ts"
-      ],
-      "utils": [
-        "./dist/plugins/uhtml/utils.d.ts"
       ],
       "server": [
         "./dist/server/index.d.ts"

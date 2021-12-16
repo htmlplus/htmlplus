@@ -1,10 +1,10 @@
-import { createCompiler, plugins } from '@htmlplus/element';
+import { compiler, plugins } from '@htmlplus/element/compiler';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
 import aliases from 'vite-tsconfig-paths';
 
-const { start, next, finish } = createCompiler(
+const { start, next, finish } = compiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),

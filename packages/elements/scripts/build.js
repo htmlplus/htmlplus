@@ -1,4 +1,4 @@
-import { createCompiler, plugins } from '@htmlplus/element/compiler';
+import { compiler, plugins } from '@htmlplus/element/compiler';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
@@ -7,7 +7,7 @@ import { rollup } from 'rollup';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
-const { start, next, finish } = createCompiler(
+const { start, next, finish } = compiler(
   plugins.read(),
   plugins.parse(),
   plugins.validate(),

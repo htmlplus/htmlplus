@@ -60,7 +60,7 @@ export class BottomNavigation {
   /**
    * TODO
    */
-  @Property({ mutable: true })
+  @Property()
   value?: any;
 
   /**

@@ -89,7 +89,7 @@ export class Cropper {
   /**
    * The previous cropped data if you had stored, will be passed to value automatically when initialized. 
    */
-  @Property({ mutable: true })
+  @Property()
   value?: CropperValue;
 
   /**

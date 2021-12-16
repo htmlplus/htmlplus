@@ -61,10 +61,7 @@ export class Dialog {
   /**
    * Control dialog to show or not.
    */
-  @Property({
-    mutable: true,
-    reflect: true,
-  })
+  @Property({ reflect: true })
   open?: boolean;
 
   /**

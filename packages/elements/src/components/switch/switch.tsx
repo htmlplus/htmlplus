@@ -10,10 +10,7 @@ export class Switch {
    * Puts the switch in checked state
    * @model
    */
-  @Property({
-    reflect: true,
-    mutable: true
-  })
+  @Property({ reflect: true })
   checked?: boolean;
 
   /**

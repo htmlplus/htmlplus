@@ -13,7 +13,7 @@ export class Tabs {
   /**
    * Provides your own value.
    */
-  @Property({ mutable: true })
+  @Property()
   value?: any;
 
   /**

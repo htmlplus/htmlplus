@@ -58,10 +58,7 @@ export class Toast {
   /**
    * TODO
    */
-  @Property({
-    mutable: true,
-    reflect: true,
-  })
+  @Property({ reflect: true })
   open?: boolean;
 
   /**

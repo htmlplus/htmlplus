@@ -56,10 +56,7 @@ export class Drawer {
   /**
    * Control drawer to show or not.
    */
-  @Property({
-    mutable: true,
-    reflect: true,
-  })
+  @Property({ reflect: true })
   open?: boolean;
 
   /**

@@ -16,7 +16,6 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@htmlplus/elements": "0.0.1",
     "@htmlplus/core": "0.2.7",
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",

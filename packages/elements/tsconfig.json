@@ -1,34 +1,35 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "allowUnreachableCode": false,
-        "declaration": true,
-        "outDir": "dist",
-        "experimentalDecorators": true,
-        "lib": [
-            "dom",
-            "es2019"
-        ],
-        "moduleResolution": "node",
-        "module": "ESNext",
-        "target": "ES2016",
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
-        "jsx": "preserve",
-        "baseUrl": "src",
-        "paths": {
-            "@app/*": [
-                "./*"
-            ],
-            "@app/constants": [
-                "./constants"
-            ]
-        }
-    },
-    "include": [
-        "src/**/*.tsx"
+  "compilerOptions": {
+    "target": "ES2016",
+    "lib": [  
+      "dom",
+      "es2019"
     ],
-    "exclude": [
-        "node_modules"
-    ]
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": [
+          "./*"
+      ],
+      "@app/constants": [
+          "./constants"
+      ]
+    },
+    "declaration": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": false,
+  },
+  "include": [
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

@@ -1,5 +1,5 @@
 import { Attributes, Bind, Element, Event, EventEmitter, Property } from '@htmlplus/element/decorators';
-import * as Helpers from '@htmlplus/element/helpers';
+import * as Helpers from '@app/helpers';
 import { TransitionDirection, TransitionDuration, TransitionRepeat } from './transition.types';
 
 /**

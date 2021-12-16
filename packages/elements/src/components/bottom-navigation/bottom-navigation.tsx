@@ -1,6 +1,6 @@
 import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
-import * as Helpers from '@htmlplus/element/helpers';
 import { createLink } from '@htmlplus/element/services';
+import * as Helpers from '@app/helpers';
 import { Animation } from '@app/services';
 
 const { Action, Observable } = createLink('BottomNavigation');

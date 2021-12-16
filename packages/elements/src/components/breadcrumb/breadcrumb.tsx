@@ -1,5 +1,5 @@
-import { Bind, Element, Property, State, Watch } from '@htmlplus/element/decorators';
-import * as Helpers from '@htmlplus/element/helpers';
+import { Attributes, Bind, Element, Property, State, Watch } from '@htmlplus/element/decorators';
+import * as Helpers from '@app/helpers';
 import * as Constants from './breadcrumb.constants';
 
 /**
@@ -57,6 +57,7 @@ export class Breadcrumb {
     return Helpers.children(this).filter(($node) => !$node.matches(selectors));
   }
 
+  @Attributes()
   get attributes() {
     return {
       'aria-label': 'breadcrumb'

@@ -1,5 +1,5 @@
 import { Element, Property, Watch } from '@htmlplus/element/decorators';
-import * as Helpers from '@htmlplus/element/helpers';
+import * as Helpers from '@app/helpers';
 import { Portal as PortalCore, PortalStrategy, PortalTarget } from '@app/services';
 
 /**

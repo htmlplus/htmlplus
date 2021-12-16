@@ -1,6 +1,6 @@
 import { Attributes, Bind, Element, EventEmitter, Property, State, Watch } from '@htmlplus/element/decorators';
-import * as Helpers from '@htmlplus/element/helpers';
 import { createPopper, Instance } from '@popperjs/core';
+import * as Helpers from '@app/helpers';
 import { TooltipAnimation, TooltipPlacement, TooltipTrigger, TooltipArrow } from './tooltip.types';
 
 /**

@@ -24,7 +24,7 @@ const { start, next, finish } = compiler(
   plugins.typing({
     prefix: 'plus'
   }),
-  plugins.uhtml(),
+  plugins.LitHtml(),
   plugins.print(),
 );
 
@@ -67,7 +67,7 @@ const options = {
         if (!id.endsWith('.tsx')) return null;
 
         const { script } = await next(id);
-
+console.log(11111111111,script)
         return script;
       },
       async buildEnd() {

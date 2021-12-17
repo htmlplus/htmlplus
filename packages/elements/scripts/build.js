@@ -25,6 +25,12 @@ const { start, next, finish } = compiler(
     prefix: 'plus'
   }),
   plugins.uhtml(),
+  {
+    name: 'sss',
+    next(c) {
+debugger
+    }
+  },
   plugins.print(),
 );
 
@@ -83,15 +89,15 @@ const options = {
 
     typescript(),
 
-    terser({ 
-      format: {
-        comments: false
-      }
-    }),
+    // terser({ 
+    //   format: {
+    //     comments: false
+    //   }
+    // }),
   ],
 };
 
-const build = async () => {
+(async () => {
   
   try {
 
@@ -109,6 +115,4 @@ const build = async () => {
   catch (error) {
     console.log(error);
   }
-};
-
-build();
+})();

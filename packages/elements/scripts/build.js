@@ -38,7 +38,7 @@ debugger
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync('./src/**/browse.tsx'),
+  input: glob.sync('./src/**/*.tsx'),
   output: [
     {
       format: 'esm',

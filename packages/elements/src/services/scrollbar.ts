@@ -1,4 +1,4 @@
-import { direction } from '@htmlplus/element/client';
+import * as Helpers from '@htmlplus/element/helpers';
 
 export class Scrollbar {
 
@@ -37,7 +37,7 @@ export class Scrollbar {
 
         if (!isOverflowing) return;
 
-        const dir = direction(window.document.body);
+        const dir = Helpers.direction(window.document.body);
 
         const property = dir == 'rtl' ? 'paddingLeft' : 'paddingRight';
 

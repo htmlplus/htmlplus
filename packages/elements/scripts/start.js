@@ -2,7 +2,6 @@ import { compiler, plugins } from '@htmlplus/element/compiler';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
-import aliases from 'vite-tsconfig-paths';
 
 const { start, next, finish } = compiler(
   plugins.read(),
@@ -27,8 +26,15 @@ createServer({
   server: {
     open: true,
   },
+  resolve: {
+    alias: [
+      { 
+        find: '@app', 
+        replacement: path.resolve('src') 
+      }
+    ]
+  },
   plugins: [
-    aliases(),
     {
       name: 'htmlplus',
       async buildStart() {
@@ -38,7 +44,7 @@ createServer({
 
         if (id.endsWith('bundle.ts')) 
           return glob
-            .sync(path.resolve('./src/**/*.tsx'))
+            .sync(path.resolve('./src/**/browse.tsx'))
             .map((file) => `import '${file}';`)
             .join('\n');
 

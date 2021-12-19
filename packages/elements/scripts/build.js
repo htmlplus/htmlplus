@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
 import path from 'path';
 import { rollup } from 'rollup';
+import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -25,12 +26,6 @@ const { start, next, finish } = compiler(
     prefix: 'plus'
   }),
   plugins.uhtml(),
-  {
-    name: 'sss',
-    next(c) {
-debugger
-    }
-  },
   plugins.print(),
 );
 
@@ -89,11 +84,13 @@ const options = {
 
     typescript(),
 
-    // terser({ 
-    //   format: {
-    //     comments: false
-    //   }
-    // }),
+    terser({ 
+      format: {
+        comments: false
+      }
+    }),
+
+    summary()
   ],
 };
 

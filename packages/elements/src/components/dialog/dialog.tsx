@@ -1,5 +1,4 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
-import { createLink } from '@htmlplus/element/services';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Portal, Scrollbar } from '@app/services';
 import { DialogFullscreen, DialogPlacement, DialogPortalStrategy, DialogPortalTarget, DialogSize } from './dialog.types';

@@ -1,4 +1,4 @@
-import { Element } from '@htmlplus/element/decorators';
+import { Element } from '@htmlplus/element';
 
 /**
  * @development

@@ -1,4 +1,4 @@
-import { Element, Property } from '@htmlplus/element/decorators';
+import { Element, Property } from '@htmlplus/element';
 import { GridAlignContent, GridAlignItems, GridGutter, GridJustifyContent, GridWrap } from './grid.types';
 
 /**

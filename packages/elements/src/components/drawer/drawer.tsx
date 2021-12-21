@@ -1,5 +1,4 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element/decorators';
-import { createLink } from '@htmlplus/element/services';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch, createLink } from '@htmlplus/element';
 import { Media } from '@app/decorators';
 import * as Helpers from '@app/helpers';
 import { Animation, ClickOutside, Scrollbar } from '@app/services';

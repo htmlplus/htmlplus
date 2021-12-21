@@ -1,5 +1,4 @@
-import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
-import { createLink } from '@htmlplus/element/services';
+import { Attributes, Element, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { Animation } from '@app/services';
 

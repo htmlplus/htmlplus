@@ -1,4 +1,4 @@
-import { Attributes, Element, Property } from '@htmlplus/element/decorators';
+import { Attributes, Element, Property } from '@htmlplus/element';
 import { SpinnerSize, SpinnerType } from './spinner.types';
 
 /**

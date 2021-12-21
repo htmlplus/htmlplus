@@ -1,5 +1,4 @@
-import { Attributes, Bind, Element, Property, State } from '@htmlplus/element/decorators';
-import { createLink } from '@htmlplus/element/services';
+import { Attributes, Bind, Element, Property, State, createLink } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 
 const { Inject } = createLink('BottomNavigation');

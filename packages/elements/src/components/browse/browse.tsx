@@ -1,4 +1,4 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Method, Property, State } from '@htmlplus/element/decorators';
+import { Attributes, Bind, Element, Event, EventEmitter, Method, Property, State } from '@htmlplus/element';
 import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**

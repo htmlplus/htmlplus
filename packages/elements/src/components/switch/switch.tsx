@@ -1,4 +1,4 @@
-import { Element, Event, EventEmitter, Property } from '@htmlplus/element/decorators';
+import { Element, Event, EventEmitter, Property } from '@htmlplus/element';
 
 /**
  * @development

@@ -1,4 +1,4 @@
-import * as Helpers from '@htmlplus/element/helpers';
+import * as Helpers from '@app/helpers';
 
 export class Scrollbar {
 

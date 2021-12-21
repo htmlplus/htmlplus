@@ -1,4 +1,4 @@
-import { Element, Property } from '@htmlplus/element/decorators';
+import { Element, Property } from '@htmlplus/element';
 import { AspectRatioValue } from './aspect-ratio.types';
 
 /**

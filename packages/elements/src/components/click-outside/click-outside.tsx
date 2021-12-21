@@ -1,4 +1,4 @@
-import { Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element/decorators';
+import { Bind, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { ClickOutside as ClickOutsideCore } from '@app/services';
 

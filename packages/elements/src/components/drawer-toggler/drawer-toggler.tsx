@@ -1,5 +1,4 @@
-import { Attributes, Element, Property, State, Watch } from '@htmlplus/element/decorators';
-import { createLink } from '@htmlplus/element/services';
+import { Attributes, Element, Property, State, Watch, createLink } from '@htmlplus/element';
 
 const { Inject, reconnect } = createLink('Drawer');
 

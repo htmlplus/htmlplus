@@ -1,4 +1,4 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element/decorators';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { IntersectionBehavior } from './intersection.types';
 

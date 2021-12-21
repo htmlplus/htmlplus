@@ -1,4 +1,4 @@
-import { compiler, plugins } from '@htmlplus/element/compiler';
+import compiler, * as plugins from '@htmlplus/element/compiler';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';

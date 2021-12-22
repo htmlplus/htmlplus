@@ -1,4 +1,4 @@
-import compiler, * as plugins from '@htmlplus/element/compiler';
+import compiler from '@htmlplus/element/compiler';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
@@ -7,27 +7,9 @@ import { rollup } from 'rollup';
 import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import  plugins from '../plus.config.js';
 
-const { start, next, finish } = compiler(
-  plugins.read(),
-  plugins.parse(),
-  plugins.validate(),
-  plugins.extract({
-    prefix: 'plus',
-  }),
-  plugins.scss({
-    includePaths: ['./src/styles'],
-  }),
-  plugins.attach({
-    members: true,
-    styles: true,
-  }),
-  plugins.typing({
-    prefix: 'plus'
-  }),
-  plugins.uhtml(),
-  plugins.print(),
-);
+const { start, next, finish } = compiler(...plugins);
 
 /**
  * @type {import('rollup').RollupOptions}

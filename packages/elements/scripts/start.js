@@ -1,25 +1,10 @@
-import compiler, * as plugins from '@htmlplus/element/compiler';
+import compiler from '@htmlplus/element/compiler';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
+import  plugins from '../plus.config.js';
 
-const { start, next, finish } = compiler(
-  plugins.read(),
-  plugins.parse(),
-  plugins.validate(),
-  plugins.extract({
-    prefix: 'plus',
-  }),
-  plugins.scss({
-    includePaths: ['./src/styles'],
-  }),
-  plugins.attach({
-    members: true,
-    styles: true,
-  }),
-  plugins.uhtml(),
-  plugins.print(),
-);
+const { start, next, finish } = compiler(...plugins);
 
 createServer({
   cacheDir: '.cache',

@@ -21,7 +21,7 @@
     "allowUnreachableCode": false,
   },
   "include": [
-    "src/**/*.tsx"
+    "src"
   ],
   "exclude": [
     "dist",

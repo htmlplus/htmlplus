@@ -1,5 +1,5 @@
 {
-  "name": "@htmlplus/elements",
+  "name": "@htmlplus/components",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -30,6 +30,7 @@
     "@popperjs/core": "^2.10.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
+    "@types/react": "^17.0.38",
     "change-case": "^4.1.2",
     "cropperjs": "^1.5.12",
     "cypress": "^8.6.0",

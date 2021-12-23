@@ -25,7 +25,8 @@ export default [
     styles: true,
   }),
   typing({
-    prefix: 'plus'
+    prefix: 'plus',
+    dist: './src/components.d.ts'
   }),
   uhtml(),
   print(),

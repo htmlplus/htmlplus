@@ -21,6 +21,7 @@ export default [
     loadPaths: ['./src/styles'],
   }),
   attach({
+    dependencies: true,
     members: true,
     styles: true,
   }),

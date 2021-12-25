@@ -5,7 +5,6 @@ import {
   print,
   read,
   sass,
-  typing,
   uhtml,
   validate,
 } from '@htmlplus/element/compiler';
@@ -20,15 +19,7 @@ export default [
   sass({
     loadPaths: ['./src/styles'],
   }),
-  attach({
-    dependencies: true,
-    members: true,
-    styles: true,
-  }),
-  typing({
-    prefix: 'plus',
-    dist: './src/components.d.ts'
-  }),
+  attach(),
   uhtml(),
   print(),
 ]

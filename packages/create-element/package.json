@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/create-element",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "bin": {
     "create-element": "index.js"
@@ -9,6 +9,9 @@
     "index.js",
     "template-*"
   ],
+  "scripts": {
+    "build": ""
+  },
   "dependencies": {
     "minimist": "^1.2.5"
   }

@@ -1,12 +1,61 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const argv = require('minimist')(process.argv.slice(2), { string: ['_'] });
+import fs from 'fs-extra';
+import path from 'path';
+import prompts from 'prompts';
 
-const cwd = process.cwd();
+const cwd = process.cwd()
 
-let targetDir = argv._[0];
-let template = argv.template || argv.t;
+const questions = [
+  {
+    type: 'text',
+    name: 'name',
+    message: 'Project name',
+    initial: 'htmlplus-project',
+    format: (value) => value?.trim(),
+    validate: (value) => !!value?.trim()
+  },
+  {
+    type: 'select',
+    name: 'style',
+    message: 'Which one do you prefer?',
+    initial: 1,
+    choices: [
+      {
+        title: 'CSS',
+        value: 'css'
+      },
+      {
+        title: 'SCSS',
+        value: 'scss'
+      },
+    ]
+  },
+  {
+    type: 'confirm',
+    name: 'prefix',
+    message: 'Do you want use global prefix?',
+    initial: true
+  },
+  {
+    type: (prefix) => prefix === true ? 'text' : null,
+    name: 'prefix',
+    message: 'Enter prefix',
+    initial: 'plus',
+    format: (value) => value?.trim(),
+    validate: (value) => !!value?.trim()
+  }
+];
 
-console.log(111, argv, targetDir, template);
+(async () => {
+
+  const response = await prompts(questions);
+
+  const source = path.resolve(cwd, 'template-default');
+
+  const destination = path.resolve(cwd, response.name);
+  
+  await fs.copy(source, destination);
+
+  // console.log(response); // => { name: 'htmlplus-project', style: 'scss', prefix: 'plus' }
+})();

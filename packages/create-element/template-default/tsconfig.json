@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "module": "ESNext",
     "moduleResolution": "node",
-    "baseUrl": "src",
+    "rootDir": "src",
     "declaration": true,
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,

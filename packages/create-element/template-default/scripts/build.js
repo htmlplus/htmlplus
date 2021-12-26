@@ -2,12 +2,11 @@ import compiler from '@htmlplus/element/compiler';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
-import path from 'path';
 import { rollup } from 'rollup';
 import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import  plugins from '../plus.config.js';
+import plugins from '../plus.config.js';
 
 const { start, next, finish } = compiler(...plugins);
 
@@ -49,32 +48,22 @@ const options = {
 
     typescript(),
 
-    terser({ 
+    terser({
       format: {
         comments: false
       }
     }),
 
     summary()
-  ],
+  ]
 };
 
 (async () => {
-  
-  try {
 
-    const time = Date.now();
+  const bundle = await rollup(options);
 
-    const bundle = await rollup(options);
+  for (const output of options.output)
+    await bundle.write(output);
 
-    for (const output of options.output) 
-      await bundle.write(output);
-
-    await bundle.close();
-
-    console.log(`Build in ${Date.now() - time}ms`);
-  }
-  catch (error) {
-    console.log(error);
-  }
+  await bundle.close();
 })();

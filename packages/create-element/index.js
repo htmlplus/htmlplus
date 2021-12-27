@@ -2,60 +2,69 @@
 
 import fs from 'fs-extra';
 import path from 'path';
-import prompts from 'prompts';
+import enquirer from 'enquirer';
+import { fileURLToPath } from 'url';
 
-const cwd = process.cwd()
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const questions = [
-  {
-    type: 'text',
-    name: 'name',
-    message: 'Project name',
-    initial: 'htmlplus-project',
-    format: (value) => value?.trim(),
-    validate: (value) => !!value?.trim()
-  },
-  {
-    type: 'select',
-    name: 'style',
-    message: 'Which one do you prefer?',
-    initial: 1,
-    choices: [
-      {
-        title: 'CSS',
-        value: 'css'
-      },
-      {
-        title: 'SCSS',
-        value: 'scss'
-      },
-    ]
-  },
-  {
-    type: 'confirm',
-    name: 'prefix',
-    message: 'Do you want use global prefix?',
-    initial: true
-  },
-  {
-    type: (prefix) => prefix === true ? 'text' : null,
-    name: 'prefix',
-    message: 'Enter prefix',
-    initial: 'plus',
-    format: (value) => value?.trim(),
-    validate: (value) => !!value?.trim()
-  }
-];
+const cwd = process.cwd();
 
 (async () => {
 
-  const response = await prompts(questions);
+  const prompt = enquirer.prompt;
 
-  const source = path.resolve(cwd, 'template-default');
+  const model = await prompt([
+    {
+      name: 'name',
+      type: 'input',
+      message: 'Project name?',
+      initial: 'htmlplus-project',
+      format: (value) => value?.trim(),
+      validate: (value) => !!value?.trim()
+    },
+    {
+      name: 'manual',
+      type: 'confirm',
+      message: 'Do you want to set up manually config?',
+      initial: false
+    }
+  ]);
 
-  const destination = path.resolve(cwd, response.name);
-  
+  if (model.manual) {
+
+    const result = await prompt([
+      {
+        type: 'select',
+        name: 'style',
+        message: 'Which one do you prefer?',
+        initial: 1,
+        choices: [
+          {
+            name: 'css',
+            message: 'CSS',
+          },
+          {
+            name: 'scss',
+            message: 'SCSS',
+          },
+        ]
+      },
+      {
+        type: 'input',
+        name: 'prefix',
+        message: 'Enter prefix',
+        initial: 'plus',
+        format: (value) => value?.trim(),
+        validate: (value) => !!value?.trim()
+      }
+    ])
+
+    Object.assign(model, result);
+  }
+
+  const source = path.resolve(__dirname, 'template-default');
+
+  const destination = path.resolve(cwd, model.name);
+
   await fs.copy(source, destination);
-
-  // console.log(response); // => { name: 'htmlplus-project', style: 'scss', prefix: 'plus' }
 })();

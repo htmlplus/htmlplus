@@ -62,7 +62,7 @@ const cwd = process.cwd();
     Object.assign(model, result);
   }
 
-  const source = path.resolve(__dirname, 'template-default');
+  const source = path.resolve(__dirname, 'template-a');
 
   const destination = path.resolve(cwd, model.name);
 

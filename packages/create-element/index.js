@@ -22,12 +22,12 @@ const cwd = process.cwd();
       format: (value) => value?.trim(),
       validate: (value) => !!value?.trim()
     },
-    {
-      name: 'manual',
-      type: 'confirm',
-      message: 'Do you want to set up manually config?',
-      initial: false
-    }
+    // {
+    //   name: 'manual',
+    //   type: 'confirm',
+    //   message: 'Do you want to set up manually config?',
+    //   initial: false
+    // }
   ]);
 
   if (model.manual) {
@@ -67,4 +67,14 @@ const cwd = process.cwd();
   const destination = path.resolve(cwd, model.name);
 
   await fs.copy(source, destination);
+
+  await fs.rename(
+    path.resolve(destination, '_gitignore'), 
+    path.resolve(destination, '.gitignore'),
+  );
+
+  await fs.rename(
+    path.resolve(destination, 'package_json'), 
+    path.resolve(destination, 'package.json'),
+  );
 })();

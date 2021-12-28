@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/create-element",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "Compiler of HTMLPlus",
@@ -11,9 +11,7 @@
   },
   "files": [
     "index.js",
-    "template-a",
-    "template-*",
-    "template-a/**/*"
+    "template-default"
   ],
   "engines": {
     "node": ">= 12.7.0"

@@ -31,7 +31,7 @@ export class Portal {
   instance?: PortalCore;
 
   get $nodes() {
-    return Helpers.children(this);
+    return Array.from(Helpers.host(this).children);
   }
 
   /**

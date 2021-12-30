@@ -13,12 +13,8 @@ export default [
   read(),
   parse(),
   validate(),
-  extract({
-    prefix: 'plus',
-  }),
-  sass({
-    loadPaths: ['./src/styles'],
-  }),
+  extract(),
+  sass(),
   attach(),
   uhtml(),
   print(),

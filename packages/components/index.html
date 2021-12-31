@@ -10,7 +10,7 @@
 
 <body>
 
-  <!-- <style>
+  <style>
     div {
       background-color: #C5CAE9;
       padding: 1rem;
@@ -66,7 +66,7 @@
     Item 4
     <plus-divider></plus-divider>
     Item 5
-  </plus-card> -->
+  </plus-card>
 
   <style>
     .container {
@@ -85,7 +85,10 @@
   </style>
 
   <div class="container">
-    <plus-scroll-indicator source=".scrollable"></plus-scroll-indicator>
+    <plus-scroll-indicator id="a" source=".scrollable"></plus-scroll-indicator>
+    <script>
+      a.addEventListener('plusScroll', (e) => console.log(e))
+    </script>
     <div class="scrollable">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend

@@ -95,7 +95,7 @@ export class Tabs {
    * Lifecycles
    */
 
-  readyCallback() {
+  loadedCallback() {
     this.initialize();
   }
 

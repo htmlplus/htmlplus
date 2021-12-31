@@ -114,7 +114,7 @@ export class ScrollIndicator {
    * Lifecycles
    */
 
-  readyCallback() {
+  loadedCallback() {
     this.bind();
   }
 

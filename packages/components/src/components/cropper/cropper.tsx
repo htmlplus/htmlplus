@@ -529,7 +529,7 @@ export class Cropper {
    * Lifecycles
    */
 
-  readyCallback() {
+  loadedCallback() {
     this.bind();
   }
 

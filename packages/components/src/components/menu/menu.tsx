@@ -266,7 +266,7 @@ export class Menu {
     this.clean();
   }
 
-  readyCallback() {
+  loadedCallback() {
     this.bind();
   }
 

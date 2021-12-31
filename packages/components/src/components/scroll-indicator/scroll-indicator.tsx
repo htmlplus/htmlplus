@@ -75,7 +75,7 @@ export class ScrollIndicator {
   bind() {
 
     if (this.disabled) return;
-    
+
     Helpers.on(this.$source, 'scroll', this.onScroll);
 
     this.onScroll();
@@ -114,7 +114,7 @@ export class ScrollIndicator {
    * Lifecycles
    */
 
-  componentDidLoad() {
+  readyCallback() {
     this.bind();
   }
 

@@ -95,7 +95,7 @@ export class Tabs {
    * Lifecycles
    */
 
-  componentDidLoad() {
+  readyCallback() {
     this.initialize();
   }
 

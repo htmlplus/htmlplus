@@ -29,7 +29,7 @@ createServer({
 
         if (id.endsWith('bundle.ts')) 
           return glob
-            .sync(path.resolve('./src/**/browse.tsx'))
+            .sync(path.resolve('./src/**/*.tsx'))
             .map((file) => `import '${file}';`)
             .join('\n');
 

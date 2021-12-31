@@ -87,11 +87,4 @@ export class Portal {
   disconnectedCallback() {
     this.terminate();
   }
-
-  render() {
-    return (
-      <>
-      </>
-    )
-  }
 }

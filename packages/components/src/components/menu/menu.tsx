@@ -277,8 +277,7 @@ export class Menu {
   render() {
     return (
       <>
-        {/* TODO */}
-        {/* <div
+        <div
           class="activator"
           ref={this.$activator}
           onClick={(event) => this.click(event)}
@@ -292,7 +291,7 @@ export class Menu {
             style={this.fixed ? {} : this.style}>
             <slot />
           </div>
-        )} */}
+        )}
       </>
     )
   }

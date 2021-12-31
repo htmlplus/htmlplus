@@ -39,11 +39,10 @@ export class Spinner {
   }
 
   render() {
-    // TODO
-    // return (
-    //   <div class="wrapper">
-    //     {this.elements.map((element) => <div key={element} />)}
-    //   </div>
-    // )
+    return (
+      <div class="wrapper">
+        {this.elements.map((element) => <div key={element} />)}
+      </div>
+    )
   }
 }

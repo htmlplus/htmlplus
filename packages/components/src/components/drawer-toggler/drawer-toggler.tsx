@@ -50,16 +50,14 @@ export class DrawerToggler {
 
   render() {
     return (
-      <>
-        <slot>
-          {this.text}
-        </slot>
-        {/* TODO */}
-        {/* <slot name="close" />
-        <slot name="open" /> */}
-      </>
+      <slot>
+        {this.text}
+      </slot>
     )
   }
 }
 
+// TODO
+// <slot name="close" />
+// <slot name="open" />
 

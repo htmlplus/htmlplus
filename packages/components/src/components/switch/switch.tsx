@@ -75,13 +75,6 @@ export class Switch {
 
     this.plusChange();
   }
-
-  render() {
-
-    return (
-      <></>
-    )
-  }
 }
 
 // <

@@ -66,11 +66,11 @@ const options = {
 
     typescript(),
 
-    terser({ 
-      format: {
-        comments: false
-      }
-    }),
+    // terser({ 
+    //   format: {
+    //     comments: false
+    //   }
+    // }),
 
     summary()
   ],

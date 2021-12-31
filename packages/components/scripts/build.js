@@ -7,7 +7,7 @@ import { rollup } from 'rollup';
 import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import  plugins from '../plus.config.js';
+import plugins from '../plus.config.js';
 
 const { start, next, finish } = compiler(...plugins);
 
@@ -22,18 +22,20 @@ const options = {
       dir: 'dist',
       chunkFileNames: '[name].js',
       manualChunks(id) {
-        
+
         const name = path.basename(id, path.extname(id));
 
         if (id.includes('cropperjs')) return 'core.cropperjs';
 
         if (id.includes('helpers')) return 'core.helpers';
 
+        if (id.includes('media')) return 'core.media';
+        
         if (id.includes('popperjs')) return 'core.popperjs';
 
         if (id.includes('services')) return 'core.' + name;
 
-        if (id.endsWith('.tsx')) return name;
+        if (id.endsWith('.tsx')) return null;
 
         return 'core';
       },
@@ -66,25 +68,25 @@ const options = {
 
     typescript(),
 
-    // terser({ 
-    //   format: {
-    //     comments: false
-    //   }
-    // }),
+    terser({ 
+      format: {
+        comments: false
+      }
+    }),
 
     summary()
   ],
 };
 
 (async () => {
-  
+
   try {
 
     const time = Date.now();
 
     const bundle = await rollup(options);
 
-    for (const output of options.output) 
+    for (const output of options.output)
       await bundle.write(output);
 
     await bundle.close();

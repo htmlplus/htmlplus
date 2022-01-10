@@ -68,7 +68,7 @@ export class Breadcrumb {
 
   get template() {
 
-    const $node = Helpers.query(this, Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY);
+    const $node = Helpers.host(this).querySelector(Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY);
 
     const $clone = $node?.cloneNode(true) as HTMLElement;
 

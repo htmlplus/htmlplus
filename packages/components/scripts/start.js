@@ -2,22 +2,23 @@ import compiler from '@htmlplus/element/compiler';
 import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
-import  plugins from '../plus.config.js';
+import plugins from '../plus.config.js';
 
 const { start, next, finish } = compiler(...plugins);
 
 createServer({
-  cacheDir: '.cache',
+  root: 'public',
+  cacheDir: '../.cache',
   server: {
     open: true,
   },
   resolve: {
     alias: [
-      { 
-        find: '@app', 
-        replacement: path.resolve('src') 
-      }
-    ]
+      {
+        find: '@app',
+        replacement: path.resolve('src'),
+      },
+    ],
   },
   plugins: [
     {
@@ -26,8 +27,7 @@ createServer({
         await start();
       },
       async load(id) {
-
-        if (id.endsWith('bundle.ts')) 
+        if (id.endsWith('bundle.ts'))
           return glob
             .sync(path.resolve('./src/**/*.tsx'))
             .map((file) => `import '${file}';`)
@@ -41,9 +41,9 @@ createServer({
       },
       async buildEnd() {
         await finish();
-      }
-    }
-  ]
+      },
+    },
+  ],
 })
-.then((server) => server.listen())
-.catch((error) => console.log(error));
+  .then((server) => server.listen())
+  .catch((error) => console.log(error));

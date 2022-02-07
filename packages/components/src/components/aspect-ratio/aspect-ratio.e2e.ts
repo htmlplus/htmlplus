@@ -1,27 +1,27 @@
+let $element;
+
 describe('plus-aspect-ratio', () => {
-  it('open page', () => {
-    cy.visit('http://localhost:3000/');
-    cy.get('body').then(($el) => {
-      $el.append(
-        '<plus-aspect-ratio data-cy="test"><div></div></plus-aspect-ratio>',
-      );
-    });
+  beforeEach(() => {
+    cy.setContent(`<plus-aspect-ratio><div style="background: #ddd">Content</div></plus-aspect-ratio>`);
+    cy.get('plus-aspect-ratio').then((element) => $element = element);
   });
 
-  it('child size', () => {
-    cy.get('[data-cy="test"]').then(($el) => {
-      $el[0].setAttribute('value', 5);
-      const childStyle = $el.find('*');
-
-      // check width
-      expect($el.width).to.eq(childStyle.width);
-
-      // check height
-      expect($el.height).to.eq(childStyle.height);
-    });
+  it('default value', () => {
+    expect($element.width()).to.eq($element.height());
   });
 
-  it('test based on attributes', () => {
+  it('child size', async () => {
+
+    await $element[0].setAttribute('value', 5);
+
+    const $child = $element.find('*');
+
+    expect($element.width()).to.eq($child.width());
+
+    expect($element.height()).to.eq($child.height());
+  });
+
+  it('value attribute', () => {
     const cases = [
       [1 / 2, 0.5],
       [2 / 1, 2.0],
@@ -30,98 +30,12 @@ describe('plus-aspect-ratio', () => {
       ['2/2', 1.0],
       ['9/2', 4.5],
     ];
-    cy.get('[data-cy="test"]').then(($el) => {
-      cy.wrap(cases).each(async (attr) => {
-        await $el[0].setAttribute('value', attr[0]);
+    cy.wrap(cases).each(async ([input, output]) => {
+      await $element[0].setAttribute('value', input);
 
-        const styles = getComputedStyle($el[0]);
+      const ratio = parseFloat(($element.width() / $element.height()).toFixed(2));
 
-        const ratio = parseFloat(
-          (parseFloat(styles.width) / parseFloat(styles.height)).toFixed(2),
-        );
-
-        expect(ratio).to.eq(attr[1]);
-      });
+      expect(ratio).to.eq(output);
     });
   });
 });
-
-// TODO
-// import { newE2EPage, E2EPage, E2EElement } from '@stencil/core/testing';
-
-// let
-//   page: E2EPage,
-//   element: E2EElement;
-
-// beforeEach(async () => {
-
-//   // create a new e2e test page
-//   page = await newE2EPage();
-
-//   // set the page content
-//   await page.setContent(`<plus-aspect-ratio><div></div></plus-aspect-ratio>`);
-
-//   // find the elemnt in the page
-//   element = await page.find('plus-aspect-ratio');
-// })
-
-// describe('plus-aspect-ratio', () => {
-
-//   // check css class
-//   it('renders', () => expect(element).toHaveClass('hydrated'));
-
-//   // TODO
-//   it('child size', async () => {
-
-//     // set value attribute
-//     element.setAttribute('value', 5);
-
-//     // wait for the changes to apply
-//     await page.waitForChanges();
-
-//     // get parent style
-//     const parentStyle = await element.getComputedStyle();
-
-//     // get child style
-//     const childStyle = await (await element.find('*')).getComputedStyle();
-
-//     // check width
-//     expect(parentStyle.width).toBe(childStyle.width);
-
-//     // check height
-//     expect(parentStyle.height).toBe(childStyle.height);
-//   });
-
-//   // all cases
-//   const cases = [
-//     [1 / 2, 0.5],
-//     [2 / 1, 2.0],
-//     ['1/2', 0.5],
-//     ['2/1', 2.0],
-//     ['2/2', 1.0],
-//     ['9/2', 4.5],
-//   ];
-
-//   // for each case
-//   test.each(cases)(
-//     'attribute [value="%s"]',
-//     async (value, expected) => {
-
-//       // set value attribute
-//       element.setAttribute('value', value);
-
-//       // wait for the changes to apply
-//       await page.waitForChanges();
-
-//       // get style
-//       const style = await element.getComputedStyle();
-
-//       // calc ratio
-//       const ratio = parseFloat((parseFloat(style.width) / parseFloat(style.height)).toFixed(2));
-
-//       // check ratio style
-//       expect(ratio).toBe(expected);
-//     }
-//   );
-// });
-

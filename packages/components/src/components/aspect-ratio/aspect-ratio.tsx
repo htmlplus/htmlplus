@@ -6,7 +6,6 @@ import { AspectRatioValue } from './aspect-ratio.types';
  */
 @Element()
 export class AspectRatio {
-
   /**
    * Specifies the ratio.
    */
@@ -14,12 +13,11 @@ export class AspectRatio {
   value?: AspectRatioValue = 1;
 
   get ratio() {
-
     if (typeof this.value === 'number') return this.value;
 
     let [valueA, valueB] = `${this.value}`
       .split('/')
-      .map((item: any) => isNaN(item) ? NaN : parseFloat(item));
+      .map((item: any) => (isNaN(item) ? NaN : parseFloat(item)));
 
     valueB = valueB ?? 1;
 
@@ -27,7 +25,6 @@ export class AspectRatio {
   }
 
   get style() {
-
     const ratio = this.ratio;
 
     if (!ratio) return;
@@ -41,6 +38,6 @@ export class AspectRatio {
         <div class="sizer" style={this.style} />
         <slot />
       </>
-    )
+    );
   }
 }

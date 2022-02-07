@@ -11,7 +11,13 @@ const values = [
 
 describe('plus-aspect-ratio', () => {
   beforeEach(() => {
-    cy.setContent(`<plus-aspect-ratio><div style="background: #ddd">Content</div></plus-aspect-ratio>`);
+    cy.setContent(`
+      <plus-aspect-ratio>
+        <div style="background: #ddd">
+          Content
+        </div>
+      </plus-aspect-ratio>
+    `);
     cy.get('plus-aspect-ratio').then((el) => element = el);
   });
 

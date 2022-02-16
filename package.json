@@ -17,5 +17,8 @@
   },
   "dependencies": {
     "lerna": "^3.20.2"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.2.6"
   }
 }

@@ -1,0 +1,6 @@
+[build]
+  command = "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new"
+  publish = "packages/docs/.next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

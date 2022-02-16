@@ -1,5 +1,5 @@
 [build]
-  command = "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new"
+  command = "npm run docs:build"
   publish = "packages/docs/.next"
 
 [[plugins]]

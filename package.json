@@ -6,6 +6,7 @@
     "clean:hard": "npm run clean && lerna clean",
     "core:push": "git subtree push --prefix packages/core packages/core main",
     "create-element:push": "git subtree push --prefix packages/create-element packages/create-element main",
+    "docs:build": "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:push": "git subtree push --prefix packages/document packages/document main",
     "element:push": "git subtree push --prefix packages/element packages/element main",

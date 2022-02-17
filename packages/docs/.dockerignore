@@ -1,8 +1,0 @@
-node_modules
-azure-pipelines.yml
-.github
-packages/core/dist
-packages/core/www
-packages/ports/react/build
-packages/ports/angular
-packages/ports/vue

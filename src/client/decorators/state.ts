@@ -1,10 +1,10 @@
 import { PlusElement } from '../../types/index.js';
-import { api, host, onReady } from '../utils/index.js';
+import { api, defineProperty, host, onReady } from '../utils/index.js';
 
 export function State() {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     let prev, next;
-    Object.defineProperty(target, propertyKey, {
+    defineProperty(target, propertyKey, {
       get() {
         return next;
       },
@@ -15,13 +15,17 @@ export function State() {
 
         if (!api(this)?.ready) return;
 
-        api(this).request({ [propertyKey]: [next, prev] });
+        api(this)
+          .request({ [propertyKey]: [next, prev] })
+          .catch((error) => {
+            throw error;
+          });
 
         prev = next;
       }
     });
     onReady(target, function () {
-      Object.defineProperty(host(this), propertyKey, {
+      defineProperty(host(this), propertyKey, {
         get: () => {
           return this[propertyKey];
         },

@@ -1,11 +1,11 @@
 import * as CONSTANTS from '../../configs/constants.js';
 import { PlusElement, PropertyOptions } from '../../types/index.js';
-import { api, host, onReady, parseValue, updateAttribute } from '../utils/index.js';
+import { api, defineProperty, host, onReady, parseValue, updateAttribute } from '../utils/index.js';
 
 export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     let prev, next;
-    Object.defineProperty(target, propertyKey, {
+    defineProperty(target, propertyKey, {
       get() {
         return next;
       },
@@ -28,15 +28,22 @@ export function Property(options?: PropertyOptions) {
 
         if (parsed === next) return;
 
-        if (options?.reflect) updateAttribute(element, name, next);
-
-        api(this).request({ [propertyKey]: [next, prev] });
+        api(this)
+          .request({ [propertyKey]: [next, prev] })
+          .then((renderd) => {
+            if (!renderd) return;
+            if (!options?.reflect) return;
+            updateAttribute(element, name, next);
+          })
+          .catch((error) => {
+            throw error;
+          });
 
         prev = next;
       }
     });
     onReady(target, function () {
-      Object.defineProperty(host(this), propertyKey, {
+      defineProperty(host(this), propertyKey, {
         get: () => {
           return this[propertyKey];
         },

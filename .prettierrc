@@ -4,10 +4,7 @@
   "quoteProps": "consistent",
   "singleQuote": true,
   "trailingComma": "none",
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^[.](.*)"
-  ],
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^[.](.*)"],
   "importOrderCaseInsensitive": true,
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": false

@@ -9,6 +9,7 @@
     "docs:build": "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:push": "git subtree push --prefix packages/document packages/document main",
+    "element:pull": "git subtree pull --prefix packages/element packages/element main --squash",
     "element:push": "git subtree push --prefix packages/element packages/element main",
     "examples:push": "git subtree push --prefix packages/examples packages/examples main",
     "angular:push": "git subtree push --prefix packages/angular packages/angular main",

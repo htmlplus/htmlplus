@@ -1,12 +1,13 @@
 {
   "name": "@htmlplus/dev",
+  "workspaces": [
+    "packages/**/*"
+  ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "clean": "lerna run clean",
-    "clean:hard": "npm run clean && lerna clean",
+    "clean": "npm run clean --workspaces",
     "core:push": "git subtree push --prefix packages/core packages/core main",
     "create-element:push": "git subtree push --prefix packages/create-element packages/create-element main",
-    "docs:build": "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new",
+    "docs:build": "npm run build --workspace=@htmlplus/docs",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:push": "git subtree push --prefix packages/document packages/document main",
     "element:pull": "git subtree pull --prefix packages/element packages/element main --squash",
@@ -16,9 +17,6 @@
     "react:push": "git subtree push --prefix packages/react packages/react main",
     "svelte:push": "git subtree push --prefix packages/svelte packages/svelte main",
     "vue:push": "git subtree push --prefix packages/vue packages/vue main"
-  },
-  "dependencies": {
-    "lerna": "^3.20.2"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.2.6"

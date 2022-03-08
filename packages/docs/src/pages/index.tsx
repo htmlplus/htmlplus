@@ -1,5 +1,4 @@
 // TODO
-import React, { Dispatch, SetStateAction, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,28 +15,51 @@ import {
 import * as Constants from '@app/constants';
 import { frameworks } from '@app/data';
 import { addContact } from '@app/services';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 const TransitionGroup = ({ children }) => {
-
   const delay = () => (Math.random() * 10).toFixed(2) + 's';
 
   const duration = () => (70 + Math.random() * 20).toFixed(2) + 's';
 
   return (
-    <Transition name="rotate" repeat="infinite" delay={delay()} duration="8s" direction="alternate">
-      <Transition name="heart-beat" repeat="infinite" delay={delay()} duration={duration()} direction="alternate">
-        <Transition name="shake-x" repeat="infinite" delay={delay()} duration={duration()} direction="alternate">
-          <Transition name="shake-y" repeat="infinite" delay={delay()} duration={duration()} direction="alternate">
+    <Transition
+      name="rotate"
+      repeat="infinite"
+      delay={delay()}
+      duration="8s"
+      direction="alternate"
+    >
+      <Transition
+        name="heart-beat"
+        repeat="infinite"
+        delay={delay()}
+        duration={duration()}
+        direction="alternate"
+      >
+        <Transition
+          name="shake-x"
+          repeat="infinite"
+          delay={delay()}
+          duration={duration()}
+          direction="alternate"
+        >
+          <Transition
+            name="shake-y"
+            repeat="infinite"
+            delay={delay()}
+            duration={duration()}
+            direction="alternate"
+          >
             {children}
           </Transition>
         </Transition>
       </Transition>
     </Transition>
-  )
-}
+  );
+};
 
 const Home = () => {
-
   const status = [
     {
       link: Constants.GIT_LICENSE_LINK,
@@ -50,7 +72,7 @@ const Home = () => {
     {
       link: Constants.GIT_STARS_LINK,
       image: Constants.GIT_STARS_IMAGE,
-    }
+    },
   ];
 
   const features = [
@@ -70,7 +92,7 @@ const Home = () => {
       icon: 'zero-config',
       title: 'Zero Configuration',
       description:
-        'It’s prepared in a way that you can use it easily just in a simple step. To  build your next project fast and easy!',
+        'It’s prepared in a way that you can use it easily just in a simple step. To  build your next project fast and easy.',
     },
     {
       icon: 'lightweight',
@@ -97,7 +119,10 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [formType, setFormType] = useState('Discussion');
-  const [formStatus, setFormStatus]: [FormStatus, Dispatch<SetStateAction<FormStatus>>] = useState();
+  const [formStatus, setFormStatus]: [
+    FormStatus,
+    Dispatch<SetStateAction<FormStatus>>,
+  ] = useState();
 
   const submit = () => {
     setFormStatus('SENDING');
@@ -126,9 +151,9 @@ const Home = () => {
                 <Box pb={1} />
                 <Text size="paragraph" align="justify">
                   {Constants.PLATFORM_NAME} is framework-less and lightweight.
-                  It’s totally native and developed purely with javascript.
-                  All {Constants.PLATFORM_NAME} containers are customizable
-                  and configurable.
+                  It’s totally native and developed purely with javascript. All{' '}
+                  {Constants.PLATFORM_NAME} containers are customizable and
+                  configurable.
                 </Text>
                 <Box py={6} />
                 <Grid gutterX="lg">
@@ -148,7 +173,7 @@ const Home = () => {
                 <Grid gutterX="sm">
                   {status.map((status) => (
                     <Grid.Item key={status.link}>
-                      <Button link to={status.link} target="_blank" >
+                      <Button link to={status.link} target="_blank">
                         <img src={status.image} />
                       </Button>
                     </Grid.Item>
@@ -211,12 +236,7 @@ const Home = () => {
                         viewBox="0 0 105 105"
                         fill="none"
                       >
-                        <circle
-                          cx="52.5"
-                          cy="52.5"
-                          r="52.5"
-                          fill="#34E7FF"
-                        />
+                        <circle cx="52.5" cy="52.5" r="52.5" fill="#34E7FF" />
                       </svg>
                     </TransitionGroup>
                   </div>
@@ -250,7 +270,8 @@ const Home = () => {
                 </Text>
                 <Box mb={3} />
                 <Text align="center" color="main">
-                  Use them in all of your apps. It doesn't matter what framework you are using!
+                  Use them in all of your apps. It doesn't matter what framework
+                  you are using!
                 </Text>
               </Grid.Item>
             </Grid>
@@ -263,7 +284,11 @@ const Home = () => {
                       name="flip-in-y"
                       delay={`${(index + 1) * 0.125}s`}
                     >
-                      <div className={`framework${framework.disabled ? ' disabled' : ''}`}>
+                      <div
+                        className={`framework${
+                          framework.disabled ? ' disabled' : ''
+                        }`}
+                      >
                         <img
                           src={`/assets/logo/${framework.logo}`}
                           alt={`${framework.title} logo`}
@@ -288,16 +313,29 @@ const Home = () => {
                 </Text>
                 <Box mb={3} />
                 <Text align="center" color="main">
-                  By using {Constants.PLATFORM_NAME}, you will access to a robust
-                  suite of powerful and flexible web components to help you build
-                  your application quickly and easily.
+                  By using {Constants.PLATFORM_NAME}, you will access to a
+                  robust suite of powerful and flexible web components to help
+                  you build your application quickly and easily.
                 </Text>
               </Grid.Item>
             </Grid>
             <Box mb={12} />
-            <Grid className="features" alignItems="stretch" justifyContent="center" gutter="lg">
+            <Grid
+              className="features"
+              alignItems="stretch"
+              justifyContent="center"
+              gutter="lg"
+            >
               {features.map((feature, index) => (
-                <Grid.Item xs="12" sm="12" md="6" lg="6" xl="6" xxl="4" key={feature.icon}>
+                <Grid.Item
+                  xs="12"
+                  sm="12"
+                  md="6"
+                  lg="6"
+                  xl="6"
+                  xxl="4"
+                  key={feature.icon}
+                >
                   <Intersection behavior="appear" once>
                     <Transition
                       name="fade-in-down"
@@ -305,9 +343,18 @@ const Home = () => {
                     >
                       <Card elevation="5">
                         <Box p={4}>
-                          <Grid alignItems="start" gutter="md" justifyContent="center" wrap="off">
+                          <Grid
+                            alignItems="start"
+                            gutter="md"
+                            justifyContent="center"
+                            wrap="off"
+                          >
                             <Grid.Item alignSelf="center">
-                              <Icon color="primary" name={feature.icon as any} size="3x" />
+                              <Icon
+                                color="primary"
+                                name={feature.icon as any}
+                                size="3x"
+                              />
                             </Grid.Item>
                             <Grid.Item xs="grow">
                               <Box mt={3} mb={2}>
@@ -433,7 +480,7 @@ const Home = () => {
       </Box>
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Home;

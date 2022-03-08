@@ -110,6 +110,24 @@
     },
     "./tabs-tab": {
       "default": "./dist/tabs-tab.js"
+    },
+    "./toast": {
+      "default": "./dist/toast.js"
+    },
+    "./toast-toggler": {
+      "default": "./dist/toast-toggler.js"
+    },
+    "./toolbar": {
+      "default": "./dist/toolbar.js"
+    },
+    "./toolbar-spacer": {
+      "default": "./dist/toolbar-spacer.js"
+    },
+    "./tooltip": {
+      "default": "./dist/tooltip.js"
+    },
+    "./transition": {
+      "default": "./dist/transition.js"
     }
   },
   "typesVersions": {
@@ -117,8 +135,128 @@
       "aspect-ratio": [
         "./dist/components/aspect-ratio/aspect-ratio.d.ts"
       ],
+      "bottom-navigation": [
+        "./dist/components/bottom-navigation/bottom-navigation.d.ts"
+      ],
+      "bottom-navigation-item": [
+        "./dist/components/bottom-navigation-item/bottom-navigation-item.d.ts"
+      ],
+      "breadcrumb": [
+        "./dist/components/breadcrumb/breadcrumb.d.ts"
+      ],
       "browse": [
         "./dist/components/browse/browse.d.ts"
+      ],
+      "card": [
+        "./dist/components/card/card.d.ts"
+      ],
+      "card-body": [
+        "./dist/components/card-body/card-body.d.ts"
+      ],
+      "card-footer": [
+        "./dist/components/card-footer/card-footer.d.ts"
+      ],
+      "card-header": [
+        "./dist/components/card-header/card-header.d.ts"
+      ],
+      "click-outside": [
+        "./dist/components/click-outside/click-outside.d.ts"
+      ],
+      "cropper": [
+        "./dist/components/cropper/cropper.d.ts"
+      ],
+      "dialog": [
+        "./dist/components/dialog/dialog.d.ts"
+      ],
+      "dialog-body": [
+        "./dist/components/dialog-body/dialog-body.d.ts"
+      ],
+      "dialog-content": [
+        "./dist/components/dialog-content/dialog-content.d.ts"
+      ],
+      "dialog-footer": [
+        "./dist/components/dialog-footer/dialog-footer.d.ts"
+      ],
+      "dialog-header": [
+        "./dist/components/dialog-header/dialog-header.d.ts"
+      ],
+      "dialog-toggler": [
+        "./dist/components/dialog-toggler/dialog-toggler.d.ts"
+      ],
+      "divider": [
+        "./dist/components/divider/divider.d.ts"
+      ],
+      "drawer": [
+        "./dist/components/drawer/drawer.d.ts"
+      ],
+      "drawer-toggler": [
+        "./dist/components/drawer-toggler/drawer-toggler.d.ts"
+      ],
+      "grid": [
+        "./dist/components/grid/grid.d.ts"
+      ],
+      "grid-item": [
+        "./dist/components/grid-item/grid-item.d.ts"
+      ],
+      "icon": [
+        "./dist/components/icon/icon.d.ts"
+      ],
+      "intersection": [
+        "./dist/components/intersection/intersection.d.ts"
+      ],
+      "menu": [
+        "./dist/components/menu/menu.d.ts"
+      ],
+      "portal": [
+        "./dist/components/portal/portal.d.ts"
+      ],
+      "ripple": [
+        "./dist/components/ripple/ripple.d.ts"
+      ],
+      "scroll-indicator": [
+        "./dist/components/scroll-indicator/scroll-indicator.d.ts"
+      ],
+      "spinner": [
+        "./dist/components/spinner/spinner.d.ts"
+      ],
+      "sticky": [
+        "./dist/components/sticky/sticky.d.ts"
+      ],
+      "switch": [
+        "./dist/components/switch/switch.d.ts"
+      ],
+      "tabs": [
+        "./dist/components/tabs/tabs.d.ts"
+      ],
+      "tabs-bar": [
+        "./dist/components/tabs-bar/tabs-bar.d.ts"
+      ],
+      "tabs-panel": [
+        "./dist/components/tabs-panel/tabs-panel.d.ts"
+      ],
+      "tabs-panels": [
+        "./dist/components/tabs-panels/tabs-panels.d.ts"
+      ],
+      "tabs-tab": [
+        "./dist/components/tabs-tab/tabs-tab.d.ts"
+      ],
+      "toast": [
+        "./dist/components/toast/toast.d.ts"
+      ],
+      "toast-toggler": [
+        "./dist/components/toast-toggler/toast-toggler.d.ts"
+      ],
+      "toolbar": [
+        "./dist/components/toolbar/toolbar.d.ts"
+      ],
+      "toolbar-spacer": [
+        "./dist/components/toolbar-spacer/toolbar-spacer.d.ts"
+      ],
+      "tooltip": [
+        "./dist/components/tooltip/tooltip.d.ts"
+      ],
+      "transition": [
+        "./dist/components/transition/transition.d.ts"
       ]
     }
   },
@@ -135,7 +273,7 @@
     "test:run": "cypress run"
   },
   "devDependencies": {
-    "@htmlplus/element": "0.1.3",
+    "@htmlplus/element": "0.1.5",
     "@popperjs/core": "^2.10.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",

@@ -3,6 +3,7 @@ import {
   extract,
   parse,
   print,
+  reactProxy,
   read,
   sass,
   uhtml,
@@ -22,4 +23,9 @@ export default [
   attach(),
   uhtml(),
   print(),
-]
+  reactProxy({
+    categorize: true,
+    corePackageName: '@htmlplus/components',
+    dist: '../ports/react.new',
+  }),
+];

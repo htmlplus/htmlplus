@@ -22,8 +22,8 @@ module.exports = withPlugins([/*[withPWA],*/ [withTM]], {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@htmlplus/examples': require.resolve('@htmlplus/examples'),
-      react: path.resolve(__dirname, '../../node_modules/react'),
-      'react-dom': path.resolve(__dirname, '../../node_modules/react-dom'),
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
     };
 
     config.module.rules.push({

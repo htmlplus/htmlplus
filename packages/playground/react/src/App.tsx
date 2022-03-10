@@ -1,5 +1,7 @@
+import { Browse } from "your-react-package-name";
+
 function App() {
-  return <div>React</div>;
+  return <Browse>React</Browse>;
 }
 
 export default App;

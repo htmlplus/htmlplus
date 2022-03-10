@@ -28,7 +28,6 @@ const options = {
         await start();
       },
       async load(id) {
-
         if (!id.endsWith('.tsx')) return null;
 
         const { script } = await next(id);
@@ -41,7 +40,7 @@ const options = {
     },
 
     resolve({
-      browser: true
+      browser: true,
     }),
 
     commonjs(),
@@ -50,20 +49,18 @@ const options = {
 
     terser({
       format: {
-        comments: false
-      }
+        comments: false,
+      },
     }),
 
-    summary()
-  ]
+    summary(),
+  ],
 };
 
 (async () => {
-
   const bundle = await rollup(options);
 
-  for (const output of options.output)
-    await bundle.write(output);
+  for (const output of options.output) await bundle.write(output);
 
   await bundle.close();
 })();

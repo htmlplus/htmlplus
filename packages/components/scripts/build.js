@@ -15,29 +15,29 @@ const { start, next, finish } = compiler(...plugins);
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: glob.sync('./src/**/*.tsx'),
+  input: './src/index.ts',
   output: [
     {
       format: 'esm',
       dir: 'dist',
       chunkFileNames: '[name].js',
       manualChunks(id) {
+        if (id.includes('src'))
+          return path
+            .normalize(id)
+            .split(path.sep)
+            .join('/')
+            .split('/src/')
+            .pop()
+            .split('.')
+            .slice(0, -1)
+            .join('/');
 
-        const name = path.basename(id, path.extname(id));
+        if (id.includes('cropperjs')) return 'vendors/cropperjs';
 
-        if (id.includes('cropperjs')) return 'core.cropperjs';
+        if (id.includes('@popperjs')) return 'vendors/popperjs';
 
-        if (id.includes('helpers')) return 'core.helpers';
-
-        if (id.includes('media')) return 'core.media';
-        
-        if (id.includes('popperjs')) return 'core.popperjs';
-
-        if (id.includes('services')) return 'core.' + name;
-
-        if (id.endsWith('.tsx')) return null;
-
-        return 'core';
+        return 'core/index';
       },
     },
   ],
@@ -48,7 +48,6 @@ const options = {
         await start();
       },
       async load(id) {
-
         if (!id.endsWith('.tsx')) return null;
 
         const { script } = await next(id);
@@ -61,39 +60,35 @@ const options = {
     },
 
     resolve({
-      browser: true
+      browser: true,
     }),
 
     commonjs(),
 
     typescript(),
 
-    terser({ 
-      format: {
-        comments: false
-      }
-    }),
+    // terser({
+    //   format: {
+    //     comments: false,
+    //   },
+    // }),
 
-    summary()
+    summary(),
   ],
 };
 
 (async () => {
-
   try {
-
     const time = Date.now();
 
     const bundle = await rollup(options);
 
-    for (const output of options.output)
-      await bundle.write(output);
+    for (const output of options.output) await bundle.write(output);
 
     await bundle.close();
 
     console.log(`Build in ${Date.now() - time}ms`);
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 })();

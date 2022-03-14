@@ -27,5 +27,9 @@ export default [
     categorize: true,
     corePackageName: '@htmlplus/components',
     dist: '../ports/react.new',
+    importerComponent:
+      '@htmlplus/components/dist/components/{{fileName}}/{{fileName}}#{{componentClassName}}',
+    importerComponentType:
+      '@htmlplus/components/dist/components/{{fileName}}/{{fileName}}#{{componentClassName}}JSX',
   }),
 ];

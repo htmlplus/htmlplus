@@ -2,6 +2,8 @@
   "name": "@htmlplus/components",
   "version": "0.0.1",
   "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
   "exports": {
     "./aspect-ratio": {
       "default": "./dist/aspect-ratio.js"

@@ -25,8 +25,10 @@ export default [
   print(),
   reactProxy({
     categorize: true,
-    corePackageName: '@htmlplus/components',
     dist: '../ports/react.new',
+    eventName(eventName) {
+      return eventName.replace('plus', '');
+    },
     importerComponent(context) {
       return `@htmlplus/components/dist/components/${context.fileName}/${context.fileName}#${context.componentClassName}`;
     },

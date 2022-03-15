@@ -27,7 +27,10 @@ export default [
     compact: true,
     dist: "../ports/react.new",
     eventName(eventName) {
-      return eventName.replace("plus", "");
+      return eventName.replace(
+        /plus(\S*)/g,
+        (match, group) => group.charAt(0).toLowerCase() + group.substr(1)
+      );
     },
     importerComponent(context) {
       return `@htmlplus/components/dist/components/${context.fileName}/${context.fileName}#${context.componentClassName}`;

@@ -8,26 +8,26 @@ import {
   sass,
   uhtml,
   validate,
-} from '@htmlplus/element/compiler';
+} from "@htmlplus/element/compiler";
 
 export default [
   read(),
   parse(),
   validate(),
   extract({
-    prefix: 'plus',
+    prefix: "plus",
   }),
   sass({
-    loadPaths: ['./src/styles'],
+    loadPaths: ["./src/styles"],
   }),
   attach(),
   uhtml(),
   print(),
   reactProxy({
-    categorize: true,
-    dist: '../ports/react.new',
+    compact: true,
+    dist: "../ports/react.new",
     eventName(eventName) {
-      return eventName.replace('plus', '');
+      return eventName.replace("plus", "");
     },
     importerComponent(context) {
       return `@htmlplus/components/dist/components/${context.fileName}/${context.fileName}#${context.componentClassName}`;

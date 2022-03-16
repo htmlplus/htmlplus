@@ -1,4 +1,13 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Method, Property, State } from '@htmlplus/element';
+import {
+  Attributes,
+  Bind,
+  Element,
+  Event,
+  EventEmitter,
+  Method,
+  Property,
+  State,
+} from '@htmlplus/element';
 import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**
@@ -7,9 +16,8 @@ import { BrowseEvent, BrowseEventFile } from './browse.types';
  */
 @Element()
 export class Browse {
-
   /**
-   * One or more 
+   * One or more
    * [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers)
    * describing file types to allow.
    */
@@ -85,7 +93,6 @@ export class Browse {
 
   @Attributes()
   get attributes() {
-
     const attributes = {};
 
     if (this.disabled) return attributes;
@@ -123,27 +130,22 @@ export class Browse {
    */
 
   do(files: FileList) {
-
     const detail: BrowseEvent = {
       errors: [],
       files: [],
-    }
+    };
 
-    if (files.length < this.min)
-      detail.errors.push('MIN');
+    if (files.length < this.min) detail.errors.push('MIN');
 
-    if (files.length > this.max)
-      detail.errors.push('MAX');
+    if (files.length > this.max) detail.errors.push('MAX');
 
     for (let i = 0; i < files.length; i++) {
-
       const value: BrowseEventFile = {
         errors: [],
         file: files[i],
-      }
+      };
 
       for (const type of this.types) {
-
         const isMime = /\//.exec(type);
 
         const isPattern = /\/*/.exec(type);
@@ -152,7 +154,12 @@ export class Browse {
 
         if (isMime && !isPattern && value.file.type === type) break;
 
-        if (isMime && isPattern && value.file.type.startsWith(type.slice(0, -1))) break;
+        if (
+          isMime &&
+          isPattern &&
+          value.file.type.startsWith(type.slice(0, -1))
+        )
+          break;
 
         value.errors.push('ACCEPT');
       }
@@ -166,18 +173,17 @@ export class Browse {
       detail.files.push(value);
     }
 
-    const isSuccess = !detail.errors.length && !detail.files.some((file) => !!file.errors.length);
+    const isSuccess =
+      !detail.errors.length &&
+      !detail.files.some((file) => !!file.errors.length);
 
     if (isSuccess) {
-
       const files = detail.files.filter((file) => !file.errors.length);
 
       const data = Object.assign({}, detail, { files });
 
       this.plusSuccess(data);
-    }
-    else {
-
+    } else {
       const files = detail.files.filter((file) => file.errors.length);
 
       const data = Object.assign({}, detail, { files });
@@ -199,7 +205,6 @@ export class Browse {
 
   @Bind()
   onChange(event) {
-
     const files = event.target.files;
 
     if (!files.length) return;
@@ -209,15 +214,13 @@ export class Browse {
 
   @Bind()
   onDragLeave() {
-
     clearTimeout(this.timeout);
 
-    this.timeout = setTimeout(() => this.dragging = false, 50);
+    this.timeout = setTimeout(() => (this.dragging = false), 50);
   }
 
   @Bind()
   onDragOver(event) {
-
     clearTimeout(this.timeout);
 
     event.preventDefault();
@@ -227,7 +230,6 @@ export class Browse {
 
   @Bind()
   onDrop(event) {
-
     event.preventDefault();
 
     event.stopPropagation();
@@ -240,7 +242,7 @@ export class Browse {
   render() {
     return (
       <>
-        <slot />
+        <slot>Click or Drag & Drop a file(s) here</slot>
         <input
           accept={this.accept}
           multiple={this.multiple}
@@ -250,6 +252,6 @@ export class Browse {
           onClick={(event) => event.stopPropagation()}
         />
       </>
-    )
+    );
   }
 }

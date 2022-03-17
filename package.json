@@ -4,6 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
+    "core:pull": "git subtree pull --prefix packages/core packages/core main --squash",
     "core:push": "git subtree push --prefix packages/core packages/core main",
     "docs:build": "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new",
     "docs:push": "git subtree push --prefix packages/docs packages/docs main",
@@ -19,9 +20,7 @@
     "vue:push": "git subtree push --prefix packages/ports/vue packages/ports/vue main"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.2.6",
     "lerna": "^3.20.2"
-  },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.2.6"
   }
 }

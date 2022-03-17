@@ -7,15 +7,15 @@
  
 import { Dialog } from './dialog';
 import { DialogBody } from './dialog-body';
-import { DialogFooter } from './dialog-footer';
 import { DialogHeader } from './dialog-header';
+import { DialogFooter } from './dialog-footer';
 import { DialogToggler } from './dialog-toggler';
 import { DialogContent } from './dialog-content';
 
 const All = /*@__PURE__*/ Object.assign(Dialog, {
   Body: DialogBody,
-  Footer: DialogFooter,
   Header: DialogHeader,
+  Footer: DialogFooter,
   Toggler: DialogToggler,
   Content: DialogContent,
 });

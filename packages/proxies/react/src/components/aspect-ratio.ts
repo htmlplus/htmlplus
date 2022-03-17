@@ -7,8 +7,8 @@
 
 import { proxy } from '../proxy';
 
-import '@htmlplus/components/dist/components/aspect-ratio/aspect-ratio';
-import type { AspectRatioJSX as Type } from '@htmlplus/components/dist/components/aspect-ratio/aspect-ratio';
+import '@htmlplus/core/dist/components/aspect-ratio/aspect-ratio';
+import type { AspectRatioJSX as Type } from '@htmlplus/core/dist/components/aspect-ratio/aspect-ratio';
 
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 

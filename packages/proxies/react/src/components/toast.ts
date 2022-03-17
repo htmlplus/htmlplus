@@ -7,8 +7,8 @@
 
 import { proxy } from '../proxy';
 
-import '@htmlplus/components/dist/components/toast/toast';
-import type { ToastJSX as Type } from '@htmlplus/components/dist/components/toast/toast';
+import '@htmlplus/core/dist/components/toast/toast';
+import type { ToastJSX as Type } from '@htmlplus/core/dist/components/toast/toast';
 
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 

@@ -6,14 +6,14 @@
  **************************************************/
  
 import { Tabs } from './tabs';
-import { TabsBar } from './tabs-bar';
 import { TabsTab } from './tabs-tab';
+import { TabsBar } from './tabs-bar';
 import { TabsPanel } from './tabs-panel';
 import { TabsPanels } from './tabs-panels';
 
 const All = /*@__PURE__*/ Object.assign(Tabs, {
-  Bar: TabsBar,
   Tab: TabsTab,
+  Bar: TabsBar,
   Panel: TabsPanel,
   Panels: TabsPanels,
 });

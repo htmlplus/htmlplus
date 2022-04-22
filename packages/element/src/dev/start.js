@@ -1,6 +1,6 @@
 import { createServer } from 'vite';
 
-import compiler from '../../dist/compiler/index.js';
+import compiler, { autoDependencyResolver } from '../../dist/compiler/index.js';
 import { attach, extract, parse, print, reactProxy, read, uhtml, validate } from '../../dist/compiler/index.js';
 
 const { start, next, finish } = compiler(
@@ -8,6 +8,13 @@ const { start, next, finish } = compiler(
   parse(),
   validate(),
   extract(),
+  autoDependencyResolver({
+    style: {
+      extensions: ['css', 'scss'],
+      path: '../styles'
+      // path: '.'
+    }
+  }),
   attach({
     typings: false
   }),

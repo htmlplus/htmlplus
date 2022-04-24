@@ -2,6 +2,7 @@ import { ClassBody, ClassDeclaration, ClassMethod, ClassProperty, File } from '@
 
 export interface Context {
   // TODO
+  isInvalid?: boolean;
   script?: string;
 
   // component

@@ -9,11 +9,7 @@ const { start, next, finish } = compiler(
   validate(),
   extract(),
   autoDependencyResolver({
-    style: {
-      extensions: ['css', 'scss'],
-      path: '../styles'
-      // path: '.'
-    }
+    style: true
   }),
   attach({
     typings: false

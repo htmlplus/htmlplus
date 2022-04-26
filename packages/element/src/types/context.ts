@@ -1,5 +1,9 @@
 import { ClassBody, ClassDeclaration, ClassMethod, ClassProperty, File } from '@babel/types';
 
+export type ComponentDependency = {
+  tag: string;
+  path?: string;
+};
 export interface Context {
   // TODO
   isInvalid?: boolean;
@@ -7,6 +11,7 @@ export interface Context {
 
   // component
   componentClassName?: string;
+  componentDependencies?: Array<ComponentDependency>;
   componentInterfaceName?: string;
   componentKey?: string;
   componentTag?: string;

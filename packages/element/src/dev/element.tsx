@@ -55,6 +55,7 @@ export class MyElement {
     return (
       <div ref={this.$element} onClick={this.onClick}>
         {this.property}
+        <my-text>Hello</my-text>
       </div>
     )
   }

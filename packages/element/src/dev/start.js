@@ -9,7 +9,8 @@ const { start, next, finish } = compiler(
   validate(),
   extract(),
   autoDependencyResolver({
-    style: true
+    style: true,
+    component: true
   }),
   attach({
     typings: false

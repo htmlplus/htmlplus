@@ -7,6 +7,8 @@ export * from './parse.js';
 export * from './print.js';
 export * from './read.js';
 export * from './sass.js';
+export * from './scss.js';
+export * from './style.js';
 export * from './uhtml.js';
 export * from './validate.js';
 export * from './vscode.js';

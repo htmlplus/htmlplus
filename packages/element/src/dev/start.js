@@ -3,12 +3,12 @@ import { createServer } from 'vite';
 import compiler from '../../dist/compiler/index.js';
 import {
   attach,
-  autoDependencyResolver,
   extract,
   parse,
   print,
   read,
-  sass,
+  scss,
+  style,
   uhtml,
   validate
 } from '../../dist/compiler/index.js';
@@ -18,11 +18,8 @@ const { start, next, finish } = compiler(
   parse(),
   validate(),
   extract(),
-  autoDependencyResolver({
-    style: true,
-    component: true
-  }),
-  sass(),
+  style(),
+  scss(),
   attach({
     typings: false
   }),

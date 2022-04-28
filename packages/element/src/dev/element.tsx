@@ -56,6 +56,7 @@ export class MyElement {
       <div ref={this.$element} onClick={this.onClick}>
         {this.property}
         <my-text>Hello</my-text>
+        <my-another-component>Hello</my-another-component>
       </div>
     )
   }

@@ -23,9 +23,15 @@ export const attach = (options: AttachOptions) => {
 
   const name = 'attach';
 
-  const next = (context: Context) => {
+  const next = (context: Context, global: { contexts: Context[]; components: any[] }) => {
     // TODO
     if (options.dependencies) {
+      const component = global.components.find((component) => component.tag === context.componentTag);
+
+      context.componentDependencies = component.deps;
+
+      console.log('dependencies of "' + context.componentTag + '" are:', context.componentDependencies);
+      console.log('');
     }
 
     if (options.styles && context.styleParsed)

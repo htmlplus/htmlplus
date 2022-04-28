@@ -1,6 +1,6 @@
 export * from './react.proxy/index.js';
 export * from './attach.js';
-export * from './autoDependencyResolver.js';
+export * from './componentDependencyResolver.js';
 export * from './docs.js';
 export * from './extract.js';
 export * from './parse.js';

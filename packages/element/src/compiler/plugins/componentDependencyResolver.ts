@@ -57,7 +57,15 @@ export const componentDependencyResolver = () => {
       deps
     });
 
-    context.componentDependencies = deps;
+    // TODO: context.componentDependencies should be set from this plugin
+    //  check attach.ts file
+
+    // const component = global.components.find((component) => component.tag === context.componentTag);
+
+    // context.componentDependencies = component.deps;
+
+    // console.log('dependencies of "' + context.componentTag + '" are:', context.componentDependencies);
+    // console.log('');
   };
 
   const start = (global: { components?: []; contexts: Context[] }) => {

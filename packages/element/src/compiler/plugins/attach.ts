@@ -26,6 +26,10 @@ export const attach = (options: AttachOptions) => {
   const next = (context: Context, global: { contexts: Context[]; components: any[] }) => {
     // TODO
     if (options.dependencies) {
+      // TODO: component dependency resolver should not depend on below codes.
+      // comment this code and uncomment from compoenentDependencyResolver.ts file
+      // and see difference in console logs (path of my-text component is not resolved)
+
       const component = global.components.find((component) => component.tag === context.componentTag);
 
       context.componentDependencies = component.deps;

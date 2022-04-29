@@ -1,6 +1,6 @@
 import { createServer } from 'vite';
 
-import compiler, { componentDependencyResolver } from '../../dist/compiler/index.js';
+import compiler, { componentDependencyResolverNew } from '../../dist/compiler/index.js';
 import { attach, extract, parse, print, read, scss, style, uhtml, validate } from '../../dist/compiler/index.js';
 
 const { start, next, finish } = compiler(
@@ -9,7 +9,7 @@ const { start, next, finish } = compiler(
   validate(),
   extract(),
   style(),
-  componentDependencyResolver(),
+  componentDependencyResolverNew(),
   scss(),
   attach({
     typings: false

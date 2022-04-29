@@ -6,6 +6,8 @@ export type ComponentDependency = {
 };
 export interface Context {
   // TODO
+  dependencies?: Array<Context>;
+  dependenciesUnresolved?: Array<string>;
   isInvalid?: boolean;
   script?: string;
 

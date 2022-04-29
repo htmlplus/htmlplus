@@ -5,25 +5,15 @@ export const componentDependencyResolver = () => {
   const name = 'comoponent dependency resolver';
 
   const next = (context: Context, global: any) => {
-    // TODO: it is not possible to use global.context because always it is empty
-    // console.log(global.contexts)
-    // global.contexts only have data in finish function of plugins
-
-    // update other components if they depend on this component
-    global.components = global.components.map((component) => {
-      component.deps = component.deps.map((dep) => {
+    // update all components which depends on this component
+    Object.values(global.contexts).map((ctx: any) => {
+      ctx.componentDependencies = ctx.componentDependencies?.map((dep) => {
         if (dep.tag === context.componentTag) {
-          return {
-            ...dep,
-            path: context.filePath
-          };
+          dep.path = context.filePath;
         }
         return dep;
       });
-      return component;
     });
-
-    let deps: Array<{ tag: string; path?: string }> = [];
 
     context.componentDependencies = [];
     visitor(context.fileAST as any, {
@@ -32,50 +22,25 @@ export const componentDependencyResolver = () => {
           const tag = path.node.name.name;
 
           if (tag.includes('-')) {
-            deps.push({ tag });
+            context.componentDependencies!.push({ tag });
           }
         }
       }
     });
 
     // set path if this component depends on a component which was resolved before
-    global.components.forEach((component) => {
-      deps = deps.map((dep) => {
-        if (dep.tag === component.tag) {
-          return {
-            ...dep,
-            path: component.path
-          };
+    context.componentDependencies = context.componentDependencies.map((dep) => {
+      Object.values(global.contexts).map((ctx: any) => {
+        if (dep.tag === ctx.componentTag) {
+          dep.path = ctx.filePath;
         }
-        return dep;
       });
+      return dep;
     });
-
-    global.components.push({
-      path: context.filePath,
-      tag: context.componentTag,
-      deps
-    });
-
-    // TODO: context.componentDependencies should be set from this plugin
-    //  check attach.ts file
-
-    // const component = global.components.find((component) => component.tag === context.componentTag);
-
-    // context.componentDependencies = component.deps;
-
-    // console.log('dependencies of "' + context.componentTag + '" are:', context.componentDependencies);
-    // console.log('');
-  };
-
-  const start = (global: { components?: []; contexts: Context[] }) => {
-    global.components = [];
-    return global;
   };
 
   return {
     name,
-    next,
-    start
+    next
   };
 };

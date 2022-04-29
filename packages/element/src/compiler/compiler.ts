@@ -34,15 +34,15 @@ export default (...plugins: Array<Plugin>) => {
 
     for (const plugin of plugins) {
       if (!plugin.next) continue;
-      context = (await plugin.next(context, global)) || context;
-      if (context.isInvalid) break;
-    }
-    if (context.isInvalid)
-      log(key, 'Break executing because file is invalid.');
-    else
-      log(key, 'Executed successfully.');
 
-    global.contexts[filePath] = context;
+      await plugin.next(context, global);
+      if (context.isInvalid) break;
+
+      global.contexts[filePath] = context;
+    }
+
+    if (context.isInvalid) log(key, 'Break executing because file is invalid.');
+    else log(key, 'Executed successfully.');
 
     return context;
   };

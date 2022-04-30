@@ -1,11 +1,10 @@
 import {
   attach,
+  customElementReact,
   extract,
   parse,
   print,
-  reactProxy,
   read,
-  scss,
   style,
   uhtml,
   validate
@@ -18,14 +17,15 @@ export default [
   extract({
     prefix: 'plus'
   }),
-  style(),
-  scss({
-    loadPaths: ['./src/styles']
+  style({
+    sass: {
+      loadPaths: ['./src/styles']
+    }
   }),
   attach(),
   uhtml(),
   print(),
-  reactProxy({
+  customElementReact({
     compact: true,
     dist: '../proxies/react',
     eventName(eventName) {

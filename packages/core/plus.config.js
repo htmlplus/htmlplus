@@ -1,12 +1,11 @@
 import {
   attach,
+  customElement,
   customElementReact,
   extract,
   parse,
-  print,
   read,
   style,
-  uhtml,
   validate
 } from '@htmlplus/element/compiler';
 
@@ -23,8 +22,7 @@ export default [
     }
   }),
   attach(),
-  uhtml(),
-  print(),
+  customElement(),
   customElementReact({
     compact: true,
     dist: '../proxies/react',

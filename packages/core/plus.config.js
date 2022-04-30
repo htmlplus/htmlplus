@@ -1,13 +1,4 @@
-import {
-  attach,
-  customElement,
-  customElementReact,
-  extract,
-  parse,
-  read,
-  style,
-  validate
-} from '@htmlplus/element/compiler';
+import { customElement, customElementReact, extract, parse, read, style, validate } from '@htmlplus/element/compiler';
 
 export default [
   read(),
@@ -21,7 +12,6 @@ export default [
       loadPaths: ['./src/styles']
     }
   }),
-  attach(),
   customElement(),
   customElementReact({
     compact: true,

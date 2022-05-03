@@ -7,11 +7,7 @@ export default [
   extract({
     prefix: 'plus'
   }),
-  style({
-    sass: {
-      loadPaths: ['./src/styles']
-    }
-  }),
+  style(),
   customElement(),
   customElementReact({
     compact: true,

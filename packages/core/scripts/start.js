@@ -1,5 +1,4 @@
 import compiler from '@htmlplus/element/compiler';
-import glob from 'glob';
 import path from 'path';
 import { createServer } from 'vite';
 import plugins from '../plus.config.js';
@@ -7,18 +6,34 @@ import plugins from '../plus.config.js';
 const { start, next, finish } = compiler(...plugins);
 
 createServer({
-  root: 'public',
+  root: 'src',
   cacheDir: '../.cache',
   server: {
-    open: true,
+    open: true
   },
   resolve: {
     alias: [
       {
         find: '@app',
-        replacement: path.resolve('src'),
-      },
-    ],
+        replacement: path.resolve('src')
+      }
+    ]
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/mixins/index.scss";
+          @import "./src/styles/variables/index.scss";
+        `,
+        importer(url) {
+          if (url != 'reset') return null;
+          return {
+            file: './src/styles/reset.scss'
+          };
+        }
+      }
+    }
   },
   plugins: [
     {
@@ -27,23 +42,16 @@ createServer({
         await start();
       },
       async load(id) {
-        if (id.endsWith('bundle.ts'))
-          return glob
-            .sync(path.resolve('./src/**/*.tsx'))
-            .map((file) => `import '${file}';`)
-            .join('\n');
-
-        if (!id.endsWith('.tsx')) return null;
-
-        const { script } = await next(id);
-
+        if (!id.endsWith('.tsx')) return;
+        const { isInvalid, script } = await next(id);
+        if (isInvalid) return;
         return script;
       },
       async buildEnd() {
         await finish();
-      },
-    },
-  ],
+      }
+    }
+  ]
 })
   .then((server) => server.listen())
   .catch((error) => console.log(error));

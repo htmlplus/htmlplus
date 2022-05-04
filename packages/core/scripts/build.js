@@ -23,23 +23,15 @@ const options = {
       chunkFileNames: '[name].js',
       manualChunks(id) {
         if (id.includes('src'))
-          return path
-            .normalize(id)
-            .split(path.sep)
-            .join('/')
-            .split('/src/')
-            .pop()
-            .split('.')
-            .slice(0, -1)
-            .join('/');
+          return path.normalize(id).split(path.sep).join('/').split('/src/').pop().split('.').slice(0, -1).join('/');
 
         if (id.includes('cropperjs')) return 'vendors/cropperjs';
 
         if (id.includes('@popperjs')) return 'vendors/popperjs';
 
         return 'core/index';
-      },
-    },
+      }
+    }
   ],
   plugins: [
     {
@@ -48,19 +40,18 @@ const options = {
         await start();
       },
       async load(id) {
-        if (!id.endsWith('.tsx')) return null;
-
-        const { script } = await next(id);
-
+        if (!id.endsWith('.tsx')) return;
+        const { isInvalid, script } = await next(id);
+        if (isInvalid) return;
         return script;
       },
       async buildEnd() {
         await finish();
-      },
+      }
     },
 
     resolve({
-      browser: true,
+      browser: true
     }),
 
     commonjs(),
@@ -73,8 +64,8 @@ const options = {
     //   },
     // }),
 
-    summary(),
-  ],
+    summary()
+  ]
 };
 
 (async () => {

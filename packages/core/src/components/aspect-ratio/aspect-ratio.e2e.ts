@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 let element;
 
 const values = [

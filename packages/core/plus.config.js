@@ -1,4 +1,12 @@
-import { customElement, customElementReact, extract, parse, read, style, validate } from '@htmlplus/element/compiler';
+import {
+  customElement,
+  customElementReact,
+  extract,
+  parse,
+  read,
+  style,
+  validate
+} from '@htmlplus/element/compiler/index.js';
 
 export default [
   read(),

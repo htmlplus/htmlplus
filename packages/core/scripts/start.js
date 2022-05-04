@@ -1,4 +1,4 @@
-import compiler from '@htmlplus/element/compiler';
+import compiler from '@htmlplus/element/compiler/index.js';
 import path from 'path';
 import { createServer } from 'vite';
 import plugins from '../plus.config.js';

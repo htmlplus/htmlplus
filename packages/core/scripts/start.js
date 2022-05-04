@@ -25,13 +25,8 @@ createServer({
         additionalData: `
           @import "./src/styles/mixins/index.scss";
           @import "./src/styles/variables/index.scss";
-        `,
-        importer(url) {
-          if (url != 'reset') return null;
-          return {
-            file: './src/styles/reset.scss'
-          };
-        }
+          @import "./src/styles/reset.scss";
+        `
       }
     }
   },

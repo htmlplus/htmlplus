@@ -1,12 +1,4 @@
 {
   "version": "independent",
-  "packages": [
-    "packages/core",
-    "packages/docs",
-    "packages/document",
-    "packages/element/dist",
-    "packages/examples",
-    "packages/playground/*",
-    "packages/proxies/*"
-  ]
+  "packages": ["packages/core", "packages/element"]
 }

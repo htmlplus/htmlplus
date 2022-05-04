@@ -1,4 +1,4 @@
-import compiler from '@htmlplus/element/compiler';
+import compiler from '@htmlplus/element/compiler/index.js';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
@@ -7,6 +7,7 @@ import { rollup } from 'rollup';
 import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+
 import plugins from '../plus.config.js';
 
 const { start, next, finish } = compiler(...plugins);
@@ -15,7 +16,7 @@ const { start, next, finish } = compiler(...plugins);
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: './src/index.ts',
+  input: './src/components/index.ts',
   output: [
     {
       format: 'esm',

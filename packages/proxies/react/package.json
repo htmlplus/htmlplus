@@ -14,7 +14,7 @@
     "dist"
   ],
   "dependencies": {
-    "@htmlplus/core": "0.3.0-next.1",
+    "@htmlplus/core": "0.3.0-next.4",
     "change-case": "^4.1.2"
   },
   "devDependencies": {

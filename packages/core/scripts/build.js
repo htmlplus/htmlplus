@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import glob from 'glob';
 import path from 'path';
 import { rollup } from 'rollup';
+import postcss from 'rollup-plugin-postcss';
 import summary from 'rollup-plugin-summary';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
@@ -23,18 +24,33 @@ const options = {
       dir: 'dist',
       chunkFileNames: '[name].js',
       manualChunks(id) {
-        if (id.includes('src'))
-          return path.normalize(id).split(path.sep).join('/').split('/src/').pop().split('.').slice(0, -1).join('/');
+        const normalized = path.normalize(id).split(path.sep).join('/');
 
-        if (id.includes('cropperjs')) return 'vendors/cropperjs';
+        if (normalized.includes('/src/components/'))
+          return normalized.split('/src/components/').pop().split('/').shift();
 
-        if (id.includes('@popperjs')) return 'vendors/popperjs';
+        if (normalized.includes('cropperjs')) return 'vendors/cropperjs';
+
+        if (normalized.includes('@popperjs')) return 'vendors/popperjs';
 
         return 'core/index';
       }
     }
   ],
   plugins: [
+    postcss({
+      inject: false,
+      minimize: true,
+      use: {
+        sass: {
+          data: `
+            @import "./src/styles/mixins/index.scss";
+            @import "./src/styles/variables/index.scss";
+            @import "./src/styles/reset.scss";
+          `
+        }
+      }
+    }),
     {
       name: 'htmlplus',
       async buildStart() {

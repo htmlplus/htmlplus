@@ -3,11 +3,12 @@
   "version": "0.2.8",
   "type": "module",
   "description": "React output target for your custom element.",
-  "exports": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "rollup -c",
+    "postbuild": "node scripts/build.post.js",
     "clean": "rimraf dist"
   },
   "files": [

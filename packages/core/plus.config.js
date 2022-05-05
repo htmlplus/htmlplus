@@ -24,10 +24,10 @@ export default [
       return eventName.replace(/plus(\S*)/g, (match, group) => group.charAt(0).toLowerCase() + group.substr(1));
     },
     importerComponent(context) {
-      return `@htmlplus/core/dist/components/${context.fileName}/${context.fileName}#${context.componentClassName}`;
+      return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;
     },
     importerComponentType(context) {
-      return `@htmlplus/core/dist/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
+      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
     }
   })
 ];

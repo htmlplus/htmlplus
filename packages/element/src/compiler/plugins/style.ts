@@ -43,7 +43,7 @@ export const style = (options: StyleOptions) => {
     context.fileAST!.program.body.unshift(
       t.importDeclaration(
         [t.importDefaultSpecifier(t.identifier('AUTO_IMPORT_STYLE'))],
-        t.stringLiteral(context.stylePath + '?inline')
+        t.stringLiteral(context.stylePath)
       )
     );
 

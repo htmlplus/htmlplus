@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@htmlplus/react": "0.2.8",
+    "@htmlplus/react": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

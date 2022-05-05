@@ -1,5 +1,7 @@
+import { AspectRatio } from "@htmlplus/react";
+
 function App() {
-  return <div>React</div>;
+  return <AspectRatio>React</AspectRatio>;
 }
 
 export default App;

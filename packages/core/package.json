@@ -5,213 +5,25 @@
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "HTMLPlus UI Components",
   "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
+  "main": "index.js",
+  "types": "types/components/index.d.ts",
   "scripts": {
     "build": "npm run clean && node scripts/build.js",
+    "postbuild": "node scripts/build.post.js",
     "clean": "rimraf .cache dist public/build",
     "format": "prettier --write .",
     "start": "node scripts/start.js",
     "test:open": "cypress open",
     "test:run": "cypress run"
   },
-  "exports": {
-    "./aspect-ratio": {
-      "default": "./dist/aspect-ratio.js"
-    },
-    "./breadcrumb": {
-      "default": "./dist/breadcrumb.js"
-    },
-    "./browse": {
-      "default": "./dist/browse.js"
-    },
-    "./card": {
-      "default": "./dist/card.js"
-    },
-    "./click-outside": {
-      "default": "./dist/click-outside.js"
-    },
-    "./cropper": {
-      "default": "./dist/cropper.js"
-    },
-    "./dialog": {
-      "default": "./dist/dialog.js"
-    },
-    "./dialog-body": {
-      "default": "./dist/dialog-body.js"
-    },
-    "./dialog-content": {
-      "default": "./dist/dialog-content.js"
-    },
-    "./dialog-footer": {
-      "default": "./dist/dialog-footer.js"
-    },
-    "./dialog-header": {
-      "default": "./dist/dialog-header.js"
-    },
-    "./dialog-toggler": {
-      "default": "./dist/dialog-toggler.js"
-    },
-    "./divider": {
-      "default": "./dist/divider.js"
-    },
-    "./drawer": {
-      "default": "./dist/drawer.js"
-    },
-    "./drawer-toggler": {
-      "default": "./dist/drawer-toggler.js"
-    },
-    "./grid": {
-      "default": "./dist/grid.js"
-    },
-    "./grid-item": {
-      "default": "./dist/grid-item.js"
-    },
-    "./icon": {
-      "default": "./dist/icon.js"
-    },
-    "./intersection": {
-      "default": "./dist/intersection.js"
-    },
-    "./portal": {
-      "default": "./dist/portal.js"
-    },
-    "./scroll-indicator": {
-      "default": "./dist/scroll-indicator.js"
-    },
-    "./spinner": {
-      "default": "./dist/spinner.js"
-    },
-    "./sticky": {
-      "default": "./dist/sticky.js"
-    },
-    "./switch": {
-      "default": "./dist/switch.js"
-    },
-    "./tabs": {
-      "default": "./dist/tabs.js"
-    },
-    "./tabs-bar": {
-      "default": "./dist/tabs-bar.js"
-    },
-    "./tabs-panel": {
-      "default": "./dist/tabs-panel.js"
-    },
-    "./tabs-panels": {
-      "default": "./dist/tabs-panels.js"
-    },
-    "./tabs-tab": {
-      "default": "./dist/tabs-tab.js"
-    },
-    "./tooltip": {
-      "default": "./dist/tooltip.js"
-    },
-    "./transition": {
-      "default": "./dist/transition.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "aspect-ratio": [
-        "./dist/components/aspect-ratio/aspect-ratio.d.ts"
-      ],
-      "breadcrumb": [
-        "./dist/components/breadcrumb/breadcrumb.d.ts"
-      ],
-      "browse": [
-        "./dist/components/browse/browse.d.ts"
-      ],
-      "card": [
-        "./dist/components/card/card.d.ts"
-      ],
-      "click-outside": [
-        "./dist/components/click-outside/click-outside.d.ts"
-      ],
-      "cropper": [
-        "./dist/components/cropper/cropper.d.ts"
-      ],
-      "dialog": [
-        "./dist/components/dialog/dialog.d.ts"
-      ],
-      "dialog-body": [
-        "./dist/components/dialog-body/dialog-body.d.ts"
-      ],
-      "dialog-content": [
-        "./dist/components/dialog-content/dialog-content.d.ts"
-      ],
-      "dialog-footer": [
-        "./dist/components/dialog-footer/dialog-footer.d.ts"
-      ],
-      "dialog-header": [
-        "./dist/components/dialog-header/dialog-header.d.ts"
-      ],
-      "dialog-toggler": [
-        "./dist/components/dialog-toggler/dialog-toggler.d.ts"
-      ],
-      "divider": [
-        "./dist/components/divider/divider.d.ts"
-      ],
-      "drawer": [
-        "./dist/components/drawer/drawer.d.ts"
-      ],
-      "drawer-toggler": [
-        "./dist/components/drawer-toggler/drawer-toggler.d.ts"
-      ],
-      "grid": [
-        "./dist/components/grid/grid.d.ts"
-      ],
-      "grid-item": [
-        "./dist/components/grid-item/grid-item.d.ts"
-      ],
-      "icon": [
-        "./dist/components/icon/icon.d.ts"
-      ],
-      "intersection": [
-        "./dist/components/intersection/intersection.d.ts"
-      ],
-      "portal": [
-        "./dist/components/portal/portal.d.ts"
-      ],
-      "scroll-indicator": [
-        "./dist/components/scroll-indicator/scroll-indicator.d.ts"
-      ],
-      "spinner": [
-        "./dist/components/spinner/spinner.d.ts"
-      ],
-      "sticky": [
-        "./dist/components/sticky/sticky.d.ts"
-      ],
-      "switch": [
-        "./dist/components/switch/switch.d.ts"
-      ],
-      "tabs": [
-        "./dist/components/tabs/tabs.d.ts"
-      ],
-      "tabs-bar": [
-        "./dist/components/tabs-bar/tabs-bar.d.ts"
-      ],
-      "tabs-panel": [
-        "./dist/components/tabs-panel/tabs-panel.d.ts"
-      ],
-      "tabs-panels": [
-        "./dist/components/tabs-panels/tabs-panels.d.ts"
-      ],
-      "tabs-tab": [
-        "./dist/components/tabs-tab/tabs-tab.d.ts"
-      ],
-      "tooltip": [
-        "./dist/components/tooltip/tooltip.d.ts"
-      ],
-      "transition": [
-        "./dist/components/transition/transition.d.ts"
-      ]
-    }
-  },
   "files": [
-    "dist",
+    "types",
     "package.json",
     "README.md"
   ],
+  "publishConfig": {
+    "directory": "dist"
+  },
   "engines": {
     "node": ">= 12.7.0"
   },
@@ -225,13 +37,14 @@
   },
   "homepage": "https://github.com/htmlplus/core#readme",
   "devDependencies": {
-    "@htmlplus/element": "^0.3.2",
+    "@htmlplus/element": "latest",
     "@popperjs/core": "^2.10.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/react": "^17.0.38",
     "change-case": "^4.1.2",
+    "cpy": "^9.0.1",
     "cropperjs": "^1.5.12",
     "cypress": "^8.6.0",
     "cypress-file-upload": "^5.0.8",

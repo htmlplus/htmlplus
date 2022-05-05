@@ -1,12 +1,11 @@
 import compiler from '@htmlplus/element/compiler/index.js';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import glob from 'glob';
 import path from 'path';
 import { rollup } from 'rollup';
 import postcss from 'rollup-plugin-postcss';
 import summary from 'rollup-plugin-summary';
-import { terser } from 'rollup-plugin-terser';
+// import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
 import plugins from '../plus.config.js';
@@ -33,7 +32,7 @@ const options = {
 
         if (normalized.includes('@popperjs')) return 'vendors/popperjs';
 
-        return 'core/index';
+        return 'core';
       }
     }
   ],
@@ -73,7 +72,7 @@ const options = {
 
     commonjs(),
 
-    typescript(),
+    typescript({ useTsconfigDeclarationDir: true }),
 
     // terser({
     //   format: {

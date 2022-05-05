@@ -5,8 +5,8 @@
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "Compiler of HTMLPlus",
   "type": "module",
-  "main": "./client/index.js",
-  "types": "./client/index.d.ts",
+  "main": "client/index.js",
+  "types": "client/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc",

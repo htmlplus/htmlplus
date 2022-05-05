@@ -1,4 +1,9 @@
 {
   "version": "independent",
-  "packages": ["packages/core", "packages/element"]
+  "packages": [
+    "packages/core",
+    "packages/element",
+    "packages/playground/react",
+    "packages/proxies/react"
+  ]
 }

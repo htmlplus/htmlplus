@@ -11,16 +11,21 @@
     "clean": "rimraf dist"
   },
   "files": [
-    "dist"
+    "package.json",
+    "README.md"
   ],
+  "publishConfig": {
+    "directory": "dist"
+  },
   "dependencies": {
-    "@htmlplus/core": "0.3.0-next.4",
+    "@htmlplus/core": "latest",
     "change-case": "^4.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/react": "^16.9.49",
+    "cpy": "^9.0.1",
     "glob": "^7.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

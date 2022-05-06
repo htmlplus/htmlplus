@@ -10,6 +10,7 @@
   "scripts": {
     "build": "npm run clean && node scripts/build.js",
     "postbuild": "node scripts/build.post.js",
+    "postinstall": "npm run build",
     "clean": "rimraf .cache dist public/build",
     "format": "prettier --write .",
     "start": "node scripts/start.js",

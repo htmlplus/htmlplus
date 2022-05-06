@@ -9,6 +9,7 @@
     "prebuild": "npm run clean",
     "build": "rollup -c",
     "postbuild": "node scripts/build.post.js",
+    "postinstall": "npm run build",
     "clean": "rimraf dist"
   },
   "files": [

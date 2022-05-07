@@ -21,6 +21,7 @@ export const getTags = (node: Node, filter?: string): Array<Tag> => {
     const lines: Array<string> = [];
 
     const comments = (node.leadingComments || [])
+      .slice(-1)
       .map((comment) => comment.value)
       .join('\r\n')
       .split('\r\n');

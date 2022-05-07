@@ -1,9 +1,10 @@
-import { paramCase } from 'change-case';
+import { capitalCase, paramCase } from 'change-case';
 import fs from 'fs';
+import glob from 'glob';
 import path from 'path';
 
 import { Context } from '../../types/index.js';
-import { getInitializer, getTags, getType, hasTag, printType } from '../utils/index.js';
+import { getInitializer, getTag, getTags, getType, hasTag, parseTag, printType } from '../utils/index.js';
 
 export interface DocsOptions {
   // TODO
@@ -45,7 +46,7 @@ export const docs = (options: DocsOptions) => {
       const detail = (() => {
         try {
           return printType(
-            getType(context.fileAST as any, (event.typeAnnotation || {})['typeAnnotation'].typeParameters.params[0], {
+            getType(context.fileAST!, (event.typeAnnotation || {})['typeAnnotation'].typeParameters.params[0], {
               directory: context.directoryPath
             })
           );
@@ -58,26 +59,43 @@ export const docs = (options: DocsOptions) => {
 
       const name = event.key['name'];
 
+      const tags = getTags(event);
+
       return {
         description,
         detail,
         isCancelable,
         isExperimental,
         isModel,
-        name
+        name,
+        tags
       };
     });
 
+    const group = getTag(context.class!, 'group')?.value;
+
     const hasExternals = fs.existsSync(path.join(context.directoryPath!, 'externals'));
 
+    const isDeprecated = hasTag(context.class!, 'deprecated');
+
     const isExperimental = hasTag(context.class!, 'experimental');
+
+    const lastModified = glob
+      .sync(path.join(context.directoryPath!, '**/*.*'))
+      .map((file) => fs.statSync(file).mtime)
+      .sort((a, b) => (a > b ? 1 : -1))
+      .pop();
 
     const methods = context.classMethods!.map((method) => {
       const description = getTags(method).find((tag) => !tag.key)?.value;
 
+      const isDeprecated = hasTag(method, 'deprecated');
+
       const isExperimental = hasTag(method, 'experimental');
 
       const name = method.key['name'];
+
+      const tags = getTags(method);
 
       // TODO
       // const params = printType(getType(
@@ -116,15 +134,17 @@ export const docs = (options: DocsOptions) => {
 
       return {
         description,
+        isDeprecated,
         isExperimental,
-        name
+        name,
+        tags
         // parameters,
         // signature,
         // type
       };
     });
 
-    const parts = getTags(context.class!, 'part').map((tag) => tag.parsed);
+    const parts = getTags(context.class!, 'part').map(parseTag);
 
     const properties = context.classProperties!.map((property) => {
       const attribute = paramCase(property.key['name']);
@@ -152,6 +172,8 @@ export const docs = (options: DocsOptions) => {
       // TODO
       const initializer = getInitializer(property.value!);
 
+      const isDeprecated = hasTag(property, 'deprecated');
+
       const isExperimental = hasTag(property, 'experimental');
 
       const isModel = hasTag(property, 'model');
@@ -160,12 +182,15 @@ export const docs = (options: DocsOptions) => {
 
       const name = property.key['name'];
 
+      const tags = getTags(property);
+
       // TODO
       const { type, members } = (() => {
-        const ast = getType(context.fileAST!, (property.typeAnnotation || {})['typeAnnotation'], {
-          directory: context.directoryPath
-        });
-        return printType(ast);
+        return printType(
+          getType(context.fileAST!, (property.typeAnnotation || {})['typeAnnotation'], {
+            directory: context.directoryPath
+          })
+        );
       })();
 
       return {
@@ -173,11 +198,13 @@ export const docs = (options: DocsOptions) => {
         description,
         hasReflect,
         initializer,
+        isDeprecated,
         isExperimental,
         isModel,
         isRequired,
         members,
         name,
+        tags,
         type
       };
     });
@@ -207,18 +234,31 @@ export const docs = (options: DocsOptions) => {
       return '';
     })();
 
-    const slots = getTags(context.class!, 'slot').map((tag) => tag.parsed);
+    const slots = getTags(context.class!, 'slot').map(parseTag);
+
+    const tag = context.componentTag;
+
+    const tags = getTags(context.class!);
+
+    // TODO
+    const title = capitalCase(context.componentTag!);
 
     global.docs.components.push({
       events,
+      group,
       hasExternals,
+      isDeprecated,
       isExperimental,
+      lastModified,
       methods,
       parts,
       properties,
       readme,
       readmeDescription,
-      slots
+      slots,
+      tag,
+      tags,
+      title
     });
   };
 
@@ -241,7 +281,6 @@ export const docs = (options: DocsOptions) => {
 };
 
 // TODO: garbge
-// const tags = getTags(context.class);
 
 // const development = tags.some((tag) => tag.key == 'development');
 
@@ -274,54 +313,11 @@ export const docs = (options: DocsOptions) => {
 //     return styles;
 // })();
 
-// // TODO
-// const lastModified = 0;
-// // glob
-// //     .sync(path.join(context.directory, '**/*.*'))
-// //     .reduce((result, file) => {
-
-// //         const state = fs.statSync(file);
-
-// //         return result > state.mtime ? result : state.mtime
-// //     }, 0);
-
-// const group = tags.find((tag) => tag.key == 'group')?.value || null;
-
 // const main = (group && context.componentKey == group) || !group;
 
-// // TODO
-// // context.types = (() => {
-// //     return [];
-// // })();
-
-// global.docs.components.push({
 //     key: context.componentKey,
-//     tag: context.componentTag,
-//     title: capitalCase(context.componentKey || ''),
 //     main,
-//     group,
 //     development,
-//     experimental,
-
-//     // TODO
 //     deprecated: false,
-
-//     externals,
-//     lastModified,
-
-//     // TODO
-//     tags: [],
-
-//     // TODO
 //     source: context.componentKey,
-
-//     description,
-//     readme,
-//     properties,
-//     slots,
-//     events,
 //     styles,
-//     parts,
-//     methods
-//     // examples
-// });

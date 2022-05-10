@@ -4,7 +4,7 @@ import glob from 'glob';
 import path from 'path';
 
 import { Context } from '../../types/index.js';
-import { getInitializer, getTag, getTags, getType, getType2, hasTag, parseTag, printType } from '../utils/index.js';
+import { getInitializer, getTag, getTags, getType, getTypeReference, hasTag, parseTag, printType } from '../utils/index.js';
 
 export interface DocsOptions {
   // TODO
@@ -36,7 +36,7 @@ export const docs = (options: DocsOptions) => {
               }
             }
           }
-        } catch {}
+        } catch { }
         return false;
       })();
 
@@ -45,13 +45,16 @@ export const docs = (options: DocsOptions) => {
       // TODO
       const detail = (() => {
         try {
-          return printType(
-            getType(context.fileAST!, (event.typeAnnotation || {})['typeAnnotation'].typeParameters.params[0], {
-              directory: context.directoryPath
-            })
-          );
-        } catch {}
+          return printType(event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0]);
+        } catch { }
       })();
+
+      // TODO
+      const detailReference = getTypeReference(
+        context.fileAST!,
+        event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0],
+        context.directoryPath!
+      );
 
       const isExperimental = hasTag(event, 'experimental');
 
@@ -64,6 +67,7 @@ export const docs = (options: DocsOptions) => {
       return {
         description,
         detail,
+        detailReference,
         isCancelable,
         isExperimental,
         isModel,
@@ -103,7 +107,7 @@ export const docs = (options: DocsOptions) => {
               directory: context.directoryPath
             })
           );
-        } catch {}
+        } catch { }
       })();
 
       const tags = getTags(method);
@@ -166,7 +170,7 @@ export const docs = (options: DocsOptions) => {
               }
             }
           }
-        } catch {}
+        } catch { }
         return false;
       })();
 
@@ -194,9 +198,6 @@ export const docs = (options: DocsOptions) => {
         );
       })();
 
-      var a = getType2(context.fileAST!, property.typeAnnotation?.['typeAnnotation'], context.directoryPath);
-      debugger;
-
       return {
         attribute,
         description,
@@ -217,7 +218,7 @@ export const docs = (options: DocsOptions) => {
       try {
         const source = path.join(context.directoryPath!, `${context.fileName}.md`);
         return fs.readFileSync(source, 'utf8');
-      } catch {}
+      } catch { }
     })();
 
     const readmeDescription = (() => {
@@ -268,7 +269,7 @@ export const docs = (options: DocsOptions) => {
 
   const finish = (global) => {
     global.docs.components = global.docs.components.sort((a, b) => (a.key > b.key ? 1 : -1));
-    console.log(1, global.docs.components[0].properties[0]);
+    console.log(1, global.docs.components[0].events[0]);
     // TODO
     // fs.ensureDirSync(path.dirname(options.dist));
 

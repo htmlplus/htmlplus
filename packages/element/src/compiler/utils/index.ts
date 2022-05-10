@@ -1,6 +1,7 @@
 export * from './__dirname.js';
 export * from './get-initializer.js';
 export * from './get-type.js';
+export * from './get-type-reference.js';
 export * from './has-decorator.js';
 export * from './is-directory-empty.js';
 export * from './print-type.js';

@@ -1,14 +1,11 @@
-import { parse } from '@babel/parser';
 import { File, Node } from '@babel/types';
-import fs from 'fs';
-import { dirname, resolve } from 'path';
 
 import { visitor } from './visitor.js';
 
-export const getTypeReference = (file: File, node: Node, directory?: string): string => {
-  if (!node) return '';
+export const getTypeReference = (file: File, node: Node): string | undefined => {
+  if (!node) return;
 
-  if (node.type != 'TSTypeReference') return '';
+  if (node.type != 'TSTypeReference') return;
 
   let result;
 
@@ -35,13 +32,13 @@ export const getTypeReference = (file: File, node: Node, directory?: string): st
             break;
         }
 
-        result = path.node.source.value
+        result = path.node.source.value;
 
         path.stop();
 
         break;
       }
-    },
+    }
   });
 
   return result;

@@ -4,7 +4,7 @@ import glob from 'glob';
 import path from 'path';
 
 import { Context } from '../../types/index.js';
-import { getInitializer, getTag, getTags, getType, getTypeReference, hasTag, parseTag, printType } from '../utils/index.js';
+import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
 export interface DocsOptions {
   // TODO
@@ -36,24 +36,17 @@ export const docs = (options: DocsOptions) => {
               }
             }
           }
-        } catch { }
+        } catch {}
         return false;
       })();
 
       const description = getTags(event).find((tag) => !tag.key)?.value;
 
-      // TODO
-      const detail = (() => {
-        try {
-          return printType(event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0]);
-        } catch { }
-      })();
+      const detail = print(event.typeAnnotation?.['typeAnnotation']);
 
-      // TODO
       const detailReference = getTypeReference(
         context.fileAST!,
-        event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0],
-        context.directoryPath!
+        event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0]
       );
 
       const isExperimental = hasTag(event, 'experimental');
@@ -93,63 +86,64 @@ export const docs = (options: DocsOptions) => {
     const methods = context.classMethods!.map((method) => {
       const description = getTags(method).find((tag) => !tag.key)?.value;
 
+      const isAsync = method.async;
+
       const isDeprecated = hasTag(method, 'deprecated');
 
       const isExperimental = hasTag(method, 'experimental');
 
       const name = method.key['name'];
 
-      // TODO
-      const returns = (() => {
-        try {
-          return printType(
-            getType(context.fileAST!, (method.returnType || {})['typeAnnotation'], {
-              directory: context.directoryPath
-            })
-          );
-        } catch { }
-      })();
+      const returns = print(method.returnType?.['typeAnnotation']) || 'void';
+
+      const returnsReference = getTypeReference(context.fileAST!, method.returnType?.['typeAnnotation']);
 
       const tags = getTags(method);
 
       // TODO
-      // const params = printType(getType(
-      //     context.ast,
-      //     method.params,
-      //     {
-      //         directory: context.directory,
-      //     }
-      // ));
+      const parameters = method.params.map((param) => ({
+        description: getTags(method, 'param')
+          .map((tag) => parseTag(tag, ' '))
+          .find((tag) => tag.name == param['name'])?.description,
+        isOptional: !!param['optional'],
+        name: param['name'],
+        type: print(param?.['typeAnnotation']?.typeAnnotation) || undefined,
+        typeReference: getTypeReference(context.fileAST!, param?.['typeAnnotation']?.typeAnnotation)
+      }));
 
-      // TODO
-      // const parameters = [
-      //   {
-      //       "name": "offsetX",
-      //       "description": "Moving size (px) in the `horizontal` direction. Use `null` to ignore this."
-      //   },
-      //   {
-      //       "name": "offsetY",
-      //       "description": "Moving size (px) in the `vertical` direction. Use `null` to ignore this."
-      //   }
-      // ];
-
-      // TODO
-      // const signature = `${method.key['name']}(${''}) => ${type}`;
+      const signature = [
+        method.key['name'],
+        '(',
+        parameters
+          .map((parameter) => {
+            let string = '';
+            string += parameter.name;
+            string += parameter.isOptional ? '?' : '';
+            string += parameter.type ? ': ' : '';
+            string += parameter.type ?? '';
+            return string;
+          })
+          .join(', '),
+        ')',
+        ' => ',
+        returns
+      ].join('');
 
       return {
         description,
+        isAsync,
         isDeprecated,
         isExperimental,
         name,
         returns,
-        tags
-        // parameters,
-        // signature,
-        // type
+        returnsReference,
+        tags,
+        parameters,
+        signature
       };
     });
 
-    const parts = getTags(context.class!, 'part').map(parseTag);
+    const parts = getTags(context.class!, 'part').map((tag) => parseTag(tag));
 
     const properties = context.classProperties!.map((property) => {
       const attribute = paramCase(property.key['name']);
@@ -170,7 +164,7 @@ export const docs = (options: DocsOptions) => {
               }
             }
           }
-        } catch { }
+        } catch {}
         return false;
       })();
 
@@ -189,14 +183,9 @@ export const docs = (options: DocsOptions) => {
 
       const tags = getTags(property);
 
-      // TODO
-      const { type, members } = (() => {
-        return printType(
-          getType(context.fileAST!, (property.typeAnnotation || {})['typeAnnotation'], {
-            directory: context.directoryPath
-          })
-        );
-      })();
+      const type = print(property.typeAnnotation?.['typeAnnotation']);
+
+      const typeReference = getTypeReference(context.fileAST!, property.typeAnnotation?.['typeAnnotation']);
 
       return {
         attribute,
@@ -207,10 +196,10 @@ export const docs = (options: DocsOptions) => {
         isExperimental,
         isModel,
         isRequired,
-        members,
         name,
         tags,
-        type
+        type,
+        typeReference
       };
     });
 
@@ -218,7 +207,7 @@ export const docs = (options: DocsOptions) => {
       try {
         const source = path.join(context.directoryPath!, `${context.fileName}.md`);
         return fs.readFileSync(source, 'utf8');
-      } catch { }
+      } catch {}
     })();
 
     const readmeDescription = (() => {
@@ -239,7 +228,7 @@ export const docs = (options: DocsOptions) => {
       return '';
     })();
 
-    const slots = getTags(context.class!, 'slot').map(parseTag);
+    const slots = getTags(context.class!, 'slot').map((tag) => parseTag(tag));
 
     const tag = context.componentTag;
 
@@ -269,7 +258,7 @@ export const docs = (options: DocsOptions) => {
 
   const finish = (global) => {
     global.docs.components = global.docs.components.sort((a, b) => (a.key > b.key ? 1 : -1));
-    console.log(1, global.docs.components[0].events[0]);
+    console.log(1, global.docs.components[0].methods[0]);
     // TODO
     // fs.ensureDirSync(path.dirname(options.dist));
 

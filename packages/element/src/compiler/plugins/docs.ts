@@ -4,7 +4,7 @@ import glob from 'glob';
 import path from 'path';
 
 import { Context } from '../../types/index.js';
-import { getInitializer, getTag, getTags, getType, hasTag, parseTag, printType } from '../utils/index.js';
+import { getInitializer, getTag, getTags, getType, getType2, hasTag, parseTag, printType } from '../utils/index.js';
 
 export interface DocsOptions {
   // TODO
@@ -95,6 +95,17 @@ export const docs = (options: DocsOptions) => {
 
       const name = method.key['name'];
 
+      // TODO
+      const returns = (() => {
+        try {
+          return printType(
+            getType(context.fileAST!, (method.returnType || {})['typeAnnotation'], {
+              directory: context.directoryPath
+            })
+          );
+        } catch {}
+      })();
+
       const tags = getTags(method);
 
       // TODO
@@ -118,17 +129,6 @@ export const docs = (options: DocsOptions) => {
       //   }
       // ];
 
-      // TODO: returnType
-      // const type = (() => {
-      //   try {
-      //     return printType(
-      //       getType(context.fileAST!, (method.returnType || {})['typeAnnotation'], {
-      //         directory: context.directoryPath
-      //       })
-      //     );
-      //   } catch {}
-      // })();
-
       // TODO
       // const signature = `${method.key['name']}(${''}) => ${type}`;
 
@@ -137,6 +137,7 @@ export const docs = (options: DocsOptions) => {
         isDeprecated,
         isExperimental,
         name,
+        returns,
         tags
         // parameters,
         // signature,
@@ -192,6 +193,9 @@ export const docs = (options: DocsOptions) => {
           })
         );
       })();
+
+      var a = getType2(context.fileAST!, property.typeAnnotation?.['typeAnnotation'], context.directoryPath);
+      debugger;
 
       return {
         attribute,
@@ -264,7 +268,7 @@ export const docs = (options: DocsOptions) => {
 
   const finish = (global) => {
     global.docs.components = global.docs.components.sort((a, b) => (a.key > b.key ? 1 : -1));
-    console.log(1, global.docs.components[0]);
+    console.log(1, global.docs.components[0].properties[0]);
     // TODO
     // fs.ensureDirSync(path.dirname(options.dist));
 
@@ -281,6 +285,45 @@ export const docs = (options: DocsOptions) => {
 };
 
 // TODO: garbge
+/**
+ * const property: string;
+ * type = 'string'
+ *
+ * const property: string | number;
+ * type = ['string' | 'number']
+ *
+ * const property: string[];
+ * type = {type: 'array'}
+ *
+ *
+ * MethodName() => ANY
+ * type = 'ANY'
+ *
+ * MethodName() => Promise<ANY>
+ * type = 'Promise<ANY>'
+ */
+
+// MethodName()                     => DialogModel
+// MethodName()                     => Promise<void>
+// MethodName()                     => Promise<DialogModel>
+// MethodName(ratio: number)        => void
+// MethodName(x: number, y: number) => void
+// MethodName(model: DialogModel)   => void
+// CustomEvent<void>
+// CustomEvent<CropperZoomData | number>
+// property: PropModel | Model2
+// property: PropModel[]
+
+// class a {
+//   /**
+//    *
+//    * @param b
+//    * @param c
+//    */
+//   a(b:number, c: string): boolean{
+
+//   }
+// }
 
 // const development = tags.some((tag) => tag.key == 'development');
 

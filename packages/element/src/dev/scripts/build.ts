@@ -1,13 +1,13 @@
-import compiler from '../../../dist/compiler/index.js';
-import { customElement, extract, parse, read, style, validate } from '../../../dist/compiler/index.js';
+import compiler from '../../compiler/index.js';
+import { extract, parse, read, style, validate } from '../../compiler/index.js';
 
-const { start, next, finish } = compiler(read(), parse(), validate(), extract(), style(), customElement());
+const { start, next, finish } = compiler(read(), parse(), validate(), extract(), style({}));
 
 (async () => {
   await start();
 
   const another = await next('./src/dev/components/another.tsx');
-  // console.log(1, another.script);
+  // console.log(1, another);
 
   const element = await next('./src/dev/components/element.tsx');
   // console.log(2, element.script);

@@ -16,7 +16,8 @@
     "clean": "rimraf dist",
     "format": "prettier --write .",
     "dev:start": "node src/dev/scripts/start.js",
-    "dev:build": "node src/dev/scripts/build.js"
+    "dev:build": "ts-node --esm src/dev/scripts/build.ts",
+    "dev:build:watch": "nodemon src/dev/scripts/build.ts"
   },
   "files": [
     "client",
@@ -52,15 +53,16 @@
     "fast-glob": "^3.2.11",
     "handlebars": "^4.7.7",
     "log-update": "^5.0.0",
-    "ts-node": "^10.4.0",
     "typescript": "^4.5.2",
     "uhtml": "^2.7.6"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "cpy": "^9.0.0",
+    "nodemon": "^2.0.16",
     "prettier": "^2.5.0",
     "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0",
     "vite": "^2.7.10"
   }
 }

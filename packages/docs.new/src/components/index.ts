@@ -1,1 +1,1 @@
-export * from "@htmlplus/core";
+export * from '@htmlplus/core';

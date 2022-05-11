@@ -1,6 +1,7 @@
 import {
   customElement,
   customElementReact,
+  docs,
   extract,
   parse,
   read,
@@ -16,6 +17,9 @@ export default [
     prefix: 'plus'
   }),
   style(),
+  docs({
+    dist: 'dist/docs.json'
+  }),
   customElement(),
   customElementReact({
     compact: true,

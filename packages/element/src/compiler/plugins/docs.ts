@@ -230,6 +230,32 @@ export const docs = (options: DocsOptions) => {
 
     const slots = getTags(context.class!, 'slot').map((tag) => parseTag(tag));
 
+    // TODO
+    const styles = (() => {
+      if (!context.stylePath) return [];
+      return fs
+        .readFileSync(context.stylePath!, 'utf8')
+        .split('@prop')
+        .slice(1)
+        .map((section) => {
+          let [description, name] = section.split(/\n/);
+
+          name = name.split(':').slice(0, -1).join(':').trim();
+
+          description = description.trim();
+
+          let [initializer] = context.styleParsed?.split(name).slice(1, 2) || [];
+
+          if (initializer) initializer = initializer.split(/;|}/)[0].replace(':', '').trim();
+
+          return {
+            description,
+            initializer,
+            name
+          };
+        });
+    })();
+
     const tag = context.componentTag;
 
     const tags = getTags(context.class!);
@@ -238,6 +264,12 @@ export const docs = (options: DocsOptions) => {
     const title = capitalCase(context.componentTag!);
 
     global.docs.components.push({
+      // TODO
+      // key
+      // main
+      // development
+      // source
+
       events,
       group,
       hasExternals,
@@ -250,6 +282,7 @@ export const docs = (options: DocsOptions) => {
       readme,
       readmeDescription,
       slots,
+      styles,
       tag,
       tags,
       title
@@ -257,13 +290,11 @@ export const docs = (options: DocsOptions) => {
   };
 
   const finish = (global) => {
-    global.docs.components = global.docs.components.sort((a, b) => (a.key > b.key ? 1 : -1));
-    console.log(1, global.docs.components[0].methods[0]);
-    // TODO
-    // fs.ensureDirSync(path.dirname(options.dist));
-
-    // TODO
-    // fs.writeJSONSync(options.dist, global.docs, { replacer: null, spaces: 2 });
+    const dirname = path.dirname(options.dist);
+    global.docs.components = global.docs.components.sort((a, b) => (a.title > b.title ? 1 : -1));
+    if (!fs.existsSync(dirname)) fs.mkdirSync(dirname, { recursive: true });
+    JSON.stringify(global.docs, null, 2);
+    fs.writeFileSync(options.dist, JSON.stringify(global.docs, null, 2), 'utf8');
   };
 
   return {
@@ -273,84 +304,3 @@ export const docs = (options: DocsOptions) => {
     finish
   };
 };
-
-// TODO: garbge
-/**
- * const property: string;
- * type = 'string'
- *
- * const property: string | number;
- * type = ['string' | 'number']
- *
- * const property: string[];
- * type = {type: 'array'}
- *
- *
- * MethodName() => ANY
- * type = 'ANY'
- *
- * MethodName() => Promise<ANY>
- * type = 'Promise<ANY>'
- */
-
-// MethodName()                     => DialogModel
-// MethodName()                     => Promise<void>
-// MethodName()                     => Promise<DialogModel>
-// MethodName(ratio: number)        => void
-// MethodName(x: number, y: number) => void
-// MethodName(model: DialogModel)   => void
-// CustomEvent<void>
-// CustomEvent<CropperZoomData | number>
-// property: PropModel | Model2
-// property: PropModel[]
-
-// class a {
-//   /**
-//    *
-//    * @param b
-//    * @param c
-//    */
-//   a(b:number, c: string): boolean{
-
-//   }
-// }
-
-// const development = tags.some((tag) => tag.key == 'development');
-
-// const styles = (() => {
-//     const styles: Array<any> = [];
-
-//     try {
-//     fs.readFileSync(context.stylePath || '', 'utf8')
-//         .split('@prop')
-//         .slice(1)
-//         .map((section) => {
-//         let [description, name] = section.split(/\n/);
-
-//         name = name.split(':').slice(0, -1).join(':').trim();
-
-//         description = description.trim();
-
-//         let [initializer] = context.styleParsed?.split(name).slice(1, 2) || [];
-
-//         if (initializer) initializer = initializer.split(/;|}/)[0].replace(':', '').trim();
-
-//         styles.push({
-//             name,
-//             initializer,
-//             description
-//         });
-//         });
-//     } catch {}
-
-//     return styles;
-// })();
-
-// const main = (group && context.componentKey == group) || !group;
-
-//     key: context.componentKey,
-//     main,
-//     development,
-//     deprecated: false,
-//     source: context.componentKey,
-//     styles,

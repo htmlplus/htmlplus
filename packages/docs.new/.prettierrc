@@ -4,7 +4,14 @@
   "quoteProps": "consistent",
   "singleQuote": true,
   "trailingComma": "none",
-  "importOrder": ["^react", "^next", "<THIRD_PARTY_MODULES>", "^@app/(.*)$"],
+  "importOrder": [
+    "^react", 
+    "^next", 
+    "<THIRD_PARTY_MODULES>", 
+    "^@app/(.*)$",
+    "^\\$",
+    "^[.](.*)"
+  ],
   "importOrderCaseInsensitive": true,
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": false

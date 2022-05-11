@@ -5,9 +5,7 @@ import Head from 'next/head';
 
 import * as Constants from '@app/constants';
 
-const App: React.FC<AppProps> = (props) => {
-  const { Component, pageProps } = props;
-
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <React.StrictMode>
       <Head>

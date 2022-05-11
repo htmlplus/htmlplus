@@ -4,8 +4,8 @@ import axios from 'axios';
 
 import { components } from '@app/data';
 
-const ComponentDetails: React.FC = ({ component }: any) => {
-  return <div>{component.tag}</div>;
+const ComponentDetails = ({ component }: any) => {
+  return <div>{component.key}</div>;
 };
 
 export default ComponentDetails;
@@ -13,7 +13,7 @@ export default ComponentDetails;
 export const getStaticProps = async ({ params }: any) => {
   const { key } = params;
 
-  const component = components.find((component: any) => component.tag === key);
+  const component = components.find((component: any) => component.key === key);
 
   const contributors: string[] = [];
 
@@ -39,7 +39,7 @@ export const getStaticProps = async ({ params }: any) => {
 
 export const getStaticPaths = async () => {
   return {
-    paths: components.map((component: any) => `/component/${component.tag}`),
+    paths: components.map((component: any) => `/component/${component.key}`),
     fallback: false
   };
 };

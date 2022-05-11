@@ -21,7 +21,9 @@
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.3",
     "axios": "^0.27.2",
+    "gray-matter": "^4.0.3",
     "prettier": "^2.6.2",
+    "react-markdown": "^8.0.3",
     "rimraf": "^3.0.2",
     "typescript": "4.6.4"
   }

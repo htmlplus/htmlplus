@@ -7,15 +7,15 @@
  
 import { Tabs } from './tabs';
 import { TabsBar } from './tabs-bar';
-import { TabsTab } from './tabs-tab';
 import { TabsPanel } from './tabs-panel';
 import { TabsPanels } from './tabs-panels';
+import { TabsTab } from './tabs-tab';
 
 const All = /*@__PURE__*/ Object.assign(Tabs, {
   Bar: TabsBar,
-  Tab: TabsTab,
   Panel: TabsPanel,
   Panels: TabsPanels,
+  Tab: TabsTab,
 });
 
 export { All as Tabs }

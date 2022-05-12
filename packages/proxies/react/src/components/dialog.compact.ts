@@ -7,17 +7,17 @@
  
 import { Dialog } from './dialog';
 import { DialogBody } from './dialog-body';
+import { DialogContent } from './dialog-content';
 import { DialogFooter } from './dialog-footer';
 import { DialogHeader } from './dialog-header';
 import { DialogToggler } from './dialog-toggler';
-import { DialogContent } from './dialog-content';
 
 const All = /*@__PURE__*/ Object.assign(Dialog, {
   Body: DialogBody,
+  Content: DialogContent,
   Footer: DialogFooter,
   Header: DialogHeader,
   Toggler: DialogToggler,
-  Content: DialogContent,
 });
 
 export { All as Dialog }

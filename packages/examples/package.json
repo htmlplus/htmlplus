@@ -9,7 +9,6 @@
   "scripts": {
     "build": "node ./src/build.js",
     "build:dev": "node ./src/build.dev.js",
-    "postinstall": "npm run build",
     "clean": "rimraf dist"
   },
   "devDependencies": {

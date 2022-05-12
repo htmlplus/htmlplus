@@ -125,7 +125,9 @@ export const customElementReact = (options: CustomElementReactOptions) => {
               importerComponent,
               importerComponentType
             };
-          });
+          })
+            // TODO: experimental
+            .sort((a, b) => b.componentClassName < a.componentClassName ? 0 : -1);
           return {
             all,
             filterd: all.slice(1),

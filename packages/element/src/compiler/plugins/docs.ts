@@ -71,8 +71,6 @@ export const docs = (options: DocsOptions) => {
 
     const group = getTag(context.class!, 'group')?.value;
 
-    const hasExternals = fs.existsSync(path.join(context.directoryPath!, 'externals'));
-
     const isDeprecated = hasTag(context.class!, 'deprecated');
 
     const isExperimental = hasTag(context.class!, 'experimental');
@@ -272,7 +270,6 @@ export const docs = (options: DocsOptions) => {
 
       events,
       group,
-      hasExternals,
       isDeprecated,
       isExperimental,
       lastModified,

@@ -57,7 +57,8 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
-    "cpy": "^9.0.0",
+    "cpy": "^9.0.1",
+    "fs-extra": "^10.1.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.5.0",
     "rimraf": "^3.0.2",

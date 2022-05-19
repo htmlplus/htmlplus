@@ -1,7 +1,7 @@
 import {
   customElement,
   customElementReact,
-  docs,
+  document,
   external,
   extract,
   parse,
@@ -18,8 +18,8 @@ export default [
     prefix: 'plus'
   }),
   style(),
-  docs({
-    dist: 'dist/docs.json'
+  document({
+    destination: 'dist/document.json'
   }),
   external({
     destination(context) {
@@ -29,7 +29,7 @@ export default [
   customElement(),
   customElementReact({
     compact: true,
-    dist: '../proxies/react',
+    destination: '../proxies/react',
     eventName(eventName) {
       return eventName.replace(/plus(\S*)/g, (match, group) => group.charAt(0).toLowerCase() + group.substr(1));
     },

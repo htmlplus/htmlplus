@@ -6,17 +6,17 @@ import path from 'path';
 import { Context } from '../../types/index.js';
 import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
-export interface DocsOptions {
+export interface DocumentOptions {
   // TODO
   // bundle?: boolean;
-  dist: string;
+  destination: string;
 }
 
-export const docs = (options: DocsOptions) => {
-  const name = 'docs';
+export const document = (options: DocumentOptions) => {
+  const name = 'document';
 
   const start = (global) => {
-    global.docs = {
+    global.document = {
       components: []
     };
   };
@@ -261,7 +261,7 @@ export const docs = (options: DocsOptions) => {
     // TODO
     const title = capitalCase(context.componentTag!);
 
-    global.docs.components.push({
+    global.document.components.push({
       // TODO
       // key
       // main
@@ -287,11 +287,11 @@ export const docs = (options: DocsOptions) => {
   };
 
   const finish = (global) => {
-    const dirname = path.dirname(options.dist);
-    global.docs.components = global.docs.components.sort((a, b) => (a.title > b.title ? 1 : -1));
+    const dirname = path.dirname(options.destination);
+    global.document.components = global.document.components.sort((a, b) => (a.title > b.title ? 1 : -1));
     if (!fs.existsSync(dirname)) fs.mkdirSync(dirname, { recursive: true });
-    JSON.stringify(global.docs, null, 2);
-    fs.writeFileSync(options.dist, JSON.stringify(global.docs, null, 2), 'utf8');
+    JSON.stringify(global.document, null, 2);
+    fs.writeFileSync(options.destination, JSON.stringify(global.document, null, 2), 'utf8');
   };
 
   return {

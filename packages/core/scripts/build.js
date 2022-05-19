@@ -50,6 +50,7 @@ const options = {
         }
       }
     }),
+
     {
       name: 'htmlplus',
       async buildStart() {

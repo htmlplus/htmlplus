@@ -3,7 +3,7 @@ import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.j
 
 const defaults: CustomElementReactOptions = {
   compact: false,
-  dist: '',
+  destination: '',
   eventName: undefined,
   importerComponent(context) {
     return `YOUR_CORE_PACKAGE_NAME#${context.componentClassName}`;
@@ -15,7 +15,7 @@ const defaults: CustomElementReactOptions = {
 
 export interface CustomElementReactOptions {
   compact?: boolean;
-  dist: string;
+  destination: string;
   eventName?: (eventName: string) => string;
   importerComponent?: (context) => string;
   importerComponentType?: (context) => string;
@@ -35,7 +35,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
 
     const config = { cwd: __dirname(import.meta.url) };
 
-    const isEmpty = isDirectoryEmpty(options.dist);
+    const isEmpty = isDirectoryEmpty(options.destination);
 
     const skip: Array<string> = [];
 
@@ -83,7 +83,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
         '!templates/src/components/*fileName*.compact.ts.hbs'
       ];
 
-      renderTemplate(patterns, options.dist, config)(state);
+      renderTemplate(patterns, options.destination, config)(state);
     }
 
     if (options.compact) {
@@ -100,34 +100,36 @@ export const customElementReact = (options: CustomElementReactOptions) => {
           return true;
         })
         .map((group) => {
-          const all = group.components.reverse().map((component, index) => {
-            const componentClassNameInCategory = getKey(component).replace(group.key, '');
+          const all = group.components
+            .reverse()
+            .map((component, index) => {
+              const componentClassNameInCategory = getKey(component).replace(group.key, '');
 
-            const parse = (input) => {
-              const [source, key] = input.split('#');
-              const [root, ...sub] = key.split('.');
-              const local = root + (index + 1);
-              const variable = [local, ...sub].join('.');
-              return {
-                source,
-                variable,
-                root,
-                local
+              const parse = (input) => {
+                const [source, key] = input.split('#');
+                const [root, ...sub] = key.split('.');
+                const local = root + (index + 1);
+                const variable = [local, ...sub].join('.');
+                return {
+                  source,
+                  variable,
+                  root,
+                  local
+                };
               };
-            };
 
-            const importerComponent = parse(options.importerComponent!(component));
-            const importerComponentType = parse(options.importerComponentType!(component));
+              const importerComponent = parse(options.importerComponent!(component));
+              const importerComponentType = parse(options.importerComponentType!(component));
 
-            return {
-              ...component,
-              componentClassNameInCategory,
-              importerComponent,
-              importerComponentType
-            };
-          })
+              return {
+                ...component,
+                componentClassNameInCategory,
+                importerComponent,
+                importerComponentType
+              };
+            })
             // TODO: experimental
-            .sort((a, b) => b.componentClassName < a.componentClassName ? 0 : -1);
+            .sort((a, b) => (b.componentClassName < a.componentClassName ? 0 : -1));
           return {
             all,
             filterd: all.slice(1),
@@ -145,7 +147,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
           ...group
         };
         const patterns = ['templates/src/components/*fileName*.compact.ts.hbs'];
-        renderTemplate(patterns, options.dist, config)(state);
+        renderTemplate(patterns, options.destination, config)(state);
       }
     }
 
@@ -155,12 +157,12 @@ export const customElementReact = (options: CustomElementReactOptions) => {
         '!templates/src/components/*fileName*.ts.hbs',
         '!templates/src/components/*fileName*.compact.ts.hbs'
       ];
-      renderTemplate(patterns, options.dist, config)(globalNew);
+      renderTemplate(patterns, options.destination, config)(globalNew);
     }
 
     if (!isEmpty) {
       const patterns = ['templates/src/proxy*', 'templates/src/components/index*'];
-      renderTemplate(patterns, options.dist, config)(globalNew);
+      renderTemplate(patterns, options.destination, config)(globalNew);
     }
   };
 

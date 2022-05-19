@@ -1,6 +1,6 @@
 export * from './customElementReact/index.js';
 export * from './customElement.js';
-export * from './docs.js';
+export * from './document.js';
 export * from './external.js';
 export * from './extract.js';
 export * from './parse.js';

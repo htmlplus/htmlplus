@@ -2,6 +2,7 @@ import {
   customElement,
   customElementReact,
   docs,
+  external,
   extract,
   parse,
   read,
@@ -19,6 +20,11 @@ export default [
   style(),
   docs({
     dist: 'dist/docs.json'
+  }),
+  external({
+    destination(context) {
+      return `dist/${context.fileName}`;
+    }
   }),
   customElement(),
   customElementReact({

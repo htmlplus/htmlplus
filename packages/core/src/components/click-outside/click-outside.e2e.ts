@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { checkProperty } from '../../../cypress/support/utils';
+import { property } from '../../../cypress/support/utils';
 
 describe('plus-click-outside', () => {
   const trigger = (target: 'parent' | 'self' | 'child') => {
@@ -24,8 +24,11 @@ describe('plus-click-outside', () => {
   };
 
   beforeEach(() => {
-    cy.setContent(`<plus-click-outside></plus-click-outside>&nbsp;`);
+    cy.init(`<plus-click-outside></plus-click-outside>&nbsp;`);
   });
+
+  property('@element', 'disabled', Boolean, undefined, true);
+  property('@element', 'once', Boolean, undefined, false);
 
   it('display should be block', () => {
     cy.get('@element').should('have.css', 'display', 'block');
@@ -49,10 +52,6 @@ describe('plus-click-outside', () => {
     cy.get('@element').invoke('html', 'content').should('not.have.css', 'height', '0px');
   });
 
-  checkProperty('@element', 'disabled', Boolean, undefined, true);
-
-  checkProperty('@element', 'once', Boolean, undefined, false);
-
   it('event should be triggered when clicked on outside it', () => {
     trigger('parent').then((handler) => expect(handler).to.be.calledTwice);
   });
@@ -68,7 +67,7 @@ describe('plus-click-outside', () => {
   });
 
   it('event should not be triggered when it has `disabled` attribute in the initialize', () => {
-    cy.setContent(`<plus-click-outside disabled></plus-click-outside>&nbsp;`);
+    cy.init(`<plus-click-outside disabled></plus-click-outside>&nbsp;`);
     trigger('parent').then((handler) => expect(handler).to.not.be.called);
   });
 

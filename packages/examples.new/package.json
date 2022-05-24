@@ -1,0 +1,10 @@
+{
+  "name": "@htmlplus/examples,new",
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

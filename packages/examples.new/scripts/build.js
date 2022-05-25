@@ -23,25 +23,3 @@ const { start, next, finish } = compiler(
 
   await finish();
 })();
-
-// ```css [style]
-// ```
-
-// ```html [template]
-// ```
-
-// ```tsx [script]
-// class { }
-// ```
-
-// ```html [javascript:template]
-// ```
-
-// ```js [javascript:script]
-// ```
-
-// ```html [vue:template]
-// ```
-
-// ```js [vue:script]
-// ```

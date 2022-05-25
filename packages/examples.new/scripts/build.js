@@ -1,8 +1,19 @@
-import compiler from "@htmlplus/element/compiler/index.js";
-import path from "path";
-import plugins from "../plus.config.js";
+import compiler, {
+  extract,
+  parse,
+  read,
+} from "@htmlplus/element/compiler/index.js";
+import { prepare, react } from "./plugins/index.js";
 
-const { start, next, finish } = compiler(...plugins);
+const { start, next, finish } = compiler(
+  read(),
+  prepare(),
+  parse(),
+  extract({
+    prefix: "plus",
+  }),
+  react()
+);
 
 (async () => {
   await start();
@@ -12,3 +23,25 @@ const { start, next, finish } = compiler(...plugins);
 
   await finish();
 })();
+
+// ```css [style]
+// ```
+
+// ```html [template]
+// ```
+
+// ```tsx [script]
+// class { }
+// ```
+
+// ```html [javascript:template]
+// ```
+
+// ```js [javascript:script]
+// ```
+
+// ```html [vue:template]
+// ```
+
+// ```js [vue:script]
+// ```

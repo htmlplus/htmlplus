@@ -18,7 +18,7 @@ const { start, next, finish } = compiler(
 (async () => {
   await start();
 
-  const another = await next("./src/aspect-ratio/base/default.md");
+  const another = await next("./src/aspect-ratio/default/readme.md");
   console.log(1, another);
 
   await finish();

@@ -7,7 +7,10 @@
     "dev:build:watch": "nodemon scripts/build.js --ignore src/*"
   },
   "devDependencies": {
+    "@babel/template": "^7.16.7",
+    "@babel/types": "^7.18.4",
     "@htmlplus/element": "latest",
+    "change-case": "^4.1.2",
     "nodemon": "^2.0.16",
     "rimraf": "^3.0.2"
   }

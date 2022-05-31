@@ -14,15 +14,15 @@ const { start, next, finish } = compiler(
     prefix: "plus",
   }),
   react({
-    eventNameConvertor(name) {
-      return name.replace("onPlus", "on");
-    },
     customElementNameConvertor(name, context) {
       const exceptions = ['button-navigation']
       const exception = exceptions.find((exception) => name.indexOf(exception) != -1)
       if (exception) name = name.replace(exception, pascalCase(exception))
       return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-    }
+    },
+    eventNameConvertor(name) {
+      return name.replace("onPlus", "on");
+    },
   })
 );
 
@@ -30,7 +30,7 @@ const { start, next, finish } = compiler(
   await start();
 
   const another = await next("./src/aspect-ratio/default/readme.md");
-  console.log(1, another);
+  // console.log(1, another);
 
   await finish();
 })();

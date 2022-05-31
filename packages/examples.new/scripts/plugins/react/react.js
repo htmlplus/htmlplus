@@ -13,7 +13,7 @@ import path from "path";
 export const react = (options) => {
   const name = "react";
   const next = (context) => {
-    const dependencies = new Set();
+    const dependencies = [];
 
     const script = {
       AssignmentExpression(path) {
@@ -26,31 +26,45 @@ export const react = (options) => {
       ClassDeclaration(path) {
         path.traverse(script);
 
+        // TODO
+        // dependencies.reduce((result, dependency) => {
+        //   const [a, b] = dependency
+        //   result[a] = result[a] || []
+        //   result[a].push(b)
+        //   return result
+        // }, [])
+        //   .map((aaaa) => {
+        //     return t.importDeclaration([], t.stringLiteral("react"))
+        //   })
+
+        console.log(11111111111, dependencies)
+        console.log(11111111111, dependencies)
+
         const body = [
-          t.importDeclaration(
-            [
-              t.importDefaultSpecifier(t.identifier("React")),
-              ...Array.from(dependencies.keys()).map((key) =>
-                t.importSpecifier(t.identifier(key), t.identifier(key))
-              ),
-            ],
-            t.stringLiteral("react")
+          ...dependencies.map((dependency) =>
+            t.importDeclaration(
+              [
+                t.importSpecifier(
+                  t.identifier(dependency[0]),
+                  t.identifier(dependency[0])
+                )
+              ],
+              t.stringLiteral(dependency[1])
+            )
           ),
           t.variableDeclaration("const", [
             t.variableDeclarator(
-              t.identifier("App"),
+              t.identifier(context.className),
               t.arrowFunctionExpression(
                 [],
                 t.blockStatement(path.node.body.body)
               )
             ),
           ]),
-          t.exportDefaultDeclaration(t.identifier("App")),
+          t.exportDefaultDeclaration(t.identifier(context.className)),
         ];
 
         path.replaceWithMultiple(body);
-
-        dependencies.clear();
       },
       ClassMethod(path) {
         const { body, key, params } = path.node;
@@ -110,7 +124,7 @@ export const react = (options) => {
             t.variableDeclaration("let", [t.variableDeclarator(key, value)])
           );
 
-          dependencies.add("useState");
+          dependencies.push(['useState', 'react']);
 
           path.replaceWith(
             t.variableDeclaration("const", [
@@ -153,6 +167,9 @@ export const react = (options) => {
         if (!/-/g.test(name)) return;
 
         const newName = options?.customElementNameConvertor?.(name, context) || name;
+
+        // TODO
+        dependencies.push([newName, 'TODO']);
 
         openingElement.name.name = newName;
 

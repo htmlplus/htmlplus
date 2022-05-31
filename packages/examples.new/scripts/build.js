@@ -4,7 +4,9 @@ import compiler, {
   read,
 } from "@htmlplus/element/compiler/index.js";
 import { pascalCase } from "change-case";
-import { prepare, react } from "./plugins/index.js";
+import {
+  codesandbox, prepare, react
+} from "./plugins/index.js";
 
 const { start, next, finish } = compiler(
   read(),
@@ -23,7 +25,8 @@ const { start, next, finish } = compiler(
     eventNameConvertor(name) {
       return name.replace("onPlus", "on");
     },
-  })
+  }),
+  codesandbox()
 );
 
 (async () => {

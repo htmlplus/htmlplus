@@ -39,7 +39,7 @@ export const prepare = () => {
         const content = lines.slice(1, -1).join("\n");
 
         snippets.push({ key, type, content });
-      } catch { }
+      } catch {}
     });
 
     context.fileContent = `

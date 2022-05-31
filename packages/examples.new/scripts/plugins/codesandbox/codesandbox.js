@@ -1,5 +1,6 @@
 import {
-  __dirname, renderTemplate,
+  __dirname,
+  renderTemplate,
 } from "@htmlplus/element/compiler/utils/index.js";
 import glob from "fast-glob";
 import path from "path";
@@ -9,36 +10,39 @@ import { getParameters } from "codesandbox/lib/api/define.js";
 export const codesandbox = (options) => {
   const name = "codesandbox";
   const next = (context) => {
+    const sources = options?.source?.(context);
 
-    // TODO
-    const frameworks = ['react']
-
-    for (const framework of frameworks) {
-
-      const root = `${context.directoryPath}/${framework}`
+    for (const source of sources) {
+      const root = source.endsWith("/") ? source.slice(0, -1) : source;
 
       const files = {};
 
       glob.sync(`${root}/**/*.*`).forEach((filepath) => {
         const key = filepath.split(`${root}/`).pop();
         files[key] = {
-          content: fs.readFileSync(filepath, 'utf8')
-        }
+          content: fs.readFileSync(filepath, "utf8"),
+        };
       });
+
+      if (!Object.keys(files).length) continue;
 
       const parameters = getParameters({ files });
 
-      const source = "templates/**/*.*";
+      const pattern = "templates/**/*.*";
 
-      const destination = path.join(context.directoryPath, "codesandbox");
+      const destination =
+        options?.destination?.(context) ||
+        path.join(context.directoryPath, "codesandbox");
 
       const config = {
         cwd: __dirname(import.meta.url),
       };
 
-      const model = { framework, parameters };
+      const fileName = path.basename(root);
 
-      renderTemplate(source, destination, config)(model);
+      const model = { fileName, parameters };
+
+      renderTemplate(pattern, destination, config)(model);
     }
   };
   return {

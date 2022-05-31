@@ -37,9 +37,6 @@ export const react = (options) => {
         //     return t.importDeclaration([], t.stringLiteral("react"))
         //   })
 
-        console.log(11111111111, dependencies)
-        console.log(11111111111, dependencies)
-
         const body = [
           ...dependencies.map((dependency) =>
             t.importDeclaration(
@@ -47,7 +44,7 @@ export const react = (options) => {
                 t.importSpecifier(
                   t.identifier(dependency[0]),
                   t.identifier(dependency[0])
-                )
+                ),
               ],
               t.stringLiteral(dependency[1])
             )
@@ -124,7 +121,7 @@ export const react = (options) => {
             t.variableDeclaration("let", [t.variableDeclarator(key, value)])
           );
 
-          dependencies.push(['useState', 'react']);
+          dependencies.push(["useState", "react"]);
 
           path.replaceWith(
             t.variableDeclaration("const", [
@@ -148,8 +145,9 @@ export const react = (options) => {
         const { name } = path.node;
 
         if (/on[A-Z]/g.test(name.name)) {
-          name.name = options?.eventNameConvertor?.(name.name, context) || name.name;
-          return
+          name.name =
+            options?.eventNameConvertor?.(name.name, context) || name.name;
+          return;
         }
 
         name.name = camelCase(name.name);
@@ -166,10 +164,11 @@ export const react = (options) => {
 
         if (!/-/g.test(name)) return;
 
-        const newName = options?.customElementNameConvertor?.(name, context) || name;
+        const newName =
+          options?.customElementNameConvertor?.(name, context) || name;
 
         // TODO
-        dependencies.push([newName, 'TODO']);
+        dependencies.push([newName, "TODO"]);
 
         openingElement.name.name = newName;
 
@@ -207,8 +206,9 @@ export const react = (options) => {
 
         const end = endIndex !== -1 && to <= endIndex;
 
-        path.node.value = `${start ? "\n" : ""}${space}${value.trim()}${end ? "\n" : ""
-          }`;
+        path.node.value = `${start ? "\n" : ""}${space}${value.trim()}${
+          end ? "\n" : ""
+        }`;
       },
     };
 
@@ -216,7 +216,9 @@ export const react = (options) => {
 
     const source = "templates/**/*.*";
 
-    const destination = path.join(context.directoryPath, "react");
+    const destination =
+      options?.destination?.(context) ||
+      path.join(context.directoryPath, "react");
 
     const config = {
       cwd: __dirname(import.meta.url),

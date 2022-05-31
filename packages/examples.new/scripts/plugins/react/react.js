@@ -6,11 +6,11 @@ import {
 } from "@htmlplus/element/compiler/utils/index.js";
 import t from "@babel/types";
 import template from "@babel/template";
-import { camelCase, pascalCase, paramCase } from "change-case";
+import { camelCase, paramCase, pascalCase } from "change-case";
 
 import path from "path";
 
-export const react = () => {
+export const react = (options) => {
   const name = "react";
   const next = (context) => {
     const dependencies = new Set();
@@ -133,17 +133,33 @@ export const react = () => {
       JSXAttribute(path) {
         const { name } = path.node;
 
-        // TODO
-        name.name = name.name.replace("onPlus", "on");
+        if (/on[A-Z]/g.test(name.name)) {
+          name.name = options?.eventNameConvertor?.(name.name, context) || name.name;
+          return
+        }
 
         name.name = camelCase(name.name);
 
+        if (name.name === "class") name.name = "className";
+
         // TODO
         if (/data[A-Z]/g.test(name.name)) name.name = paramCase(name.name);
-
-        if (name.name === "class") name.name = "className";
       },
-      JSXElement(path) {},
+      JSXElement(path) {
+        const { openingElement, closingElement } = path.node;
+
+        const name = openingElement.name.name;
+
+        if (!/-/g.test(name)) return;
+
+        const newName = options?.customElementNameConvertor?.(name, context) || name;
+
+        openingElement.name.name = newName;
+
+        if (!closingElement) return;
+
+        closingElement.name.name = newName;
+      },
       JSXText(path) {
         const { value } = path.node;
 
@@ -174,9 +190,8 @@ export const react = () => {
 
         const end = endIndex !== -1 && to <= endIndex;
 
-        path.node.value = `${start ? "\n" : ""}${space}${value.trim()}${
-          end ? "\n" : ""
-        }`;
+        path.node.value = `${start ? "\n" : ""}${space}${value.trim()}${end ? "\n" : ""
+          }`;
       },
     };
 

@@ -3,6 +3,7 @@ import compiler, {
   parse,
   read,
 } from "@htmlplus/element/compiler/index.js";
+import { pascalCase } from "change-case";
 import { prepare, react } from "./plugins/index.js";
 
 const { start, next, finish } = compiler(
@@ -12,7 +13,17 @@ const { start, next, finish } = compiler(
   extract({
     prefix: "plus",
   }),
-  react()
+  react({
+    eventNameConvertor(name) {
+      return name.replace("onPlus", "on");
+    },
+    customElementNameConvertor(name, context) {
+      const exceptions = ['button-navigation']
+      const exception = exceptions.find((exception) => name.indexOf(exception) != -1)
+      if (exception) name = name.replace(exception, pascalCase(exception))
+      return name.replace('plus-', '').split('-').map(pascalCase).join('.');
+    }
+  })
 );
 
 (async () => {

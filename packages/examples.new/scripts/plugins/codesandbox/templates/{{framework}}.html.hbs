@@ -4,8 +4,15 @@
     <title>Redirecting...</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>
-      location.href = '{{{href}}}';
-    </script>
   </head>
+  <body onload="load()">
+    <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_self">
+      <input type="hidden" name="parameters" value="{{{parameters}}}" />
+    </form>
+    <script>
+      function load() {
+        document.querySelector('form').submit();
+      }
+    </script>
+  </body>
 </html>

@@ -4,7 +4,7 @@ import {
 import glob from "fast-glob";
 import path from "path";
 import fs from "fs";
-import LZString from "lz-string";
+import { getParameters } from "codesandbox/lib/api/define.js";
 
 export const codesandbox = (options) => {
   const name = "codesandbox";
@@ -26,9 +26,7 @@ export const codesandbox = (options) => {
         }
       });
 
-      const parameters = LZString.compressToBase64(JSON.stringify(files)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
-
-      const href = `https://codesandbox.io/api/v1/sandboxes/define?parameters=${parameters}`;
+      const parameters = getParameters({ files });
 
       const source = "templates/**/*.*";
 
@@ -38,7 +36,7 @@ export const codesandbox = (options) => {
         cwd: __dirname(import.meta.url),
       };
 
-      const model = { framework, href };
+      const model = { framework, parameters };
 
       renderTemplate(source, destination, config)(model);
     }

@@ -59,9 +59,7 @@ export const prepare = () => {
         class ${className} {
           render() {
             return (
-              <>
               ${template.content}
-              </>
             );
           }
         }

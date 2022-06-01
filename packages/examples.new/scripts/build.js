@@ -19,7 +19,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, "react");
     },
     customElementNameConvertor(name, context) {
-      const exceptions = ["aspect-ratio", "button-navigation"];
+      const exceptions = ["aspect-ratio", "button-navigation", "scroll-indicator"];
       const exception = exceptions.find(
         (exception) => name.indexOf(exception) != -1
       );
@@ -46,9 +46,6 @@ const { start, next, finish } = compiler(
 
 (async () => {
   await start();
-
-  const another = await next("./src/aspect-ratio/default/readme.md");
-  // console.log(1, another);
-
+  await next("./src/aspect-ratio/default/readme.md");
   await finish();
 })();

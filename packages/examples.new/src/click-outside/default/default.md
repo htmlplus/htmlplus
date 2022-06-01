@@ -10,7 +10,7 @@ plus-click-outside {
 ```
 
 ```tsx [script]
-class {
+class ClickOutsideDefault {
   @State()
   inside = 0;
 
@@ -59,11 +59,11 @@ class {
 ```js [javascript:script]
 let inside = 0;
 let outside = 0;
-element1.addEventListener("click", (event) => {
+element1.addEventListener('click', (event) => {
   inside = inside + 1;
   element2.innerHTML = inside;
 });
-element1.addEventListener("plusClickOutside", (event) => {
+element1.addEventListener('plusClickOutside', (event) => {
   outside = outside + 1;
   element3.innerHTML = outside;
 });

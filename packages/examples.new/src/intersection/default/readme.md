@@ -1,14 +1,14 @@
-The intersection component observes the viewport and updates the status when the card component 
+The intersection component observes the viewport and updates the status when the card component
 enters or exits the viewport. (Its a component for detecting when elements are visible within the user's viewport).
 
 ```css [style]
 .container {
   position: relative;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 .status {
-  color: #FAFAFA;
+  color: #fafafa;
   background-color: #212121;
   position: absolute;
   top: 1rem;
@@ -36,8 +36,7 @@ plus-card {
 ```
 
 ```tsx [script]
-class {
-  
+class IntersectionDefault {
   @State()
   intersecting = false;
 
@@ -53,17 +52,18 @@ class {
             {this.intersecting ? 'In Viewport' : 'Out of Viewport'}
           </div>
           <div class="content">
-            <div class="spacer"></div> 
+            <div class="spacer"></div>
             <plus-intersection onPlusChange={(event) => this.onChange(event)}>
               <plus-card elevation="10">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </plus-card>
             </plus-intersection>
-            <div class="spacer"></div> 
+            <div class="spacer"></div>
           </div>
         </div>
       </fragment>
-    )
+    );
   }
 }
 ```
@@ -72,19 +72,22 @@ class {
 <div class="container">
   <div id="element1" class="status"></div>
   <div class="content">
-    <div class="spacer"></div> 
+    <div class="spacer"></div>
     <plus-intersection id="element2">
       <plus-card elevation="10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
       </plus-card>
     </plus-intersection>
-    <div class="spacer"></div> 
+    <div class="spacer"></div>
   </div>
 </div>
 ```
 
 ```js [javascript:script]
 element2.addEventListener('plusChange', (event) => {
-  element1.innerHTML = event.detail.isIntersecting ? 'In Viewport' : 'Out of Viewport';
-})
+  element1.innerHTML = event.detail.isIntersecting
+    ? 'In Viewport'
+    : 'Out of Viewport';
+});
 ```

@@ -6,7 +6,7 @@ plus-card {
   width: 12rem;
   margin: auto;
 }
-input[type="range"] {
+input[type='range'] {
   display: block;
   width: 12rem;
   margin: auto;
@@ -14,8 +14,7 @@ input[type="range"] {
 ```
 
 ```tsx [script]
-class {
-
+class CardElevation {
   @State()
   elevation = '12';
 
@@ -28,15 +27,15 @@ class {
       <fragment>
         <plus-card elevation={this.elevation}></plus-card>
         <br />
-        <input 
-          type="range" 
-          value={this.elevation} 
-          min="1" 
-          max="24" 
-          onChange={(event) => this.onChange(event)} 
+        <input
+          type="range"
+          value={this.elevation}
+          min="1"
+          max="24"
+          onChange={(event) => this.onChange(event)}
         />
       </fragment>
-    )
+    );
   }
 }
 ```
@@ -49,15 +48,15 @@ class {
 
 ```js [javascript:script]
 input.addEventListener('change', (event) => {
-  card.elevation = event.target.value
-})
+  card.elevation = event.target.value;
+});
 ```
 
 ```html [vue:template]
 <div>
-  <plus-card :elevation="elevation"></plus-card>    
-  <br />    
-  <input type="range" v-model="elevation" min="1" max="24" /> 
+  <plus-card :elevation="elevation"></plus-card>
+  <br />
+  <input type="range" v-model="elevation" min="1" max="24" />
 </div>
 ```
 
@@ -65,8 +64,8 @@ input.addEventListener('change', (event) => {
 export default {
   data() {
     return {
-      elevation: '12'
-    }
-  }
+      elevation: '12',
+    };
+  },
 };
 ```

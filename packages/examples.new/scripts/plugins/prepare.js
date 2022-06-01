@@ -1,14 +1,5 @@
 import { pascalCase } from 'change-case';
 
-// TODO
-// css [style]
-// html [template]
-// tsx [script]
-// html [javascript:template]
-// js [javascript:script]
-// html [vue:template]
-// js [vue:script]
-
 export const prepare = () => {
   const name = 'prepare';
   const next = (context) => {

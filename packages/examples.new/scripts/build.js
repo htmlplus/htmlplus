@@ -10,25 +10,25 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus'
   }),
-  javascript({
-    destination(context) {
-      return path.join(context.directoryPath, 'javascript');
-    }
-  }),
-  // react({
+  // javascript({
   //   destination(context) {
-  //     return path.join(context.directoryPath, 'react');
-  //   },
-  //   customElementNameConvertor(name, context) {
-  //     const exceptions = ['aspect-ratio', 'button-navigation', 'scroll-indicator'];
-  //     const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
-  //     if (exception) name = name.replace(exception, pascalCase(exception));
-  //     return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-  //   },
-  //   eventNameConvertor(name) {
-  //     return name.replace('onPlus', 'on');
+  //     return path.join(context.directoryPath, 'javascript');
   //   }
   // }),
+  react({
+    destination(context) {
+      return path.join(context.directoryPath, 'react');
+    },
+    customElementNameConvertor(name, context) {
+      const exceptions = ['aspect-ratio', 'button-navigation', 'scroll-indicator'];
+      const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
+      if (exception) name = name.replace(exception, pascalCase(exception));
+      return name.replace('plus-', '').split('-').map(pascalCase).join('.');
+    },
+    eventNameConvertor(name) {
+      return name.replace('onPlus', 'on');
+    }
+  }),
   vue({
     destination(context) {
       return path.join(context.directoryPath, 'vue');

@@ -1,7 +1,7 @@
 import template from '@babel/template';
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { camelCase, paramCase, pascalCase } from 'change-case';
+import { camelCase, capitalCase, paramCase, pascalCase } from 'change-case';
 import path from 'path';
 
 export const react = (options) => {
@@ -179,6 +179,13 @@ export const react = (options) => {
 
     visitor(ast, visitors.script);
 
+    const title = context.filePath
+      .split(/[/|\\]/g)
+      .slice(0, -1)
+      .slice(-2)
+      .map(capitalCase)
+      .join(' | ');
+
     const patterns = ['templates/**/*.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'react');
@@ -193,7 +200,8 @@ export const react = (options) => {
 
     const model = {
       script: print(ast),
-      style: style?.content
+      style: style?.content,
+      title
     };
 
     renderTemplate(patterns, destination, config)(model);

@@ -1,5 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
+import { capitalCase } from 'change-case';
 
 const getSnippet = (context, key) => {
   return context.snippets?.find((snippet) => snippet.key == key)?.content;
@@ -189,6 +190,13 @@ export const javascript = (options) => {
         .trim();
     })();
 
+    const title = context.filePath
+      .split(/[/|\\]/g)
+      .slice(0, -1)
+      .slice(-2)
+      .map(capitalCase)
+      .join(' | ');
+
     const patterns = ['templates/**/*.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'javascript');
@@ -200,7 +208,8 @@ export const javascript = (options) => {
     const model = {
       script: indent(script, 3),
       style: indent(style, 3),
-      template: indent(template, 2)
+      template: indent(template, 2),
+      title
     };
 
     renderTemplate(patterns, destination, config)(model);

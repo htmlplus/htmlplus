@@ -175,7 +175,7 @@ export const react = (options) => {
       }
     };
 
-    const ast = context.fileAST.__clone();
+    const ast = t.cloneNode(context.fileAST, true);
 
     visitor(ast, visitors.script);
 

@@ -172,7 +172,7 @@ export const javascript = (options) => {
 
       if (dedicated) return dedicated.content;
 
-      const ast = context.fileAST.__clone();
+      const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.template);
 

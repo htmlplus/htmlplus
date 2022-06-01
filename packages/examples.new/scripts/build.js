@@ -1,7 +1,8 @@
-import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index.js';
+import compiler, { customElement, extract, parse, read } from '@htmlplus/element/compiler/index.js';
 import path from 'path';
 import { pascalCase } from 'change-case';
 import { codesandbox, javascript, prepare, react, vue } from './plugins/index.js';
+import glob from 'fast-glob';
 
 const { start, next, finish } = compiler(
   read(),
@@ -10,11 +11,16 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus'
   }),
-  // javascript({
-  //   destination(context) {
-  //     return path.join(context.directoryPath, 'javascript');
-  //   }
-  // }),
+  customElement({
+    destination(context) {
+      return path.join(context.directoryPath, 'preview');
+    }
+  }),
+  javascript({
+    destination(context) {
+      return path.join(context.directoryPath, 'javascript');
+    }
+  }),
   react({
     destination(context) {
       return path.join(context.directoryPath, 'react');
@@ -46,6 +52,8 @@ const { start, next, finish } = compiler(
 
 (async () => {
   await start();
-  await next('./src/aspect-ratio/default/readme.md');
+  // TODO
+  // glob.sync('./src/*/*/readme.md').forEach(next);
+  glob.sync('./src/aspect-ratio/*/readme.md').forEach(next);
   await finish();
 })();

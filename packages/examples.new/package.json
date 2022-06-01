@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node scripts/build.js",
     "clean": "rimraf dist",
-    "dev:build:watch": "nodemon scripts/build.js --ignore src/*"
+    "dev:build:watch": "nodemon scripts/build.js --ignore ./src/**/*.*"
   },
   "devDependencies": {
     "@babel/template": "^7.16.7",

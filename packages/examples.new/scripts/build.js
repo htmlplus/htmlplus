@@ -54,6 +54,6 @@ const { start, next, finish } = compiler(
   await start();
   // TODO
   // glob.sync('./src/*/*/readme.md').forEach(next);
-  glob.sync('./src/aspect-ratio/*/readme.md').forEach(next);
+  glob.sync('./src/aspect-ratio/default/readme.md').forEach(next);
   await finish();
 })();

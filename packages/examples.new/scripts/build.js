@@ -19,7 +19,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, "react");
     },
     customElementNameConvertor(name, context) {
-      const exceptions = ["button-navigation"];
+      const exceptions = ["aspect-ratio", "button-navigation"];
       const exception = exceptions.find(
         (exception) => name.indexOf(exception) != -1
       );

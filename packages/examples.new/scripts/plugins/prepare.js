@@ -1,3 +1,5 @@
+import { pascalCase } from "change-case";
+
 // TODO
 // css [style]
 // html [template]
@@ -16,6 +18,7 @@ export const prepare = () => {
 
     snippets.push({
       key: "readme",
+      type: undefined,
       context: context.fileContent?.replace(regex, "")?.trim(),
     });
 
@@ -39,23 +42,41 @@ export const prepare = () => {
         const content = lines.slice(1, -1).join("\n");
 
         snippets.push({ key, type, content });
-      } catch {}
+      } catch { }
     });
 
-    context.fileContent = `
-      @Element()
-      class Test {
-        a() {
-          this.a = 123
+    const template = snippets.find((snippet) => snippet.key == 'template');
+
+    const className = context.filePath
+      .split(/[/|\\]/g)
+      .slice(0, -1)
+      .slice(-2)
+      .map(pascalCase)
+      .join('');
+
+    if (template)
+      context.fileContent = `
+        class ${className} {
+          render() {
+            return (
+              <>
+              ${template.content}
+              </>
+            );
+          }
         }
-        render() {
-          return (
-            <> 
-            </>
-          );
-        }
-      }
-    `;
+      `;
+
+    const script = snippets.find((snippet) => snippet.key == 'script');
+
+    if (script)
+      context.fileContent = script.content;
+
+    // TODO
+    context.fileContent = context.fileContent.replace('class ', '@Element()\nclass ');
+
+    // TODO
+    context.snippets = snippets;
   };
   return {
     name,

@@ -29,6 +29,8 @@ export const codesandbox = (options) => {
 
       const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
 
+      fs.rmSync(destination, { recursive: true, force: true });
+
       const config = {
         cwd: __dirname(import.meta.url)
       };

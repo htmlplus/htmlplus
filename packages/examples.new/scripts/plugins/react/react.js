@@ -2,6 +2,7 @@ import template from '@babel/template';
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { camelCase, capitalCase, paramCase, pascalCase } from 'change-case';
+import fs from 'fs';
 import path from 'path';
 
 export const react = (options) => {
@@ -189,6 +190,8 @@ export const react = (options) => {
     const patterns = ['templates/**/*.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'react');
+
+    fs.rmSync(destination, { recursive: true, force: true });
 
     const config = {
       cwd: __dirname(import.meta.url)

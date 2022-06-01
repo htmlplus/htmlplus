@@ -1,6 +1,7 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { capitalCase } from 'change-case';
+import fs from 'fs';
 
 const getSnippet = (context, key) => {
   return context.snippets?.find((snippet) => snippet.key == key)?.content;
@@ -200,6 +201,8 @@ export const javascript = (options) => {
     const patterns = ['templates/**/*.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'javascript');
+
+    fs.rmSync(destination, { recursive: true, force: true });
 
     const config = {
       cwd: __dirname(import.meta.url)

@@ -1,25 +1,19 @@
-import {
-  __dirname,
-  print,
-  renderTemplate,
-  visitor,
-} from "@htmlplus/element/compiler/utils/index.js";
-import t from "@babel/types";
-import template from "@babel/template";
-import { camelCase, paramCase, pascalCase } from "change-case";
-
-import path from "path";
+import template from '@babel/template';
+import t from '@babel/types';
+import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
+import { camelCase, paramCase, pascalCase } from 'change-case';
+import path from 'path';
 
 export const react = (options) => {
-  const name = "react";
+  const name = 'react';
   const next = (context) => {
     const dependencies = [];
 
     const script = {
       AssignmentExpression(path) {
         const { left, right } = path.node;
-        if (left && left.object && left.object.type === "ThisExpression") {
-          const setter = "set" + pascalCase(left.property.name);
+        if (left && left.object && left.object.type === 'ThisExpression') {
+          const setter = 'set' + pascalCase(left.property.name);
           path.replaceWith(template.expression.ast`${setter}(${right})`);
         }
       },
@@ -40,25 +34,17 @@ export const react = (options) => {
         const body = [
           ...dependencies.map((dependency) =>
             t.importDeclaration(
-              [
-                t.importSpecifier(
-                  t.identifier(dependency[0]),
-                  t.identifier(dependency[0])
-                ),
-              ],
+              [t.importSpecifier(t.identifier(dependency[0]), t.identifier(dependency[0]))],
               t.stringLiteral(dependency[1])
             )
           ),
-          t.variableDeclaration("const", [
+          t.variableDeclaration('const', [
             t.variableDeclarator(
               t.identifier(context.className),
-              t.arrowFunctionExpression(
-                [],
-                t.blockStatement(path.node.body.body)
-              )
-            ),
+              t.arrowFunctionExpression([], t.blockStatement(path.node.body.body))
+            )
           ]),
-          t.exportDefaultDeclaration(t.identifier(context.className)),
+          t.exportDefaultDeclaration(t.identifier(context.className))
         ];
 
         path.replaceWithMultiple(body);
@@ -66,41 +52,28 @@ export const react = (options) => {
       ClassMethod(path) {
         const { body, key, params } = path.node;
 
-        if (key.name !== "render") {
+        if (key.name !== 'render') {
           path.replaceWith(
-            t.variableDeclaration("const", [
-              t.variableDeclarator(
-                key,
-                t.arrowFunctionExpression(params, body)
-              ),
-            ])
+            t.variableDeclaration('const', [t.variableDeclarator(key, t.arrowFunctionExpression(params, body))])
           );
           return;
         }
 
-        const statement = body.body.find(
-          (element) => element.type === "ReturnStatement"
-        );
+        const statement = body.body.find((element) => element.type === 'ReturnStatement');
 
-        if (
-          statement &&
-          statement.argument &&
-          statement.argument.type === "JSXElement"
-        ) {
+        if (statement && statement.argument && statement.argument.type === 'JSXElement') {
           let element = statement.argument;
 
-          let children = [t.jsxText("\n"), element, t.jsxText("\n")];
+          let children = [t.jsxText('\n'), element, t.jsxText('\n')];
 
           if (element.openingElement.name.name.match(/fragment/)) {
             children = element.children;
-            element = element.children.find(
-              (element) => element.type === "JSXElement"
-            );
+            element = element.children.find((element) => element.type === 'JSXElement');
           }
 
           statement.argument = t.jsxElement(
-            t.jsxOpeningElement(t.jsxIdentifier(""), []),
-            t.jSXClosingElement(t.jsxIdentifier("")),
+            t.jsxOpeningElement(t.jsxIdentifier(''), []),
+            t.jSXClosingElement(t.jsxIdentifier('')),
             children
           );
         }
@@ -110,49 +83,40 @@ export const react = (options) => {
       ClassProperty(path) {
         const { decorators, key, value } = path.node;
 
-        if (
-          decorators &&
-          decorators[0] &&
-          decorators[0].expression.callee.name === "State"
-        ) {
-          const setter = "set" + pascalCase(key.name);
+        if (decorators && decorators[0] && decorators[0].expression.callee.name === 'State') {
+          const setter = 'set' + pascalCase(key.name);
+
+          path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
+
+          dependencies.push(['useState', 'react']);
 
           path.replaceWith(
-            t.variableDeclaration("let", [t.variableDeclarator(key, value)])
-          );
-
-          dependencies.push(["useState", "react"]);
-
-          path.replaceWith(
-            t.variableDeclaration("const", [
+            t.variableDeclaration('const', [
               t.variableDeclarator(
                 t.arrayPattern([key, t.identifier(setter)]),
-                t.callExpression(t.identifier("useState"), value ? [value] : [])
-              ),
+                t.callExpression(t.identifier('useState'), value ? [value] : [])
+              )
             ])
           );
         } else {
-          path.replaceWith(
-            t.variableDeclaration("let", [t.variableDeclarator(key, value)])
-          );
+          path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
         }
       },
       MemberExpression(path) {
         const { property, object } = path.node;
-        if (object.type === "ThisExpression") path.replaceWith(property);
+        if (object.type === 'ThisExpression') path.replaceWith(property);
       },
       JSXAttribute(path) {
         const { name } = path.node;
 
         if (/on[A-Z]/g.test(name.name)) {
-          name.name =
-            options?.eventNameConvertor?.(name.name, context) || name.name;
+          name.name = options?.eventNameConvertor?.(name.name, context) || name.name;
           return;
         }
 
         name.name = camelCase(name.name);
 
-        if (name.name === "class") name.name = "className";
+        if (name.name === 'class') name.name = 'className';
 
         // TODO
         if (/data[A-Z]/g.test(name.name)) name.name = paramCase(name.name);
@@ -164,11 +128,10 @@ export const react = (options) => {
 
         if (!/-/g.test(name)) return;
 
-        const newName =
-          options?.customElementNameConvertor?.(name, context) || name;
+        const newName = options?.customElementNameConvertor?.(name, context) || name;
 
         // TODO
-        dependencies.push([newName, "TODO"]);
+        dependencies.push([newName, 'TODO']);
 
         openingElement.name.name = newName;
 
@@ -183,14 +146,14 @@ export const react = (options) => {
 
         let parent = path.parentPath;
 
-        while (parent.type !== "ReturnStatement") {
+        while (parent.type !== 'ReturnStatement') {
           level++;
           parent = parent.parentPath;
         }
 
-        let space = "";
+        let space = '';
 
-        for (let i = 0; i < level; i++) space += "  ";
+        for (let i = 0; i < level; i++) space += '  ';
 
         const trim = value.trim();
 
@@ -198,45 +161,41 @@ export const react = (options) => {
 
         const to = trim.length;
 
-        const startIndex = value.indexOf("\n");
+        const startIndex = value.indexOf('\n');
 
-        const endIndex = value.lastIndexOf("\n");
+        const endIndex = value.lastIndexOf('\n');
 
         const start = startIndex !== -1 && from > startIndex;
 
         const end = endIndex !== -1 && to <= endIndex;
 
-        path.node.value = `${start ? "\n" : ""}${space}${value.trim()}${
-          end ? "\n" : ""
-        }`;
-      },
+        path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
+      }
     };
 
     visitor(context.fileAST, script);
 
-    const patterns = ["templates/**/*.*"];
+    const patterns = ['templates/**/*.*'];
 
-    const destination =
-      options?.destination?.(context) ||
-      path.join(context.directoryPath, "react");
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'react');
 
     const config = {
-      cwd: __dirname(import.meta.url),
+      cwd: __dirname(import.meta.url)
     };
 
-    const style = context.snippets.find((snippet) => snippet.key == "style");
+    const style = context.snippets.find((snippet) => snippet.key == 'style');
 
-    if (!style) patterns.push("!templates/src/index.css.*");
+    if (!style) patterns.push('!templates/src/index.css.*');
 
     const model = {
       script: print(context.fileAST),
-      style: style?.content,
+      style: style?.content
     };
 
     renderTemplate(patterns, destination, config)(model);
   };
   return {
     name,
-    next,
+    next
   };
 };

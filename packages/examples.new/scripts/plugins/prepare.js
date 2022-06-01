@@ -1,4 +1,4 @@
-import { pascalCase } from "change-case";
+import { pascalCase } from 'change-case';
 
 // TODO
 // css [style]
@@ -10,39 +10,39 @@ import { pascalCase } from "change-case";
 // js [vue:script]
 
 export const prepare = () => {
-  const name = "prepare";
+  const name = 'prepare';
   const next = (context) => {
     const regex = /```\w+\s\[\w+(:\w+)?\]\s[\S\s]*?```/g;
 
     const snippets = [];
 
     snippets.push({
-      key: "readme",
+      key: 'readme',
       type: undefined,
-      context: context.fileContent?.replace(regex, "")?.trim(),
+      context: context.fileContent?.replace(regex, '')?.trim()
     });
 
     context.fileContent?.match(regex)?.forEach((snippet) => {
       try {
-        const lines = snippet.split("\n");
+        const lines = snippet.split('\n');
 
         const first = lines[0];
 
         const key = first
           ?.match(/\[\w+(:\w+)?\]/)
           ?.shift()
-          ?.replace("[", "")
-          ?.replace("]", "");
+          ?.replace('[', '')
+          ?.replace(']', '');
 
         const type = first
           ?.match(/```\w+/)
           ?.pop()
-          ?.replace("```", "");
+          ?.replace('```', '');
 
-        const content = lines.slice(1, -1).join("\n");
+        const content = lines.slice(1, -1).join('\n');
 
         snippets.push({ key, type, content });
-      } catch { }
+      } catch {}
     });
 
     const template = snippets.find((snippet) => snippet.key == 'template');
@@ -69,8 +69,7 @@ export const prepare = () => {
 
     const script = snippets.find((snippet) => snippet.key == 'script');
 
-    if (script)
-      context.fileContent = script.content;
+    if (script) context.fileContent = script.content;
 
     // TODO
     context.fileContent = context.fileContent.replace('class ', '@Element()\nclass ');
@@ -80,6 +79,6 @@ export const prepare = () => {
   };
   return {
     name,
-    next,
+    next
   };
 };

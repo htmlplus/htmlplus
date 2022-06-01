@@ -1,1 +1,1 @@
-export * from "./vue.js";
+export * from './vue.js';

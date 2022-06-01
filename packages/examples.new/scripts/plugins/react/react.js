@@ -214,7 +214,7 @@ export const react = (options) => {
 
     visitor(context.fileAST, script);
 
-    const source = "templates/**/*.*";
+    const patterns = ["templates/**/*.*"];
 
     const destination =
       options?.destination?.(context) ||
@@ -224,11 +224,16 @@ export const react = (options) => {
       cwd: __dirname(import.meta.url),
     };
 
+    const style = context.snippets.find((snippet) => snippet.key == "style");
+
+    if (!style) patterns.push("!templates/src/index.css.*");
+
     const model = {
       script: print(context.fileAST),
+      style: style?.content,
     };
 
-    renderTemplate(source, destination, config)(model);
+    renderTemplate(patterns, destination, config)(model);
   };
   return {
     name,

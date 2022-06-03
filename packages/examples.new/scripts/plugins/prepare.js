@@ -30,7 +30,7 @@ export const prepare = () => {
           ?.pop()
           ?.replace('```', '');
 
-        const content = lines.slice(1, -1).join('\n');
+        const content = lines.slice(1, -1).join('\n').trim();
 
         snippets.push({ key, type, content });
       } catch {}

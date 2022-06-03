@@ -7,7 +7,11 @@ import fs from 'fs';
 export const codesandbox = (options) => {
   const name = 'codesandbox';
   const next = (context) => {
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
+
     const sources = options?.source?.(context);
+
+    fs.rmSync(destination, { recursive: true, force: true });
 
     for (const source of sources) {
       const root = source.endsWith('/') ? source.slice(0, -1) : source;
@@ -26,10 +30,6 @@ export const codesandbox = (options) => {
       const parameters = getParameters({ files });
 
       const pattern = 'templates/**/*.*';
-
-      const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
-
-      fs.rmSync(destination, { recursive: true, force: true });
 
       const config = {
         cwd: __dirname(import.meta.url)

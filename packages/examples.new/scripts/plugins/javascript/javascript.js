@@ -209,10 +209,10 @@ export const javascript = (options) => {
     };
 
     const model = {
+      title,
       script: indent(script, 3),
       style: indent(style, 3),
-      template: indent(template, 2),
-      title
+      template: indent(template, 2)
     };
 
     renderTemplate(patterns, destination, config)(model);

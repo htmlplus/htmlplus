@@ -1,4 +1,3 @@
-import template from '@babel/template';
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { camelCase, capitalCase, paramCase, pascalCase } from 'change-case';
@@ -16,7 +15,7 @@ export const react = (options) => {
           const { left, right } = path.node;
           if (left && left.object && left.object.type === 'ThisExpression') {
             const setter = 'set' + pascalCase(left.property.name);
-            path.replaceWith(template.expression.ast`${setter}(${right})`);
+            path.replaceWith(t.callExpression(t.identifier(setter), right));
           }
         },
         ClassDeclaration(path) {
@@ -202,9 +201,9 @@ export const react = (options) => {
     if (!style) patterns.push('!templates/src/index.css.*');
 
     const model = {
+      title,
       script: print(ast),
-      style: style?.content,
-      title
+      style: style?.content
     };
 
     renderTemplate(patterns, destination, config)(model);

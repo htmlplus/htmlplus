@@ -24,5 +24,4 @@ export const Tooltip = dynamic<any>(() => import('@htmlplus/react').then(({ Tool
 export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ Transition }) => Transition), { ssr: false });
 
 export * from './button';
-export * from './markup';
 export * from './socials';

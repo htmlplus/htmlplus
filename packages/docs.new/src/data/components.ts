@@ -1,7 +1,7 @@
-import docs from '@htmlplus/core/docs.json';
+import document from '@htmlplus/core/document.json';
 
 // @ts-ignore
-export const components = docs.components.map((component) => ({
+export const components = document.components.map((component) => ({
   ...component,
   // TODO
   key: component.tag.replace('plus-', '')

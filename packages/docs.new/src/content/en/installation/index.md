@@ -4,12 +4,12 @@ Most libraries are designed for one framework, But `{Constants.PLATFORM_NAME}` s
 
 <br/>
 
-[Javascript]({Router.ROUTE:INSTALLATION:JAVASCRIPT})
+[Javascript](/installation/javascript)
 
 <br/>
 
-[React]({Router.ROUTE:INSTALLATION:REACT})
+[React](/installation/react)
 
 <br/>
 
-[Vue]({Router.ROUTE:INSTALLATION:VUE})
+[Vue](/installation/vue)

@@ -1,22 +1,24 @@
 import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 
+import glob from 'fast-glob';
 import fs from 'fs';
-import * as glob from 'glob';
-import matter from 'gray-matter';
 import path from 'path';
 
-import { Markup } from '@app/components';
+import * as Constants from '@app/constants';
 import { LayoutDefault } from '@app/layouts';
 
 const base = 'src/content/en';
 
-const All = ({ content }: any) => {
+const components = { Alert: () => <div>TODO</div> };
+
+const All = ({ source }: any) => {
   return (
     <LayoutDefault>
-      {content}
-      <Markup>{content}</Markup>
+      <MDXRemote {...source} components={components} scope={{ Constants }} />
     </LayoutDefault>
   );
 };
@@ -32,13 +34,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const raw = fs.readFileSync(fs.existsSync(main) ? main : alternative, 'utf8');
 
-  const { content, data } = matter(raw) || {};
+  const source = await serialize(raw);
 
   return {
-    props: {
-      content,
-      data
-    }
+    props: { source }
   };
 };
 

@@ -11,11 +11,11 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus'
   }),
-  customElement({
-    destination(context) {
-      return path.join(context.directoryPath, 'preview');
-    }
-  }),
+  // customElement({
+  //   destination(context) {
+  //     return path.join(context.directoryPath, 'preview');
+  //   }
+  // }),
   javascript({
     destination(context) {
       return path.join(context.directoryPath, 'javascript');
@@ -54,6 +54,7 @@ const { start, next, finish } = compiler(
   await start();
   // TODO
   // glob.sync('./src/*/*/readme.md').forEach(next);
-  glob.sync('./src/aspect-ratio/default/readme.md').forEach(next);
+  const files = glob.sync('./src/aspect-ratio/default/readme.md');
+  for (const file of files) await next(file);
   await finish();
 })();

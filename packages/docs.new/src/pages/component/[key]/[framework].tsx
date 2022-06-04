@@ -3,6 +3,8 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import axios from 'axios';
+import glob from 'fast-glob';
+import fs from 'fs';
 
 import { Markup } from '@app/components';
 import { components } from '@app/data';
@@ -19,7 +21,9 @@ const ComponentDetails = ({ component }: any) => {
 export default ComponentDetails;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const component = components.find((component) => component.key === context.params?.key);
+  const { key, framework } = context.params || {};
+
+  const component = components.find((component) => component.key == key);
 
   const contributors: string[] = [];
 
@@ -36,17 +40,34 @@ export const getStaticProps: GetStaticProps = async (context) => {
       .forEach(contributors.push);
   } catch {}
 
+  const root = `../examples.new/src/${component?.key}/*/javascript`;
+
+  const pattern = `${root}/**/*.*`;
+
+  const files = glob.sync(pattern);
+
+  const examples = files.map((file) => {
+    return {
+      path: file
+        .split(framework as string)
+        .pop()
+        ?.slice(1),
+      content: fs.readFileSync(file, 'utf8')
+    };
+  });
+
   return {
     props: {
       component,
-      contributors
+      contributors,
+      examples
     }
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: components.map((component: any) => `/component/${component.key}`),
+    paths: components.map((component: any) => `/component/${component.key}/javascript`),
     fallback: false
   };
 };

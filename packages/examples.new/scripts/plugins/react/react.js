@@ -15,7 +15,7 @@ export const react = (options) => {
           const { left, right } = path.node;
           if (left && left.object && left.object.type === 'ThisExpression') {
             const setter = 'set' + pascalCase(left.property.name);
-            path.replaceWith(t.callExpression(t.identifier(setter), right));
+            path.replaceWith(t.callExpression(t.identifier(setter), [right]));
           }
         },
         ClassDeclaration(path) {

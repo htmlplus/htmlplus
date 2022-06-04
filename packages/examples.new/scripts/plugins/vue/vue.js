@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { capitalCase } from 'change-case';
+import { camelCase, capitalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -92,13 +92,13 @@ export const vue = (options) => {
           if (!value) return;
 
           if (name.name.match(/on[A-Z]/)) {
-            name.name = '@' + Case.camel(name.name.slice(2));
+            name.name = '@' + camelCase(name.name.slice(2));
           }
 
           if (value.type !== 'JSXExpressionContainer') return;
 
           // TODO
-          const { code } = generate(value.expression.body || value.expression);
+          const code = print(value.expression.body || value.expression);
 
           // TODO
           const newValue = code.replace(/this\.|;/, '').replace('event', '$event');
@@ -125,7 +125,7 @@ export const vue = (options) => {
         },
         JSXExpressionContainer(path) {
           // TODO
-          const { code } = generate(path.node.expression);
+          const code = print(path.node.expression);
 
           // TODO
           path.replaceWithSourceString(`[[${code.replace('this.', '')}]]`);

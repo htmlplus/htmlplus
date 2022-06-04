@@ -14,7 +14,7 @@ const getValue = (path) => {
     case 'BooleanLiteral':
     case 'NumericLiteral':
     case 'StringLiteral':
-      return expression.value;
+      return path.node.expression.value;
     case 'MemberExpression':
       break;
     case 'TemplateLiteral':

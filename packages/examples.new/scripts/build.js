@@ -52,9 +52,7 @@ const { start, next, finish } = compiler(
 
 (async () => {
   await start();
-  // TODO
-  // glob.sync('./src/*/*/readme.md').forEach(next);
-  const files = glob.sync('./src/aspect-ratio/default/readme.md');
+  const files = glob.sync(['./src/*/*/readme.md']);
   for (const file of files) await next(file);
   await finish();
 })();

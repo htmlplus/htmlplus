@@ -14,6 +14,9 @@ input[type="range"] {
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class CardElevation {
   @State()
   elevation = "12";

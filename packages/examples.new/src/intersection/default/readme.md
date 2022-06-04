@@ -36,6 +36,9 @@ plus-card {
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class IntersectionDefault {
   @State()
   intersecting = false;

@@ -5,12 +5,14 @@
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class DialogPrevent {
   ensure(type, event) {
     if (window.confirm(`Are you sure you want to ${type} it?`)) return;
     event.preventDefault();
   }
-
   render() {
     return (
       <fragment>

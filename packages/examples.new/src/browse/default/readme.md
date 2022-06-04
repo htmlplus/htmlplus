@@ -1,4 +1,7 @@
 ```tsx [script]
+import { Element } from '@htmlplus/element';
+
+@Element()
 class BrowseDefault {
   onChange(event) {
     const name = event.detail.files[0].file.name;

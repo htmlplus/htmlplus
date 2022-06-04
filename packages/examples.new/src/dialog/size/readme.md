@@ -5,6 +5,9 @@ plus-grid-item {
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class DialogSize {
   @State()
   open = false;

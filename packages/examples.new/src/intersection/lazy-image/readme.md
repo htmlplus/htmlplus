@@ -34,6 +34,9 @@ plus-spinner {
 ```
 
 ```tsx [script]
+import { Element } from '@htmlplus/element';
+
+@Element()
 class IntersectionLazyImage {
   onChange(event) {
     if (!event.detail.isIntersecting) return;

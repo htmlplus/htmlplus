@@ -5,6 +5,9 @@
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class CropperDialog {
   @State()
   disabled: boolean = true;

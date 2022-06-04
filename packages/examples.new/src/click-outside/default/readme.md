@@ -10,6 +10,9 @@ plus-click-outside {
 ```
 
 ```tsx [script]
+import { Element, State } from '@htmlplus/element';
+
+@Element()
 class ClickOutsideDefault {
   @State()
   inside = 0;

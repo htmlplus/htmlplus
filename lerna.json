@@ -4,7 +4,7 @@
     "packages/core",
     "packages/docs.new",
     "packages/element",
-    "packages/examples.new",
+    "packages/examples",
     "packages/playground/react",
     "packages/proxies/react"
   ]

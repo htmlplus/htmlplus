@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     component.readme = component.readme?.replace(/<Example /g, `<Example examples={examples} `);
 
-    const root = `../examples.new/src/${key}/*/${framework}`;
+    const root = `../examples/src/${key}/*/${framework}`;
 
     const pattern = `${root}/**/*.*`;
 

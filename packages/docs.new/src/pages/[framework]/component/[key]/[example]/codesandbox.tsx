@@ -15,14 +15,14 @@ export default ComponentCodesandbox;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { example, framework, key } = context.params || {};
-  const content = fs.readFileSync(`../examples.new/src/${key}/${example}/codesandbox/${framework}.html`, 'utf8');
+  const content = fs.readFileSync(`../examples/src/${key}/${example}/codesandbox/${framework}.html`, 'utf8');
   return {
     props: { content }
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // glob.sync(`../examples.new/src/*/*/codesandbox/*.html`)
+  // glob.sync(`../examples/src/*/*/codesandbox/*.html`)
   return {
     paths: components.map((component: any) => `/react/component/${component.key}/default/codesandbox`),
     fallback: false

@@ -1,10 +1,19 @@
 {
   "name": "@htmlplus/examples",
+  "type": "module",
   "scripts": {
-    "build": "node ./src/build.js",
-    "clean": "rimraf dist"
+    "build": "node scripts/build.js",
+    "clean": "rimraf dist",
+    "dev:build:watch": "nodemon scripts/build.js --ignore ./src/**/*.*"
   },
   "devDependencies": {
+    "@babel/types": "^7.18.4",
+    "@htmlplus/element": "latest",
+    "change-case": "^4.1.2",
+    "codesandbox": "^2.2.3",
+    "fast-glob": "^3.2.11",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
     "rimraf": "^3.0.2"
   }
 }

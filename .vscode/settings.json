@@ -1,5 +1,5 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "npm.exclude": "**/examples.new/src/**"
+  "npm.exclude": "**/examples/src/**"
 }

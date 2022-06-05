@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     component.readme = component.readme?.replace(/<Example /g, `<Example examples={examples} `);
 
-    const root = `../examples.new/src/${component?.key}/*/${framework}`;
+    const root = `../examples.new/src/${key}/*/${framework}`;
 
     const pattern = `${root}/**/*.*`;
 
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: components.map((component: any) => `/component/${component.key}/react`),
+    paths: components.map((component: any) => `/react/component/${component.key}`),
     fallback: false
   };
 };

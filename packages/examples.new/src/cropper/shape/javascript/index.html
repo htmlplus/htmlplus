@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cropper | Shape</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="TODO"></script>
+    <style>
+      plus-cropper[shape="rectangle"] {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <plus-grid gutter="md">  
+      <plus-grid-item xs="6">    
+        <plus-cropper shape="rectangle" aspect-ratio="2" src="/assets/images/panda.jpg"></plus-cropper>    
+      </plus-grid-item>  
+      <plus-grid-item xs="6">    
+        <plus-grid gutter="md">      
+          <plus-grid-item xs="12">        
+            <plus-cropper shape="square" src="/assets/images/panda.jpg"></plus-cropper>        
+          </plus-grid-item>      
+          <plus-grid-item xs="12">        
+            <plus-cropper shape="circle" src="/assets/images/panda.jpg"></plus-cropper>        
+          </plus-grid-item>      
+        </plus-grid>    
+      </plus-grid-item>  
+    </plus-grid>
+  </body>
+</html>

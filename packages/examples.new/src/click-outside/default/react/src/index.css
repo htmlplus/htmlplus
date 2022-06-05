@@ -1,0 +1,8 @@
+.container {
+  padding: 1rem;
+}
+plus-click-outside {
+  margin: auto;
+  display: block;
+  max-width: 20rem;
+}

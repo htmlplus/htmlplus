@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Click Outside | Default</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="TODO"></script>
+    <style>
+      .container {
+        padding: 1rem;
+      }
+      plus-click-outside {
+        margin: auto;
+        display: block;
+        max-width: 20rem;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <script>
+      let inside = 0;
+      let outside = 0;
+      element1.addEventListener('click', (event) => {
+        inside = inside + 1;
+        element2.innerHTML = inside;
+      });
+      element1.addEventListener('plusClickOutside', (event) => {
+        outside = outside + 1;
+        element3.innerHTML = outside;
+      });
+    </script>
+  </body>
+</html>

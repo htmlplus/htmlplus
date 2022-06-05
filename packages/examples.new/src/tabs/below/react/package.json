@@ -1,0 +1,14 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start"
+  },
+  "dependencies": {
+    "@htmlplus/react": "latest",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.0"
+  }
+}

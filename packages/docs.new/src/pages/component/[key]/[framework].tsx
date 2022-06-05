@@ -13,7 +13,7 @@ import { LayoutDefault } from '@app/layouts';
 const ComponentDetails = ({ component, contributors, examples }: any) => {
   return (
     <LayoutDefault>
-      <Markup value={component?.readme} />
+      <Markup value={component?.readme} scope={{ examples }} />
     </LayoutDefault>
   );
 };
@@ -25,39 +25,58 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const component = components.find((component) => component.key == key);
 
-  // TODO
-  if (component)
-    component.readme = component.readme.replace(
-      /<Example value="(.*)"/g,
-      `<Example value="../examples.new/src/${component.key}/$1/${framework}" `
-    );
+  const contributors: string[] = await (async () => {
+    try {
+      const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${context.params?.key}`;
+      const response = await axios.get(url);
+      return response.data
+        .map((commit: any) => commit.author?.login)
+        .filter(
+          (contributor: string, index: number, contributors: string[]) =>
+            contributor && contributors.indexOf(contributor) === index
+        );
+    } catch {}
+  })();
 
-  const contributors: string[] = [];
+  const examples = (() => {
+    const examples: any[] = [];
 
-  try {
-    const response = await axios.get(
-      `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${context.params?.key}`
-    );
-    response.data
-      .map((commit: any) => commit.author?.login)
-      .filter(
-        (contributor: string, index: number, contributors: string[]) =>
-          contributor && contributors.indexOf(contributor) === index
-      )
-      .forEach(contributors.push);
-  } catch {}
+    if (!component) return examples;
+
+    component.readme = component.readme?.replace(/<Example /g, `<Example examples={examples} `);
+
+    const root = `../examples.new/src/${component?.key}/*/${framework}`;
+
+    const pattern = `${root}/**/*.*`;
+
+    const files = glob.sync(pattern);
+
+    files.forEach((file) => {
+      const sections = file.split(/[\/|\\]/g);
+      const indexOf = sections.indexOf(framework as string);
+      const key = sections.at(indexOf - 1);
+      const path = sections.slice(indexOf + 1).join('/');
+      const content = fs.readFileSync(file, 'utf8');
+      let example = examples.find((example) => example.key == key);
+      if (!example) examples.push((example = { key, files: [] }));
+      example.files.push({ path, content });
+    });
+
+    return examples;
+  })();
 
   return {
     props: {
       component,
-      contributors
+      contributors,
+      examples
     }
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: components.map((component: any) => `/component/${component.key}/javascript`),
+    paths: components.map((component: any) => `/component/${component.key}/react`),
     fallback: false
   };
 };

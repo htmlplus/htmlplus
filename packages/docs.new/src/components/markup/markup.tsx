@@ -8,7 +8,7 @@ import * as Constants from '@app/constants';
 import { tokens } from './markup.tokens';
 import { MarkupProps } from './markup.types';
 
-export const Markup = ({ value }: MarkupProps) => {
+export const Markup = ({ scope, value }: MarkupProps) => {
   const [source, setSource] = useState<MDXRemoteProps>();
 
   useEffect(() => {
@@ -18,5 +18,5 @@ export const Markup = ({ value }: MarkupProps) => {
 
   if (!source) return null;
 
-  return <MDXRemote {...source} components={tokens} scope={{ Constants }} />;
+  return <MDXRemote {...source} components={tokens} scope={{ Constants, ...scope }} />;
 };

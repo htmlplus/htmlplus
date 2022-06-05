@@ -37,5 +37,6 @@ export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ T
 });
 
 export * from './button';
+export * from './example';
 export * from './markup';
 export * from './socials';

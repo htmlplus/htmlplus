@@ -4,5 +4,7 @@ export const tokens = {
   Usage: () => <div>TODO</div>,
   Api: () => <div>TODO</div>,
   Examples: () => <div>TODO</div>,
-  Example: () => <div>TODO</div>
+  Example: (props: any) => {
+    return <div>{props.value}</div>;
+  }
 };

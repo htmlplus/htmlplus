@@ -10,7 +10,7 @@ import { Markup } from '@app/components';
 import { components } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 
-const ComponentDetails = ({ component }: any) => {
+const ComponentDetails = ({ component, contributors, examples }: any) => {
   return (
     <LayoutDefault>
       <Markup value={component?.readme} />
@@ -24,6 +24,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { key, framework } = context.params || {};
 
   const component = components.find((component) => component.key == key);
+
+  // TODO
+  if (component)
+    component.readme = component.readme.replace(
+      /<Example value="(.*)"/g,
+      `<Example value="../examples.new/src/${component.key}/$1/${framework}" `
+    );
 
   const contributors: string[] = [];
 
@@ -40,27 +47,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       .forEach(contributors.push);
   } catch {}
 
-  const root = `../examples.new/src/${component?.key}/*/javascript`;
-
-  const pattern = `${root}/**/*.*`;
-
-  const files = glob.sync(pattern);
-
-  const examples = files.map((file) => {
-    return {
-      path: file
-        .split(framework as string)
-        .pop()
-        ?.slice(1),
-      content: fs.readFileSync(file, 'utf8')
-    };
-  });
-
   return {
     props: {
       component,
-      contributors,
-      examples
+      contributors
     }
   };
 };

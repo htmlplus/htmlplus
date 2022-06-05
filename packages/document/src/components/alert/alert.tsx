@@ -1,5 +1,3 @@
-import React from 'react';
-
 import * as Utils from '@app/utils';
 
 import { AlertProps } from './alert.types';

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import NextLink from 'next/link';
 
@@ -8,7 +8,7 @@ import * as Utils from '@app/utils';
 
 import { ButtonProps } from './button.types';
 
-const Anchor = React.forwardRef(({ children, ...args }: any, ref) => {
+const Anchor = forwardRef(({ children, ...args }: any, ref) => {
   return (
     <a ref={ref} {...args}>
       {children}
@@ -16,7 +16,7 @@ const Anchor = React.forwardRef(({ children, ...args }: any, ref) => {
   );
 });
 
-const Link: React.FC<any> = ({ children, params, to, ...attributes }: any) => {
+const Link = ({ children, params, to, ...attributes }: any) => {
   const router = useRouter();
   const path = useMemo(() => router.path(to, params), [to, params]);
   if (attributes.target === '_blank' && !attributes.rel) {
@@ -35,7 +35,7 @@ const Link: React.FC<any> = ({ children, params, to, ...attributes }: any) => {
   );
 };
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   block,
   children,
   color,

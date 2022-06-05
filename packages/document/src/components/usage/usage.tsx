@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Button, Text } from '@app/components';
 import * as Constants from '@app/constants';
 

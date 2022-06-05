@@ -1,4 +1,4 @@
-export const components = {
+export const tokens = {
   Alert: () => <div>TODO</div>,
   Playground: () => <div>TODO</div>,
   Usage: () => <div>TODO</div>,

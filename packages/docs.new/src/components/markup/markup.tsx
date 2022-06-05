@@ -5,7 +5,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 
 import * as Constants from '@app/constants';
 
-import { components } from './markup.components';
+import { tokens } from './markup.tokens';
 import { MarkupProps } from './markup.types';
 
 export const Markup = ({ value }: MarkupProps) => {
@@ -18,5 +18,5 @@ export const Markup = ({ value }: MarkupProps) => {
 
   if (!source) return null;
 
-  return <MDXRemote {...source} components={components} scope={{ Constants }} />;
+  return <MDXRemote {...source} components={tokens} scope={{ Constants }} />;
 };

@@ -6,8 +6,6 @@
     "clean:hard": "npm run clean && lerna clean",
     "core:pull": "git subtree pull --prefix packages/core packages/core main --squash",
     "core:push": "git subtree push --prefix packages/core packages/core main",
-    "docs:build": "npm run bootstrap && lerna run build --scope=@htmlplus/docs.new",
-    "docs:push": "git subtree push --prefix packages/docs packages/docs main",
     "document:pull": "git subtree pull --prefix packages/document packages/document main --squash",
     "document:push": "git subtree push --prefix packages/document packages/document main",
     "element:pull": "git subtree pull --prefix packages/element packages/element main --squash",

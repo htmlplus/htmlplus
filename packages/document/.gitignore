@@ -1,4 +1,3 @@
-.svelte-kit
-.vercel_build_output
+.next
 build
 node_modules

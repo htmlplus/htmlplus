@@ -1,39 +1,30 @@
 {
   "name": "@htmlplus/document",
-  "version": "0.0.1",
-  "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
-  },
-  "dependencies": {
-    "@fontsource/fira-mono": "^4.5.0",
-    "@lukeed/uuid": "^2.0.0",
-    "cookie": "^0.4.1"
+    "build": "next build",
+    "clean": "rimraf .next",
+    "format": "prettier --write .",
+    "start": "next dev",
+    "start:prod": "next start"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-cloudflare": "^1.0.0-next.2",
-    "@sveltejs/adapter-vercel": "^1.0.0-next.31",
-    "@sveltejs/kit": "next",
-    "@types/cookie": "^0.4.1",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
-    "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.4.0",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.9.4",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "@htmlplus/core": "latest",
+    "@htmlplus/react": "latest",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/node": "^17.0.39",
+    "@types/react": "^18.0.11",
+    "@types/react-dom": "^18.0.5",
+    "axios": "^0.27.2",
+    "change-case": "^4.1.2",
+    "fast-glob": "^3.2.11",
+    "next": "^12.1.6",
+    "next-mdx-remote": "^4.0.3",
+    "prettier": "^2.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.3"
   }
 }

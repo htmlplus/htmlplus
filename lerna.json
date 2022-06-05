@@ -2,7 +2,7 @@
   "version": "independent",
   "packages": [
     "packages/core",
-    "packages/docs.new",
+    "packages/document",
     "packages/element",
     "packages/examples",
     "packages/playground/react",

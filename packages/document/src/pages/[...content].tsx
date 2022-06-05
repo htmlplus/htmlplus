@@ -11,10 +11,10 @@ import { LayoutDefault } from '@app/layouts';
 
 const base = 'src/content/en';
 
-const All = ({ raw }: any) => {
+const All = ({ content }: any) => {
   return (
     <LayoutDefault>
-      <Markup value={raw} />
+      <Markup value={content} />
     </LayoutDefault>
   );
 };
@@ -28,19 +28,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const alternative = path.join(base, `${url}/index.md`);
 
-  const raw = fs.readFileSync(fs.existsSync(main) ? main : alternative, 'utf8');
+  const final = fs.existsSync(main) ? main : alternative;
+
+  const content = fs.readFileSync(final, 'utf8');
 
   return {
-    props: { raw }
+    props: { content }
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = glob.sync(`${base}/**/*.md`).map((file) => {
-    let path = file.replace(base, '').replace('.md', '');
-    if (path.endsWith('/index')) path = path.replace('/index', '');
-    return path;
-  });
+  const paths = glob.sync(`${base}/**/*.md`).map((file) =>
+    file
+      .replace(base, '')
+      .replace('.md', '')
+      .replace(/\/index$/, '')
+  );
   return {
     paths,
     fallback: false

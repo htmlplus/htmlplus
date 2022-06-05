@@ -36,7 +36,18 @@ export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ T
   ssr: false
 });
 
+export * from './alert';
+export * from './browser-support';
 export * from './button';
+export * from './code';
+export * from './contributors';
 export * from './example';
+export * from './examples';
+export * from './footer';
+export * from './header';
 export * from './markup';
+export * from './playground';
+export * from './sidebar';
 export * from './socials';
+export * from './text';
+export * from './usage';

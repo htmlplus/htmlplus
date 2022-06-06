@@ -1,0 +1,24 @@
+[
+  {
+    "component": "aspect-ratio",
+    "key": "default",
+    "type": "react",
+    "files": [
+      {
+        "key": "index.html",
+        "content": "react"
+      }
+    ]
+  },
+  {
+    "component": "aspect-ratio",
+    "key": "default",
+    "type": "codesandbox",
+    "files": [
+      {
+        "key": "vue.html",
+        "content": "codesandbox => vue"
+      }
+    ]
+  }
+]

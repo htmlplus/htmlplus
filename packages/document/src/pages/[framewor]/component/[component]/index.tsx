@@ -21,6 +21,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const component = components.find((component) => component.key == componentKey);
 
+  if (component)
+    component.readme = component.readme?.replace(/<Example /g, `<Example examples={examples} `);
+
   const contributors: string[] = await (async () => {
     try {
       const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;

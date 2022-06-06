@@ -20,5 +20,7338 @@
         "content": "codesandbox => vue"
       }
     ]
+  },
+  {
+    "key": "default",
+    "component": "aspect-ratio",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/aspect-ratio/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/aspect-ratio/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/aspect-ratio/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "aspect-ratio",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/aspect-ratio/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "aspect-ratio",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/aspect-ratio/default/react/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/default/react/public/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/default/react/src/App.js"
+      },
+      {
+        "path": "src/aspect-ratio/default/react/src/index.css"
+      },
+      {
+        "path": "src/aspect-ratio/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "aspect-ratio",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/aspect-ratio/default/vue/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/default/vue/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/aspect-ratio/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/aspect-ratio/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "more",
+    "component": "aspect-ratio",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/aspect-ratio/more/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/aspect-ratio/more/codesandbox/react.html"
+      },
+      {
+        "path": "src/aspect-ratio/more/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "more",
+    "component": "aspect-ratio",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/aspect-ratio/more/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "more",
+    "component": "aspect-ratio",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/aspect-ratio/more/react/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/more/react/public/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/more/react/src/App.js"
+      },
+      {
+        "path": "src/aspect-ratio/more/react/src/index.css"
+      },
+      {
+        "path": "src/aspect-ratio/more/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "more",
+    "component": "aspect-ratio",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/aspect-ratio/more/vue/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/more/vue/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/more/vue/vite.config.js"
+      },
+      {
+        "path": "src/aspect-ratio/more/vue/src/App.vue"
+      },
+      {
+        "path": "src/aspect-ratio/more/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "video",
+    "component": "aspect-ratio",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/aspect-ratio/video/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/aspect-ratio/video/codesandbox/react.html"
+      },
+      {
+        "path": "src/aspect-ratio/video/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "video",
+    "component": "aspect-ratio",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/aspect-ratio/video/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "video",
+    "component": "aspect-ratio",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/aspect-ratio/video/react/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/video/react/public/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/video/react/src/App.js"
+      },
+      {
+        "path": "src/aspect-ratio/video/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "video",
+    "component": "aspect-ratio",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/aspect-ratio/video/vue/index.html"
+      },
+      {
+        "path": "src/aspect-ratio/video/vue/package.json"
+      },
+      {
+        "path": "src/aspect-ratio/video/vue/vite.config.js"
+      },
+      {
+        "path": "src/aspect-ratio/video/vue/src/App.vue"
+      },
+      {
+        "path": "src/aspect-ratio/video/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-expander",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-expander/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-expander",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-expander/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-expander",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-expander/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-expander",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-expander/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/custom-expander/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-separator",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-separator/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-separator",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-separator/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-separator",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-separator/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-separator",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/custom-separator/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/custom-separator/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "customized",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/customized/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/customized/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/customized/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "customized",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/customized/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "customized",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/customized/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/customized/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/customized/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/customized/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/customized/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "customized",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/customized/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/customized/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/customized/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/customized/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/customized/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/default/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/default/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/default/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/default/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/default/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/default/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "limitation",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/limitation/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/limitation/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/limitation/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "limitation",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/limitation/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "limitation",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/limitation/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/limitation/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/limitation/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/limitation/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/limitation/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "limitation",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/limitation/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/limitation/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/limitation/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/limitation/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/limitation/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "separator",
+    "component": "breadcrumb",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/breadcrumb/separator/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/breadcrumb/separator/codesandbox/react.html"
+      },
+      {
+        "path": "src/breadcrumb/separator/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "separator",
+    "component": "breadcrumb",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/breadcrumb/separator/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "separator",
+    "component": "breadcrumb",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/breadcrumb/separator/react/package.json"
+      },
+      {
+        "path": "src/breadcrumb/separator/react/public/index.html"
+      },
+      {
+        "path": "src/breadcrumb/separator/react/src/App.js"
+      },
+      {
+        "path": "src/breadcrumb/separator/react/src/index.css"
+      },
+      {
+        "path": "src/breadcrumb/separator/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "separator",
+    "component": "breadcrumb",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/breadcrumb/separator/vue/index.html"
+      },
+      {
+        "path": "src/breadcrumb/separator/vue/package.json"
+      },
+      {
+        "path": "src/breadcrumb/separator/vue/vite.config.js"
+      },
+      {
+        "path": "src/breadcrumb/separator/vue/src/App.vue"
+      },
+      {
+        "path": "src/breadcrumb/separator/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "browse",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/browse/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/browse/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/browse/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "browse",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/browse/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "browse",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/browse/default/react/package.json"
+      },
+      {
+        "path": "src/browse/default/react/public/index.html"
+      },
+      {
+        "path": "src/browse/default/react/src/App.js"
+      },
+      {
+        "path": "src/browse/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "browse",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/browse/default/vue/index.html"
+      },
+      {
+        "path": "src/browse/default/vue/package.json"
+      },
+      {
+        "path": "src/browse/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/browse/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/browse/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "background-color",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/background-color/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/background-color/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/background-color/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "background-color",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/background-color/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "background-color",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/background-color/react/package.json"
+      },
+      {
+        "path": "src/card/background-color/react/public/index.html"
+      },
+      {
+        "path": "src/card/background-color/react/src/App.js"
+      },
+      {
+        "path": "src/card/background-color/react/src/index.css"
+      },
+      {
+        "path": "src/card/background-color/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "background-color",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/background-color/vue/index.html"
+      },
+      {
+        "path": "src/card/background-color/vue/package.json"
+      },
+      {
+        "path": "src/card/background-color/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/background-color/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/background-color/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "border-color",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/border-color/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/border-color/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/border-color/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "border-color",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/border-color/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "border-color",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/border-color/react/package.json"
+      },
+      {
+        "path": "src/card/border-color/react/public/index.html"
+      },
+      {
+        "path": "src/card/border-color/react/src/App.js"
+      },
+      {
+        "path": "src/card/border-color/react/src/index.css"
+      },
+      {
+        "path": "src/card/border-color/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "border-color",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/border-color/vue/index.html"
+      },
+      {
+        "path": "src/card/border-color/vue/package.json"
+      },
+      {
+        "path": "src/card/border-color/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/border-color/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/border-color/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "border-width",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/border-width/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/border-width/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/border-width/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "border-width",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/border-width/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "border-width",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/border-width/react/package.json"
+      },
+      {
+        "path": "src/card/border-width/react/public/index.html"
+      },
+      {
+        "path": "src/card/border-width/react/src/App.js"
+      },
+      {
+        "path": "src/card/border-width/react/src/index.css"
+      },
+      {
+        "path": "src/card/border-width/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "border-width",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/border-width/vue/index.html"
+      },
+      {
+        "path": "src/card/border-width/vue/package.json"
+      },
+      {
+        "path": "src/card/border-width/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/border-width/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/border-width/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/customize/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/customize/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/customize/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/customize/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/customize/react/package.json"
+      },
+      {
+        "path": "src/card/customize/react/public/index.html"
+      },
+      {
+        "path": "src/card/customize/react/src/App.js"
+      },
+      {
+        "path": "src/card/customize/react/src/index.css"
+      },
+      {
+        "path": "src/card/customize/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/customize/vue/index.html"
+      },
+      {
+        "path": "src/card/customize/vue/package.json"
+      },
+      {
+        "path": "src/card/customize/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/customize/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/customize/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/default/react/package.json"
+      },
+      {
+        "path": "src/card/default/react/public/index.html"
+      },
+      {
+        "path": "src/card/default/react/src/App.js"
+      },
+      {
+        "path": "src/card/default/react/src/index.css"
+      },
+      {
+        "path": "src/card/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/default/vue/index.html"
+      },
+      {
+        "path": "src/card/default/vue/package.json"
+      },
+      {
+        "path": "src/card/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "elevation",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/elevation/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/elevation/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/elevation/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "elevation",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/elevation/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "elevation",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/elevation/react/package.json"
+      },
+      {
+        "path": "src/card/elevation/react/public/index.html"
+      },
+      {
+        "path": "src/card/elevation/react/src/App.js"
+      },
+      {
+        "path": "src/card/elevation/react/src/index.css"
+      },
+      {
+        "path": "src/card/elevation/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "elevation",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/elevation/vue/index.html"
+      },
+      {
+        "path": "src/card/elevation/vue/package.json"
+      },
+      {
+        "path": "src/card/elevation/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/elevation/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/elevation/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "outlined",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/outlined/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/outlined/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/outlined/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "outlined",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/outlined/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "outlined",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/outlined/react/package.json"
+      },
+      {
+        "path": "src/card/outlined/react/public/index.html"
+      },
+      {
+        "path": "src/card/outlined/react/src/App.js"
+      },
+      {
+        "path": "src/card/outlined/react/src/index.css"
+      },
+      {
+        "path": "src/card/outlined/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "outlined",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/outlined/vue/index.html"
+      },
+      {
+        "path": "src/card/outlined/vue/package.json"
+      },
+      {
+        "path": "src/card/outlined/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/outlined/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/outlined/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "tile",
+    "component": "card",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/card/tile/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/card/tile/codesandbox/react.html"
+      },
+      {
+        "path": "src/card/tile/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "tile",
+    "component": "card",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/card/tile/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "tile",
+    "component": "card",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/card/tile/react/package.json"
+      },
+      {
+        "path": "src/card/tile/react/public/index.html"
+      },
+      {
+        "path": "src/card/tile/react/src/App.js"
+      },
+      {
+        "path": "src/card/tile/react/src/index.css"
+      },
+      {
+        "path": "src/card/tile/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "tile",
+    "component": "card",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/card/tile/vue/index.html"
+      },
+      {
+        "path": "src/card/tile/vue/package.json"
+      },
+      {
+        "path": "src/card/tile/vue/vite.config.js"
+      },
+      {
+        "path": "src/card/tile/vue/src/App.vue"
+      },
+      {
+        "path": "src/card/tile/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "click-outside",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/click-outside/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/click-outside/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/click-outside/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "click-outside",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/click-outside/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "click-outside",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/click-outside/default/react/package.json"
+      },
+      {
+        "path": "src/click-outside/default/react/public/index.html"
+      },
+      {
+        "path": "src/click-outside/default/react/src/App.js"
+      },
+      {
+        "path": "src/click-outside/default/react/src/index.css"
+      },
+      {
+        "path": "src/click-outside/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "click-outside",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/click-outside/default/vue/index.html"
+      },
+      {
+        "path": "src/click-outside/default/vue/package.json"
+      },
+      {
+        "path": "src/click-outside/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/click-outside/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/click-outside/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "area",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/area/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/area/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/area/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "area",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/area/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "area",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/area/react/package.json"
+      },
+      {
+        "path": "src/cropper/area/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/area/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/area/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "area",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/area/vue/index.html"
+      },
+      {
+        "path": "src/cropper/area/vue/package.json"
+      },
+      {
+        "path": "src/cropper/area/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/area/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/area/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "aspect-ratio",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/aspect-ratio/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "aspect-ratio",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/aspect-ratio/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "aspect-ratio",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/aspect-ratio/react/package.json"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "aspect-ratio",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/aspect-ratio/vue/index.html"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/vue/package.json"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/aspect-ratio/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/backdrop/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/backdrop/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/backdrop/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/backdrop/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/backdrop/react/package.json"
+      },
+      {
+        "path": "src/cropper/backdrop/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/backdrop/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/backdrop/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/backdrop/vue/index.html"
+      },
+      {
+        "path": "src/cropper/backdrop/vue/package.json"
+      },
+      {
+        "path": "src/cropper/backdrop/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/backdrop/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/backdrop/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "background",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/background/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/background/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/background/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "background",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/background/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "background",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/background/react/package.json"
+      },
+      {
+        "path": "src/cropper/background/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/background/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/background/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "background",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/background/vue/index.html"
+      },
+      {
+        "path": "src/cropper/background/vue/package.json"
+      },
+      {
+        "path": "src/cropper/background/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/background/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/background/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/default/react/package.json"
+      },
+      {
+        "path": "src/cropper/default/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/default/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/default/vue/index.html"
+      },
+      {
+        "path": "src/cropper/default/vue/package.json"
+      },
+      {
+        "path": "src/cropper/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "dialog",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/dialog/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/dialog/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/dialog/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "dialog",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/dialog/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "dialog",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/dialog/react/package.json"
+      },
+      {
+        "path": "src/cropper/dialog/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/dialog/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/dialog/react/src/index.css"
+      },
+      {
+        "path": "src/cropper/dialog/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "dialog",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/dialog/vue/index.html"
+      },
+      {
+        "path": "src/cropper/dialog/vue/package.json"
+      },
+      {
+        "path": "src/cropper/dialog/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/dialog/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/dialog/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "guides",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/guides/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/guides/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/guides/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "guides",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/guides/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "guides",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/guides/react/package.json"
+      },
+      {
+        "path": "src/cropper/guides/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/guides/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/guides/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "guides",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/guides/vue/index.html"
+      },
+      {
+        "path": "src/cropper/guides/vue/package.json"
+      },
+      {
+        "path": "src/cropper/guides/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/guides/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/guides/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "indicator",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/indicator/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/indicator/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/indicator/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "indicator",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/indicator/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "indicator",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/indicator/react/package.json"
+      },
+      {
+        "path": "src/cropper/indicator/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/indicator/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/indicator/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "indicator",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/indicator/vue/index.html"
+      },
+      {
+        "path": "src/cropper/indicator/vue/package.json"
+      },
+      {
+        "path": "src/cropper/indicator/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/indicator/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/indicator/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "mode",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/mode/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/mode/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/mode/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "mode",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/mode/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "mode",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/mode/react/package.json"
+      },
+      {
+        "path": "src/cropper/mode/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/mode/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/mode/react/src/index.css"
+      },
+      {
+        "path": "src/cropper/mode/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "mode",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/mode/vue/index.html"
+      },
+      {
+        "path": "src/cropper/mode/vue/package.json"
+      },
+      {
+        "path": "src/cropper/mode/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/mode/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/mode/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "shape",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/shape/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/shape/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/shape/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "shape",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/shape/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "shape",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/shape/react/package.json"
+      },
+      {
+        "path": "src/cropper/shape/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/shape/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/shape/react/src/index.css"
+      },
+      {
+        "path": "src/cropper/shape/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "shape",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/shape/vue/index.html"
+      },
+      {
+        "path": "src/cropper/shape/vue/package.json"
+      },
+      {
+        "path": "src/cropper/shape/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/shape/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/shape/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "styles",
+    "component": "cropper",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/cropper/styles/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/cropper/styles/codesandbox/react.html"
+      },
+      {
+        "path": "src/cropper/styles/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "styles",
+    "component": "cropper",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/cropper/styles/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "styles",
+    "component": "cropper",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/cropper/styles/react/package.json"
+      },
+      {
+        "path": "src/cropper/styles/react/public/index.html"
+      },
+      {
+        "path": "src/cropper/styles/react/src/App.js"
+      },
+      {
+        "path": "src/cropper/styles/react/src/index.css"
+      },
+      {
+        "path": "src/cropper/styles/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "styles",
+    "component": "cropper",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/cropper/styles/vue/index.html"
+      },
+      {
+        "path": "src/cropper/styles/vue/package.json"
+      },
+      {
+        "path": "src/cropper/styles/vue/vite.config.js"
+      },
+      {
+        "path": "src/cropper/styles/vue/src/App.vue"
+      },
+      {
+        "path": "src/cropper/styles/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "animation",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/animation/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/animation/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/animation/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "animation",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/animation/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "animation",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/animation/react/package.json"
+      },
+      {
+        "path": "src/dialog/animation/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/animation/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/animation/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/animation/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "animation",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/animation/vue/index.html"
+      },
+      {
+        "path": "src/dialog/animation/vue/package.json"
+      },
+      {
+        "path": "src/dialog/animation/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/animation/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/animation/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/backdrop/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/backdrop/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/backdrop/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/backdrop/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/backdrop/react/package.json"
+      },
+      {
+        "path": "src/dialog/backdrop/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/backdrop/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/backdrop/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/backdrop/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "backdrop",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/backdrop/vue/index.html"
+      },
+      {
+        "path": "src/dialog/backdrop/vue/package.json"
+      },
+      {
+        "path": "src/dialog/backdrop/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/backdrop/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/backdrop/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/default/react/package.json"
+      },
+      {
+        "path": "src/dialog/default/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/default/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/default/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/default/vue/index.html"
+      },
+      {
+        "path": "src/dialog/default/vue/package.json"
+      },
+      {
+        "path": "src/dialog/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "full-height",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/full-height/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/full-height/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/full-height/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "full-height",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/full-height/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "full-height",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/full-height/react/package.json"
+      },
+      {
+        "path": "src/dialog/full-height/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/full-height/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/full-height/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/full-height/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "full-height",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/full-height/vue/index.html"
+      },
+      {
+        "path": "src/dialog/full-height/vue/package.json"
+      },
+      {
+        "path": "src/dialog/full-height/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/full-height/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/full-height/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "full-width",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/full-width/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/full-width/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/full-width/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "full-width",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/full-width/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "full-width",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/full-width/react/package.json"
+      },
+      {
+        "path": "src/dialog/full-width/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/full-width/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/full-width/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/full-width/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "full-width",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/full-width/vue/index.html"
+      },
+      {
+        "path": "src/dialog/full-width/vue/package.json"
+      },
+      {
+        "path": "src/dialog/full-width/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/full-width/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/full-width/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "fullscreen",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/fullscreen/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/fullscreen/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/fullscreen/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "fullscreen",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/fullscreen/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "fullscreen",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/fullscreen/react/package.json"
+      },
+      {
+        "path": "src/dialog/fullscreen/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/fullscreen/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/fullscreen/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/fullscreen/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "fullscreen",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/fullscreen/vue/index.html"
+      },
+      {
+        "path": "src/dialog/fullscreen/vue/package.json"
+      },
+      {
+        "path": "src/dialog/fullscreen/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/fullscreen/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/fullscreen/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "nesting",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/nesting/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/nesting/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/nesting/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "nesting",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/nesting/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "nesting",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/nesting/react/package.json"
+      },
+      {
+        "path": "src/dialog/nesting/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/nesting/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/nesting/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/nesting/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "nesting",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/nesting/vue/index.html"
+      },
+      {
+        "path": "src/dialog/nesting/vue/package.json"
+      },
+      {
+        "path": "src/dialog/nesting/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/nesting/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/nesting/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "persistent",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/persistent/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/persistent/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/persistent/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "persistent",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/persistent/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "persistent",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/persistent/react/package.json"
+      },
+      {
+        "path": "src/dialog/persistent/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/persistent/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/persistent/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/persistent/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "persistent",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/persistent/vue/index.html"
+      },
+      {
+        "path": "src/dialog/persistent/vue/package.json"
+      },
+      {
+        "path": "src/dialog/persistent/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/persistent/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/persistent/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/placement/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/placement/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/placement/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/placement/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/placement/react/package.json"
+      },
+      {
+        "path": "src/dialog/placement/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/placement/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/placement/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/placement/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/placement/vue/index.html"
+      },
+      {
+        "path": "src/dialog/placement/vue/package.json"
+      },
+      {
+        "path": "src/dialog/placement/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/placement/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/placement/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "prevent",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/prevent/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/prevent/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/prevent/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "prevent",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/prevent/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "prevent",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/prevent/react/package.json"
+      },
+      {
+        "path": "src/dialog/prevent/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/prevent/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/prevent/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/prevent/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "prevent",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/prevent/vue/index.html"
+      },
+      {
+        "path": "src/dialog/prevent/vue/package.json"
+      },
+      {
+        "path": "src/dialog/prevent/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/prevent/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/prevent/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "scrollable",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/scrollable/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/scrollable/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/scrollable/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "scrollable",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/scrollable/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "scrollable",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/scrollable/react/package.json"
+      },
+      {
+        "path": "src/dialog/scrollable/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/scrollable/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/scrollable/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/scrollable/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "scrollable",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/scrollable/vue/index.html"
+      },
+      {
+        "path": "src/dialog/scrollable/vue/package.json"
+      },
+      {
+        "path": "src/dialog/scrollable/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/scrollable/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/scrollable/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/size/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/size/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/size/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/size/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/size/react/package.json"
+      },
+      {
+        "path": "src/dialog/size/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/size/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/size/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/size/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/size/vue/index.html"
+      },
+      {
+        "path": "src/dialog/size/vue/package.json"
+      },
+      {
+        "path": "src/dialog/size/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/size/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/size/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "specific-scrollable",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/specific-scrollable/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "specific-scrollable",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/specific-scrollable/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "specific-scrollable",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/specific-scrollable/react/package.json"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "specific-scrollable",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/specific-scrollable/vue/index.html"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/vue/package.json"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/specific-scrollable/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "sticky",
+    "component": "dialog",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/dialog/sticky/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/dialog/sticky/codesandbox/react.html"
+      },
+      {
+        "path": "src/dialog/sticky/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "sticky",
+    "component": "dialog",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/dialog/sticky/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "sticky",
+    "component": "dialog",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/dialog/sticky/react/package.json"
+      },
+      {
+        "path": "src/dialog/sticky/react/public/index.html"
+      },
+      {
+        "path": "src/dialog/sticky/react/src/App.js"
+      },
+      {
+        "path": "src/dialog/sticky/react/src/index.css"
+      },
+      {
+        "path": "src/dialog/sticky/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "sticky",
+    "component": "dialog",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/dialog/sticky/vue/index.html"
+      },
+      {
+        "path": "src/dialog/sticky/vue/package.json"
+      },
+      {
+        "path": "src/dialog/sticky/vue/vite.config.js"
+      },
+      {
+        "path": "src/dialog/sticky/vue/src/App.vue"
+      },
+      {
+        "path": "src/dialog/sticky/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "card",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/card/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/card/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/card/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "card",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/card/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "card",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/card/react/package.json"
+      },
+      {
+        "path": "src/divider/card/react/public/index.html"
+      },
+      {
+        "path": "src/divider/card/react/src/App.js"
+      },
+      {
+        "path": "src/divider/card/react/src/index.css"
+      },
+      {
+        "path": "src/divider/card/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "card",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/card/vue/index.html"
+      },
+      {
+        "path": "src/divider/card/vue/package.json"
+      },
+      {
+        "path": "src/divider/card/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/card/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/card/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/customize/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/customize/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/customize/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/customize/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/customize/react/package.json"
+      },
+      {
+        "path": "src/divider/customize/react/public/index.html"
+      },
+      {
+        "path": "src/divider/customize/react/src/App.js"
+      },
+      {
+        "path": "src/divider/customize/react/src/index.css"
+      },
+      {
+        "path": "src/divider/customize/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/customize/vue/index.html"
+      },
+      {
+        "path": "src/divider/customize/vue/package.json"
+      },
+      {
+        "path": "src/divider/customize/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/customize/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/customize/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "horizontal",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/horizontal/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/horizontal/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/horizontal/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "horizontal",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/horizontal/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "horizontal",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/horizontal/react/package.json"
+      },
+      {
+        "path": "src/divider/horizontal/react/public/index.html"
+      },
+      {
+        "path": "src/divider/horizontal/react/src/App.js"
+      },
+      {
+        "path": "src/divider/horizontal/react/src/index.css"
+      },
+      {
+        "path": "src/divider/horizontal/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "horizontal",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/horizontal/vue/index.html"
+      },
+      {
+        "path": "src/divider/horizontal/vue/package.json"
+      },
+      {
+        "path": "src/divider/horizontal/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/horizontal/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/horizontal/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/size/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/size/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/size/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/size/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/size/react/package.json"
+      },
+      {
+        "path": "src/divider/size/react/public/index.html"
+      },
+      {
+        "path": "src/divider/size/react/src/App.js"
+      },
+      {
+        "path": "src/divider/size/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/size/vue/index.html"
+      },
+      {
+        "path": "src/divider/size/vue/package.json"
+      },
+      {
+        "path": "src/divider/size/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/size/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/size/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/type/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/type/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/type/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/type/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/type/react/package.json"
+      },
+      {
+        "path": "src/divider/type/react/public/index.html"
+      },
+      {
+        "path": "src/divider/type/react/src/App.js"
+      },
+      {
+        "path": "src/divider/type/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/type/vue/index.html"
+      },
+      {
+        "path": "src/divider/type/vue/package.json"
+      },
+      {
+        "path": "src/divider/type/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/type/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/type/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "divider",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/divider/vertical/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/divider/vertical/codesandbox/react.html"
+      },
+      {
+        "path": "src/divider/vertical/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "divider",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/divider/vertical/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "divider",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/divider/vertical/react/package.json"
+      },
+      {
+        "path": "src/divider/vertical/react/public/index.html"
+      },
+      {
+        "path": "src/divider/vertical/react/src/App.js"
+      },
+      {
+        "path": "src/divider/vertical/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "divider",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/divider/vertical/vue/index.html"
+      },
+      {
+        "path": "src/divider/vertical/vue/package.json"
+      },
+      {
+        "path": "src/divider/vertical/vue/vite.config.js"
+      },
+      {
+        "path": "src/divider/vertical/vue/src/App.vue"
+      },
+      {
+        "path": "src/divider/vertical/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "drawer",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/drawer/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/drawer/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/drawer/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "drawer",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/drawer/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "drawer",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/drawer/default/react/package.json"
+      },
+      {
+        "path": "src/drawer/default/react/public/index.html"
+      },
+      {
+        "path": "src/drawer/default/react/src/App.js"
+      },
+      {
+        "path": "src/drawer/default/react/src/index.css"
+      },
+      {
+        "path": "src/drawer/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "drawer",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/drawer/default/vue/index.html"
+      },
+      {
+        "path": "src/drawer/default/vue/package.json"
+      },
+      {
+        "path": "src/drawer/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/drawer/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/drawer/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "align-content",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/align-content/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/align-content/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/align-content/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "align-content",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/align-content/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "align-content",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/align-content/react/package.json"
+      },
+      {
+        "path": "src/grid/align-content/react/public/index.html"
+      },
+      {
+        "path": "src/grid/align-content/react/src/App.js"
+      },
+      {
+        "path": "src/grid/align-content/react/src/index.css"
+      },
+      {
+        "path": "src/grid/align-content/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "align-content",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/align-content/vue/index.html"
+      },
+      {
+        "path": "src/grid/align-content/vue/package.json"
+      },
+      {
+        "path": "src/grid/align-content/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/align-content/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/align-content/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "align-items",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/align-items/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/align-items/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/align-items/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "align-items",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/align-items/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "align-items",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/align-items/react/package.json"
+      },
+      {
+        "path": "src/grid/align-items/react/public/index.html"
+      },
+      {
+        "path": "src/grid/align-items/react/src/App.js"
+      },
+      {
+        "path": "src/grid/align-items/react/src/index.css"
+      },
+      {
+        "path": "src/grid/align-items/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "align-items",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/align-items/vue/index.html"
+      },
+      {
+        "path": "src/grid/align-items/vue/package.json"
+      },
+      {
+        "path": "src/grid/align-items/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/align-items/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/align-items/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "align-self",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/align-self/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/align-self/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/align-self/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "align-self",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/align-self/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "align-self",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/align-self/react/package.json"
+      },
+      {
+        "path": "src/grid/align-self/react/public/index.html"
+      },
+      {
+        "path": "src/grid/align-self/react/src/App.js"
+      },
+      {
+        "path": "src/grid/align-self/react/src/index.css"
+      },
+      {
+        "path": "src/grid/align-self/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "align-self",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/align-self/vue/index.html"
+      },
+      {
+        "path": "src/grid/align-self/vue/package.json"
+      },
+      {
+        "path": "src/grid/align-self/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/align-self/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/align-self/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "auto-sizing",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/auto-sizing/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/auto-sizing/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/auto-sizing/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "auto-sizing",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/auto-sizing/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "auto-sizing",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/auto-sizing/react/package.json"
+      },
+      {
+        "path": "src/grid/auto-sizing/react/public/index.html"
+      },
+      {
+        "path": "src/grid/auto-sizing/react/src/App.js"
+      },
+      {
+        "path": "src/grid/auto-sizing/react/src/index.css"
+      },
+      {
+        "path": "src/grid/auto-sizing/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "auto-sizing",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/auto-sizing/vue/index.html"
+      },
+      {
+        "path": "src/grid/auto-sizing/vue/package.json"
+      },
+      {
+        "path": "src/grid/auto-sizing/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/auto-sizing/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/auto-sizing/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/default/react/package.json"
+      },
+      {
+        "path": "src/grid/default/react/public/index.html"
+      },
+      {
+        "path": "src/grid/default/react/src/App.js"
+      },
+      {
+        "path": "src/grid/default/react/src/index.css"
+      },
+      {
+        "path": "src/grid/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/default/vue/index.html"
+      },
+      {
+        "path": "src/grid/default/vue/package.json"
+      },
+      {
+        "path": "src/grid/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/gutter/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/gutter/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/gutter/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/gutter/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/gutter/react/package.json"
+      },
+      {
+        "path": "src/grid/gutter/react/public/index.html"
+      },
+      {
+        "path": "src/grid/gutter/react/src/App.js"
+      },
+      {
+        "path": "src/grid/gutter/react/src/index.css"
+      },
+      {
+        "path": "src/grid/gutter/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/gutter/vue/index.html"
+      },
+      {
+        "path": "src/grid/gutter/vue/package.json"
+      },
+      {
+        "path": "src/grid/gutter/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/gutter/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/gutter/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter-x",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/gutter-x/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/gutter-x/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/gutter-x/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter-x",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/gutter-x/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter-x",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/gutter-x/react/package.json"
+      },
+      {
+        "path": "src/grid/gutter-x/react/public/index.html"
+      },
+      {
+        "path": "src/grid/gutter-x/react/src/App.js"
+      },
+      {
+        "path": "src/grid/gutter-x/react/src/index.css"
+      },
+      {
+        "path": "src/grid/gutter-x/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter-x",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/gutter-x/vue/index.html"
+      },
+      {
+        "path": "src/grid/gutter-x/vue/package.json"
+      },
+      {
+        "path": "src/grid/gutter-x/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/gutter-x/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/gutter-x/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter-y",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/gutter-y/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/gutter-y/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/gutter-y/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter-y",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/gutter-y/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "gutter-y",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/gutter-y/react/package.json"
+      },
+      {
+        "path": "src/grid/gutter-y/react/public/index.html"
+      },
+      {
+        "path": "src/grid/gutter-y/react/src/App.js"
+      },
+      {
+        "path": "src/grid/gutter-y/react/src/index.css"
+      },
+      {
+        "path": "src/grid/gutter-y/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "gutter-y",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/gutter-y/vue/index.html"
+      },
+      {
+        "path": "src/grid/gutter-y/vue/package.json"
+      },
+      {
+        "path": "src/grid/gutter-y/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/gutter-y/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/gutter-y/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "hide",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/hide/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/hide/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/hide/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "hide",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/hide/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "hide",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/hide/react/package.json"
+      },
+      {
+        "path": "src/grid/hide/react/public/index.html"
+      },
+      {
+        "path": "src/grid/hide/react/src/App.js"
+      },
+      {
+        "path": "src/grid/hide/react/src/index.css"
+      },
+      {
+        "path": "src/grid/hide/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "hide",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/hide/vue/index.html"
+      },
+      {
+        "path": "src/grid/hide/vue/package.json"
+      },
+      {
+        "path": "src/grid/hide/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/hide/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/hide/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "justify-content",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/justify-content/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/justify-content/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/justify-content/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "justify-content",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/justify-content/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "justify-content",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/justify-content/react/package.json"
+      },
+      {
+        "path": "src/grid/justify-content/react/public/index.html"
+      },
+      {
+        "path": "src/grid/justify-content/react/src/App.js"
+      },
+      {
+        "path": "src/grid/justify-content/react/src/index.css"
+      },
+      {
+        "path": "src/grid/justify-content/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "justify-content",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/justify-content/vue/index.html"
+      },
+      {
+        "path": "src/grid/justify-content/vue/package.json"
+      },
+      {
+        "path": "src/grid/justify-content/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/justify-content/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/justify-content/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "offset",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/offset/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/offset/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/offset/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "offset",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/offset/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "offset",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/offset/react/package.json"
+      },
+      {
+        "path": "src/grid/offset/react/public/index.html"
+      },
+      {
+        "path": "src/grid/offset/react/src/App.js"
+      },
+      {
+        "path": "src/grid/offset/react/src/index.css"
+      },
+      {
+        "path": "src/grid/offset/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "offset",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/offset/vue/index.html"
+      },
+      {
+        "path": "src/grid/offset/vue/package.json"
+      },
+      {
+        "path": "src/grid/offset/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/offset/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/offset/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "order",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/order/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/order/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/order/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "order",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/order/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "order",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/order/react/package.json"
+      },
+      {
+        "path": "src/grid/order/react/public/index.html"
+      },
+      {
+        "path": "src/grid/order/react/src/App.js"
+      },
+      {
+        "path": "src/grid/order/react/src/index.css"
+      },
+      {
+        "path": "src/grid/order/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "order",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/order/vue/index.html"
+      },
+      {
+        "path": "src/grid/order/vue/package.json"
+      },
+      {
+        "path": "src/grid/order/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/order/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/order/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/reverse/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/reverse/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/reverse/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/reverse/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/reverse/react/package.json"
+      },
+      {
+        "path": "src/grid/reverse/react/public/index.html"
+      },
+      {
+        "path": "src/grid/reverse/react/src/App.js"
+      },
+      {
+        "path": "src/grid/reverse/react/src/index.css"
+      },
+      {
+        "path": "src/grid/reverse/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/reverse/vue/index.html"
+      },
+      {
+        "path": "src/grid/reverse/vue/package.json"
+      },
+      {
+        "path": "src/grid/reverse/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/reverse/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/reverse/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/vertical/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/vertical/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/vertical/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/vertical/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/vertical/react/package.json"
+      },
+      {
+        "path": "src/grid/vertical/react/public/index.html"
+      },
+      {
+        "path": "src/grid/vertical/react/src/App.js"
+      },
+      {
+        "path": "src/grid/vertical/react/src/index.css"
+      },
+      {
+        "path": "src/grid/vertical/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/vertical/vue/index.html"
+      },
+      {
+        "path": "src/grid/vertical/vue/package.json"
+      },
+      {
+        "path": "src/grid/vertical/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/vertical/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/vertical/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "wrap",
+    "component": "grid",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/grid/wrap/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/grid/wrap/codesandbox/react.html"
+      },
+      {
+        "path": "src/grid/wrap/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "wrap",
+    "component": "grid",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/grid/wrap/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "wrap",
+    "component": "grid",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/grid/wrap/react/package.json"
+      },
+      {
+        "path": "src/grid/wrap/react/public/index.html"
+      },
+      {
+        "path": "src/grid/wrap/react/src/App.js"
+      },
+      {
+        "path": "src/grid/wrap/react/src/index.css"
+      },
+      {
+        "path": "src/grid/wrap/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "wrap",
+    "component": "grid",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/grid/wrap/vue/index.html"
+      },
+      {
+        "path": "src/grid/wrap/vue/package.json"
+      },
+      {
+        "path": "src/grid/wrap/vue/vite.config.js"
+      },
+      {
+        "path": "src/grid/wrap/vue/src/App.vue"
+      },
+      {
+        "path": "src/grid/wrap/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/color/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/color/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/color/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/color/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/color/react/package.json"
+      },
+      {
+        "path": "src/icon/color/react/public/index.html"
+      },
+      {
+        "path": "src/icon/color/react/src/App.js"
+      },
+      {
+        "path": "src/icon/color/react/src/index.css"
+      },
+      {
+        "path": "src/icon/color/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/color/vue/index.html"
+      },
+      {
+        "path": "src/icon/color/vue/package.json"
+      },
+      {
+        "path": "src/icon/color/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/color/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/color/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-color",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/custom-color/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/custom-color/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/custom-color/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-color",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/custom-color/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-color",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/custom-color/react/package.json"
+      },
+      {
+        "path": "src/icon/custom-color/react/public/index.html"
+      },
+      {
+        "path": "src/icon/custom-color/react/src/App.js"
+      },
+      {
+        "path": "src/icon/custom-color/react/src/index.css"
+      },
+      {
+        "path": "src/icon/custom-color/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-color",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/custom-color/vue/index.html"
+      },
+      {
+        "path": "src/icon/custom-color/vue/package.json"
+      },
+      {
+        "path": "src/icon/custom-color/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/custom-color/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/custom-color/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/default/react/package.json"
+      },
+      {
+        "path": "src/icon/default/react/public/index.html"
+      },
+      {
+        "path": "src/icon/default/react/src/App.js"
+      },
+      {
+        "path": "src/icon/default/react/src/index.css"
+      },
+      {
+        "path": "src/icon/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/default/vue/index.html"
+      },
+      {
+        "path": "src/icon/default/vue/package.json"
+      },
+      {
+        "path": "src/icon/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "flip",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/flip/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/flip/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/flip/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "flip",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/flip/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "flip",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/flip/react/package.json"
+      },
+      {
+        "path": "src/icon/flip/react/public/index.html"
+      },
+      {
+        "path": "src/icon/flip/react/src/App.js"
+      },
+      {
+        "path": "src/icon/flip/react/src/index.css"
+      },
+      {
+        "path": "src/icon/flip/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "flip",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/flip/vue/index.html"
+      },
+      {
+        "path": "src/icon/flip/vue/package.json"
+      },
+      {
+        "path": "src/icon/flip/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/flip/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/flip/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "rotate",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/rotate/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/rotate/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/rotate/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "rotate",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/rotate/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "rotate",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/rotate/react/package.json"
+      },
+      {
+        "path": "src/icon/rotate/react/public/index.html"
+      },
+      {
+        "path": "src/icon/rotate/react/src/App.js"
+      },
+      {
+        "path": "src/icon/rotate/react/src/index.css"
+      },
+      {
+        "path": "src/icon/rotate/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "rotate",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/rotate/vue/index.html"
+      },
+      {
+        "path": "src/icon/rotate/vue/package.json"
+      },
+      {
+        "path": "src/icon/rotate/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/rotate/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/rotate/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "icon",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/icon/size/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/icon/size/codesandbox/react.html"
+      },
+      {
+        "path": "src/icon/size/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "icon",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/icon/size/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "icon",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/icon/size/react/package.json"
+      },
+      {
+        "path": "src/icon/size/react/public/index.html"
+      },
+      {
+        "path": "src/icon/size/react/src/App.js"
+      },
+      {
+        "path": "src/icon/size/react/src/index.css"
+      },
+      {
+        "path": "src/icon/size/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "icon",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/icon/size/vue/index.html"
+      },
+      {
+        "path": "src/icon/size/vue/package.json"
+      },
+      {
+        "path": "src/icon/size/vue/vite.config.js"
+      },
+      {
+        "path": "src/icon/size/vue/src/App.vue"
+      },
+      {
+        "path": "src/icon/size/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "intersection",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/intersection/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/intersection/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/intersection/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "intersection",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/intersection/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "intersection",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/intersection/default/react/package.json"
+      },
+      {
+        "path": "src/intersection/default/react/public/index.html"
+      },
+      {
+        "path": "src/intersection/default/react/src/App.js"
+      },
+      {
+        "path": "src/intersection/default/react/src/index.css"
+      },
+      {
+        "path": "src/intersection/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "intersection",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/intersection/default/vue/index.html"
+      },
+      {
+        "path": "src/intersection/default/vue/package.json"
+      },
+      {
+        "path": "src/intersection/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/intersection/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/intersection/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "lazy-image",
+    "component": "intersection",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/intersection/lazy-image/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/intersection/lazy-image/codesandbox/react.html"
+      },
+      {
+        "path": "src/intersection/lazy-image/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "lazy-image",
+    "component": "intersection",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/intersection/lazy-image/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "lazy-image",
+    "component": "intersection",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/intersection/lazy-image/react/package.json"
+      },
+      {
+        "path": "src/intersection/lazy-image/react/public/index.html"
+      },
+      {
+        "path": "src/intersection/lazy-image/react/src/App.js"
+      },
+      {
+        "path": "src/intersection/lazy-image/react/src/index.css"
+      },
+      {
+        "path": "src/intersection/lazy-image/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "lazy-image",
+    "component": "intersection",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/intersection/lazy-image/vue/index.html"
+      },
+      {
+        "path": "src/intersection/lazy-image/vue/package.json"
+      },
+      {
+        "path": "src/intersection/lazy-image/vue/vite.config.js"
+      },
+      {
+        "path": "src/intersection/lazy-image/vue/src/App.vue"
+      },
+      {
+        "path": "src/intersection/lazy-image/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "portal",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/portal/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/portal/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/portal/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "portal",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/portal/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "portal",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/portal/default/react/package.json"
+      },
+      {
+        "path": "src/portal/default/react/public/index.html"
+      },
+      {
+        "path": "src/portal/default/react/src/App.js"
+      },
+      {
+        "path": "src/portal/default/react/src/index.css"
+      },
+      {
+        "path": "src/portal/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "portal",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/portal/default/vue/index.html"
+      },
+      {
+        "path": "src/portal/default/vue/package.json"
+      },
+      {
+        "path": "src/portal/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/portal/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/portal/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "strategy",
+    "component": "portal",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/portal/strategy/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/portal/strategy/codesandbox/react.html"
+      },
+      {
+        "path": "src/portal/strategy/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "strategy",
+    "component": "portal",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/portal/strategy/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "strategy",
+    "component": "portal",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/portal/strategy/react/package.json"
+      },
+      {
+        "path": "src/portal/strategy/react/public/index.html"
+      },
+      {
+        "path": "src/portal/strategy/react/src/App.js"
+      },
+      {
+        "path": "src/portal/strategy/react/src/index.css"
+      },
+      {
+        "path": "src/portal/strategy/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "strategy",
+    "component": "portal",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/portal/strategy/vue/index.html"
+      },
+      {
+        "path": "src/portal/strategy/vue/package.json"
+      },
+      {
+        "path": "src/portal/strategy/vue/vite.config.js"
+      },
+      {
+        "path": "src/portal/strategy/vue/src/App.vue"
+      },
+      {
+        "path": "src/portal/strategy/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "scroll-indicator",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/scroll-indicator/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/scroll-indicator/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/scroll-indicator/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "scroll-indicator",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/scroll-indicator/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "scroll-indicator",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/scroll-indicator/default/react/package.json"
+      },
+      {
+        "path": "src/scroll-indicator/default/react/public/index.html"
+      },
+      {
+        "path": "src/scroll-indicator/default/react/src/App.js"
+      },
+      {
+        "path": "src/scroll-indicator/default/react/src/index.css"
+      },
+      {
+        "path": "src/scroll-indicator/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "scroll-indicator",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/scroll-indicator/default/vue/index.html"
+      },
+      {
+        "path": "src/scroll-indicator/default/vue/package.json"
+      },
+      {
+        "path": "src/scroll-indicator/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/scroll-indicator/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/scroll-indicator/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/color/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/color/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/color/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/color/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/color/react/package.json"
+      },
+      {
+        "path": "src/spinner/color/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/color/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/color/react/src/index.css"
+      },
+      {
+        "path": "src/spinner/color/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "color",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/color/vue/index.html"
+      },
+      {
+        "path": "src/spinner/color/vue/package.json"
+      },
+      {
+        "path": "src/spinner/color/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/color/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/color/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-size",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/custom-size/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/custom-size/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/custom-size/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-size",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/custom-size/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "custom-size",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/custom-size/react/package.json"
+      },
+      {
+        "path": "src/spinner/custom-size/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/custom-size/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/custom-size/react/src/index.css"
+      },
+      {
+        "path": "src/spinner/custom-size/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "custom-size",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/custom-size/vue/index.html"
+      },
+      {
+        "path": "src/spinner/custom-size/vue/package.json"
+      },
+      {
+        "path": "src/spinner/custom-size/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/custom-size/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/custom-size/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/customize/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/customize/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/customize/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/customize/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/customize/react/package.json"
+      },
+      {
+        "path": "src/spinner/customize/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/customize/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/customize/react/src/index.css"
+      },
+      {
+        "path": "src/spinner/customize/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "customize",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/customize/vue/index.html"
+      },
+      {
+        "path": "src/spinner/customize/vue/package.json"
+      },
+      {
+        "path": "src/spinner/customize/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/customize/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/customize/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/default/react/package.json"
+      },
+      {
+        "path": "src/spinner/default/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/default/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/default/react/src/index.css"
+      },
+      {
+        "path": "src/spinner/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/default/vue/index.html"
+      },
+      {
+        "path": "src/spinner/default/vue/package.json"
+      },
+      {
+        "path": "src/spinner/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/size/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/size/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/size/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/size/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/size/react/package.json"
+      },
+      {
+        "path": "src/spinner/size/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/size/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/size/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "size",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/size/vue/index.html"
+      },
+      {
+        "path": "src/spinner/size/vue/package.json"
+      },
+      {
+        "path": "src/spinner/size/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/size/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/size/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "spinner",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/spinner/type/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/spinner/type/codesandbox/react.html"
+      },
+      {
+        "path": "src/spinner/type/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "spinner",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/spinner/type/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "spinner",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/spinner/type/react/package.json"
+      },
+      {
+        "path": "src/spinner/type/react/public/index.html"
+      },
+      {
+        "path": "src/spinner/type/react/src/App.js"
+      },
+      {
+        "path": "src/spinner/type/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "type",
+    "component": "spinner",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/spinner/type/vue/index.html"
+      },
+      {
+        "path": "src/spinner/type/vue/package.json"
+      },
+      {
+        "path": "src/spinner/type/vue/vite.config.js"
+      },
+      {
+        "path": "src/spinner/type/vue/src/App.vue"
+      },
+      {
+        "path": "src/spinner/type/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "sticky",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/sticky/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/sticky/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/sticky/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "sticky",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/sticky/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "sticky",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/sticky/default/react/package.json"
+      },
+      {
+        "path": "src/sticky/default/react/public/index.html"
+      },
+      {
+        "path": "src/sticky/default/react/src/App.js"
+      },
+      {
+        "path": "src/sticky/default/react/src/index.css"
+      },
+      {
+        "path": "src/sticky/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "sticky",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/sticky/default/vue/index.html"
+      },
+      {
+        "path": "src/sticky/default/vue/package.json"
+      },
+      {
+        "path": "src/sticky/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/sticky/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/sticky/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "state-attribute",
+    "component": "sticky",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/sticky/state-attribute/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/sticky/state-attribute/codesandbox/react.html"
+      },
+      {
+        "path": "src/sticky/state-attribute/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "state-attribute",
+    "component": "sticky",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/sticky/state-attribute/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "state-attribute",
+    "component": "sticky",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/sticky/state-attribute/react/package.json"
+      },
+      {
+        "path": "src/sticky/state-attribute/react/public/index.html"
+      },
+      {
+        "path": "src/sticky/state-attribute/react/src/App.js"
+      },
+      {
+        "path": "src/sticky/state-attribute/react/src/index.css"
+      },
+      {
+        "path": "src/sticky/state-attribute/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "state-attribute",
+    "component": "sticky",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/sticky/state-attribute/vue/index.html"
+      },
+      {
+        "path": "src/sticky/state-attribute/vue/package.json"
+      },
+      {
+        "path": "src/sticky/state-attribute/vue/vite.config.js"
+      },
+      {
+        "path": "src/sticky/state-attribute/vue/src/App.vue"
+      },
+      {
+        "path": "src/sticky/state-attribute/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "top",
+    "component": "sticky",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/sticky/top/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/sticky/top/codesandbox/react.html"
+      },
+      {
+        "path": "src/sticky/top/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "top",
+    "component": "sticky",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/sticky/top/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "top",
+    "component": "sticky",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/sticky/top/react/package.json"
+      },
+      {
+        "path": "src/sticky/top/react/public/index.html"
+      },
+      {
+        "path": "src/sticky/top/react/src/App.js"
+      },
+      {
+        "path": "src/sticky/top/react/src/index.css"
+      },
+      {
+        "path": "src/sticky/top/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "top",
+    "component": "sticky",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/sticky/top/vue/index.html"
+      },
+      {
+        "path": "src/sticky/top/vue/package.json"
+      },
+      {
+        "path": "src/sticky/top/vue/vite.config.js"
+      },
+      {
+        "path": "src/sticky/top/vue/src/App.vue"
+      },
+      {
+        "path": "src/sticky/top/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "checked",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/checked/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/checked/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/checked/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "checked",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/checked/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "checked",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/checked/react/package.json"
+      },
+      {
+        "path": "src/switch/checked/react/public/index.html"
+      },
+      {
+        "path": "src/switch/checked/react/src/App.js"
+      },
+      {
+        "path": "src/switch/checked/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "checked",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/checked/vue/index.html"
+      },
+      {
+        "path": "src/switch/checked/vue/package.json"
+      },
+      {
+        "path": "src/switch/checked/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/checked/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/checked/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/default/react/package.json"
+      },
+      {
+        "path": "src/switch/default/react/public/index.html"
+      },
+      {
+        "path": "src/switch/default/react/src/App.js"
+      },
+      {
+        "path": "src/switch/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/default/vue/index.html"
+      },
+      {
+        "path": "src/switch/default/vue/package.json"
+      },
+      {
+        "path": "src/switch/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "disabled",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/disabled/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/disabled/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/disabled/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "disabled",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/disabled/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "disabled",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/disabled/react/package.json"
+      },
+      {
+        "path": "src/switch/disabled/react/public/index.html"
+      },
+      {
+        "path": "src/switch/disabled/react/src/App.js"
+      },
+      {
+        "path": "src/switch/disabled/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "disabled",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/disabled/vue/index.html"
+      },
+      {
+        "path": "src/switch/disabled/vue/package.json"
+      },
+      {
+        "path": "src/switch/disabled/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/disabled/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/disabled/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "inset",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/inset/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/inset/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/inset/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "inset",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/inset/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "inset",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/inset/react/package.json"
+      },
+      {
+        "path": "src/switch/inset/react/public/index.html"
+      },
+      {
+        "path": "src/switch/inset/react/src/App.js"
+      },
+      {
+        "path": "src/switch/inset/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "inset",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/inset/vue/index.html"
+      },
+      {
+        "path": "src/switch/inset/vue/package.json"
+      },
+      {
+        "path": "src/switch/inset/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/inset/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/inset/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "labels",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/labels/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/labels/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/labels/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "labels",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/labels/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "labels",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/labels/react/package.json"
+      },
+      {
+        "path": "src/switch/labels/react/public/index.html"
+      },
+      {
+        "path": "src/switch/labels/react/src/App.js"
+      },
+      {
+        "path": "src/switch/labels/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "labels",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/labels/vue/index.html"
+      },
+      {
+        "path": "src/switch/labels/vue/package.json"
+      },
+      {
+        "path": "src/switch/labels/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/labels/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/labels/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "switch",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/switch/reverse/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/switch/reverse/codesandbox/react.html"
+      },
+      {
+        "path": "src/switch/reverse/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "switch",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/switch/reverse/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "switch",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/switch/reverse/react/package.json"
+      },
+      {
+        "path": "src/switch/reverse/react/public/index.html"
+      },
+      {
+        "path": "src/switch/reverse/react/src/App.js"
+      },
+      {
+        "path": "src/switch/reverse/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "switch",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/switch/reverse/vue/index.html"
+      },
+      {
+        "path": "src/switch/reverse/vue/package.json"
+      },
+      {
+        "path": "src/switch/reverse/vue/vite.config.js"
+      },
+      {
+        "path": "src/switch/reverse/vue/src/App.vue"
+      },
+      {
+        "path": "src/switch/reverse/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "below",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/below/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/below/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/below/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "below",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/below/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "below",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/below/react/package.json"
+      },
+      {
+        "path": "src/tabs/below/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/below/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/below/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "below",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/below/vue/index.html"
+      },
+      {
+        "path": "src/tabs/below/vue/package.json"
+      },
+      {
+        "path": "src/tabs/below/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/below/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/below/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/default/react/package.json"
+      },
+      {
+        "path": "src/tabs/default/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/default/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/default/vue/index.html"
+      },
+      {
+        "path": "src/tabs/default/vue/package.json"
+      },
+      {
+        "path": "src/tabs/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "grow",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/grow/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/grow/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/grow/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "grow",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/grow/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "grow",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/grow/react/package.json"
+      },
+      {
+        "path": "src/tabs/grow/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/grow/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/grow/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "grow",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/grow/vue/index.html"
+      },
+      {
+        "path": "src/tabs/grow/vue/package.json"
+      },
+      {
+        "path": "src/tabs/grow/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/grow/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/grow/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "justify",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/justify/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/justify/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/justify/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "justify",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/justify/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "justify",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/justify/react/package.json"
+      },
+      {
+        "path": "src/tabs/justify/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/justify/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/justify/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "justify",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/justify/vue/index.html"
+      },
+      {
+        "path": "src/tabs/justify/vue/package.json"
+      },
+      {
+        "path": "src/tabs/justify/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/justify/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/justify/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/reverse/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/reverse/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/reverse/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/reverse/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/reverse/react/package.json"
+      },
+      {
+        "path": "src/tabs/reverse/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/reverse/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/reverse/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "reverse",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/reverse/vue/index.html"
+      },
+      {
+        "path": "src/tabs/reverse/vue/package.json"
+      },
+      {
+        "path": "src/tabs/reverse/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/reverse/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/reverse/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "separate",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/separate/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/separate/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/separate/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "separate",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/separate/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "separate",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/separate/react/package.json"
+      },
+      {
+        "path": "src/tabs/separate/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/separate/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/separate/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "separate",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/separate/vue/index.html"
+      },
+      {
+        "path": "src/tabs/separate/vue/package.json"
+      },
+      {
+        "path": "src/tabs/separate/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/separate/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/separate/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "tabs",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tabs/vertical/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tabs/vertical/codesandbox/react.html"
+      },
+      {
+        "path": "src/tabs/vertical/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "tabs",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tabs/vertical/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "tabs",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tabs/vertical/react/package.json"
+      },
+      {
+        "path": "src/tabs/vertical/react/public/index.html"
+      },
+      {
+        "path": "src/tabs/vertical/react/src/App.js"
+      },
+      {
+        "path": "src/tabs/vertical/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "vertical",
+    "component": "tabs",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tabs/vertical/vue/index.html"
+      },
+      {
+        "path": "src/tabs/vertical/vue/package.json"
+      },
+      {
+        "path": "src/tabs/vertical/vue/vite.config.js"
+      },
+      {
+        "path": "src/tabs/vertical/vue/src/App.vue"
+      },
+      {
+        "path": "src/tabs/vertical/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "arrows",
+    "component": "tooltip",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tooltip/arrows/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tooltip/arrows/codesandbox/react.html"
+      },
+      {
+        "path": "src/tooltip/arrows/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "arrows",
+    "component": "tooltip",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tooltip/arrows/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "arrows",
+    "component": "tooltip",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tooltip/arrows/react/package.json"
+      },
+      {
+        "path": "src/tooltip/arrows/react/public/index.html"
+      },
+      {
+        "path": "src/tooltip/arrows/react/src/App.js"
+      },
+      {
+        "path": "src/tooltip/arrows/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "arrows",
+    "component": "tooltip",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tooltip/arrows/vue/index.html"
+      },
+      {
+        "path": "src/tooltip/arrows/vue/package.json"
+      },
+      {
+        "path": "src/tooltip/arrows/vue/vite.config.js"
+      },
+      {
+        "path": "src/tooltip/arrows/vue/src/App.vue"
+      },
+      {
+        "path": "src/tooltip/arrows/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tooltip",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tooltip/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tooltip/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/tooltip/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tooltip",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tooltip/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tooltip",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tooltip/default/react/package.json"
+      },
+      {
+        "path": "src/tooltip/default/react/public/index.html"
+      },
+      {
+        "path": "src/tooltip/default/react/src/App.js"
+      },
+      {
+        "path": "src/tooltip/default/react/src/index.css"
+      },
+      {
+        "path": "src/tooltip/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "tooltip",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tooltip/default/vue/index.html"
+      },
+      {
+        "path": "src/tooltip/default/vue/package.json"
+      },
+      {
+        "path": "src/tooltip/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/tooltip/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/tooltip/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "tooltip",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tooltip/placement/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tooltip/placement/codesandbox/react.html"
+      },
+      {
+        "path": "src/tooltip/placement/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "tooltip",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tooltip/placement/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "tooltip",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tooltip/placement/react/package.json"
+      },
+      {
+        "path": "src/tooltip/placement/react/public/index.html"
+      },
+      {
+        "path": "src/tooltip/placement/react/src/App.js"
+      },
+      {
+        "path": "src/tooltip/placement/react/src/index.css"
+      },
+      {
+        "path": "src/tooltip/placement/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "placement",
+    "component": "tooltip",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tooltip/placement/vue/index.html"
+      },
+      {
+        "path": "src/tooltip/placement/vue/package.json"
+      },
+      {
+        "path": "src/tooltip/placement/vue/vite.config.js"
+      },
+      {
+        "path": "src/tooltip/placement/vue/src/App.vue"
+      },
+      {
+        "path": "src/tooltip/placement/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "trigger",
+    "component": "tooltip",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/tooltip/trigger/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/tooltip/trigger/codesandbox/react.html"
+      },
+      {
+        "path": "src/tooltip/trigger/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "trigger",
+    "component": "tooltip",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/tooltip/trigger/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "trigger",
+    "component": "tooltip",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/tooltip/trigger/react/package.json"
+      },
+      {
+        "path": "src/tooltip/trigger/react/public/index.html"
+      },
+      {
+        "path": "src/tooltip/trigger/react/src/App.js"
+      },
+      {
+        "path": "src/tooltip/trigger/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "trigger",
+    "component": "tooltip",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/tooltip/trigger/vue/index.html"
+      },
+      {
+        "path": "src/tooltip/trigger/vue/package.json"
+      },
+      {
+        "path": "src/tooltip/trigger/vue/vite.config.js"
+      },
+      {
+        "path": "src/tooltip/trigger/vue/src/App.vue"
+      },
+      {
+        "path": "src/tooltip/trigger/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "transition",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/transition/default/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/transition/default/codesandbox/react.html"
+      },
+      {
+        "path": "src/transition/default/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "transition",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/transition/default/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "transition",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/transition/default/react/package.json"
+      },
+      {
+        "path": "src/transition/default/react/public/index.html"
+      },
+      {
+        "path": "src/transition/default/react/src/App.js"
+      },
+      {
+        "path": "src/transition/default/react/src/index.css"
+      },
+      {
+        "path": "src/transition/default/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "default",
+    "component": "transition",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/transition/default/vue/index.html"
+      },
+      {
+        "path": "src/transition/default/vue/package.json"
+      },
+      {
+        "path": "src/transition/default/vue/vite.config.js"
+      },
+      {
+        "path": "src/transition/default/vue/src/App.vue"
+      },
+      {
+        "path": "src/transition/default/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "duration",
+    "component": "transition",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/transition/duration/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/transition/duration/codesandbox/react.html"
+      },
+      {
+        "path": "src/transition/duration/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "duration",
+    "component": "transition",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/transition/duration/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "duration",
+    "component": "transition",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/transition/duration/react/package.json"
+      },
+      {
+        "path": "src/transition/duration/react/public/index.html"
+      },
+      {
+        "path": "src/transition/duration/react/src/App.js"
+      },
+      {
+        "path": "src/transition/duration/react/src/index.css"
+      },
+      {
+        "path": "src/transition/duration/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "duration",
+    "component": "transition",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/transition/duration/vue/index.html"
+      },
+      {
+        "path": "src/transition/duration/vue/package.json"
+      },
+      {
+        "path": "src/transition/duration/vue/vite.config.js"
+      },
+      {
+        "path": "src/transition/duration/vue/src/App.vue"
+      },
+      {
+        "path": "src/transition/duration/vue/src/main.js"
+      }
+    ]
+  },
+  {
+    "key": "name",
+    "component": "transition",
+    "type": "codesandbox",
+    "files": [
+      {
+        "path": "src/transition/name/codesandbox/javascript.html"
+      },
+      {
+        "path": "src/transition/name/codesandbox/react.html"
+      },
+      {
+        "path": "src/transition/name/codesandbox/vue.html"
+      }
+    ]
+  },
+  {
+    "key": "name",
+    "component": "transition",
+    "type": "javascript",
+    "files": [
+      {
+        "path": "src/transition/name/javascript/index.html"
+      }
+    ]
+  },
+  {
+    "key": "name",
+    "component": "transition",
+    "type": "react",
+    "files": [
+      {
+        "path": "src/transition/name/react/package.json"
+      },
+      {
+        "path": "src/transition/name/react/public/index.html"
+      },
+      {
+        "path": "src/transition/name/react/src/App.js"
+      },
+      {
+        "path": "src/transition/name/react/src/index.css"
+      },
+      {
+        "path": "src/transition/name/react/src/index.js"
+      }
+    ]
+  },
+  {
+    "key": "name",
+    "component": "transition",
+    "type": "vue",
+    "files": [
+      {
+        "path": "src/transition/name/vue/index.html"
+      },
+      {
+        "path": "src/transition/name/vue/package.json"
+      },
+      {
+        "path": "src/transition/name/vue/vite.config.js"
+      },
+      {
+        "path": "src/transition/name/vue/src/App.vue"
+      },
+      {
+        "path": "src/transition/name/vue/src/main.js"
+      }
+    ]
   }
 ]

@@ -1,54 +1,41 @@
 import glob from 'fast-glob';
 import fs from 'fs';
+import path from 'path';
 
 export const map = () => {
   const name = 'map';
-  const finish = (global) => {
+  const finish = () => {
+    const items = [];
 
-    const examples = [
-      {
-        "component": "aspect-ratio",
-        "key": "default",
-        "type": "react",
-        "files": [
-          {
-            "key": "index.html",
-            "content": "react"
-          }
-        ]
-      },
-      {
-        "component": "aspect-ratio",
-        "key": "default",
-        "type": "codesandbox",
-        "files": [
-          {
-            "key": "vue.html",
-            "content": "codesandbox => vue"
-          }
-        ]
-      }
-    ];
-
-    const pattern = `src/*/*/*`;
-
-    const files = glob.sync(pattern, { onlyDirectories: true });
+    const files = glob.sync(['src/**/*.*', '!src/map.json']);
 
     for (const file of files) {
-      const sections = file.split(/[\/|\\]/g);
-      const component = sections.at(1);
-      const key = sections.at(2);
-      const type = sections.at(3);
-      const f = glob.sync(`${file}/**/*.*`).map((ff) => {
-        return {
-          path: ff,
-          // content: fs.readFileSync(ff, 'utf8')
-        }
-      })
-      examples.push({ key, component, type, files: f });
+      const names = file.split(/[\/|\\]/g);
+
+      let state = items;
+
+      let current;
+
+      for (const name of names) {
+        current = state.find((item) => item.name == name);
+
+        if (!current) state.push((current = { name, items: [] }));
+
+        state = current.items;
+      }
+
+      current.isFile = true;
+
+      current.extension = path.extname(current.name).slice(1);
+
+      current.name = path.basename(current.name, path.extname(current.name));
+
+      current.content = fs.readFileSync(file, 'utf8');
+
+      delete current.items;
     }
 
-    const raw = JSON.stringify(examples, null, 2);
+    const raw = JSON.stringify(items, null, 2);
 
     fs.writeFileSync('src/map.json', raw, 'utf8');
   };

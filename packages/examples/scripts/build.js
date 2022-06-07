@@ -48,7 +48,10 @@ const { start, next, finish } = compiler(
   //     return path.join(context.directoryPath, 'codesandbox');
   //   }
   // }),
-  map()
+  map({
+    destination: 'src/map.json',
+    source: 'src'
+  })
 );
 
 (async () => {

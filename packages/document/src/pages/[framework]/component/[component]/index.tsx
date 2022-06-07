@@ -37,13 +37,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     } catch { }
   })();
 
-  const examplez = examples.filter((example) => example.component == componentKey && example.type == framework);
+  // const examplez = examples.filter((example) => example.component == componentKey && example.type == framework);
 
   return {
     props: {
       component,
       contributors,
-      examples: examplez
+      examples: []
     }
   };
 };

@@ -2,12 +2,12 @@ import glob from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
 
-export const map = () => {
+export const map = (options) => {
   const name = 'map';
   const finish = () => {
     const items = [];
 
-    const files = glob.sync(['src/**/*.*', '!src/map.json']);
+    const files = glob.sync([`${options?.source}/**/*.*`, `!${options?.destination}`]);
 
     for (const file of files) {
       const names = file.split(/[\/|\\]/g);
@@ -37,7 +37,7 @@ export const map = () => {
 
     const raw = JSON.stringify(items, null, 2);
 
-    fs.writeFileSync('src/map.json', raw, 'utf8');
+    fs.writeFileSync(options?.destination, raw, 'utf8');
   };
   return {
     name,

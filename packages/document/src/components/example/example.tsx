@@ -10,21 +10,21 @@ export const Example = ({ value }: ExampleProps) => {
 
   if (!value) return <div>TODO</div>;
 
-  return null
+  console.log(111, value)
 
-  // return (
-  //   <div>
-  //     {example.files.map((file: any) => (
-  //       <div key={file.path}>
-  //         <a href={`${value}/codesandbox`} target="_blank">
-  //           codesandbox
-  //         </a>
-  //         <a href={`${value}/download`} target="_blank">
-  //           download
-  //         </a>
-  //         {file.content}
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
+  return (
+    <div>
+      {value.map((tab) => (
+        <div key={tab.path}>
+          {/* <a href={`${value}/codesandbox`} target="_blank">
+            codesandbox
+          </a>
+          <a href={`${value}/download`} target="_blank">
+            download
+          </a> */}
+          {tab.content}
+        </div>
+      ))}
+    </div>
+  );
 };

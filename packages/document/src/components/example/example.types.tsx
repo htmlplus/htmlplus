@@ -1,4 +1,3 @@
 export interface ExampleProps {
-  examples?: any[];
-  value?: string;
+  value?: any[];
 }

@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const component = components.find((component) => component.key == componentKey);
 
   if (component)
-    component.readme = component.readme?.replace(/<Example /g, `<Example examples={examples} `);
+    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={examples[$1]} `);
 
   const contributors: string[] = await (async () => {
     try {
@@ -37,13 +37,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
     } catch { }
   })();
 
-  // const examplez = examples.filter((example) => example.component == componentKey && example.type == framework);
+  const example = {};
+
+  examples
+    ?.at(0)
+    ?.items
+    ?.find((item) => item.name == componentKey)
+    ?.items
+    ?.forEach((item) => {
+      const items = item.items.find((item) => item.name == framework)?.items;
+      example[item.name] = items;
+    })
+  console.log(1, example)
 
   return {
     props: {
       component,
       contributors,
-      examples: []
+      examples: example
     }
   };
 };

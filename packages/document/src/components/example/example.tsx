@@ -2,13 +2,15 @@ import { useMemo } from 'react';
 
 import { ExampleProps } from './example.types';
 
-export const Example = ({ examples, value }: ExampleProps) => {
-  return null
+export const Example = ({ value }: ExampleProps) => {
+
   // const example = useMemo(() => {
   //   return examples?.find((example) => example.key == value);
   // }, [examples, value]);
 
-  // if (!example) return <div>TODO</div>;
+  if (!value) return <div>TODO</div>;
+
+  return null
 
   // return (
   //   <div>
@@ -16,6 +18,9 @@ export const Example = ({ examples, value }: ExampleProps) => {
   //       <div key={file.path}>
   //         <a href={`${value}/codesandbox`} target="_blank">
   //           codesandbox
+  //         </a>
+  //         <a href={`${value}/download`} target="_blank">
+  //           download
   //         </a>
   //         {file.content}
   //       </div>

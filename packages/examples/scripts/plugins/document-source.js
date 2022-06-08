@@ -13,8 +13,8 @@ export const documentSource = (options) => {
           key: example,
           category,
           component,
-          snippets: context.output[category]
-        })
+          ...context.output[category]
+        });
       }
     }
     const raw = JSON.stringify(outputs, null, 2);

@@ -34,24 +34,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
           (contributor: string, index: number, contributors: string[]) =>
             contributor && contributors.indexOf(contributor) === index
         );
-    } catch { }
+    } catch {}
   })();
 
   // TODO
   const example = (() => {
-    const result: any = {}
-    const all = examples?.[componentKey as string]
-    for (const key in all) {
-      const tabs: Array<any> = result[key] = [];
-      const current = all?.[key]?.[framework as string]
-      for (const key in current) {
-        tabs.push({
-          key,
-          content: current[key]
-        })
+    const result: any = {};
+    const filterd = examples?.filter((example) => example.category == framework && example.component == componentKey);
+    const keys = ['template', 'script', 'style'];
+    if (framework == 'react') keys.splice(0, 1);
+    for (const example of filterd) {
+      const tabs: Array<any> = (result[example.key] = []);
+      for (const key of keys) {
+        tabs.push({ key, content: example[key] ?? null });
       }
     }
-    return result
+    return result;
   })();
 
   return {

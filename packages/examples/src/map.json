@@ -1,46 +1,83 @@
-{
-  "aspect-ratio": {
-    "default": {
-      "javascript": {
-        "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}",
-        "template": "<plus-aspect-ratio value=\"16/9\">  \n  <plus-card tile>\n    This box will always be 16/9 (unless you put more stuff in it)\n  </plus-card>  \n</plus-aspect-ratio>"
-      },
-      "react": {
-        "script": "import { AspectRatio } from \"TODO\";\nimport { Card } from \"TODO\";\n\nconst AspectRatioDefault = () => {\n  return <>    \n    <AspectRatio value=\"16/9\">      \n      <Card tile>\n        This box will always be 16/9 (unless you put more stuff in it)\n      </Card>      \n    </AspectRatio>    \n  </>;\n};\n\nexport default AspectRatioDefault;",
-        "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}"
-      },
-      "vue": {
-        "script": "",
-        "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}",
-        "template": "<div>  \n  <plus-aspect-ratio value=\"16/9\">    \n    <plus-card tile>\n      This box will always be 16/9 (unless you put more stuff in it)\n    </plus-card>    \n  </plus-aspect-ratio>  \n</div>"
-      }
-    },
-    "more": {
-      "javascript": {
-        "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }",
-        "template": "<plus-grid>  \n  <plus-grid-item xs=\"12\" sm=\"6\">    \n    <plus-grid>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"3/2\" class=\"ratio-one\">          \n          <div class=\"box one\">\n            3/2\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"16/9\">          \n          <div class=\"box two\">\n            16/9\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n    </plus-grid>    \n  </plus-grid-item>  \n  <plus-grid-item xs=\"12\" sm=\"6\">    \n    <plus-grid>      \n      <plus-grid-item xs=\"6\">        \n        <plus-aspect-ratio value=\"1\">          \n          <div class=\"box three\">\n            1/1\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"6\" align-self=\"end\">        \n        <plus-aspect-ratio value=\"4/3\">          \n          <div class=\"box four\">\n            4/3\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"18/6\">          \n          <div class=\"box five\">\n            18/6\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n    </plus-grid>    \n  </plus-grid-item>  \n</plus-grid>"
-      },
-      "react": {
-        "script": "import { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\n\nconst AspectRatioMore = () => {\n  return <>    \n    <Grid>      \n      <Grid.Item xs=\"12\" sm=\"6\">        \n        <Grid>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"3/2\" className=\"ratio-one\">              \n              <div className=\"box one\">\n                3/2\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"16/9\">              \n              <div className=\"box two\">\n                16/9\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n        </Grid>        \n      </Grid.Item>      \n      <Grid.Item xs=\"12\" sm=\"6\">        \n        <Grid>          \n          <Grid.Item xs=\"6\">            \n            <AspectRatio value=\"1\">              \n              <div className=\"box three\">\n                1/1\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"6\" alignSelf=\"end\">            \n            <AspectRatio value=\"4/3\">              \n              <div className=\"box four\">\n                4/3\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"18/6\">              \n              <div className=\"box five\">\n                18/6\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n        </Grid>        \n      </Grid.Item>      \n    </Grid>    \n  </>;\n};\n\nexport default AspectRatioMore;",
-        "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }"
-      },
-      "vue": {
-        "script": "",
-        "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }",
-        "template": "<div>  \n  <plus-grid>    \n    <plus-grid-item xs=\"12\" sm=\"6\">      \n      <plus-grid>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"3/2\" class=\"ratio-one\">            \n            <div class=\"box one\">\n              3/2\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"16/9\">            \n            <div class=\"box two\">\n              16/9\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n      </plus-grid>      \n    </plus-grid-item>    \n    <plus-grid-item xs=\"12\" sm=\"6\">      \n      <plus-grid>        \n        <plus-grid-item xs=\"6\">          \n          <plus-aspect-ratio value=\"1\">            \n            <div class=\"box three\">\n              1/1\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"6\" align-self=\"end\">          \n          <plus-aspect-ratio value=\"4/3\">            \n            <div class=\"box four\">\n              4/3\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"18/6\">            \n            <div class=\"box five\">\n              18/6\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n      </plus-grid>      \n    </plus-grid-item>    \n  </plus-grid>  \n</div>"
-      }
-    },
-    "video": {
-      "javascript": {
-        "template": "<plus-aspect-ratio value=\"16/9\">  \n  <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>  \n</plus-aspect-ratio>"
-      },
-      "react": {
-        "script": "import { AspectRatio } from \"TODO\";\n\nconst AspectRatioVideo = () => {\n  return <>    \n    <AspectRatio value=\"16/9\">      \n      <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>      \n    </AspectRatio>    \n  </>;\n};\n\nexport default AspectRatioVideo;"
-      },
-      "vue": {
-        "script": "",
-        "template": "<div>  \n  <plus-aspect-ratio value=\"16/9\">    \n    <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>    \n  </plus-aspect-ratio>  \n</div>"
-      }
+[
+  {
+    "key": "default",
+    "category": "javascript",
+    "component": "aspect-ratio",
+    "snippets": {
+      "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}",
+      "template": "<plus-aspect-ratio value=\"16/9\">  \n  <plus-card tile>\n    This box will always be 16/9 (unless you put more stuff in it)\n  </plus-card>  \n</plus-aspect-ratio>"
+    }
+  },
+  {
+    "key": "default",
+    "category": "react",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "import { AspectRatio } from \"TODO\";\nimport { Card } from \"TODO\";\n\nconst AspectRatioDefault = () => {\n  return <>    \n    <AspectRatio value=\"16/9\">      \n      <Card tile>\n        This box will always be 16/9 (unless you put more stuff in it)\n      </Card>      \n    </AspectRatio>    \n  </>;\n};\n\nexport default AspectRatioDefault;",
+      "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}"
+    }
+  },
+  {
+    "key": "default",
+    "category": "vue",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "",
+      "style": "plus-card {\n  --plus-card-background-color: #C5CAE9;\n  padding: 1rem;\n}",
+      "template": "<div>  \n  <plus-aspect-ratio value=\"16/9\">    \n    <plus-card tile>\n      This box will always be 16/9 (unless you put more stuff in it)\n    </plus-card>    \n  </plus-aspect-ratio>  \n</div>"
+    }
+  },
+  {
+    "key": "more",
+    "category": "javascript",
+    "component": "aspect-ratio",
+    "snippets": {
+      "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }",
+      "template": "<plus-grid>  \n  <plus-grid-item xs=\"12\" sm=\"6\">    \n    <plus-grid>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"3/2\" class=\"ratio-one\">          \n          <div class=\"box one\">\n            3/2\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"16/9\">          \n          <div class=\"box two\">\n            16/9\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n    </plus-grid>    \n  </plus-grid-item>  \n  <plus-grid-item xs=\"12\" sm=\"6\">    \n    <plus-grid>      \n      <plus-grid-item xs=\"6\">        \n        <plus-aspect-ratio value=\"1\">          \n          <div class=\"box three\">\n            1/1\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"6\" align-self=\"end\">        \n        <plus-aspect-ratio value=\"4/3\">          \n          <div class=\"box four\">\n            4/3\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n      <plus-grid-item xs=\"12\">        \n        <plus-aspect-ratio value=\"18/6\">          \n          <div class=\"box five\">\n            18/6\n          </div>          \n        </plus-aspect-ratio>        \n      </plus-grid-item>      \n    </plus-grid>    \n  </plus-grid-item>  \n</plus-grid>"
+    }
+  },
+  {
+    "key": "more",
+    "category": "react",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "import { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { Grid } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\nimport { Grid.Item } from \"TODO\";\nimport { AspectRatio } from \"TODO\";\n\nconst AspectRatioMore = () => {\n  return <>    \n    <Grid>      \n      <Grid.Item xs=\"12\" sm=\"6\">        \n        <Grid>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"3/2\" className=\"ratio-one\">              \n              <div className=\"box one\">\n                3/2\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"16/9\">              \n              <div className=\"box two\">\n                16/9\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n        </Grid>        \n      </Grid.Item>      \n      <Grid.Item xs=\"12\" sm=\"6\">        \n        <Grid>          \n          <Grid.Item xs=\"6\">            \n            <AspectRatio value=\"1\">              \n              <div className=\"box three\">\n                1/1\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"6\" alignSelf=\"end\">            \n            <AspectRatio value=\"4/3\">              \n              <div className=\"box four\">\n                4/3\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n          <Grid.Item xs=\"12\">            \n            <AspectRatio value=\"18/6\">              \n              <div className=\"box five\">\n                18/6\n              </div>              \n            </AspectRatio>            \n          </Grid.Item>          \n        </Grid>        \n      </Grid.Item>      \n    </Grid>    \n  </>;\n};\n\nexport default AspectRatioMore;",
+      "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }"
+    }
+  },
+  {
+    "key": "more",
+    "category": "vue",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "",
+      "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one   { background: #08DFC8 }\n.two   { background: #FF5449 }\n.three { background: #5F9EE9 }\n.four  { background: #FFC903 }\n.five  { background: #9073C1 }",
+      "template": "<div>  \n  <plus-grid>    \n    <plus-grid-item xs=\"12\" sm=\"6\">      \n      <plus-grid>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"3/2\" class=\"ratio-one\">            \n            <div class=\"box one\">\n              3/2\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"16/9\">            \n            <div class=\"box two\">\n              16/9\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n      </plus-grid>      \n    </plus-grid-item>    \n    <plus-grid-item xs=\"12\" sm=\"6\">      \n      <plus-grid>        \n        <plus-grid-item xs=\"6\">          \n          <plus-aspect-ratio value=\"1\">            \n            <div class=\"box three\">\n              1/1\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"6\" align-self=\"end\">          \n          <plus-aspect-ratio value=\"4/3\">            \n            <div class=\"box four\">\n              4/3\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n        <plus-grid-item xs=\"12\">          \n          <plus-aspect-ratio value=\"18/6\">            \n            <div class=\"box five\">\n              18/6\n            </div>            \n          </plus-aspect-ratio>          \n        </plus-grid-item>        \n      </plus-grid>      \n    </plus-grid-item>    \n  </plus-grid>  \n</div>"
+    }
+  },
+  {
+    "key": "video",
+    "category": "javascript",
+    "component": "aspect-ratio",
+    "snippets": {
+      "template": "<plus-aspect-ratio value=\"16/9\">  \n  <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>  \n</plus-aspect-ratio>"
+    }
+  },
+  {
+    "key": "video",
+    "category": "react",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "import { AspectRatio } from \"TODO\";\n\nconst AspectRatioVideo = () => {\n  return <>    \n    <AspectRatio value=\"16/9\">      \n      <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>      \n    </AspectRatio>    \n  </>;\n};\n\nexport default AspectRatioVideo;"
+    }
+  },
+  {
+    "key": "video",
+    "category": "vue",
+    "component": "aspect-ratio",
+    "snippets": {
+      "script": "",
+      "template": "<div>  \n  <plus-aspect-ratio value=\"16/9\">    \n    <iframe src=\"https://www.youtube.com/embed/tgbNymZ7vqY\"></iframe>    \n  </plus-aspect-ratio>  \n</div>"
     }
   }
-}
+]

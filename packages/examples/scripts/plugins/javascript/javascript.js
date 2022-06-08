@@ -216,6 +216,18 @@ export const javascript = (options) => {
     };
 
     renderTemplate(patterns, destination, config)(model);
+
+    // TODO
+    context.output = Object.assign(
+      context.output || {},
+      {
+        javascript: {
+          script,
+          style,
+          template
+        }
+      }
+    );
   };
   return {
     name,

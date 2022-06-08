@@ -10,12 +10,12 @@ export const Example = ({ value }: ExampleProps) => {
 
   if (!value) return <div>TODO</div>;
 
-  console.log(111, value)
+  console.log('TODO', value)
 
   return (
     <div>
       {value.map((tab) => (
-        <div key={tab.path}>
+        <div key={tab.key}>
           {/* <a href={`${value}/codesandbox`} target="_blank">
             codesandbox
           </a>

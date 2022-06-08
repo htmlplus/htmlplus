@@ -210,6 +210,18 @@ export const vue = (options) => {
     };
 
     renderTemplate(patterns, destination, config)(model);
+
+    // TODO
+    context.output = Object.assign(
+      context.output || {},
+      {
+        vue: {
+          script,
+          style: style?.content,
+          template
+        }
+      }
+    );
   };
   return {
     name,

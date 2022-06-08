@@ -6,10 +6,10 @@ import { Markup } from '@app/components';
 import { components, examples } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 
-const ComponentDetails = ({ component, contributors, examples }: any) => {
+const ComponentDetails = ({ component, contributors, example }: any) => {
   return (
     <LayoutDefault>
-      <Markup value={component?.readme} scope={{ examples }} />
+      <Markup value={component?.readme} scope={{ example }} />
     </LayoutDefault>
   );
 };
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const component = components.find((component) => component.key == componentKey);
 
   if (component)
-    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={examples[$1]} `);
+    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `);
 
   const contributors: string[] = await (async () => {
     try {
@@ -37,24 +37,28 @@ export const getStaticProps: GetStaticProps = async (context) => {
     } catch { }
   })();
 
-  const example = {};
-
-  examples
-    ?.at(0)
-    ?.items
-    ?.find((item) => item.name == componentKey)
-    ?.items
-    ?.forEach((item) => {
-      const items = item.items.find((item) => item.name == framework)?.items;
-      example[item.name] = items;
-    })
-  console.log(1, example)
+  // TODO
+  const example = (() => {
+    const result: any = {}
+    const all = examples?.[componentKey as string]
+    for (const key in all) {
+      const tabs: Array<any> = result[key] = [];
+      const current = all?.[key]?.[framework as string]
+      for (const key in current) {
+        tabs.push({
+          key,
+          content: current[key]
+        })
+      }
+    }
+    return result
+  })();
 
   return {
     props: {
       component,
       contributors,
-      examples: example
+      example
     }
   };
 };

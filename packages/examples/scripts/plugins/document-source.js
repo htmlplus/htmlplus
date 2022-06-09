@@ -13,7 +13,7 @@ export const documentSource = (options) => {
           key: example,
           category,
           component,
-          ...context.output[category]
+          detail: context.output?.[category]
         });
       }
     }

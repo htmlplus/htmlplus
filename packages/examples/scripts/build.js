@@ -1,7 +1,7 @@
 import compiler, { customElement, extract, parse, read } from '@htmlplus/element/compiler/index.js';
 import path from 'path';
 import { pascalCase } from 'change-case';
-import { codesandbox, documentSource, javascript, prepare, react, vue } from './plugins/index.js';
+import { codesandbox, documentSource, javascript, prepare, react, vue, zip } from './plugins/index.js';
 import glob from 'fast-glob';
 
 const { start, next, finish } = compiler(
@@ -26,6 +26,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'react');
     },
     customElementNameConvertor(name, context) {
+      // TODO
       const exceptions = ['aspect-ratio', 'button-navigation', 'scroll-indicator'];
       const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
       if (exception) name = name.replace(exception, pascalCase(exception));
@@ -49,8 +50,15 @@ const { start, next, finish } = compiler(
     }
   }),
   documentSource({
-    destination: 'src/map.json',
-    source: 'src'
+    destination: 'src/map.json'
+  }),
+  zip({
+    source(context) {
+      return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'zip');
+    }
   })
 );
 

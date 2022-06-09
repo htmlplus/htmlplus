@@ -40,6 +40,11 @@ export const codesandbox = (options) => {
       const model = { fileName, parameters };
 
       renderTemplate(pattern, destination, config)(model);
+
+      // TODO
+      context.output ??= {};
+      context.output.codesandbox ??= {};
+      context.output.codesandbox[fileName] = fs.readFileSync(path.join(destination, fileName + '.html'), 'utf8');
     }
   };
   return {

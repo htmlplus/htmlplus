@@ -1,8 +1,8 @@
 import { __dirname, renderTemplate } from '@htmlplus/element/compiler/utils/index.js';
 import { getParameters } from 'codesandbox/lib/api/define.js';
-import path from 'path';
 import glob from 'fast-glob';
 import fs from 'fs';
+import path from 'path';
 
 export const codesandbox = (options) => {
   const name = 'codesandbox';

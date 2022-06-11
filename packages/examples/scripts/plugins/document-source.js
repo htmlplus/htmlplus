@@ -9,6 +9,7 @@ export const documentSource = (options) => {
       const [component, example] = context.directoryPath.split(/[\/|\\]/g).slice(-2);
       const categories = Object.keys(context.output);
       for (const category of categories) {
+        if (category == 'zip') continue;
         outputs.push({
           key: example,
           category,

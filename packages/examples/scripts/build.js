@@ -1,7 +1,7 @@
 import compiler, { customElement, extract, parse, read } from '@htmlplus/element/compiler/index.js';
 import path from 'path';
 import { pascalCase } from 'change-case';
-import { codesandbox, documentSource, javascript, prepare, react, vue, zip } from './plugins/index.js';
+import { codesandbox, documentSource, download, javascript, prepare, react, vue, zip } from './plugins/index.js';
 import glob from 'fast-glob';
 
 const { start, next, finish } = compiler(
@@ -42,23 +42,31 @@ const { start, next, finish } = compiler(
     }
   }),
   codesandbox({
-    source(context) {
+    sources(context) {
       return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
     },
     destination(context) {
       return path.join(context.directoryPath, 'codesandbox');
     }
   }),
-  documentSource({
-    destination: 'src/map.json'
-  }),
   zip({
-    source(context) {
+    sources(context) {
       return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
     },
     destination(context) {
       return path.join(context.directoryPath, 'zip');
     }
+  }),
+  download({
+    sources(context) {
+      return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'download');
+    }
+  }),
+  documentSource({
+    destination: 'src/db.json'
   })
 );
 

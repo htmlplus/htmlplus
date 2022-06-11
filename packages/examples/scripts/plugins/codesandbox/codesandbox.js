@@ -9,7 +9,7 @@ export const codesandbox = (options) => {
   const next = (context) => {
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
 
-    const sources = options?.source?.(context);
+    const sources = options?.sources?.(context);
 
     fs.rmSync(destination, { recursive: true, force: true });
 

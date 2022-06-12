@@ -1,4 +1,5 @@
 # Template
+
 Template
 
 <Playground />
@@ -9,6 +10,4 @@ Template
 
 <Examples />
 
-### Default
 <Example value="default" />
-

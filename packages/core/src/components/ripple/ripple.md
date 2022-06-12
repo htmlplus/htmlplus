@@ -1,4 +1,5 @@
 # Ripple
+
 TODO
 
 <Playground />
@@ -9,6 +10,4 @@ TODO
 
 <Examples />
 
-### Default
 <Example value="default" />
-

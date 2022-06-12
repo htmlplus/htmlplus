@@ -1,4 +1,5 @@
 # Bottom Navigation
+
 TODO
 https://vuetifyjs.com/en/api/v-bottom-navigation/#props-input-value
 https://vuetifyjs.com/en/api/v-bottom-navigation/#props-mandatory
@@ -11,5 +12,4 @@ https://vuetifyjs.com/en/api/v-bottom-navigation/#props-mandatory
 
 <Examples />
 
-### Default
 <Example value="default" />

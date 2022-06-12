@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { examples } from '@app/data';
+import { examples, frameworks } from '@app/data';
 
 const ComponentCodesandbox = ({ content }: any) => {
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
@@ -9,19 +9,12 @@ const ComponentCodesandbox = ({ content }: any) => {
 export default ComponentCodesandbox;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { component, example, framework } = context.params || {};
+  const { component, example: exampleKey, framework } = context.params || {};
 
   const content = examples
-    ?.at(0)
-    ?.items
-    ?.find((item) => item.name == component)
-    ?.items
-    ?.find((item) => item.name == example)
-    ?.items
-    ?.find((item) => item.name == 'codesandbox')
-    ?.items
-    ?.find((item) => item.name == framework)
-    ?.content || null;
+    ?.find((example) => example.key == exampleKey && example.component == component && example.category == 'codesandbox')
+    ?.detail
+    ?.[framework as string] || null;
 
   return {
     props: { content }
@@ -29,21 +22,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = examples
-    ?.at(0)
-    ?.items
-    ?.map((component) => {
-      return component
-        ?.items
-        ?.map((example) => {
-          return example
-            ?.items
-            ?.find((framework) => framework.name == 'codesandbox')
-            ?.items
-            ?.map((framework) => `/${framework.name}/component/${component.name}/${example.name}/codesandbox`)
-        })
-    })
-    ?.flat(3);
+  const paths = frameworks
+    .filter((framework) => !framework.disabled)
+    .map((framework) => examples.map((example) => `/${framework.key}/component/${example.component}/${example.key}/codesandbox`))
+    .flat();
   return {
     paths,
     fallback: false

@@ -1,3 +1,3 @@
-import map from '@htmlplus/examples/src/map.json';
+import db from '@htmlplus/examples/src/db.json';
 
-export const examples: Array<any> = map;
+export const examples: Array<any> = db;

@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
 
 import { Markup } from '@app/components';
-import { components, examples } from '@app/data';
+import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 
 const ComponentDetails = ({ component, contributors, example }: any) => {
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           (contributor: string, index: number, contributors: string[]) =>
             contributor && contributors.indexOf(contributor) === index
         );
-    } catch {}
+    } catch { }
   })();
 
   // TODO
@@ -62,9 +62,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ['javascript', 'react', 'vue']
-    .map((framework) => components.map((component) => `/${framework}/component/${component.key}`))
-    .flat(1);
+  const paths = frameworks
+    .filter((framework) => !framework.disabled)
+    .map((framework) => components.map((component) => `/${framework.key}/component/${component.key}`))
+    .flat();
   return {
     paths,
     fallback: false

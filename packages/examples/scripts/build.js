@@ -1,8 +1,8 @@
 import compiler, { customElement, extract, parse, read } from '@htmlplus/element/compiler/index.js';
-import path from 'path';
 import { pascalCase } from 'change-case';
-import { codesandbox, documentSource, download, javascript, prepare, react, vue } from './plugins/index.js';
 import glob from 'fast-glob';
+import path from 'path';
+import { codesandbox, documentSource, download, javascript, prepare, react, vue } from './plugins/index.js';
 
 const { start, next, finish } = compiler(
   read(),
@@ -11,11 +11,11 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus'
   }),
-  // customElement({
-  //   destination(context) {
-  //     return path.join(context.directoryPath, 'preview');
-  //   }
-  // }),
+  customElement({
+    destination(context) {
+      return path.join(context.directoryPath, 'preview');
+    }
+  }),
   javascript({
     destination(context) {
       return path.join(context.directoryPath, 'javascript');

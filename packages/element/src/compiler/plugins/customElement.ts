@@ -8,8 +8,11 @@ export const customElement = () => {
   const name = 'customElement';
 
   const next = (context: Context) => {
+    const ast = t.cloneNode(context.fileAST!, true);
+
+    // TODO
     // attach uhtml importer
-    context.fileAST!.program.body.unshift(
+    ast.program.body.unshift(
       t.importDeclaration(
         [t.importSpecifier(t.identifier('html'), t.identifier('html'))],
         t.stringLiteral('@htmlplus/element/runtime')
@@ -17,7 +20,7 @@ export const customElement = () => {
     );
 
     // jsx to uhtml syntax
-    visitor(context.fileAST as any, {
+    visitor(ast, {
       JSXAttribute: {
         exit(path) {
           if (path.node.value?.type == 'JSXExpressionContainer') {
@@ -76,51 +79,56 @@ export const customElement = () => {
     });
 
     // attach members
-    context.class!.body.body.unshift(
-      t.classProperty(
-        t.identifier(CONSTANTS.STATIC_MEMBERS),
-        t.objectExpression([
-          ...context.classProperties!.map((property) => {
-            const type = (property as any).typeAnnotation?.typeAnnotation?.type;
+    visitor(ast, {
+      ClassDeclaration(path) {
+        if (path.node.id.name != context.className) return;
+        path.node.body.body.unshift(
+          t.classProperty(
+            t.identifier(CONSTANTS.STATIC_MEMBERS),
+            t.objectExpression([
+              ...context.classProperties!.map((property) => {
+                const type = (property as any).typeAnnotation?.typeAnnotation?.type;
 
-            const elements: Array<any> = [];
+                const elements: Array<any> = [];
 
-            switch (type) {
-              case 'TSBooleanKeyword':
-                elements.push(t.stringLiteral(CONSTANTS.TYPE_BOOLEAN));
-                break;
+                switch (type) {
+                  case 'TSBooleanKeyword':
+                    elements.push(t.stringLiteral(CONSTANTS.TYPE_BOOLEAN));
+                    break;
 
-              case 'TSStringKeyword':
-                elements.push(t.stringLiteral(CONSTANTS.TYPE_STRING));
-                break;
+                  case 'TSStringKeyword':
+                    elements.push(t.stringLiteral(CONSTANTS.TYPE_STRING));
+                    break;
 
-              case 'TSNumberKeyword':
-                elements.push(t.stringLiteral(CONSTANTS.TYPE_NUMBER));
-                break;
+                  case 'TSNumberKeyword':
+                    elements.push(t.stringLiteral(CONSTANTS.TYPE_NUMBER));
+                    break;
 
-              default:
-                elements.push(t.nullLiteral());
-                break;
-            }
+                  default:
+                    elements.push(t.nullLiteral());
+                    break;
+                }
 
-            if (property.value) elements.push(property.value);
+                if (property.value) elements.push(property.value);
 
-            return t.objectProperty(t.identifier(property.key['name']), t.arrayExpression(elements));
-          }),
-          ...context.classMethods!.map((method) => {
-            const elements: Array<any> = [t.stringLiteral(CONSTANTS.TYPE_FUNCTION)];
-            return t.objectProperty(t.identifier(method.key['name']), t.arrayExpression(elements));
-          })
-        ]),
-        undefined,
-        undefined,
-        undefined,
-        true
-      )
-    );
+                return t.objectProperty(t.identifier(property.key['name']), t.arrayExpression(elements));
+              }),
+              ...context.classMethods!.map((method) => {
+                const elements: Array<any> = [t.stringLiteral(CONSTANTS.TYPE_FUNCTION)];
+                return t.objectProperty(t.identifier(method.key['name']), t.arrayExpression(elements));
+              })
+            ]),
+            undefined,
+            undefined,
+            undefined,
+            true
+          )
+        );
+      }
+    });
 
     // attach typings
-    visitor(context.fileAST as any, {
+    visitor(ast, {
       Program(path) {
         path.node.body.push(
           Object.assign(
@@ -228,7 +236,7 @@ export const customElement = () => {
       }
     });
 
-    context.script = print(context.fileAST!);
+    context.script = print(ast);
   };
 
   return {

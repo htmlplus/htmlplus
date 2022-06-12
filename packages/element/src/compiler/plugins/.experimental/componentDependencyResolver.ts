@@ -1,7 +1,7 @@
 import t from '@babel/types';
 
-import { Context, Global } from '../../types/index.js';
-import { visitor } from '../utils/index.js';
+import { Context, Global } from '../../../types/index.js';
+import { visitor } from '../../utils/index.js';
 
 export const componentDependencyResolver = () => {
   const name = 'componentDependencyResolver';

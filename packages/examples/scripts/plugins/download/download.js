@@ -1,11 +1,12 @@
 import { __dirname, renderTemplate } from '@htmlplus/element/compiler/utils/index.js';
 import glob from 'fast-glob';
 import fs from 'fs';
+import JSZip from 'jszip';
 import path from 'path';
 
 export const download = (options) => {
   const name = 'download';
-  const next = (context) => {
+  const next = async (context) => {
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'download');
 
     const sources = options?.sources?.(context);
@@ -15,16 +16,21 @@ export const download = (options) => {
     for (const source of sources) {
       const root = source.endsWith('/') ? source.slice(0, -1) : source;
 
-      const files = {};
+      const fileName = path.basename(root);
 
-      glob.sync(`${root}/**/*.*`).forEach((filepath) => {
-        const key = filepath.split(`${root}/`).pop();
-        files[key] = {
-          content: fs.readFileSync(filepath, 'utf8')
-        };
-      });
+      const files = glob.sync(`${root}/**/*.*`);
 
-      if (!Object.keys(files).length) continue;
+      if (!files.length) continue;
+
+      const zip = new JSZip();
+
+      for (const file of files) {
+        const key = file.split(`${root}/`).pop();
+        const content = fs.readFileSync(file, 'utf8');
+        zip.file(key, content);
+      }
+
+      const content = await zip.generateAsync({ type: 'base64' });
 
       const pattern = 'templates/**/*.*';
 
@@ -32,12 +38,9 @@ export const download = (options) => {
         cwd: __dirname(import.meta.url)
       };
 
-      const fileName = path.basename(root);
-
       const model = {
-        content: '"HI"',
+        content,
         fileName,
-        type: 'a'
       };
 
       renderTemplate(pattern, destination, config)(model);

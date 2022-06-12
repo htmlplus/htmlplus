@@ -7,8 +7,10 @@
   </head>
   <body onload="load()">
     <script>
-      function load() {   
-        const blob = new Blob([{{{content}}}], { type: '{{type}}' });
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,{{{content}}}`);
+
+        const blob = await response.blob();
 
         const url = URL.createObjectURL(blob);
 

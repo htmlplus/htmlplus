@@ -16,26 +16,28 @@ export const codesandbox = (options) => {
     for (const source of sources) {
       const root = source.endsWith('/') ? source.slice(0, -1) : source;
 
-      const files = {};
+      const fileName = path.basename(root);
 
-      glob.sync(`${root}/**/*.*`).forEach((filepath) => {
-        const key = filepath.split(`${root}/`).pop();
-        files[key] = {
-          content: fs.readFileSync(filepath, 'utf8')
+      const files = glob.sync(`${root}/**/*.*`);
+
+      if (!files.length) continue;
+
+      const map = {};
+
+      for (const file of files) {
+        const key = file.split(`${root}/`).pop();
+        map[key] = {
+          content: fs.readFileSync(file, 'utf8')
         };
-      });
+      }
 
-      if (!Object.keys(files).length) continue;
-
-      const parameters = getParameters({ files });
+      const parameters = getParameters({ files: map });
 
       const pattern = 'templates/**/*.*';
 
       const config = {
         cwd: __dirname(import.meta.url)
       };
-
-      const fileName = path.basename(root);
 
       const model = { fileName, parameters };
 

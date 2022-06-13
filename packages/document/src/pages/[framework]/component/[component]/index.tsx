@@ -45,6 +45,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ?.reduce((result, example) => {
         result[example.key] = [];
         const tabs = result[example.key];
+        tabs.push({
+          key: 'preview',
+          content: examples?.find(
+            (item) => item.key == example.key && item.category == 'custom-element' && item.component == componentKey
+          )?.detail?.script
+        });
         for (const key of keys) {
           const content = example.detail?.[key] ?? null;
           tabs.push({ key, content });

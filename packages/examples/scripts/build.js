@@ -2,7 +2,7 @@ import compiler, { customElement, extract, parse, read } from '@htmlplus/element
 import { pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
-import { codesandbox, documentSource, download, javascript, prepare, react, vue } from './plugins/index.js';
+import { codesandbox, document, download, javascript, prepare, react, vue } from './plugins/index.js';
 
 const { start, next, finish } = compiler(
   read(),
@@ -12,6 +12,7 @@ const { start, next, finish } = compiler(
     prefix: 'plus'
   }),
   customElement({
+    typings: false,
     destination(context) {
       return path.join(context.directoryPath, 'preview');
     }
@@ -57,7 +58,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'download');
     }
   }),
-  documentSource({
+  document({
     destination: 'src/db.json'
   })
 );

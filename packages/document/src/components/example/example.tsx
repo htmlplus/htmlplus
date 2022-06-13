@@ -3,14 +3,13 @@ import { useMemo } from 'react';
 import { ExampleProps } from './example.types';
 
 export const Example = ({ value }: ExampleProps) => {
-
   // const example = useMemo(() => {
   //   return examples?.find((example) => example.key == value);
   // }, [examples, value]);
 
   if (!value) return <div>TODO</div>;
 
-  console.log('TODO', value)
+  console.log('TODO', value);
 
   return (
     <div>
@@ -22,7 +21,10 @@ export const Example = ({ value }: ExampleProps) => {
           <a href={`${value}/download`} target="_blank">
             download
           </a> */}
-          {tab.content}
+          <script type="module">{tab.content}</script>
+          {/* {tab == 'preview' && <div dangerouslySetInnerHTML={{ __html: `<span>${tab.content}</span>` }} />} */}
+          {/* {tab.content} */}
+          <plus-aspect-ratio-default></plus-aspect-ratio-default>
         </div>
       ))}
     </div>

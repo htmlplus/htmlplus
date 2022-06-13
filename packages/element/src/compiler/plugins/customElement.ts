@@ -152,10 +152,13 @@ export const customElement = (options?: CustomElementOptions) => {
                     [],
                     t.tsInterfaceBody([
                       ...context.classProperties!.map((property) =>
-                        Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
-                          optional: property.optional,
-                          leadingComments: property.leadingComments
-                        })
+                        Object.assign(
+                          t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation),
+                          {
+                            optional: property.optional,
+                            leadingComments: property.leadingComments
+                          }
+                        )
                       )
                     ])
                   ),

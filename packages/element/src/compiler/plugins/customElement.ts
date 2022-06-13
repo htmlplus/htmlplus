@@ -4,8 +4,18 @@ import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
 import { print, visitor } from '../utils/index.js';
 
-export const customElement = () => {
+const defaults: CustomElementOptions = {
+  typings: true
+};
+
+export interface CustomElementOptions {
+  typings?: boolean;
+}
+
+export const customElement = (options?: CustomElementOptions) => {
   const name = 'customElement';
+
+  options = Object.assign({}, defaults, options);
 
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
@@ -128,113 +138,115 @@ export const customElement = () => {
     });
 
     // attach typings
-    visitor(ast, {
-      Program(path) {
-        path.node.body.push(
-          Object.assign(
-            t.tsModuleDeclaration(
-              t.identifier('global'),
-              t.tsModuleBlock([
-                t.tsInterfaceDeclaration(
-                  t.identifier(context.componentInterfaceName!),
-                  null,
-                  [],
-                  t.tsInterfaceBody([
-                    ...context.classProperties!.map((property) =>
-                      Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
-                        optional: property.optional,
-                        leadingComments: property.leadingComments
+    if (options?.typings) {
+      visitor(ast, {
+        Program(path) {
+          path.node.body.push(
+            Object.assign(
+              t.tsModuleDeclaration(
+                t.identifier('global'),
+                t.tsModuleBlock([
+                  t.tsInterfaceDeclaration(
+                    t.identifier(context.componentInterfaceName!),
+                    null,
+                    [],
+                    t.tsInterfaceBody([
+                      ...context.classProperties!.map((property) =>
+                        Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
+                          optional: property.optional,
+                          leadingComments: property.leadingComments
+                        })
+                      )
+                    ])
+                  ),
+                  t.variableDeclaration('var', [
+                    t.variableDeclarator(
+                      Object.assign(t.identifier(context.componentInterfaceName!), {
+                        typeAnnotation: t.tSTypeAnnotation(
+                          t.tSTypeLiteral([
+                            t.tSPropertySignature(
+                              t.identifier('prototype'),
+                              t.tsTypeAnnotation(t.tSTypeReference(t.identifier(context.componentInterfaceName!)))
+                            ),
+                            t.tSConstructSignatureDeclaration(
+                              null,
+                              [],
+                              t.tSTypeAnnotation(t.tSTypeReference(t.identifier(context.componentInterfaceName!)))
+                            )
+                          ])
+                        )
                       })
                     )
-                  ])
-                ),
-                t.variableDeclaration('var', [
-                  t.variableDeclarator(
-                    Object.assign(t.identifier(context.componentInterfaceName!), {
-                      typeAnnotation: t.tSTypeAnnotation(
-                        t.tSTypeLiteral([
-                          t.tSPropertySignature(
-                            t.identifier('prototype'),
-                            t.tsTypeAnnotation(t.tSTypeReference(t.identifier(context.componentInterfaceName!)))
-                          ),
-                          t.tSConstructSignatureDeclaration(
-                            null,
-                            [],
-                            t.tSTypeAnnotation(t.tSTypeReference(t.identifier(context.componentInterfaceName!)))
-                          )
-                        ])
-                      )
-                    })
-                  )
-                ]),
-                t.tsInterfaceDeclaration(
-                  t.identifier('HTMLElementTagNameMap'),
-                  null,
-                  [],
-                  t.tsInterfaceBody([
-                    t.tSPropertySignature(
-                      t.stringLiteral(context.componentTag!),
-                      t.tSTypeAnnotation(
-                        t.tSIntersectionType([t.tSTypeReference(t.identifier(context.componentInterfaceName!))])
-                      )
-                    )
-                  ])
-                )
-              ])
-            ),
-            {
-              declare: true,
-              global: true
-            }
-          )
-        );
-        path.node.body.push(
-          t.exportNamedDeclaration(
-            t.tsInterfaceDeclaration(
-              // TODO
-              t.identifier(context.componentClassName! + 'JSX'),
-              null,
-              [],
-              t.tsInterfaceBody([
-                ...context.classProperties!.map((property) =>
-                  Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
-                    optional: property.optional,
-                    leadingComments: property.leadingComments
-                  })
-                ),
-                ...context.classEvents!.map((event) =>
-                  Object.assign(
-                    t.tSPropertySignature(
-                      event.key,
-                      t.tsTypeAnnotation(
-                        t.tsFunctionType(
-                          undefined,
-                          [
-                            Object.assign({}, t.identifier('event'), {
-                              typeAnnotation: t.tsTypeAnnotation(
-                                t.tsTypeReference(
-                                  t.identifier('CustomEvent'),
-                                  event.typeAnnotation?.['typeAnnotation']?.typeParameters
-                                )
-                              )
-                            })
-                          ],
-                          t.tsTypeAnnotation(t.tsVoidKeyword())
+                  ]),
+                  t.tsInterfaceDeclaration(
+                    t.identifier('HTMLElementTagNameMap'),
+                    null,
+                    [],
+                    t.tsInterfaceBody([
+                      t.tSPropertySignature(
+                        t.stringLiteral(context.componentTag!),
+                        t.tSTypeAnnotation(
+                          t.tSIntersectionType([t.tSTypeReference(t.identifier(context.componentInterfaceName!))])
                         )
                       )
-                    ),
-                    {
-                      optional: true,
-                      leadingComments: event.leadingComments
-                    }
+                    ])
                   )
-                )
-              ])
+                ])
+              ),
+              {
+                declare: true,
+                global: true
+              }
             )
-          )
-        );
-      }
-    });
+          );
+          path.node.body.push(
+            t.exportNamedDeclaration(
+              t.tsInterfaceDeclaration(
+                // TODO
+                t.identifier(context.componentClassName! + 'JSX'),
+                null,
+                [],
+                t.tsInterfaceBody([
+                  ...context.classProperties!.map((property) =>
+                    Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
+                      optional: property.optional,
+                      leadingComments: property.leadingComments
+                    })
+                  ),
+                  ...context.classEvents!.map((event) =>
+                    Object.assign(
+                      t.tSPropertySignature(
+                        event.key,
+                        t.tsTypeAnnotation(
+                          t.tsFunctionType(
+                            undefined,
+                            [
+                              Object.assign({}, t.identifier('event'), {
+                                typeAnnotation: t.tsTypeAnnotation(
+                                  t.tsTypeReference(
+                                    t.identifier('CustomEvent'),
+                                    event.typeAnnotation?.['typeAnnotation']?.typeParameters
+                                  )
+                                )
+                              })
+                            ],
+                            t.tsTypeAnnotation(t.tsVoidKeyword())
+                          )
+                        )
+                      ),
+                      {
+                        optional: true,
+                        leadingComments: event.leadingComments
+                      }
+                    )
+                  )
+                ])
+              )
+            )
+          );
+        }
+      });
+    }
 
     context.script = print(ast);
   };

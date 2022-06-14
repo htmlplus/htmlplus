@@ -4,3 +4,4 @@
 
 export * from './aspect-ratio';
 export * from './click-outside';
+export * from './grid.compact';

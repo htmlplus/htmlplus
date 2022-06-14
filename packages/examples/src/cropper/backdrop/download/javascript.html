@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJUgzlSZaeNjXQEAAF0BAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+Q3JvcHBlciB8IEJhY2tkcm9wPC90aXRsZT4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPgogICAgPHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0iVE9ETyI+PC9zY3JpcHQ+CiAgPC9oZWFkPgogIDxib2R5PgogICAgPHBsdXMtY3JvcHBlciBiYWNrZHJvcD0iZmFsc2UiIHNyYz0iL2Fzc2V0cy9pbWFnZXMvcGFuZGEuanBnIj48L3BsdXMtY3JvcHBlcj4KICA8L2JvZHk+CjwvaHRtbD5QSwECFAAKAAAAAACVIM5UmWnjY10BAABdAQAACgAAAAAAAAAAAAAAAAAAAAAAaW5kZXguaHRtbFBLBQYAAAAAAQABADgAAACFAQAAAAA=`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

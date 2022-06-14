@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJQgzlT+/2tJbQMAAG0DAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+QnJlYWRjcnVtYiB8IERlZmF1bHQ8L3RpdGxlPgogICAgPG1ldGEgY2hhcnNldD0idXRmLTgiIC8+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEiIC8+CiAgICA8c2NyaXB0IHR5cGU9Im1vZHVsZSIgc3JjPSJUT0RPIj48L3NjcmlwdD4KICAgIDxzdHlsZT4KICAgICAgLmNlbnRlciB7CiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICB9CiAgICAgIHBsdXMtYnJlYWRjcnVtYiB7CiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgIGNvbG9yOiAjNzA3MDcwOwogICAgICB9CiAgICAgIHBsdXMtYnJlYWRjcnVtYiBhIHsKICAgICAgICBjb2xvcjogaW5oZXJpdDsKICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgIH0KICAgICAgcGx1cy1icmVhZGNydW1iIGE6aG92ZXIgewogICAgICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvaGVhZD4KICA8Ym9keT4KICAgIDxkaXYgY2xhc3M9ImNlbnRlciI+ICAKICAgICAgPHBsdXMtYnJlYWRjcnVtYiBzZXBhcmF0b3I9Ii8iPiAgICAKICAgICAgICA8YSBocmVmPSIjIj4gICAgICBIVE1MUExVUzwvYT4gICAgCiAgICAgICAgPGEgaHJlZj0iIyI+ICAgICAgQ29yZTwvYT4gICAgCiAgICAgICAgPGEgaHJlZj0iIyI+ICAgICAgVUkgQ29tcG9uZW50czwvYT4gICAgCiAgICAgICAgPHNwYW4+ICAgICAgQnJlYWRjcnVtYjwvc3Bhbj4gICAgCiAgICAgIDwvcGx1cy1icmVhZGNydW1iPiAgCiAgICA8L2Rpdj4KICA8L2JvZHk+CjwvaHRtbD5QSwECFAAKAAAAAACUIM5U/v9rSW0DAABtAwAACgAAAAAAAAAAAAAAAAAAAAAAaW5kZXguaHRtbFBLBQYAAAAAAQABADgAAACVAwAAAAA=`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

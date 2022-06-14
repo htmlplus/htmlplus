@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,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`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'vue';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

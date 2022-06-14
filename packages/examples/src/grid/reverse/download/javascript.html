@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJggzlROqQp6RQMAAEUDAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+R3JpZCB8IFJldmVyc2U8L3RpdGxlPgogICAgPG1ldGEgY2hhcnNldD0idXRmLTgiIC8+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEiIC8+CiAgICA8c2NyaXB0IHR5cGU9Im1vZHVsZSIgc3JjPSJUT0RPIj48L3NjcmlwdD4KICAgIDxzdHlsZT4KICAgICAgcGx1cy1ncmlkIGRpdiB7CiAgICAgICAgY29sb3I6ICMwMEJDRDQ7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI0ZGRkZGRjsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRTBGN0ZBOwogICAgICAgIHBhZGRpbmc6IDAuNWVtOwogICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8cGx1cy1ncmlkIHJldmVyc2U+ICAKICAgICAgPHBsdXMtZ3JpZC1pdGVtIHhzPSIyIj4gICAgCiAgICAgICAgPGRpdj4KICAgICAgICAgIEl0ZW0gMQogICAgICAgIDwvZGl2PiAgICAKICAgICAgPC9wbHVzLWdyaWQtaXRlbT4gIAogICAgICA8cGx1cy1ncmlkLWl0ZW0geHM9IjIiPiAgICAKICAgICAgICA8ZGl2PgogICAgICAgICAgSXRlbSAyCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMiI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtIDMKICAgICAgICA8L2Rpdj4gICAgCiAgICAgIDwvcGx1cy1ncmlkLWl0ZW0+ICAKICAgIDwvcGx1cy1ncmlkPgogIDwvYm9keT4KPC9odG1sPlBLAQIUAAoAAAAAAJggzlROqQp6RQMAAEUDAAAKAAAAAAAAAAAAAAAAAAAAAABpbmRleC5odG1sUEsFBgAAAAABAAEAOAAAAG0DAAAAAA==`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

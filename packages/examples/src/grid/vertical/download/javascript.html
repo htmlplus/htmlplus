@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJggzlS5DXonoAMAAKADAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+R3JpZCB8IFZlcnRpY2FsPC90aXRsZT4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPgogICAgPHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0iVE9ETyI+PC9zY3JpcHQ+CiAgICA8c3R5bGU+CiAgICAgIHBsdXMtZ3JpZCB7CiAgICAgICAgaGVpZ2h0OiAxMnJlbTsKICAgICAgfQogICAgICBwbHVzLWdyaWQgZGl2IHsKICAgICAgICBjb2xvcjogIzAwQkNENDsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjRkZGRkZGOwogICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNFMEY3RkE7CiAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIHBhZGRpbmc6IDAuNWVtOwogICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8cGx1cy1ncmlkIGFsaWduLWl0ZW1zPSJjZW50ZXIiIHZlcnRpY2FsPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iZ3JvdyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICA8L3BsdXMtZ3JpZD4KICA8L2JvZHk+CjwvaHRtbD5QSwECFAAKAAAAAACYIM5UuQ16J6ADAACgAwAACgAAAAAAAAAAAAAAAAAAAAAAaW5kZXguaHRtbFBLBQYAAAAAAQABADgAAADIAwAAAAA=`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

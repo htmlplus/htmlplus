@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJcgzlTn1SYO6gQAAOoEAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+R3JpZCB8IEFsaWduIEl0ZW1zPC90aXRsZT4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPgogICAgPHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0iVE9ETyI+PC9zY3JpcHQ+CiAgICA8c3R5bGU+CiAgICAgIHBsdXMtZ3JpZCB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI0VFRUVFRTsKICAgICAgICBoZWlnaHQ6IDhyZW07CiAgICAgIH0KICAgICAgcGx1cy1ncmlkIGRpdiB7CiAgICAgICAgY29sb3I6ICMwMEJDRDQ7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI0ZGRkZGRjsKICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRTBGN0ZBOwogICAgICAgIHBhZGRpbmc6IDAuNWVtOwogICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8cGx1cy1ncmlkIGFsaWduLWl0ZW1zPSJjZW50ZXIiPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iNiI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iMyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iZ3JvdyI+ICAgIAogICAgICAgIDxkaXY+CiAgICAgICAgICBJdGVtCiAgICAgICAgPC9kaXY+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICA8L3BsdXMtZ3JpZD4KICA8L2JvZHk+CjwvaHRtbD5QSwECFAAKAAAAAACXIM5U59UmDuoEAADqBAAACgAAAAAAAAAAAAAAAAAAAAAAaW5kZXguaHRtbFBLBQYAAAAAAQABADgAAAASBQAAAAA=`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

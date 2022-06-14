@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJcgzlQCcouJGwQAABsEAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CiAgPGhlYWQ+CiAgICA8dGl0bGU+RHJhd2VyIHwgRGVmYXVsdDwvdGl0bGU+CiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCIgLz4KICAgIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MSIgLz4KICAgIDxzY3JpcHQgdHlwZT0ibW9kdWxlIiBzcmM9IlRPRE8iPjwvc2NyaXB0PgogICAgPHN0eWxlPgogICAgICBwbHVzLWNhcmQgewogICAgICAgIC0tcGx1cy1jYXJkLWJhY2tncm91bmQtY29sb3I6ICNFMEUwRTA7CiAgICAgICAgcGFkZGluZzogMTByZW0gMDsKICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgIH0KICAgICAgcGx1cy1kcmF3ZXIgcGx1cy1jYXJkIHsKICAgICAgICAtLXBsdXMtY2FyZC1iYWNrZ3JvdW5kLWNvbG9yOiAjQUFDQUZGOwogICAgICAgIG1hcmdpbi1yaWdodDogMC41cmVtOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvaGVhZD4KICA8Ym9keT4KICAgIDxwbHVzLWdyaWQ+ICAKICAgICAgPHBsdXMtZ3JpZC1pdGVtIHhzPSJhdXRvIj4gICAgCiAgICAgICAgPHBsdXMtZHJhd2VyIGFuaW1hdGlvbj0iZmFkZSIgc2l6ZT0iMjAwcHgiIGNvbm5lY3Rvcj0iZHJhd2VyLWRlZmF1bHQiPiAgICAgIAogICAgICAgICAgPHBsdXMtY2FyZD4KICAgICAgICAgICAgRHJhd2VyIENvbnRlbnQKICAgICAgICAgIDwvcGx1cy1jYXJkPiAgICAgIAogICAgICAgIDwvcGx1cy1kcmF3ZXI+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICAgIDxwbHVzLWdyaWQtaXRlbSB4cz0iZ3JvdyI+ICAgIAogICAgICAgIDxwbHVzLWNhcmQ+ICAgICAgCiAgICAgICAgICA8cGx1cy1kcmF3ZXItdG9nZ2xlciBjb25uZWN0b3I9ImRyYXdlci1kZWZhdWx0Ij4KICAgICAgICAgICAgVG9nZ2xlCiAgICAgICAgICA8L3BsdXMtZHJhd2VyLXRvZ2dsZXI+ICAgICAgCiAgICAgICAgPC9wbHVzLWNhcmQ+ICAgIAogICAgICA8L3BsdXMtZ3JpZC1pdGVtPiAgCiAgICA8L3BsdXMtZ3JpZD4KICA8L2JvZHk+CjwvaHRtbD5QSwECFAAKAAAAAACXIM5UAnKLiRsEAAAbBAAACgAAAAAAAAAAAAAAAAAAAAAAaW5kZXguaHRtbFBLBQYAAAAAAQABADgAAABDBAAAAAA=`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

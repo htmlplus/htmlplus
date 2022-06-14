@@ -18,8 +18,8 @@ export * from './click-outside/click-outside';
 // export * from './divider/divider';
 // export * from './drawer/drawer';
 // export * from './drawer-toggler/drawer-toggler';
-// export * from './grid/grid';
-// export * from './grid-item/grid-item';
+export * from './grid/grid';
+export * from './grid-item/grid-item';
 // export * from './icon/icon';
 // export * from './intersection/intersection';
 // export * from './menu/menu'

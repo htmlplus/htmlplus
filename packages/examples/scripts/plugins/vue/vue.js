@@ -60,9 +60,7 @@ export const vue = (options) => {
           path.replaceWith(path.node.body.body[0]);
         },
         ClassMethod(path) {
-          const { body, key } = path.node;
-
-          if (key.name !== 'render') return path.remove();
+          const { body } = path.node;
 
           const statement = body.body.find((element) => element.type === 'ReturnStatement');
 
@@ -82,9 +80,6 @@ export const vue = (options) => {
               children
             )
           );
-        },
-        ClassProperty(path) {
-          path.remove();
         },
         JSXAttribute(path) {
           const { name, value } = path.node;
@@ -174,7 +169,26 @@ export const vue = (options) => {
     const style = context.snippets.find((snippet) => snippet.key == 'style');
 
     const template = (() => {
-      const ast = t.cloneNode(context.fileAST, true);
+      const ast = t.cloneNode(
+        t.file(
+          t.program(
+            [
+              t.classDeclaration(
+                t.identifier('Test'),
+                null,
+                t.classBody(
+                  [
+                    context.classRender
+                  ]
+                )
+              )
+            ],
+            [],
+            'module'
+          )
+        ),
+        true
+      );
 
       visitor(ast, visitors.template);
 

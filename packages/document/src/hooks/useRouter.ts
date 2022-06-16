@@ -2,36 +2,29 @@ import { useRouter as useRouterNext, NextRouter } from 'next/router';
 
 import * as Constants from '@app/constants';
 
-interface Route {
-  name: string;
-  path: string;
-}
-
 interface RouterHook extends NextRouter {
-  find(name: string): Route | undefined;
+  find(name: string): string | undefined;
   isActive(name: string, params?: object): boolean;
-  path(name: string, params?: object): string | undefined;
+  getPath(name: string, params?: object): string | undefined;
 }
 
 export const useRouter = (): RouterHook => {
-  const routes = Constants.ROUTES;
-
   const router = useRouterNext();
 
-  const find = (name: string): Route | undefined => {
-    return routes.find((item) => item.name === name);
+  const find = (name: string): string | undefined => {
+    return (Constants.ROUTE as any)[name];
   };
 
-  const isActive = (name: string, params?: object): boolean => {
-    const p = path(name, params);
-    if (!p) return false;
-    return router.asPath.startsWith(p);
+  const isActive = (name: string, params?: any): boolean => {
+    const route = getPath(name, params);
+    if (!route) return false;
+    return router.asPath.startsWith(route);
   };
 
-  const path = (name: string, params?: any): string | undefined => {
+  const getPath = (name: string, params?: any): string | undefined => {
     const route = find(name);
     if (!route) return;
-    let path = route.path;
+    let path = route;
     Object.keys(params || {}).forEach((key) => {
       path = path.replace(`[${key}]`, params[key]);
     });
@@ -41,7 +34,7 @@ export const useRouter = (): RouterHook => {
   return {
     ...router,
     find,
-    isActive,
-    path
+    getPath,
+    isActive
   };
 };

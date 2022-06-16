@@ -18,7 +18,7 @@ const Anchor = forwardRef(({ children, ...args }: any, ref) => {
 
 const Link = ({ children, params, to, ...attributes }: any) => {
   const router = useRouter();
-  const path = useMemo(() => router.path(to, params), [to, params]);
+  const path = useMemo(() => router.getPath(to, params), [to, params]);
   if (attributes.target === '_blank' && !attributes.rel) {
     attributes.rel = 'noopener noreferrer';
   }

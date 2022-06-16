@@ -42,7 +42,7 @@ export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ T
 });
 
 export * from './alert';
-export * from './browser-support';
+export * from './browsers';
 export * from './button';
 export * from './code';
 export * from './contributors';

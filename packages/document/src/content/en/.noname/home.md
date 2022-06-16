@@ -1,0 +1,44 @@
+- Component Categories
+  - Containers
+  - Forms
+  - Griding System
+  - etc
+- Statistics
+  - Total Frameworks
+  - Total Components Count
+  - Total Components Count Per Framework
+  - Total Examples Count
+  - Total Examples Count Per Framework
+- Features
+  - Cross Framework
+  - Performance Benefits
+  - Zero Configuration
+  - Lightweight
+  - Dependency Free
+  - Simple and Easy-to-learn
+  - SSR
+  - Cross Platform
+- Browsers
+  - Chrome
+  - FireFox
+  - Safari
+  - Edge
+- Frameworks
+  - JavaScript
+  - React
+  - Vue
+  - Angular
+  - Svelte
+  - Backbonejs
+  - Ember
+  - Preact
+  - jQuery
+  - Figma
+  - XD
+  - Razor
+  - Blade
+- Platforms
+  - Server
+  - Web
+  - Mobile (Hybrid)
+  - Desktop (electron)

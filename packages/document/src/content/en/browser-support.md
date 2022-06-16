@@ -4,4 +4,4 @@
 
 #### Full native support
 
-<BrowserSupport/>
+<Browsers/>

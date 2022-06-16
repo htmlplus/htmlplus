@@ -2,7 +2,7 @@ import { Grid } from '@app/components';
 import { browsers } from '@app/data';
 import * as Utils from '@app/utils';
 
-export const BrowserSupport = () => {
+export const Browsers = () => {
   return (
     <Grid gutterY="lg">
       {browsers.map((browser) => (

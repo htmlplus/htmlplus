@@ -65,9 +65,7 @@ export const javascript = (options) => {
           state.elements.clear();
         },
         ClassMethod(path) {
-          const { body, key } = path.node;
-
-          if (key.name !== 'render') return path.remove();
+          const { body } = path.node;
 
           const statement = body.body.find((element) => element.type === 'ReturnStatement');
 
@@ -173,7 +171,26 @@ export const javascript = (options) => {
 
       if (dedicated) return dedicated.content;
 
-      const ast = t.cloneNode(context.fileAST, true);
+      const ast = t.cloneNode(
+        t.file(
+          t.program(
+            [
+              t.classDeclaration(
+                t.identifier('Test'),
+                null,
+                t.classBody(
+                  [
+                    context.classRender
+                  ]
+                )
+              )
+            ],
+            [],
+            'module'
+          )
+        ),
+        true
+      );
 
       visitor(ast, visitors.template);
 

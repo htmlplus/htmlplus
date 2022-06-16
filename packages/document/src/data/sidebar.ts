@@ -33,7 +33,7 @@ export const sidebar = [
       {
         title: 'Browser support',
         route: {
-          to: Constants.ROUTE.GETTINGSTARTED_BROWSERSUPPORT
+          to: Constants.ROUTE.BROWSERS
         }
       }
     ]
@@ -58,7 +58,7 @@ export const sidebar = [
       {
         title: 'Code Of Conduct',
         route: {
-          to: Constants.ROUTE.ABOUT_CODEOFCONDUCT
+          to: Constants.ROUTE.CODEOFCONDUCT
         }
       }
     ]

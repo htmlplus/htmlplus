@@ -5,6 +5,8 @@ import Head from 'next/head';
 
 import * as Constants from '@app/constants';
 
+import './styles.scss';
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <React.StrictMode>

@@ -1,30 +1,40 @@
-import { useMemo } from 'react';
+import { Code } from '@app/components';
 
 import { ExampleProps } from './example.types';
 
 export const Example = ({ value }: ExampleProps) => {
-  // const example = useMemo(() => {
-  //   return examples?.find((example) => example.key == value);
-  // }, [examples, value]);
 
   if (!value) return <div>TODO</div>;
+
+  const language = (tab: any) => {
+    switch (tab.key) {
+      case 'script':
+        return 'jsx'
+      case 'style':
+        return 'css'
+      case 'template':
+        return 'html'
+    }
+  }
 
   console.log('TODO', value);
 
   return (
     <div>
+      <a href={`${value}/codesandbox`} target="_blank">
+        codesandbox
+      </a>
+      <a href={`${value}/download`} target="_blank">
+        download
+      </a>
+      <a href={''} target="_blank">
+        github
+      </a>
       {value.map((tab) => (
         <div key={tab.key}>
-          {/* <a href={`${value}/codesandbox`} target="_blank">
-            codesandbox
-          </a>
-          <a href={`${value}/download`} target="_blank">
-            download
-          </a> */}
-          <script type="module">{tab.content}</script>
-          {/* {tab == 'preview' && <div dangerouslySetInnerHTML={{ __html: `<span>${tab.content}</span>` }} />} */}
-          {/* {tab.content} */}
-          <plus-aspect-ratio-default></plus-aspect-ratio-default>
+          <Code language={language(tab)!}>
+            {tab.content}
+          </Code>
         </div>
       ))}
     </div>

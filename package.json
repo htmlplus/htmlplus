@@ -1,7 +1,7 @@
 {
   "name": "@htmlplus/dev",
   "scripts": {
-    "bootstrap": "lerna bootstrap --force-local",
+    "bootstrap": "lerna bootstrap --force-local && lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
     "core:pull": "git subtree pull --prefix packages/core packages/core main --squash",

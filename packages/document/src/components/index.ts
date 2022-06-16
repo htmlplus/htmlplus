@@ -15,8 +15,9 @@ export const ClickOutside = dynamic<any>(() => import('@htmlplus/react').then(({
 export const Cropper = dynamic<any>(() => import('@htmlplus/react').then(({ Cropper }) => Cropper), { ssr: false });
 export const Dialog = dynamic<any>(() => import('@htmlplus/react').then(({ Dialog }) => Dialog), { ssr: false });
 export const Divider = dynamic<any>(() => import('@htmlplus/react').then(({ Divider }) => Divider), { ssr: false });
-export const Drawer = dynamic<any>(() => import('@htmlplus/react').then(({ Drawer }) => Drawer), { ssr: false });
-export const Grid = dynamic<any>(() => import('@htmlplus/react').then(({ Grid }) => Grid), { ssr: false });
+export const Drawer: any = dynamic<any>(() => import('@htmlplus/react').then(({ Drawer }) => Drawer), { ssr: false });
+Drawer.Toggler = dynamic<any>(() => import('@htmlplus/react').then(({ Drawer }) => Drawer.Toggler), { ssr: false });
+export const Grid: any = dynamic<any>(() => import('@htmlplus/react').then(({ Grid }) => Grid), { ssr: false });
 Grid.Item = dynamic<any>(() => import('@htmlplus/react').then(({ Grid }) => Grid.Item), { ssr: false });
 export const Icon = dynamic<any>(() => import('@htmlplus/react').then(({ Icon }) => Icon), { ssr: false });
 export const Intersection = dynamic<any>(() => import('@htmlplus/react').then(({ Intersection }) => Intersection), {
@@ -30,7 +31,11 @@ export const ScrollIndicator = dynamic<any>(
 export const Spinner = dynamic<any>(() => import('@htmlplus/react').then(({ Spinner }) => Spinner), { ssr: false });
 export const Sticky = dynamic<any>(() => import('@htmlplus/react').then(({ Sticky }) => Sticky), { ssr: false });
 export const Switch = dynamic<any>(() => import('@htmlplus/react').then(({ Switch }) => Switch), { ssr: false });
-export const Tabs = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs), { ssr: false });
+export const Tabs: any = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs), { ssr: false });
+Tabs.Bar = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Bar), { ssr: false });
+Tabs.Panel = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Panel), { ssr: false });
+Tabs.Panels = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Panels), { ssr: false });
+Tabs.Tab = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Tab), { ssr: false });
 export const Tooltip = dynamic<any>(() => import('@htmlplus/react').then(({ Tooltip }) => Tooltip), { ssr: false });
 export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ Transition }) => Transition), {
   ssr: false

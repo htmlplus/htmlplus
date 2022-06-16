@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import axios from 'axios';
+import { headerCase } from 'change-case';
 
 import { Markup } from '@app/components';
 import { components, examples, frameworks } from '@app/data';
@@ -39,22 +40,54 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // TODO
   const example = (() => {
-    const keys = ['template', 'script', 'style'].filter((key) => framework != 'react' || key != 'template');
     return examples
       ?.filter((example) => example.category == framework && example.component == componentKey)
       ?.reduce((result, example) => {
-        result[example.key] = [];
-        const tabs = result[example.key];
+        const links = [
+          {
+            key: 'download',
+            title: 'Download',
+            icon: 'download',
+            url: `${componentKey}/${example.key}/download`
+          },
+          {
+            key: 'github',
+            title: 'Github',
+            icon: 'github',
+            url: `${componentKey}/${example.key}/github`
+          },
+          {
+            key: 'codesandbox',
+            title: 'CodeSandbox',
+            icon: 'sandbox',
+            url: `${componentKey}/${example.key}/codesandbox`
+          }
+        ];
+
+        const tabs: Array<any> = [];
+
+        const title = headerCase(example.key);
+
+        result[example.key] = { links, tabs, title };
+
         tabs.push({
           key: 'preview',
           content: examples?.find(
             (item) => item.key == example.key && item.category == 'custom-element' && item.component == componentKey
           )?.detail?.script
         });
-        for (const key of keys) {
+
+        for (const key of ['template', 'script', 'style']) {
+          if (framework == 'react' && key == 'template') continue;
           const content = example.detail?.[key] ?? null;
           tabs.push({ key, content });
         }
+
+        for (const tab of tabs) {
+          tab.disabled = !tab.content;
+          tab.title = headerCase(tab.key);
+        }
+
         return result;
       }, {});
   })();

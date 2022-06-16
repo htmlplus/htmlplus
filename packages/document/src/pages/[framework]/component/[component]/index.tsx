@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
 import { headerCase } from 'change-case';
 
-import { Markup } from '@app/components';
+import { Contributors, Markup } from '@app/components';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 
@@ -11,6 +11,7 @@ const ComponentDetails = ({ component, contributors, example }: any) => {
   return (
     <LayoutDefault>
       <Markup value={component?.readme} scope={{ example }} />
+      <Contributors contributors={contributors} />
     </LayoutDefault>
   );
 };

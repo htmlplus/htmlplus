@@ -1,7 +1,8 @@
-import { Alert, Example, Examples, Playground, Usage } from '@app/components';
+import { Alert, BrowserSupport, Example, Examples } from '@app/components';
 
 export const tokens = {
   Alert,
+  BrowserSupport,
   Example,
   Examples,
   Playground: () => <div>TODO</div>,

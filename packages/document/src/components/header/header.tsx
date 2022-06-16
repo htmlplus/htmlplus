@@ -1,5 +1,6 @@
 import { Button, Card, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
+import * as Utils from '@app/utils';
 
 import { HeaderProps } from './header.types';
 
@@ -38,7 +39,7 @@ export const Header = ({ menu }: HeaderProps) => {
           )}
           <Grid.Item>
             <Button block link to="ROUTE:HOME">
-              <img height="40px" src="/assets/logo/logo.svg" />
+              <img height="40px" src={Utils.getAsset('logo/logo.svg')} />
             </Button>
           </Grid.Item>
           <Grid.Item xs="grow" />

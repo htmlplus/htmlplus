@@ -1,12 +1,10 @@
-import { Text } from '@app/components';
-
 import { ContributorsProps } from './contributors.types';
 
 export const Contributors = ({ contributors }: ContributorsProps) => {
-  if (!contributors || contributors.length === 0) return null;
+  if (!contributors?.length) return null;
   return (
     <section className="contributors">
-      <Text size="5">Contributors</Text>
+      <h5>Contributors</h5>
       <div>
         <ul>
           {contributors.reverse().map((contributor) => (
@@ -19,7 +17,6 @@ export const Contributors = ({ contributors }: ContributorsProps) => {
                     width="32"
                     height="32"
                     title={`Contributor ${contributor}`}
-                    // importance="low"
                   />
                 </span>
               </a>

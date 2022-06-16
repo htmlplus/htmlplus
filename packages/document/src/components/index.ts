@@ -55,7 +55,6 @@ export * from './navigation';
 export * from './playground';
 export * from './sidebar';
 export * from './socials';
-export * from './text';
 export * from './usage';
 
 // TODO

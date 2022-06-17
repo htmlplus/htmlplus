@@ -11,7 +11,6 @@ export interface ButtonProps {
   link?: boolean | 'underline';
   loading?: boolean;
   outlined?: boolean;
-  params?: object;
   size?: 'sm' | 'md' | 'lg';
   target?: string;
   text?: boolean;

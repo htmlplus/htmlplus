@@ -1,36 +1,19 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef } from 'react';
 
 import NextLink from 'next/link';
 
 import { Spinner } from '@app/components';
-import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { ButtonProps } from './button.types';
 
-const Anchor = forwardRef(({ children, ...args }: any, ref) => {
-  return (
-    <a ref={ref} {...args}>
-      {children}
-    </a>
-  );
-});
-
-const Link = ({ children, params, to, ...attributes }: any) => {
-  const router = useRouter();
-  const path = useMemo(() => router.getPath(to, params), [to, params]);
+const Link = ({ children, to, ...attributes }: any) => {
   if (attributes.target === '_blank' && !attributes.rel) {
     attributes.rel = 'noopener noreferrer';
   }
-  if (!path)
-    return (
-      <Anchor href={to} {...attributes}>
-        {children}
-      </Anchor>
-    );
   return (
-    <NextLink href={path} passHref>
-      <Anchor {...attributes}>{children}</Anchor>
+    <NextLink href={to} passHref>
+      <a {...attributes}>{children}</a>
     </NextLink>
   );
 };

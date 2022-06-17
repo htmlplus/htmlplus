@@ -1,29 +1,26 @@
 import { Button, Card, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
+import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { HeaderProps } from './header.types';
 
 export const Header = ({ menu }: HeaderProps) => {
+  const router = useRouter();
   const links = [
     {
       title: `What\'s ${Constants.PLATFORM_NAME}?`,
-      route: {
-        to: 'ROUTE:INTRODUCTION:WHAT'
-      }
+      url: router.get('INTRODUCTION_WHAT')
     },
     {
       title: `Why ${Constants.PLATFORM_NAME}?`,
-      route: {
-        to: 'ROUTE:INTRODUCTION:WHY'
-      }
+      url: router.get('INTRODUCTION_WHY')
     },
     {
       title: 'UI Components',
-      route: {
-        to: 'ROUTE:COMPONENT:DETAILS',
-        params: { key: 'aspect-ratio' }
-      }
+      url: router.get('COMPONENT_DETAILS', {
+        component: 'aspect-ratio'
+      })
     }
   ];
   return (
@@ -38,14 +35,14 @@ export const Header = ({ menu }: HeaderProps) => {
             </Grid.Item>
           )}
           <Grid.Item>
-            <Button block link to="ROUTE:HOME">
+            <Button block link to={router.get('HOME')}>
               <img height="40px" src={Utils.getAsset('logo/logo.svg')} />
             </Button>
           </Grid.Item>
           <Grid.Item xs="grow" />
           {links.map((link) => (
             <Grid.Item key={link.title} hideSmDown>
-              <Button size="sm" link {...link.route}>
+              <Button size="sm" link to={link.url}>
                 {link.title}
               </Button>
             </Grid.Item>

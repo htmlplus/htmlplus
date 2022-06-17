@@ -49,19 +49,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
             key: 'download',
             title: 'Download',
             icon: 'download',
-            url: `${componentKey}/${example.key}/download`
+            url: `/${framework}/component/${componentKey}/${example.key}/download`
           },
           {
             key: 'github',
             title: 'Github',
             icon: 'github',
-            url: `${componentKey}/${example.key}/github`
+            url: `TODO`
           },
           {
             key: 'codesandbox',
             title: 'CodeSandbox',
             icon: 'sandbox',
-            url: `${componentKey}/${example.key}/codesandbox`
+            url: `/${framework}/component/${componentKey}/${example.key}/codesandbox`
           }
         ];
 

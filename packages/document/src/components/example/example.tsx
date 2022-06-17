@@ -35,7 +35,7 @@ export const Example = ({ value }: ExampleProps) => {
           {links?.map((link) => (
             <Grid.Item key={link.key} xs="auto">
               <Button icon text to={link.url} target="_blank">
-                <Icon>{link.icon}</Icon>
+                <Icon size="lg" name={link.icon} />
               </Button>
             </Grid.Item>
           ))}

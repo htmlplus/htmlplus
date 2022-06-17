@@ -52,7 +52,6 @@ export * from './footer';
 export * from './header';
 export * from './markup';
 export * from './navigation';
-export * from './playground';
 export * from './sidebar';
 export * from './socials';
 export * from './usage';

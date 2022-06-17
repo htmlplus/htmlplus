@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import * as Constants from '@app/constants';
 
-import './styles.scss';
+import '../styles/index.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

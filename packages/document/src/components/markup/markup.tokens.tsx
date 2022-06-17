@@ -1,11 +1,11 @@
-import { Alert, Browsers, Example, Examples } from '@app/components';
+import { Alert, Browsers, Example, Examples, Usage } from '@app/components';
 
 export const tokens = {
   Alert,
   Browsers,
   Example,
   Examples,
-  Playground: () => <div>TODO</div>,
-  Usage: () => <div>TODO</div>,
-  Api: () => <div>TODO</div>
+  Usage: (props = {}) => <Usage {...props} />,
+  Playground: () => null,
+  Api: () => null
 };

@@ -24,7 +24,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const component = components.find((component) => component.key == componentKey);
 
   if (component)
-    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `);
+    component.readme = component.readme
+      ?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `)
+      ?.replace(/<Usage /g, `<Usage framework={'${framework}'}`);
+
+  console.log(1, component?.readme);
 
   const contributors: string[] = await (async () => {
     try {

@@ -7,6 +7,8 @@ export const Example = ({ value }: ExampleProps) => {
 
   const { links, tabs, title } = value;
 
+  const preview = tabs?.find((tab) => tab.key == 'preview');
+
   const language = (tab: any) => {
     switch (tab.key) {
       case 'script':
@@ -41,11 +43,15 @@ export const Example = ({ value }: ExampleProps) => {
           ))}
         </Grid>
         <Tabs.Panels>
-          {tabs?.map((tab) => (
-            <Tabs.Panel key={tab.key} value={tab.key}>
-              <Code language={language(tab)!}>{tab.content}</Code>
-            </Tabs.Panel>
-          ))}
+          {/* TODO */}
+          <Code language={'js'}>{preview?.content}</Code>
+          {tabs
+            ?.filter((tab) => tab.key != 'preview')
+            ?.map((tab) => (
+              <Tabs.Panel key={tab.key} value={tab.key}>
+                <Code language={language(tab)!}>{tab.content}</Code>
+              </Tabs.Panel>
+            ))}
         </Tabs.Panels>
       </Tabs>
     </div>

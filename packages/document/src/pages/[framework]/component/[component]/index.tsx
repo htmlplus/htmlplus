@@ -28,8 +28,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `)
       ?.replace(/<Usage /g, `<Usage framework={'${framework}'}`);
 
-  console.log(1, component?.readme);
-
   const contributors: string[] = await (async () => {
     try {
       const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;

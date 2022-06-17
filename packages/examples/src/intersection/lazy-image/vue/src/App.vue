@@ -1,5 +1,4 @@
 <template>
-  import { Element } from '@htmlplus/element';
   <div>  
     <div class="container">    
       <plus-intersection once @plusChange="onChange($event)">      

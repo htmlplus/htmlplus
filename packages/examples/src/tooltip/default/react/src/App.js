@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Tooltip } from "TODO";
 
 const TooltipDefault = () => {

@@ -18,6 +18,10 @@ export const download = (options) => {
 
       const fileName = path.basename(root);
 
+      // TODO
+      const [component, example, framework] = root.split(/[/|\\]/g).slice(-3);
+      const download = `${framework}-${component}-${example}`;
+
       const files = glob.sync(`${root}/**/*.*`);
 
       if (!files.length) continue;
@@ -40,7 +44,8 @@ export const download = (options) => {
 
       const model = {
         content,
-        fileName,
+        download,
+        fileName
       };
 
       renderTemplate(pattern, destination, config)(model);

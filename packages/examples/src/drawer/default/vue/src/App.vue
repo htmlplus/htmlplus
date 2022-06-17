@@ -19,6 +19,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-card {
     --plus-card-background-color: #E0E0E0;

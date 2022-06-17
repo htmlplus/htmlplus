@@ -18,7 +18,7 @@
 
         anchor.href = url;
 
-        anchor.download = '{{fileName}}';
+        anchor.download = '{{download}}';
 
         document.body.appendChild(anchor);
 
@@ -27,6 +27,8 @@
         document.body.removeChild(anchor);
 
         URL.revokeObjectURL(url);
+
+        window.close();
       }
     </script>
   </body>

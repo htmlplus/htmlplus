@@ -1,5 +1,4 @@
 <template>
-  import { Element, State } from '@htmlplus/element';
   <div>  
     <plus-card :elevation="elevation"></plus-card>  
     <br />  

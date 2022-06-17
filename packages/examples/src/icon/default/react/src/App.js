@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Icon } from "TODO";
 
 const IconDefault = () => {

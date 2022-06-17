@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { ScrollIndicator } from "TODO";
 
 const ScrollIndicatorDefault = () => {

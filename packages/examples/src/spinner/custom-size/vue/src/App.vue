@@ -14,6 +14,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-spinner[size=sm] {
     --plus-spinner-size: 24px;

@@ -1,5 +1,4 @@
 <template>
-  import { Element, State } from '@htmlplus/element';
   <div>  
     <div class="center">    
       <plus-dialog-toggler connector="dialog-cropper">

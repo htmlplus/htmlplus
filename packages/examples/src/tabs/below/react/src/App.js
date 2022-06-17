@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Tabs } from "TODO";
 import { Tabs.Panels } from "TODO";
 import { Tabs.Panel } from "TODO";

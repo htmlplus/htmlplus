@@ -20,6 +20,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-grid div {
     color: #00BCD4;

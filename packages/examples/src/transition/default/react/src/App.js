@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Transition } from "TODO";
 
 const TransitionDefault = () => {

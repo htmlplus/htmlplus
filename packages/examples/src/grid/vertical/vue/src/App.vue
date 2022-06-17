@@ -20,6 +20,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-grid {
     height: 12rem;

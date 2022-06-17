@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-card {
     --plus-card-border-radius: 3rem 0;

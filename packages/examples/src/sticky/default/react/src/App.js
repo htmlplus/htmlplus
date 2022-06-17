@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Sticky } from "TODO";
 
 const StickyDefault = () => {

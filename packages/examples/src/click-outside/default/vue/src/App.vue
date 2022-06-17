@@ -1,5 +1,4 @@
 <template>
-  import { Element, State } from '@htmlplus/element';
   <div>  
     <plus-click-outside @click="onClick()" @plusClickOutside="onClickOutside()">    
       <plus-card elevation="10">      

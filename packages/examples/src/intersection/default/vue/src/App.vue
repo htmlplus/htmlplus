@@ -1,5 +1,4 @@
 <template>
-  import { Element, State } from '@htmlplus/element';
   <div>  
     <div class="container">    
       <div class="status">      

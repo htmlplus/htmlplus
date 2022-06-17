@@ -9,6 +9,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   plus-divider {
     margin: 1rem 0;

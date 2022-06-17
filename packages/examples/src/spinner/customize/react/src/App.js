@@ -1,3 +1,4 @@
+import { Element } from '@htmlplus/element';
 import { Spinner } from "TODO";
 
 const SpinnerCustomize = () => {

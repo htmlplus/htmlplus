@@ -1,5 +1,4 @@
 <template>
-  import { Element } from '@htmlplus/element';
   <div>  
     <plus-browse droppable @plusChange="onChange($event)"></plus-browse>  
   </div>

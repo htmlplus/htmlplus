@@ -18,6 +18,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   /* first breadcrumb */
   plus-breadcrumb {

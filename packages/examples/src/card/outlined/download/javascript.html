@@ -8,7 +8,7 @@
   <body onload="load()">
     <script>
       async function load() {   
-        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAK+JzlSxn69ltQEAALUBAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPg0KPGh0bWwgbGFuZz0iZW4iPg0KICA8aGVhZD4NCiAgICA8dGl0bGU+Q2FyZCB8IE91dGxpbmVkPC90aXRsZT4NCiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCIgLz4NCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEiIC8+DQogICAgPHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0iVE9ETyI+PC9zY3JpcHQ+DQogICAgPHN0eWxlPg0KICAgICAgcGx1cy1jYXJkIHsNCiAgICAgICAgaGVpZ2h0OiAxMnJlbTsNCiAgICAgICAgd2lkdGg6IDEycmVtOw0KICAgICAgICBtYXJnaW46IGF1dG87DQogICAgICB9DQogICAgPC9zdHlsZT4NCiAgPC9oZWFkPg0KICA8Ym9keT4NCiAgICA8cGx1cy1jYXJkIG91dGxpbmVkPjwvcGx1cy1jYXJkPg0KICA8L2JvZHk+DQo8L2h0bWw+UEsBAhQACgAAAAAAr4nOVLGfr2W1AQAAtQEAAAoAAAAAAAAAAAAAAAAAAAAAAGluZGV4Lmh0bWxQSwUGAAAAAAEAAQA4AAAA3QEAAAAA`);
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJF00VSxn69ltQEAALUBAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPg0KPGh0bWwgbGFuZz0iZW4iPg0KICA8aGVhZD4NCiAgICA8dGl0bGU+Q2FyZCB8IE91dGxpbmVkPC90aXRsZT4NCiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCIgLz4NCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEiIC8+DQogICAgPHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0iVE9ETyI+PC9zY3JpcHQ+DQogICAgPHN0eWxlPg0KICAgICAgcGx1cy1jYXJkIHsNCiAgICAgICAgaGVpZ2h0OiAxMnJlbTsNCiAgICAgICAgd2lkdGg6IDEycmVtOw0KICAgICAgICBtYXJnaW46IGF1dG87DQogICAgICB9DQogICAgPC9zdHlsZT4NCiAgPC9oZWFkPg0KICA8Ym9keT4NCiAgICA8cGx1cy1jYXJkIG91dGxpbmVkPjwvcGx1cy1jYXJkPg0KICA8L2JvZHk+DQo8L2h0bWw+UEsBAhQACgAAAAAAkXTRVLGfr2W1AQAAtQEAAAoAAAAAAAAAAAAAAAAAAAAAAGluZGV4Lmh0bWxQSwUGAAAAAAEAAQA4AAAA3QEAAAAA`);
 
         const blob = await response.blob();
 
@@ -18,7 +18,7 @@
 
         anchor.href = url;
 
-        anchor.download = 'javascript';
+        anchor.download = 'javascript-card-outlined';
 
         document.body.appendChild(anchor);
 
@@ -27,6 +27,8 @@
         document.body.removeChild(anchor);
 
         URL.revokeObjectURL(url);
+
+        window.close();
       }
     </script>
   </body>

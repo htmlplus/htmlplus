@@ -8,7 +8,7 @@
   <body onload="load()">
     <script>
       async function load() {   
-        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAALKJzlR74jJfXwEAAF8BAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPg0KPGh0bWwgbGFuZz0iZW4iPg0KICA8aGVhZD4NCiAgICA8dGl0bGU+U3dpdGNoIHwgQ2hlY2tlZDwvdGl0bGU+DQogICAgPG1ldGEgY2hhcnNldD0idXRmLTgiIC8+DQogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPg0KICAgIDxzY3JpcHQgdHlwZT0ibW9kdWxlIiBzcmM9IlRPRE8iPjwvc2NyaXB0Pg0KICA8L2hlYWQ+DQogIDxib2R5Pg0KICAgIDxwcmV2aWV3PiAgCiAgICAgIDxwbHVzLXN3aXRjaCBjaGVja2VkPjwvcGx1cy1zd2l0Y2g+ICAKICAgIDwvcHJldmlldz4NCiAgPC9ib2R5Pg0KPC9odG1sPlBLAQIUAAoAAAAAALKJzlR74jJfXwEAAF8BAAAKAAAAAAAAAAAAAAAAAAAAAABpbmRleC5odG1sUEsFBgAAAAABAAEAOAAAAIcBAAAAAA==`);
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAAJR00VR74jJfXwEAAF8BAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPg0KPGh0bWwgbGFuZz0iZW4iPg0KICA8aGVhZD4NCiAgICA8dGl0bGU+U3dpdGNoIHwgQ2hlY2tlZDwvdGl0bGU+DQogICAgPG1ldGEgY2hhcnNldD0idXRmLTgiIC8+DQogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPg0KICAgIDxzY3JpcHQgdHlwZT0ibW9kdWxlIiBzcmM9IlRPRE8iPjwvc2NyaXB0Pg0KICA8L2hlYWQ+DQogIDxib2R5Pg0KICAgIDxwcmV2aWV3PiAgCiAgICAgIDxwbHVzLXN3aXRjaCBjaGVja2VkPjwvcGx1cy1zd2l0Y2g+ICAKICAgIDwvcHJldmlldz4NCiAgPC9ib2R5Pg0KPC9odG1sPlBLAQIUAAoAAAAAAJR00VR74jJfXwEAAF8BAAAKAAAAAAAAAAAAAAAAAAAAAABpbmRleC5odG1sUEsFBgAAAAABAAEAOAAAAIcBAAAAAA==`);
 
         const blob = await response.blob();
 
@@ -18,7 +18,7 @@
 
         anchor.href = url;
 
-        anchor.download = 'javascript';
+        anchor.download = 'javascript-switch-checked';
 
         document.body.appendChild(anchor);
 
@@ -27,6 +27,8 @@
         document.body.removeChild(anchor);
 
         URL.revokeObjectURL(url);
+
+        window.close();
       }
     </script>
   </body>

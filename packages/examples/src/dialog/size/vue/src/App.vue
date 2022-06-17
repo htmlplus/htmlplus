@@ -1,5 +1,4 @@
 <template>
-  import { Element, State } from '@htmlplus/element';
   <div>  
     <plus-grid justify-content="center" gutter="md">    
       <plus-grid-item xs="12" sm="auto">      

@@ -13,6 +13,10 @@
   </div>
 </template>
 
+<script>
+  import { Element } from '@htmlplus/element';
+</script>
+
 <style scoped>
   #target { color: blue }
   #source { color: red  }

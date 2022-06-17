@@ -21,7 +21,7 @@ export default (...plugins: Array<Plugin>) => {
 
       logger.start(`Plugin '${plugin.name}' starting...`);
 
-      global = (await plugin.start(global)) || global;
+      await plugin.start(global);
 
       logger.start(`Plugin '${plugin.name}' started successfully.`);
     }
@@ -41,7 +41,7 @@ export default (...plugins: Array<Plugin>) => {
 
       logger.start(`Plugin '${plugin.name}' executing...`);
 
-      context = (await plugin.next(context, global)) || context;
+      (context.output ??= {})[plugin.name] = await plugin.next(context, global);
 
       logger.start(`Plugin '${plugin.name}' executed successfully.`);
 
@@ -63,7 +63,7 @@ export default (...plugins: Array<Plugin>) => {
 
       logger.start(`Plugin '${plugin.name}' finishing...`);
 
-      global = (await plugin.finish(global)) || global;
+      await plugin.finish(global);
 
       logger.start(`Plugin '${plugin.name}' finished successfully.`);
     }

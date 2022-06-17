@@ -7,6 +7,8 @@ import path from 'path';
 export const codesandbox = (options) => {
   const name = 'codesandbox';
   const next = (context) => {
+    const output = {};
+
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
 
     const sources = options?.sources?.(context);
@@ -44,10 +46,10 @@ export const codesandbox = (options) => {
       renderTemplate(pattern, destination, config)(model);
 
       // TODO
-      context.output ??= {};
-      context.output.codesandbox ??= {};
-      context.output.codesandbox[fileName] = fs.readFileSync(path.join(destination, fileName + '.html'), 'utf8');
+      output[fileName] = fs.readFileSync(path.join(destination, fileName + '.html'), 'utf8');
     }
+
+    return output;
   };
   return {
     name,

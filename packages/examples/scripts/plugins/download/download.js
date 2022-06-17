@@ -7,6 +7,8 @@ import path from 'path';
 export const download = (options) => {
   const name = 'download';
   const next = async (context) => {
+    const output = {};
+
     const destination = options?.destination?.(context) || path.join(context.directoryPath, 'download');
 
     const sources = options?.sources?.(context);
@@ -51,10 +53,10 @@ export const download = (options) => {
       renderTemplate(pattern, destination, config)(model);
 
       // TODO
-      context.output ??= {};
-      context.output.download ??= {};
-      context.output.download[fileName] = fs.readFileSync(path.join(destination, fileName + '.html'), 'utf8');
+      output[fileName] = fs.readFileSync(path.join(destination, fileName + '.html'), 'utf8');
     }
+
+    return output;
   };
   return {
     name,

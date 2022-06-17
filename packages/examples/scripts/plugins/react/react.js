@@ -209,15 +209,10 @@ export const react = (options) => {
     renderTemplate(patterns, destination, config)(model);
 
     // TODO
-    context.output = Object.assign(
-      context.output || {},
-      {
-        react: {
-          script: model.script,
-          style: style?.content,
-        }
-      }
-    );
+    return {
+      script: model.script,
+      style: style?.content
+    };
   };
   return {
     name,

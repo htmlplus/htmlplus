@@ -173,21 +173,7 @@ export const javascript = (options) => {
 
       const ast = t.cloneNode(
         t.file(
-          t.program(
-            [
-              t.classDeclaration(
-                t.identifier('Test'),
-                null,
-                t.classBody(
-                  [
-                    context.classRender
-                  ]
-                )
-              )
-            ],
-            [],
-            'module'
-          )
+          t.program([t.classDeclaration(t.identifier('Test'), null, t.classBody([context.classRender]))], [], 'module')
         ),
         true
       );
@@ -235,16 +221,11 @@ export const javascript = (options) => {
     renderTemplate(patterns, destination, config)(model);
 
     // TODO
-    context.output = Object.assign(
-      context.output || {},
-      {
-        javascript: {
-          script,
-          style,
-          template
-        }
-      }
-    );
+    return {
+      script,
+      style,
+      template
+    };
   };
   return {
     name,

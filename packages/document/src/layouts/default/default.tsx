@@ -17,7 +17,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
         </Grid.Item>
         <Grid.Item xs="12" md="grow" orderXs="2" orderSm="2" orderMd="1">
           {children}
-          <Navigation />
+          <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
         </Grid.Item>
         <Grid.Item xs="12" md="auto" orderXs="1" orderSm="1" orderMd="2">
           <Sticky top="72">TODO</Sticky>

@@ -1,4 +1,4 @@
-import { Button, Card, Drawer, Grid, Icon } from '@app/components';
+import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
 import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
@@ -25,7 +25,7 @@ export const Header = ({ menu }: HeaderProps) => {
   ];
   return (
     <header>
-      <Card elevation="5" tile>
+      <Card tile>
         <Grid alignItems="center" wrap="off" gutterX="md">
           {menu && (
             <Grid.Item xs="auto" hideLgUp>
@@ -49,6 +49,7 @@ export const Header = ({ menu }: HeaderProps) => {
           ))}
         </Grid>
       </Card>
+      <Divider />
     </header>
   );
 };

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { Footer, Grid, Header, Navigation, Sidebar, Sticky } from '@app/components';
-import { sidebar } from '@app/data';
+import { Footer, Grid, Header, Navigation, Sticky } from '@app/components';
+import { Sidebar } from '@app/containers';
 
 interface LayoutDefaultProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
       <Header menu />
       <Grid>
         <Grid.Item xs="auto">
-          <Sidebar items={sidebar} />
+          <Sidebar />
         </Grid.Item>
         <Grid.Item xs="12" md="grow" orderXs="2" orderSm="2" orderMd="1">
           {children}

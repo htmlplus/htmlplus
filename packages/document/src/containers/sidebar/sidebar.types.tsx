@@ -2,10 +2,7 @@ export interface SidebarItem {
   title: string;
   icon?: string;
   items?: Array<SidebarItem>;
-  route?: {
-    to: string;
-    params?: any;
-  };
+  url?: string;
 }
 
 export interface SidebarProps {

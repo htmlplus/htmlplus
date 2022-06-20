@@ -9,7 +9,8 @@ export const ROUTE = {
   BROWSERS: '/browsers',
   VISION: '/vision',
   JAVASCRIPT_INSTALLATION: '/javascript/installation',
-  COMPONENT_DETAILS: '/component/[component]',
-  COMPONENT_TRANSITION_PROPERTY_NAME: '/component/transition/names',
+  COMPONENT_DETAILS: '/[framework]/component/[component]',
+  COMPONENT_API: '/[framework]/component/[component]/api',
+  COMPONENT_TRANSITION_PROPERTY_NAME: '/[framework]/component/transition/names',
   CODEOFCONDUCT: '/code-of-conduct'
 } as const;

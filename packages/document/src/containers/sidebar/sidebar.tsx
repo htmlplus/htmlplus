@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { Button, Icon } from '@app/components';
 import * as Constants from '@app/constants';
@@ -75,19 +75,25 @@ export const Sidebar = ({}: SidebarProps) => {
     []
   );
 
-  const isActive = (item: any) => router.asPath == item.url;
+  const actives: SidebarItem[] = useMemo(() => {
+    const run = (...items: SidebarItem[]): SidebarItem[] => {
+      for (const item of items) {
+        if (router.asPath == item.url) return [item];
+        if (!item.items) continue;
+        const result = run(...item.items);
+        if (!result.length) continue;
+        return [item, ...result];
+      }
+      return [];
+    };
+    return run(...items);
+  }, [items, router.asPath]);
 
-  const isCollapse = (item: any) => !current.some((x) => x == item);
+  const isActive = (item: SidebarItem) => actives.some((active) => active == item);
 
-  const toggle = (event: MouseEvent, item: any) => {
-    if (!item || item.url) return;
-    event.preventDefault();
-    const exists = current.some((x) => x == item);
-    if (exists) setCurrent(current.filter((x) => x != item));
-    else setCurrent([...current, item]);
-  };
+  const isCollapse = (item: SidebarItem) => !current.some((x) => x == item);
 
-  const menu = (items: SidebarItem[], ...parents: any[]) => {
+  const menu = (items: SidebarItem[], ...parents: SidebarItem[]) => {
     return (
       <ul
         className={Utils.classes({
@@ -118,6 +124,16 @@ export const Sidebar = ({}: SidebarProps) => {
       </ul>
     );
   };
+
+  const toggle = (event: MouseEvent, item: SidebarItem) => {
+    if (!item || item.url) return;
+    event.preventDefault();
+    const exists = current.some((x) => x == item);
+    if (exists) setCurrent(current.filter((x) => x != item));
+    else setCurrent([...current, item]);
+  };
+
+  useEffect(() => setCurrent(actives.slice(0, -1)), [actives]);
 
   return <div className="sidebar">{menu(items)}</div>;
 };

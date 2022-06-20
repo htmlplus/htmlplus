@@ -30,13 +30,13 @@ export const ScrollIndicator = dynamic<any>(
 );
 export const Spinner = dynamic<any>(() => import('@htmlplus/react').then(({ Spinner }) => Spinner), { ssr: false });
 export const Sticky = dynamic<any>(() => import('@htmlplus/react').then(({ Sticky }) => Sticky), { ssr: false });
-export const Switch = dynamic<any>(() => import('@htmlplus/react').then(({ Switch }) => Switch), { ssr: false });
+// export const Switch = dynamic<any>(() => import('@htmlplus/react').then(({ Switch }) => Switch), { ssr: false });
 export const Tabs: any = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs), { ssr: false });
 Tabs.Bar = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Bar), { ssr: false });
 Tabs.Panel = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Panel), { ssr: false });
 Tabs.Panels = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Panels), { ssr: false });
 Tabs.Tab = dynamic<any>(() => import('@htmlplus/react').then(({ Tabs }) => Tabs.Tab), { ssr: false });
-export const Tooltip = dynamic<any>(() => import('@htmlplus/react').then(({ Tooltip }) => Tooltip), { ssr: false });
+// export const Tooltip = dynamic<any>(() => import('@htmlplus/react').then(({ Tooltip }) => Tooltip), { ssr: false });
 export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ Transition }) => Transition), {
   ssr: false
 });

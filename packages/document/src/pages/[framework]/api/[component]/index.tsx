@@ -16,8 +16,8 @@ const ComponentAPI = ({ component, framework }: any) => {
   console.log(component);
   return (
     <LayoutDefault>
-      <h1>{component.key} API</h1>
-      <p>TODO</p>
+      <h1>{component.title}</h1>
+      <p>See below to learn more about properties, slots, events, style variables, CSS parts, and methods.</p>
 
       {!!properties.length && (
         <>

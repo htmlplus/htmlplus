@@ -52,6 +52,7 @@ export * from './footer';
 export * from './header';
 export * from './markup';
 export * from './navigation';
+export * from './parameter';
 export * from './socials';
 
 // TODO

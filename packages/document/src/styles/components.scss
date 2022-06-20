@@ -24,7 +24,7 @@
     .nav-item {
       margin: 0;
 
-      &.active {
+      &.active > .button {
         font-weight: 600;
         color: #206bc4;
         background-color: rgba(32, 107, 196, 0.04);

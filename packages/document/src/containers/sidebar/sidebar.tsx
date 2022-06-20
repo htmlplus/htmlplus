@@ -9,9 +9,9 @@ import * as Utils from '@app/utils';
 import { SidebarItem, SidebarProps } from './sidebar.types';
 
 export const Sidebar = ({}: SidebarProps) => {
-  const framework = 'react';
-
   const router = useRouter();
+
+  const { framework } = router.query;
 
   const [current, setCurrent] = useState<any[]>([]);
 
@@ -75,7 +75,7 @@ export const Sidebar = ({}: SidebarProps) => {
     []
   );
 
-  const isActive = (item: any) => {};
+  const isActive = (item: any) => router.asPath == item.url;
 
   const isCollapse = (item: any) => !current.some((x) => x == item);
 

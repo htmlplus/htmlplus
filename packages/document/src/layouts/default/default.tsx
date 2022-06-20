@@ -12,8 +12,10 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
     <>
       <Header menu />
       <Grid>
-        <Grid.Item xs="auto">
-          <Sidebar />
+        <Grid.Item xs="auto" hideMdDown>
+          <Sticky top="72">
+            <Sidebar />
+          </Sticky>
         </Grid.Item>
         <Grid.Item xs="12" md="grow" orderXs="2" orderSm="2" orderMd="1">
           {children}

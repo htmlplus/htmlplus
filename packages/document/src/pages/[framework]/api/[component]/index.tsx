@@ -217,7 +217,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = frameworks
     .filter((framework) => !framework.disabled)
-    .map((framework) => components.map((component) => `/${framework.key}/component/${component.key}/api`))
+    .map((framework) => components.map((component) => `/${framework.key}/api/${component.key}`))
     .flat();
   return {
     paths,

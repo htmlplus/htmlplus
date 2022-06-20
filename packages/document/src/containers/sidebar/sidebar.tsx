@@ -11,7 +11,7 @@ import { SidebarItem, SidebarProps } from './sidebar.types';
 export const Sidebar = ({}: SidebarProps) => {
   const router = useRouter();
 
-  const { framework } = router.query;
+  const { framework = 'react' } = router.query;
 
   const [current, setCurrent] = useState<any[]>([]);
 
@@ -58,7 +58,7 @@ export const Sidebar = ({}: SidebarProps) => {
         icon: 'components',
         items: components.map((component) => ({
           title: component.title,
-          url: router.get('COMPONENT_API', { framework, component: component.key })
+          url: router.get('API_DETAILS', { framework, component: component.key })
         }))
       },
       {
@@ -93,20 +93,16 @@ export const Sidebar = ({}: SidebarProps) => {
 
   const isCollapse = (item: SidebarItem) => !current.some((x) => x == item);
 
-  const menu = (items: SidebarItem[], ...parents: SidebarItem[]) => {
+  const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
     return (
-      <ul
-        className={Utils.classes({
-          nav: true,
-          collapse: isCollapse(parents?.[0])
-        })}
-      >
+      <ul className="nav">
         {items.map((item) => (
           <li
             key={item.title}
             className={Utils.classes({
-              navItem: true,
-              active: isActive(item)
+              active: isActive(item),
+              collapse: isCollapse(item),
+              navItem: true
             })}
           >
             <Button text to={item.url || '#'} onClick={(event: MouseEvent) => toggle(event, item)}>
@@ -118,7 +114,7 @@ export const Sidebar = ({}: SidebarProps) => {
               {item.title}
               {!!item.items?.length && <span className="nav-link-toggle"></span>}
             </Button>
-            {!!item.items?.length && menu(item.items, item, ...parents)}
+            {!!item.items?.length && menu(item.items, [item, ...parents])}
           </li>
         ))}
       </ul>

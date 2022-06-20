@@ -10,7 +10,7 @@ export const ROUTE = {
   VISION: '/vision',
   JAVASCRIPT_INSTALLATION: '/javascript/installation',
   COMPONENT_DETAILS: '/[framework]/component/[component]',
-  COMPONENT_API: '/[framework]/component/[component]/api',
+  API_DETAILS: '/[framework]/api/[component]',
   COMPONENT_TRANSITION_PROPERTY_NAME: '/[framework]/component/transition/names',
   CODEOFCONDUCT: '/code-of-conduct'
 } as const;

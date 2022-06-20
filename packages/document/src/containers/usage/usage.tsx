@@ -2,10 +2,9 @@ import { Button } from '@app/components';
 import * as Constants from '@app/constants';
 import { useRouter } from '@app/hooks';
 
-import { UsageProps } from './usage.types';
-
-export const Usage = ({ framework }: UsageProps) => {
+export const Usage = () => {
   const router = useRouter();
+  const { framework } = router.query;
   return (
     <>
       <h2>Usage</h2>

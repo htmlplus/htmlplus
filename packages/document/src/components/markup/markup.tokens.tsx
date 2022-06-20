@@ -1,11 +1,12 @@
-import { Alert, Browsers, Example, Examples, Usage } from '@app/components';
+import { Alert, Browsers, Example, Examples } from '@app/components';
+import { Usage } from '@app/containers';
 
 export const tokens = {
   Alert,
   Browsers,
   Example,
   Examples,
-  Usage: (props = {}) => <Usage {...props} />,
+  Usage: () => <Usage />,
   Playground: () => null,
   Api: () => null
 };

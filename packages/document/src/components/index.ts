@@ -53,7 +53,6 @@ export * from './header';
 export * from './markup';
 export * from './navigation';
 export * from './socials';
-export * from './usage';
 
 // TODO
 // export * from './api';

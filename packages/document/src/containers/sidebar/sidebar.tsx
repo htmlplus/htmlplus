@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import create from 'zustand'
 
 import { Button, Icon } from '@app/components';
 import * as Constants from '@app/constants';
@@ -8,12 +9,18 @@ import * as Utils from '@app/utils';
 
 import { SidebarItem, SidebarProps } from './sidebar.types';
 
-export const Sidebar = ({}: SidebarProps) => {
+// TODO
+const useSidebar = create<any>((set: any) => ({
+  current: [],
+  setCurrent: (current: any) => set({ current }),
+}))
+
+export const Sidebar = ({ }: SidebarProps) => {
   const router = useRouter();
 
   const { framework = 'react' } = router.query;
 
-  const [current, setCurrent] = useState<any[]>([]);
+  const { current, setCurrent } = useSidebar();
 
   const items = useMemo(
     () => [
@@ -91,7 +98,7 @@ export const Sidebar = ({}: SidebarProps) => {
 
   const isActive = (item: SidebarItem) => actives.some((active) => active == item);
 
-  const isCollapse = (item: SidebarItem) => !current.some((x) => x == item);
+  const isCollapse = (item: SidebarItem) => !current.some((x) => x.title == item.title);
 
   const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
     return (
@@ -129,7 +136,7 @@ export const Sidebar = ({}: SidebarProps) => {
     else setCurrent([...current, item]);
   };
 
-  useEffect(() => setCurrent(actives.slice(0, -1)), [actives]);
+  useEffect(() => setCurrent([...current, ...actives.slice(0, -1)]), [actives]);
 
   return <div className="sidebar">{menu(items)}</div>;
 };

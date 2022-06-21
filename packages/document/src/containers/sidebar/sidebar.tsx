@@ -1,26 +1,32 @@
 import React, { useEffect, useMemo } from 'react';
-import create from 'zustand'
+
+import { useRouter } from 'next/router';
+
+import create from 'zustand';
 
 import { Button, Icon } from '@app/components';
 import * as Constants from '@app/constants';
 import { components } from '@app/data';
-import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { SidebarItem, SidebarProps } from './sidebar.types';
 
 // TODO
-const useSidebar = create<any>((set: any) => ({
-  current: [],
-  setCurrent: (current: any) => set({ current }),
-}))
+interface UseSidebar {
+  expands: SidebarItem[];
+  setExpands: (expands: SidebarItem[]) => void;
+}
+const useSidebar = create<UseSidebar>((set) => ({
+  expands: [],
+  setExpands: (expands) => set({ expands })
+}));
 
-export const Sidebar = ({ }: SidebarProps) => {
+export const Sidebar = ({}: SidebarProps) => {
   const router = useRouter();
 
-  const { framework = 'react' } = router.query;
+  const framework = 'react';
 
-  const { current, setCurrent } = useSidebar();
+  const { expands, setExpands } = useSidebar();
 
   const items = useMemo(
     () => [
@@ -30,11 +36,11 @@ export const Sidebar = ({ }: SidebarProps) => {
         items: [
           {
             title: `What's ${Constants.PLATFORM_NAME}?`,
-            url: router.get('INTRODUCTION_WHAT')
+            url: Utils.getPath('INTRODUCTION_WHAT')
           },
           {
             title: `Why ${Constants.PLATFORM_NAME}?`,
-            url: router.get('INTRODUCTION_WHY')
+            url: Utils.getPath('INTRODUCTION_WHY')
           }
         ]
       },
@@ -44,11 +50,11 @@ export const Sidebar = ({ }: SidebarProps) => {
         items: [
           {
             title: 'Installation',
-            url: router.get('INSTALLATION')
+            url: Utils.getPath('INSTALLATION')
           },
           {
             title: 'Browser support',
-            url: router.get('BROWSERS')
+            url: Utils.getPath('BROWSERS')
           }
         ]
       },
@@ -57,7 +63,7 @@ export const Sidebar = ({ }: SidebarProps) => {
         icon: 'components',
         items: components.map((component) => ({
           title: component.title,
-          url: router.get('COMPONENT_DETAILS', { framework, component: component.key })
+          url: Utils.getPath('COMPONENT_DETAILS', { framework, component: component.key })
         }))
       },
       {
@@ -65,7 +71,7 @@ export const Sidebar = ({ }: SidebarProps) => {
         icon: 'components',
         items: components.map((component) => ({
           title: component.title,
-          url: router.get('API_DETAILS', { framework, component: component.key })
+          url: Utils.getPath('API_DETAILS', { framework, component: component.key })
         }))
       },
       {
@@ -74,7 +80,7 @@ export const Sidebar = ({ }: SidebarProps) => {
         items: [
           {
             title: 'Code Of Conduct',
-            url: router.get('CODEOFCONDUCT')
+            url: Utils.getPath('CODEOFCONDUCT')
           }
         ]
       }
@@ -98,7 +104,7 @@ export const Sidebar = ({ }: SidebarProps) => {
 
   const isActive = (item: SidebarItem) => actives.some((active) => active == item);
 
-  const isCollapse = (item: SidebarItem) => !current.some((x) => x.title == item.title);
+  const isCollapse = (item: SidebarItem) => !expands.some((x) => x.title == item.title);
 
   const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
     return (
@@ -131,12 +137,12 @@ export const Sidebar = ({ }: SidebarProps) => {
   const toggle = (event: MouseEvent, item: SidebarItem) => {
     if (!item || item.url) return;
     event.preventDefault();
-    const exists = current.some((x) => x == item);
-    if (exists) setCurrent(current.filter((x) => x != item));
-    else setCurrent([...current, item]);
+    const exists = expands.some((expand) => expand == item);
+    if (exists) setExpands(expands.filter((expand) => expand != item));
+    else setExpands([...expands, item]);
   };
 
-  useEffect(() => setCurrent([...current, ...actives.slice(0, -1)]), [actives]);
+  useEffect(() => setExpands([...expands, ...actives.slice(0, -1)]), [actives]);
 
   return <div className="sidebar">{menu(items)}</div>;
 };

@@ -1,10 +1,10 @@
 export interface SidebarItem {
   title: string;
   icon?: string;
-  items?: Array<SidebarItem>;
+  items?: SidebarItem[];
   url?: string;
 }
 
 export interface SidebarProps {
-  items?: Array<SidebarItem>;
+  items?: SidebarItem[];
 }

@@ -12,5 +12,7 @@ export const ROUTE = {
   COMPONENT_DETAILS: '/[framework]/component/[component]',
   API_DETAILS: '/[framework]/api/[component]',
   COMPONENT_TRANSITION_PROPERTY_NAME: '/[framework]/component/transition/names',
-  CODEOFCONDUCT: '/code-of-conduct'
+  CODEOFCONDUCT: '/code-of-conduct',
+  CODESANDBOX: '/[framework]/component/[component]/[example]/codesandbox',
+  DOWNLOAD: '/[framework]/component/[component]/[example]/download'
 } as const;

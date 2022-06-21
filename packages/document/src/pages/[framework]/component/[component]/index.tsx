@@ -6,6 +6,7 @@ import { headerCase } from 'change-case';
 import { Contributors, Markup } from '@app/components';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
+import * as Utils from '@app/utils';
 
 const ComponentDetails = ({ component, contributors, example }: any) => {
   return (
@@ -65,7 +66,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           }
         ];
 
-        const tabs: Array<any> = [];
+        const tabs: any[] = [];
 
         const title = headerCase(example.key);
 
@@ -105,8 +106,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = frameworks
     .filter((framework) => !framework.disabled)
-    .map((framework) => components.map((component) => `/${framework.key}/component/${component.key}`))
-    .flat();
+    .map((framework) =>
+      components.map(
+        (component) =>
+          Utils.getPath('COMPONENT_DETAILS', {
+            framework: framework.key,
+            component: component.key
+          })!
+      )
+    )
+    .flat()
+    .filter((path) => !!path);
   return {
     paths,
     fallback: false

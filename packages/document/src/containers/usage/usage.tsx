@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router';
+
 import { Button } from '@app/components';
 import * as Constants from '@app/constants';
-import { useRouter } from '@app/hooks';
+import * as Utils from '@app/utils';
 
 export const Usage = () => {
   const router = useRouter();
@@ -11,7 +13,7 @@ export const Usage = () => {
       <p>
         <span>Follow the tutorials</span>
         &nbsp;
-        <Button color="secondary-darken-4" link="underline" to={router.get('INSTALLATION_FRAMEWORK', { framework })}>
+        <Button color="secondary-darken-4" link="underline" to={Utils.getPath('INSTALLATION_FRAMEWORK', { framework })}>
           here
         </Button>
         &nbsp;

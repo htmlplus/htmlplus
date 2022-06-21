@@ -2,12 +2,12 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Divider, Grid, Markup, Parameter } from '@app/components';
+import { Divider, Parameter } from '@app/components';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
+import * as Utils from '@app/utils';
 
-const ComponentAPI = ({ component, framework }: any) => {
-  console.log(component);
+const ComponentAPI = ({ component }: any) => {
   const sections = [
     {
       title: 'Properties',
@@ -77,8 +77,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = frameworks
     .filter((framework) => !framework.disabled)
-    .map((framework) => components.map((component) => `/${framework.key}/api/${component.key}`))
-    .flat();
+    .map((framework) =>
+      components.map(
+        (component) =>
+          Utils.getPath('API_DETAILS', {
+            framework: framework.key,
+            component: component.key
+          })!
+      )
+    )
+    .flat()
+    .filter((path) => !!path);
   return {
     paths,
     fallback: false

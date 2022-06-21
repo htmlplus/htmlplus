@@ -1,24 +1,22 @@
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
-import { useRouter } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { HeaderProps } from './header.types';
 
 export const Header = ({ menu }: HeaderProps) => {
-  const router = useRouter();
   const links = [
     {
       title: `What\'s ${Constants.PLATFORM_NAME}?`,
-      url: router.get('INTRODUCTION_WHAT')
+      url: Utils.getPath('INTRODUCTION_WHAT')
     },
     {
       title: `Why ${Constants.PLATFORM_NAME}?`,
-      url: router.get('INTRODUCTION_WHY')
+      url: Utils.getPath('INTRODUCTION_WHY')
     },
     {
       title: 'UI Components',
-      url: router.get('COMPONENT_DETAILS', {
+      url: Utils.getPath('COMPONENT_DETAILS', {
         component: 'aspect-ratio'
       })
     }
@@ -35,7 +33,7 @@ export const Header = ({ menu }: HeaderProps) => {
             </Grid.Item>
           )}
           <Grid.Item>
-            <Button block link to={router.get('HOME')}>
+            <Button block link to={Utils.getPath('HOME')}>
               <img height="40px" src={Utils.getAsset('logo/logo.svg')} />
             </Button>
           </Grid.Item>

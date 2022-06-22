@@ -8,5 +8,12 @@ export const tokens = {
   Example,
   Examples,
   Usage: () => <Usage />,
-  Playground: () => null
+  Playground: () => null,
+  // TODO
+  h1: (props: any) => (
+    <h1>
+      <a href="#" />
+      {props.children}
+    </h1>
+  )
 };

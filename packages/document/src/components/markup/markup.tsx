@@ -10,7 +10,7 @@ import { MarkupProps } from './markup.types';
 
 export const Markup = ({ scope, value }: MarkupProps) => {
   const [source, setSource] = useState<MDXRemoteProps>();
-  console.log(123, value);
+
   useEffect(() => {
     if (!value) return;
     serialize(value).then(setSource);

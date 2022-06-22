@@ -1,0 +1,24 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+    text-decoration: none !important;
+    & > * {
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+      visibility: hidden;
+    }
+  }
+  &:hover a > * {
+    visibility: visible;
+  }
+}

@@ -12,7 +12,9 @@ export const tokens = {
   // TODO
   h1: (props: any) => (
     <h1>
-      <a href="#" />
+      <a id="TODO" aria-hidden="true" href="#TODO">
+        <div>#</div>
+      </a>
       {props.children}
     </h1>
   )

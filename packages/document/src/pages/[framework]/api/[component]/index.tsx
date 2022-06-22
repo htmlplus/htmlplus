@@ -10,33 +10,33 @@ import * as Utils from '@app/utils';
 const ComponentAPI = ({ component }: any) => {
   const sections = [
     {
+      key: 'property',
       title: 'Properties',
-      api: 'property',
       items: component.properties
     },
     {
+      key: 'slot',
       title: 'Slots',
-      api: 'slot',
       items: component.slots
     },
     {
+      key: 'event',
       title: 'Events',
-      api: 'event',
       items: component.events
     },
     {
+      key: 'style',
       title: 'CSS Variables',
-      api: 'style',
       items: component.styles
     },
     {
+      key: 'part',
       title: 'CSS Parts',
-      api: 'part',
       items: component.parts
     },
     {
+      key: 'method',
       title: 'Methods',
-      api: 'method',
       items: component.methods
     }
   ];
@@ -47,11 +47,11 @@ const ComponentAPI = ({ component }: any) => {
       {sections
         .filter((section) => section.items?.length)
         .map((section) => (
-          <React.Fragment key={section.title}>
+          <React.Fragment key={section.key}>
             <h2>{section.title}</h2>
             {section.items.map((item: any, index: number) => (
               <React.Fragment key={item.name}>
-                <Parameter api={section.api} {...item} />
+                <Parameter kind={section.key} {...item} />
                 {section.items.length - 1 > index && <Divider />}
               </React.Fragment>
             ))}

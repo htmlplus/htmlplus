@@ -3,7 +3,6 @@ import { Grid, Markup } from '@app/components';
 import { ParameterProps } from './parameter.types';
 
 export const Parameter = ({
-  api,
   attribute,
   description,
   detail,
@@ -11,6 +10,7 @@ export const Parameter = ({
   initializer,
   isCancelable,
   isExperimental,
+  kind,
   name,
   returns,
   signature,
@@ -26,7 +26,7 @@ export const Parameter = ({
             {isExperimental && <span> (Experimental)</span>}
           </div>
         </Grid.Item>
-        {['event', 'method', 'property'].includes(api) && (
+        {['event', 'method', 'property'].includes(kind) && (
           <>
             <Grid.Item xs="12" sm="6" md="grow">
               {!!(detail ?? returns ?? type) && (
@@ -38,8 +38,8 @@ export const Parameter = ({
             </Grid.Item>
           </>
         )}
-        {['style'].includes(api) && <Grid.Item xs="12" sm="grow" hideSmDown />}
-        {['property', 'style'].includes(api) && (
+        {['style'].includes(kind) && <Grid.Item xs="12" sm="grow" hideSmDown />}
+        {['property', 'style'].includes(kind) && (
           <>
             <Grid.Item xs="12" sm="auto" hideMdUp>
               <b>Default</b>
@@ -52,13 +52,13 @@ export const Parameter = ({
           </>
         )}
         <Grid.Item xs="12" />
-        {['event'].includes(api) && (
+        {['event'].includes(kind) && (
           <Grid.Item xs="12">
             <b>Cancelable</b>
             <div>{`${!!isCancelable}`}</div>
           </Grid.Item>
         )}
-        {['property'].includes(api) && (
+        {['property'].includes(kind) && (
           <>
             <Grid.Item xs="12" sm="6">
               <b>Attribute</b>
@@ -70,7 +70,7 @@ export const Parameter = ({
             </Grid.Item>
           </>
         )}
-        {['method'].includes(api) && (
+        {['method'].includes(kind) && (
           <>
             {!!signature && (
               <Grid.Item xs="12">

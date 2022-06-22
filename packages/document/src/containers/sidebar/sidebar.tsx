@@ -22,9 +22,10 @@ const useSidebar = create<UseSidebar>((set) => ({
 }));
 
 export const Sidebar = ({}: SidebarProps) => {
-  const router = useRouter();
-
+  // TODO
   const framework = 'react';
+
+  const router = useRouter();
 
   const { expands, setExpands } = useSidebar();
 
@@ -102,16 +103,18 @@ export const Sidebar = ({}: SidebarProps) => {
     return run(...items);
   }, [items, router.asPath]);
 
-  const isActive = (item: SidebarItem) => actives.some((active) => active == item);
+  const key = (item: SidebarItem) => item.title;
 
-  const isCollapse = (item: SidebarItem) => !expands.some((x) => x.title == item.title);
+  const isActive = (item: SidebarItem) => actives.some((active) => key(active) == key(item));
+
+  const isCollapse = (item: SidebarItem) => !expands.some((x) => key(x) == key(item));
 
   const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
     return (
       <ul className="nav">
         {items.map((item) => (
           <li
-            key={item.title}
+            key={key(item)}
             className={Utils.classes({
               active: isActive(item),
               collapse: isCollapse(item),
@@ -124,7 +127,7 @@ export const Sidebar = ({}: SidebarProps) => {
                   <Icon name={item.icon as any} /> &nbsp;
                 </>
               )} */}
-              {item.title}
+              {key(item)}
               {!!item.items?.length && <span className="nav-link-toggle"></span>}
             </Button>
             {!!item.items?.length && menu(item.items, [item, ...parents])}
@@ -137,12 +140,21 @@ export const Sidebar = ({}: SidebarProps) => {
   const toggle = (event: MouseEvent, item: SidebarItem) => {
     if (!item || item.url) return;
     event.preventDefault();
-    const exists = expands.some((expand) => expand == item);
-    if (exists) setExpands(expands.filter((expand) => expand != item));
+    const exists = expands.some((expand) => key(expand) == key(item));
+    if (exists) setExpands(expands.filter((expand) => key(expand) != key(item)));
     else setExpands([...expands, item]);
   };
 
-  useEffect(() => setExpands([...expands, ...actives.slice(0, -1)]), [actives]);
+  useEffect(
+    () =>
+      setExpands(
+        actives
+          .slice(0, -1)
+          .concat(expands)
+          .filter((item, index, items) => items.findIndex((x) => key(x) == key(item)) == index)
+      ),
+    [actives]
+  );
 
   return <div className="sidebar">{menu(items)}</div>;
 };

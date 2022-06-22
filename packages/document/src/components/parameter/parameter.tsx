@@ -1,89 +1,109 @@
-import { Grid, Markup } from '@app/components';
+import { Button, Code, Grid, Markup } from '@app/components';
+import * as Utils from '@app/utils';
 
-import { ParameterProps } from './parameter.types';
+export const Parameter = (item: any) => {
+  const type = item.detail ?? item.returns ?? item.type;
 
-export const Parameter = ({
-  attribute,
-  description,
-  detail,
-  hasReflect,
-  initializer,
-  isCancelable,
-  isExperimental,
-  kind,
-  name,
-  returns,
-  signature,
-  type
-}: any) => {
+  // TODO
+  const signatureReference = (() => {
+    if (!item.signatureReference) return;
+    return Utils.getTypeFromGithub(item.component.key, item.signatureReference);
+  })();
+
+  const typeReference = (() => {
+    let reference = '';
+    switch (item.kind) {
+      case 'event':
+        reference = item.detailReference;
+        break;
+      case 'method':
+        reference = item.returnsReference;
+        break;
+      case 'property':
+        reference = item.typeReference;
+        break;
+    }
+    if (!reference) return;
+    return Utils.getTypeFromGithub(item.component.key, reference);
+  })();
+
   return (
     <>
       <Grid gutterX="md">
         <Grid.Item xs="12" sm="12" md="6">
           <b>Name</b>
           <div>
-            {name}
-            {isExperimental && <span> (Experimental)</span>}
+            {item.name}
+            {item.isExperimental && <span> (Experimental)</span>}
           </div>
         </Grid.Item>
-        {['event', 'method', 'property'].includes(kind) && (
+        {['event', 'method', 'property'].includes(item.kind) && (
           <>
             <Grid.Item xs="12" sm="6" md="grow">
-              {!!(detail ?? returns ?? type) && (
+              {!!type && (
                 <>
                   <b>Type</b>
-                  <div>{detail ?? returns ?? type}</div>
+                  <div>
+                    {!typeReference && <span>{type}</span>}
+                    {!!typeReference && (
+                      <Button link target="_blank" to={typeReference}>
+                        {type}
+                      </Button>
+                    )}
+                  </div>
                 </>
               )}
             </Grid.Item>
           </>
         )}
-        {['style'].includes(kind) && <Grid.Item xs="12" sm="grow" hideSmDown />}
-        {['property', 'style'].includes(kind) && (
+        {['style'].includes(item.kind) && <Grid.Item xs="12" sm="grow" hideSmDown />}
+        {['property', 'style'].includes(item.kind) && (
           <>
             <Grid.Item xs="12" sm="auto" hideMdUp>
               <b>Default</b>
-              <div>{initializer || 'undefined'}</div>
+              <div>{item.initializer || 'undefined'}</div>
             </Grid.Item>
             <Grid.Item xs="12" sm="auto" hideSmDown style={{ textAlign: 'right' }}>
               <b>Default</b>
-              <div>{initializer || 'undefined'}</div>
+              <div>{item.initializer || 'undefined'}</div>
             </Grid.Item>
           </>
         )}
         <Grid.Item xs="12" />
-        {['event'].includes(kind) && (
+        {['event'].includes(item.kind) && (
           <Grid.Item xs="12">
             <b>Cancelable</b>
-            <div>{`${!!isCancelable}`}</div>
+            <div>{`${!!item.isCancelable}`}</div>
           </Grid.Item>
         )}
-        {['property'].includes(kind) && (
+        {['property'].includes(item.kind) && (
           <>
             <Grid.Item xs="12" sm="6">
               <b>Attribute</b>
-              <div>{attribute}</div>
+              <div>{item.attribute}</div>
             </Grid.Item>
             <Grid.Item xs="12" sm="grow">
               <b>Reflect</b>
-              <div>{`${!!hasReflect}`}</div>
+              <div>{`${!!item.hasReflect}`}</div>
             </Grid.Item>
           </>
         )}
-        {['method'].includes(kind) && (
+        {['method'].includes(item.kind) && (
           <>
-            {!!signature && (
+            {!!item.signature && (
               <Grid.Item xs="12">
                 <b>Signature</b>
-                <Markup value={signature} />
+                <div>
+                  <Code language="js">{item.signature}</Code>
+                </div>
               </Grid.Item>
             )}
           </>
         )}
-        {!!description && (
+        {!!item.description && (
           <Grid.Item xs="12">
             <b>Description</b>
-            <Markup value={description} />
+            <Markup value={item.description} />
           </Grid.Item>
         )}
       </Grid>

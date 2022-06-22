@@ -11,19 +11,15 @@ export const Usage = () => {
     <>
       <h2>Usage</h2>
       <p>
-        <span>Follow the tutorials</span>
-        &nbsp;
-        <Button color="secondary-darken-4" link="underline" to={Utils.getPath('INSTALLATION_FRAMEWORK', { framework })}>
+        Follow the tutorials &nbsp;
+        <Button link="underline" to={Utils.getPath('INSTALLATION_FRAMEWORK', { framework })}>
           here
         </Button>
-        &nbsp;
-        <span>to use the </span>
-        <code>{Constants.PLATFORM_NAME}</code>
-        <span>library on</span>
-        &nbsp;
-        <code>{framework}-based</code>
-        &nbsp;
-        <span>projects.</span>
+        &nbsp; to use the &nbsp;
+        <b>{Constants.PLATFORM_NAME}</b>
+        &nbsp; library on &nbsp;
+        <b>{framework}-based</b>
+        &nbsp; projects.
       </p>
     </>
   );

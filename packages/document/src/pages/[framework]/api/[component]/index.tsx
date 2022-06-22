@@ -51,7 +51,7 @@ const ComponentAPI = ({ component }: any) => {
             <h2>{section.title}</h2>
             {section.items.map((item: any, index: number) => (
               <React.Fragment key={item.name}>
-                <Parameter kind={section.key} {...item} />
+                <Parameter component={component} kind={section.key} {...item} />
                 {section.items.length - 1 > index && <Divider />}
               </React.Fragment>
             ))}

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { paramCase } from 'change-case';
-import { useDebounce } from 'use-debounce';
 import create from 'zustand';
 
 import * as Utils from '@app/utils';
@@ -11,11 +10,13 @@ import { TocItemProps } from './toc.types';
 interface UseTocItem {
   isActive?: boolean;
   element?: HTMLElement;
+  entry?: IntersectionObserverEntry;
   id?: string;
   key?: string;
   level?: number;
   observer?: IntersectionObserver;
   title?: string;
+  top?: number;
 }
 
 interface UseToc {
@@ -23,22 +24,24 @@ interface UseToc {
   add: (item: UseTocItem) => void;
   remove: (item: UseTocItem) => void;
   scrollTo: (item: UseTocItem) => void;
-  update: (item: UseTocItem) => void;
+  update: (item: UseTocItem, entry: IntersectionObserverEntry) => void;
 }
 
 const useToc = create<UseToc>((set, get) => ({
   items: [],
   add: (item: UseTocItem) => {
-    const items = get()
-      .items.concat(item)
-      .sort((a, b) => {
-        if (!a || !b) return 0;
-        const topA = a.element?.getBoundingClientRect().top ?? 0;
-        const topB = b.element?.getBoundingClientRect().top ?? 0;
-        return topA < topB ? -1 : 0;
-      });
+    let items = get().items.concat(item);
+
+    for (const item of items) {
+      item.top = item.element?.getBoundingClientRect().top;
+    }
+
+    items = items.sort((a, b) => ((a.top ?? 0) < (b.top ?? 0) ? -1 : 0));
+
     set({ items });
-    item.observer = new IntersectionObserver(() => get().update(item));
+
+    item.observer = new IntersectionObserver(([entry]) => get().update(item, entry));
+
     item.observer.observe(item.element!);
   },
   remove: (item: UseTocItem) => {
@@ -54,7 +57,10 @@ const useToc = create<UseToc>((set, get) => ({
     });
     setTimeout(() => (window.location.hash = `#${item.id}`), 500);
   },
-  update(item: UseTocItem) {}
+  update(item: UseTocItem, entry: IntersectionObserverEntry) {
+    item.entry = entry;
+    const entries = get().items.filter((item) => item.entry?.isIntersecting);
+  }
 }));
 
 export const Toc = () => {

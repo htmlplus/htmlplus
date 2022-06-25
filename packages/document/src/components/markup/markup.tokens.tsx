@@ -22,7 +22,7 @@ const H = (props: any) => {
   const Tag = `h${props.level}` as any;
   return (
     <Tag>
-      <Toc.Item>{props.children}</Toc.Item>
+      <Toc.Item level={props.level}>{props.children}</Toc.Item>
     </Tag>
   );
 };

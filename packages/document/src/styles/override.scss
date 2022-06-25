@@ -23,6 +23,31 @@ h6 {
   }
 }
 
-.toc .active {
-  color: red;
+.toc {
+  width: 220px;
+  margin: 10px;
+  a {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #a7a7a7;
+    border-left: solid 2px #eeeeee;
+    &:hover {
+      color: gray;
+      border-color: gray;
+    }
+    &.active {
+      color: blue;
+      border-color: blue;
+    }
+  }
+  .level-1 {
+    padding-left: 20px;
+  }
+  .level-2 {
+    padding-left: 40px;
+  }
+  .level-3 {
+    padding-left: 60px;
+  }
 }

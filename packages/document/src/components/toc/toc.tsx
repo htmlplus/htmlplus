@@ -65,6 +65,7 @@ const useToc = create<UseToc>((set, get) => ({
 
 export const Toc = () => {
   const toc = useToc();
+  if (!toc.items.length) return null;
   useEffect(() => {
     const timeout = () => {
       if (document.readyState != 'complete') {
@@ -79,25 +80,19 @@ export const Toc = () => {
   }, []);
   return (
     <div className="toc">
-      {!!toc.items.length && (
-        <>
-          <div>CONTENTS</div>
-          <div>
-            {toc.items.map((item) => (
-              <div
-                className={Utils.classes({
-                  ['active']: item.isActive,
-                  [`level-${item.level || 0}`]: true
-                })}
-                key={item.key}
-                onClick={() => toc.scrollTo(item)}
-              >
-                {item.title}
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+      <div>CONTENTS</div>
+      {toc.items.map((item) => (
+        <a
+          className={Utils.classes({
+            ['active']: item.isActive,
+            [`level-${item.level}`]: true
+          })}
+          key={item.key}
+          onClick={() => toc.scrollTo(item)}
+        >
+          {item.title}
+        </a>
+      ))}
     </div>
   );
 };

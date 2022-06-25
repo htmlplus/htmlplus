@@ -1,23 +1,28 @@
+.toc-item {
+  float: left;
+  padding-right: 4px;
+  margin-left: -18px;
+  text-decoration: none !important;
+  cursor: pointer;
+  color: inherit;
+  &::after {
+    clear: both;
+  }
+  & > * {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+    visibility: hidden;
+  }
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  a {
-    float: left;
-    padding-right: 4px;
-    // margin-left: -20px;
-    line-height: 1;
-    text-decoration: none !important;
-    & > * {
-      display: inline-block;
-      overflow: visible !important;
-      vertical-align: text-bottom;
-      fill: currentColor;
-      visibility: hidden;
-    }
-  }
   &:hover a > * {
     visibility: visible;
   }

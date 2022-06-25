@@ -92,7 +92,7 @@ export const Sidebar = ({}: SidebarProps) => {
   const actives: SidebarItem[] = useMemo(() => {
     const run = (...items: SidebarItem[]): SidebarItem[] => {
       for (const item of items) {
-        if (router.asPath == item.url) return [item];
+        if (router.asPath.startsWith(item.url!!)) return [item];
         if (!item.items) continue;
         const result = run(...item.items);
         if (!result.length) continue;

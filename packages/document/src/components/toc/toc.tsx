@@ -60,16 +60,20 @@ const useToc = create<UseToc>((set, get) => ({
   update(item: UseTocItem, entry: IntersectionObserverEntry) {
     item.entry = entry;
     const entries = get().items.filter((item) => item.entry?.isIntersecting);
+    if (!entries.length) return;
+    const items = get().items;
+    items.forEach((item) => (item.isActive = item === entries.at(0)));
+    set({ items: [...items] });
   }
 }));
 
 export const Toc = () => {
   const toc = useToc();
-  if (!toc.items.length) return null;
   useEffect(() => {
+    let clear: any;
     const timeout = () => {
       if (document.readyState != 'complete') {
-        setTimeout(timeout, 250);
+        clear = setTimeout(timeout, 250);
         return;
       }
       const item = toc.items.find((item) => item.id && location.hash.endsWith(item.id));
@@ -77,7 +81,9 @@ export const Toc = () => {
       toc.scrollTo(item);
     };
     timeout();
+    return () => clearTimeout(clear);
   }, []);
+  if (!toc.items.length) return null;
   return (
     <div className="toc">
       <div>CONTENTS</div>

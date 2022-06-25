@@ -1,4 +1,4 @@
-import { Alert, Api, Browsers, Example, Examples, Toc, Usage } from '@app/components';
+import { Alert, Api, Browsers, Code, Example, Examples, Toc, Usage } from '@app/components';
 
 export const tokens = {
   Alert,
@@ -14,7 +14,12 @@ export const tokens = {
   h3: (props: any) => <H level={3} {...props} />,
   h4: (props: any) => <H level={4} {...props} />,
   h5: (props: any) => <H level={5} {...props} />,
-  h6: (props: any) => <H level={6} {...props} />
+  h6: (props: any) => <H level={6} {...props} />,
+  code: ({ children, className, inline, ...a }: any) => {
+    if (inline) return <code>{children}</code>;
+    const language = className?.split('-').pop();
+    return <Code language={language}>{children}</Code>;
+  }
 };
 
 // TODO

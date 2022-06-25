@@ -10,7 +10,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
   return (
     <>
       <Header menu />
-      <Grid>
+      <Grid gutter="md">
         <Grid.Item xs="auto" hideMdDown>
           <Sticky top="72">
             <Sidebar />

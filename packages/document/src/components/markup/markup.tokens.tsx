@@ -1,5 +1,4 @@
-import { Alert, Browsers, Example, Examples } from '@app/components';
-import { Api, Usage } from '@app/containers';
+import { Alert, Api, Browsers, Example, Examples, Toc, Usage } from '@app/components';
 
 export const tokens = {
   Alert,
@@ -10,12 +9,20 @@ export const tokens = {
   Usage: () => <Usage />,
   Playground: () => null,
   // TODO
-  h1: (props: any) => (
-    <h1>
-      <a id="TODO" aria-hidden="true" href="#TODO">
-        <div>#</div>
-      </a>
-      {props.children}
-    </h1>
-  )
+  h1: (props: any) => <H level={1} {...props} />,
+  h2: (props: any) => <H level={2} {...props} />,
+  h3: (props: any) => <H level={3} {...props} />,
+  h4: (props: any) => <H level={4} {...props} />,
+  h5: (props: any) => <H level={5} {...props} />,
+  h6: (props: any) => <H level={6} {...props} />
+};
+
+// TODO
+const H = (props: any) => {
+  const Tag = `h${props.level}` as any;
+  return (
+    <Tag>
+      <Toc.Item>{props.children}</Toc.Item>
+    </Tag>
+  );
 };

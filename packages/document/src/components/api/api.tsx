@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { Button } from '@app/components';
+import { Button, Toc } from '@app/components';
 import * as Utils from '@app/utils';
 
 export const Api = () => {
@@ -8,7 +8,9 @@ export const Api = () => {
   const { component, framework } = router.query;
   return (
     <>
-      <h2>Api</h2>
+      <h2>
+        <Toc.Item level={1}>Api</Toc.Item>
+      </h2>
       <p>
         Click &nbsp;
         <Button link="underline" to={Utils.getPath('API_DETAILS', { component, framework })}>

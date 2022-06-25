@@ -1,10 +1,14 @@
+import { Toc } from '@app/components';
+
 import { ContributorsProps } from './contributors.types';
 
 export const Contributors = ({ contributors }: ContributorsProps) => {
   if (!contributors?.length) return null;
   return (
     <section className="contributors">
-      <h5>Contributors</h5>
+      <h5>
+        <Toc.Item level={1}>Contributors</Toc.Item>
+      </h5>
       <div>
         <ul>
           {contributors.reverse().map((contributor) => (

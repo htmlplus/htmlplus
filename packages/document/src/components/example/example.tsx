@@ -1,4 +1,4 @@
-import { Button, Code, Grid, Icon, Tabs } from '@app/components';
+import { Button, Code, Grid, Icon, Tabs, Toc } from '@app/components';
 
 import { ExampleProps } from './example.types';
 
@@ -22,7 +22,9 @@ export const Example = ({ value }: ExampleProps) => {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <h2>
+        <Toc.Item level={2}>{title}</Toc.Item>
+      </h2>
       <Tabs value="preview">
         <Grid className="toolbar" alignItems="center" gutterX="sm">
           <Grid.Item xs="grow">

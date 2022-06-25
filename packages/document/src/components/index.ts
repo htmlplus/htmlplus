@@ -42,6 +42,7 @@ export const Transition = dynamic<any>(() => import('@htmlplus/react').then(({ T
 });
 
 export * from './alert';
+export * from './api';
 export * from './browsers';
 export * from './button';
 export * from './code';
@@ -53,7 +54,10 @@ export * from './header';
 export * from './markup';
 export * from './navigation';
 export * from './parameter';
+export * from './sidebar';
 export * from './socials';
+export * from './toc';
+export * from './usage';
 
 // TODO
 // export * from './api';

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { Button } from '@app/components';
+import { Button, Toc } from '@app/components';
 import * as Constants from '@app/constants';
 import * as Utils from '@app/utils';
 
@@ -9,7 +9,9 @@ export const Usage = () => {
   const { framework } = router.query;
   return (
     <>
-      <h2>Usage</h2>
+      <h2>
+        <Toc.Item level={1}>Usage</Toc.Item>
+      </h2>
       <p>
         Follow the tutorials &nbsp;
         <Button link="underline" to={Utils.getPath('INSTALLATION_FRAMEWORK', { framework })}>

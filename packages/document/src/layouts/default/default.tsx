@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Footer, Grid, Header, Navigation, Sticky } from '@app/components';
-import { Sidebar } from '@app/containers';
+import { Footer, Grid, Header, Navigation, Sidebar, Sticky, Toc } from '@app/components';
 
 interface LayoutDefaultProps {
   children: ReactNode;
@@ -22,7 +21,9 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
           <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
         </Grid.Item>
         <Grid.Item xs="12" md="auto" orderXs="1" orderSm="1" orderMd="2">
-          <Sticky top="72">TODO</Sticky>
+          <Sticky top="72">
+            <Toc />
+          </Sticky>
         </Grid.Item>
       </Grid>
       <Footer />

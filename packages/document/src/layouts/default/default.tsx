@@ -10,23 +10,34 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
   return (
     <>
       <Header menu />
-      <Grid gutter="md">
-        <Grid.Item xs="auto" hideMdDown>
-          <Sticky top="72">
+      <Grid>
+        <Grid.Item xs="auto" hideLgDown>
+          <Sticky class="menu" top="72">
             <Sidebar />
           </Sticky>
         </Grid.Item>
-        <Grid.Item xs="12" md="grow" orderXs="2" orderSm="2" orderMd="1">
-          {children}
-          <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
-        </Grid.Item>
-        <Grid.Item xs="12" md="auto" orderXs="1" orderSm="1" orderMd="2">
-          <Sticky top="72">
-            <Toc />
-          </Sticky>
+        <Grid.Item xs="grow">
+          <Grid>
+            <Grid.Item xs="12" md="grow">
+              {/* TODO */}
+              <div style={{ padding: '0 16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
+                {children}
+                <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
+              </div>
+            </Grid.Item>
+            <Grid.Item xs="12" md="auto" hideMdDown>
+              <Sticky top="72">
+                {/* TODO */}
+                <div style={{ width: '240px' }} />
+                <Toc />
+              </Sticky>
+            </Grid.Item>
+            <Grid.Item xs="12">
+              <Footer />
+            </Grid.Item>
+          </Grid>
         </Grid.Item>
       </Grid>
-      <Footer />
     </>
   );
 };

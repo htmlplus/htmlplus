@@ -1,3 +1,32 @@
+$color-primary: #ee6e73;
+$color-primary-lighten-5: #ee6e721e;
+
+a {
+  color: $color-primary;
+}
+
+footer {
+  background: #f1f1f1;
+}
+
+svg.logo {
+  width: 38px;
+  height: 38px;
+  fill: $color-primary;
+  margin: 8px 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:hover a > * {
+    visibility: visible;
+  }
+}
+
 .toc-item {
   float: left;
   padding-right: 4px;
@@ -14,17 +43,6 @@
     vertical-align: text-bottom;
     fill: currentColor;
     visibility: hidden;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  &:hover a > * {
-    visibility: visible;
   }
 }
 
@@ -52,8 +70,8 @@ h6 {
       &.collapse {
         &.active > .button {
           font-weight: 600;
-          color: #206bc4;
-          background-color: rgba(32, 107, 196, 0.04);
+          color: $color-primary;
+          background-color: $color-primary-lighten-5;
         }
         ul {
           display: none;
@@ -77,7 +95,7 @@ h6 {
         text-decoration: none;
         &:focus,
         &:hover {
-          color: #1a569d;
+          color: $color-primary;
         }
       }
 
@@ -102,7 +120,6 @@ h6 {
 }
 
 .toc {
-  width: 220px;
   a {
     display: block;
     cursor: pointer;
@@ -114,8 +131,8 @@ h6 {
       border-color: gray;
     }
     &.active {
-      color: blue;
-      border-color: blue;
+      color: $color-primary;
+      border-color: $color-primary;
     }
   }
   .level-1 {

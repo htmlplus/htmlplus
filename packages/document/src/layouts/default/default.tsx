@@ -20,7 +20,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
           <Grid>
             <Grid.Item xs="12" md="grow">
               {/* TODO */}
-              <div style={{ padding: '0 16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
+              <div style={{ padding: '16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
                 {children}
                 <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
               </div>
@@ -32,9 +32,10 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
                 <Toc />
               </Sticky>
             </Grid.Item>
-            <Grid.Item xs="12">
+            {/* TODO */}
+            {/* <Grid.Item xs="12">
               <Footer />
-            </Grid.Item>
+            </Grid.Item> */}
           </Grid>
         </Grid.Item>
       </Grid>

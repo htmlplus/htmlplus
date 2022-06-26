@@ -86,7 +86,7 @@ export const Toc = () => {
   if (!toc.items.length) return null;
   return (
     <div className="toc">
-      <div>CONTENTS</div>
+      <p>Contents</p>
       {toc.items.map((item) => (
         <a
           className={Utils.classes({

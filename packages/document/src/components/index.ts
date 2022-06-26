@@ -50,6 +50,7 @@ export * from './contributors';
 export * from './example';
 export * from './examples';
 export * from './footer';
+export * from './frameworks';
 export * from './header';
 export * from './markup';
 export * from './navigation';

@@ -2,12 +2,14 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Divider, Parameter } from '@app/components';
+import axios from 'axios';
+
+import { Contributors, Divider, Parameter, Toc } from '@app/components';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import * as Utils from '@app/utils';
 
-const ComponentAPI = ({ component }: any) => {
+const ComponentAPI = ({ component, contributors }: any) => {
   const sections = [
     {
       key: 'property',
@@ -48,7 +50,9 @@ const ComponentAPI = ({ component }: any) => {
         .filter((section) => section.items?.length)
         .map((section) => (
           <React.Fragment key={section.key}>
-            <h2>{section.title}</h2>
+            <h2>
+              <Toc.Item level={1}>{section.title}</Toc.Item>
+            </h2>
             {section.items.map((item: any, index: number) => (
               <React.Fragment key={item.name}>
                 <Parameter component={component} kind={section.key} {...item} />
@@ -57,6 +61,7 @@ const ComponentAPI = ({ component }: any) => {
             ))}
           </React.Fragment>
         ))}
+      <Contributors contributors={contributors} />
     </LayoutDefault>
   );
 };
@@ -66,9 +71,22 @@ export default ComponentAPI;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { component: componentKey, framework } = context.params || {};
   const component = components.find((component) => component.key == componentKey);
+  const contributors: string[] = await (async () => {
+    try {
+      const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;
+      const response = await axios.get(url);
+      return response.data
+        .map((commit: any) => commit.author?.login)
+        .filter(
+          (contributor: string, index: number, contributors: string[]) =>
+            contributor && contributors.indexOf(contributor) === index
+        );
+    } catch {}
+  })();
   return {
     props: {
       component,
+      contributors,
       framework
     }
   };

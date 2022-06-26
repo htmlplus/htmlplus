@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Footer, Grid, Header, Navigation, Sidebar, Sticky, Toc } from '@app/components';
+import { Footer, Frameworks, Grid, Header, Navigation, Sidebar, Sticky, Toc } from '@app/components';
 
 interface LayoutDefaultProps {
   children: ReactNode;
@@ -26,9 +26,11 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
               </div>
             </Grid.Item>
             <Grid.Item xs="12" md="auto" hideMdDown>
-              <Sticky top="72">
+              <Sticky top="12">
                 {/* TODO */}
                 <div style={{ width: '240px' }} />
+                <Frameworks />
+                <br />
                 <Toc />
               </Sticky>
             </Grid.Item>

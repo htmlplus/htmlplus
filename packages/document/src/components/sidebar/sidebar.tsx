@@ -105,9 +105,13 @@ export const Sidebar = ({}: SidebarProps) => {
 
   const key = (item: SidebarItem) => item.title;
 
-  const isActive = (item: SidebarItem) => actives.some((active) => key(active) == key(item));
+  const isActive = (item: SidebarItem) => {
+    return actives.some((active) => (item.url ? active.url == item.url : key(item) == key(active)));
+  };
 
-  const isCollapse = (item: SidebarItem) => !expands.some((x) => key(x) == key(item));
+  const isCollapse = (item: SidebarItem) => {
+    return !expands.some((x) => key(x) == key(item));
+  };
 
   const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
     return (
@@ -128,7 +132,7 @@ export const Sidebar = ({}: SidebarProps) => {
                 </>
               )} */}
               {key(item)}
-              {!!item.items?.length && <span className="nav-link-toggle"></span>}
+              {!!item.items?.length && <span className="nav-link-toggle" />}
             </Button>
             {!!item.items?.length && menu(item.items, [item, ...parents])}
           </li>

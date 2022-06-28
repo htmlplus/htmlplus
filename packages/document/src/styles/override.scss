@@ -1,5 +1,15 @@
 $color-primary: #ee6e73;
 $color-primary-lighten-5: #ee6e721e;
+$color-primary-lighten-3: #f9dbdb;
+
+code {
+  padding: 0 4px;
+  background: $color-primary-lighten-3;
+}
+code:before,
+code:after {
+  content: none;
+}
 
 a {
   color: $color-primary;

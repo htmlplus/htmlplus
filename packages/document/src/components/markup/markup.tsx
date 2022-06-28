@@ -13,6 +13,20 @@ export const Markup = ({ scope, value }: MarkupProps) => {
 
   useEffect(() => {
     if (!value) return;
+
+    // TODO
+    value
+      ?.replace(/\r\n/g, ' \r\n ')
+      ?.match(/\{(.*?)\}/g)
+      ?.forEach((token) => {
+        const [type, key] = token.replace(/\{|\}/g, '').split('.');
+        switch (type) {
+          case 'Constants':
+            value = value?.replace(token, (Constants as any)[key]);
+            break;
+        }
+      });
+
     serialize(value).then(setSource);
   }, [value]);
 

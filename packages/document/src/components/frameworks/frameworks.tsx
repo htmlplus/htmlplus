@@ -5,28 +5,27 @@ import { useRouter } from 'next/router';
 
 import { frameworks } from '@app/data';
 import { useStore } from '@app/hooks';
-import { getPath2 } from '@app/utils';
+import { getPath } from '@app/utils';
 
 const Option = (props: any) => {
-  const { Option } = components;
   return (
-    <Option {...props}>
+    <components.Option {...props}>
       <SingleValue {...props} />
-    </Option>
+    </components.Option>
   );
 };
 
+// TODO
 const SingleValue = (props: any) => (
-  <div>
-    {/* TODO */}
+  <components.Placeholder {...props}>
     <img
       style={{ width: '1.5rem', height: '1.5rem', objectFit: 'contain', verticalAlign: 'middle', margin: '0' }}
       src={`/assets/logo/${props.data.logo}`}
-      alt={`${props.data.title} logo`}
+      alt={`${props.data.label} logo`}
     />
     &nbsp; &nbsp;
-    {props.data.title}
-  </div>
+    {props.data.label}
+  </components.Placeholder>
 );
 
 export const Frameworks = () => {
@@ -34,24 +33,36 @@ export const Frameworks = () => {
 
   const store = useStore();
 
-  const items = frameworks.filter((framework) => !framework.disabled);
+  const items = frameworks
+    .filter((framework) => !framework.disabled)
+    .map((framework) => ({
+      value: framework.key,
+      label: framework.title,
+      logo: framework.logo
+    }));
 
   const change = (framework: any) => {
-    store.setFramework(framework.key);
-    const query = Object.assign({}, router.query, { framework: framework.key });
+    store.setFramework(framework.value);
+    const query = Object.assign({}, router.query, { framework: framework.value });
     const prev = router.asPath;
-    const next = getPath2(router.route, query);
-    if (next === prev) return;
-    router.replace(next!);
+    const next = getPath(router.route, query);
+    if (next == prev) return;
+    if (next != router.route) return router.replace(next!);
+    if (!frameworks.some((framework) => prev.startsWith(`/${framework.key}`))) return;
+    router.replace(`/${framework.value}/` + prev.split('/').slice(2).join('/'));
   };
 
   return (
     <>
       <p>Select Your Framework</p>
       <Select
-        components={{ Option, SingleValue }}
+        isSearchable={false}
+        components={{
+          Option,
+          SingleValue
+        }}
         options={items}
-        value={items.find((framework) => framework.key === store.framework)}
+        value={items.find((framework) => framework.value === store.framework)}
         onChange={change}
       />
     </>

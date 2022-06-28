@@ -9,6 +9,11 @@
   - Total Components Count Per Framework
   - Total Examples Count
   - Total Examples Count Per Framework
+  - Theme Count
+- Statistics 2
+  - dowanload
+  - stars
+  - etc
 - Features
   - Cross Framework
   - Performance Benefits
@@ -17,6 +22,7 @@
   - Dependency Free
   - Simple and Easy-to-learn
   - SSR
+  - i18
   - Cross Platform
 - Browsers
   - Chrome

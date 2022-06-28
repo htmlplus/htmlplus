@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Select, { components } from 'react-select';
 
 import { useRouter } from 'next/router';
@@ -32,6 +32,16 @@ export const Frameworks = () => {
   const router = useRouter();
 
   const store = useStore();
+
+  // TODO
+  useEffect(() => {
+    const framework = window?.location?.pathname?.split('/')?.at(1);
+    if (!framework) return;
+    if (!frameworks.some((framework) => router.asPath.startsWith(`/${framework.key}`))) return;
+    if (!framework) return;
+    if (framework == store.framework) return;
+    store.setFramework(framework);
+  }, [router.asPath]);
 
   const items = frameworks
     .filter((framework) => !framework.disabled)

@@ -38,7 +38,7 @@ h6 {
   }
 }
 
-ul.contributors {
+.contributors {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -145,7 +145,7 @@ ul.contributors {
         border-radius: 4px;
         padding: 0.25rem 0.75rem;
         color: inherit;
-        font-size: 0.875rem;
+        // font-size: 0.875rem;
         text-decoration: none;
         &:focus,
         &:hover {
@@ -198,4 +198,11 @@ ul.contributors {
   .level-3 {
     padding-left: 60px;
   }
+}
+
+.frameworks,
+.toc {
+  width: 240px;
+  margin: 20px;
+  margin-bottom: 0;
 }

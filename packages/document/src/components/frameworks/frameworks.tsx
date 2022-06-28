@@ -63,7 +63,7 @@ export const Frameworks = () => {
   };
 
   return (
-    <>
+    <div className="frameworks">
       <p>Select Your Framework</p>
       <Select
         isSearchable={false}
@@ -75,6 +75,6 @@ export const Frameworks = () => {
         value={items.find((framework) => framework.value === store.framework)}
         onChange={change}
       />
-    </>
+    </div>
   );
 };

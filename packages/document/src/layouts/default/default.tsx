@@ -27,10 +27,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
             </Grid.Item>
             <Grid.Item xs="12" md="auto" hideMdDown>
               <Sticky top="12">
-                {/* TODO */}
-                <div style={{ width: '240px' }} />
                 <Frameworks />
-                <br />
                 <Toc />
               </Sticky>
             </Grid.Item>

@@ -2,32 +2,20 @@ import React, { useEffect, useMemo } from 'react';
 
 import { useRouter } from 'next/router';
 
-import create from 'zustand';
-
 import { Button, Icon } from '@app/components';
 import * as Constants from '@app/constants';
 import { components } from '@app/data';
+import { useSidebar, useStore } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { SidebarItem, SidebarProps } from './sidebar.types';
 
-// TODO
-interface UseSidebar {
-  expands: SidebarItem[];
-  setExpands: (expands: SidebarItem[]) => void;
-}
-const useSidebar = create<UseSidebar>((set) => ({
-  expands: [],
-  setExpands: (expands) => set({ expands })
-}));
-
 export const Sidebar = ({}: SidebarProps) => {
-  // TODO
-  const framework = 'react';
-
   const router = useRouter();
 
-  const { expands, setExpands } = useSidebar();
+  const sidebar = useSidebar();
+
+  const store = useStore();
 
   const items = useMemo(
     () => [
@@ -64,7 +52,7 @@ export const Sidebar = ({}: SidebarProps) => {
         icon: 'components',
         items: components.map((component) => ({
           title: component.title,
-          url: Utils.getPath('COMPONENT_DETAILS', { framework, component: component.key })
+          url: Utils.getPath('COMPONENT_DETAILS', { framework: store.framework, component: component.key })
         }))
       },
       {
@@ -72,7 +60,7 @@ export const Sidebar = ({}: SidebarProps) => {
         icon: 'components',
         items: components.map((component) => ({
           title: component.title,
-          url: Utils.getPath('API_DETAILS', { framework, component: component.key })
+          url: Utils.getPath('API_DETAILS', { framework: store.framework, component: component.key })
         }))
       },
       {
@@ -86,7 +74,7 @@ export const Sidebar = ({}: SidebarProps) => {
         ]
       }
     ],
-    []
+    [store.framework]
   );
 
   const actives: SidebarItem[] = useMemo(() => {
@@ -110,7 +98,7 @@ export const Sidebar = ({}: SidebarProps) => {
   };
 
   const isCollapse = (item: SidebarItem) => {
-    return !expands.some((x) => key(x) == key(item));
+    return !sidebar.expands.some((x) => key(x) == key(item));
   };
 
   const menu = (items: SidebarItem[], parents: SidebarItem[] = []) => {
@@ -144,17 +132,17 @@ export const Sidebar = ({}: SidebarProps) => {
   const toggle = (event: MouseEvent, item: SidebarItem) => {
     if (!item || item.url) return;
     event.preventDefault();
-    const exists = expands.some((expand) => key(expand) == key(item));
-    if (exists) setExpands(expands.filter((expand) => key(expand) != key(item)));
-    else setExpands([...expands, item]);
+    const exists = sidebar.expands.some((expand) => key(expand) == key(item));
+    if (exists) sidebar.setExpands(sidebar.expands.filter((expand) => key(expand) != key(item)));
+    else sidebar.setExpands([...sidebar.expands, item]);
   };
 
   useEffect(
     () =>
-      setExpands(
+      sidebar.setExpands(
         actives
           .slice(0, -1)
-          .concat(expands)
+          .concat(sidebar.expands)
           .filter((item, index, items) => items.findIndex((x) => key(x) == key(item)) == index)
       ),
     [actives]

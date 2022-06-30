@@ -20,7 +20,7 @@ const properties: LinkProperty[] = [];
 const connect = (source: LinkProperty) => {
   const { config, instance, name, type } = source;
 
-  const element = instance.$host$();
+  const element = host(instance);
 
   const initialize = instance[name];
 

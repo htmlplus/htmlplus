@@ -15,6 +15,8 @@ type LinkProperty = {
   type?: LinkPropertyType;
 };
 
+const parents = new Map<LinkInstance, LinkProperty>();
+
 const properties: LinkProperty[] = [];
 
 const connect = (source: LinkProperty) => {
@@ -30,18 +32,21 @@ const connect = (source: LinkProperty) => {
 
   properties.push(source);
 
-  switch (type) {
-    case 'ACTION':
-      siblings(source, 'INJECT').forEach((destination) => inject(source, destination));
-      break;
-    case 'OBSERVABLE':
-      proxy(source);
-      siblings(source, 'INJECT').forEach((destination) => inject(source, destination));
-      break;
-    case 'INJECT':
-      siblings(source, 'ACTION', 'OBSERVABLE').forEach((destination) => inject(destination, source));
-      break;
+  // TODO
+  if (!namespace) {
+    source.namespace = parent(source)?.namespace;
+    // console.log(1, source, namespace, parent(source));
+    return;
   }
+
+  inject(source);
+
+  // TODO
+  properties
+    .filter((property) => !property.namespace && property.name == name)
+    .forEach((property) => {
+      inject(property);
+    });
 };
 
 const disconnect = (source: LinkProperty) => {
@@ -59,10 +64,37 @@ const filter = (source: LinkProperty) => {
   });
 };
 
-const inject = (source: LinkProperty, destination: LinkProperty) => {
-  let value = source.instance[source.name];
-  if (typeof value === 'function') value = value.bind(source.instance);
-  destination.instance[destination.name] = value;
+const inject = (source: LinkProperty) => {
+  switch (source.type) {
+    case 'ACTION':
+      related(source, 'INJECT').forEach((destination) => set(source, destination));
+      break;
+    case 'OBSERVABLE':
+      proxy(source);
+      related(source, 'INJECT').forEach((destination) => set(source, destination));
+      break;
+    case 'INJECT':
+      related(source, 'ACTION', 'OBSERVABLE').forEach((destination) => set(destination, source));
+      break;
+  }
+};
+
+const parent = (source: LinkProperty) => {
+  const cache = parents.get(source.instance);
+
+  if (cache) return cache;
+
+  let node = source.element?.parentElement;
+
+  while (node) {
+    if (node.shadowRoot) {
+      const [parent] = filter({ element: node, name: source.name });
+      if (parent) {
+        return parents.set(source.instance, parent).get(parent);
+      }
+    }
+    node = node.parentElement;
+  }
 };
 
 const proxy = (source: LinkProperty) => {
@@ -89,11 +121,17 @@ const reconnect = (instance: LinkInstance) => {
   });
 };
 
-const siblings = (source: LinkProperty, ...types: LinkPropertyType[]) => {
+const related = (source: LinkProperty, ...types: LinkPropertyType[]) => {
   return filter({
     name: source.name,
     namespace: source.namespace
   }).filter((destination) => types.includes(destination.type));
+};
+
+const set = (source: LinkProperty, destination: LinkProperty) => {
+  let value = source.instance[source.name];
+  if (typeof value === 'function') value = value.bind(source.instance);
+  destination.instance[destination.name] = value;
 };
 
 const Decorator = (type: LinkPropertyType, config: LinkConfig) => {

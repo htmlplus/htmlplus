@@ -2,15 +2,13 @@ import { host } from '@app/helpers';
 
 type LinkConfig = (instance: LinkInstance) => string;
 type LinkInstance = any;
-type LinkTarget = any;
-type LinkPropertyName = string;
 type LinkPropertyType = 'ACTION' | 'INJECT' | 'OBSERVABLE';
 type LinkProperty = {
   config?: LinkConfig;
   element?: HTMLElement;
   initialize?: any;
   instance?: LinkInstance;
-  name?: LinkPropertyName;
+  name?: PropertyKey;
   namespace?: string;
   type?: LinkPropertyType;
 };
@@ -33,20 +31,19 @@ const connect = (source: LinkProperty) => {
   properties.push(source);
 
   // TODO
-  if (!namespace) {
-    source.namespace = parent(source)?.namespace;
-    // console.log(1, source, namespace, parent(source));
-    return;
-  }
+  // if (!namespace) {
+  //   source.namespace = parent(source)?.namespace;
+  //   return;
+  // }
 
   inject(source);
 
   // TODO
-  properties
-    .filter((property) => !property.namespace && property.name == name)
-    .forEach((property) => {
-      inject(property);
-    });
+  // properties
+  //   .filter((property) => !property.namespace && property.name == name)
+  //   .forEach((property) => {
+  //     inject(property);
+  //   });
 };
 
 const disconnect = (source: LinkProperty) => {
@@ -135,7 +132,7 @@ const set = (source: LinkProperty, destination: LinkProperty) => {
 };
 
 const Decorator = (type: LinkPropertyType, config: LinkConfig) => {
-  return () => (target: LinkTarget, name: LinkPropertyName) => {
+  return () => (target: any, name: PropertyKey) => {
     const { connectedCallback, disconnectedCallback } = target;
     target.connectedCallback = function () {
       connectedCallback?.call(this);

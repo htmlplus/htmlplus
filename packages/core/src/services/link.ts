@@ -1,79 +1,131 @@
 import { host } from '@app/helpers';
 
-const links = new Map<string, any>();
-
+type LinkConfig = (instance: LinkInstance) => string;
+type LinkInstance = any;
+type LinkTarget = any;
+type LinkPropertyName = string;
+type LinkPropertyType = 'ACTION' | 'INJECT' | 'OBSERVABLE';
 type LinkProperty = {
+  config?: LinkConfig;
   element?: HTMLElement;
   initialize?: any;
-  instance?: any;
-  name?: string;
-  type?: 'action' | 'inject' | 'observable';
+  instance?: LinkInstance;
+  name?: LinkPropertyName;
+  namespace?: string;
+  type?: LinkPropertyType;
 };
 
-export const createLink = (namespace: string) => {
-  if (links.has(namespace)) return links.get(namespace);
+const properties: LinkProperty[] = [];
 
-  const properties: Array<LinkProperty> = [];
+const connect = (source: LinkProperty) => {
+  const { config, instance, name, type } = source;
 
-  const connect = (key: string, property: LinkProperty) => {
-    const isExist = properties.some(({ instance, name }) => instance === property.instance && name === property.name);
+  const element = instance.$host$();
 
-    if (isExist) console.error('TODO');
+  const initialize = instance[name];
 
-    properties.push(property);
+  const namespace = config(instance);
 
-    switch (property.type) {
-      case 'action':
-        break;
-      case 'observable':
-        break;
-      case 'inject':
-        break;
-    }
+  Object.assign(source, { element, initialize, namespace });
 
-    console.log(1, key, property);
-  };
+  properties.push(source);
 
-  const disconnect = (key: string) => {
-    console.log(2, key);
-  };
+  switch (type) {
+    case 'ACTION':
+      siblings(source, 'INJECT').forEach((destination) => inject(source, destination));
+      break;
+    case 'OBSERVABLE':
+      proxy(source);
+      siblings(source, 'INJECT').forEach((destination) => inject(source, destination));
+      break;
+    case 'INJECT':
+      siblings(source, 'ACTION', 'OBSERVABLE').forEach((destination) => inject(destination, source));
+      break;
+  }
+};
 
-  const reconnect = (instance) => {};
+const disconnect = (source: LinkProperty) => {
+  source = filter(source).at(0);
+  const index = properties.findIndex((item) => item === source);
+  if (index == -1) return;
+  properties.splice(index, 1);
+};
 
-  const decorator = (type) => () => (target, name) => {
-    const key = Math.random().toString();
+const filter = (source: LinkProperty) => {
+  const keys = Object.keys(source);
+  return properties.filter((item) => {
+    for (const key of keys) if (item[key] != source[key]) return false;
+    return true;
+  });
+};
 
+const inject = (source: LinkProperty, destination: LinkProperty) => {
+  let value = source.instance[source.name];
+  if (typeof value === 'function') value = value.bind(source.instance);
+  destination.instance[destination.name] = value;
+};
+
+const proxy = (source: LinkProperty) => {
+  // let value = get(source);
+  // // TODO: any
+  // defineProperty(source.instance, source.name as any, {
+  //   enumerable: true,
+  //   configurable: true,
+  //   get() {
+  //     return value;
+  //   },
+  //   set(input) {
+  //     if (input === value) return;
+  //     value = input;
+  //     siblings(source, ['inject']).map((destination) => set(destination, value));
+  //   }
+  // });
+};
+
+const reconnect = (instance: LinkInstance) => {
+  filter({ instance }).forEach((property) => {
+    disconnect(property);
+    connect(property);
+  });
+};
+
+const siblings = (source: LinkProperty, ...types: LinkPropertyType[]) => {
+  return filter({
+    name: source.name,
+    namespace: source.namespace
+  }).filter((destination) => types.includes(destination.type));
+};
+
+const Decorator = (type: LinkPropertyType, config: LinkConfig) => {
+  return () => (target: LinkTarget, name: LinkPropertyName) => {
     const { connectedCallback, disconnectedCallback } = target;
-
     target.connectedCallback = function () {
-      connectedCallback?.bind(this)();
-      connect(key, {
-        element: host(this),
-        initialize: this[name],
+      connectedCallback?.call(this);
+      connect({
+        config,
         instance: this,
         name,
         type
       });
     };
-
     target.disconnectedCallback = function () {
-      disconnectedCallback?.bind(this)();
-      disconnect(key);
+      disconnectedCallback?.call(this);
+      disconnect({
+        instance: this,
+        name
+      });
     };
   };
+};
 
-  const Action = decorator('action');
-
-  const Inject = decorator('inject');
-
-  const Observable = decorator('observable');
-
-  links.set(namespace, {
+export const createLink = (config: LinkConfig) => {
+  const Action = Decorator('ACTION', config);
+  const Inject = Decorator('INJECT', config);
+  const Observable = Decorator('OBSERVABLE', config);
+  return {
     Action,
     Inject,
     Observable,
     reconnect
-  });
-
-  return links.get(namespace);
+  };
 };

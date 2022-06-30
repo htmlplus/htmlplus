@@ -1,3 +1,4 @@
+// TODO: add dynamic target like html, body, ...
 export class Scrollbar {
   static keys = new Set<any>();
 
@@ -55,11 +56,7 @@ export class Scrollbar {
 
     const keys = Object.keys(this.style);
 
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-
-      document.body.style[key] = this.style[key];
-    }
+    for (const key of keys) document.body.style[key] = this.style[key];
 
     this.style = {};
   }

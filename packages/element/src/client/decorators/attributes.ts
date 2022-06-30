@@ -4,12 +4,12 @@ import { appendToMethod, host, sync } from '../utils/index.js';
 
 export function Attributes() {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    let update;
+    const updates = new Map();
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
-      update = sync(host(this));
+      updates.set(this, sync(host(this)));
     });
     appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function () {
-      update(this[propertyKey]);
+      updates.get(this)(this[propertyKey]);
     });
   };
 }

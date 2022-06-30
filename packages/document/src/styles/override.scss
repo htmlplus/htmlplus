@@ -2,6 +2,10 @@ $color-primary: #ee6e73;
 $color-primary-lighten-5: #ee6e721e;
 $color-primary-lighten-3: #f9dbdb;
 
+html {
+  overflow-y: unset;
+}
+
 code {
   padding: 0 4px;
   color: $color-primary;

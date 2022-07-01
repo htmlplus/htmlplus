@@ -1,5 +1,11 @@
 import { host } from '@app/helpers';
+import { render } from '@htmlplus/element/client/utils';
 
+type CreateDecorator = {
+  config: LinkConfig;
+  options?: any;
+  type: LinkPropertyType;
+};
 type LinkConfig = (instance: LinkInstance) => string | undefined;
 type LinkInstance = any;
 type LinkPropertyType = 'ACTION' | 'INJECT' | 'OBSERVABLE';
@@ -10,19 +16,33 @@ type LinkProperty = {
   instance?: LinkInstance;
   name?: PropertyKey;
   namespace?: string;
+  options?: any;
   type?: LinkPropertyType;
 };
 
 const properties: LinkProperty[] = [];
 
-const bind = (property: LinkProperty): void => {
+const attach = (property: LinkProperty): void => {
   switch (property.type) {
     case 'ACTION':
       getRelated(property, 'INJECT').forEach((to) => inject(property, to));
       break;
     case 'OBSERVABLE':
-      // TODO proxy()
       getRelated(property, 'INJECT').forEach((to) => inject(property, to));
+      // TODO
+      let value = getValue(property);
+      Object.defineProperty(property.instance, property.name, {
+        enumerable: true,
+        configurable: true,
+        get() {
+          return value;
+        },
+        set(input) {
+          if (input === value) return;
+          value = input;
+          getRelated(property, 'INJECT').forEach((to) => inject(property, to));
+        }
+      });
       break;
     case 'INJECT':
       getRelated(property, 'ACTION', 'OBSERVABLE').forEach((to) => inject(to, property));
@@ -33,13 +53,33 @@ const bind = (property: LinkProperty): void => {
 const connect = (property: LinkProperty): void => {
   property = prepare(property);
   register(property);
-  if (property.namespace) return bind(property);
+  if (property.namespace) return attach(property);
   queue(property);
+};
+
+const detach = (property: LinkProperty): void => {
+  switch (property.type) {
+    case 'ACTION':
+      getRelated(property, 'INJECT').forEach((to) => setValue(to, to.initialize));
+      break;
+    case 'INJECT':
+      setValue(property, property.initialize);
+      break;
+    case 'OBSERVABLE':
+      // TODO
+      Object.defineProperty(property.instance, property.name, {
+        value: getValue(property),
+        enumerable: true,
+        configurable: true
+      });
+      getRelated(property, 'INJECT').forEach((to) => setValue(to, to.initialize));
+      break;
+  }
 };
 
 const disconnect = (property: LinkProperty): void => {
   property = filter(property).at(0);
-  unbind(property);
+  detach(property);
   unregister(property);
 };
 
@@ -69,10 +109,14 @@ const getRelated = (property: LinkProperty, ...types: LinkPropertyType[]): LinkP
   }).filter((property) => types.includes(property.type));
 };
 
+const getValue = (property: LinkProperty): any => {
+  return property.instance[property.name];
+};
+
 const inject = (from: LinkProperty, to: LinkProperty): void => {
-  let value = from.instance[from.name];
+  let value = getValue(from);
   if (typeof value === 'function') value = value.bind(from.instance);
-  to.instance[to.name] = value;
+  setValue(to, value);
 };
 
 const prepare = (property: LinkProperty): LinkProperty => {
@@ -92,7 +136,6 @@ let timeout;
 const unresolved = new Set<LinkProperty>();
 const queue = (property: LinkProperty): void => {
   unresolved.add(property);
-  // console.log(1111, unresolved);
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     Array.from(unresolved).forEach((source) => {
@@ -101,7 +144,7 @@ const queue = (property: LinkProperty): void => {
       source.namespace = parent.namespace;
       if (!source.namespace) return;
       unresolved.delete(source);
-      bind(source);
+      attach(source);
     });
   }, 0);
 };
@@ -117,22 +160,10 @@ const register = (property: LinkProperty): void => {
   properties.push(property);
 };
 
-const reset = (property: LinkProperty): void => {
-  property.instance[property.name] = property.initialize;
-};
-
-const unbind = (property: LinkProperty): void => {
-  switch (property.type) {
-    case 'ACTION':
-      getRelated(property, 'INJECT').forEach((to) => reset(to));
-      break;
-    case 'INJECT':
-      reset(property);
-      break;
-    case 'OBSERVABLE':
-      // TODO
-      break;
-  }
+const setValue = (property: LinkProperty, value: any): void => {
+  property.instance[property.name] = value;
+  // TODO
+  if (property.type == 'INJECT' && property.options) render(property.instance);
 };
 
 const unregister = (property: LinkProperty): void => {
@@ -140,16 +171,15 @@ const unregister = (property: LinkProperty): void => {
   properties.splice(index, 1);
 };
 
-const Decorator = (type: LinkPropertyType, config: LinkConfig) => {
-  return () => (target: any, name: PropertyKey) => {
+const createDecorator = (parameters: CreateDecorator) => {
+  return (target: any, name: PropertyKey) => {
     const { connectedCallback, disconnectedCallback } = target;
     target.connectedCallback = function () {
       connectedCallback?.call(this);
       connect({
-        config,
+        ...parameters,
         instance: this,
-        name,
-        type
+        name
       });
     };
     target.disconnectedCallback = function () {
@@ -163,9 +193,15 @@ const Decorator = (type: LinkPropertyType, config: LinkConfig) => {
 };
 
 export const createLink = (config?: LinkConfig) => {
-  const Action = Decorator('ACTION', config);
-  const Inject = Decorator('INJECT', config);
-  const Observable = Decorator('OBSERVABLE', config);
+  const Action = () => {
+    return createDecorator({ config, type: 'ACTION' });
+  };
+  const Inject = (state?: boolean) => {
+    return createDecorator({ config, type: 'INJECT', options: state });
+  };
+  const Observable = () => {
+    return createDecorator({ config, type: 'OBSERVABLE' });
+  };
   return {
     Action,
     Inject,

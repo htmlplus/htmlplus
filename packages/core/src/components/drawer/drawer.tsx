@@ -1,10 +1,12 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch, createLink } from '@htmlplus/element';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element';
 import { Media } from '@app/decorators';
 import * as Helpers from '@app/helpers';
-import { Animation, ClickOutside, Scrollbar } from '@app/services';
+import { Animation, ClickOutside, Scrollbar, createLink } from '@app/services';
 import { DrawerBackdrop, DrawerBreakpoint, DrawerPlacement, DrawerPlatform, DrawerTemporary } from './drawer.types';
 
-const { Action, Observable, reconnect } = createLink('Drawer');
+const { Action, Observable, reconnect } = createLink((instance) => {
+  return instance.connector ? `Drawer:${instance.connector}` : undefined
+});
 
 /**
  * @slot default - The default slot.

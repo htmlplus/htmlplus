@@ -1,6 +1,9 @@
-import { Attributes, Element, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element';
+import { Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element';
+import { createLink } from '@app/services';
 
-const { Action, Observable, reconnect } = createLink('Tabs');
+const { Action, Observable, reconnect } = createLink((instance) => {
+  return instance.connector ? `Tabs:${instance.connector}` : undefined
+});
 
 /**
  * @development
@@ -35,38 +38,27 @@ export class Tabs {
   plusChange!: EventEmitter<any>;
 
   @Observable()
-  tunnel?: any;
-
-  @Attributes()
-  get attributes() {
-    return {
-      // TODO
-    }
-  }
+  tunnel?: any; 
 
   /**
    * Internal Methods
    */
 
-  broadcast(value) {
+  broadcast(value: any) {
     this.tunnel = value;
   }
 
   @Action()
   change(value: any) {
-
     const event = this.plusChange(value);
-
     if (event.defaultPrevented) return;
-
     this.value = value;
+    this.broadcast(this.value);
   }
 
   initialize() {
     this.broadcast(this.value);
   }
-
-  terminate() { }
 
   /**
    * Watchers
@@ -74,19 +66,12 @@ export class Tabs {
 
   @Watch('connector', 'value')
   watcher(next, prev, name) {
-
     switch (name) {
-
       case 'connector':
-
         reconnect(this);
-
         break;
-
       case 'value':
-
         this.tunnel = next;
-
         break;
     }
   }
@@ -95,12 +80,8 @@ export class Tabs {
    * Lifecycles
    */
 
-  loadedCallback() {
+  connectedCallback() {
     this.initialize();
-  }
-
-  disconnectedCallback() {
-    this.terminate();
   }
 
   render() {

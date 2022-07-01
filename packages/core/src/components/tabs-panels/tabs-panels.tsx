@@ -1,6 +1,9 @@
-import { Attributes, Element, Property, Watch, createLink } from '@htmlplus/element';
+import { Element, Property, Watch } from '@htmlplus/element';
+import { createLink } from '@app/services';
 
-const { Inject, reconnect } = createLink('Tabs');
+const { Inject, reconnect } = createLink((instance) => {
+  return instance.connector ? `Tabs:${instance.connector}` : undefined
+});
 
 /**
  * TODO: This component contains panels.
@@ -18,13 +21,6 @@ export class TabsPanels {
   // TODO: it's bridge
   @Inject()
   tunnel?: any;
-
-  @Attributes()
-  get attributes() {
-    return {
-      // TODO
-    }
-  }
 
   /**
    * Watchers

@@ -1,6 +1,9 @@
-import { Attributes, Element, Property, State, Watch, createLink } from '@htmlplus/element';
+import { Attributes, Bind, Element, Property, State, Watch } from '@htmlplus/element';
+import { createLink } from '@app/services';
 
-const { Inject, reconnect } = createLink('Drawer');
+const { Inject, reconnect } = createLink((instance) => {
+  return instance.connector ? `Drawer:${instance.connector}` : undefined
+});
 
 /**
  * @slot default - The default slot.
@@ -31,7 +34,7 @@ export class DrawerToggler {
     return {
       'role': 'button',
       'state': this.tunnel ? 'open' : 'close',
-      'onClick': this.toggle
+      'onClick': this.onClick
     }
   }
 
@@ -46,6 +49,14 @@ export class DrawerToggler {
   @Watch('connector')
   watcher() {
     reconnect(this);
+  } 
+  
+  /**
+   * Events handler
+   */
+  @Bind()
+  onClick() {
+    this.toggle();
   }
 
   render() {

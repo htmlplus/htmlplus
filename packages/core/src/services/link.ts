@@ -82,7 +82,7 @@ const prepare = (property: LinkProperty): LinkProperty => {
 
   const initialize = instance[name];
 
-  const namespace = config(instance);
+  const namespace = config?.(instance);
 
   return Object.assign({}, property, { element, initialize, namespace });
 };
@@ -92,6 +92,7 @@ let timeout;
 const unresolved = new Set<LinkProperty>();
 const queue = (property: LinkProperty): void => {
   unresolved.add(property);
+  // console.log(1111, unresolved);
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     Array.from(unresolved).forEach((source) => {
@@ -116,12 +117,17 @@ const register = (property: LinkProperty): void => {
   properties.push(property);
 };
 
+const reset = (property: LinkProperty): void => {
+  property.instance[property.name] = property.initialize;
+};
+
 const unbind = (property: LinkProperty): void => {
   switch (property.type) {
     case 'ACTION':
+      getRelated(property, 'INJECT').forEach((to) => reset(to));
       break;
     case 'INJECT':
-      property.instance[property.name] = property.initialize;
+      reset(property);
       break;
     case 'OBSERVABLE':
       // TODO
@@ -156,7 +162,7 @@ const Decorator = (type: LinkPropertyType, config: LinkConfig) => {
   };
 };
 
-export const createLink = (config: LinkConfig) => {
+export const createLink = (config?: LinkConfig) => {
   const Action = Decorator('ACTION', config);
   const Inject = Decorator('INJECT', config);
   const Observable = Decorator('OBSERVABLE', config);

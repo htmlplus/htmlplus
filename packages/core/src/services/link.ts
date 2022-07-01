@@ -1,6 +1,6 @@
 import { host } from '@app/helpers';
 
-type LinkConfig = (instance: LinkInstance) => string;
+type LinkConfig = (instance: LinkInstance) => string | undefined;
 type LinkInstance = any;
 type LinkPropertyType = 'ACTION' | 'INJECT' | 'OBSERVABLE';
 type LinkProperty = {
@@ -13,12 +13,70 @@ type LinkProperty = {
   type?: LinkPropertyType;
 };
 
-const parents = new Map<LinkInstance, LinkProperty>();
-
 const properties: LinkProperty[] = [];
 
-const connect = (source: LinkProperty) => {
-  const { config, instance, name, type } = source;
+const bind = (property: LinkProperty): void => {
+  switch (property.type) {
+    case 'ACTION':
+      getRelated(property, 'INJECT').forEach((to) => inject(property, to));
+      break;
+    case 'OBSERVABLE':
+      // TODO proxy()
+      getRelated(property, 'INJECT').forEach((to) => inject(property, to));
+      break;
+    case 'INJECT':
+      getRelated(property, 'ACTION', 'OBSERVABLE').forEach((to) => inject(to, property));
+      break;
+  }
+};
+
+const connect = (property: LinkProperty): void => {
+  property = prepare(property);
+  register(property);
+  if (property.namespace) return bind(property);
+  queue(property);
+};
+
+const disconnect = (property: LinkProperty): void => {
+  property = filter(property).at(0);
+  unbind(property);
+  unregister(property);
+};
+
+const filter = (parameters: Partial<LinkProperty>): LinkProperty[] => {
+  const keys = Object.keys(parameters);
+  return properties.filter((property) => {
+    for (const key of keys) if (property[key] != parameters[key]) return false;
+    return true;
+  });
+};
+
+const findParent = (property: LinkProperty): LinkProperty | undefined => {
+  let element = property.element?.parentElement;
+  while (element) {
+    if (element.shadowRoot) {
+      const [parent] = filter({ element, name: property.name });
+      if (parent) return parent;
+    }
+    element = element.parentElement;
+  }
+};
+
+const getRelated = (property: LinkProperty, ...types: LinkPropertyType[]): LinkProperty[] => {
+  return filter({
+    name: property.name,
+    namespace: property.namespace
+  }).filter((property) => types.includes(property.type));
+};
+
+const inject = (from: LinkProperty, to: LinkProperty): void => {
+  let value = from.instance[from.name];
+  if (typeof value === 'function') value = value.bind(from.instance);
+  to.instance[to.name] = value;
+};
+
+const prepare = (property: LinkProperty): LinkProperty => {
+  const { config, instance, name } = property;
 
   const element = host(instance);
 
@@ -26,109 +84,54 @@ const connect = (source: LinkProperty) => {
 
   const namespace = config(instance);
 
-  Object.assign(source, { element, initialize, namespace });
-
-  properties.push(source);
-
-  // TODO
-  // if (!namespace) {
-  //   source.namespace = parent(source)?.namespace;
-  //   return;
-  // }
-
-  inject(source);
-
-  // TODO
-  // properties
-  //   .filter((property) => !property.namespace && property.name == name)
-  //   .forEach((property) => {
-  //     inject(property);
-  //   });
+  return Object.assign({}, property, { element, initialize, namespace });
 };
 
-const disconnect = (source: LinkProperty) => {
-  source = filter(source).at(0);
-  const index = properties.findIndex((item) => item === source);
-  if (index == -1) return;
-  properties.splice(index, 1);
+// TODO
+let timeout;
+const unresolved = new Set<LinkProperty>();
+const queue = (property: LinkProperty): void => {
+  unresolved.add(property);
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    Array.from(unresolved).forEach((source) => {
+      const parent = findParent(source);
+      if (!parent) return;
+      source.namespace = parent.namespace;
+      if (!source.namespace) return;
+      unresolved.delete(source);
+      bind(source);
+    });
+  }, 0);
 };
 
-const filter = (source: LinkProperty) => {
-  const keys = Object.keys(source);
-  return properties.filter((item) => {
-    for (const key of keys) if (item[key] != source[key]) return false;
-    return true;
-  });
-};
-
-const inject = (source: LinkProperty) => {
-  switch (source.type) {
-    case 'ACTION':
-      related(source, 'INJECT').forEach((destination) => set(source, destination));
-      break;
-    case 'OBSERVABLE':
-      proxy(source);
-      related(source, 'INJECT').forEach((destination) => set(source, destination));
-      break;
-    case 'INJECT':
-      related(source, 'ACTION', 'OBSERVABLE').forEach((destination) => set(destination, source));
-      break;
-  }
-};
-
-const parent = (source: LinkProperty) => {
-  const cache = parents.get(source.instance);
-
-  if (cache) return cache;
-
-  let node = source.element?.parentElement;
-
-  while (node) {
-    if (node.shadowRoot) {
-      const [parent] = filter({ element: node, name: source.name });
-      if (parent) {
-        return parents.set(source.instance, parent).get(parent);
-      }
-    }
-    node = node.parentElement;
-  }
-};
-
-const proxy = (source: LinkProperty) => {
-  // let value = get(source);
-  // // TODO: any
-  // defineProperty(source.instance, source.name as any, {
-  //   enumerable: true,
-  //   configurable: true,
-  //   get() {
-  //     return value;
-  //   },
-  //   set(input) {
-  //     if (input === value) return;
-  //     value = input;
-  //     siblings(source, ['inject']).map((destination) => set(destination, value));
-  //   }
-  // });
-};
-
-const reconnect = (instance: LinkInstance) => {
+const reconnect = (instance: LinkInstance): void => {
   filter({ instance }).forEach((property) => {
     disconnect(property);
     connect(property);
   });
 };
 
-const related = (source: LinkProperty, ...types: LinkPropertyType[]) => {
-  return filter({
-    name: source.name,
-    namespace: source.namespace
-  }).filter((destination) => types.includes(destination.type));
+const register = (property: LinkProperty): void => {
+  properties.push(property);
 };
 
-const set = (source: LinkProperty, destination: LinkProperty) => {
-  let value = source.instance[source.name];
-  if (typeof value === 'function') value = value.bind(source.instance);
-  destination.instance[destination.name] = value;
+const unbind = (property: LinkProperty): void => {
+  switch (property.type) {
+    case 'ACTION':
+      break;
+    case 'INJECT':
+      property.instance[property.name] = property.initialize;
+      break;
+    case 'OBSERVABLE':
+      // TODO
+      break;
+  }
+};
+
+const unregister = (property: LinkProperty): void => {
+  const index = properties.findIndex((item) => item === property);
+  properties.splice(index, 1);
 };
 
 const Decorator = (type: LinkPropertyType, config: LinkConfig) => {

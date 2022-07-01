@@ -1,4 +1,4 @@
-import { Attributes, Bind, Element, Property, State, Watch } from '@htmlplus/element';
+import { Attributes, Bind, Element, Property, Watch } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
 const { Inject, reconnect } = createLink((instance) => {
@@ -25,8 +25,7 @@ export class DrawerToggler {
   @Inject()
   toggle?: Function = () => console.log('TODO: can not use out of drawer');
 
-  @Inject()
-  @State()
+  @Inject(true)
   tunnel?: boolean;
 
   @Attributes()
@@ -49,7 +48,7 @@ export class DrawerToggler {
   @Watch('connector')
   watcher() {
     reconnect(this);
-  } 
+  }
   
   /**
    * Events handler

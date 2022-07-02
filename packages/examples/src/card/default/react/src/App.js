@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Card } from "TODO";
+import { Card } from "@htmlplus/react";
 
 const CardDefault = () => {
   return <>    

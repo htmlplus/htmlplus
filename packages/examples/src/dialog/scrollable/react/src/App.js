@@ -1,11 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Dialog.Toggler } from "TODO";
-import { Dialog } from "TODO";
-import { Dialog.Content } from "TODO";
-import { Dialog.Header } from "TODO";
-import { Dialog.Body } from "TODO";
-import { Dialog.Footer } from "TODO";
-import { Dialog.Toggler } from "TODO";
+import { Dialog } from "@htmlplus/react";
 
 const DialogScrollable = () => {
   return <>    

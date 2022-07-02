@@ -1,7 +1,6 @@
 import { Element, State } from '@htmlplus/element';
 import { useState } from "react";
-import { Intersection } from "TODO";
-import { Card } from "TODO";
+import { Card, Intersection } from "@htmlplus/react";
 
 const IntersectionDefault = () => {
   const [intersecting, setIntersecting] = useState(false);

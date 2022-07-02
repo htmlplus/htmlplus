@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Switch } from "TODO";
+import { Switch } from "@htmlplus/react";
 
 const SwitchInset = () => {
   return <>    

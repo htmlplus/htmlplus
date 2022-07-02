@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { ScrollIndicator } from "TODO";
+import { ScrollIndicator } from "@htmlplus/react";
 
 const ScrollIndicatorDefault = () => {
   return <>    

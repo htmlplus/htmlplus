@@ -1,13 +1,6 @@
 import { Element, State } from '@htmlplus/element';
 import { useState } from "react";
-import { Dialog.Toggler } from "TODO";
-import { Dialog } from "TODO";
-import { Dialog.Content } from "TODO";
-import { Dialog.Header } from "TODO";
-import { Dialog.Body } from "TODO";
-import { Cropper } from "TODO";
-import { Dialog.Footer } from "TODO";
-import { Dialog.Toggler } from "TODO";
+import { Cropper, Dialog } from "@htmlplus/react";
 
 const CropperDialog = () => {
   const [disabled, setDisabled] = useState(true);

@@ -1,6 +1,6 @@
 import { Element, State } from '@htmlplus/element';
 import { useState } from "react";
-import { Card } from "TODO";
+import { Card } from "@htmlplus/react";
 
 const CardElevation = () => {
   const [elevation, setElevation] = useState("12");

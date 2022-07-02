@@ -23,15 +23,16 @@ const { start, next, finish } = compiler(
     }
   }),
   react({
-    destination(context) {
-      return path.join(context.directoryPath, 'react');
-    },
-    customElementNameConvertor(name, context) {
+    componentRefrence: '@htmlplus/react',
+    componentNameConvertor(name) {
       // TODO
-      const exceptions = ['aspect-ratio', 'button-navigation', 'scroll-indicator'];
+      const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
       const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
       if (exception) name = name.replace(exception, pascalCase(exception));
       return name.replace('plus-', '').split('-').map(pascalCase).join('.');
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'react');
     },
     eventNameConvertor(name) {
       return name.replace('onPlus', 'on');

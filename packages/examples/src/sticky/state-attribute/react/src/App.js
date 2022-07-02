@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Sticky } from "TODO";
+import { Sticky } from "@htmlplus/react";
 
 const StickyStateAttribute = () => {
   return <>    

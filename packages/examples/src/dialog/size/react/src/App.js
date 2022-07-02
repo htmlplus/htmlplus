@@ -1,15 +1,6 @@
 import { Element, State } from '@htmlplus/element';
 import { useState } from "react";
-import { useState } from "react";
-import { Grid } from "TODO";
-import { Grid.Item } from "TODO";
-import { Grid.Item } from "TODO";
-import { Grid.Item } from "TODO";
-import { Dialog } from "TODO";
-import { Dialog.Content } from "TODO";
-import { Dialog.Header } from "TODO";
-import { Dialog.Body } from "TODO";
-import { Dialog.Footer } from "TODO";
+import { Dialog, Grid } from "@htmlplus/react";
 
 const DialogSize = () => {
   const [open, setOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Cropper } from "TODO";
+import { Cropper } from "@htmlplus/react";
 
 const CropperIndicator = () => {
   return <>    

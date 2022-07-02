@@ -7,7 +7,13 @@ import path from 'path';
 export const react = (options) => {
   const name = 'react';
   const next = (context) => {
-    const dependencies = [];
+    const dependencies = new Map();
+
+    const addDependency = (local, imported) => {
+      const locals = dependencies.get(imported) || new Set();
+      locals.add(local);
+      dependencies.set(imported, locals);
+    };
 
     const visitors = {
       script: {
@@ -21,22 +27,13 @@ export const react = (options) => {
         ClassDeclaration(path) {
           path.traverse(visitors.script);
 
-          // TODO
-          // dependencies.reduce((result, dependency) => {
-          //   const [a, b] = dependency
-          //   result[a] = result[a] || []
-          //   result[a].push(b)
-          //   return result
-          // }, [])
-          //   .map((aaaa) => {
-          //     return t.importDeclaration([], t.stringLiteral("react"))
-          //   })
-
           const body = [
-            ...dependencies.map((dependency) =>
+            ...Array.from(dependencies).map(([imported, locals]) =>
               t.importDeclaration(
-                [t.importSpecifier(t.identifier(dependency[0]), t.identifier(dependency[0]))],
-                t.stringLiteral(dependency[1])
+                Array.from(locals)
+                  .sort()
+                  .map((local) => t.importSpecifier(t.identifier(local), t.identifier(local))),
+                t.stringLiteral(imported)
               )
             ),
             t.variableDeclaration('const', [
@@ -89,7 +86,7 @@ export const react = (options) => {
 
             path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
 
-            dependencies.push(['useState', 'react']);
+            addDependency('useState', 'react');
 
             path.replaceWith(
               t.variableDeclaration('const', [
@@ -129,10 +126,9 @@ export const react = (options) => {
 
           if (!/-/g.test(name)) return;
 
-          const newName = options?.customElementNameConvertor?.(name, context) || name;
+          const newName = options?.componentNameConvertor?.(name, context) || name;
 
-          // TODO
-          dependencies.push([newName, 'TODO']);
+          addDependency(newName.split('.').shift(), options?.componentRefrence);
 
           openingElement.name.name = newName;
 
@@ -211,7 +207,7 @@ export const react = (options) => {
     // TODO
     return {
       script: model.script,
-      style: style?.content
+      style: model.content
     };
   };
   return {

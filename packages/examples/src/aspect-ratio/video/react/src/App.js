@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { AspectRatio } from "TODO";
+import { AspectRatio } from "@htmlplus/react";
 
 const AspectRatioVideo = () => {
   return <>    

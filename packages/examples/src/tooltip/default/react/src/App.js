@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Tooltip } from "TODO";
+import { Tooltip } from "@htmlplus/react";
 
 const TooltipDefault = () => {
   return <>    

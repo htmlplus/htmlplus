@@ -1,7 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Divider } from "TODO";
-import { Divider } from "TODO";
-import { Divider } from "TODO";
+import { Divider } from "@htmlplus/react";
 
 const DividerSize = () => {
   return <>    

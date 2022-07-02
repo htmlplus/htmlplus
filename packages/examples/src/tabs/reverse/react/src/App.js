@@ -1,9 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Tabs } from "TODO";
-import { Tabs.Bar } from "TODO";
-import { Tabs.Tab } from "TODO";
-import { Tabs.Tab } from "TODO";
-import { Tabs.Tab } from "TODO";
+import { Tabs } from "@htmlplus/react";
 
 const TabsReverse = () => {
   return <>    

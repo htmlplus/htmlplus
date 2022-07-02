@@ -1,8 +1,6 @@
 import { Element, State } from '@htmlplus/element';
 import { useState } from "react";
-import { useState } from "react";
-import { Click.Outside } from "TODO";
-import { Card } from "TODO";
+import { Card, ClickOutside } from "@htmlplus/react";
 
 const ClickOutsideDefault = () => {
   const [inside, setInside] = useState(0);
@@ -17,7 +15,7 @@ const ClickOutsideDefault = () => {
   };
 
   return <>    
-    <Click.Outside onClick={() => onClick()} onClickOutside={() => onClickOutside()}>      
+    <ClickOutside onClick={() => onClick()} onClickOutside={() => onClickOutside()}>      
       <Card elevation="10">        
         <div className="container">          
           <b>{inside}</b>          time(s) inside clicked
@@ -25,7 +23,7 @@ const ClickOutsideDefault = () => {
           <b>{outside}</b>          time(s) outside clicked
         </div>        
       </Card>      
-    </Click.Outside>    
+    </ClickOutside>    
   </>;
 };
 

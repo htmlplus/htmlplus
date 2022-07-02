@@ -1,17 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Grid } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
-import { Grid.Item } from "TODO";
-import { Spinner } from "TODO";
+import { Grid, Spinner } from "@htmlplus/react";
 
 const SpinnerType = () => {
   return <>    

@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Spinner } from "TODO";
+import { Spinner } from "@htmlplus/react";
 
 const SpinnerDefault = () => {
   return <>    

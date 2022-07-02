@@ -1,7 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Intersection } from "TODO";
-import { Card } from "TODO";
-import { Spinner } from "TODO";
+import { Card, Intersection, Spinner } from "@htmlplus/react";
 
 const IntersectionLazyImage = () => {
   const onChange = event => {

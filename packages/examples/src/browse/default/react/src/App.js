@@ -1,5 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Browse } from "TODO";
+import { Browse } from "@htmlplus/react";
 
 const BrowseDefault = () => {
   const onChange = event => {

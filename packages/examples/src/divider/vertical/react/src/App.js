@@ -1,8 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Grid } from "TODO";
-import { Grid.Item } from "TODO";
-import { Divider } from "TODO";
-import { Grid.Item } from "TODO";
+import { Divider, Grid } from "@htmlplus/react";
 
 const DividerVertical = () => {
   return <>    

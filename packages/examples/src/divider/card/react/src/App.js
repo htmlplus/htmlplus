@@ -1,9 +1,5 @@
 import { Element } from '@htmlplus/element';
-import { Card } from "TODO";
-import { Divider } from "TODO";
-import { Divider } from "TODO";
-import { Divider } from "TODO";
-import { Divider } from "TODO";
+import { Card, Divider } from "@htmlplus/react";
 
 const DividerCard = () => {
   return <>    

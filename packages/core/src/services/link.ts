@@ -1,5 +1,5 @@
 import { host } from '@app/helpers';
-import { render } from '@htmlplus/element/client/utils';
+import { render, request } from '@htmlplus/element/client/utils';
 
 type CreateDecorator = {
   config: LinkConfig;
@@ -56,7 +56,7 @@ const attach = (property: LinkProperty): void => {
 const connect = (property: LinkProperty): void => {
   property = prepare(property);
   register(property);
-  if (property.namespace) return attach(property);
+  if (!property.config.crawl || property.namespace) return attach(property);
   queue(property);
 };
 
@@ -81,24 +81,20 @@ const detach = (property: LinkProperty): void => {
 };
 
 const disconnect = (property: LinkProperty): void => {
-  property = filter(property).at(0);
+  property = properties.find((item) => {
+    return item.instance == property.instance && item.name == property.name;
+  });
   detach(property);
   unregister(property);
-};
-
-const filter = (parameters: Partial<LinkProperty>): LinkProperty[] => {
-  const keys = Object.keys(parameters);
-  return properties.filter((property) => {
-    for (const key of keys) if (property[key] != parameters[key]) return false;
-    return true;
-  });
 };
 
 const findParent = (property: LinkProperty): LinkProperty | undefined => {
   let element = property.element?.parentElement;
   while (element) {
     if (element.shadowRoot) {
-      const [parent] = filter({ element, name: property.name });
+      const parent = properties.find((item) => {
+        return item.element == element && item.name == property.name;
+      });
       if (parent) return parent;
     }
     element = element.parentElement;
@@ -106,10 +102,11 @@ const findParent = (property: LinkProperty): LinkProperty | undefined => {
 };
 
 const getRelated = (property: LinkProperty, ...types: LinkPropertyType[]): LinkProperty[] => {
-  return filter({
-    name: property.name,
-    namespace: property.namespace
-  }).filter((property) => types.includes(property.type));
+  return properties.filter((item) => {
+    if (item.name != property.name) return false;
+    if (item.namespace != property.namespace) return false;
+    return types.includes(item.type);
+  });
 };
 
 const getValue = (property: LinkProperty): any => {
@@ -129,7 +126,7 @@ const prepare = (property: LinkProperty): LinkProperty => {
 
   const initialize = instance[name];
 
-  const namespace = config?.(instance);
+  const namespace = config?.namespace?.(instance);
 
   return Object.assign({}, property, { element, initialize, namespace });
 };
@@ -153,10 +150,12 @@ const queue = (property: LinkProperty): void => {
 };
 
 const reconnect = (instance: LinkInstance): void => {
-  filter({ instance }).forEach((property) => {
-    disconnect(property);
-    connect(property);
-  });
+  properties
+    .filter((property) => property.instance == instance)
+    .forEach((property) => {
+      disconnect(property);
+      connect(property);
+    });
 };
 
 const register = (property: LinkProperty): void => {
@@ -165,8 +164,15 @@ const register = (property: LinkProperty): void => {
 
 const setValue = (property: LinkProperty, value: any): void => {
   property.instance[property.name] = value;
-  // TODO
-  if (property.type == 'INJECT' && property.options) render(property.instance);
+  /**
+   * TODO
+   * extra render should be removed. callback 'attributeChangedCallback' in '@Element'
+   * should use the 'request' method inside itself to update properties.
+   */
+  if (property.type == 'INJECT' && property.options)
+    request(property.instance)
+      .then(() => render(property.instance))
+      .catch(() => undefined);
 };
 
 const unregister = (property: LinkProperty): void => {

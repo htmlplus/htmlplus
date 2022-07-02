@@ -7,5 +7,71 @@
     <script type="module" src="/components/index.ts"></script>
   </head>
 
-  <body></body>
+  <body>
+    <style>
+      plus-card {
+        --plus-card-background-color: #E0E0E0;
+        padding: 10rem 0;
+        text-align: center;
+      }
+      plus-drawer plus-card {
+        --plus-card-background-color: #AACAFF;
+        margin-right: 0.5rem;
+      }
+      [state="open"]{
+        background: red;
+      }
+      [state="close"]{
+        background: blue;
+      }
+      plus-drawer-toggler{
+        padding: 20px;
+      }
+    </style>
+    <plus-grid>
+      <plus-grid-item xs="auto">
+        <plus-drawer open animation="fade" size="200px" connector="drawer-default">
+          <plus-card>
+            <plus-drawer-toggler></plus-drawer-toggler>
+            <plus-drawer-toggler connector="drawer-default" class="aaaaaaaaaaa"></plus-drawer-toggler>
+          </plus-card>
+        </plus-drawer>
+      </plus-grid-item>
+      <plus-grid-item xs="grow">
+        <plus-card>
+          <plus-drawer-toggler connector="drawer-default"></plus-drawer-toggler>
+        </plus-card>
+      </plus-grid-item>
+    </plus-grid>
+    <!-- <plus-drawer-toggler connector1="drawer-default"></plus-drawer-toggler> -->
+    <!-- <plus-tabs value="2" connector="d">
+      <plus-tabs-bar>
+        <plus-tabs-tab value="1"> Tab 1 </plus-tabs-tab>
+        <plus-tabs-tab value="2"> Tab 2 </plus-tabs-tab>
+        <plus-tabs-tab value="3"> Tab 3 </plus-tabs-tab>
+      </plus-tabs-bar>
+      <plus-tabs-panels>
+        <plus-tabs-panel value="1">
+          <b>Tab One</b>
+          <br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend
+          ultricies ipsum. Morbi sit amet diam et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere
+          lacus, gravida semper libero. Praesent sed nisi sed lorem posuere consequat.
+        </plus-tabs-panel>
+        <plus-tabs-panel value="2">
+          <b>Tab Two</b>
+          <br />
+          Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas cursus nec ipsum et tempus. Sed
+          pretium odio bibendum, pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et gravida.
+          Suspendisse aliquam leo ac leo fermentum, ac accumsan purus vestibulum.
+        </plus-tabs-panel>
+        <plus-tabs-panel value="3">
+          <b>Tab Three</b>
+          <br />
+          Integer facilisis tincidunt urna vel accumsan. Orci varius natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.
+        </plus-tabs-panel>
+      </plus-tabs-panels>
+    </plus-tabs> -->
+  </body>
 </html>

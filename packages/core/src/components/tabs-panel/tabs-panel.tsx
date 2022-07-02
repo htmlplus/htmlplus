@@ -1,4 +1,4 @@
-import { Attributes, Element, Property, State } from '@htmlplus/element';
+import { Attributes, Element, Property } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
 const { Inject } = createLink({
@@ -18,8 +18,7 @@ export class TabsPanel {
   @Property()
   value?: any;
 
-  @State()
-  @Inject()
+  @Inject(true)
   tunnel?: any;
 
   @Attributes()

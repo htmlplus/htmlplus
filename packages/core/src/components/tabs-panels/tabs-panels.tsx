@@ -1,7 +1,7 @@
 import { Element, Property, Watch } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
-const { Inject, reconnect } = createLink({
+const { reconnect } = createLink({
   crawl: true,
   namespace: ({ connector }) => connector ? `Tabs:${connector}` : undefined
 });
@@ -18,10 +18,6 @@ export class TabsPanels {
    */
   @Property()
   connector?: string;
-
-  // TODO: it's bridge
-  @Inject()
-  tunnel?: any;
 
   /**
    * Watchers

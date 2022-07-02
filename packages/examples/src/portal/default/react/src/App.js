@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Portal } from "@htmlplus/react";
 
 const PortalDefault = () => {

@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Grid } from "@htmlplus/react";
 
 const GridGutterY = () => {

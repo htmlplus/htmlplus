@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Grid, Transition } from "@htmlplus/react";
 
 const TransitionDuration = () => {

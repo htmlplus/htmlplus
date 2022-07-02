@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Grid, Spinner } from "@htmlplus/react";
 
 const SpinnerSize = () => {

@@ -1,4 +1,3 @@
-import { Element, State } from '@htmlplus/element';
 import { Dialog } from "@htmlplus/react";
 
 const DialogPrevent = () => {

@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Dialog, Grid } from "@htmlplus/react";
 
 const DialogNesting = () => {

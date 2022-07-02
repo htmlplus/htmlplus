@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Transition } from "@htmlplus/react";
 
 const TransitionDefault = () => {

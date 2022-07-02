@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card, Intersection, Spinner } from "@htmlplus/react";
 
 const IntersectionLazyImage = () => {

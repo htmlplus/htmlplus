@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card, Portal } from "@htmlplus/react";
 
 const PortalStrategy = () => {

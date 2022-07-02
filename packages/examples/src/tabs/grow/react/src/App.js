@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Tabs } from "@htmlplus/react";
 
 const TabsGrow = () => {

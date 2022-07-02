@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card } from "@htmlplus/react";
 
 const CardDefault = () => {

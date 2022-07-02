@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Switch } from "@htmlplus/react";
 
 const SwitchDefault = () => {

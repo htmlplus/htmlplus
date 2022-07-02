@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Divider, Grid } from "@htmlplus/react";
 
 const DividerCustomize = () => {

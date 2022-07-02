@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Spinner } from "@htmlplus/react";
 
 const SpinnerCustomize = () => {

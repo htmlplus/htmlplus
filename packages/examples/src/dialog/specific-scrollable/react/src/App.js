@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Dialog } from "@htmlplus/react";
 
 const DialogSpecificScrollable = () => {

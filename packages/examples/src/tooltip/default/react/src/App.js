@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Tooltip } from "@htmlplus/react";
 
 const TooltipDefault = () => {

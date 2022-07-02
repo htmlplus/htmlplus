@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Breadcrumb } from "@htmlplus/react";
 
 const BreadcrumbLimitation = () => {

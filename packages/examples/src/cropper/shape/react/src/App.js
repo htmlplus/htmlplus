@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Cropper, Grid } from "@htmlplus/react";
 
 const CropperShape = () => {

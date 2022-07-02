@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { AspectRatio, Card } from "@htmlplus/react";
 
 const AspectRatioDefault = () => {

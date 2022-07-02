@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card, Divider } from "@htmlplus/react";
 
 const DividerCard = () => {

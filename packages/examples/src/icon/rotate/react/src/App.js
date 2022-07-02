@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Icon } from "@htmlplus/react";
 
 const IconRotate = () => {

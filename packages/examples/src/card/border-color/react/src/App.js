@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card, Grid } from "@htmlplus/react";
 
 const CardBorderColor = () => {

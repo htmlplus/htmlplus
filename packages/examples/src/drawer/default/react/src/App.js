@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Card, Drawer, Grid } from "@htmlplus/react";
 
 const DrawerDefault = () => {

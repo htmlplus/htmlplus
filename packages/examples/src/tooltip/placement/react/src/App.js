@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Grid, Tooltip } from "@htmlplus/react";
 
 const TooltipPlacement = () => {

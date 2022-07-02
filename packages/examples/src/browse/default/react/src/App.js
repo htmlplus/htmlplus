@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Browse } from "@htmlplus/react";
 
 const BrowseDefault = () => {

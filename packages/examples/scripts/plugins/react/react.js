@@ -100,9 +100,10 @@ export const react = (options) => {
             path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
           }
         },
-        MemberExpression(path) {
-          const { property, object } = path.node;
-          if (object.type === 'ThisExpression') path.replaceWith(property);
+        ImportDeclaration(path) {
+          // TODO
+          if (path.node.source.value != '@htmlplus/element') return;
+          path.remove();
         },
         JSXAttribute(path) {
           const { name } = path.node;
@@ -167,6 +168,10 @@ export const react = (options) => {
           const end = endIndex !== -1 && to <= endIndex;
 
           path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
+        },
+        MemberExpression(path) {
+          const { property, object } = path.node;
+          if (object.type === 'ThisExpression') path.replaceWith(property);
         }
       }
     };

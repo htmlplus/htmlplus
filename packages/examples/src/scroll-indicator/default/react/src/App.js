@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { ScrollIndicator } from "@htmlplus/react";
 
 const ScrollIndicatorDefault = () => {

@@ -1,4 +1,3 @@
-import { Element } from '@htmlplus/element';
 import { Sticky } from "@htmlplus/react";
 
 const StickyTop = () => {

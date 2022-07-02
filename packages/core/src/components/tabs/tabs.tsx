@@ -1,8 +1,9 @@
 import { Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
-const { Action, Observable, reconnect } = createLink((instance) => {
-  return instance.connector ? `Tabs:${instance.connector}` : undefined
+const { Action, Observable, reconnect } = createLink({
+  crawl: false,
+  namespace: ({ connector }) => connector ? `Tabs:${connector}` : undefined
 });
 
 /**

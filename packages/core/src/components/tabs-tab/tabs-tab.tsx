@@ -1,7 +1,9 @@
 import { Attributes, Bind, Element, Property, State } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
-const { Inject } = createLink();
+const { Inject } = createLink({
+  crawl: true,
+});
 
 /**
  * TODO: Tabs make it easy to switch between different views.

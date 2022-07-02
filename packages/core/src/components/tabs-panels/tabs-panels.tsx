@@ -1,8 +1,9 @@
 import { Element, Property, Watch } from '@htmlplus/element';
 import { createLink } from '@app/services';
 
-const { Inject, reconnect } = createLink((instance) => {
-  return instance.connector ? `Tabs:${instance.connector}` : undefined
+const { Inject, reconnect } = createLink({
+  crawl: true,
+  namespace: ({ connector }) => connector ? `Tabs:${connector}` : undefined
 });
 
 /**

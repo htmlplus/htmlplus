@@ -1,6 +1,21 @@
 import { host } from '@app/helpers';
 import { render, request } from '@htmlplus/element/client/utils';
 
+/**
+ * Connect Flow
+ *  - connect
+ *  - prepare
+ *  - register
+ *  - attach or queue
+ * Disconnect Flow
+ *  - disconnect
+ *  - detach
+ *  - unregister
+ * Reconnect Flow
+ *  - disconnect
+ *  - connect
+ */
+
 type CreateDecorator = {
   config: LinkConfig;
   options?: any;
@@ -18,7 +33,7 @@ type LinkProperty = {
   initialize?: any;
   instance?: LinkInstance;
   name?: PropertyKey;
-  namespace?: string;
+  namespace?: LinkProperty | string;
   options?: any;
   type?: LinkPropertyType;
 };
@@ -103,9 +118,12 @@ const findParent = (property: LinkProperty): LinkProperty | undefined => {
 
 const getRelated = (property: LinkProperty, ...types: LinkPropertyType[]): LinkProperty[] => {
   return properties.filter((item) => {
-    if (item.name != property.name) return false;
-    if (item.namespace != property.namespace) return false;
-    return types.includes(item.type);
+    if (typeof item.namespace == 'undefined') return;
+    if (!types.includes(item.type)) return;
+    if (item.name != property.name) return;
+    if (item.namespace === property.namespace) return true;
+    if (item.namespace === property) return true;
+    if (item === property.namespace) return true;
   });
 };
 
@@ -141,8 +159,7 @@ const queue = (property: LinkProperty): void => {
     Array.from(unresolved).forEach((source) => {
       const parent = findParent(source);
       if (!parent) return;
-      source.namespace = parent.namespace;
-      if (!source.namespace) return;
+      source.namespace = parent;
       unresolved.delete(source);
       attach(source);
     });

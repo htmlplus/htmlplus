@@ -6,7 +6,10 @@ type CreateDecorator = {
   options?: any;
   type: LinkPropertyType;
 };
-type LinkConfig = (instance: LinkInstance) => string | undefined;
+type LinkConfig = {
+  crawl?: boolean;
+  namespace?: (instance: LinkInstance) => string | undefined;
+};
 type LinkInstance = any;
 type LinkPropertyType = 'ACTION' | 'INJECT' | 'OBSERVABLE';
 type LinkProperty = {

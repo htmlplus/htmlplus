@@ -20,6 +20,8 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
       <Grid>
         <Grid.Item xs="auto" hideLgDown>
           <Sticky class="menu" top="72">
+            {/* TODO */}
+            <div style={{ width: '300px' }} />
             <Sidebar />
           </Sticky>
         </Grid.Item>

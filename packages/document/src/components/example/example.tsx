@@ -21,12 +21,12 @@ export const Example = ({ value }: ExampleProps) => {
   };
 
   return (
-    <div>
+    <>
       <h2>
         <Toc.Item level={2}>{title}</Toc.Item>
       </h2>
-      {/* TODO: remove connector */}
-      <Tabs connector={`example:${title}`} value="preview">
+      {/* TODO: remove connector and example */}
+      <Tabs className="example" connector={`example:${title}`} value="preview">
         <Grid className="toolbar" alignItems="center" gutterX="sm">
           <Grid.Item xs="grow">
             <Tabs.Bar>
@@ -46,6 +46,7 @@ export const Example = ({ value }: ExampleProps) => {
           ))}
         </Grid>
         <Tabs.Panels>
+          <Tabs.Panel value="preview">TODO</Tabs.Panel>
           {tabs
             ?.filter((tab) => tab.key != 'preview')
             ?.map((tab) => (
@@ -55,6 +56,6 @@ export const Example = ({ value }: ExampleProps) => {
             ))}
         </Tabs.Panels>
       </Tabs>
-    </div>
+    </>
   );
 };

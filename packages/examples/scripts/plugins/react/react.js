@@ -212,7 +212,7 @@ export const react = (options) => {
     // TODO
     return {
       script: model.script,
-      style: model.content
+      style: model.style
     };
   };
   return {

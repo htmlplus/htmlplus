@@ -209,3 +209,12 @@ h6 {
   margin: 20px;
   margin-bottom: 0;
 }
+
+.example {
+  plus-tabs-panel {
+    height: 360px;
+  }
+  plus-tabs-panel > pre {
+    height: 100%;
+  }
+}

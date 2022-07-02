@@ -11,10 +11,8 @@ export const Code = ({ children, language }: CodeProps) => {
   const content = useMemo(() => children?.toString() || '', [children]);
   useEffect(() => Prism.highlightAllUnder(element.current!), [content, language]);
   return (
-    <div ref={element}>
-      <pre className={`language-${language}`} tabIndex={0}>
-        <code className={`language-${language}`}>{content}</code>
-      </pre>
-    </div>
-  )
+    <pre ref={element} className={`language-${language}`} tabIndex={0}>
+      <code className={`language-${language}`}>{content}</code>
+    </pre>
+  );
 };

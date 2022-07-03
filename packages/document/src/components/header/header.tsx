@@ -26,7 +26,7 @@ export const Header = ({ menu }: HeaderProps) => {
       <Card tile>
         <Grid alignItems="center" wrap="off" gutterX="md">
           {menu && (
-            <Grid.Item xs="auto" hideLgUp>
+            <Grid.Item xs="auto" hideXlUp>
               <Drawer.Toggler connector="main">
                 <Icon name="menu" />
               </Drawer.Toggler>

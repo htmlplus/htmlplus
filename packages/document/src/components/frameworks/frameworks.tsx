@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import Select, { components } from 'react-select';
 
 import { useRouter } from 'next/router';
@@ -15,9 +15,9 @@ const Option = (props: any) => {
   );
 };
 
-// TODO
 const SingleValue = (props: any) => (
   <components.Placeholder {...props}>
+    {/* TODO */}
     <img
       style={{ width: '1.5rem', height: '1.5rem', objectFit: 'contain', verticalAlign: 'middle', margin: '0' }}
       src={`/assets/logo/${props.data.logo}`}
@@ -32,24 +32,35 @@ export const Frameworks = () => {
   const router = useRouter();
 
   const store = useStore();
+  const items = useMemo(
+    () =>
+      frameworks
+        .filter((framework) => !framework.disabled)
+        .map((framework) => ({
+          value: framework.key,
+          label: framework.title,
+          logo: framework.logo
+        })),
+    [frameworks]
+  );
 
-  // TODO
-  useEffect(() => {
+  const key = useMemo(() => {
     const framework = window?.location?.pathname?.split('/')?.at(1);
     if (!framework) return;
     if (!frameworks.some((framework) => router.asPath.startsWith(`/${framework.key}`))) return;
     if (!framework) return;
-    if (framework == store.framework) return;
-    store.setFramework(framework);
+    return framework;
   }, [router.asPath]);
 
-  const items = frameworks
-    .filter((framework) => !framework.disabled)
-    .map((framework) => ({
-      value: framework.key,
-      label: framework.title,
-      logo: framework.logo
-    }));
+  const selected = useMemo(
+    () => items.find((framework) => framework.value === store.framework),
+    [items, store.framework]
+  );
+
+  useEffect(() => {
+    if (!key) return;
+    store.setFramework(key);
+  }, [key]);
 
   const change = (framework: any) => {
     store.setFramework(framework.value);
@@ -67,12 +78,13 @@ export const Frameworks = () => {
       <p>Select Your Framework</p>
       <Select
         isSearchable={false}
+        isDisabled={!key}
         components={{
           Option,
           SingleValue
         }}
         options={items}
-        value={items.find((framework) => framework.value === store.framework)}
+        value={selected}
         onChange={change}
       />
     </div>

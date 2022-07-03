@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             key: 'github',
             title: 'Github',
             icon: 'github',
-            url: `TODO`
+            url: Utils.getExampleFromGithub(framework as string, componentKey as string, example.key)
           },
           {
             key: 'codesandbox',

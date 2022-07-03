@@ -211,10 +211,11 @@ h6 {
 }
 
 .example {
-  plus-tabs-panel {
-    height: 360px;
+  plus-tabs-panel:first-child {
+    margin-top: 0.40625rem;
+    border: solid 1px #ededed;
   }
   plus-tabs-panel > pre {
-    height: 100%;
+    max-height: 360px;
   }
 }

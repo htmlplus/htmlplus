@@ -171,7 +171,9 @@ export const vue = (options) => {
       return print(ast);
     })();
 
-    const style = context.snippets.find((snippet) => snippet.key == 'style');
+    const style = context.outputs
+      ?.find((output) => output.name == 'prepare')
+      ?.output?.find((snippet) => snippet.key == 'style');
 
     const template = (() => {
       const ast = t.cloneNode(

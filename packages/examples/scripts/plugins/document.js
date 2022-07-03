@@ -8,7 +8,9 @@ export const document = (options) => {
     for (const context of global.contexts) {
       const [component, example] = context.directoryPath.split(/[\/|\\]/g).slice(-2);
       for (const output of context.outputs) {
-        const name = output.name == 'vue' && output.options?.dedicated ? 'vue-dedicated' : 'vue';
+        if (output.name == 'prepare') continue;
+        let name = output.name;
+        if (name == 'vue' && output.options?.dedicated) name = 'vue-dedicated';
         outputs.push({
           key: example,
           category: name,
@@ -16,7 +18,9 @@ export const document = (options) => {
           detail: output.output
         });
       }
-      const style = context.snippets.find((snippet) => snippet.key == 'style');
+      const style = context.outputs
+        ?.find((output) => output.name == 'prepare')
+        ?.output?.find((snippet) => snippet.key == 'style');
       outputs.push({
         key: example,
         category: 'custom-element',

@@ -5,8 +5,7 @@ export const prepare = () => {
   const next = (context) => {
     const regex = /```\w+\s\[\w+(:\w+)?\]\s[\S\s]*?```/g;
 
-    // TODO
-    const snippets = context.snippets = [];
+    const snippets = [];
 
     snippets.push({
       key: 'readme',
@@ -34,7 +33,7 @@ export const prepare = () => {
         const content = lines.slice(1, -1).join('\n').trim();
 
         snippets.push({ key, type, content });
-      } catch { }
+      } catch {}
     });
 
     const template = snippets.find((snippet) => snippet.key == 'template');
@@ -63,6 +62,8 @@ export const prepare = () => {
     const script = snippets.find((snippet) => snippet.key == 'script');
 
     if (script) context.fileContent = script.content;
+
+    return snippets;
   };
   return {
     name,

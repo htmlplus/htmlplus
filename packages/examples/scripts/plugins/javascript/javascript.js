@@ -3,10 +3,6 @@ import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/com
 import { capitalCase } from 'change-case';
 import fs from 'fs';
 
-const getSnippet = (context, key) => {
-  return context.snippets?.find((snippet) => snippet.key == key)?.content;
-};
-
 const getValue = (path) => {
   switch (path.node.expression.type) {
     case 'BinaryExpression':
@@ -143,31 +139,20 @@ export const javascript = (options) => {
           path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
         }
       }
-      // script: {
-      //   ClassDeclaration(path) {
-      //     path.traverse(visitors.script);
-      //     // if (!path.node.body.body.length) return path.remove();
-      //     state.elements.clear();
-      //   },
-      //   ClassMethod(path) {
-      //     const { key } = path.node;
-      //     if (key.name !== 'render') return;
-      //     path.remove();
-      //   },
-      //   JSXAttribute(path) {
-      //     const { name, value } = path.node;
-      //     // 'event' attribute detection
-      //     if (name.name.match(/on[A-Z]/)) setId(path);
-      //   }
-      // }
     };
 
-    const script = getSnippet(context, 'javascript:script');
+    const script = context.outputs
+      ?.find((output) => output.name == 'prepare')
+      ?.output?.find((snippet) => snippet.key == 'javascript:script');
 
-    const style = getSnippet(context, 'style');
+    const style = context.outputs
+      ?.find((output) => output.name == 'prepare')
+      ?.output?.find((snippet) => snippet.key == 'style');
 
     const template = (() => {
-      const dedicated = getSnippet(context, 'javascript:template');
+      const dedicated = context.outputs
+        ?.find((output) => output.name == 'prepare')
+        ?.output?.find((snippet) => snippet.key == 'javascript:template');
 
       if (dedicated) return dedicated.content;
 
@@ -213,16 +198,16 @@ export const javascript = (options) => {
 
     const model = {
       title,
-      script: indent(script, 3),
-      style: indent(style, 3),
+      script: indent(script?.content, 3),
+      style: indent(style?.content, 3),
       template: indent(template, 2)
     };
 
     renderTemplate(patterns, destination, config)(model);
 
     return {
-      script,
-      style,
+      script: script?.content,
+      style: style?.content,
       template
     };
   };

@@ -197,7 +197,9 @@ export const react = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const style = context.snippets.find((snippet) => snippet.key == 'style');
+    const style = context.outputs
+      ?.find((output) => output.name == 'prepare')
+      ?.output?.find((snippet) => snippet.key == 'style');
 
     if (!style) patterns.push('!templates/src/index.css.*');
 

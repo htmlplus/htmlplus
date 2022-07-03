@@ -3,79 +3,20 @@ import React, { useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 import { Button, Icon } from '@app/components';
-import * as Constants from '@app/constants';
-import { components } from '@app/data';
+import { sidebar as sidebarData } from '@app/data';
 import { useSidebar, useStore } from '@app/hooks';
 import * as Utils from '@app/utils';
 
 import { SidebarItem, SidebarProps } from './sidebar.types';
 
-export const Sidebar = ({}: SidebarProps) => {
+export const Sidebar = ({ }: SidebarProps) => {
   const router = useRouter();
 
   const sidebar = useSidebar();
 
   const store = useStore();
 
-  const items = useMemo(
-    () => [
-      {
-        title: 'Introduction',
-        icon: 'introduction',
-        items: [
-          {
-            title: `What's ${Constants.PLATFORM_NAME}?`,
-            url: Utils.getPath('INTRODUCTION_WHAT')
-          },
-          {
-            title: `Why ${Constants.PLATFORM_NAME}?`,
-            url: Utils.getPath('INTRODUCTION_WHY')
-          }
-        ]
-      },
-      {
-        title: 'Getting started',
-        icon: 'getting-started',
-        items: [
-          {
-            title: 'Installation',
-            url: Utils.getPath('INSTALLATION')
-          },
-          {
-            title: 'Browser support',
-            url: Utils.getPath('BROWSERS')
-          }
-        ]
-      },
-      {
-        title: 'UI Components',
-        icon: 'components',
-        items: components.map((component) => ({
-          title: component.title,
-          url: Utils.getPath('COMPONENT_DETAILS', { framework: store.framework, component: component.key })
-        }))
-      },
-      {
-        title: 'UI Components API',
-        icon: 'components',
-        items: components.map((component) => ({
-          title: component.title,
-          url: Utils.getPath('API_DETAILS', { framework: store.framework, component: component.key })
-        }))
-      },
-      {
-        title: 'About',
-        icon: 'htmlplus',
-        items: [
-          {
-            title: 'Code Of Conduct',
-            url: Utils.getPath('CODEOFCONDUCT')
-          }
-        ]
-      }
-    ],
-    [store.framework]
-  );
+  const items = useMemo(() => sidebarData(store.framework!), [store.framework]);
 
   const actives: SidebarItem[] = useMemo(() => {
     const run = (...items: SidebarItem[]): SidebarItem[] => {

@@ -1,13 +1,30 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
+
+import { useRouter } from 'next/router';
 
 import { Card, Drawer, Frameworks, Grid, Header, Navigation, Sidebar, Sticky, Toc } from '@app/components';
 import * as Constants from '@app/constants';
+import { sidebar } from '@app/data';
+import { useStore } from '@app/hooks';
 
 interface LayoutDefaultProps {
   children: ReactNode;
 }
 
 export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
+  const router = useRouter();
+
+  const store = useStore();
+
+  const [prev, current, next] = useMemo(() => {
+    const items = sidebar(store.framework!)
+      .map((item) => item?.items?.map((sub) => ({ ...sub, category: item.title })))
+      .flat()
+      .filter((item) => !!item?.url);
+    const index = items.findIndex((item) => router.asPath.startsWith(item?.url!));
+    return items.slice(index - 1, index + 3);
+  }, [router.asPath, store.framework]);
+
   return (
     <>
       <Header menu />
@@ -31,7 +48,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
               {/* TODO */}
               <div style={{ padding: '16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
                 {children}
-                <Navigation prev={{ title: 'TODO', url: 'TODO' }} next={{ title: 'TODO', url: 'TODO' }} />
+                <Navigation prev={prev!} next={next!} />
               </div>
             </Grid.Item>
             <Grid.Item xs="12" md="auto" hideMdDown>

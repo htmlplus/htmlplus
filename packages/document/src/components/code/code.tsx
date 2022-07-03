@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
-import 'prismjs/themes/prism-tomorrow.css';
+import 'prism-themes/themes/prism-nord.css';
 
 import { CodeProps } from './code.types';
 

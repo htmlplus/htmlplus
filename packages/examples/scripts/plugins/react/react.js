@@ -189,7 +189,7 @@ export const react = (options) => {
 
     const patterns = ['templates/**/*.*'];
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'react');
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     fs.rmSync(destination, { recursive: true, force: true });
 

@@ -203,7 +203,7 @@ export const javascript = (options) => {
 
     const patterns = ['templates/**/*.*'];
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'javascript');
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     fs.rmSync(destination, { recursive: true, force: true });
 

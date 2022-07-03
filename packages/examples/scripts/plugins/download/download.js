@@ -9,7 +9,7 @@ export const download = (options) => {
   const next = async (context) => {
     const output = {};
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'download');
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     const sources = options?.sources?.(context);
 

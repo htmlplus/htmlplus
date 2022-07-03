@@ -9,7 +9,7 @@ export const codesandbox = (options) => {
   const next = (context) => {
     const output = {};
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'codesandbox');
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     const sources = options?.sources?.(context);
 

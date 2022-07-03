@@ -57,7 +57,7 @@ export const vue = (options) => {
           // TODO
           if (path.node.source.value != '@htmlplus/element') return;
           path.remove();
-        },
+        }
       },
       template: {
         ClassDeclaration(path) {
@@ -199,7 +199,7 @@ export const vue = (options) => {
 
     const patterns = ['templates/**/*.*'];
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, 'vue');
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     fs.rmSync(destination, { recursive: true, force: true });
 

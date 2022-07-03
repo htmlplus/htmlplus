@@ -15,10 +15,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   plus-grid-item {
     text-align: center;

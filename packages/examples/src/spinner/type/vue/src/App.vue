@@ -23,7 +23,3 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-

@@ -23,10 +23,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   plus-cropper {
     height: 250px;

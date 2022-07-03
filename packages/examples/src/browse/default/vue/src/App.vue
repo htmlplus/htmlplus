@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  import { Element } from '@htmlplus/element';
   export default {
     methods: {
       onChange(event) {

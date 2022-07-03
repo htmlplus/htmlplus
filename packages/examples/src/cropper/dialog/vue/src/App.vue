@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import { Element, State } from '@htmlplus/element';
   export default {
     data() {
       return {

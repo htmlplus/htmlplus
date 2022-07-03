@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  import { Element, State } from '@htmlplus/element';
   export default {
     methods: {
       ensure(type, event) {

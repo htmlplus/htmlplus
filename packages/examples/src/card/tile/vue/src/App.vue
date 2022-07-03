@@ -16,10 +16,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   .container {
     padding: 2rem 0;

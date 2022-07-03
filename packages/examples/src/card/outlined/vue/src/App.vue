@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   plus-card {
     height: 12rem;

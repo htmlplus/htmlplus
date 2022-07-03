@@ -18,10 +18,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   plus-cropper[shape="rectangle"] {
     height: 100%;

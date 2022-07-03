@@ -18,10 +18,6 @@
   </div>
 </template>
 
-<script>
-  import { Element } from '@htmlplus/element';
-</script>
-
 <style scoped>
   plus-divider {
     --plus-divider-color: #5F9EE9;

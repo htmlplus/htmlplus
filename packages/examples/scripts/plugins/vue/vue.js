@@ -52,7 +52,12 @@ export const vue = (options) => {
         ClassProperty(path) {
           const { key, value } = path.node;
           path.replaceWith(t.objectProperty(key, value));
-        }
+        },
+        ImportDeclaration(path) {
+          // TODO
+          if (path.node.source.value != '@htmlplus/element') return;
+          path.remove();
+        },
       },
       template: {
         ClassDeclaration(path) {

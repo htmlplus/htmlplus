@@ -39,7 +39,18 @@
     </style>
   </head>
   <body>
-    
+    <div class="container">
+      <plus-intersection id="element1" once>
+        <plus-card elevation="10">
+          <plus-spinner></plus-spinner>
+          <img
+            data-hidden="true"
+            data-src="https://placekitten.com/200/200"
+            alt="Lazy Image"
+          />
+        </plus-card>
+      </plus-intersection>
+    </div>
     <script>
       element1.addEventListener('plusChange', (event) => {
         if (!event.detail.isIntersecting) return;

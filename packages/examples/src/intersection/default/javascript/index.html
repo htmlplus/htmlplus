@@ -40,7 +40,19 @@
     </style>
   </head>
   <body>
-    
+    <div class="container">
+      <div id="element1" class="status"></div>
+      <div class="content">
+        <div class="spacer"></div>
+        <plus-intersection id="element2">
+          <plus-card elevation="10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </plus-card>
+        </plus-intersection>
+        <div class="spacer"></div>
+      </div>
+    </div>
     <script>
       element2.addEventListener('plusChange', (event) => {
         element1.innerHTML = event.detail.isIntersecting

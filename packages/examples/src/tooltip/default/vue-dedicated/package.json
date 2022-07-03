@@ -1,0 +1,14 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "start": "vite"
+  },
+  "dependencies": {
+    "@htmlplus/react": "latest",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9",
+    "vue": "^3.2.36"
+  }
+}

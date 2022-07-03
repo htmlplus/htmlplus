@@ -7,14 +7,13 @@ export const document = (options) => {
     const outputs = [];
     for (const context of global.contexts) {
       const [component, example] = context.directoryPath.split(/[\/|\\]/g).slice(-2);
-      const categories = Object.keys(context.output);
-      for (const category of categories) {
-        if (category == 'zip') continue;
+      for (const output of context.outputs) {
+        const name = output.name == 'vue' && output.options?.dedicated ? 'vue-dedicated' : 'vue';
         outputs.push({
           key: example,
-          category,
+          category: name,
           component,
-          detail: context.output?.[category]
+          detail: output.output
         });
       }
       const style = context.snippets.find((snippet) => snippet.key == 'style');

@@ -209,7 +209,6 @@ export const react = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    // TODO
     return {
       script: model.script,
       style: model.style

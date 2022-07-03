@@ -43,6 +43,12 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'vue');
     }
   }),
+  vue({
+    dedicated: true,
+    destination(context) {
+      return path.join(context.directoryPath, 'vue-dedicated');
+    }
+  }),
   codesandbox({
     sources(context) {
       return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];

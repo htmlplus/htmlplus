@@ -6,9 +6,11 @@ export interface Context {
   dependenciesUnresolved?: Array<string>;
   isInvalid?: boolean;
   script?: string;
-  output?: {
-    [key: string]: any;
-  };
+  outputs?: Array<{
+    name: string;
+    options?: any;
+    output?: any;
+  }>;
 
   // component
   componentClassName?: string;

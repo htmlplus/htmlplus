@@ -216,7 +216,6 @@ export const vue = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    // TODO
     return {
       script,
       style: style?.content,
@@ -225,6 +224,7 @@ export const vue = (options) => {
   };
   return {
     name,
+    options,
     next
   };
 };

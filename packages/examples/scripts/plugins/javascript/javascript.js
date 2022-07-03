@@ -220,7 +220,6 @@ export const javascript = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    // TODO
     return {
       script,
       style,

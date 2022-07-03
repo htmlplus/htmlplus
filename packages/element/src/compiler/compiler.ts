@@ -41,7 +41,21 @@ export default (...plugins: Array<Plugin>) => {
 
       logger.start(`Plugin '${plugin.name}' executing...`);
 
-      (context.output ??= {})[plugin.name] = await plugin.next(context, global);
+      const output = await plugin.next(context, global);
+
+      // TODO
+      if (output) {
+        context.outputs = (context.outputs ?? [])
+          .filter((output) => {
+            if (plugin.name != output.name) return true;
+            if (plugin.options && plugin.options != output.options) return true;
+          })
+          .concat({
+            name: plugin.name,
+            options: plugin.options,
+            output
+          });
+      }
 
       logger.start(`Plugin '${plugin.name}' executed successfully.`);
 

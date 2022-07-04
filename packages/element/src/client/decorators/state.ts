@@ -16,21 +16,11 @@ export function State() {
         values.set(this, input);
 
         request(this, { [propertyKey]: [input, value] })
-          .then(() => {})
+          .then(() => undefined)
           .catch((error) => {
             throw error;
           });
       }
-    });
-    onReady(target, function () {
-      defineProperty(host(this), propertyKey, {
-        get: () => {
-          return this[propertyKey];
-        },
-        set: (value) => {
-          this[propertyKey] = value;
-        }
-      });
     });
   };
 }

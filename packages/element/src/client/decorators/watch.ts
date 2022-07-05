@@ -19,14 +19,17 @@ export function Watch(...keys: Array<string>) {
       // Loops the keys
       for (const key of keys) {
         // Checks the existence of keys in the current state.
-        if (!states?.[key]) {
-          // Announces the warning.
-          console.warn(`The key '${key}' that was used in '@Watch()' is invalid!`);
+        if (states?.[key]) {
+          // Invokes the method with parameters.
+          this[propertyKey](...states[key], key);
           // Breaks the current iteration.
           continue;
         }
-        // Invokes the method with parameters.
-        this[propertyKey](...states[key], key);
+        // Checks the existence of keys in the instance.
+        if (!(key in this)) {
+          // Announces the warning.
+          console.warn(`The key '${key}' that was used in '@Watch()' is invalid!`);
+        }
       }
     });
   };

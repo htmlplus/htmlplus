@@ -17,7 +17,6 @@ export interface ListenOptions {
 
 export function Listen(name: string, options: ListenOptions = defaults) {
   return function (target: PlusElement, propertyKey: PropertyKey, descriptor: PropertyDescriptor) {
-    // TODO: types
     const element = (instance) => {
       switch (options.target) {
         case 'body':
@@ -28,15 +27,17 @@ export function Listen(name: string, options: ListenOptions = defaults) {
           return window;
         case 'host':
           return host(instance);
+        default:
+          return host(instance);
       }
     };
 
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
-      on(element(this)!, name, this[propertyKey], options);
+      on(element(this), name, this[propertyKey], options);
     });
 
     appendToMethod(target, CONSTANTS.LIFECYCLE_DISCONNECTED, function () {
-      off(element(this)!, name, this[propertyKey], options);
+      off(element(this), name, this[propertyKey], options);
     });
 
     return Bind()(target, propertyKey, descriptor);

@@ -3,7 +3,7 @@ import { html, render as renderer } from 'uhtml';
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
 import { call } from './call.js';
-import { getStyles } from './get-styles.js';
+import { getStyles } from './getStyles.js';
 import { host } from './host.js';
 
 export const render = (target: PlusElement): void => {

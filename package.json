@@ -1,21 +1,10 @@
 {
   "name": "@htmlplus/dev",
   "scripts": {
-    "bootstrap": "lerna bootstrap --force-local && lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",
+    "bootstrap": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
-    "core:pull": "git subtree pull --prefix packages/core packages/core main --squash",
-    "core:push": "git subtree push --prefix packages/core packages/core main",
-    "document:pull": "git subtree pull --prefix packages/document packages/document main --squash",
-    "document:push": "git subtree push --prefix packages/document packages/document main",
-    "element:pull": "git subtree pull --prefix packages/element packages/element main --squash",
-    "element:push": "git subtree push --prefix packages/element packages/element main",
-    "examples:pull": "git subtree pull --prefix packages/examples packages/examples main --squash",
-    "examples:push": "git subtree push --prefix packages/examples packages/examples main",
-    "angular:push": "git subtree push --prefix packages/ports/angular packages/ports/angular main",
-    "react:push": "git subtree push --prefix packages/ports/react packages/ports/react main",
-    "svelte:push": "git subtree push --prefix packages/ports/svelte packages/ports/svelte main",
-    "vue:push": "git subtree push --prefix packages/ports/vue packages/ports/vue main"
+    "postinstall": "lerna bootstrap --force-local"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.2.6",

@@ -56,6 +56,9 @@ export function Element(tag?: string) {
         call(this.plus, CONSTANTS.LIFECYCLE_DISCONNECTED);
       }
     }
+
+    if (customElements.get(tag!)) return;
+
     customElements.define(tag!, Plus);
   };
 }

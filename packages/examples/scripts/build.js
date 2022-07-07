@@ -1,4 +1,4 @@
-import compiler, { customElement, extract, parse, read } from '@htmlplus/element/compiler/index.js';
+import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index.js';
 import { pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
@@ -10,12 +10,6 @@ const { start, next, finish } = compiler(
   parse(),
   extract({
     prefix: 'plus'
-  }),
-  customElement({
-    typings: false,
-    destination(context) {
-      return path.join(context.directoryPath, 'preview');
-    }
   }),
   javascript({
     destination(context) {
@@ -43,12 +37,13 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'vue');
     }
   }),
-  vue({
-    dedicated: true,
-    destination(context) {
-      return path.join(context.directoryPath, 'vue-dedicated');
-    }
-  }),
+  // TODO
+  // vue({
+  //   dedicated: true,
+  //   destination(context) {
+  //     return path.join(context.directoryPath, 'vue-dedicated');
+  //   }
+  // }),
   codesandbox({
     sources(context) {
       return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];

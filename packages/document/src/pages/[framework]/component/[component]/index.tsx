@@ -5,8 +5,8 @@ import { headerCase } from 'change-case';
 import { Contributors, Markup } from '@app/components';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
-import * as Utils from '@app/utils';
 import { getContributors } from '@app/services';
+import * as Utils from '@app/utils';
 
 const ComponentDetails = ({ component, contributors, example }: any) => {
   return (
@@ -61,12 +61,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         result[example.key] = { links, tabs, title };
 
-        tabs.push({
-          key: 'preview',
-          content: examples?.find(
-            (item) => item.key == example.key && item.category == 'custom-element' && item.component == componentKey
-          )?.detail?.script
-        });
+        // TODO
+        // tabs.push({
+        //   key: 'preview',
+        //   content: examples?.find(
+        //     (item) => item.key == example.key && item.category == 'custom-element' && item.component == componentKey
+        //   )?.detail?.script
+        // });
 
         for (const key of ['template', 'script', 'style']) {
           if (framework == 'react' && key == 'template') continue;

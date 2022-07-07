@@ -18,19 +18,6 @@ export const document = (options) => {
           detail: output.output
         });
       }
-      const style = context.outputs
-        ?.find((output) => output.name == 'prepare')
-        ?.output?.find((snippet) => snippet.key == 'style');
-      outputs.push({
-        key: example,
-        category: 'custom-element',
-        component,
-        detail: {
-          tag: context.componentTag,
-          script: context.script,
-          style: style?.content
-        }
-      });
     }
     const raw = JSON.stringify(outputs, null, 2);
     fs.writeFileSync(options?.destination, raw, 'utf8');

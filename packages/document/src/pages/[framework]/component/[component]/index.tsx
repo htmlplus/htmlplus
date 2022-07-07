@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import axios from 'axios';
 import { headerCase } from 'change-case';
 
 import { Contributors, Markup } from '@app/components';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import * as Utils from '@app/utils';
+import { getContributors } from '@app/services';
 
 const ComponentDetails = ({ component, contributors, example }: any) => {
   return (
@@ -27,20 +27,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (component)
     component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
-  const contributors: string[] = await (async () => {
-    try {
-      const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;
-      const response = await axios.get(url);
-      return response.data
-        .map((commit: any) => commit.author?.login)
-        .filter(
-          (contributor: string, index: number, contributors: string[]) =>
-            contributor && contributors.indexOf(contributor) === index
-        ) || null;
-    } catch {
-      return null;
-    }
-  })();
+  const contributors: string[] = await getContributors(componentKey as string);
 
   // TODO
   const example = (() => {

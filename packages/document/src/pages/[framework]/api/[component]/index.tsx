@@ -2,12 +2,11 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import axios from 'axios';
-
 import { Contributors, Divider, Parameter, Toc } from '@app/components';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import * as Utils from '@app/utils';
+import { getContributors } from '@app/services';
 
 const ComponentAPI = ({ component, contributors }: any) => {
   const sections = [
@@ -71,20 +70,7 @@ export default ComponentAPI;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { component: componentKey, framework } = context.params || {};
   const component = components.find((component) => component.key == componentKey);
-  const contributors: string[] = await (async () => {
-    try {
-      const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;
-      const response = await axios.get(url);
-      return response.data
-        .map((commit: any) => commit.author?.login)
-        .filter(
-          (contributor: string, index: number, contributors: string[]) =>
-            contributor && contributors.indexOf(contributor) === index
-        ) || null;
-    } catch {
-      return null;
-    }
-  })();
+  const contributors: string[] = await getContributors(componentKey as string);
   return {
     props: {
       component,

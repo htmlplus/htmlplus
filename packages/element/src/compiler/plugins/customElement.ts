@@ -25,7 +25,7 @@ export const customElement = (options?: CustomElementOptions) => {
     ast.program.body.unshift(
       t.importDeclaration(
         [t.importSpecifier(t.identifier('html'), t.identifier('html'))],
-        t.stringLiteral('@htmlplus/element/runtime')
+        t.stringLiteral('@htmlplus/element/client/vendor/uhtml')
       )
     );
 

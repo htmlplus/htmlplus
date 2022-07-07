@@ -1,7 +1,6 @@
 import cpy from 'cpy';
 import fs from 'fs';
 
-cpy(['src/vendor/**/*.*'], 'dist/vendor');
 cpy(['src/**/*.hbs', 'package-lock.json', 'README.md'], 'dist');
 
 const raw = fs.readFileSync('package.json', 'utf8');

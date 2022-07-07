@@ -1,17 +1,23 @@
+type Target = Window | Document | Element;
+
+export const dispatch = (target: Target, event: Event): boolean => {
+  return target.dispatchEvent(event);
+}
+
 export const on = (
-  target: Window | Document | Element,
-  event: string,
+  target: Target,
+  type: string,
   handler: EventListenerOrEventListenerObject,
   options?: boolean | AddEventListenerOptions
-) => {
-  target.addEventListener(event, handler, options);
+): void => {
+  target.addEventListener(type, handler, options);
 };
 
 export const off = (
-  target: Window | Document | Element,
-  event: string,
+  target: Target,
+  type: string,
   handler: EventListenerOrEventListenerObject,
   options?: boolean | EventListenerOptions
-) => {
-  target.removeEventListener(event, handler, options);
+): void => {
+  target.removeEventListener(type, handler, options);
 };

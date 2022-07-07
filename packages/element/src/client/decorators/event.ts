@@ -1,5 +1,5 @@
 import { PlusElement } from '../../types/index.js';
-import { defineProperty, host } from '../utils/index.js';
+import { defineProperty, dispatch, host } from '../utils/index.js';
 
 export type EventEmitter<T = any> = (data?: T) => CustomEvent<T>;
 
@@ -22,7 +22,6 @@ export interface EventOptions {
   composed?: boolean;
 }
 
-// TODO: add global hook
 export function Event<T = any>(options: EventOptions = {}) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     defineProperty(target, propertyKey, {
@@ -31,7 +30,7 @@ export function Event<T = any>(options: EventOptions = {}) {
           options.bubbles ??= false;
           const name = options.name || String(propertyKey);
           const event = new CustomEvent(name, { ...options, detail });
-          host(this).dispatchEvent(event);
+          dispatch(host(this), event);
           return event;
         };
       }

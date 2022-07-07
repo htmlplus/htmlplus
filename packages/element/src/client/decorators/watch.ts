@@ -1,6 +1,6 @@
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
-import { appendToMethod } from '../utils/index.js';
+import { appendToMethod, host } from '../utils/index.js';
 
 /**
  * Monitors properties and states to catch changes.
@@ -28,7 +28,7 @@ export function Watch(...keys: Array<string>) {
         // Checks the existence of keys in the instance.
         if (!(key in this)) {
           // Announces the warning.
-          console.warn(`The key '${key}' that was used in '@Watch()' is invalid!`);
+          console.warn(`The key '${key}' that was used in '@Watch()' is invalid!`, host(this));
         }
       }
     });

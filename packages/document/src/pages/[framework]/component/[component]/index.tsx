@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const component = components.find((component) => component.key == componentKey);
 
   if (component)
-    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `);
+    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
   const contributors: string[] = await (async () => {
     try {
@@ -36,8 +36,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
         .filter(
           (contributor: string, index: number, contributors: string[]) =>
             contributor && contributors.indexOf(contributor) === index
-        );
-    } catch {}
+        ) || null;
+    } catch {
+      return null;
+    }
   })();
 
   // TODO

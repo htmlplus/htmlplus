@@ -20,15 +20,6 @@ export const customElement = (options?: CustomElementOptions) => {
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
 
-    // TODO
-    // attach uhtml importer
-    ast.program.body.unshift(
-      t.importDeclaration(
-        [t.importSpecifier(t.identifier('html'), t.identifier('html'))],
-        t.stringLiteral('@htmlplus/element/client/vendor/uhtml')
-      )
-    );
-
     // jsx to uhtml syntax
     visitor(ast, {
       JSXAttribute: {
@@ -62,14 +53,24 @@ export const customElement = (options?: CustomElementOptions) => {
             path.replaceWith(t.identifier(print(path.node)));
             return;
           } else {
-            path.replaceWith(t.identifier('html`' + print(path.node) + '`'));
+            path.replaceWith(
+              t.memberExpression(
+                t.memberExpression(t.thisExpression(), t.identifier('uhtml')),
+                t.identifier(`html\`${print(path.node)}\``)
+              )
+            );
             return;
           }
         }
       },
       JSXFragment: {
         exit(path) {
-          path.replaceWith(t.identifier(['html`', ...path.node.children.map((child) => print(child)), '`'].join('')));
+          path.replaceWith(
+            t.memberExpression(
+              t.memberExpression(t.thisExpression(), t.identifier('uhtml')),
+              t.identifier(['html`', ...path.node.children.map((child) => print(child)), '`'].join(''))
+            )
+          );
         }
       },
       JSXExpressionContainer: {

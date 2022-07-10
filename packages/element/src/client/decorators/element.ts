@@ -3,6 +3,7 @@ import { camelCase, paramCase } from 'change-case';
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
 import { call, getMembers, isServer, parseValue, request } from '../utils/index.js';
+import * as uhtml from '../vendor/uhtml.js';
 
 export function Element(tag?: string) {
   return function (constructor: PlusElement) {
@@ -15,6 +16,9 @@ export function Element(tag?: string) {
         super();
 
         this.plus = new (constructor as any)();
+
+        // TODO
+        this.plus['uhtml'] = uhtml;
 
         this.plus[CONSTANTS.API_HOST] = () => this;
 

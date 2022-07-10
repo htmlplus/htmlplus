@@ -20,6 +20,14 @@ export const customElement = (options?: CustomElementOptions) => {
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
 
+    // TODO
+    visitor(ast, {
+      ClassDeclaration(path) {
+        if (path.node.id.name != context.className) return;
+        path.node.body.body.unshift(t.classProperty(t.identifier('uhtml')));
+      }
+    });
+
     // jsx to uhtml syntax
     visitor(ast, {
       JSXAttribute: {

@@ -1,5 +1,5 @@
 import { host } from '@app/helpers';
-import { render, request } from '@htmlplus/element/client/utils';
+import { request } from '@htmlplus/element/client/utils';
 
 /**
  * Connect Flow
@@ -188,7 +188,9 @@ const setValue = (property: LinkProperty, value: any): void => {
    */
   if (property.type == 'INJECT' && property.options)
     request(property.instance)
-      .then(() => render(property.instance))
+      .then(() => {
+        // render(property.instance)
+      })
       .catch(() => undefined);
 };
 

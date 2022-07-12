@@ -9,7 +9,7 @@ export const parseValue = (value: any, type: any): any => {
     case CONSTANTS.TYPE_DATE:
       return new Date(value);
     case CONSTANTS.TYPE_NUMBER:
-      return parseFloat(value);
+      return isNaN(value) ? value : parseFloat(value);
     default:
       return value;
   }

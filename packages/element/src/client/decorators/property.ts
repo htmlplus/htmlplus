@@ -1,20 +1,20 @@
+import { paramCase } from 'change-case';
+
+import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
 import {
   defineProperty,
   getMembers,
   host,
-  isReady,
   parseValue,
   request,
   updateAttribute,
-  onReady
+  appendToMethod
 } from '../utils/index.js';
 
 export interface PropertyOptions {
-  /**
-   * TODO
-   */
-  attribute?: boolean | string;
+  // TODO
+  // attribute?: boolean | string;
   /**
    * Whether property value is reflected back to the associated attribute. default is `false`.
    */
@@ -23,60 +23,48 @@ export interface PropertyOptions {
 
 export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    const values = new Map();
-    defineProperty(target, propertyKey, {
-      get() {
-        return values.get(this);
-      },
-      set(input) {
-        const value = values.get(this);
+    let timeout, value;
 
-        if (value === input) return;
+    const name = String(propertyKey);
 
-        values.set(this, input);
+    function get(this) {
+      return value;
+    }
 
-        // TODO
-        const ready = isReady(this);
+    function set(this, input) {
+      if (input === value) return;
 
-        request(this, { [propertyKey]: [input, value] })
-          .then((renderd) => {
-            const name = String(propertyKey);
+      value = input;
 
-            const element = host(this);
-
-            const hasAttribute = element.hasAttribute(name);
-
-            // TODO
-            if (options?.reflect && !hasAttribute && !renderd && !ready) updateAttribute(element, name, input);
-
-            if (!renderd) return;
-
-            if (!options?.reflect) return;
-
-            const raw = element.getAttribute(name);
-
-            const [type] = getMembers(target)[propertyKey];
-
-            const parsed = parseValue(raw, type);
-
-            if (parsed === input) return;
-
-            updateAttribute(element, name, input);
-          })
-          .catch((error) => {
-            throw error;
-          });
-      }
-    });
-    onReady(target, function () {
-      defineProperty(host(this), propertyKey, {
-        get: () => {
-          return this[propertyKey];
-        },
-        set: (value) => {
-          this[propertyKey] = value;
-        }
+      request(this, { [name]: [input, value] }).then(() => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          if (!options?.reflect) return;
+          const element = host(this);
+          const attribute = paramCase(name);
+          const type = getMembers(target)[name].at(0);
+          const raw = element.getAttribute(attribute);
+          const parsed = parseValue(raw, type);
+          if (input === parsed) return;
+          updateAttribute(element, attribute, input);
+        });
       });
+    }
+
+    defineProperty(target, propertyKey, { get, set });
+
+    appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
+      const element = host(this);
+
+      const get = () => {
+        return this[propertyKey];
+      };
+
+      const set = (input) => {
+        this[propertyKey] = input;
+      };
+
+      defineProperty(element, propertyKey, { get, set });
     });
   };
 }

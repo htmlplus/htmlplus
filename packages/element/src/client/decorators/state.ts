@@ -3,24 +3,26 @@ import { defineProperty, request } from '../utils/index.js';
 
 export function State() {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    const values = new Map();
-    defineProperty(target, propertyKey, {
-      get() {
-        return values.get(this);
-      },
-      set(input) {
-        const value = values.get(this);
+    let value;
 
-        if (value === input) return;
+    const name = String(propertyKey);
 
-        values.set(this, input);
+    function get(this) {
+      return value;
+    }
 
-        request(this, { [propertyKey]: [input, value] })
-          .then(() => undefined)
-          .catch((error) => {
-            throw error;
-          });
-      }
-    });
+    function set(this, input) {
+      if (input === value) return;
+
+      value = input;
+
+      request(this, { [name]: [input, value] })
+        .then(() => undefined)
+        .catch((error) => {
+          throw error;
+        });
+    }
+
+    defineProperty(target, propertyKey, { get, set });
   };
 }

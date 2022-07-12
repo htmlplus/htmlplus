@@ -8,23 +8,20 @@ import * as uhtml from '../vendor/uhtml.js';
 export function Element(tag?: string) {
   return function (constructor: PlusElement) {
     if (isServer()) return;
+
     const members = getMembers(constructor);
+
     class Plus extends HTMLElement {
       plus;
 
       constructor() {
         super();
-
-        this.plus = new (constructor as any)();
+        this.attachShadow({ mode: 'open' });
 
         // TODO
-        this.plus['uhtml'] = uhtml;
-
+        this.plus = new (constructor as any)();
         this.plus[CONSTANTS.API_HOST] = () => this;
-
-        this.plus[CONSTANTS.API_SETUP]?.forEach((setup) => setup.call(this.plus));
-
-        this.attachShadow({ mode: 'open' });
+        this.plus['uhtml'] = uhtml;
       }
 
       static get observedAttributes() {
@@ -37,6 +34,7 @@ export function Element(tag?: string) {
         call(this.plus, CONSTANTS.LIFECYCLE_ADOPTED);
       }
 
+      // TODO
       attributeChangedCallback(name, prev, next) {
         const key = camelCase(name);
         const [type] = members[key];
@@ -45,7 +43,6 @@ export function Element(tag?: string) {
       }
 
       connectedCallback() {
-        this.plus[CONSTANTS.API_READY] = true;
         call(this.plus, CONSTANTS.LIFECYCLE_CONNECTED);
         request(this.plus)
           .then(() => {

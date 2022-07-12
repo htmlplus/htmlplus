@@ -2,8 +2,6 @@ export const PACKAGE_NAME = '@htmlplus/element';
 
 // apis
 export const API_HOST = '$host$';
-export const API_READY = '$ready$';
-export const API_SETUP = '$setup$';
 
 // decorators
 export const DECORATOR_ELEMENT = 'Element';

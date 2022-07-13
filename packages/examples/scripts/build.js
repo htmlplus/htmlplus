@@ -26,13 +26,14 @@ const { start, next, finish } = compiler(
       return name.replace('plus-', '').split('-').map(pascalCase).join('.');
     },
     destination(context) {
-      return path.join(context.directoryPath, 'react');
+      return path.join(context.directoryPath, 'react-dedicated');
     },
     eventNameConvertor(name) {
       return name.replace('onPlus', 'on');
     }
   }),
   vue({
+    dedicated: false,
     destination(context) {
       return path.join(context.directoryPath, 'vue');
     }
@@ -46,7 +47,11 @@ const { start, next, finish } = compiler(
   // }),
   codesandbox({
     sources(context) {
-      return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
+      return [
+        `${context.directoryPath}/javascript`,
+        `${context.directoryPath}/react-dedicated`,
+        `${context.directoryPath}/vue`
+      ];
     },
     destination(context) {
       return path.join(context.directoryPath, 'codesandbox');
@@ -54,7 +59,11 @@ const { start, next, finish } = compiler(
   }),
   download({
     sources(context) {
-      return [`${context.directoryPath}/javascript`, `${context.directoryPath}/react`, `${context.directoryPath}/vue`];
+      return [
+        `${context.directoryPath}/javascript`,
+        `${context.directoryPath}/react-dedicated`,
+        `${context.directoryPath}/vue`
+      ];
     },
     destination(context) {
       return path.join(context.directoryPath, 'download');

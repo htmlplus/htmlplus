@@ -10,6 +10,7 @@ export const document = (options) => {
       for (const output of context.outputs) {
         if (output.name == 'prepare') continue;
         let name = output.name;
+        if (name == 'react') name = 'react-dedicated';
         if (name == 'vue' && output.options?.dedicated) name = 'vue-dedicated';
         outputs.push({
           key: example,

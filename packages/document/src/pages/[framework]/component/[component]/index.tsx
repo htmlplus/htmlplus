@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // TODO
   const example = (() => {
     return examples
-      ?.filter((example) => example.category == framework && example.component == componentKey)
+      ?.filter((example) => example.category.startsWith(framework) && example.component == componentKey)
       ?.reduce((result, example) => {
         const links = [
           {

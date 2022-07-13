@@ -9,7 +9,7 @@ export const getContributors = async (componentKey?: string): Promise<any[]> => 
           .data
           .map((commit: any) => commit.author?.login)
           .filter((contributor: string, index: number, contributors: string[]) => {
-            return contributors?.indexOf(contributor) === index
+            return contributor && contributors.indexOf(contributor) === index
           })
       });
     return contributors || [];

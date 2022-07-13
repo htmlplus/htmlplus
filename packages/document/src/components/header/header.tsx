@@ -1,6 +1,7 @@
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
 import * as Utils from '@app/utils';
+import React from 'react';
 
 import { HeaderProps } from './header.types';
 
@@ -24,11 +25,11 @@ export const Header = ({ menu }: HeaderProps) => {
   return (
     <header>
       <Card tile>
-        <Grid alignItems="center" wrap="off" gutterX="md">
+        <Grid alignItems="center" wrap="off">
           {menu && (
             <Grid.Item xs="auto" hideXlUp>
               <Drawer.Toggler connector="main">
-                <Icon name="menu" />
+                <Icon name="menu" size="lg" />
               </Drawer.Toggler>
             </Grid.Item>
           )}
@@ -50,13 +51,17 @@ export const Header = ({ menu }: HeaderProps) => {
             </Button>
           </Grid.Item>
           <Grid.Item xs="grow" />
-          {links.map((link) => (
-            <Grid.Item key={link.title} hideSmDown>
-              <Button size="sm" link to={link.url}>
-                {link.title}
-              </Button>
-            </Grid.Item>
-          ))}
+          <Grid.Item hideSmDown>
+            {links.map((link) => (
+              <React.Fragment key={link.title}>
+                <Button size="sm" link to={link.url}>
+                  {link.title}
+                </Button>
+                &nbsp;
+                &nbsp;
+              </React.Fragment>
+            ))}
+          </Grid.Item>
         </Grid>
       </Card>
       <Divider />

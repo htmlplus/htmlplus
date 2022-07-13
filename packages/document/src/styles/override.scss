@@ -219,3 +219,8 @@ h6 {
     max-height: 360px;
   }
 }
+
+plus-drawer-toggler[connector='main'] {
+  margin-left: 20px;
+  color: $color-primary;
+}

@@ -3,18 +3,20 @@ import { defineProperty, request } from '../utils/index.js';
 
 export function State() {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    let value;
-
     const name = String(propertyKey);
 
+    const values = new Map();
+
     function get(this) {
-      return value;
+      return values.get(this);
     }
 
     function set(this, input) {
+      const value = values.get(this);
+
       if (input === value) return;
 
-      value = input;
+      values.set(this, input);
 
       request(this, { [name]: [input, value] })
         .then(() => undefined)

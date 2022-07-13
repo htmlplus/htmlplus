@@ -23,18 +23,22 @@ export interface PropertyOptions {
 
 export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    let timeout, value;
+    let timeout;
 
     const name = String(propertyKey);
 
+    const values = new Map();
+
     function get(this) {
-      return value;
+      return values.get(this);
     }
 
     function set(this, input) {
+      const value = values.get(this);
+
       if (input === value) return;
 
-      value = input;
+      values.set(this, input);
 
       request(this, { [name]: [input, value] }).then(() => {
         clearTimeout(timeout);

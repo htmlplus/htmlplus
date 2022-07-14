@@ -1,5 +1,4 @@
 import { Button, Icon, Grid } from '@app/components';
-import * as Constants from '@app/constants';
 import { socials } from '@app/data';
 
 export const Socials = () => {

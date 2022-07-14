@@ -1,4 +1,5 @@
-import { Button, Code, Grid, Markup } from '@app/components';
+import { Button, Code, Grid } from '@app/components';
+import { Markup } from '@app/containers';
 import * as Utils from '@app/utils';
 
 export const Parameter = (item: any) => {

@@ -1,7 +1,8 @@
+import { Fragment } from 'react';
+
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
 import * as Constants from '@app/constants';
 import * as Utils from '@app/utils';
-import React from 'react';
 
 import { HeaderProps } from './header.types';
 
@@ -53,13 +54,13 @@ export const Header = ({ menu }: HeaderProps) => {
           <Grid.Item xs="grow" />
           <Grid.Item hideSmDown>
             {links.map((link) => (
-              <React.Fragment key={link.title}>
+              <Fragment key={link.title}>
                 <Button size="sm" link to={link.url}>
                   {link.title}
                 </Button>
                 &nbsp;
                 &nbsp;
-              </React.Fragment>
+              </Fragment>
             ))}
           </Grid.Item>
         </Grid>

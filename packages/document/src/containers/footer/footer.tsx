@@ -1,5 +1,6 @@
-import { Grid, Socials } from '@app/components';
+import { Grid } from '@app/components';
 import * as Constants from '@app/constants';
+import { Socials } from '@app/containers';
 
 export const Footer = () => {
   return (

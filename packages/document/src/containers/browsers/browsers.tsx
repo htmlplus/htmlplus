@@ -1,6 +1,5 @@
 import { Grid } from '@app/components';
 import { browsers } from '@app/data';
-import * as Utils from '@app/utils';
 
 export const Browsers = () => {
   return (

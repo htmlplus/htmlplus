@@ -1,5 +1,7 @@
-import { Button, Code, Grid, Icon, Tabs, Toc } from '@app/components';
+import { Button, Code, Grid, Icon, Tabs } from '@app/components';
+import { Toc } from '@app/containers';
 
+import * as examples from './examples';
 import { ExampleProps } from './example.types';
 
 export const Example = ({ value }: ExampleProps) => {
@@ -46,7 +48,9 @@ export const Example = ({ value }: ExampleProps) => {
           ))}
         </Grid>
         <Tabs.Panels>
-          <Tabs.Panel value="preview">TODO</Tabs.Panel>
+          <Tabs.Panel value="preview">
+            <examples.Test></examples.Test>
+          </Tabs.Panel>
           {tabs
             ?.filter((tab) => tab.key != 'preview')
             ?.map((tab) => (

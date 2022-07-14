@@ -1,6 +1,6 @@
 import create from 'zustand';
 
-import { SidebarItem } from '@app/components';
+import { SidebarItem } from '@app/containers';
 
 interface UseSidebar {
   expands: SidebarItem[];

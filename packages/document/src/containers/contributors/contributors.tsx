@@ -1,4 +1,4 @@
-import { Toc } from '@app/components';
+import { Toc } from '@app/containers';
 
 import { ContributorsProps } from './contributors.types';
 

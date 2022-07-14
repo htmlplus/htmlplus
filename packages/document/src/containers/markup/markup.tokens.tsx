@@ -1,4 +1,5 @@
-import { Alert, Api, Browsers, Code as CoreCode, Example, Examples, Toc, Usage } from '@app/components';
+import { Alert, Code as CoreCode } from '@app/components';
+import { Api, Browsers, Example, Examples, Toc, Usage } from '@app/containers';
 
 const Code = ({ children, className }: any) => {
   const language = className?.split('-').pop();

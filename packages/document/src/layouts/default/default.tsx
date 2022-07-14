@@ -2,8 +2,9 @@ import { ReactNode, useMemo } from 'react';
 
 import { useRouter } from 'next/router';
 
-import { Card, Drawer, Frameworks, Grid, Header, Navigation, Sidebar, Sticky, Toc } from '@app/components';
+import { Card, Drawer, Grid, Sticky } from '@app/components';
 import * as Constants from '@app/constants';
+import { Frameworks, Header, Navigation, Sidebar, Toc } from '@app/containers';
 import { sidebar } from '@app/data';
 import { useStore } from '@app/hooks';
 

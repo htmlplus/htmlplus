@@ -2,7 +2,8 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Contributors, Divider, Parameter, Toc } from '@app/components';
+import { Divider } from '@app/components';
+import { Contributors, Parameter, Toc } from '@app/containers';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import * as Utils from '@app/utils';

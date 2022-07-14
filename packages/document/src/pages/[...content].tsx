@@ -4,7 +4,7 @@ import glob from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
 
-import { Markup } from '@app/components';
+import { Markup } from '@app/containers';
 import { LayoutDefault } from '@app/layouts';
 
 const base = 'src/content/en';

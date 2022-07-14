@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 
-import { Button, Toc } from '@app/components';
+import { Button } from '@app/components';
+import { Toc } from '@app/containers';
 import * as Utils from '@app/utils';
 
 export const Api = () => {

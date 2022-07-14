@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { headerCase } from 'change-case';
 
-import { Contributors, Markup } from '@app/components';
+import { Contributors, Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import { getContributors } from '@app/services';

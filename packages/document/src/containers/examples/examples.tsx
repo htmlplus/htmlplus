@@ -1,4 +1,4 @@
-import { Toc } from '@app/components';
+import { Toc } from '@app/containers';
 
 export const Examples = () => {
   return (

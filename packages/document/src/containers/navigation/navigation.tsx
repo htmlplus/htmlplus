@@ -1,8 +1,26 @@
+import { useMemo } from 'react';
+
+import { useRouter } from 'next/router';
+
 import { Button, Grid, Icon } from '@app/components';
+import { sidebar } from '@app/data';
+import { useStore } from '@app/hooks';
 
-import { NavigationProps } from './navigation.types';
+export const Navigation = () => {
 
-export const Navigation = ({ prev, next }: NavigationProps) => {
+  const router = useRouter();
+
+  const store = useStore();
+
+  const [prev, current, next] = useMemo(() => {
+    const items = sidebar(store.framework!)
+      .map((item) => item?.items?.map((sub) => ({ ...sub, category: item.title })))
+      .flat()
+      .filter((item) => !!item?.url);
+    const index = items.findIndex((item) => router.asPath.startsWith(item?.url!));
+    return items.slice(index - 1, index + 3);
+  }, [router.asPath, store.framework]);
+
   return (
     <Grid justifyContent="between" alignItems="center">
       <Grid.Item xs="auto">

@@ -1,15 +1,13 @@
 import { Button, Code, Grid, Icon, Tabs } from '@app/components';
 import { Toc } from '@app/containers';
 
-import * as examples from './examples';
 import { ExampleProps } from './example.types';
+import * as examples from './examples/index';
 
 export const Example = ({ value }: ExampleProps) => {
   if (!value) return <div>TODO</div>;
 
-  const { links, tabs, title } = value;
-
-  const preview = tabs?.find((tab) => tab.key == 'preview');
+  const { componentName, links, tabs, title } = value;
 
   const language = (tab: any) => {
     switch (tab.key) {
@@ -21,6 +19,9 @@ export const Example = ({ value }: ExampleProps) => {
         return 'html';
     }
   };
+
+  // TODO
+  const Preview = (examples as any)[componentName!] as any;
 
   return (
     <>
@@ -49,7 +50,8 @@ export const Example = ({ value }: ExampleProps) => {
         </Grid>
         <Tabs.Panels>
           <Tabs.Panel value="preview">
-            <examples.Test></examples.Test>
+            <Preview />
+            <style>{'plus-card {   background-color: #C5CAE9;  padding: 1rem;}'}</style>
           </Tabs.Panel>
           {tabs
             ?.filter((tab) => tab.key != 'preview')

@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { headerCase } from 'change-case';
+import { headerCase, pascalCase } from 'change-case';
 
 import { Contributors, Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
@@ -59,25 +59,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         const title = headerCase(example.key);
 
-        result[example.key] = { links, tabs, title };
+        const componentName = `${pascalCase(example.component)}${pascalCase(example.key)}`;
 
-        // TODO
-        // tabs.push({
-        //   key: 'preview',
-        //   content: examples?.find(
-        //     (item) => item.key == example.key && item.category == 'custom-element' && item.component == componentKey
-        //   )?.detail?.script
-        // });
+        result[example.key] = {
+          componentName,
+          links,
+          tabs,
+          title
+        };
 
         for (const key of ['template', 'script', 'style']) {
           if (framework == 'react' && key == 'template') continue;
           const content = example.detail?.[key] ?? null;
-          tabs.push({ key, content });
-        }
-
-        for (const tab of tabs) {
-          tab.disabled = !tab.content;
-          tab.title = headerCase(tab.key);
+          tabs.push({
+            key,
+            content,
+            disabled: !content,
+            title: headerCase(key)
+          });
         }
 
         return result;

@@ -25,9 +25,6 @@ const { start, next, finish } = compiler(
       if (exception) name = name.replace(exception, pascalCase(exception));
       return name.replace('plus-', '').split('-').map(pascalCase).join('.');
     },
-    destination(context) {
-      return path.join(context.directoryPath, 'preview');
-    },
     eventNameConvertor(name) {
       return name.replace('onPlus', 'on');
     }

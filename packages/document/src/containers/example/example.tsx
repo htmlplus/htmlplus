@@ -33,6 +33,7 @@ export const Example = ({ value }: ExampleProps) => {
         <Grid className="toolbar" alignItems="center" gutterX="sm">
           <Grid.Item xs="grow">
             <Tabs.Bar>
+              <Tabs.Tab value="preview">Preview</Tabs.Tab>
               {tabs?.map((tab) => (
                 <Tabs.Tab key={tab.key} disabled={tab.disabled} value={tab.key}>
                   {tab.title}
@@ -51,7 +52,6 @@ export const Example = ({ value }: ExampleProps) => {
         <Tabs.Panels>
           <Tabs.Panel value="preview">
             <Preview />
-            <style>{'plus-card {   background-color: #C5CAE9;  padding: 1rem;}'}</style>
           </Tabs.Panel>
           {tabs
             ?.filter((tab) => tab.key != 'preview')

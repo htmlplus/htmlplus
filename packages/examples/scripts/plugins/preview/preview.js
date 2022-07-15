@@ -1,8 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { camelCase, paramCase, pascalCase } from 'change-case';
-import fs from 'fs';
-import path from 'path';
 
 export const preview = (options) => {
   const name = 'preview';
@@ -14,6 +12,49 @@ export const preview = (options) => {
       locals.add(local);
       dependencies.set(imported, locals);
     };
+
+    const scoped = (styles, className) => {
+      try {
+        var classLen = className.length,
+          char,
+          nextChar,
+          isAt,
+          isIn;
+        className += ' ';
+        styles = styles.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '');
+        styles = styles.replace(/}(\s*)@/g, '}@');
+        styles = styles.replace(/}(\s*)}/g, '}}');
+        for (var i = 0; i < styles.length - 2; i++) {
+          char = styles[i];
+          nextChar = styles[i + 1];
+          if (char === '@') isAt = true;
+          if (!isAt && char === '{') isIn = true;
+          if (isIn && char === '}') isIn = false;
+          if (
+            !isIn &&
+            nextChar !== '@' &&
+            nextChar !== '}' &&
+            (char === '}' || char === ',' || ((char === '{' || char === ';') && isAt))
+          ) {
+            styles = styles.slice(0, i + 1) + className + styles.slice(i + 1);
+            i += classLen;
+            isAt = false;
+          }
+        }
+        if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
+        return styles;
+      } catch {}
+    };
+
+    const classNamePrefix = context.filePath
+      .split(/[/|\\]/g)
+      .slice(0, -1)
+      .slice(-2)
+      .join('-');
+
+    const style = context.outputs
+      ?.find((output) => output.name == 'prepare')
+      ?.output?.find((snippet) => snippet.key == 'style');
 
     const visitors = {
       script: {
@@ -64,14 +105,26 @@ export const preview = (options) => {
 
             let children = [t.jsxText('\n'), element, t.jsxText('\n')];
 
+            if (style?.content) {
+              children.push(
+                t.jsxElement(
+                  t.jsxOpeningElement(t.jsxIdentifier('style'), []),
+                  t.jSXClosingElement(t.jsxIdentifier('style')),
+                  [t.JSXExpressionContainer(t.stringLiteral(scoped(style?.content, `.${classNamePrefix}`)))]
+                )
+              );
+            }
+
             if (element.openingElement.name.name.match(/fragment/)) {
               children = element.children;
               element = element.children.find((element) => element.type === 'JSXElement');
             }
 
             statement.argument = t.jsxElement(
-              t.jsxOpeningElement(t.jsxIdentifier(''), []),
-              t.jSXClosingElement(t.jsxIdentifier('')),
+              t.jsxOpeningElement(t.jsxIdentifier('div'), [
+                t.jsxAttribute(t.jsxIdentifier('className'), t.stringLiteral(classNamePrefix))
+              ]),
+              t.jSXClosingElement(t.jsxIdentifier('div')),
               children
             );
           }
@@ -180,17 +233,8 @@ export const preview = (options) => {
 
     visitor(ast, visitors.script);
 
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
-
-    fs.rmSync(destination, { recursive: true, force: true });
-
-    const style = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'style');
-
     return {
-      script: print(ast),
-      style: style?.content
+      script: print(ast)
     };
   };
   return {

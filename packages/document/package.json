@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "clean": "rimraf .next",
+    "copy:examples": "node ./scripts/copy.examples.js",
     "format": "prettier --write .",
     "start": "next dev",
     "start:prod": "next start"

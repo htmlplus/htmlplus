@@ -1,7 +1,7 @@
 import { Breadcrumb } from "@htmlplus/react";
 
 const BreadcrumbCustomSeparator = () => {
-  return <div className="breadcrumb-custom-separator">    
+  return <div className="ex-breadcrumb-custom-separator">    
     <div className="container">      
       <Breadcrumb>        
         <svg slot="separator" viewBox="0 0 16 16"><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" /></svg>        
@@ -32,7 +32,7 @@ const BreadcrumbCustomSeparator = () => {
         <a href="#">          Fifth</a>        
       </Breadcrumb>      
     </div>    
-  </div>;
+    <style>{".ex-breadcrumb-custom-separator .container {  text-align: center;  margin: 0.75em}.ex-breadcrumb-custom-separator plus-breadcrumb {  display: inline-block;  color: #707070;}.ex-breadcrumb-custom-separator plus-breadcrumb a {  color: inherit;  text-decoration: none;}.ex-breadcrumb-custom-separator plus-breadcrumb a:hover {  text-decoration: underline;}"}</style></div>;
 };
 
 export default BreadcrumbCustomSeparator;

@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogPersistent = () => {
-  return <div className="dialog-persistent">    
+  return <div className="ex-dialog-persistent">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-persistent">
         Open
@@ -22,7 +22,7 @@ const DialogPersistent = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-persistent .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogPersistent;

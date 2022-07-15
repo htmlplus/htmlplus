@@ -1,7 +1,7 @@
 import { Cropper, Grid } from "@htmlplus/react";
 
 const CropperMode = () => {
-  return <div className="cropper-mode">    
+  return <div className="ex-cropper-mode">    
     <Grid gutter="md">      
       <Grid.Item xs="12" sm="6">        
         <Cropper mode="move" src="/assets/images/panda.jpg" view="none"></Cropper>        
@@ -10,7 +10,7 @@ const CropperMode = () => {
         <Cropper mode="crop" src="/assets/images/panda.jpg"></Cropper>        
       </Grid.Item>      
     </Grid>    
-    <style>{".cropper-mode plus-cropper {  height: 18rem;}"}</style></div>;
+    <style>{".ex-cropper-mode plus-cropper {  height: 18rem;}"}</style></div>;
 };
 
 export default CropperMode;

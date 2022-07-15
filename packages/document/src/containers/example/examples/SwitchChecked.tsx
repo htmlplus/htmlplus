@@ -1,7 +1,7 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchChecked = () => {
-  return <div className="switch-checked">    
+  return <div className="ex-switch-checked">    
     <preview>      
       <Switch checked></Switch>      
     </preview>    

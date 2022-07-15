@@ -1,7 +1,7 @@
 import { Grid, Tooltip } from "@htmlplus/react";
 
 const TooltipPlacement = () => {
-  return <div className="tooltip-placement">    
+  return <div className="ex-tooltip-placement">    
     <Grid gutter="md">      
       <Grid.Item xs="12" sm="4">        
         <button>
@@ -100,7 +100,7 @@ const TooltipPlacement = () => {
         </button>        
       </Grid.Item>      
     </Grid>    
-    <style>{".tooltip-placement button {  display: block;  width: 100%;  padding: 0.5rem;}"}</style></div>;
+    <style>{".ex-tooltip-placement button {  display: block;  width: 100%;  padding: 0.5rem;}"}</style></div>;
 };
 
 export default TooltipPlacement;

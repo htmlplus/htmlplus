@@ -6,7 +6,7 @@ const DialogPrevent = () => {
     event.preventDefault();
   };
 
-  return <div className="dialog-prevent">    
+  return <div className="ex-dialog-prevent">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-prevent">
         Open
@@ -26,7 +26,7 @@ const DialogPrevent = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-prevent .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogPrevent;

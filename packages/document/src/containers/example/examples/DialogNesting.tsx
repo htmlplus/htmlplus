@@ -1,7 +1,7 @@
 import { Dialog, Grid } from "@htmlplus/react";
 
 const DialogNesting = () => {
-  return <div className="dialog-nesting">    
+  return <div className="ex-dialog-nesting">    
     <Grid justifyContent="center" gutter="md">      
       <Grid.Item xs="12" sm="auto">        
         <Dialog.Toggler connector="dialog-nesting-1">
@@ -95,7 +95,7 @@ const DialogNesting = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-nesting plus-grid-item {  text-align: center;}"}</style></div>;
 };
 
 export default DialogNesting;

@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogFullHeight = () => {
-  return <div className="dialog-full-height">    
+  return <div className="ex-dialog-full-height">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-full-height">
         Open
@@ -24,7 +24,7 @@ const DialogFullHeight = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-full-height .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogFullHeight;

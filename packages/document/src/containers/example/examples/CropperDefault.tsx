@@ -1,7 +1,7 @@
 import { Cropper } from "@htmlplus/react";
 
 const CropperDefault = () => {
-  return <div className="cropper-default">    
+  return <div className="ex-cropper-default">    
     <Cropper src="/assets/images/panda.jpg"></Cropper>    
   </div>;
 };

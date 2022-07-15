@@ -6,7 +6,7 @@ const BrowseDefault = () => {
     alert(`File '${name}' selected.`);
   };
 
-  return <div className="browse-default">    
+  return <div className="ex-browse-default">    
     <Browse droppable onChange={event => onChange(event)}></Browse>    
   </div>;
 };

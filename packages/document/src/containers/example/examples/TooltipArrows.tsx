@@ -1,7 +1,7 @@
 import { Tooltip } from "@htmlplus/react";
 
 const TooltipArrows = () => {
-  return <div className="tooltip-arrows">    
+  return <div className="ex-tooltip-arrows">    
     <button className="btn" xs="12" sm="4">
       Default
       <Tooltip>        Tooltip</Tooltip>      

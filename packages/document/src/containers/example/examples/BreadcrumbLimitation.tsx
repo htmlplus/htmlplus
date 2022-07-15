@@ -1,7 +1,7 @@
 import { Breadcrumb } from "@htmlplus/react";
 
 const BreadcrumbLimitation = () => {
-  return <div className="breadcrumb-limitation">    
+  return <div className="ex-breadcrumb-limitation">    
     <div className="container">      
       <Breadcrumb separator="/" max={4} offset={0}>        
         <a href="#">          Item 1</a>        
@@ -38,7 +38,7 @@ const BreadcrumbLimitation = () => {
         <a href="#">          Item 8</a>        
       </Breadcrumb>      
     </div>    
-  </div>;
+    <style>{".ex-breadcrumb-limitation .container {  text-align: center;  margin: 0.75em}.ex-breadcrumb-limitation plus-breadcrumb {  display: inline-block;  color: #707070;}.ex-breadcrumb-limitation plus-breadcrumb a {  color: inherit;  text-decoration: none;}.ex-breadcrumb-limitation plus-breadcrumb a:hover {  text-decoration: underline;}"}</style></div>;
 };
 
 export default BreadcrumbLimitation;

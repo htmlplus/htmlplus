@@ -1,7 +1,7 @@
 import { Divider } from "@htmlplus/react";
 
 const DividerType = () => {
-  return <div className="divider-type">    
+  return <div className="ex-divider-type">    
     <Divider type="solid"></Divider>    
     <br />    
     <Divider type="dashed"></Divider>    

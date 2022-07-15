@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogPlacement = () => {
-  return <div className="dialog-placement">    
+  return <div className="ex-dialog-placement">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-placement">
         Open
@@ -22,7 +22,7 @@ const DialogPlacement = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-placement .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogPlacement;

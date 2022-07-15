@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogAnimation = () => {
-  return <div className="dialog-animation">    
+  return <div className="ex-dialog-animation">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-animation">
         Open
@@ -22,7 +22,7 @@ const DialogAnimation = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-animation .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogAnimation;

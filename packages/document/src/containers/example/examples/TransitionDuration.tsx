@@ -1,7 +1,7 @@
 import { Grid, Transition } from "@htmlplus/react";
 
 const TransitionDuration = () => {
-  return <div className="transition-duration">    
+  return <div className="ex-transition-duration">    
     <Grid justifyContent="evenly" gutter="md">      
       <Grid.Item xs="12" sm="6" md="4" xl="auto">        
         <Transition name="fade-in" repeat="infinite" duration="slower">
@@ -34,7 +34,7 @@ const TransitionDuration = () => {
         </Transition>        
       </Grid.Item>      
     </Grid>    
-    <style>{".transition-duration plus-grid-item {  text-align: center;}"}</style></div>;
+    <style>{".ex-transition-duration plus-grid-item {  text-align: center;}"}</style></div>;
 };
 
 export default TransitionDuration;

@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridHide = () => {
-  return <div className="grid-hide">    
+  return <div className="ex-grid-hide">    
     <Grid>      
       <Grid.Item hideSm xs="3">        
         <div>
@@ -19,7 +19,7 @@ const GridHide = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".grid-hide plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+    <style>{".ex-grid-hide plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
 };
 
 export default GridHide;

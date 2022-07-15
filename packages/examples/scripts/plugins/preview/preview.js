@@ -46,11 +46,13 @@ export const preview = (options) => {
       } catch {}
     };
 
-    const classNamePrefix = context.filePath
-      .split(/[/|\\]/g)
-      .slice(0, -1)
-      .slice(-2)
-      .join('-');
+    const classNamePrefix =
+      'ex-' +
+      context.filePath
+        .split(/[/|\\]/g)
+        .slice(0, -1)
+        .slice(-2)
+        .join('-');
 
     const style = context.outputs
       ?.find((output) => output.name == 'prepare')
@@ -105,6 +107,11 @@ export const preview = (options) => {
 
             let children = [t.jsxText('\n'), element, t.jsxText('\n')];
 
+            if (element.openingElement.name.name.match(/fragment/)) {
+              children = element.children;
+              element = element.children.find((element) => element.type === 'JSXElement');
+            }
+
             if (style?.content) {
               children.push(
                 t.jsxElement(
@@ -113,11 +120,6 @@ export const preview = (options) => {
                   [t.JSXExpressionContainer(t.stringLiteral(scoped(style?.content, `.${classNamePrefix}`)))]
                 )
               );
-            }
-
-            if (element.openingElement.name.name.match(/fragment/)) {
-              children = element.children;
-              element = element.children.find((element) => element.type === 'JSXElement');
             }
 
             statement.argument = t.jsxElement(

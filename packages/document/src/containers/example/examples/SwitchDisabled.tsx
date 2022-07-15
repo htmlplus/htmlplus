@@ -1,7 +1,7 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchDisabled = () => {
-  return <div className="switch-disabled">    
+  return <div className="ex-switch-disabled">    
     <preview>      
       <Switch checked disabled>        
         <span slot="on">          Yes</span>        

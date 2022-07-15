@@ -1,7 +1,7 @@
 import { Divider, Grid } from "@htmlplus/react";
 
 const DividerVertical = () => {
-  return <div className="divider-vertical">    
+  return <div className="ex-divider-vertical">    
     <Grid alignItems="center" justifyContent="evenly">      
       <Grid.Item xs="5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend

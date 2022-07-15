@@ -1,7 +1,7 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchInset = () => {
-  return <div className="switch-inset">    
+  return <div className="ex-switch-inset">    
     <preview>      
       <Switch inset>        
         <span slot="on">          1</span>        

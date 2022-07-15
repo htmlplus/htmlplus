@@ -1,7 +1,7 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchLabels = () => {
-  return <div className="switch-labels">    
+  return <div className="ex-switch-labels">    
     <preview>      
       <Switch checked>        
         <span slot="on">          Yes</span>        

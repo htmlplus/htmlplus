@@ -1,7 +1,7 @@
 import { Grid, Tooltip } from "@htmlplus/react";
 
 const TooltipTrigger = () => {
-  return <div className="tooltip-trigger">    
+  return <div className="ex-tooltip-trigger">    
     <Grid justifyContent="evenly">      
       <Grid.Item>        
         <button>

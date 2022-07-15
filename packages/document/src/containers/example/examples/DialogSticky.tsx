@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogSticky = () => {
-  return <div className="dialog-sticky">    
+  return <div className="ex-dialog-sticky">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-sticky">
         Open
@@ -14,7 +14,7 @@ const DialogSticky = () => {
         </Dialog.Body>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-sticky .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogSticky;

@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogScrollable = () => {
-  return <div className="dialog-scrollable">    
+  return <div className="ex-dialog-scrollable">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-scrollable">
         Open
@@ -51,7 +51,7 @@ const DialogScrollable = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-scrollable .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogScrollable;

@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsSeparate = () => {
-  return <div className="tabs-separate">    
+  return <div className="ex-tabs-separate">    
     <header>      
       <Tabs value="1" connector="tabs-separate">        
         <Tabs.Bar>          

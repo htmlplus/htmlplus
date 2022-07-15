@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsReverse = () => {
-  return <div className="tabs-reverse">    
+  return <div className="ex-tabs-reverse">    
     <Tabs>      
       <Tabs.Bar reverse>        
         <Tabs.Tab>

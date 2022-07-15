@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsBelow = () => {
-  return <div className="tabs-below">    
+  return <div className="ex-tabs-below">    
     <Tabs value="1">      
       <Tabs.Panels>        
         <Tabs.Panel value="1">          

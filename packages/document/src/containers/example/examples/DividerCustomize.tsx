@@ -1,7 +1,7 @@
 import { Divider, Grid } from "@htmlplus/react";
 
 const DividerCustomize = () => {
-  return <div className="divider-customize">    
+  return <div className="ex-divider-customize">    
     <Grid alignItems="center" justifyContent="evenly">      
       <Grid.Item xs="5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend
@@ -17,7 +17,7 @@ const DividerCustomize = () => {
     imperdiet, gravida urna tempus, fringilla nisl.
       </Grid.Item>      
     </Grid>    
-    <style>{".divider-customize plus-divider {  --plus-divider-color: #5F9EE9;  --plus-divider-size: 3px;  margin: 2rem 0;}"}</style></div>;
+    <style>{".ex-divider-customize plus-divider {  --plus-divider-color: #5F9EE9;  --plus-divider-size: 3px;  margin: 2rem 0;}"}</style></div>;
 };
 
 export default DividerCustomize;

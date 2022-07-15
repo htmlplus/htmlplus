@@ -1,7 +1,7 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchDefault = () => {
-  return <div className="switch-default">    
+  return <div className="ex-switch-default">    
     <preview>      
       <Switch></Switch>      
     </preview>    

@@ -1,7 +1,7 @@
 import { Sticky } from "@htmlplus/react";
 
 const StickyStateAttribute = () => {
-  return <div className="sticky-state-attribute">    
+  return <div className="ex-sticky-state-attribute">    
     <div className="container">      
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend
@@ -89,7 +89,7 @@ const StickyStateAttribute = () => {
       nec semper.
       </p>      
     </div>    
-  </div>;
+    <style>{".ex-sticky-state-attribute .container {  height: 20rem;  overflow: auto;}.ex-sticky-state-attribute .container p {  margin: 0;  padding: 1rem;  text-align: justify;}.ex-sticky-state-attribute plus-sticky[state=\"normal\"] {  background-color: gold;}.ex-sticky-state-attribute plus-sticky[state=\"sticky\"] {  background-color: greenyellow;}"}</style></div>;
 };
 
 export default StickyStateAttribute;

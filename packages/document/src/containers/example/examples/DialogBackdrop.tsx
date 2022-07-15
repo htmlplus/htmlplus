@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogBackdrop = () => {
-  return <div className="dialog-backdrop">    
+  return <div className="ex-dialog-backdrop">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-backdrop">
         Open
@@ -22,7 +22,7 @@ const DialogBackdrop = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-backdrop .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogBackdrop;

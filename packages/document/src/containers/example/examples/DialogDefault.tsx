@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogDefault = () => {
-  return <div className="dialog-default">    
+  return <div className="ex-dialog-default">    
     <div className="center">      
       <Dialog.Toggler connector="dialog-default">
         Open
@@ -22,7 +22,7 @@ const DialogDefault = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-default .center {  text-align: center;}"}</style></div>;
 };
 
 export default DialogDefault;

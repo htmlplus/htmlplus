@@ -1,7 +1,7 @@
 import { Card, Drawer, Grid } from "@htmlplus/react";
 
 const DrawerDefault = () => {
-  return <div className="drawer-default">    
+  return <div className="ex-drawer-default">    
     <Grid>      
       <Grid.Item xs="auto">        
         <Drawer animation="fade" size="200px" connector="drawer-default">          
@@ -18,7 +18,7 @@ const DrawerDefault = () => {
         </Card>        
       </Grid.Item>      
     </Grid>    
-    <style>{".drawer-default plus-card {  --plus-card-background-color: #E0E0E0;  padding: 10rem 0;  text-align: center;}.drawer-default plus-drawer plus-card {  --plus-card-background-color: #AACAFF;  margin-right: 0.5rem;}"}</style></div>;
+    <style>{".ex-drawer-default plus-card {  --plus-card-background-color: #E0E0E0;  padding: 10rem 0;  text-align: center;}.ex-drawer-default plus-drawer plus-card {  --plus-card-background-color: #AACAFF;  margin-right: 0.5rem;}"}</style></div>;
 };
 
 export default DrawerDefault;

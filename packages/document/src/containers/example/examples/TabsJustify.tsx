@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsJustify = () => {
-  return <div className="tabs-justify">    
+  return <div className="ex-tabs-justify">    
     <Tabs>      
       <Tabs.Bar justify="start">        
         <Tabs.Tab>

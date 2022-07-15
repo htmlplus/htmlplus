@@ -1,7 +1,7 @@
 import { Divider } from "@htmlplus/react";
 
 const DividerSize = () => {
-  return <div className="divider-size">    
+  return <div className="ex-divider-size">    
     <Divider size="sm"></Divider>    
     <br />    
     <Divider size="md"></Divider>    

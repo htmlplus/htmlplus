@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsVertical = () => {
-  return <div className="tabs-vertical">    
+  return <div className="ex-tabs-vertical">    
     <Tabs value="1" vertical>      
       <Tabs.Bar>        
         <Tabs.Tab value="1">

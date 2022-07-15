@@ -14,7 +14,7 @@ const DialogSize = () => {
     setOpen(true);
   };
 
-  return <div className="dialog-size">    
+  return <div className="ex-dialog-size">    
     <Grid justifyContent="center" gutter="md">      
       <Grid.Item xs="12" sm="auto">        
         <button onClick={() => show('sm')}>          Small dialog</button>        
@@ -40,7 +40,7 @@ const DialogSize = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-  </div>;
+    <style>{".ex-dialog-size plus-grid-item {  text-align: center;}"}</style></div>;
 };
 
 export default DialogSize;

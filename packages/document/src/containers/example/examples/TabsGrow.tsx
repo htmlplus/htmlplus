@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsGrow = () => {
-  return <div className="tabs-grow">    
+  return <div className="ex-tabs-grow">    
     <Tabs>      
       <Tabs.Bar grow>        
         <Tabs.Tab>

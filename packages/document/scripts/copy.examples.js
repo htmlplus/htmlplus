@@ -1,5 +1,5 @@
 const fs = require('fs');
-const db = require('@htmlplus/examples/src/db.json');
+const db = require('../../examples/src/db.json');
 const { pascalCase } = require('change-case');
 
 const destination = './src/containers/example/examples';

@@ -19,7 +19,7 @@ for (const example of db) {
 
   index += `\nexport const ${name} = dynamic<any>(() => import('./${name}').then((component) => component), { ssr: false });`;
 
-  fs.writeFileSync(`${destination}/${name}.tsx`, script);
+  fs.writeFileSync(`${destination}/${name}.js`, script);
 }
 
 fs.writeFileSync(`${destination}/index.ts`, index);

@@ -29,7 +29,7 @@ export default [
   customElement(),
   customElementReact({
     compact: true,
-    destination: '../proxies/react',
+    destination: '../distributions/react',
     eventName(eventName) {
       return eventName.replace(/plus(\S*)/g, (match, group) => group.charAt(0).toLowerCase() + group.substr(1));
     },

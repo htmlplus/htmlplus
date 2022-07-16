@@ -2,10 +2,10 @@
   "version": "independent",
   "packages": [
     "packages/core",
+    "packages/distributions/react",
     "packages/document",
     "packages/element",
     "packages/examples",
-    "packages/playground/react",
-    "packages/proxies/react"
+    "packages/playground/react"
   ]
 }

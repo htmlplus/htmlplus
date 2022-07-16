@@ -34,10 +34,13 @@ export const sidebar = (framework: string) => [
   {
     title: 'UI Components',
     icon: 'components',
-    items: components.map((component) => ({
-      title: component.title,
-      url: Utils.getPath('COMPONENT_DETAILS', { framework, component: component.key })
-    }))
+    items: components
+      // TODO: detect sub components
+      .filter((component) => !!component.readme)
+      .map((component) => ({
+        title: component.title,
+        url: Utils.getPath('COMPONENT_DETAILS', { framework, component: component.key })
+      }))
   },
   {
     title: 'UI Components API',
@@ -57,4 +60,4 @@ export const sidebar = (framework: string) => [
       }
     ]
   }
-]
+];

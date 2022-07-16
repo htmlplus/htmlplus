@@ -6,13 +6,13 @@
  **************************************************/
  
 {{#each all}}
-import { {{componentClassName}} } from './{{fileName}}';
+import { {{componentClassNamePrune}} } from './{{fileName}}';
 {{/each}}
 
-const All = /*@__PURE__*/ Object.assign({{root.componentClassName}}, {
+const All = /*@__PURE__*/ Object.assign({{root.componentClassNamePrune}}, {
   {{#each filterd}}
-  {{componentClassNameInCategory}}: {{componentClassName}},
+  {{componentClassNameInCategory}}: {{componentClassNamePrune}},
   {{/each}}
 });
 
-export { All as {{root.componentClassName}} }
+export { All as {{root.componentClassNamePrune}} }

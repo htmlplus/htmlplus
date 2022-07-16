@@ -258,12 +258,10 @@ export const document = (options: DocumentOptions) => {
 
     const tags = getTags(context.class!);
 
-    // TODO
-    const title = capitalCase(context.componentTag!);
+    const title = capitalCase(context.componentKey!);
 
     global.document.components.push({
       // TODO
-      // key
       // main
       // development
       // source
@@ -272,6 +270,7 @@ export const document = (options: DocumentOptions) => {
       group,
       isDeprecated,
       isExperimental,
+      key: context.componentKey!,
       lastModified,
       methods,
       parts,

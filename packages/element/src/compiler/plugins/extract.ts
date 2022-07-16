@@ -64,19 +64,10 @@ export const extract = (options?: ExtractOptions) => {
     context.className = context.class?.id?.name!;
 
     // TODO
-    // context.componentKey = paramCase(context.className);
-    context.componentClassName = pascalCase(context.componentTag!.split('-').slice(1).join('-'));
+    context.componentClassName = pascalCase(context.componentTag!);
+    context.componentClassNamePrune = pascalCase(context.componentTag!.split('-').slice(1).join('-'));
     context.componentInterfaceName = `HTML${context.componentClassName}Element`;
-
-    // TODO
-    // const componentClassName           = "DialogBody";              [OK]
-    // const componentInterfaceName       = "HTMLDialogBodyElement";   [OK]
-    // const componentTag                 = "plus-dialog-body";        [OK]
-    // const componentClassNameInCategory = "Body";                    [RAW]
-    // const componentKey                 = "dialog-body-1";           [RAW]
-    // const fileName                     = "dialogBodyNew";           [OK]
-    // const className                    = "DialogBody1";             [OK]
-    // const category                     = "Dialog";                  [RAW]
+    context.componentKey = paramCase(context.componentClassNamePrune);
 
     context.classEvents = (context.classMembers || []).filter((member) =>
       hasDecorator(member, CONSTANTS.DECORATOR_EVENT)

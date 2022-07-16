@@ -21,7 +21,7 @@
 ### 1- Map the `dev` repository into your system
 
 ```bash
-git clone git@github.com:htmlplus/dev.git
+git clone git@github.com:htmlplus/htmlplus.git
 ```
 
 ### 2- Add `sample` repository as a subtree

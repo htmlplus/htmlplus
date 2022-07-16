@@ -1,5 +1,5 @@
 {
-  "name": "@htmlplus/dev",
+  "name": "@htmlplus/htmlplus",
   "scripts": {
     "bootstrap": "lerna bootstrap --force-local",
     "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",

@@ -1,7 +1,6 @@
 ```css [style]
-.container {
+.center {
   text-align: center;
-  margin: 0.75em
 }
 plus-breadcrumb {
   display: inline-block;
@@ -17,33 +16,13 @@ plus-breadcrumb a:hover {
 ```
 
 ```html [template]
-<fragment>
-  <div class="container">
-    <plus-breadcrumb separator="\">
-      <a href="#">First</a>
-      <a href="#">Second</a>
-      <a href="#">Third</a>
-      <a href="#">Fourth</a>
-      <a href="#">Fifth</a>
-    </plus-breadcrumb>
-  </div>
-  <div class="container">
-    <plus-breadcrumb separator="-">
-      <a href="#">First</a>
-      <a href="#">Second</a>
-      <a href="#">Third</a>
-      <a href="#">Fourth</a>
-      <a href="#">Fifth</a>
-    </plus-breadcrumb>
-  </div>
-  <div class="container">
-    <plus-breadcrumb separator="/">
-      <a href="#">First</a>
-      <a href="#">Second</a>
-      <a href="#">Third</a>
-      <a href="#">Fourth</a>
-      <a href="#">Fifth</a>
-    </plus-breadcrumb>
-  </div>
-</fragment>
+<div class="center">
+  <plus-breadcrumb separator="-">
+    <a href="#">First</a>
+    <a href="#">Second</a>
+    <a href="#">Third</a>
+    <a href="#">Fourth</a>
+    <a href="#">Fifth</a>
+  </plus-breadcrumb>
+</div>
 ```

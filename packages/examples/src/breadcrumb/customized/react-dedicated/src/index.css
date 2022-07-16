@@ -1,46 +1,23 @@
-/* first breadcrumb */
 plus-breadcrumb {
   padding: 0.75em;
   border-radius: 0.25em;
 }
-plus-breadcrumb.first a {
-  text-decoration: none;
-  color: white;
-}
-plus-breadcrumb.first {
-  --plus-breadcrumb-gutter-x: 0.75em;
-  --plus-breadcrumb-gutter-y: 0.75em;
-  background-color: #2B78AC;
-}
-plus-breadcrumb.first::part(expander) {
-  background-color: transparent;
-  color: white;
-  height: 1em;
-  width: 1em;
-}
-plus-breadcrumb.first::part(separator) {
-  color: white;
-  height: 0.75em;
-  width: 0.75em;
-}
-
-/* second breadcrumb */
-plus-breadcrumb.second {
+plus-breadcrumb {
   --plus-breadcrumb-gutter-x: 0.75em;
   --plus-breadcrumb-gutter-y: 0.75em;
   background-color: #DCDCDC;
 }
-plus-breadcrumb.second a {
+plus-breadcrumb a {
   text-decoration: none;
   color: black;
 }
-plus-breadcrumb.second::part(expander) {
+plus-breadcrumb::part(expander) {
   background-color: transparent;
   color: black;
   height: 1em;
   width: 1em;
 }
-plus-breadcrumb.second::part(separator) {
+plus-breadcrumb::part(separator) {
   color: black;
   height: 0.75em;
   width: 0.75em;

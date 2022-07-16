@@ -1,0 +1,6 @@
+{
+  "name": "htmlplus/composer",
+  "require": {
+    "php": ">=7.2"
+  }
+}

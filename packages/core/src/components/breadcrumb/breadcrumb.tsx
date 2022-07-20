@@ -165,9 +165,11 @@ export class Breadcrumb {
   updatedCallback() {
     const $node = this.host.querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
  
-    const $clone = $node?.content.cloneNode(true) as HTMLElement;
+    const $clone = $node?.cloneNode(true) as HTMLElement;
+
+    $clone?.removeAttribute('slot');
  
-    const template = $clone.children[0]?.outerHTML || this.separator; 
+    const template = $clone?.outerHTML || this.separator; 
 
     queryAll(this, '.separator').forEach((element) => (element.innerHTML = template));
   }

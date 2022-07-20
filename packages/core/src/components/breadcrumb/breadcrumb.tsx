@@ -34,7 +34,7 @@ export class Breadcrumb {
   /**
    * You can use HTML elements, Custom separator, or SVG icon.
    */
-  @Property({ reflect: true })
+  @Property()
   separator?: string;
 
   @State()
@@ -46,11 +46,15 @@ export class Breadcrumb {
   observer?: MutationObserver;
 
   get $children() {
-    const selectors = [Constants.BREADCRUMB_EXPANDER_SLOT_QUERY, Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY].join(',');
-
-    const children = Array.from(Helpers.host(this).children);
-
-    return children.filter(($node) => !$node.matches(selectors));
+    return Array
+      .from(Helpers.host(this).children)
+      .filter(($node) => !$node.matches(
+        [
+          Constants.BREADCRUMB_EXPANDER_QUERY,
+          Constants.BREADCRUMB_SEPARATOR_QUERY
+        ]
+        .join(',')
+      ));
   }
 
   @Attributes()
@@ -61,7 +65,7 @@ export class Breadcrumb {
   }
 
   get template() {
-    const $node = Helpers.host(this).querySelector(Constants.BREADCRUMB_SEPARATOR_SLOT_QUERY);
+    const $node = Helpers.host(this).querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY);
 
     const $clone = $node?.cloneNode(true) as HTMLElement;
 
@@ -78,6 +82,7 @@ export class Breadcrumb {
 
   bind() {
     this.observer = new MutationObserver(this.onChange);
+    // TODO
     this.observer.observe(Helpers.host(this), { childList: true });
   }
 
@@ -86,6 +91,7 @@ export class Breadcrumb {
   }
 
   update(expand?: boolean) {
+    
     const $children = this.$children;
 
     const items = [];
@@ -139,7 +145,7 @@ export class Breadcrumb {
         key: `expander-${i}`
       });
 
-    this.items = items;
+    this.items = [...items];
   }
 
   /**

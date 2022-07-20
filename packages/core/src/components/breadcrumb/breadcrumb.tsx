@@ -169,7 +169,9 @@ export class Breadcrumb {
 
     $clone?.removeAttribute('slot');
  
-    const template = $clone?.outerHTML || this.separator; 
+    const template = $clone?.outerHTML || this.separator;
+
+    if(!template) return;
 
     queryAll(this, '.separator').forEach((element) => (element.innerHTML = template));
   }
@@ -181,7 +183,7 @@ export class Breadcrumb {
           switch (item.type) {
             case 'item': {
               return (
-                <div key={item.key} part="item">
+                <div part="item">
                   <slot name={item.slot} />
                 </div>
               );
@@ -192,7 +194,6 @@ export class Breadcrumb {
                   aria-disabled="false"
                   aria-label={this.expanderText}
                   class="expander"
-                  key={item.key}
                   part="expander"
                   role="button"
                   tabindex="0"
@@ -208,7 +209,7 @@ export class Breadcrumb {
               );
             }
             case 'separator': {
-              return <div key={item.key} aria-hidden="true" class="separator" part="separator" />;
+              return <div aria-hidden="true" class="separator" part="separator" />;
             }
           }
         })}

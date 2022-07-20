@@ -24,7 +24,7 @@ export const property = (selector, key, type, init, reflect) => {
 
   switch (type) {
     case Boolean:
-      values.push([true, true, '']);
+      values.push([true, true, null]);
       // values.push([false, false, false]);
       break;
     // TODO

@@ -1,5 +1,8 @@
-import { Attributes, Bind, Element, Property, State, Watch, queryAll } from '@htmlplus/element';
+import { Attributes, Bind, Element, Property, State, queryAll } from '@htmlplus/element';
+import { request } from '@htmlplus/element/client/utils/request';
+
 import * as Helpers from '@app/helpers';
+
 import * as Constants from './breadcrumb.constants';
 
 /**
@@ -35,19 +38,23 @@ export class Breadcrumb {
    * You can use HTML elements, Custom separator, or SVG icon.
    */
   @Property()
-  separator?: string;
+  separator?: string; 
+
+  @Attributes()
+  get attributes() {
+    return {
+      'aria-label': 'breadcrumb'
+    };
+  }
 
   @State()
-  items?: Array<any>;
-
-  // TODO
-  config: any = { slots: {} };
+  expand: boolean = false;
 
   observer?: MutationObserver;
 
   get $children() {
     return Array
-      .from(Helpers.host(this).children)
+      .from(this.host.children)
       .filter(($node) => !$node.matches(
         [
           Constants.BREADCRUMB_EXPANDER_QUERY,
@@ -57,47 +64,17 @@ export class Breadcrumb {
       ));
   }
 
-  @Attributes()
-  get attributes() {
-    return {
-      'aria-label': 'breadcrumb'
-    };
+  get host() {
+    return Helpers.host(this);
   }
 
-  get template() {
-    const $node = Helpers.host(this).querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY);
-
-    const $clone = $node?.cloneNode(true) as HTMLElement;
-
-    $clone?.removeAttribute('slot');
-
-    const template = $clone?.outerHTML || this.config.slots.separator || this.separator;
-
-    return template;
-  }
-
-  /**
-   * Internal Methods
-   */
-
-  bind() {
-    this.observer = new MutationObserver(this.onChange);
-    // TODO
-    this.observer.observe(Helpers.host(this), { childList: true });
-  }
-
-  unbind() {
-    this.observer?.disconnect();
-  }
-
-  update(expand?: boolean) {
-    
+  get items() {
     const $children = this.$children;
 
     const items = [];
 
     const { start, length } = (() => {
-      if (expand) return {};
+      if (this.expand) return {};
 
       if (typeof this.max !== 'number') return {};
 
@@ -145,25 +122,21 @@ export class Breadcrumb {
         key: `expander-${i}`
       });
 
-    this.items = [...items];
-  }
+    return items
+  } 
 
   /**
-   * Watchers
+   * Internal Methods
    */
 
-  // TODO
-  @Watch(['offset', 'max', 'separator'])
-  watcher(next, prev, name) {
-    switch (name) {
-      case 'offset':
-      case 'max':
-      case 'separator':
-        this.update(false);
-        // TODO: componentShouldUpdate
-        return false;
-    }
+  bind() {
+    this.observer = new MutationObserver(this.onChange);
+    this.observer.observe(this.host, { childList: true });
   }
+
+  unbind() {
+    this.observer?.disconnect();
+  }  
 
   /**
    * Events handler
@@ -171,10 +144,9 @@ export class Breadcrumb {
 
   @Bind()
   onChange() {
-    this.update(false);
-
-    // TODO
-    // forceUpdate(this);
+    request(this)
+      .then(() => undefined)
+      .catch(() => undefined)
   }
 
   /**
@@ -183,16 +155,20 @@ export class Breadcrumb {
 
   connectedCallback() {
     this.bind();
-    this.update(false);
   }
 
   disconnectedCallback() {
     this.unbind();
   }
 
-  // TODO: it's valid until 'dangerouslySetInnerHTML' doesn't support
+  // TODO: use 'dangerouslySetInnerHTML' instead
   updatedCallback() {
-    const template = this.template;
+    const $node = this.host.querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
+ 
+    const $clone = $node?.content.cloneNode(true) as HTMLElement;
+ 
+    const template = $clone.children[0]?.outerHTML || this.separator; 
+
     queryAll(this, '.separator').forEach((element) => (element.innerHTML = template));
   }
 
@@ -218,8 +194,8 @@ export class Breadcrumb {
                   part="expander"
                   role="button"
                   tabindex="0"
-                  onClick={() => this.update(true)}
-                  onKeyDown={(event) => event.key.match(/Enter| /) && this.update(true)}
+                  onClick={() => this.expand = true}
+                  onKeyDown={(event) => event.key.match(/Enter| /) && (this.expand = true)}
                 >
                   <slot name="expander">
                     <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">

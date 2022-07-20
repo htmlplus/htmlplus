@@ -1,3 +1,4 @@
+import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
 import { defineProperty, request } from '../utils/index.js';
 
@@ -18,7 +19,7 @@ export function State() {
 
       values.set(this, input);
 
-      request(this, { [name]: [input, value] })
+      request(this, { [name]: [input, value, !this[CONSTANTS.API_READY]] })
         .then(() => undefined)
         .catch((error) => {
           throw error;

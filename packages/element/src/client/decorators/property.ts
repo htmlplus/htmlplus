@@ -40,7 +40,7 @@ export function Property(options?: PropertyOptions) {
 
       values.set(this, input);
 
-      request(this, { [name]: [input, value] }).then(() => {
+      request(this, { [name]: [input, value, !this[CONSTANTS.API_READY]] }).then(() => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
           if (!options?.reflect) return;

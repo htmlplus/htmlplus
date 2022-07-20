@@ -22,6 +22,7 @@ export function Element(tag?: string) {
         this.plus = new (constructor as any)();
         this.plus[CONSTANTS.API_HOST] = () => this;
         this.plus['uhtml'] = uhtml;
+        this.plus[CONSTANTS.API_READY] = true;
       }
 
       static get observedAttributes() {

@@ -94,7 +94,7 @@ export class Sticky {
    * Watchers
    */
 
-  @Watch('disabled', 'watcher')
+  @Watch(['disabled', 'watcher'])
   watchers(next, prev, key) {
 
     switch (key) {

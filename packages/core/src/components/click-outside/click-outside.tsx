@@ -46,7 +46,7 @@ export class ClickOutside {
    * Watchers
    */
 
-  @Watch('disabled', 'once')
+  @Watch(['disabled', 'once'])
   watcher(next, prev, name) {
     switch (name) {
       case 'disabled':

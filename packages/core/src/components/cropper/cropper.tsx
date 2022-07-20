@@ -426,7 +426,7 @@ export class Cropper {
    * Watchers
    */
 
-  @Watch(
+  @Watch([
     'area',
     'aspectRatio',
     'backdrop',
@@ -444,7 +444,7 @@ export class Cropper {
     'view',
     'zoomable',
     'zoomRatio'
-  )
+  ])
   watcher(next, prev, name) {
     if (this.lock) return;
 

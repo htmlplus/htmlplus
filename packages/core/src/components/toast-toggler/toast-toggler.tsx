@@ -43,7 +43,7 @@ export class ToastToggler {
    * Watchers
    */
 
-  @Watch('connector')
+  @Watch(['connector'])
   watcher() {
     reconnect(this);
   }

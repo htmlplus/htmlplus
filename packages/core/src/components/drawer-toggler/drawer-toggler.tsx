@@ -46,7 +46,7 @@ export class DrawerToggler {
    * Watchers
    */
 
-  @Watch('connector')
+  @Watch(['connector'])
   watcher() {
     reconnect(this);
   }

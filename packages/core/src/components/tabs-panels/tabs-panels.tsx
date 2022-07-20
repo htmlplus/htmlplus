@@ -23,7 +23,7 @@ export class TabsPanels {
    * Watchers
    */
 
-  @Watch('connector')
+  @Watch(['connector'])
   watcher() {
     reconnect(this);
   }

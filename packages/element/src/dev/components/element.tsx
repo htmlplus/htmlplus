@@ -1,7 +1,10 @@
-import { Attributes, Element, Property } from '@htmlplus/element';
+import { Attributes, Element, Property, Watch } from '@htmlplus/element';
 
 @Element()
 export class MyElement { 
+
+  @Property({ })
+  a: number 
 
   @Property({reflect: true})
   selfAlign: number = 9
@@ -17,6 +20,11 @@ export class MyElement {
        'onClick': () => this.selfAlign++
      }
    } 
+
+   @Watch(['selfAlign'])
+   w(...a) {
+    console.log(1, a)
+   }
 
    render() {
     console.log('renderd in the component')

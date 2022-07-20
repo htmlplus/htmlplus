@@ -46,7 +46,7 @@ export class DialogToggler {
    * Watchers
    */
 
-  @Watch('connector')
+  @Watch(['connector'])
   watcher() {
     reconnect(this);
   }

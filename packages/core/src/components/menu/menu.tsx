@@ -127,8 +127,7 @@ export class Menu {
     return this.s();
   }
 
-  @Watch('fixed')
-  @Watch('open')
+  @Watch(['fixed', 'open'])
   bind() {
 
     this.clean();

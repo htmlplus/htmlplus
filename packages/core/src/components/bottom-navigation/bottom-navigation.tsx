@@ -138,7 +138,7 @@ export class BottomNavigation {
    */
 
   // TODO
-  @Watch('grow', 'labelPosition', 'shift')
+  @Watch(['grow', 'labelPosition', 'shift'])
   watcher() {
     this.broadcast();
   }

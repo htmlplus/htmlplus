@@ -65,7 +65,7 @@ export class Tabs {
    * Watchers
    */
 
-  @Watch('connector', 'value')
+  @Watch(['connector', 'value'])
   watcher(next, prev, name) {
     switch (name) {
       case 'connector':

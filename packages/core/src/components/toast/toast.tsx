@@ -326,7 +326,7 @@ export class Toast {
    * Watchers
    */
 
-  @Watch('connector', 'open')
+  @Watch(['connector', 'open'])
   watcher(next, prev, name) {
 
     switch (name) {

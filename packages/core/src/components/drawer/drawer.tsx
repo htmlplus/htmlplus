@@ -301,7 +301,7 @@ export class Drawer {
    * Watchers
    */
 
-  @Watch('connector', 'mini', 'open')
+  @Watch(['connector', 'mini', 'open'])
   watcher(next, prev, name) {
 
     switch (name) {

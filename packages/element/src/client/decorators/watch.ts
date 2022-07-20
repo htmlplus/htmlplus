@@ -8,7 +8,7 @@ import { appendToMethod, host } from '../utils/index.js';
  * changes with the key, newValue, and oldValue as parameters.
  * If the arguments aren't defined, all of the properties and states are considered.
  */
-export function Watch(keys: Array<string>, immediate: boolean) {
+export function Watch(keys: Array<string>, immediate?: boolean) {
   return function (target: PlusElement, propertyKey: PropertyKey): void {
     // Removes duplicates.
     keys = keys.filter((key, index) => keys.indexOf(key) === index);

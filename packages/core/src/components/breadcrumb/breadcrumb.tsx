@@ -153,7 +153,7 @@ export class Breadcrumb {
    */
 
   // TODO
-  @Watch('offset', 'max', 'separator')
+  @Watch(['offset', 'max', 'separator'])
   watcher(next, prev, name) {
     switch (name) {
       case 'offset':

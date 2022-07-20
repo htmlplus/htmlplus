@@ -142,7 +142,7 @@ export class Intersection {
    * Watchers
    */
 
-  @Watch('behavior', 'disabled', 'once', 'root', 'rootMargin', 'threshold')
+  @Watch(['behavior', 'disabled', 'once', 'root', 'rootMargin', 'threshold'])
   watcher(next, prev, name) {
 
     switch (name) {

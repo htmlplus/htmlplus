@@ -225,7 +225,7 @@ export class Tooltip {
    * Watchers
    */
 
-  @Watch('disabled')
+  @Watch(['disabled'])
   watcher(next) {
     next ? this.unbind() : this.bind();
   }

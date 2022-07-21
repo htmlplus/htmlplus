@@ -23,9 +23,11 @@ export interface PropertyOptions {
 
 export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
-    let timeout;
-
     const name = String(propertyKey);
+
+    const attribute = paramCase(name);
+
+    const type = getMembers(target)[name].at(0);
 
     const values = new Map();
 
@@ -40,18 +42,17 @@ export function Property(options?: PropertyOptions) {
 
       values.set(this, input);
 
+      const isReady = !!this[CONSTANTS.API_READY];
+
       request(this, { [name]: [input, value, !this[CONSTANTS.API_READY]] }).then(() => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          if (!options?.reflect) return;
-          const element = host(this);
-          const attribute = paramCase(name);
-          const type = getMembers(target)[name].at(0);
-          const raw = element.getAttribute(attribute);
-          const parsed = parseValue(raw, type);
-          if (input === parsed) return;
-          updateAttribute(element, attribute, input);
-        });
+        const element = host(this);
+        const has = element.hasAttribute(attribute);
+        if (!isReady && has) return;
+        if (!options?.reflect) return;
+        const raw = element.getAttribute(attribute);
+        const parsed = parseValue(raw, type);
+        if (input === parsed) return;
+        updateAttribute(element, attribute, input);
       });
     }
 

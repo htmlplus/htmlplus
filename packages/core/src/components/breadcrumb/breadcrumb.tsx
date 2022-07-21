@@ -116,14 +116,25 @@ export class Breadcrumb {
         key: 'expander'
       });
 
-    for (let i = items.length - 1; i > 0; i--)
-      items.splice(i, 0, {
-        type: 'separator',
-        key: `expander-${i}`
-      });
+    if(this.template)
+      for (let i = items.length - 1; i > 0; i--)
+        items.splice(i, 0, {
+          type: 'separator',
+          key: `expander-${i}`
+        });
 
     return items
   } 
+
+  get template() {
+    const $node = this.host.querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
+ 
+    const $clone = $node?.cloneNode(true) as HTMLElement;
+
+    $clone?.removeAttribute('slot');
+ 
+    return $clone?.outerHTML || this.separator;
+  }
 
   /**
    * Internal Methods
@@ -163,16 +174,8 @@ export class Breadcrumb {
 
   // TODO: use 'dangerouslySetInnerHTML' instead
   updatedCallback() {
-    const $node = this.host.querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
- 
-    const $clone = $node?.cloneNode(true) as HTMLElement;
-
-    $clone?.removeAttribute('slot');
- 
-    const template = $clone?.outerHTML || this.separator;
-
+    const template = this.template;
     if(!template) return;
-
     queryAll(this, '.separator').forEach((element) => (element.innerHTML = template));
   }
 
@@ -183,7 +186,7 @@ export class Breadcrumb {
           switch (item.type) {
             case 'item': {
               return (
-                <div part="item">
+                <div key={item.key} part="item">
                   <slot name={item.slot} />
                 </div>
               );
@@ -194,6 +197,7 @@ export class Breadcrumb {
                   aria-disabled="false"
                   aria-label={this.expanderText}
                   class="expander"
+                  key={item.key}
                   part="expander"
                   role="button"
                   tabindex="0"
@@ -209,7 +213,7 @@ export class Breadcrumb {
               );
             }
             case 'separator': {
-              return <div aria-hidden="true" class="separator" part="separator" />;
+              return <div key={item.key} aria-hidden="true" class="separator" part="separator" />;
             }
           }
         })}

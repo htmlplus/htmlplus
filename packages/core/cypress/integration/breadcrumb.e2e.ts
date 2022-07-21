@@ -1,11 +1,6 @@
 /// <reference types="cypress" />
 import { property } from '../support/utils';
 
-// expanderText?: string = 'Show path';
-// offset?: number = 1;
-// max?: number;
-// separator?: string;
-
 describe('plus-breadcrumb', () => {
   beforeEach(() => {
     cy.init(`
@@ -22,6 +17,12 @@ describe('plus-breadcrumb', () => {
       </plus-breadcrumb>
     `);
   });
+
+  property('@element', 'expanderText', String, 'Show path', false);
+  property('@element', 'offset', Number, 1, false);
+  property('@element', 'max', Number, undefined, false);
+  property('@element', 'separator', String, undefined, false);
+
   it('TODO', () => {
     cy.get('@element').should('have.attr', 'aria-label', 'breadcrumb');
   });

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,UEsDBAoAAAAAALVZ91Qml7gUPwIAAD8CAAAKAAAAaW5kZXguaHRtbDwhRE9DVFlQRSBodG1sPg0KPGh0bWwgbGFuZz0iZW4iPg0KICA8aGVhZD4NCiAgICA8dGl0bGU+QXZhdGFyIHwgTGluazwvdGl0bGU+DQogICAgPG1ldGEgY2hhcnNldD0idXRmLTgiIC8+DQogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiAvPg0KICAgIDxzY3JpcHQgdHlwZT0ibW9kdWxlIiBzcmM9IlRPRE8iPjwvc2NyaXB0Pg0KICAgIDxzdHlsZT4NCiAgICAgIC5jZW50ZXIgew0KICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7DQogICAgICB9DQogICAgPC9zdHlsZT4NCiAgPC9oZWFkPg0KICA8Ym9keT4NCiAgICA8ZGl2IGNsYXNzPSJjZW50ZXIiPiAgCiAgICAgIDxwbHVzLWF2YXRhcj4gICAgCiAgICAgICAgPGltZyBzcmM9Imh0dHA6Ly9wbGFjZWltZy5jb20vOTcvOTcvcGVvcGxlIiAvPiAgICAKICAgICAgICA8YSBocmVmPSJodHRwOi8vcGxhY2VpbWcuY29tLzk3Lzk3L3Blb3BsZSIgdGFyZ2V0PSJfYmxhbmsiPjwvYT4gICAgCiAgICAgIDwvcGx1cy1hdmF0YXI+ICAKICAgIDwvZGl2Pg0KICA8L2JvZHk+DQo8L2h0bWw+UEsBAhQACgAAAAAAtVn3VCaXuBQ/AgAAPwIAAAoAAAAAAAAAAAAAAAAAAAAAAGluZGV4Lmh0bWxQSwUGAAAAAAEAAQA4AAAAZwIAAAAA`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'javascript-avatar-link';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+
+        window.close();
+      }
+    </script>
+  </body>
+</html>

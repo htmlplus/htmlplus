@@ -6,7 +6,7 @@ export * from './aspect-ratio';
 export * from './avatar.compact';
 export * from './breadcrumb';
 export * from './browse';
-export * from './card';
+export * from './card.compact';
 export * from './click-outside';
 export * from './cropper';
 export * from './dialog.compact';

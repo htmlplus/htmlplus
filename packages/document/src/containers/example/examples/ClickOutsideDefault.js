@@ -16,14 +16,14 @@ const ClickOutsideDefault = () => {
   return <div className="ex-click-outside-default">    
     <ClickOutside onClick={() => onClick()} onClickOutside={() => onClickOutside()}>      
       <Card elevation="10">        
-        <div className="container">          
+        <Card.Body>          
           <b>{inside}</b>          time(s) inside clicked
           <br />          
           <b>{outside}</b>          time(s) outside clicked
-        </div>        
+        </Card.Body>        
       </Card>      
     </ClickOutside>    
-    <style>{".ex-click-outside-default .container {  padding: 1rem;}.ex-click-outside-default plus-click-outside {  margin: auto;  display: block;  max-width: 20rem;}"}</style></div>;
+    <style>{".ex-click-outside-default plus-click-outside {  margin: auto;  display: block;  max-width: 20rem;}"}</style></div>;
 };
 
 export default ClickOutsideDefault;

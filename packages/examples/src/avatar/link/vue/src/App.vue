@@ -1,0 +1,17 @@
+<template>
+  <div>  
+    <div class="center">    
+      <plus-avatar>      
+        <img src="http://placeimg.com/97/97/people" />      
+        <a href="http://placeimg.com/97/97/people" target="_blank"></a>      
+      </plus-avatar>    
+    </div>  
+  </div>
+</template>
+
+<style scoped>
+  .center {
+    text-align: center;
+  }
+</style>
+

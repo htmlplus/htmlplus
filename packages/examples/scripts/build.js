@@ -4,7 +4,7 @@ import glob from 'fast-glob';
 import path from 'path';
 import { codesandbox, document, download, javascript, prepare, preview, react, vue } from './plugins/index.js';
 
-const exceptions = ['aspect-ratio', 'avatar-group', 'button-navigation', 'click-outside', 'scroll-indicator'];
+const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
 
 const { start, next, finish } = compiler(
   read(),

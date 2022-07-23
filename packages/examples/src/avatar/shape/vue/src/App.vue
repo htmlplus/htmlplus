@@ -1,0 +1,18 @@
+<template>
+  <div>  
+    <div class="center">    
+      <plus-avatar-group>      
+        <plus-avatar shape="circle">        C</plus-avatar>      
+        <plus-avatar shape="round">        R</plus-avatar>      
+        <plus-avatar shape="tile">        T</plus-avatar>      
+      </plus-avatar-group>    
+    </div>  
+  </div>
+</template>
+
+<style scoped>
+  .center {
+    text-align: center;
+  }
+</style>
+

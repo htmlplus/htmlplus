@@ -3,6 +3,7 @@
  **************************************************/
 
 export * from './aspect-ratio';
+export * from './avatar.compact';
 export * from './breadcrumb';
 export * from './browse';
 export * from './card';

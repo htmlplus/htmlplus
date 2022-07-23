@@ -1,4 +1,6 @@
 export * from './aspect-ratio/aspect-ratio';
+export * from './avatar/avatar';
+export * from './avatar-group/avatar-group';
 // export * from './bottom-navigation/bottom-navigation'
 // export * from './bottom-navigation-item/bottom-navigation-item'
 export * from './breadcrumb/breadcrumb';

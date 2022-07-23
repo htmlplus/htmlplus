@@ -6,9 +6,7 @@ export * from './avatar-group/avatar-group';
 export * from './breadcrumb/breadcrumb';
 export * from './browse/browse';
 export * from './card/card';
-// export * from './card-body/card-body'
-// export * from './card-footer/card-footer'
-// export * from './card-header/card-header'
+export * from './card-body/card-body';
 export * from './click-outside/click-outside';
 export * from './cropper/cropper';
 export * from './dialog/dialog';
@@ -26,7 +24,6 @@ export * from './icon/icon';
 export * from './intersection/intersection';
 // export * from './menu/menu'
 export * from './portal/portal';
-// export * from './ripple/ripple'
 export * from './scroll-indicator/scroll-indicator';
 export * from './spinner/spinner';
 export * from './sticky/sticky';

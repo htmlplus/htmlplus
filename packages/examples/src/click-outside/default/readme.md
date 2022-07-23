@@ -1,7 +1,4 @@
 ```css [style]
-.container {
-  padding: 1rem;
-}
 plus-click-outside {
   margin: auto;
   display: block;
@@ -35,11 +32,11 @@ class ClickOutsideDefault {
         onPlusClickOutside={() => this.onClickOutside()}
       >
         <plus-card elevation="10">
-          <div class="container">
+          <plus-card-body>
             <b>{this.inside}</b> time(s) inside clicked
             <br />
             <b>{this.outside}</b> time(s) outside clicked
-          </div>
+          </plus-card-body>
         </plus-card>
       </plus-click-outside>
     );
@@ -50,11 +47,11 @@ class ClickOutsideDefault {
 ```html [javascript:template]
 <plus-click-outside id="element1">
   <plus-card elevation="10">
-    <div class="container">
+    <plus-card-body>
       <b id="element2">0</b> time(s) inside clicked
       <br />
       <b id="element3">0</b> time(s) outside clicked
-    </div>
+    </plus-card-body>
   </plus-card>
 </plus-click-outside>
 ```

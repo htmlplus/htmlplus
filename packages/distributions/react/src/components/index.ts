@@ -2,6 +2,7 @@
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
 
+export * from './animation';
 export * from './aspect-ratio';
 export * from './avatar.compact';
 export * from './breadcrumb';
@@ -20,4 +21,3 @@ export * from './scroll-indicator';
 export * from './spinner';
 export * from './sticky';
 export * from './tabs.compact';
-export * from './transition';

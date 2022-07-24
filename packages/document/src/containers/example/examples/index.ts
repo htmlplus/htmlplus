@@ -1,4 +1,7 @@
 import dynamic from 'next/dynamic';
+export const AnimationDefault = dynamic<any>(() => import('./AnimationDefault').then((component) => component), { ssr: false });
+export const AnimationDuration = dynamic<any>(() => import('./AnimationDuration').then((component) => component), { ssr: false });
+export const AnimationName = dynamic<any>(() => import('./AnimationName').then((component) => component), { ssr: false });
 export const AspectRatioDefault = dynamic<any>(() => import('./AspectRatioDefault').then((component) => component), { ssr: false });
 export const AspectRatioMore = dynamic<any>(() => import('./AspectRatioMore').then((component) => component), { ssr: false });
 export const AspectRatioVideo = dynamic<any>(() => import('./AspectRatioVideo').then((component) => component), { ssr: false });
@@ -113,6 +116,3 @@ export const TooltipArrows = dynamic<any>(() => import('./TooltipArrows').then((
 export const TooltipDefault = dynamic<any>(() => import('./TooltipDefault').then((component) => component), { ssr: false });
 export const TooltipPlacement = dynamic<any>(() => import('./TooltipPlacement').then((component) => component), { ssr: false });
 export const TooltipTrigger = dynamic<any>(() => import('./TooltipTrigger').then((component) => component), { ssr: false });
-export const TransitionDefault = dynamic<any>(() => import('./TransitionDefault').then((component) => component), { ssr: false });
-export const TransitionDuration = dynamic<any>(() => import('./TransitionDuration').then((component) => component), { ssr: false });
-export const TransitionName = dynamic<any>(() => import('./TransitionName').then((component) => component), { ssr: false });

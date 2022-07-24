@@ -1,10 +1,11 @@
 import { Bind, Element, Event, EventEmitter, Method, Property, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { AnimationComposite, AnimationDirection, AnimationFill, AnimationIterationComposite } from './animation.types';
+import { ANIMATION_EASINGS } from './animation.constants';
 
 // TODO
-import './external/fading-entrance/fade-in';
-import { ANIMATION_EASINGS } from './animation.constants';
+import './external/fading-entrance/fade-in.js';
+import './external/fading-exits/fade-out.js';
 
 /**
  * @slot default - The default slot.
@@ -101,7 +102,7 @@ export class Animation {
   /**
    * Specifies the time that animation will start.
    */
-  @Property()
+  @Property({ reflect: true })
   play?: boolean;
 
   /**

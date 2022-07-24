@@ -1,11 +1,10 @@
 import { Bind, Element, Event, EventEmitter, Method, Property, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
-import { AnimationComposite, AnimationDirection, AnimationFill, AnimationIterationComposite, AnimationPlay } from './animation.types';
+import { AnimationComposite, AnimationDirection, AnimationFill, AnimationIterationComposite } from './animation.types';
 
 // TODO
-const animations = {
-
-}
+import './external/fading-entrance/fade-in';
+import { ANIMATION_EASINGS } from './animation.constants';
 
 /**
  * @slot default - The default slot.
@@ -103,7 +102,7 @@ export class Animation {
    * Specifies the time that animation will start.
    */
   @Property()
-  play?: AnimationPlay;
+  play?: boolean;
 
   /**
    * TODO
@@ -159,33 +158,21 @@ export class Animation {
    * Internal Methods
    */
 
-  destroy() { 
-    if (!this.animation) return
-    this.animation.cancel();
-    this.animation.removeEventListener('cancel', this.onCancel);
-    this.animation.removeEventListener('finish', this.onFinish);
-    
-    // TODO
-    // this.hasStarted = false;
-  }
+  bind() {
+    const easing = ANIMATION_EASINGS[this.easing] ?? this.easing;
 
-  // TODO
-  init() {
-    // TODO
-    const easing = ''//animations.easings[this.easing] ?? this.easing;
-    const keyframes = []// this.keyframes ?? (animations as unknown as Partial<Record<string, Keyframe[]>>)[this.name];
+    const keyframes = this.keyframes ?? window['PLUS_ANIMATION_KEYFRAME']?.[this.name];
 
     if (!keyframes) return;
 
-    // TODO
-    // this.destroyAnimation();
+    this.unbind();
 
     this.animation = this.$host.animate(keyframes, {
       composite: this.composite,
       delay: this.delay,
       direction: this.direction,
       duration: this.duration,
-      easing: this.easing,
+      easing,
       endDelay: this.endDelay,
       fill: this.fill,
       iterationComposite: this.iterationComposite,
@@ -199,36 +186,34 @@ export class Animation {
 
     if(!this.play) return this.animation.pause();
 
-    // TODO
-    // this.hasStarted = true;
     this.plusStart();
+  }
+
+  unbind() { 
+    if (!this.animation) return
+    this.animation.cancel();
+    this.animation.removeEventListener('cancel', this.onCancel);
+    this.animation.removeEventListener('finish', this.onFinish);
   }
 
   /**
    * Watchers
    */
 
-  @Watch()
+  @Watch([])
   watcher(next, prev, name) {
-    switch (name) {
-      case 'play':
-        if (!this.animation) return;
-        // TODO
-        // if (this.play && !this.hasStarted) {
-        //   this.hasStarted = true;
-        //   this.plusStart();
-        // }
-        if (this.play == true) this.animation.play();
-        if (this.play != true) this.animation.pause(); 
-      break;
+    if (name != 'play') return this.bind();
 
-      case 'playbackRate':
-        if (!this.animation) return;
-        this.animation.playbackRate = this.playbackRate;
-        break;
+    if (!this.animation) return;
 
-      default:
-        break;
+    if (this.play && this.animation.playState != 'running') {
+      this.plusStart();
+    }
+
+    if (this.play) {
+      this.animation.play(); 
+    } else {
+      this.animation.pause();
     }
   }
 
@@ -239,20 +224,12 @@ export class Animation {
   @Bind()
   onCancel() {
     this.play = false;
-
-    // TODO
-    // this.hasStarted = false;
-
     this.plusCancel();
   }
 
   @Bind()
   onFinish() {
     this.play = false;
-
-    // TODO
-    // this.hasStarted = false;
-
     this.plusFinish();
   }
 
@@ -261,11 +238,11 @@ export class Animation {
    */  
   
   connectedCallback() {
-    this.init();
+    this.bind();
   }
 
   disconnectedCallback() {
-    this.destroy();
+    this.unbind();
   }
 
   render() {

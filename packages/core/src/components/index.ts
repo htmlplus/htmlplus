@@ -39,4 +39,3 @@ export * from './tabs-tab/tabs-tab';
 // export * from './toolbar/toolbar'
 // export * from './toolbar-spacer/toolbar-spacer'
 // export * from './tooltip/tooltip';
-export * from './transition/transition';

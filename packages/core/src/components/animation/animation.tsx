@@ -2,6 +2,7 @@ import { Bind, Element, Event, EventEmitter, Method, Property, Watch } from '@ht
 import * as Helpers from '@app/helpers';
 import { AnimationComposite, AnimationDirection, AnimationFill, AnimationIterationComposite, AnimationPlay } from './animation.types';
 
+// TODO
 const animations = {
 
 }
@@ -170,26 +171,28 @@ export class Animation {
 
   // TODO
   init() {
+    // TODO
     const easing = ''//animations.easings[this.easing] ?? this.easing;
     const keyframes = []// this.keyframes ?? (animations as unknown as Partial<Record<string, Keyframe[]>>)[this.name];
-    // const slot = await this.defaultSlot;
-    // const element = slot.assignedElements()[0] as HTMLElement | undefined;
 
     if (!keyframes) return;
 
+    // TODO
     // this.destroyAnimation();
+
     this.animation = this.$host.animate(keyframes, {
+      composite: this.composite,
       delay: this.delay,
       direction: this.direction,
       duration: this.duration,
-      easing,
+      easing: this.easing,
       endDelay: this.endDelay,
       fill: this.fill,
+      iterationComposite: this.iterationComposite,
+      iterations: this.iterations,
       iterationStart: this.iterationStart,
-      iterations: this.iterations
+      playbackRate: this.playbackRate,
     });
-
-    this.animation.playbackRate = this.playbackRate;
 
     this.animation.addEventListener('cancel', this.onCancel);
     this.animation.addEventListener('finish', this.onFinish);

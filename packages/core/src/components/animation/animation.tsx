@@ -97,7 +97,7 @@ export class Animation {
    * click [here](https://htmlplus.io/component/animation/names) to see the list of available animations.
    */
   @Property()
-  name: string;
+  name?: string;
 
   /**
    * Specifies the time that animation will start.
@@ -184,10 +184,10 @@ export class Animation {
       playbackRate: this.playbackRate,
     });
 
+    if (!this.play) return this.animation.cancel();
+
     this.animation.addEventListener('cancel', this.onCancel);
     this.animation.addEventListener('finish', this.onFinish);
-
-    if (!this.play) return this.animation.pause();
 
     this.plusStart();
   }
@@ -203,11 +203,11 @@ export class Animation {
    * Watchers
    */
 
-  @Watch([])
+  @Watch()
   watcher(next, prev, name) {
-    if (name != 'play') return this.bind();
-
     if (!this.animation) return;
+
+    if (name != 'play') return this.bind();
 
     if (this.play && this.animation.playState != 'running') {
       this.plusStart();

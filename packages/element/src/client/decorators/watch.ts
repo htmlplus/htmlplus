@@ -8,34 +8,26 @@ import { appendToMethod, host } from '../utils/index.js';
  * changes with the key, newValue, and oldValue as parameters.
  * If the arguments aren't defined, all of the properties and states are considered.
  */
-export function Watch(keys: Array<string>, immediate?: boolean) {
+export function Watch(keys?: Array<string>, immediate?: boolean) {
   return function (target: PlusElement, propertyKey: PropertyKey): void {
-    // Removes duplicates.
-    keys = keys.filter((key, index) => keys.indexOf(key) === index);
     // Registers a lifecycle to detect changes.
     appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function ([states]) {
-      // Includes all fields, If any keys hadn't been defined.
-      if (!keys.length) keys = Object.keys(states);
+      // Gets all keys
+      const keys = Object.keys(states);
       // Loops the keys
       for (const key of keys) {
+        // Finds current key in keys
+        const has = keys?.some((x) => x == key);
+        // Checks the existence of key
+        if (!has && !!keys?.length) continue;
         // Gets the current state
         const state = states?.[key];
-        // Checks the existence of keys in the current state.
-        if (state) {
-          // Destructs the state
-          const [next, prev, isInitial] = state;
-          // TODO
-          if (!immediate && isInitial) continue;
-          // Invokes the method with parameters.
-          this[propertyKey](next, prev, key);
-          // Breaks the current iteration.
-          continue;
-        }
-        // Checks the existence of keys in the instance.
-        if (!(key in this)) {
-          // Announces the warning.
-          console.warn(`The key '${key}' that was used in '@Watch()' is invalid!`, host(this));
-        }
+        // Destructs the state
+        const [next, prev, isInitial] = state;
+        // TODO
+        if (!immediate && isInitial) continue;
+        // Invokes the method with parameters.
+        this[propertyKey](next, prev, key);
       }
     });
   };

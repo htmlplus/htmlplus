@@ -59,5 +59,15 @@ export const sidebar = (framework: string) => [
         url: Utils.getPath('CODEOFCONDUCT')
       }
     ]
+  },
+  {
+    title: 'Utils',
+    icon: 'htmlplus',
+    items: [
+      {
+        title: 'Animations',
+        url: Utils.getPath('ANIMATIONS')
+      }
+    ]
   }
 ];

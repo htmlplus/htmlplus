@@ -1,36 +1,72 @@
 import { Fragment } from 'react';
-import glob from 'fast-glob';
-import { capitalCase } from "change-case";
-
-import { LayoutDefault } from '@app/layouts';
-import { Toc } from '@app/containers';
-import { Animation, Grid } from '@app/components';
 
 // TODO
 import '@htmlplus/core/animation/all.js';
+import { capitalCase } from 'change-case';
+import glob from 'fast-glob';
+
+import { Animation, Code, Grid } from '@app/components';
+import { Toc } from '@app/containers';
+import { LayoutDefault } from '@app/layouts';
 
 const Animations = ({ categories }: any) => {
   return (
     <LayoutDefault>
       <h1>Animations</h1>
+      <p>TODO</p>
+      <h2>
+        <Toc.Item level={1}>Usage</Toc.Item>
+      </h2>
+      <p>Chose one of the ways.</p>
+      <p>1) If you need a transition from a category</p>
+      <Code language="js">
+        {[
+          '/* Template */',
+          "import '@htmlplus/core/animation/[category]/[name].js';",
+          '',
+          '/* For example */',
+          "import '@htmlplus/core/animation/flippers/flip.js';"
+        ].join('\n')}
+      </Code>
+      <br />
+      <p>2) If you need a category</p>
+      <Code language="js">
+        {[
+          '/* Template */',
+          "import '@htmlplus/core/animation/[category]/all.js';",
+          '',
+          '/* For example */',
+          "import '@htmlplus/core/animation/fading-entrance/all.js';"
+        ].join('\n')}
+      </Code>
+      <br />
+      <p>3) If you need all categories</p>
+      <Code language="js">{["import '@htmlplus/core/animation/transition/all.js';"].join('\n')}</Code>
+      <h2>
+        <Toc.Item level={1}>Categories</Toc.Item>
+      </h2>
+      <p>
+        Animations are based on those found in the popular{' '}
+        <a href="https://animate.style" target="_blank">
+          Animate.css
+        </a>{' '}
+        library.
+      </p>
       {categories.map((category: any) => (
         <Fragment key={category.key}>
-          <h2>
-            <Toc.Item>
-              {category.title}
-            </Toc.Item>
-          </h2>
+          <h3>
+            <Toc.Item level={2}>{category.title}</Toc.Item>
+          </h3>
           <Grid gutter="md">
             {category.items.map((item: any) => (
               <Grid.Item class="animation" key={`${category.key}:${item.key}`}>
                 <Animation
                   name={item.key}
-                  duration={2000}
                   onMouseEnter={(event) => {
-                    (event.target as any)['play'] = true;
-                  }}
-                  onMouseLeave={(event) => {
                     (event.target as any)['play'] = false;
+                    requestAnimationFrame(() => {
+                      (event.target as any)['play'] = true;
+                    });
                   }}
                 />
                 <small>{item.title}</small>
@@ -71,7 +107,7 @@ export const getServerSideProps = async () => {
 
     category.items.push({
       key: fileName,
-      title: capitalCase(fileName),
+      title: capitalCase(fileName)
     });
   }
 

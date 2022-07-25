@@ -8,7 +8,17 @@ export const document = (options) => {
     for (const context of global.contexts) {
       const [component, example] = context.directoryPath.split(/[\/|\\]/g).slice(-2);
       for (const output of context.outputs) {
-        if (output.name == 'prepare') continue;
+        if (output.name == 'prepare') {
+          const description = output.output.find((x) => x.key == 'readme')?.context;
+          if (!description) continue;
+          outputs.push({
+            key: example,
+            category: 'description',
+            component,
+            detail: description
+          });
+          continue;
+        }
         let name = output.name;
         if (name == 'react') name = 'react-dedicated';
         if (name == 'vue' && output.options?.dedicated) name = 'vue-dedicated';

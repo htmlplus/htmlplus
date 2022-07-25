@@ -1,6 +1,7 @@
 export interface ExampleProps {
   value?: {
     componentName?: string;
+    description?: string;
     links?: Array<{
       icon?: string;
       key?: string;

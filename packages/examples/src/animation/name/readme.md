@@ -1,4 +1,4 @@
-To see all animations click [here](https://htmlplus.io/animations).
+To see all animations click [here](/animations).
 
 ```css [style]
 plus-animation {

@@ -1,5 +1,5 @@
 import { Button, Code, Grid, Icon, Tabs } from '@app/components';
-import { Toc } from '@app/containers';
+import { Markup, Toc } from '@app/containers';
 
 import { ExampleProps } from './example.types';
 import * as examples from './examples/index';
@@ -7,7 +7,7 @@ import * as examples from './examples/index';
 export const Example = ({ value }: ExampleProps) => {
   if (!value) return <div>TODO</div>;
 
-  const { componentName, links, tabs, title } = value;
+  const { componentName, description, links, tabs, title } = value;
 
   const language = (tab: any) => {
     switch (tab.key) {
@@ -28,6 +28,7 @@ export const Example = ({ value }: ExampleProps) => {
       <h2>
         <Toc.Item level={2}>{title}</Toc.Item>
       </h2>
+      {description && <Markup value={description} />}
       {/* TODO: remove connector and example */}
       <Tabs className="example" connector={`example:${title}`} value="preview">
         <Grid className="toolbar" alignItems="center" gutterX="sm">

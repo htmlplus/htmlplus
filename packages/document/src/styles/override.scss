@@ -44,9 +44,12 @@ h6 {
 
 .animation {
   text-align: center;
+  small {
+    font-size: 0.75rem;
+  }
   plus-animation {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     background-color: lightgray;
     margin: auto;
   }

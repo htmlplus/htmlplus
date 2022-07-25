@@ -4,17 +4,13 @@ const AnimationName = () => {
   return <div className="ex-animation-name">    
     <Grid justifyContent="evenly" gutter="md">      
       <Grid.Item xs="12" sm="auto">        
-        <Animation name="fade-in" iterations="Infinity" play>
-          HTMLPLUS
-        </Animation>        
+        <Animation name="fade-in" iterations="Infinity" play></Animation>        
       </Grid.Item>      
       <Grid.Item xs="12" sm="auto">        
-        <Animation name="fade-out" iterations="Infinity" play>
-          HTMLPLUS
-        </Animation>        
+        <Animation name="fade-out" iterations="Infinity" play></Animation>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-animation-name plus-grid-item {  text-align: center;}"}</style></div>;
+    <style>{".ex-animation-name plus-animation {  background: lightgray;  width: 100px;  height: 100px;  margin: auto;}"}</style></div>;
 };
 
 export default AnimationName;

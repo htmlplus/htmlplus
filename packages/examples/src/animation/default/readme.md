@@ -1,13 +1,12 @@
 ```css [style]
-.center {
-  text-align: center;
+plus-animation {
+  background: lightgray;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }
 ```
 
 ```html [template]
-<div class="center">
-  <plus-animation name="fade-in" iterations="Infinity" play>
-    HTMLPLUS
-  </plus-animation>
-</div>
+<plus-animation name="fade-in" iterations="Infinity" play></plus-animation>
 ```

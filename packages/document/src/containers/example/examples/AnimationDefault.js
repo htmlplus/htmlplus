@@ -2,12 +2,8 @@ import { Animation } from "@htmlplus/react";
 
 const AnimationDefault = () => {
   return <div className="ex-animation-default">    
-    <div className="center">      
-      <Animation name="fade-in" iterations="Infinity" play>
-        HTMLPLUS
-      </Animation>      
-    </div>    
-    <style>{".ex-animation-default .center {  text-align: center;}"}</style></div>;
+    <Animation name="fade-in" iterations="Infinity" play></Animation>    
+    <style>{".ex-animation-default plus-animation {  background: lightgray;  width: 100px;  height: 100px;  margin: auto;}"}</style></div>;
 };
 
 export default AnimationDefault;

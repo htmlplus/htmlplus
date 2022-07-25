@@ -87,7 +87,7 @@ export class Animation {
   iterationStart?: number = 0;
 
   /**
-   * TODO
+   * A [keyframes](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats) object or null.
    */
   @Property()
   keyframes?: Keyframe[];
@@ -106,25 +106,26 @@ export class Animation {
   play?: boolean;
 
   /**
-   * TODO
+   * Sets the animation's playback rate.
    */
   @Property()
   playbackRate?: number = 1;
 
   /**
-   * TODO
+   * Fires when the [Animation.cancel()](https://developer.mozilla.org/en-US/docs/Web/API/Animation/cancel) 
+   * method is called or when the animation enters the "idle" play state from another state.
    */
   @Event()
   plusCancel!: EventEmitter<void>;
 
   /**
-   * TODO
+   * Fires when the animation finishes playing.
    */
   @Event()
   plusFinish!: EventEmitter<void>;
 
   /**
-   * TODO
+   * Fires when the animation starts playing.
    */
   @Event()
   plusStart!: EventEmitter<void>;
@@ -140,7 +141,8 @@ export class Animation {
    */
 
   /** 
-   * TODO
+   * Clears all [keyframeEffects](https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect) 
+   * caused by this animation and aborts its playback.
    */
   @Method()
   cancel() {
@@ -148,7 +150,7 @@ export class Animation {
   }
 
   /** 
-   * TODO
+   * Seeks either end of an animation, depending on whether the animation is playing or reversing.
    */
   @Method()
   finish() {
@@ -185,12 +187,12 @@ export class Animation {
     this.animation.addEventListener('cancel', this.onCancel);
     this.animation.addEventListener('finish', this.onFinish);
 
-    if(!this.play) return this.animation.pause();
+    if (!this.play) return this.animation.pause();
 
     this.plusStart();
   }
 
-  unbind() { 
+  unbind() {
     if (!this.animation) return
     this.animation.cancel();
     this.animation.removeEventListener('cancel', this.onCancel);
@@ -212,7 +214,7 @@ export class Animation {
     }
 
     if (this.play) {
-      this.animation.play(); 
+      this.animation.play();
     } else {
       this.animation.pause();
     }
@@ -236,8 +238,8 @@ export class Animation {
 
   /**
    * Lifecycles
-   */  
-  
+   */
+
   connectedCallback() {
     this.bind();
   }

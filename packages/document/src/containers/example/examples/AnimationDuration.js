@@ -2,12 +2,8 @@ import { Animation } from "@htmlplus/react";
 
 const AnimationDuration = () => {
   return <div className="ex-animation-duration">    
-    <div className="center">      
-      <Animation name="fade-in" duration="2500" iterations="Infinity" play>
-        HTMLPLUS
-      </Animation>      
-    </div>    
-    <style>{".ex-animation-duration .center {  text-align: center;}"}</style></div>;
+    <Animation name="fade-in" duration="2500" iterations="Infinity" play></Animation>    
+    <style>{".ex-animation-duration plus-animation {  background: lightgray;  width: 100px;  height: 100px;  margin: auto;}"}</style></div>;
 };
 
 export default AnimationDuration;

@@ -1,16 +1,15 @@
 <template>
   <div>  
-    <div class="center">    
-      <plus-animation name="fade-in" duration="2500" iterations="Infinity" play>
-        HTMLPLUS
-      </plus-animation>    
-    </div>  
+    <plus-animation name="fade-in" duration="2500" iterations="Infinity" play></plus-animation>  
   </div>
 </template>
 
 <style scoped>
-  .center {
-    text-align: center;
+  plus-animation {
+    background: lightgray;
+    width: 100px;
+    height: 100px;
+    margin: auto;
   }
 </style>
 

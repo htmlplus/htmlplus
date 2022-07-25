@@ -1,13 +1,13 @@
 import type { NextPage } from 'next';
 
-import { Transition } from '@app/components';
+import { Animation } from '@app/components';
 
 const Home: NextPage = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', height: '100vh', justifyContent: 'center' }}>
-      <Transition name="fade-in" repeat="infinite">
+      <Animation name="fade-in" iterations={Infinity}>
         COMING SOON
-      </Transition>
+      </Animation>
     </div>
   );
 };

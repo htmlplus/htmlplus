@@ -17,10 +17,7 @@
     "test:run": "cypress run"
   },
   "files": [
-    "**/*.*",
-    "index.js",
-    "package.json",
-    "README.md"
+    "**/*.*"
   ],
   "publishConfig": {
     "directory": "dist"

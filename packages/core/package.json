@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/core",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "license": "",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "HTMLPlus UI Components",
@@ -17,9 +17,7 @@
     "test:run": "cypress run"
   },
   "files": [
-    "types",
-    "package.json",
-    "README.md"
+    "**/*.*"
   ],
   "publishConfig": {
     "directory": "dist"

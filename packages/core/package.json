@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/core",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "HTMLPlus UI Components",
@@ -18,7 +18,7 @@
   },
   "files": [
     "types",
-    "indes.js",
+    "index.js",
     "package.json",
     "README.md"
   ],

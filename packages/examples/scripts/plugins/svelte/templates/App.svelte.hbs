@@ -1,16 +1,15 @@
-{{{script}}}
-
+{{#if script}}
 <script>
-
+{{{script}}}
 </script>
 
-<style>
-  main {
-    font-family: sans-serif;
-    text-align: center;
-  }
-</style>
+{{/if}}
+{{#if template}}
+{{{template}}}
 
-<main>
-	<h1>Hello CodeSandbox</h1>
-</main>
+{{/if}}
+{{#if style}}
+<style>
+{{{style}}}
+</style>
+{{/if}}

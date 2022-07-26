@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('light-speed-in-left', [
   { offset: 0, transform: 'translate3d(-100%, 0, 0) skewX(30deg)', opacity: '0' },

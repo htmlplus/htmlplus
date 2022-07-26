@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('head-shake', [
   { offset: 0, transform: 'translateX(0)' },

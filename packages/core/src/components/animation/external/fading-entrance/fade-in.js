@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('fade-in', [
   { offset: 0, opacity: '0' },

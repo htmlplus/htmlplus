@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('flip-in-y', [
   { offset: 0, transform: 'perspective(400px) rotate3d(0, 1, 0, 90deg)', easing: 'ease-in', opacity: '0' },

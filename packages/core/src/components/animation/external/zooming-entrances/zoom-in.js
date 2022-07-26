@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('zoom-in', [
   { offset: 0, opacity: '0', transform: 'scale3d(0.3, 0.3, 0.3)' },

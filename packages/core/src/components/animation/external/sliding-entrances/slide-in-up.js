@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('slide-in-up', [
   { offset: 0, transform: 'translate3d(0, 100%, 0)', visibility: 'visible' },

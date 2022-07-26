@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('pulse', [
   { offset: 0, transform: 'scale3d(1, 1, 1)' },

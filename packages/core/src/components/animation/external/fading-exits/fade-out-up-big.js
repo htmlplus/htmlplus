@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('fade-out-up-big', [
   { offset: 0, opacity: '1' },

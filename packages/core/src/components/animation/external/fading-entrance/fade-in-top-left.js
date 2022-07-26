@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('fade-in-top-left', [
   { offset: 0, opacity: '0', transform: 'translate3d(-100%, -100%, 0)' },

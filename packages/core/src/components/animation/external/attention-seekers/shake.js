@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('shake', [
   { offset: 0, transform: 'translate3d(0, 0, 0)' },

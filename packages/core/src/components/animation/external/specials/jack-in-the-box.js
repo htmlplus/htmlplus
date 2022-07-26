@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('jack-in-the-box', [
   { 'offset': 0, 'opacity': '0', 'transform': 'scale(0.1) rotate(30deg)', 'transform-origin': 'center bottom' },

@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('fade-out-bottom-left', [
   { offset: 0, opacity: '1', transform: 'translate3d(0, 0, 0)' },

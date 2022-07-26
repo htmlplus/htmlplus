@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('swing', [
   { offset: 0.2, transform: 'rotate3d(0, 0, 1, 15deg)' },

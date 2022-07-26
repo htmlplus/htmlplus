@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('flip-out-y', [
   { offset: 0, transform: 'perspective(400px)' },

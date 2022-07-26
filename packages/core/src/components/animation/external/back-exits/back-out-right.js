@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('back-out-right', [
   { offset: 0, transform: 'scale(1)', opacity: '1' },

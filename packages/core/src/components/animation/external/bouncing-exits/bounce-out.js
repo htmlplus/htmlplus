@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('bounce-out', [
   { offset: 0.2, transform: 'scale3d(0.9, 0.9, 0.9)' },

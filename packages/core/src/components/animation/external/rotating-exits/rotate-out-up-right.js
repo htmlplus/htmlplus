@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('rotate-out-up-right', [
   { offset: 0, opacity: '1' },

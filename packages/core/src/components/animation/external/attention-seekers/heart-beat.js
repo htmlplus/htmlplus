@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('heart-beat', [
   { offset: 0, transform: 'scale(1)' },

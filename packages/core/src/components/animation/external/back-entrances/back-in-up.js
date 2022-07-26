@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('back-in-up', [
   { offset: 0, transform: 'translateY(1200px) scale(0.7)', opacity: '0.7' },

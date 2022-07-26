@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('rotate-in-up-right', [
   { offset: 0, transform: 'rotate3d(0, 0, 1, -90deg)', opacity: '0' },

@@ -1,4 +1,4 @@
-import { register } from '../register';
+import { register } from '../register.js';
 
 register('hinge', [
   { offset: 0, easing: 'ease-in-out' },

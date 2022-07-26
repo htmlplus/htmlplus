@@ -9,6 +9,7 @@ export * from './browse/browse';
 export * from './card/card';
 export * from './card-body/card-body';
 export * from './click-outside/click-outside';
+export * from './counter/counter';
 export * from './cropper/cropper';
 export * from './dialog/dialog';
 export * from './dialog-body/dialog-body';

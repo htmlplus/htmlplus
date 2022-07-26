@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import path from 'path';
 import { rollup } from 'rollup';
 import postcss from 'rollup-plugin-postcss';
-import summary from 'rollup-plugin-summary';
+// import summary from 'rollup-plugin-summary';
 // import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -81,7 +81,7 @@ const options = {
     //   },
     // }),
 
-    summary()
+    // summary()
   ]
 };
 

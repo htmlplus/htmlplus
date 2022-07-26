@@ -24,6 +24,7 @@
   - SSR
   - i18
   - Cross Platform
+  - animation
 - Browsers
   - Chrome
   - FireFox

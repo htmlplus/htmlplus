@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (component)
     component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
-  const contributors: string[] = await getContributors(componentKey as string);
+  const contributors: string[] = await getContributors(`packages/core/src/components/${componentKey}`);
 
   // TODO
   const example = (() => {

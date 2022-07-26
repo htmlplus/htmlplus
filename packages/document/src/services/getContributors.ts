@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getContributors = async (componentKey?: string): Promise<any[]> => {
-  const url = `https://api.github.com/repos/htmlplus/core/commits?path=packages/core/src/components/${componentKey}`;
+export const getContributors = async (path?: string): Promise<any[]> => {
+  const url = `https://api.github.com/repos/htmlplus/htmlplus/commits?path=${path}`;
   try {
     const contributors = await axios.get(url)
       .then((response) => {

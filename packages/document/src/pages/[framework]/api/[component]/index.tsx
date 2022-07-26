@@ -71,7 +71,7 @@ export default ComponentAPI;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { component: componentKey, framework } = context.params || {};
   const component = components.find((component) => component.key == componentKey);
-  const contributors: string[] = await getContributors(componentKey as string);
+  const contributors: string[] = await getContributors(`packages/core/src/components/${componentKey}`);
   return {
     props: {
       component,

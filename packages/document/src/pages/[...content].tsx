@@ -4,15 +4,17 @@ import glob from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
 
-import { Markup } from '@app/containers';
+import { Contributors, Markup } from '@app/containers';
 import { LayoutDefault } from '@app/layouts';
+import { getContributors } from '@app/services';
 
 const base = 'src/content/en';
 
-const All = ({ content }: any) => {
+const All = ({ content, contributors }: any) => {
   return (
     <LayoutDefault>
       <Markup value={content} />
+      <Contributors contributors={contributors} />
     </LayoutDefault>
   );
 };
@@ -30,8 +32,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const content = fs.readFileSync(final, 'utf8');
 
+  const contributors: string[] = await getContributors('packages/document');
+
   return {
-    props: { content }
+    props: { content, contributors }
   };
 };
 

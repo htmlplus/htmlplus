@@ -100,7 +100,24 @@ export class Counter {
     if (this.separator === '') {
       this.useGrouping = false;
     }
-    this.handleScroll();
+
+    // TODO
+    // handleScroll
+
+    this.paused = false;
+    setTimeout(() => {
+      if (this.duration > 0) {
+        this.determineDirectionAndSmartEasing();
+        this.paused = false;
+        this.rAF = requestAnimationFrame(this.count);
+      } else {
+        this.frameVal = this.endVal;
+      }
+    }, 200);
+
+    // TODO
+    // scrolled past
+    // self.reset();
   }
 
   render() {
@@ -125,21 +142,6 @@ export class Counter {
   easingFn(currentTime: number, beginningValue: number, changeInValue: number, duration: number): number {
     return changeInValue * (-Math.pow(2, -10 * currentTime / duration) + 1) * 1024 / 1023 + beginningValue;
   }
-  // start animation
-  run(callback?: (args?: any) => any): void {
-    // TODO
-    // if (this.error) {
-    //   return;
-    // }
-    // this.callback = callback;
-    if (this.duration > 0) {
-      this.determineDirectionAndSmartEasing();
-      this.paused = false;
-      this.rAF = requestAnimationFrame(this.count);
-    } else {
-      this.frameVal = this.endVal;
-    }
-  }
   resetDuration(): void {
     this.startTime = null;
     this.remaining = this.duration;
@@ -153,7 +155,7 @@ export class Counter {
     this.frameVal = this.startVal;
   }
   // pause/resume animation
-  pauseResume(): void {
+  pause(): void {
     if (!this.paused) {
       cancelAnimationFrame(this.rAF);
     } else {
@@ -233,23 +235,11 @@ export class Counter {
     cancelAnimationFrame(this.rAF);
     this.startTime = null;
     this.endVal = newEndVal;
-    if (this.endVal === this.frameVal) {
-      return;
-    }
+    if (this.endVal === this.frameVal) return;
     this.startVal = this.frameVal;
-    if (this.finalEndVal == null) {
-      this.resetDuration();
-    }
+    if (this.finalEndVal == null) this.resetDuration();
     this.finalEndVal = null;
     this.determineDirectionAndSmartEasing();
     this.rAF = requestAnimationFrame(this.count);
-  }
-  handleScroll(): void {
-    this.paused = false;
-    setTimeout(() => this.run(), 200);
-
-    // TODO
-    // scrolled past
-    // self.reset();
   }
 }

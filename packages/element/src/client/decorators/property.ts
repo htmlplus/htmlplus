@@ -69,7 +69,8 @@ export function Property(options?: PropertyOptions) {
         this[propertyKey] = input;
       };
 
-      defineProperty(element, propertyKey, { get, set });
+      // TODO: configurable
+      defineProperty(element, propertyKey, { get, set, configurable: true });
     });
   };
 }

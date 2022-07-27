@@ -26,6 +26,7 @@ export function State() {
         });
     }
 
-    defineProperty(target, propertyKey, { get, set });
+    // TODO: configurable
+    defineProperty(target, propertyKey, { get, set, configurable: true });
   };
 }

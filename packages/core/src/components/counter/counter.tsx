@@ -1,12 +1,14 @@
-import { Element, Property, State, Watch } from '@htmlplus/element';
+import { Bind, Element, Event, EventEmitter, Method, Property, State, Watch } from '@htmlplus/element';
+import { COUNTER_EASINGS } from './counter.constants';
+import { CounterEasing } from './counter.types';
 
 @Element()
-export class Counter {
+export class Counter { 
   /**
    * TODO
    */
   @Property()
-  easing?: boolean;
+  easing?: CounterEasing = 'linear';   
 
   /**
    * TODO
@@ -56,13 +58,30 @@ export class Counter {
   @Property()
   start?: number = 0;
 
+  /**
+   * TODO
+   */
+  @Event()
+  plusComplete!: EventEmitter<void>;
+
+  @State()
+  counter?: number = 0;
+
+  numerals?: string[] = [];
+
+  requestAnimationFrame: number;
+
+  get easingFunction() {
+    return (COUNTER_EASINGS[this.easing] || this.easing) as any;
+  }
+
   get formated() {
-    const negative = (this.frameVal < 0) ? '-' : '';
+    const negative = (this.counter < 0) ? '-' : '';
     let result: string;
     let x1: string;
     let x2: string;
     let x3: string;
-    result = Math.abs(this.frameVal).toFixed(this.decimalPlaces);
+    result = Math.abs(this.counter).toFixed(this.decimalPlaces);
     result += '';
     const x = result.split('.');
     x1 = x[0];
@@ -82,7 +101,94 @@ export class Counter {
       x2 = x2.replace(/[0-9]/g, (w) => this.numerals[+w]);
     }
     return negative + x1 + x2;
+  } 
+
+  /**
+   * External Methods
+   */
+
+  /**
+   * TODO
+   */
+  @Method()
+  pause() {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.paused = true;
   }
+
+  /**
+   * TODO
+   */
+  @Method()  
+  resume() {
+    this.startTime = null;
+    this.duration = this.remaining;
+    this.startVal = this.counter;
+    this.determineDirectionAndSmartEasing();
+    this.requestAnimationFrame = requestAnimationFrame(this.count);
+    this.paused = false;
+  }
+
+  /**
+   * TODO
+   */
+  @Method()
+  stop() { }
+
+  /**
+   * Internal Methods
+   */
+
+  @Bind()
+  count(timestamp: number) {
+    if (!this.startTime) this.startTime = timestamp; 
+
+    const progress = timestamp - this.startTime;
+
+    this.remaining = this.duration - progress;
+
+    if (this.useEasing) {
+      if (this.countDown) {
+        this.counter = this.startVal - this.easingFunction(progress, 0, this.startVal - this.endVal, this.duration);
+      } 
+      else {
+        this.counter = this.easingFunction(progress, this.startVal, this.endVal - this.startVal, this.duration);
+      }
+    } 
+    else {
+      this.counter = this.startVal + (this.endVal - this.startVal) * (progress / this.duration);
+    }
+
+    // don't go past endVal since progress can exceed duration in the last frame
+    const wentPast = this.countDown ? this.counter < this.endVal : this.counter > this.endVal;
+
+    this.counter = wentPast ? this.endVal : this.counter;
+
+    this.counter = Number(this.counter.toFixed(this.decimalPlaces));
+
+    console.log(this.counter, progress, progress < this.duration, this.finalEndVal)
+
+    if (progress < this.duration) {
+      this.requestAnimationFrame = requestAnimationFrame(this.count);
+    } 
+    else if (this.finalEndVal !== null) {
+      cancelAnimationFrame(this.requestAnimationFrame);
+      this.startTime = null;
+      debugger
+      this.endVal = this.finalEndVal;
+      if (this.endVal === this.counter) return;
+      this.startVal = this.counter;
+      if (this.finalEndVal == null) {
+        this.startTime = null;
+        this.remaining = this.duration;
+      }
+      this.finalEndVal = null;
+      this.determineDirectionAndSmartEasing();
+    }
+    else {
+      return this.plusComplete();
+    }
+  } 
 
   /**
    * Watchers
@@ -91,43 +197,22 @@ export class Counter {
   @Watch()
   watcher(next, prev, name) { }
 
+  /**
+   * Lifecycles
+   */
+
   connectedCallback() {
-    this.startVal = this.start
-    this.frameVal = this.startVal;
-    this.endVal = this.end;
-    this.resetDuration();
-    this.useEasing = this.easing;
-    if (this.separator === '') {
-      this.useGrouping = false;
-    }
-
-    // TODO
-    // handleScroll
-
-    this.paused = false;
-    setTimeout(() => {
-      if (this.duration > 0) {
-        this.determineDirectionAndSmartEasing();
-        this.paused = false;
-        this.rAF = requestAnimationFrame(this.count);
-      } else {
-        this.frameVal = this.endVal;
-      }
-    }, 200);
-
-    // TODO
-    // scrolled past
-    // self.reset();
+    if (!this.play) return;
+    this.run();
   }
+
+  disconnectedCallback() {  }
 
   render() {
     return this.formated;
   }
 
   // TODO
-  @State()
-  frameVal?: number = 0;
-  rAF: any;
   startTime: number;
   remaining: number;
   endVal: number;
@@ -138,36 +223,29 @@ export class Counter {
   useEasing = true;
   smartEasingThreshold = 999;
   smartEasingAmount = 333;
-  finalEndVal: number = null; // for smart easing
-  easingFn(currentTime: number, beginningValue: number, changeInValue: number, duration: number): number {
-    return changeInValue * (-Math.pow(2, -10 * currentTime / duration) + 1) * 1024 / 1023 + beginningValue;
-  }
-  resetDuration(): void {
+  finalEndVal: number = null; // for smart easing  
+  reset(): void {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.paused = true;
     this.startTime = null;
     this.remaining = this.duration;
-  }
-  // reset to startVal so animation can be run again
-  reset(): void {
-    cancelAnimationFrame(this.rAF);
-    this.paused = true;
-    this.resetDuration();
     this.startVal = this.start;
-    this.frameVal = this.startVal;
+    this.counter = this.startVal;
   }
-  // pause/resume animation
-  pause(): void {
-    if (!this.paused) {
-      cancelAnimationFrame(this.rAF);
-    } else {
-      this.startTime = null;
-      this.duration = this.remaining;
-      this.startVal = this.frameVal;
+  run() {
+    if(isNaN(this.duration) || this.duration <= 0) 
+      throw new Error('TODO');
+    this.reset();
+    this.endVal = this.end;
+    this.useEasing = !!this.easing;  
+    this.paused = false;
+    setTimeout(() => {
       this.determineDirectionAndSmartEasing();
-      this.rAF = requestAnimationFrame(this.count);
-    }
-    this.paused = !this.paused;
+      this.paused = false;
+      this.requestAnimationFrame = requestAnimationFrame(this.count);
+    }, this.delay); 
   }
-  /**
+   /**
    * Smart easing works by breaking the animation into 2 parts, the second part being the
    * smartEasingAmount and first part being the total amount minus the smartEasingAmount. It works
    * by disabling easing for the first part and enabling it on the second part. It is used if
@@ -190,56 +268,7 @@ export class Counter {
       // setting finalEndVal indicates smart easing
       this.useEasing = false;
     } else {
-      this.useEasing = this.easing;
+      this.useEasing = !!this.easing;
     }
-  }
-  count = (timestamp: number): void => {
-    if (!this.startTime) { this.startTime = timestamp; }
-
-    const progress = timestamp - this.startTime;
-    this.remaining = this.duration - progress;
-
-    // to ease or not to ease
-    if (this.useEasing) {
-      if (this.countDown) {
-        this.frameVal = this.startVal - this.easingFn(progress, 0, this.startVal - this.endVal, this.duration);
-      } else {
-        this.frameVal = this.easingFn(progress, this.startVal, this.endVal - this.startVal, this.duration);
-      }
-    } else {
-      this.frameVal = this.startVal + (this.endVal - this.startVal) * (progress / this.duration);
-    }
-
-    // don't go past endVal since progress can exceed duration in the last frame
-    const wentPast = this.countDown ? this.frameVal < this.endVal : this.frameVal > this.endVal;
-    this.frameVal = wentPast ? this.endVal : this.frameVal;
-
-    // decimal
-    this.frameVal = Number(this.frameVal.toFixed(this.decimalPlaces));
-
-    // whether to continue
-    if (progress < this.duration) {
-      this.rAF = requestAnimationFrame(this.count);
-    } else if (this.finalEndVal !== null) {
-      // smart easing
-      this.update(this.finalEndVal);
-    } else {
-      // TODO
-      // if (this.callback) {
-      //   this.callback();
-      // }
-    }
-  }
-  // pass a new endVal and start animation
-  update(newEndVal: string | number): void {
-    cancelAnimationFrame(this.rAF);
-    this.startTime = null;
-    this.endVal = newEndVal;
-    if (this.endVal === this.frameVal) return;
-    this.startVal = this.frameVal;
-    if (this.finalEndVal == null) this.resetDuration();
-    this.finalEndVal = null;
-    this.determineDirectionAndSmartEasing();
-    this.rAF = requestAnimationFrame(this.count);
   }
 }

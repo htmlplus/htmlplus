@@ -211,10 +211,6 @@ export class Intersection {
   }
 
   render() {
-    return (
-      <>
-        {this.isVisible && <slot />}
-      </>
-    )
+    return this.isVisible ? <slot /> : undefined;
   }
 }

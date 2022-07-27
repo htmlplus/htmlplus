@@ -8,7 +8,7 @@ export class Counter {
    * TODO
    */
   @Property()
-  easing?: CounterEasing = 'linear';   
+  easing?: CounterEasing = 'ease-out-expo';   
 
   /**
    * TODO
@@ -123,7 +123,7 @@ export class Counter {
 
     this.remaining = this.duration - progress;
 
-    if (!this.easing) {
+    if (!this.easingFunction) {
       this.counter = this.from + (this.to - this.from) * (progress / this.duration);
     } else if (this.reverse) {
       this.counter = this.from - this.easingFunction(progress, 0, this.from - this.to, this.duration);

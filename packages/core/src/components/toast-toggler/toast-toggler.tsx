@@ -14,7 +14,7 @@ export class ToastToggler {
    * This property helps you to attach which toast this toggler controls. 
    * It doesn't matter where the toast toggler is. 
    * You can put the toast's toggler inside or outside of the toast. 
-   * Read more about connectors [here](https://htmlplus.io/features/connector).
+   * Read more about connectors [here](/connector).
    */
   @Property()
   connector?: string;

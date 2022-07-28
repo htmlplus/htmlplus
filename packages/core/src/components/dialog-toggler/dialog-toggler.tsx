@@ -18,7 +18,7 @@ export class DialogToggler {
    * This property helps you to attach which dialog this toggler controls. 
    * It doesn't matter where the dialog toggler is. 
    * You can put the dialog's toggler inside or outside of the dialog. 
-   * Read more about connectors [here](https://htmlplus.io/features/connector).
+   * Read more about connectors [here](/connector).
    */
   @Property()
   connector?: string;

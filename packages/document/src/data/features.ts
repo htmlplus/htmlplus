@@ -17,7 +17,7 @@ export const features = [
     icon: 'zero-config',
     title: 'Zero Configuration',
     description:
-      'It’s prepared in a way that you can use it easily just in a simple step. To  build your next project fast and easy.'
+      'It\'s prepared in a way that you can use it easily just in a simple step. To  build your next project fast and easy.'
   },
   {
     key: 'lightweight',

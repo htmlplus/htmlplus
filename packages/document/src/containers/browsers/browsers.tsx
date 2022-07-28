@@ -1,7 +1,7 @@
 import { Grid } from '@app/components';
 import { browsers } from '@app/data';
 
-export const Browsers = () => {
+export const Browsers = ({ version }: any) => {
   return (
     <Grid gutterY="lg">
       {browsers.map((browser) => (
@@ -11,7 +11,7 @@ export const Browsers = () => {
             <img width="64" height="64" alt={browser.title} src={`/assets/browsers/${browser.logo}`} />
             <br />
             <p>
-              {browser.title} {browser.version}
+              {browser.title} {version && browser.version}
             </p>
           </div>
         </Grid.Item>

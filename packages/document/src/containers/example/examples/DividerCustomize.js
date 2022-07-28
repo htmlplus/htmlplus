@@ -17,7 +17,7 @@ const DividerCustomize = () => {
     imperdiet, gravida urna tempus, fringilla nisl.
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-divider-customize plus-divider {  --plus-divider-color: #5F9EE9;  --plus-divider-size: 3px;  margin: 2rem 0;}"}</style></div>;
+    <style>{".ex-divider-customize plus-divider {  --plus-divider-color: #5F9EE9;  --plus-divider-width: 3px;  margin: 2rem 0;}"}</style></div>;
 };
 
 export default DividerCustomize;

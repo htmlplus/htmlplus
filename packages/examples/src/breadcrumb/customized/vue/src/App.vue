@@ -12,13 +12,12 @@
 
 <style scoped>
   plus-breadcrumb {
-    padding: 0.75em;
-    border-radius: 0.25em;
-  }
-  plus-breadcrumb {
     --plus-breadcrumb-gutter-x: 0.75em;
     --plus-breadcrumb-gutter-y: 0.75em;
     background-color: #DCDCDC;
+    border-radius: 0.25em;
+    display: block;
+    padding: 0.75em;
   }
   plus-breadcrumb a {
     text-decoration: none;

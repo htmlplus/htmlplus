@@ -7,9 +7,11 @@
       <div class="content">      
         <div class="spacer"></div>      
         <plus-intersection @plusChange="onChange($event)">        
-          <plus-card elevation="10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <plus-card elevation="10">          
+            <plus-card-body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </plus-card-body>          
           </plus-card>        
         </plus-intersection>      
         <div class="spacer"></div>      
@@ -64,7 +66,6 @@
   
   plus-card {
     width: 15rem;
-    padding: 1rem;
     margin: auto;
   }
 </style>

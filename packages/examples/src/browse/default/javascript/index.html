@@ -4,7 +4,21 @@
     <title>Browse | Default</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="TODO"></script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/index.js"></script>
+    <style>
+      plus-browse {
+        background: white;
+        border: 2px dashed #e0e0e0;
+        border-radius: 4px;
+        display: block;
+        padding: 3rem;
+        text-align: center;
+      }
+      plus-browse[dragging]:not([dragging=false]) {
+        border-color: #0087f7;
+      }
+    </style>
   </head>
   <body>
     <plus-browse id="element" droppable></plus-browse>

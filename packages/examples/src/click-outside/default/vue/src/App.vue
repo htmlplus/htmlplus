@@ -2,11 +2,11 @@
   <div>  
     <plus-click-outside @click="onClick()" @plusClickOutside="onClickOutside()">    
       <plus-card elevation="10">      
-        <div class="container">        
+        <plus-card-body>        
           <b>[[inside]]</b>        time(s) inside clicked
           <br />        
           <b>[[outside]]</b>        time(s) outside clicked
-        </div>      
+        </plus-card-body>      
       </plus-card>    
     </plus-click-outside>  
   </div>
@@ -35,9 +35,6 @@
 </script>
 
 <style scoped>
-  .container {
-    padding: 1rem;
-  }
   plus-click-outside {
     margin: auto;
     display: block;

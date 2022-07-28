@@ -60,9 +60,10 @@ export const DialogSticky = dynamic<any>(() => import('./DialogSticky').then((co
 export const DividerCard = dynamic<any>(() => import('./DividerCard').then((component) => component), { ssr: false });
 export const DividerCustomize = dynamic<any>(() => import('./DividerCustomize').then((component) => component), { ssr: false });
 export const DividerHorizontal = dynamic<any>(() => import('./DividerHorizontal').then((component) => component), { ssr: false });
-export const DividerSize = dynamic<any>(() => import('./DividerSize').then((component) => component), { ssr: false });
+export const DividerPlacement = dynamic<any>(() => import('./DividerPlacement').then((component) => component), { ssr: false });
 export const DividerType = dynamic<any>(() => import('./DividerType').then((component) => component), { ssr: false });
 export const DividerVertical = dynamic<any>(() => import('./DividerVertical').then((component) => component), { ssr: false });
+export const DividerWidth = dynamic<any>(() => import('./DividerWidth').then((component) => component), { ssr: false });
 export const DrawerDefault = dynamic<any>(() => import('./DrawerDefault').then((component) => component), { ssr: false });
 export const GridAlignContent = dynamic<any>(() => import('./GridAlignContent').then((component) => component), { ssr: false });
 export const GridAlignItems = dynamic<any>(() => import('./GridAlignItems').then((component) => component), { ssr: false });
@@ -96,6 +97,7 @@ export const SpinnerCustomize = dynamic<any>(() => import('./SpinnerCustomize').
 export const SpinnerDefault = dynamic<any>(() => import('./SpinnerDefault').then((component) => component), { ssr: false });
 export const SpinnerSize = dynamic<any>(() => import('./SpinnerSize').then((component) => component), { ssr: false });
 export const SpinnerType = dynamic<any>(() => import('./SpinnerType').then((component) => component), { ssr: false });
+export const StickyContacts = dynamic<any>(() => import('./StickyContacts').then((component) => component), { ssr: false });
 export const StickyDefault = dynamic<any>(() => import('./StickyDefault').then((component) => component), { ssr: false });
 export const StickyStateAttribute = dynamic<any>(() => import('./StickyStateAttribute').then((component) => component), { ssr: false });
 export const StickyTop = dynamic<any>(() => import('./StickyTop').then((component) => component), { ssr: false });

@@ -21,7 +21,7 @@
 <style scoped>
   plus-divider {
     --plus-divider-color: #5F9EE9;
-    --plus-divider-size: 3px;
+    --plus-divider-width: 3px;
     margin: 2rem 0;
   }
 </style>

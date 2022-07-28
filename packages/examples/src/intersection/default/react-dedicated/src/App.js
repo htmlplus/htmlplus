@@ -16,9 +16,11 @@ const IntersectionDefault = () => {
       <div className="content">        
         <div className="spacer"></div>        
         <Intersection onChange={event => onChange(event)}>          
-          <Card elevation="10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <Card elevation="10">            
+            <Card.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Card.Body>            
           </Card>          
         </Intersection>        
         <div className="spacer"></div>        

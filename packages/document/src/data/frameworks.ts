@@ -1,28 +1,28 @@
 export const frameworks = [
   {
     key: 'javascript',
-    logo: 'assets/logo/javascript.svg',
+    logo: '/assets/logo/javascript.svg',
     title: 'JavaScript'
   },
   {
     key: 'react',
-    logo: 'assets/logo/react.svg',
+    logo: '/assets/logo/react.svg',
     title: 'React'
   },
   {
     key: 'vue',
-    logo: 'assets/logo/vue.svg',
+    logo: '/assets/logo/vue.svg',
     title: 'Vue'
   },
   {
     key: 'angular',
-    logo: 'assets/logo/angular.svg',
+    logo: '/assets/logo/angular.svg',
     title: 'Angular',
     disabled: true
   },
   {
     key: 'svelte',
-    logo: 'assets/logo/svelte.svg',
+    logo: '/assets/logo/svelte.svg',
     title: 'Svelte',
     disabled: true
   }

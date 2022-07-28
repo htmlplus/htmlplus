@@ -20,7 +20,7 @@ const SingleValue = (props: any) => (
     {/* TODO */}
     <img
       style={{ width: '1.5rem', height: '1.5rem', objectFit: 'contain', verticalAlign: 'middle', margin: '0' }}
-      src={`/assets/logo/${props.data.logo}`}
+      src={props.data.logo}
       alt={`${props.data.label} logo`}
     />
     &nbsp; &nbsp;

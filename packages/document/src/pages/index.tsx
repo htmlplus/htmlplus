@@ -1,38 +1,112 @@
 import { useState } from 'react';
 
 import type { NextPage } from 'next';
+import NextLink from 'next/link';
 
 import '@htmlplus/core/animation/attention-seekers/pulse.js';
 
-import { Animation, Counter, Grid, Icon, Intersection } from '@app/components';
+import { Animation, Button, Counter, Grid, Icon, Intersection } from '@app/components';
+import * as Constants from '@app/constants';
 import { Browsers, Header } from '@app/containers';
 import { features, frameworks, statistics } from '@app/data';
-
-const Number = ({ value }: any) => {
-  const [play, setPlay] = useState(false);
-  return (
-    <Intersection onChange={(event: any) => event.detail.isIntersecting && setPlay(true)}>
-      <Animation name="pulse" play={play} delay={3100}>
-        <Counter to={value} duration={2500} play={play} delay={500}></Counter>
-      </Animation>
-    </Intersection>
-  )
-}
-
-const Section = ({ children, description, title }: any) => {
-  return (
-    <>
-      <h2 style={{ textAlign: 'center' }}>{title}</h2>
-      <p style={{ textAlign: 'center' }}>{description}</p>
-      {children}
-    </>
-  )
-}
+import * as Utils from '@app/utils';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
+      <div
+        style={{
+          background: 'linear-gradient(165deg, rgba(255,255,255,0) 64%, rgba(238,110,115,1) 100%)',
+          backgroundRepeat: 'no-repeat',
+          height: '100vh',
+          textAlign: 'center',
+          padding: '1.75rem 2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div style={{ width: '100%' }}>
+          <Grid justifyContent="center" justifyContentMd="end" gutterX="md">
+            <Grid.Item>
+              <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHAT')}>
+                <b>{`What\'s ${Constants.PLATFORM_NAME}?`}</b>
+              </Button>
+            </Grid.Item>
+            <Grid.Item>
+              <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHY')}>
+                <b>{`Why ${Constants.PLATFORM_NAME}?`}</b>
+              </Button>
+            </Grid.Item>
+          </Grid>
+        </div>
+        <div style={{ flexGrow: '1' }} />
+        <div>
+          <div>
+            <svg
+              style={{ verticalAlign: 'middle' }}
+              width={60}
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 1000 1000"
+              enableBackground="new 0 0 1000 1000"
+              xmlSpace="preserve"
+            >
+              <g>
+                <path d="M980.8,521.1L783.2,718.5c-12.2,12.2-32,12.2-44.2,0c-12.2-12.2-12.2-31.9,0-44.1L914.6,499L739,323.7c-12.2-12.2-12.2-31.9,0-44.1c12.2-12.2,32-12.2,44.2,0L980.8,477C993.1,489.2,993.1,508.9,980.8,521.1z M332.9,906.5c-9,15.7-28.9,21.1-44.5,12c-15.6-9-20.9-29.1-11.9-44.8L667.1,93.5c9-15.7,28.9-21.1,44.5-12c15.6,9.1,20.9,29.1,11.9,44.8L332.9,906.5z M261,718.5c-12.2,12.2-32,12.2-44.2,0L19.1,521.1C7,508.9,7,489.2,19.1,477l197.7-197.4c12.2-12.2,32-12.2,44.2,0c12.2,12.2,12.2,31.9,0,44.1L85.4,499L261,674.4C273.2,686.6,273.2,706.3,261,718.5z" />
+              </g>
+            </svg>
+            &nbsp; &nbsp;
+            <h1 style={{ border: 'none', display: 'inline', verticalAlign: 'middle', padding: 0 }}>
+              {Constants.PLATFORM_NAME}
+            </h1>
+          </div>
+          <h1 style={{ border: 'none' }}>The Most Flexible Open Source Web Component Library!</h1>
+          <p style={{ maxWidth: '700px', margin: 'auto' }}>
+            {Constants.PLATFORM_NAME} is framework-less and lightweight. It's totally native and developed purely with
+            javascript. All {Constants.PLATFORM_NAME} components are customizable and configurable.
+          </p>
+          <div>
+            <NextLink
+              href={Utils.getPath('COMPONENT_DETAILS', { framework: 'react', component: 'animation' })!}
+              passHref
+            >
+              <a
+                style={{
+                  padding: '0.75rem 2rem',
+                  background: '#ee6e73',
+                  color: 'white',
+                  display: 'inline-block',
+                  margin: '2rem 1rem',
+                  borderRadius: '4px',
+                  fontWeight: 700
+                }}
+              >
+                Get Started
+              </a>
+            </NextLink>
+            <a
+              style={{
+                padding: '0.75rem 2rem',
+                border: 'solid 1px #ee6e73',
+                color: '#ee6e73',
+                display: 'inline-block',
+                margin: '2rem 1rem',
+                borderRadius: '4px',
+                fontWeight: 700
+              }}
+              href="https://github.com/htmlplus/htmlplus"
+              target="_blank"
+            >
+              Github
+            </a>
+          </div>
+        </div>
+        <div style={{ flexGrow: '1' }} />
+      </div>
+      {/* <Header />
       <div style={{ height: '80vh' }}></div>
       <Section title="Browsers" description="TODO">
         <Browsers />
@@ -118,9 +192,30 @@ const Home: NextPage = () => {
             Popups
           </Grid.Item>
         </Grid>
-      </Section>
+      </Section> */}
     </>
   );
 };
 
 export default Home;
+
+const Number = ({ value }: any) => {
+  const [play, setPlay] = useState(false);
+  return (
+    <Intersection onChange={(event: any) => event.detail.isIntersecting && setPlay(true)}>
+      <Animation name="pulse" play={play} delay={3100}>
+        <Counter to={value} duration={2500} play={play} delay={500}></Counter>
+      </Animation>
+    </Intersection>
+  );
+};
+
+const Section = ({ children, description, title }: any) => {
+  return (
+    <>
+      <h2 style={{ textAlign: 'center' }}>{title}</h2>
+      <p style={{ textAlign: 'center' }}>{description}</p>
+      {children}
+    </>
+  );
+};

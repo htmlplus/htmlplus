@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Counter | Default</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/index.js"></script>
+    <style>
+      .center {
+        text-align: center;
+      }
+      button {
+        margin: 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+        <plus-counter id="counter1" to="1000"></plus-counter>
+        <br />
+        <br />
+        <button id="button1">Start</button>
+        <button id="button2">Reset</button>
+    </div>
+    <script>
+      button1.addEventListener('click', () => {
+        counter1.play = true;
+      });
+      button1.addEventListener('click', () => {
+        counter1.play = false;
+      });
+    </script>
+  </body>
+</html>

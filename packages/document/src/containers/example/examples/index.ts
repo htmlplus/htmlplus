@@ -32,6 +32,7 @@ export const CardElevation = dynamic<any>(() => import('./CardElevation').then((
 export const CardOutlined = dynamic<any>(() => import('./CardOutlined').then((component) => component), { ssr: false });
 export const CardTile = dynamic<any>(() => import('./CardTile').then((component) => component), { ssr: false });
 export const ClickOutsideDefault = dynamic<any>(() => import('./ClickOutsideDefault').then((component) => component), { ssr: false });
+export const CounterDefault = dynamic<any>(() => import('./CounterDefault').then((component) => component), { ssr: false });
 export const CropperArea = dynamic<any>(() => import('./CropperArea').then((component) => component), { ssr: false });
 export const CropperAspectRatio = dynamic<any>(() => import('./CropperAspectRatio').then((component) => component), { ssr: false });
 export const CropperBackdrop = dynamic<any>(() => import('./CropperBackdrop').then((component) => component), { ssr: false });

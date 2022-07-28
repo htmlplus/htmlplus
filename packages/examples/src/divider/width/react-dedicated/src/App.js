@@ -2,11 +2,11 @@ import { Divider } from "@htmlplus/react";
 
 const DividerWidth = () => {
   return <>    
-    <Divider size="thin"></Divider>    
+    <Divider width="thin"></Divider>    
     <br />    
-    <Divider size="medium"></Divider>    
+    <Divider width="medium"></Divider>    
     <br />    
-    <Divider size="thick"></Divider>    
+    <Divider width="thick"></Divider>    
   </>;
 };
 

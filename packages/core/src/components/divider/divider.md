@@ -10,9 +10,13 @@ It's a thin line that can divide the content vertically or horizontally.
 
 <Examples />
 
-<Example value="size" />
+<Example value="width" />
 
 <Example value="type" />
+
+<Example value="variant" />
+
+<Example value="placement" />
 
 <Example value="horizontal" />
 

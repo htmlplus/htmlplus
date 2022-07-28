@@ -62,6 +62,7 @@ export const DividerCustomize = dynamic<any>(() => import('./DividerCustomize').
 export const DividerHorizontal = dynamic<any>(() => import('./DividerHorizontal').then((component) => component), { ssr: false });
 export const DividerPlacement = dynamic<any>(() => import('./DividerPlacement').then((component) => component), { ssr: false });
 export const DividerType = dynamic<any>(() => import('./DividerType').then((component) => component), { ssr: false });
+export const DividerVariant = dynamic<any>(() => import('./DividerVariant').then((component) => component), { ssr: false });
 export const DividerVertical = dynamic<any>(() => import('./DividerVertical').then((component) => component), { ssr: false });
 export const DividerWidth = dynamic<any>(() => import('./DividerWidth').then((component) => component), { ssr: false });
 export const DrawerDefault = dynamic<any>(() => import('./DrawerDefault').then((component) => component), { ssr: false });

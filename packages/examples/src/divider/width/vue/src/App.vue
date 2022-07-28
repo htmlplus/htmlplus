@@ -1,10 +1,10 @@
 <template>
   <div>  
-    <plus-divider size="thin"></plus-divider>  
+    <plus-divider Width="thin"></plus-divider>  
     <br />  
-    <plus-divider size="medium"></plus-divider>  
+    <plus-divider Width="medium"></plus-divider>  
     <br />  
-    <plus-divider size="thick"></plus-divider>  
+    <plus-divider Width="thick"></plus-divider>  
   </div>
 </template>
 

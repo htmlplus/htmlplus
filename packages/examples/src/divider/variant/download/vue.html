@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Downloading...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body onload="load()">
+    <script>
+      async function load() {   
+        const response = await fetch(`data:application/zip;base64,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`);
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const anchor = document.createElement('a');
+
+        anchor.href = url;
+
+        anchor.download = 'vue-divider-variant';
+
+        document.body.appendChild(anchor);
+
+        anchor.click();
+
+        document.body.removeChild(anchor);
+
+        URL.revokeObjectURL(url);
+
+        window.close();
+      }
+    </script>
+  </body>
+</html>

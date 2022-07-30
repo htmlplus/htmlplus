@@ -2,9 +2,9 @@ name: Node.js Package
 
 on:
   push:
-    branches: [main]
+    branches: [react]
   pull_request:
-    branches: [main]
+    branches: [react]
 
 jobs:
   release:
@@ -19,10 +19,10 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org
       - name: install
-        run: npm ci
+        run: cd packages/distributions/react && npm ci
       - name: build
-        run: npm run build
+        run: lerna run build --scope=@htmlplus/react
       - name: publish
-        run: npm publish --tag next --access public
+        run: cd packages/distributions/react/dist && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

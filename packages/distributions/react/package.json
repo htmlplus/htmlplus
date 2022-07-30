@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/react",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "type": "module",
   "description": "React output target for your custom element.",
   "main": "index.js",

@@ -1,6 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import glob from 'glob';
+import glob from 'fast-glob';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -13,9 +13,9 @@ export default {
     },
   ],
   plugins: [
-    peerDepsExternal(), 
-    resolve(), 
-    commonjs(), 
+    peerDepsExternal(),
+    resolve(),
+    commonjs(),
     typescript(),
   ],
 };

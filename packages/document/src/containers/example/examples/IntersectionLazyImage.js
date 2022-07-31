@@ -13,7 +13,7 @@ const IntersectionLazyImage = () => {
     }, 1000);
   };
 
-  return <div className="ex-intersection-lazy-image">    
+  return <div className="ex-intersection-lazy-image dock">    
     <div className="container">      
       <Intersection once onChange={event => onChange(event)}>        
         <Card elevation="10">          

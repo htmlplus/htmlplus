@@ -1,7 +1,7 @@
 import { Card } from "@htmlplus/react";
 
 const CardDefault = () => {
-  return <div className="ex-card-default">    
+  return <div className="ex-card-default dock">    
     <div className="container">      
       <Card></Card>      
     </div>    

@@ -1,7 +1,7 @@
 import { Sticky } from "@htmlplus/react";
 
 const StickyDefault = () => {
-  return <div className="ex-sticky-default">    
+  return <div className="ex-sticky-default dock">    
     <div className="container">      
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend

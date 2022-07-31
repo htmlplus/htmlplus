@@ -1,7 +1,7 @@
 import { Sticky } from "@htmlplus/react";
 
 const StickyTop = () => {
-  return <div className="ex-sticky-top">    
+  return <div className="ex-sticky-top dock">    
     <div className="container">      
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend

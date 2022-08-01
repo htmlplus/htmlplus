@@ -1,14 +1,14 @@
-import { Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element';
+import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element';
 import { COUNTER_EASINGS } from './counter.constants';
 import { CounterEasing } from './counter.types';
 
 @Element()
-export class Counter { 
+export class Counter {
   /**
    * TODO
    */
   @Property()
-  easing?: CounterEasing = 'ease-out-expo';   
+  easing?: CounterEasing = 'ease-out-expo';
 
   /**
    * TODO
@@ -65,15 +65,25 @@ export class Counter {
   plusComplete!: EventEmitter<void>;
 
   @State()
-  counter?: number = 0;
+  counter?: number;
+
+  @State()
+  state?: 'idle' | 'completed' | 'paused' | 'running' | 'stopped' = 'idle';
 
   numerals?: string[];
-  
+
   remaining?: number;
 
   requestAnimationFrame?: number;
-  
+
   startTime?: number;
+
+  @Attributes()
+  get attributes() {
+    return {
+      state: this.state
+    };
+  }
 
   get easingFunction() {
     return (COUNTER_EASINGS[this.easing] || this.easing) as any;
@@ -105,11 +115,11 @@ export class Counter {
       x2 = x2.replace(/[0-9]/g, (w) => this.numerals[+w]);
     }
     return negative + x1 + x2;
-  } 
+  }
 
   get reverse() {
     return this.to < this.from;
-  } 
+  }
 
   /**
    * Internal Methods
@@ -117,7 +127,7 @@ export class Counter {
 
   @Bind()
   count(timestamp: number) {
-    if (!this.startTime) this.startTime = timestamp; 
+    if (!this.startTime) this.startTime = timestamp;
 
     const progress = timestamp - this.startTime;
 
@@ -137,48 +147,60 @@ export class Counter {
 
     this.counter = Number(this.counter.toFixed(this.decimalPlaces));
 
-    if (progress >= this.duration) return this.plusComplete();
+    if (progress >= this.duration) {
+      this.completed();
+      this.plusComplete();
+      return;
+    }
 
     this.requestAnimationFrame = requestAnimationFrame(this.count);
-  } 
-  
-  start() {
-    this.stop();
-    setTimeout(() => {
-      this.requestAnimationFrame = requestAnimationFrame(this.count);
-    }, this.delay); 
-  } 
+  }
 
-  stop() { 
-    cancelAnimationFrame(this.requestAnimationFrame);
-    this.remaining = this.duration;
+  completed() {
+    this.play = false;
+    this.remaining = undefined;
     this.startTime = undefined;
+    this.state = 'completed';
+  }
+
+  start() {
+    if (this.state == 'running') return
+    setTimeout(() => {
+      this.play = true;
+      this.state = 'running'
+      this.requestAnimationFrame = requestAnimationFrame(this.count);
+    }, this.delay);
+  }
+
+  stop() {
+    // if (['completed', 'stopped'].includes(this.state)) return;
+    // cancelAnimationFrame(this.requestAnimationFrame);
+    // this.play = false;
+    // this.state = 'stopped'
+    // this.remaining = this.duration;
+    // this.startTime = undefined;
+    // this.counter = this.from;
     // TODO: no need requestAnimationFrame
-    requestAnimationFrame(() => {
-      this.counter = this.from;
-    });
+    // requestAnimationFrame(() => {
+    //   this.counter = this.from;
+    //   this.play = false;
+    // });
   }
 
   /**
    * Watchers
    */
 
-  @Watch()
-  watcher(next, prev, name) { 
-    switch (name) {
-      case 'play':
-        this.play ? this.start() : this.stop();        
-        break;
-    }
+  // TODO
+  @Watch(['play'])
+  watcher() {
+    console.log(1, this.remaining, this.startTime, this.counter)
+    // this.play ? this.start() : this.stop();
   }
 
   /**
    * Lifecycles
    */
-
-  connectedCallback() {
-    this.play && this.start();
-  }
 
   disconnectedCallback() {
     this.stop();
@@ -186,5 +208,5 @@ export class Counter {
 
   render() {
     return this.formated;
-  } 
+  }
 }

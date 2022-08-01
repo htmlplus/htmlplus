@@ -4,7 +4,23 @@
     <title>HTMLPLUS | Core</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="/components/index.ts"></script>
+    <script type="module" src="/components.underdevelopment/index.ts"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="center">
+      <plus-counter id="counter1" to="1000" duration="3000"></plus-counter>
+      <br />
+      <br />
+      <button id="button1">Start</button>
+      <button id="button2">Reset</button>
+    </div>
+    <script>
+      button1.addEventListener('click', () => {
+        counter1.play = true;
+      });
+      button1.addEventListener('click', () => {
+        counter1.play = false;
+      });
+    </script>
+  </body>
 </html>

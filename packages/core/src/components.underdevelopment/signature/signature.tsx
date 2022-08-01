@@ -1,14 +1,8 @@
 import { Element, Property } from '@htmlplus/element';
 // import { } from './template.types';
 
-/**
- * TODO
- * @development 
- * @slot default - The default slot.
- * @examples default
- */
 @Element()
-export class Template {
+export class Signature {
 
   /**
    * TODO

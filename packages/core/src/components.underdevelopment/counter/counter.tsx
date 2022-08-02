@@ -90,12 +90,13 @@ export class Counter {
   }
 
   get formated() {
-    const negative = (this.counter < 0) ? '-' : '';
+    const counter = this.counter ?? this.from;
+    const negative = counter < 0 ? '-' : '';
     let result: string;
     let x1: string;
     let x2: string;
     let x3: string;
-    result = Math.abs(this.counter).toFixed(this.decimalPlaces);
+    result = Math.abs(counter).toFixed(this.decimalPlaces);
     result += '';
     const x = result.split('.');
     x1 = x[0];
@@ -122,6 +123,64 @@ export class Counter {
   }
 
   /**
+   * External Methods
+   */
+
+  /**
+   * TODO
+   */
+  @Method()
+  complete() {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.reset();
+    this.counter = this.to;
+    this.state = 'completed';
+  }
+
+  /**
+   * TODO
+   */
+  @Method()
+  pause() {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.state = 'paused';
+  }
+
+  /**
+   * TODO
+   */
+  @Method()
+  start() {
+    switch (this.state) {
+      case 'completed':
+      case 'idle':
+      case 'stopped':
+        setTimeout(() => {
+          this.reset();
+          this.play = true;
+          this.state = 'running';
+          this.requestAnimationFrame = requestAnimationFrame(this.count);
+        }, this.delay);
+        break;
+      case 'paused':
+        this.startTime = performance.now() - (this.duration - this.remaining);
+        this.state = 'running';
+        this.requestAnimationFrame = requestAnimationFrame(this.count);
+        break;
+    }
+  }
+
+  /**
+   * TODO
+   */
+  @Method()
+  stop() {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.reset();
+    this.state = 'stopped';
+  }
+  
+  /**
    * Internal Methods
    */
 
@@ -145,64 +204,23 @@ export class Counter {
 
     this.counter = done ? this.to : this.counter;
 
-    this.counter = Number(this.counter.toFixed(this.decimalPlaces));
+    this.counter = Number(this.counter.toFixed(this.decimalPlaces)); 
 
-    if (progress >= this.duration) {
-      this.complete();
-      this.plusComplete();
+    if (progress < this.duration) {
+      this.requestAnimationFrame = requestAnimationFrame(this.count);
       return;
     }
 
-    this.requestAnimationFrame = requestAnimationFrame(this.count);
+    this.complete();
+
+    this.plusComplete();
   }
 
-  @Method()
-  complete() {
+  reset() {
+    this.counter = this.from;
     this.play = false;
     this.remaining = undefined;
     this.startTime = undefined;
-    this.state = 'completed';
-  }
-
-  @Method()
-  pause() {
-    cancelAnimationFrame(this.requestAnimationFrame);
-    this.state = 'paused';
-  }
-
-  @Method()
-  start() {
-    switch (this.state) {
-      case 'paused':
-        this.state = 'running';
-        this.requestAnimationFrame = requestAnimationFrame(this.count);
-        break;
-      case 'running':
-        return;
-      default:
-        setTimeout(() => {
-          this.play = true;
-          this.state = 'running';
-          this.requestAnimationFrame = requestAnimationFrame(this.count);
-        }, this.delay);
-        break;
-    }
-  }
-
-  @Method()
-  stop() {
-    // if (['completed', 'stopped'].includes(this.state)) return;
-    // cancelAnimationFrame(this.requestAnimationFrame);
-    // this.play = false;
-    // this.state = 'stopped'
-    // this.remaining = this.duration;
-    // this.startTime = undefined;
-    // this.counter = this.from;
-    // TODO: no need requestAnimationFrame
-    // requestAnimationFrame(() => {
-    //   this.counter = this.from;
-    //   this.play = false;
-    // });
   }
 
   /**
@@ -212,7 +230,7 @@ export class Counter {
   // TODO
   @Watch(['play'], true)
   watcher() {
-    console.log(1, this.remaining, this.startTime, this.counter)
+    console.log(1, this.play)
     // this.play ? this.start() : this.stop();
   }
 

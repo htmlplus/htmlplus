@@ -23,7 +23,8 @@ paused    -> stopped
 stopped   -> running 
 stopped   -> completed  -->
     <div class="center">
-      <plus-counter id="counter1" to="100000" duration="5000"></plus-counter>
+      <plus-counter id="counter" from="5000" to="100000" duration="5000" play></plus-counter>
+      <plus-counter id="counter1" from="5000" to="100000" duration="5000"></plus-counter>
       <br />
       <br />
       <button id="button1">Start</button>
@@ -42,7 +43,7 @@ stopped   -> completed  -->
         counter1.pause()
       });
       button4.addEventListener('click', () => {
-        complete.complete()
+        counter1.complete()
       });
     </script>
   </body>

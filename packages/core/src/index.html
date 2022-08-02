@@ -7,19 +7,42 @@
     <script type="module" src="/components.underdevelopment/index.ts"></script>
   </head>
   <body>
+    <!-- idle      -> running
+
+running   -> completed
+running   -> paused
+running   -> stopped
+
+completed -> running
+completed -> reset/stop
+
+paused    -> running
+paused    -> completed
+paused    -> stopped
+
+stopped   -> running 
+stopped   -> completed  -->
     <div class="center">
-      <plus-counter id="counter1" to="1000" duration="3000"></plus-counter>
+      <plus-counter id="counter1" to="100000" duration="5000"></plus-counter>
       <br />
       <br />
       <button id="button1">Start</button>
-      <button id="button2">Reset</button>
+      <button id="button2">Stop</button>
+      <button id="button3">Pause</button>
+      <button id="button4">Complete</button>
     </div>
     <script>
       button1.addEventListener('click', () => {
-        counter1.play = true;
+        counter1.start()
       });
-      button1.addEventListener('click', () => {
-        counter1.play = false;
+      button2.addEventListener('click', () => {
+        counter1.stop()
+      });
+      button3.addEventListener('click', () => {
+        counter1.pause()
+      });
+      button4.addEventListener('click', () => {
+        complete.complete()
       });
     </script>
   </body>

@@ -1,4 +1,4 @@
-import { Attributes, Bind, Element, Event, EventEmitter, Property, State, Watch } from '@htmlplus/element';
+import { Attributes, Bind, Element, Event, EventEmitter, Method, Property, State, Watch } from '@htmlplus/element';
 import { COUNTER_EASINGS } from './counter.constants';
 import { CounterEasing } from './counter.types';
 
@@ -148,7 +148,7 @@ export class Counter {
     this.counter = Number(this.counter.toFixed(this.decimalPlaces));
 
     if (progress >= this.duration) {
-      this.completed();
+      this.complete();
       this.plusComplete();
       return;
     }
@@ -156,22 +156,40 @@ export class Counter {
     this.requestAnimationFrame = requestAnimationFrame(this.count);
   }
 
-  completed() {
+  @Method()
+  complete() {
     this.play = false;
     this.remaining = undefined;
     this.startTime = undefined;
     this.state = 'completed';
   }
 
-  start() {
-    if (this.state == 'running') return
-    setTimeout(() => {
-      this.play = true;
-      this.state = 'running'
-      this.requestAnimationFrame = requestAnimationFrame(this.count);
-    }, this.delay);
+  @Method()
+  pause() {
+    cancelAnimationFrame(this.requestAnimationFrame);
+    this.state = 'paused';
   }
 
+  @Method()
+  start() {
+    switch (this.state) {
+      case 'paused':
+        this.state = 'running';
+        this.requestAnimationFrame = requestAnimationFrame(this.count);
+        break;
+      case 'running':
+        return;
+      default:
+        setTimeout(() => {
+          this.play = true;
+          this.state = 'running';
+          this.requestAnimationFrame = requestAnimationFrame(this.count);
+        }, this.delay);
+        break;
+    }
+  }
+
+  @Method()
   stop() {
     // if (['completed', 'stopped'].includes(this.state)) return;
     // cancelAnimationFrame(this.requestAnimationFrame);
@@ -192,7 +210,7 @@ export class Counter {
    */
 
   // TODO
-  @Watch(['play'])
+  @Watch(['play'], true)
   watcher() {
     console.log(1, this.remaining, this.startTime, this.counter)
     // this.play ? this.start() : this.stop();

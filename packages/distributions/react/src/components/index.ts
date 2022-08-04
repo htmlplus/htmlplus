@@ -9,7 +9,6 @@ export * from './breadcrumb';
 export * from './browse';
 export * from './card.compact';
 export * from './click-outside';
-export * from './counter';
 export * from './cropper';
 export * from './dialog.compact';
 export * from './divider';

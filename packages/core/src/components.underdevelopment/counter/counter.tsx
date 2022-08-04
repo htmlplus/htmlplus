@@ -5,61 +5,61 @@ import { CounterEasing } from './counter.types';
 @Element()
 export class Counter {
   /**
-   * TODO
+   * Easing function. Click [here](http://robertpenner.com/easing) for more details.
    */
   @Property()
   easing?: CounterEasing = 'ease-out-expo';
 
   /**
-   * TODO
+   * Specifies decimal character.
    */
   @Property()
   decimal?: string = '.';
 
   /**
-   * TODO
+   * Amount of decimals to display.
    */
   @Property()
-  decimalPlaces?: number = 0;
+  decimals?: number = 0;
 
   /**
-   * TODO
+   * Delay in milliseconds before starting the transition.
    */
   @Property()
-  delay?: number;
+  delay?: number = 0;
 
   /**
-   * TODO
+   * Duration in milliseconds.
    */
   @Property()
   duration?: number = 1000;
 
   /**
-   * TODO
+   * Initial value.
    */
   @Property()
   from?: number = 0;
 
   /**
-   * TODO
+   * Starts/Stops the transition.
    */
   @Property({ reflect: true })
   play?: boolean;
 
   /**
-   * TODO
+   * Specifies character of thousands separator.
    */
   @Property()
   separator?: string;
 
   /**
-   * TODO
+   * Target value.
    */
   @Property()
   to?: number;
 
   /**
-   * TODO
+   * Is Triggered when transition ended.
    */
   @Event()
   plusComplete!: EventEmitter<void>;
@@ -96,7 +96,7 @@ export class Counter {
     let x1: string;
     let x2: string;
     let x3: string;
-    result = Math.abs(counter).toFixed(this.decimalPlaces);
+    result = Math.abs(counter).toFixed(this.decimals);
     result += '';
     const x = result.split('.');
     x1 = x[0];
@@ -127,7 +127,7 @@ export class Counter {
    */
 
   /**
-   * TODO
+   * Completes the transition.
    */
   @Method()
   complete() {
@@ -135,19 +135,21 @@ export class Counter {
     this.reset();
     this.counter = this.to;
     this.state = 'completed';
+    this.play = false;
   }
 
   /**
-   * TODO
+   * Pauses the transition.
    */
   @Method()
   pause() {
+    if (this.state != 'running') return;
     cancelAnimationFrame(this.requestAnimationFrame);
     this.state = 'paused';
   }
 
   /**
-   * TODO
+   * Starts the transition.
    */
   @Method()
   start() {
@@ -157,8 +159,8 @@ export class Counter {
       case 'stopped':
         setTimeout(() => {
           this.reset();
-          this.play = true;
           this.state = 'running';
+          this.play = true;
           this.requestAnimationFrame = requestAnimationFrame(this.count);
         }, this.delay);
         break;
@@ -171,15 +173,17 @@ export class Counter {
   }
 
   /**
-   * TODO
+   * Stops the transition.
    */
   @Method()
   stop() {
     cancelAnimationFrame(this.requestAnimationFrame);
     this.reset();
+    this.counter = this.from;
     this.state = 'stopped';
+    this.play = false;
   }
-  
+
   /**
    * Internal Methods
    */
@@ -204,7 +208,7 @@ export class Counter {
 
     this.counter = done ? this.to : this.counter;
 
-    this.counter = Number(this.counter.toFixed(this.decimalPlaces)); 
+    this.counter = Number(this.counter.toFixed(this.decimals));
 
     if (progress < this.duration) {
       this.requestAnimationFrame = requestAnimationFrame(this.count);
@@ -217,8 +221,6 @@ export class Counter {
   }
 
   reset() {
-    this.counter = this.from;
-    this.play = false;
     this.remaining = undefined;
     this.startTime = undefined;
   }
@@ -227,11 +229,14 @@ export class Counter {
    * Watchers
    */
 
-  // TODO
   @Watch(['play'], true)
   watcher() {
-    console.log(1, this.play)
-    // this.play ? this.start() : this.stop();
+    // TODO: remove requestAnimationFrame
+    requestAnimationFrame(() => {
+      if (this.play == true && this.state != 'running') this.start();
+      if (this.play != true && this.state == 'paused') this.stop();
+      if (this.play != true && this.state == 'running') this.stop();
+    });
   }
 
   /**

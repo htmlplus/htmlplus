@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 
 import '@htmlplus/core/animation/attention-seekers/pulse.js';
 
-import { Animation, Button, Counter, Grid, Icon, Intersection } from '@app/components';
+import { Animation, Button, Grid, Icon, Intersection } from '@app/components';
 import * as Constants from '@app/constants';
 import { Browsers, Header } from '@app/containers';
 import { features, frameworks, statistics } from '@app/data';
@@ -199,23 +199,23 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const Number = ({ value }: any) => {
-  const [play, setPlay] = useState(false);
-  return (
-    <Intersection onChange={(event: any) => event.detail.isIntersecting && setPlay(true)}>
-      <Animation name="pulse" play={play} delay={3100}>
-        <Counter to={value} duration={2500} play={play} delay={500}></Counter>
-      </Animation>
-    </Intersection>
-  );
-};
+// const Number = ({ value }: any) => {
+//   const [play, setPlay] = useState(false);
+//   return (
+//     <Intersection onChange={(event: any) => event.detail.isIntersecting && setPlay(true)}>
+//       <Animation name="pulse" play={play} delay={3100}>
+//         <Counter to={value} duration={2500} play={play} delay={500}></Counter>
+//       </Animation>
+//     </Intersection>
+//   );
+// };
 
-const Section = ({ children, description, title }: any) => {
-  return (
-    <>
-      <h2 style={{ textAlign: 'center' }}>{title}</h2>
-      <p style={{ textAlign: 'center' }}>{description}</p>
-      {children}
-    </>
-  );
-};
+// const Section = ({ children, description, title }: any) => {
+//   return (
+//     <>
+//       <h2 style={{ textAlign: 'center' }}>{title}</h2>
+//       <p style={{ textAlign: 'center' }}>{description}</p>
+//       {children}
+//     </>
+//   );
+// };

@@ -8,7 +8,7 @@ import { host } from './host.js';
 
 const targets = new Map();
 
-export const request = (target: PlusElement, state?: { [key: string]: [any, any, boolean?] }): Promise<boolean> => {
+export const request = (target: PlusElement, state?: { [key: string]: [any, any] }): Promise<boolean> => {
   let run = targets.get(target);
   if (run) return run(state);
   run = task({

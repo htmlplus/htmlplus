@@ -8,7 +8,7 @@ const IntersectionDefault = () => {
     setIntersecting(event.detail.isIntersecting);
   };
 
-  return <div className="ex-intersection-default">    
+  return <div className="ex-intersection-default dock">    
     <div className="container">      
       <div className="status">        
         {intersecting ? 'In Viewport' : 'Out of Viewport'}        

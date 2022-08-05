@@ -107,7 +107,10 @@ export const preview = (options) => {
 
             let children = [t.jsxText('\n'), element, t.jsxText('\n')];
 
+            let dock;
+
             if (element.openingElement.name.name.match(/fragment/)) {
+              if (element.openingElement.attributes.some((attribute) => attribute.name.name == 'dock')) dock = true;
               children = element.children;
               element = element.children.find((element) => element.type === 'JSXElement');
             }
@@ -124,7 +127,7 @@ export const preview = (options) => {
 
             statement.argument = t.jsxElement(
               t.jsxOpeningElement(t.jsxIdentifier('div'), [
-                t.jsxAttribute(t.jsxIdentifier('className'), t.stringLiteral(classNamePrefix))
+                t.jsxAttribute(t.jsxIdentifier('className'), t.stringLiteral(classNamePrefix + (dock ? ' dock' : '')))
               ]),
               t.jSXClosingElement(t.jsxIdentifier('div')),
               children

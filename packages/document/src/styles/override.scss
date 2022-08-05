@@ -189,7 +189,7 @@ plus-avatar img {
   plus-tabs-panel:first-child {
     margin-top: 0.40625rem;
     border: solid 1px #ededed;
-    & > * {
+    & > *:not(.dock) {
       padding: 1.5em;
     }
   }

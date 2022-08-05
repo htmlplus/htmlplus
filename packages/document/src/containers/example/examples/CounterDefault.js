@@ -11,7 +11,7 @@ const CounterDefault = () => {
       <button onClick={() => setPlay(true)}>        Start</button>      
       <button onClick={() => setPlay(false)}>        Reset</button>      
     </div>    
-    <style>{".ex-counter-default .center {  text-align: center;}.ex-counter-default button {  margin: 0 1rem;}"}</style></div>;
+    <style>{".ex-counter-default .center {  text-align: center;}.ex-counter-default button {  margin: 0 0.5rem;}"}</style></div>;
 };
 
 export default CounterDefault;

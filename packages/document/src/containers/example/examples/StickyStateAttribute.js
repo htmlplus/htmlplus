@@ -1,7 +1,7 @@
 import { Sticky } from "@htmlplus/react";
 
 const StickyStateAttribute = () => {
-  return <div className="ex-sticky-state-attribute">    
+  return <div className="ex-sticky-state-attribute dock">    
     <div className="container">      
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend

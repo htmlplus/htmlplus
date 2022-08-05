@@ -1,7 +1,7 @@
 import { Card, Grid } from "@htmlplus/react";
 
 const CardTile = () => {
-  return <div className="ex-card-tile">    
+  return <div className="ex-card-tile dock">    
     <div className="container">      
       <Grid justifyContent="evenly" gutter="md">        
         <Grid.Item xs="12" sm="auto">          

@@ -42,9 +42,9 @@ export function Property(options?: PropertyOptions) {
 
       values.set(this, input);
 
-      const isReady = !!this[CONSTANTS.API_READY];
+      const isReady = this[CONSTANTS.API_STATUS] == 'initialize';
 
-      request(this, { [name]: [input, value, !this[CONSTANTS.API_READY]] }).then(() => {
+      request(this, { [name]: [input, value] }).then(() => {
         const element = host(this);
         const has = element.hasAttribute(attribute);
         if (!isReady && has) return;

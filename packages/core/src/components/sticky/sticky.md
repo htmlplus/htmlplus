@@ -14,4 +14,6 @@ Component content is positioned based on the user's scroll position.
 
 <Example value="top" />
 
+<Example value="contacts" />
+
 <Example value="state-attribute" />

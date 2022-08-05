@@ -4,7 +4,47 @@
     <title>HTMLPLUS | Core</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="/components/index.ts"></script>
+    <script type="module" src="/components.underdevelopment/index.ts"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- idle      -> running
+
+running   -> completed
+running   -> paused
+running   -> stopped
+
+completed -> running
+completed -> reset/stop
+
+paused    -> running
+paused    -> completed
+paused    -> stopped
+
+stopped   -> running 
+stopped   -> completed  -->
+    <div class="center">
+      <plus-counter id="counter" from="5000" to="100000" duration="5000" play></plus-counter>
+      <plus-counter id="counter1" from="5000" to="100000" duration="5000"></plus-counter>
+      <br />
+      <br />
+      <button id="button1">Start</button>
+      <button id="button2">Stop</button>
+      <button id="button3">Pause</button>
+      <button id="button4">Complete</button>
+    </div>
+    <script>
+      button1.addEventListener('click', () => {
+        counter1.start()
+      });
+      button2.addEventListener('click', () => {
+        counter1.stop()
+      });
+      button3.addEventListener('click', () => {
+        counter1.pause()
+      });
+      button4.addEventListener('click', () => {
+        counter1.complete()
+      });
+    </script>
+  </body>
 </html>

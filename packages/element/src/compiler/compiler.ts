@@ -36,12 +36,20 @@ export default (...plugins: Array<Plugin>) => {
       filePath
     };
 
+    let timeout
+
     for (const plugin of plugins) {
       if (!plugin.next) continue;
+
+      clearTimeout(timeout);
 
       logger.start(`Plugin '${plugin.name}' executing...`);
 
       const output = await plugin.next(context, global);
+
+      logger.start(`Plugin '${plugin.name}' executed successfully.`);
+
+      timeout = setTimeout(() => logger.stop(), 1500);
 
       // TODO
       if (output) {
@@ -56,8 +64,6 @@ export default (...plugins: Array<Plugin>) => {
             output
           });
       }
-
-      logger.start(`Plugin '${plugin.name}' executed successfully.`);
 
       global.contexts = global.contexts.filter((current) => current.filePath != context.filePath).concat(context);
 

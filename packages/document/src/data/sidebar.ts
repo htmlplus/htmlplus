@@ -61,6 +61,16 @@ export const sidebar = (framework: string) => [
     ]
   },
   {
+    title: 'Features',
+    icon: 'htmlplus',
+    items: [
+      {
+        title: 'Bidirectionality',
+        url: Utils.getPath('BIDIRECTIONALITY')
+      }
+    ]
+  },
+  {
     title: 'Utils',
     icon: 'htmlplus',
     items: [

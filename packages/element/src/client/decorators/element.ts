@@ -22,7 +22,7 @@ export function Element(tag?: string) {
         this.plus = new (constructor as any)();
         this.plus[CONSTANTS.API_HOST] = () => this;
         this.plus['uhtml'] = uhtml;
-        this.plus[CONSTANTS.API_READY] = true;
+        this.plus[CONSTANTS.API_STATUS] = 'initialize';
       }
 
       static get observedAttributes() {
@@ -44,9 +44,11 @@ export function Element(tag?: string) {
       }
 
       connectedCallback() {
+        this.plus[CONSTANTS.API_STATUS] = 'connected';
         call(this.plus, CONSTANTS.LIFECYCLE_CONNECTED);
         request(this.plus)
           .then(() => {
+            this.plus[CONSTANTS.API_STATUS] = 'loaded';
             call(this.plus, CONSTANTS.LIFECYCLE_LOADED);
           })
           .catch((error) => {
@@ -55,6 +57,7 @@ export function Element(tag?: string) {
       }
 
       disconnectedCallback() {
+        this.plus[CONSTANTS.API_STATUS] = 'disconnected';
         call(this.plus, CONSTANTS.LIFECYCLE_DISCONNECTED);
       }
     }

@@ -3,6 +3,7 @@ import * as Constants from '@app/constants';
 export const ROUTE = {
   HOME: '/',
   ANIMATIONS: '/animations',
+  BIDIRECTIONALITY: '/bidirectionality',
   INTRODUCTION_WHAT: `/introduction/what-is-${Constants.PLATFORM_KEY}`,
   INTRODUCTION_WHY: `/introduction/why-${Constants.PLATFORM_KEY}`,
   INSTALLATION: '/installation',

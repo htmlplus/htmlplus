@@ -19,7 +19,7 @@ export function State() {
 
       values.set(this, input);
 
-      request(this, { [name]: [input, value, !this[CONSTANTS.API_READY]] })
+      request(this, { [name]: [input, value] })
         .then(() => undefined)
         .catch((error) => {
           throw error;

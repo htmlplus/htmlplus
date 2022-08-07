@@ -1,11 +1,11 @@
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 
 export const ROUTE = {
   HOME: '/',
   ANIMATIONS: '/animations',
   BIDIRECTIONALITY: '/bidirectionality',
-  INTRODUCTION_WHAT: `/introduction/what-is-${Constants.PLATFORM_KEY}`,
-  INTRODUCTION_WHY: `/introduction/why-${Constants.PLATFORM_KEY}`,
+  INTRODUCTION_WHAT: `/introduction/what-is-${CONSTANTS.PLATFORM_KEY}`,
+  INTRODUCTION_WHY: `/introduction/why-${CONSTANTS.PLATFORM_KEY}`,
   INSTALLATION: '/installation',
   INSTALLATION_FRAMEWORK: '/[framework]/installation',
   BROWSERS: '/browsers',

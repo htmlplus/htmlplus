@@ -1,3 +1,4 @@
+export const GITHUB_API = 'https://api.github.com/repos/htmlplus/htmlplus';
 export const GITHUB_FORKS = 'https://github.com/htmlplus/core/network/members';
 export const GITHUB_STARS = 'https://github.com/htmlplus/core/stargazers';
 export const GITHUB_LICENSE = 'https://github.com/htmlplus/core/blob/main/LICENSE';

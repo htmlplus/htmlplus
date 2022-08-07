@@ -4,10 +4,10 @@ To utilize web components in your angular application follow these steps.
 
 ## Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_ANGULAR_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_ANGULAR_PACKAGE_NAME}
 ```
 
 ## Import
@@ -22,7 +22,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 // Import package
-import { applyPolyfills, defineCustomElements } from '{Constants.PORT_JAVASCRIPT_PACKAGE_LOADER}';
+import { applyPolyfills, defineCustomElements } from '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_LOADER}';
 
 if (environment.production) {
   enableProdMode();

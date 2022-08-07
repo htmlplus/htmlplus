@@ -1,15 +1,17 @@
 # Angular
 
-To utilize `{Constants.PLATFORM_NAME}` components in Anglular applications it's better to use special Angular library instead of importing web components directly. So it's better to do these steps:
+To utilize `{CONSTANTS.PLATFORM_NAME}` components in Anglular applications it's better to use special Angular library instead of importing web components directly. So it's better to do these steps:
 
-1- Installing `{Constants.PLATFORM_NAME}` package using node
+1- Installing `{CONSTANTS.PLATFORM_NAME}` package using node
+
 ```html
-npm install {Constants.PORT_ANGULAR_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_ANGULAR_PACKAGE_NAME}
 ```
 
 2- Importing in Angular components.
+
 ```js
-import { ComponentLibraryModule } from '{Constants.PORT_ANGULAR_PACKAGE_NAME}';
+import { ComponentLibraryModule } from '{CONSTANTS.PORT_ANGULAR_PACKAGE_NAME}';
 
 @NgModule({
   ...
@@ -22,16 +24,18 @@ export class AppModule { }
 ```
 
 If you have to use web components directly you can follow these steps:
-[standard HTML Custom Elements]({Constants.WEBCOMPONENT_REFERENCE})
+[standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE})
 
-1- Installing `{Constants.PLATFORM_NAME}` packing using npm
+1- Installing `{CONSTANTS.PLATFORM_NAME}` packing using npm
+
 ```html
-npm install {Constants.PORT_ANGULAR_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_ANGULAR_PACKAGE_NAME}
 ```
 
 2- Bind the custom elements to the window object
+
 ```js
-import { defineCustomElements } from '{Constants.PORT_JAVASCRIPT_PACKAGE_LOADER}';
+import { defineCustomElements } from '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_LOADER}';
 
 defineCustomElements();
 ```
@@ -45,7 +49,8 @@ If you want your custom elements to be able to work on older browsers, you shoul
 applyPolyfills().then(() => defineCustomElements());
 ```
 
-Finally the  `main.ts` would be something like this.
+Finally the `main.ts` would be something like this.
+
 ```js
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -53,7 +58,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { applyPolyfills, defineCustomElements } from '{Constants.PORT_JAVASCRIPT_PACKAGE_LOADER}';
+import { applyPolyfills, defineCustomElements } from '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_LOADER}';
 
 if (environment.production) {
   enableProdMode();
@@ -67,6 +72,7 @@ applyPolyfills().then(() =>  defineCustomElements());
 ```
 
 TODO
+
 ```js
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';

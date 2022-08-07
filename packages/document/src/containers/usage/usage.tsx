@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { Button } from '@app/components';
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 import { Toc } from '@app/containers';
 import * as Utils from '@app/utils';
 
@@ -19,7 +19,7 @@ export const Usage = () => {
           here
         </Button>
         &nbsp; to use the &nbsp;
-        <b>{Constants.PLATFORM_NAME}</b>
+        <b>{CONSTANTS.PLATFORM_NAME}</b>
         &nbsp; library on &nbsp;
         <b>{framework}-based</b>
         &nbsp; projects.

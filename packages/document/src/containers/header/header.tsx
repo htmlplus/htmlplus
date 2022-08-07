@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 import * as Utils from '@app/utils';
 
 import { HeaderProps } from './header.types';
@@ -9,11 +9,11 @@ import { HeaderProps } from './header.types';
 export const Header = ({ menu }: HeaderProps) => {
   const links = [
     {
-      title: `What\'s ${Constants.PLATFORM_NAME}?`,
+      title: `What\'s ${CONSTANTS.PLATFORM_NAME}?`,
       url: Utils.getPath('INTRODUCTION_WHAT')
     },
     {
-      title: `Why ${Constants.PLATFORM_NAME}?`,
+      title: `Why ${CONSTANTS.PLATFORM_NAME}?`,
       url: Utils.getPath('INTRODUCTION_WHY')
     },
     {
@@ -58,8 +58,7 @@ export const Header = ({ menu }: HeaderProps) => {
                 <Button size="sm" link to={link.url}>
                   {link.title}
                 </Button>
-                &nbsp;
-                &nbsp;
+                &nbsp; &nbsp;
               </Fragment>
             ))}
           </Grid.Item>

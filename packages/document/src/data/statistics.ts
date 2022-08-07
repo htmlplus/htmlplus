@@ -1,24 +1,25 @@
-import { components, examples, frameworks } from '@app/data';
+import { components, examples, frameworks, github } from '@app/data';
 
 export const statistics = {
+  // TODO
   dowanloads: 0,
-  forks: 0,
   platforms: 0,
-  stars: 0,
   themes: 0,
-  get components() {
+
+  ...github,
+  get components(): number {
     return this.componentsPerFramework * this.frameworks;
   },
-  get componentsPerFramework() {
+  get componentsPerFramework(): number {
     return components.length;
   },
-  get examples() {
+  get examples(): number {
     return this.examplesPerFramework * this.frameworks;
   },
-  get examplesPerFramework() {
+  get examplesPerFramework(): number {
     return examples.filter((example) => example.category == 'preview').length;
   },
-  get frameworks() {
+  get frameworks(): number {
     return frameworks.filter((framework) => !framework.disabled).length;
   }
 };

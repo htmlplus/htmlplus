@@ -133,7 +133,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
           return {
             all,
             filterd: all.slice(1),
-            root: all.at(0),
+            root: all[0],
             single: all.length == 1
           };
         })

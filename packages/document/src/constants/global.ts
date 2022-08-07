@@ -1,3 +1,5 @@
+export const EXAMPLES_DESTINATION = './src/containers/example/examples';
+
 export const GITHUB_API = 'https://api.github.com/repos/htmlplus/htmlplus';
 export const GITHUB_FORKS = 'https://github.com/htmlplus/core/network/members';
 export const GITHUB_STARS = 'https://github.com/htmlplus/core/stargazers';
@@ -24,6 +26,8 @@ export const SOCIAL_INSTAGRAM = 'https://www.instagram.com/htmlplus.io';
 export const SOCIAL_LINKEDIN = 'https://www.linkedin.com/company/htmlplus';
 export const SOCIAL_TWITTER = 'https://www.twitter.com/htmlplusio';
 export const SOCIAL_YOUTUBE = 'https://www.youtube.com/channel/UCsNkxDmLU7vK_L1jgSVWWCA';
+
+export const STATISTICS_GITHUB_DESTINATION = './src/data/statistics.github.ts';
 
 export const WEBCOMPONENT_COMPATIBILITY = 'https://custom-elements-everywhere.com';
 export const WEBCOMPONENT_REFERENCE =

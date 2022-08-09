@@ -7,11 +7,9 @@ const CounterDefault = () => {
     <div className="center">      
       <Counter to="1000" play={play} onComplete={() => setPlay(false)}></Counter>      
       <br />      
-      <br />      
       <button onClick={() => setPlay(true)}>        Start</button>      
-      <button onClick={() => setPlay(false)}>        Reset</button>      
     </div>    
-    <style>{".ex-counter-default .center {  text-align: center;}.ex-counter-default button {  margin: 0 0.5rem;}"}</style></div>;
+    <style>{".ex-counter-default .center {  text-align: center;}.ex-counter-default button {  margin: 1rem 0.5rem;}"}</style></div>;
 };
 
 export default CounterDefault;

@@ -11,7 +11,7 @@
         text-align: center;
       }
       button {
-        margin: 0 1rem;
+        margin: 1rem 0.5rem;
       }
     </style>
   </head>
@@ -19,16 +19,11 @@
     <div class="center">
         <plus-counter id="counter1" to="1000"></plus-counter>
         <br />
-        <br />
         <button id="button1">Start</button>
-        <button id="button2">Reset</button>
     </div>
     <script>
       button1.addEventListener('click', () => {
         counter1.play = true;
-      });
-      button1.addEventListener('click', () => {
-        counter1.play = false;
       });
     </script>
   </body>

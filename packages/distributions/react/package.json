@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/react",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "type": "module",
   "description": "React output target for your custom element.",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@htmlplus/core": "latest",
+    "@htmlplus/core": "^0.3.6",
     "change-case": "^4.1.2"
   },
   "devDependencies": {

@@ -9,7 +9,7 @@
 import { {{componentClassNamePrune}} } from './{{fileName}}';
 {{/each}}
 
-const All = /*@__PURE__*/ Object.assign({{root.componentClassNamePrune}}, {
+const All = Object.assign({{root.componentClassNamePrune}}, {
   {{#each filterd}}
   {{componentClassNameInCategory}}: {{componentClassNamePrune}},
   {{/each}}

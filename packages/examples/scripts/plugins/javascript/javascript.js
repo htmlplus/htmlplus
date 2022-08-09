@@ -210,7 +210,7 @@ export const javascript = (options) => {
 
     const model = {
       title,
-      dependencies: Array.from(dependencies),
+      dependencies: Array.from(dependencies).sort(),
       script: indent(script?.content, 3),
       style: indent(style?.content, 3),
       template: indent(template, 2)

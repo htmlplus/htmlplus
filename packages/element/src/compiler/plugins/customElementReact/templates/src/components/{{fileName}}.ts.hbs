@@ -19,7 +19,7 @@ type Renamed = Rename<{{importerComponentType.variable}}, {
   {{/each}}
 }>
 
-export const {{componentClassNamePrune}} = /*@__PURE__*/ proxy<{{componentInterfaceName}}, Renamed>(
+export const {{componentClassNamePrune}} = proxy<{{componentInterfaceName}}, Renamed>(
   '{{componentTag}}', 
   [{{#each classProperties}}'{{key.name}}', {{/each}}], 
   [{{#each classEvents}}'{{key.name}}', {{/each}}],

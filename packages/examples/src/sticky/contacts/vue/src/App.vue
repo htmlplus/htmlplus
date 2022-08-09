@@ -25,6 +25,7 @@
   p {
     color: lightgray;
     font-size: 10rem;
+    line-height: 2;
     text-align: center;
   }
   plus-sticky {

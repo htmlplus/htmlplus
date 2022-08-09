@@ -14,6 +14,9 @@ const { start, next, finish } = compiler(
     prefix: 'plus'
   }),
   javascript({
+    componentRefrence(name) {
+      return `https://cdn.jsdelivr.net/npm/@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
     destination(context) {
       return path.join(context.directoryPath, 'javascript');
     }

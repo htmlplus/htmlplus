@@ -31,6 +31,8 @@ const indent = (input, value) => {
 export const javascript = (options) => {
   const name = 'javascript';
   const next = (context) => {
+    const dependencies = new Set();
+
     const state = {
       elements: new Set()
     };
@@ -78,6 +80,15 @@ export const javascript = (options) => {
             setId(path);
             path.remove();
           }
+        },
+        JSXElement(path) {
+          const { openingElement } = path.node;
+
+          const name = openingElement.name.name;
+
+          if (!/-/g.test(name)) return;
+
+          dependencies.add(options?.componentRefrence(name));
         },
         JSXExpressionContainer(path) {
           const value = getValue(path);
@@ -154,8 +165,6 @@ export const javascript = (options) => {
         ?.find((output) => output.name == 'prepare')
         ?.output?.find((snippet) => snippet.key == 'javascript:template');
 
-      if (dedicated) return dedicated.content;
-
       const ast = t.cloneNode(
         t.file(
           t.program([t.classDeclaration(t.identifier('Test'), null, t.classBody([context.classRender]))], [], 'module')
@@ -164,6 +173,9 @@ export const javascript = (options) => {
       );
 
       visitor(ast, visitors.template);
+
+      // TODO: related to add dependencies
+      if (dedicated) return dedicated.content;
 
       let raw = print(ast).trim();
 
@@ -198,6 +210,7 @@ export const javascript = (options) => {
 
     const model = {
       title,
+      dependencies: Array.from(dependencies),
       script: indent(script?.content, 3),
       style: indent(style?.content, 3),
       template: indent(template, 2)

@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const content =
     examples?.find(
       (example) => example.key == exampleKey && example.component == component && example.category == 'codesandbox'
-    )?.detail?.[framework as string] || null;
+    )?.detail?.[(framework as string) == 'react' ? 'react-dedicated' : (framework as string)] || null; // TODO
 
   return {
     props: { content }

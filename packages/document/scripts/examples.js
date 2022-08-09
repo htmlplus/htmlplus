@@ -1,12 +1,14 @@
+// TODO
+
 const fs = require('fs');
-const db = require('../../examples/src/db.json');
 const { pascalCase } = require('change-case');
+const db = require('../../examples/src/db.json');
 
-const destination = './src/containers/example/examples';
+const EXAMPLES_DESTINATION = './src/containers/example/examples';
 
-fs.rmSync(destination, { force: true, recursive: true });
+fs.rmSync(EXAMPLES_DESTINATION, { force: true, recursive: true });
 
-fs.mkdirSync(destination);
+fs.mkdirSync(EXAMPLES_DESTINATION);
 
 let index = `import dynamic from 'next/dynamic';`;
 
@@ -19,7 +21,7 @@ for (const example of db) {
 
   index += `\nexport const ${name} = dynamic<any>(() => import('./${name}').then((component) => component), { ssr: false });`;
 
-  fs.writeFileSync(`${destination}/${name}.js`, script);
+  fs.writeFileSync(`${EXAMPLES_DESTINATION}/${name}.js`, script);
 }
 
-fs.writeFileSync(`${destination}/index.ts`, index);
+fs.writeFileSync(`${EXAMPLES_DESTINATION}/index.ts`, index);

@@ -71,9 +71,12 @@
   }
 }
 
-:host([aria-orientation='horizontal']#{boolean(empty)}):before,
+:host([aria-orientation='horizontal']#{boolean(empty)}):before {
+  margin-inline-end: 0;
+}
+
 :host([aria-orientation='horizontal']#{boolean(empty)}):after {
-  margin-inline: 0;
+  margin-inline-start: 0;
 }
 
 :host([aria-orientation='horizontal'][variant='inset']):before {

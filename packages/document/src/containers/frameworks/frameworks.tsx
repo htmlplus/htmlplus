@@ -46,7 +46,7 @@ export const Frameworks = () => {
   );
 
   const key = useMemo(() => {
-    const framework = router.asPath.split('/')?.at(1);
+    const framework = router.asPath.split('/')?.[1];
     if (!framework) return;
     if (!frameworks.some((framework) => router.asPath.startsWith(`/${framework.key}`))) return;
     if (!framework) return;

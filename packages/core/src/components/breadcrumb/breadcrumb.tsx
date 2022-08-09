@@ -3,7 +3,7 @@ import { request } from '@htmlplus/element/client/utils/request';
 
 import * as Helpers from '@app/helpers';
 
-import * as Constants from './breadcrumb.constants';
+import * as CONSTANTS from './breadcrumb.constants';
 
 /**
  * @part expander  - Expander element.
@@ -57,8 +57,8 @@ export class Breadcrumb {
       .from(this.host.children)
       .filter(($node) => !$node.matches(
         [
-          Constants.BREADCRUMB_EXPANDER_QUERY,
-          Constants.BREADCRUMB_SEPARATOR_QUERY
+          CONSTANTS.BREADCRUMB_EXPANDER_QUERY,
+          CONSTANTS.BREADCRUMB_SEPARATOR_QUERY
         ]
         .join(',')
       ));
@@ -127,7 +127,7 @@ export class Breadcrumb {
   } 
 
   get template() {
-    const $node = this.host.querySelector(Constants.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
+    const $node = this.host.querySelector(CONSTANTS.BREADCRUMB_SEPARATOR_QUERY) as HTMLTemplateElement;
  
     const $clone = $node?.cloneNode(true) as HTMLElement;
 

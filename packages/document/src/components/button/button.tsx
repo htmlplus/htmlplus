@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import NextLink from 'next/link';
 
 import { Spinner } from '@app/components';

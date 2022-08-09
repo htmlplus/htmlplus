@@ -27,7 +27,7 @@ export function Property(options?: PropertyOptions) {
 
     const attribute = paramCase(name);
 
-    const type = getMembers(target)[name].at(0);
+    const type = getMembers(target)[name][0];
 
     const values = new Map();
 

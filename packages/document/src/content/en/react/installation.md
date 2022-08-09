@@ -1,6 +1,6 @@
 # React
 
-To utilize `{Constants.PLATFORM_NAME}` components in your React application, you can opt for one of these two ways. (Click each title to show more).
+To utilize `{CONSTANTS.PLATFORM_NAME}` components in your React application, you can opt for one of these two ways. (Click each title to show more).
 
 <br/>
 
@@ -10,7 +10,7 @@ To utilize `{Constants.PLATFORM_NAME}` components in your React application, you
     Using <code>React</code> library <small>(Recommanded)</small>
   </summary>
 
-To avoid [standard HTML Custom Elements]({Constants.WEBCOMPONENT_REFERENCE}) having problem with non-scalar data we recommand that you use custom events, You can follow these steps.
+To avoid [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) having problem with non-scalar data we recommand that you use custom events, You can follow these steps.
 
 1- Create React App
 
@@ -18,10 +18,10 @@ With an application built using the [create-react-app](https://reactjs.org/docs/
 
 2- Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_REACT_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_REACT_PACKAGE_NAME}
 ```
 
 3- Usage
@@ -30,7 +30,7 @@ Finally you can easily use the web components in your application in this format
 
 ```jsx
 import React from 'react';
-import { Switch } from '{Constants.PORT_REACT_PACKAGE_NAME}';
+import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch/>;
 
@@ -43,7 +43,7 @@ You can use this example to set properteis and attributes to web components.
 
 ```jsx
 import React from 'react';
-import { Switch } from '{Constants.PORT_REACT_PACKAGE_NAME}';
+import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch reverse/>;
 
@@ -56,7 +56,7 @@ Events should be written in this format.
 
 ```jsx
 import React from 'react';
-import { Switch } from '{Constants.PORT_REACT_PACKAGE_NAME}';
+import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch onChange={() => alert('The switch toggled!')} />;
 
@@ -73,7 +73,7 @@ export default App;
     Using <code>Web Components</code> directly
   </summary>
 
-In this way we use [standard HTML Custom Elements]({Constants.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
+In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
 
 1- Create React App
 
@@ -81,10 +81,10 @@ With an application built using the [create-react-app](https://reactjs.org/docs/
 
 2- Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_REACT_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_REACT_PACKAGE_NAME}
 ```
 
 3- Usage

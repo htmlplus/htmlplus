@@ -5,10 +5,11 @@
   "scripts": {
     "build": "next build",
     "clean": "rimraf .next",
-    "copy:examples": "node ./scripts/copy.examples.js",
+    "examples:update": "node ./scripts/examples.js",
     "format": "prettier --write .",
     "start": "next dev",
-    "start:prod": "next start"
+    "start:prod": "next start",
+    "statistics:update": "node ./scripts/statistics.js"
   },
   "devDependencies": {
     "@htmlplus/core": "latest",

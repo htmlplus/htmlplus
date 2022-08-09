@@ -7,9 +7,7 @@ const CounterDefault = () => {
     <div className="center">      
       <Counter to="1000" play={play} onComplete={() => setPlay(false)}></Counter>      
       <br />      
-      <br />      
       <button onClick={() => setPlay(true)}>        Start</button>      
-      <button onClick={() => setPlay(false)}>        Reset</button>      
     </div>    
   </>;
 };

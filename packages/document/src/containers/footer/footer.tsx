@@ -1,5 +1,5 @@
 import { Grid } from '@app/components';
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 import { Socials } from '@app/containers';
 
 export const Footer = () => {
@@ -10,7 +10,7 @@ export const Footer = () => {
           <Socials />
         </Grid.Item>
         <Grid.Item>
-          <span>&copy; 2022 {Constants.PLATFORM_NAME}. Released under MIT License.</span>
+          <span>&copy; 2022 {CONSTANTS.PLATFORM_NAME}. Released under MIT License.</span>
         </Grid.Item>
       </Grid>
     </footer>

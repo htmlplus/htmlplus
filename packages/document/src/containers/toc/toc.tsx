@@ -62,7 +62,7 @@ const useToc = create<UseToc>((set, get) => ({
     const entries = get().items.filter((item) => item.entry?.isIntersecting);
     if (!entries.length) return;
     const items = get().items;
-    items.forEach((item) => (item.isActive = item === entries.at(0)));
+    items.forEach((item) => (item.isActive = item === entries[0]));
     set({ items: [...items] });
   }
 }));

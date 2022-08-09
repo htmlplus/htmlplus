@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 
 import { tokens } from './markup.tokens';
 import { MarkupProps } from './markup.types';
@@ -21,8 +21,8 @@ export const Markup = ({ scope, value }: MarkupProps) => {
       ?.forEach((token) => {
         const [type, key] = token.replace(/\{|\}/g, '').split('.');
         switch (type) {
-          case 'Constants':
-            value = value?.replace(token, (Constants as any)[key]);
+          case 'CONSTANTS':
+            value = value?.replace(token, (CONSTANTS as any)[key]);
             break;
         }
       });
@@ -32,5 +32,5 @@ export const Markup = ({ scope, value }: MarkupProps) => {
 
   if (!source) return null;
 
-  return <MDXRemote {...source} components={tokens} scope={{ Constants, ...scope }} />;
+  return <MDXRemote {...source} components={tokens} scope={{ CONSTANTS, ...scope }} />;
 };

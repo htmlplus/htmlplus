@@ -1,6 +1,6 @@
 # Vue
 
-`{Constants.PLATFORM_NAME}` web components are fully compatible with Vue framework. To utilize `{Constants.PLATFORM_NAME}` components in your Vue application, you can opt for one of these 4 ways. (Click each title to show more).
+`{CONSTANTS.PLATFORM_NAME}` web components are fully compatible with Vue framework. To utilize `{CONSTANTS.PLATFORM_NAME}` components in your Vue application, you can opt for one of these 4 ways. (Click each title to show more).
 
 <br/>
 
@@ -16,15 +16,15 @@ With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creat
 
 2- Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_VUE_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_VUE_PACKAGE_NAME}
 ```
 
 3- Usage
 
-All `{Constants.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
+All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
 
 ```html
 <template>
@@ -35,7 +35,7 @@ All `{Constants.PLATFORM_NAME}` components are available as same as a local tag 
 
 <script>
 import { defineComponent } from 'vue';
-import { PlusSwitch } from '{Constants.PORT_VUE_PACKAGE_NAME}';
+import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
 
 export default defineComponent({
   components: {
@@ -58,7 +58,7 @@ You can use this example to set properteis and attributes to web components.
 
 <script>
 import { defineComponent } from 'vue';
-import { PlusSwitch } from '{Constants.PORT_VUE_PACKAGE_NAME}';
+import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
 
 export default defineComponent({
   components: {
@@ -79,7 +79,7 @@ Events should be written in this format.
 
 <script>
 import { defineComponent } from 'vue';
-import { PlusSwitch } from '{Constants.PORT_VUE_PACKAGE_NAME}';
+import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
 
 export default defineComponent({
   components: {
@@ -102,7 +102,7 @@ export default defineComponent({
   Using <code>Web Components</code> directly in <code>Vue 3.x.x</code>
 </summary>
 
-In this way we use [standard HTML Custom Elements]({Constants.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
+In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
 
 1- Create Vue App
 
@@ -110,15 +110,15 @@ With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creat
 
 2- Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_JAVASCRIPT_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 ```
 
 3- Update `vue.config.js` file
 
-Tell Vue to ignore all custom element tags defined in the `{Constants.PORT_JAVASCRIPT_PACKAGE_NAME}`. The `vue.config.js` would be something like this finally.
+Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`. The `vue.config.js` would be something like this finally.
 
 ```js
 module.exports = {
@@ -129,7 +129,7 @@ module.exports = {
       .tap((options) => {
         options.compilerOptions = {
           ...options.compilerOptions,
-          isCustomElement: (tag) => tag.startsWith('{Constants.PLATFORM_PREFIX}-')
+          isCustomElement: (tag) => tag.startsWith('{CONSTANTS.PLATFORM_PREFIX}-')
         }
         return options
       })
@@ -139,7 +139,7 @@ module.exports = {
 
 4- Usage
 
-All `{Constants.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
+All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
 
 ```html
 <template>
@@ -199,7 +199,7 @@ Dedicated library for Vue 2.x.x is not supported.
     Using <code>Web Components</code> directly in <code>Vue 2.x.x</code>
   </summary>
 
-In this way we use [standard HTML Custom Elements]({Constants.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
+In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
 
 1- Create Vue App
 
@@ -207,10 +207,10 @@ With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creat
 
 2- Install
 
-Installing `{Constants.PLATFORM_NAME}` package using node package manager.
+Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {Constants.PORT_JAVASCRIPT_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 ```
 
 3- Import
@@ -221,8 +221,8 @@ The `main.js` would be something like this finally. Add the given values based o
 import Vue from 'vue';
 import App from './App.vue';
 
-// Tell Vue to ignore all custom element tags defined in the `{Constants.PORT_JAVASCRIPT_PACKAGE_NAME}`
-Vue.config.ignoredElements = [/{Constants.PLATFORM_PREFIX}-\w*/];
+// Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`
+Vue.config.ignoredElements = [/{CONSTANTS.PLATFORM_PREFIX}-\w*/];
 
 new Vue({
   render: h => h(App)
@@ -231,7 +231,7 @@ new Vue({
 
 4- Usage
 
-All `{Constants.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
+All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
 
 ```html
 <template>

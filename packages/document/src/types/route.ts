@@ -1,3 +1,3 @@
-import { ROUTE } from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 
-export type ROUTE = keyof typeof ROUTE;
+export type ROUTE = keyof typeof CONSTANTS.ROUTE;

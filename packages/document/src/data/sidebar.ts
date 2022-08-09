@@ -1,4 +1,4 @@
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 import { components } from '@app/data';
 import * as Utils from '@app/utils';
 
@@ -8,11 +8,11 @@ export const sidebar = (framework: string) => [
     icon: 'introduction',
     items: [
       {
-        title: `What's ${Constants.PLATFORM_NAME}?`,
+        title: `What's ${CONSTANTS.PLATFORM_NAME}?`,
         url: Utils.getPath('INTRODUCTION_WHAT')
       },
       {
-        title: `Why ${Constants.PLATFORM_NAME}?`,
+        title: `Why ${CONSTANTS.PLATFORM_NAME}?`,
         url: Utils.getPath('INTRODUCTION_WHY')
       }
     ]

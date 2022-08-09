@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/react",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "type": "module",
   "description": "React output target for your custom element.",
   "main": "index.js",
@@ -12,8 +12,7 @@
     "clean": "rimraf dist"
   },
   "files": [
-    "package.json",
-    "README.md"
+    "**/*.*"
   ],
   "publishConfig": {
     "directory": "dist"

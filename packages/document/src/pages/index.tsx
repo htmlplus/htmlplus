@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import '@htmlplus/core/animation/attention-seekers/pulse.js';
 
 import { Animation, Button, Grid, Icon, Intersection } from '@app/components';
-import * as Constants from '@app/constants';
+import * as CONSTANTS from '@app/constants';
 import { Browsers, Header } from '@app/containers';
 import { features, frameworks, statistics } from '@app/data';
 import * as Utils from '@app/utils';
@@ -31,12 +31,12 @@ const Home: NextPage = () => {
           <Grid justifyContent="center" justifyContentMd="end" gutterX="md">
             <Grid.Item>
               <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHAT')}>
-                <b>{`What\'s ${Constants.PLATFORM_NAME}?`}</b>
+                <b>{`What\'s ${CONSTANTS.PLATFORM_NAME}?`}</b>
               </Button>
             </Grid.Item>
             <Grid.Item>
               <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHY')}>
-                <b>{`Why ${Constants.PLATFORM_NAME}?`}</b>
+                <b>{`Why ${CONSTANTS.PLATFORM_NAME}?`}</b>
               </Button>
             </Grid.Item>
           </Grid>
@@ -60,13 +60,13 @@ const Home: NextPage = () => {
             </svg>
             &nbsp; &nbsp;
             <h1 style={{ border: 'none', display: 'inline', verticalAlign: 'middle', padding: 0 }}>
-              {Constants.PLATFORM_NAME}
+              {CONSTANTS.PLATFORM_NAME}
             </h1>
           </div>
           <h1 style={{ border: 'none' }}>The Most Flexible Open Source Web Component Library!</h1>
           <p style={{ maxWidth: '700px', margin: 'auto' }}>
-            {Constants.PLATFORM_NAME} is framework-less and lightweight. It's totally native and developed purely with
-            javascript. All {Constants.PLATFORM_NAME} components are customizable and configurable
+            {CONSTANTS.PLATFORM_NAME} is framework-less and lightweight. It's totally native and developed purely with
+            javascript. All {CONSTANTS.PLATFORM_NAME} components are customizable and configurable
           </p>
           <div>
             <NextLink

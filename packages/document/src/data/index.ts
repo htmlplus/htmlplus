@@ -6,4 +6,3 @@ export * from './frameworks';
 export * from './sidebar';
 export * from './socials';
 export * from './statistics';
-export * from './statistics.github';

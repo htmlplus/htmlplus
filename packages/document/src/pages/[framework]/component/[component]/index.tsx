@@ -2,17 +2,15 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { headerCase, pascalCase } from 'change-case';
 
-import { Contributors, Markup } from '@app/containers';
+import { Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
-import { getContributors } from '@app/services';
 import * as Utils from '@app/utils';
 
-const ComponentDetails = ({ component, contributors, example }: any) => {
+const ComponentDetails = ({ component, example }: any) => {
   return (
     <LayoutDefault>
       <Markup value={component?.readme} scope={{ example }} />
-      <Contributors contributors={contributors} />
     </LayoutDefault>
   );
 };
@@ -26,8 +24,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   if (component)
     component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
-
-  const contributors: string[] = await getContributors(`packages/core/src/components/${componentKey}`);
 
   // TODO
   const example = (() => {
@@ -92,7 +88,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       component,
-      contributors,
       example
     }
   };

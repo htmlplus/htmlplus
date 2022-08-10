@@ -3,13 +3,12 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Divider } from '@app/components';
-import { Contributors, Parameter, Toc } from '@app/containers';
+import { Parameter, Toc } from '@app/containers';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import * as Utils from '@app/utils';
-import { getContributors } from '@app/services';
 
-const ComponentAPI = ({ component, contributors }: any) => {
+const ComponentAPI = ({ component }: any) => {
   const sections = [
     {
       key: 'property',
@@ -61,7 +60,6 @@ const ComponentAPI = ({ component, contributors }: any) => {
             ))}
           </React.Fragment>
         ))}
-      <Contributors contributors={contributors} />
     </LayoutDefault>
   );
 };
@@ -71,11 +69,9 @@ export default ComponentAPI;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { component: componentKey, framework } = context.params || {};
   const component = components.find((component) => component.key == componentKey);
-  const contributors: string[] = await getContributors(`packages/core/src/components/${componentKey}`);
   return {
     props: {
       component,
-      contributors,
       framework
     }
   };

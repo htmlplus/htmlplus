@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Card, Drawer, Grid, Sticky } from '@app/components';
 import * as CONSTANTS from '@app/constants';
-import { Frameworks, Header, Navigation, Sidebar, Toc } from '@app/containers';
+import { Contributors, Frameworks, Header, Navigation, Sidebar, Toc } from '@app/containers';
 
 interface LayoutDefaultProps {
   children: ReactNode;
@@ -32,6 +32,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
               {/* TODO */}
               <div style={{ padding: '16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
                 {children}
+                <Contributors />
                 <Navigation />
               </div>
             </Grid.Item>

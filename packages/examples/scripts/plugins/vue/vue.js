@@ -22,27 +22,27 @@ export const vue = (options) => {
         ClassDeclaration(path) {
           path.traverse(visitors.script);
 
-          if (!path.node.body.body.length) return path.remove();
+          // if (!path.node.body.body.length) return path.remove();
 
-          const properties = [];
+          // const properties = [];
 
-          const data = path.node.body.body.filter((element) => element.type === 'ObjectProperty');
+          // const data = path.node.body.body.filter((element) => element.type === 'ObjectProperty');
 
-          if (data.length)
-            properties.push(
-              t.objectMethod(
-                'method',
-                t.identifier('data'),
-                [],
-                t.blockStatement([t.returnStatement(t.objectExpression(data))])
-              )
-            );
+          // if (data.length)
+          //   properties.push(
+          //     t.objectMethod(
+          //       'method',
+          //       t.identifier('data'),
+          //       [],
+          //       t.blockStatement([t.returnStatement(t.objectExpression(data))])
+          //     )
+          //   );
 
-          const methods = path.node.body.body.filter((element) => element.type === 'ObjectMethod');
+          // const methods = path.node.body.body.filter((element) => element.type === 'ObjectMethod');
 
-          if (methods.length) properties.push(t.objectProperty(t.identifier('methods'), t.objectExpression(methods)));
+          // if (methods.length) properties.push(t.objectProperty(t.identifier('methods'), t.objectExpression(methods)));
 
-          path.replaceWith(t.exportDefaultDeclaration(t.objectExpression(properties)));
+          // path.replaceWith(t.exportDefaultDeclaration(t.objectExpression(properties)));
         },
         ClassMethod(path) {
           const { key } = path.node;
@@ -50,41 +50,42 @@ export const vue = (options) => {
           path.node.type = 'ObjectMethod';
         },
         ClassProperty(path) {
-          const { key, value } = path.node;
-          path.replaceWith(t.objectProperty(key, value));
+          // const { key, value } = path.node;
+          // path.replaceWith(t.objectProperty(key, value));
         },
         ImportDeclaration(path) {
           // TODO
-          if (path.node.source.value != '@htmlplus/element') return;
-          path.remove();
+          // if (path.node.source.value != '@htmlplus/element') return;
+          // path.remove();
         }
       },
       template: {
         ClassDeclaration(path) {
           path.traverse(visitors.template);
-          path.replaceWith(path.node.body.body[0]);
+          path.replaceWithMultiple(path.node.body.body);
         },
         ClassMethod(path) {
           const { body } = path.node;
 
           const statement = body.body.find((element) => element.type === 'ReturnStatement');
 
-          let element = statement.argument;
+          const element = statement.argument;
 
-          let children = [t.jsxText('\n'), element, t.jsxText('\n')];
+          const children = [];
 
-          while (element.openingElement.name.name.match(/fragment/)) {
-            children = element.children;
-            element = element.children.find((element) => element.type === 'JSXElement');
+          if (element.openingElement.name.name.match(/fragment/)) {
+            children.push(
+              t.jsxElement(
+                t.jsxOpeningElement(t.jsxIdentifier('div'), []),
+                t.jSXClosingElement(t.jsxIdentifier('div')),
+                element.children || []
+              )
+            );
+          } else {
+            children.push(element);
           }
 
-          path.replaceWith(
-            t.jsxElement(
-              t.jsxOpeningElement(t.jsxIdentifier('div'), []),
-              t.jSXClosingElement(t.jsxIdentifier('div')),
-              children
-            )
-          );
+          path.replaceWithMultiple(children);
         },
         JSXAttribute(path) {
           const { name, value } = path.node;
@@ -107,21 +108,6 @@ export const vue = (options) => {
           path.node.value = t.stringLiteral(newValue);
 
           if (!name.name.match(/@|:/)) name.name = `:${name.name}`;
-        },
-        JSXElement(path) {
-          const { openingElement, closingElement, children } = path.node;
-
-          if (!openingElement) return;
-
-          const name = openingElement.name.name;
-
-          if (name === 'preview') {
-            const child = children.find((child) => child.type === 'JSXElement');
-            path.replaceWith(child);
-          } else if (name === 'Host') {
-            openingElement.name.name = 'div';
-            closingElement.name.name = 'div';
-          }
         },
         JSXExpressionContainer(path) {
           // TODO
@@ -185,9 +171,7 @@ export const vue = (options) => {
 
       visitor(ast, visitors.template);
 
-      let raw = print(ast).trim(); // TODO .replace(/\[\[/g, '{{').replace(/\]\]/g, '}}');
-
-      if (raw.endsWith(';')) raw = raw.slice(0, -1);
+      let raw = print(ast).trim();
 
       return raw;
     })();

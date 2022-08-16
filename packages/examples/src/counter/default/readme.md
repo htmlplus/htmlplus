@@ -39,21 +39,3 @@ button1.addEventListener('click', () => {
   counter1.play = true;
 });
 ```
-
-```html [vue:template]
-<div class="center">
-    <plus-counter to="1000" :play="play"></plus-counter>
-    <br />
-    <button @click="play = true">Start</button>
-</div>
-```
-
-```js [vue:script]
-export default {
-  data() {
-    return {
-        play: false
-    };
-  },
-};
-```

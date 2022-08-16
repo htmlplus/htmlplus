@@ -17,9 +17,3 @@ plus-card {
   </div>
 </fragment>
 ```
-
-```html [vue:template]
-<div class="container">
-  <plus-card></plus-card>
-</div>
-```

@@ -12,12 +12,3 @@
   </button>
 </div>
 ```
-
-```html [vue:template]
-<div class="center">
-  <button>
-    Button
-    <plus-tooltip>Tooltip</plus-tooltip>
-  </button>
-</div>
-```

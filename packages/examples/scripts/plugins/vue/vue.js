@@ -46,18 +46,9 @@ export const vue = (options) => {
 
           if (isState) {
             path.replaceWith(
-              t.variableDeclaration(
-                'const',
-                [
-                  t.variableDeclarator(
-                    key,
-                    t.callExpression(
-                      t.identifier('ref'),
-                      value ? [value] : []
-                    )
-                  )
-                ]
-              )
+              t.variableDeclaration('const', [
+                t.variableDeclarator(key, t.callExpression(t.identifier('ref'), value ? [value] : []))
+              ])
             );
           }
 
@@ -88,14 +79,17 @@ export const vue = (options) => {
 
           const children = [];
 
+          // TODO: check the examples
+          // card             -> default
+          // card             -> tile
+          // counter          -> default
+          // scroll-indecator -> default
+          // tooltip          -> default
           if (element.openingElement.name.name.match(/fragment/)) {
-            children.push(
-              t.jsxElement(
-                t.jsxOpeningElement(t.jsxIdentifier('div'), []),
-                t.jSXClosingElement(t.jsxIdentifier('div')),
-                element.children || []
-              )
-            );
+            for (const child of element.children) {
+              if (child.type == 'JSXText') continue;
+              children.push(child);
+            }
           } else {
             children.push(element);
           }

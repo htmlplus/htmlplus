@@ -17,6 +17,8 @@ const indent = (input, value) => {
 export const vue = (options) => {
   const name = 'vue';
   const next = (context) => {
+    const dependencies = new Set();
+
     const visitors = {
       script: {
         ClassDeclaration(path) {
@@ -26,6 +28,10 @@ export const vue = (options) => {
 
           if (!body.body.length) return path.remove();
 
+          Array.from(dependencies)
+            .sort()
+            .forEach((dependency) => body.body.unshift(t.importDeclaration([], t.stringLiteral(dependency))));
+
           if (context.classStates.length)
             body.body.unshift(
               t.importDeclaration([t.importSpecifier(t.identifier('ref'), t.identifier('ref'))], t.stringLiteral('vue'))
@@ -33,10 +39,17 @@ export const vue = (options) => {
 
           path.replaceWithMultiple(body.body);
         },
-        ClassMethod(path) {
-          const { body, key, params } = path.node;
-          if (key.name == 'render') return path.remove();
-          path.replaceWith(t.functionDeclaration(key, params, body));
+        ClassMethod: {
+          enter(path) {
+            const { body, key, params } = path.node;
+            if (key.name == context.classRender.key.name) return;
+            path.replaceWith(t.functionDeclaration(key, params, body));
+          },
+          exit(path) {
+            const { key } = path.node;
+            if (key.name != context.classRender.key.name) return;
+            path.remove();
+          }
         },
         ClassProperty(path) {
           const { key, value } = path.node;
@@ -58,6 +71,15 @@ export const vue = (options) => {
           }
 
           if (!isProperty && !isState) path.remove();
+        },
+        JSXElement(path) {
+          const { openingElement } = path.node;
+
+          const name = openingElement.name.name;
+
+          if (!/-/g.test(name)) return;
+
+          dependencies.add(options?.componentRefrence(name));
         },
         ImportDeclaration(path) {
           // TODO

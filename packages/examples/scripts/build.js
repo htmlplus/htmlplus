@@ -48,6 +48,9 @@ const { start, next, finish } = compiler(
   }),
   vue({
     dedicated: false,
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
     destination(context) {
       return path.join(context.directoryPath, 'vue');
     }

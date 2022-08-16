@@ -26,6 +26,11 @@ export const vue = (options) => {
 
           if (!body.body.length) return path.remove();
 
+          if (context.classStates.length)
+            body.body.unshift(
+              t.importDeclaration([t.importSpecifier(t.identifier('ref'), t.identifier('ref'))], t.stringLiteral('vue'))
+            );
+
           path.replaceWithMultiple(body.body);
         },
         ClassMethod(path) {
@@ -61,8 +66,16 @@ export const vue = (options) => {
         },
         MemberExpression(path) {
           const { object, property } = path.node;
+
           if (object.type != 'ThisExpression') return;
-          path.replaceWith(property);
+
+          const isState = context.classStates.some((state) => state.key.name == property.name);
+
+          if (isState) {
+            path.replaceWith(t.memberExpression(property, t.identifier('value')));
+          } else {
+            path.replaceWith(property);
+          }
         }
       },
       template: {

@@ -20,43 +20,58 @@ export const vue = (options) => {
     const visitors = {
       script: {
         ClassDeclaration(path) {
+          const { body } = path.node;
+
           path.traverse(visitors.script);
 
-          // if (!path.node.body.body.length) return path.remove();
+          if (!body.body.length) return path.remove();
 
-          // const properties = [];
-
-          // const data = path.node.body.body.filter((element) => element.type === 'ObjectProperty');
-
-          // if (data.length)
-          //   properties.push(
-          //     t.objectMethod(
-          //       'method',
-          //       t.identifier('data'),
-          //       [],
-          //       t.blockStatement([t.returnStatement(t.objectExpression(data))])
-          //     )
-          //   );
-
-          // const methods = path.node.body.body.filter((element) => element.type === 'ObjectMethod');
-
-          // if (methods.length) properties.push(t.objectProperty(t.identifier('methods'), t.objectExpression(methods)));
-
-          // path.replaceWith(t.exportDefaultDeclaration(t.objectExpression(properties)));
+          path.replaceWithMultiple(body.body);
         },
         ClassMethod(path) {
-          const { key } = path.node;
-          if (key.name === 'render') return path.remove();
-          path.node.type = 'ObjectMethod';
+          const { body, key, params } = path.node;
+          if (key.name == 'render') return path.remove();
+          path.replaceWith(t.functionDeclaration(key, params, body));
         },
         ClassProperty(path) {
-          // const { key, value } = path.node;
-          // path.replaceWith(t.objectProperty(key, value));
+          const { key, value } = path.node;
+
+          const isProperty = context.classProperties.some((property) => property.key.name == key.name);
+
+          if (isProperty) {
+            // TODO
+          }
+
+          const isState = context.classStates.some((state) => state.key.name == key.name);
+
+          if (isState) {
+            path.replaceWith(
+              t.variableDeclaration(
+                'const',
+                [
+                  t.variableDeclarator(
+                    key,
+                    t.callExpression(
+                      t.identifier('ref'),
+                      value ? [value] : []
+                    )
+                  )
+                ]
+              )
+            );
+          }
+
+          if (!isProperty && !isState) path.remove();
         },
         ImportDeclaration(path) {
           // TODO
-          // if (path.node.source.value != '@htmlplus/element') return;
-          // path.remove();
+          if (path.node.source.value != '@htmlplus/element') return;
+          path.remove();
+        },
+        MemberExpression(path) {
+          const { object, property } = path.node;
+          if (object.type != 'ThisExpression') return;
+          path.replaceWith(property);
         }
       },
       template: {

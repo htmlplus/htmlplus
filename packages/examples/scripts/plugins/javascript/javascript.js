@@ -3,6 +3,8 @@ import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/com
 import { capitalCase } from 'change-case';
 import fs from 'fs';
 
+import { getSnippet, getTitle, indent, isEvent } from '../../utils.js';
+
 const getValue = (path) => {
   switch (path.node.expression.type) {
     case 'BinaryExpression':
@@ -16,16 +18,6 @@ const getValue = (path) => {
     case 'TemplateLiteral':
       break;
   }
-};
-
-const indent = (input, value) => {
-  if (!input) return input;
-  let space = '';
-  for (let i = 0; i < value; i++) space += '  ';
-  return input
-    .split('\n')
-    .map((line, index) => `${index ? space : ''}${line}`)
-    .join('\n');
 };
 
 export const javascript = (options) => {
@@ -76,7 +68,7 @@ export const javascript = (options) => {
 
           if (!value) return;
 
-          if (name.name.match(/on[A-Z]/)) {
+          if (isEvent(name.name)) {
             setId(path);
             path.remove();
           }
@@ -152,18 +144,12 @@ export const javascript = (options) => {
       }
     };
 
-    const script = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'javascript:script');
+    const script = getSnippet(context, 'javascript:script');
 
-    const style = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'style');
+    const style = getSnippet(context, 'style');
 
     const template = (() => {
-      const dedicated = context.outputs
-        ?.find((output) => output.name == 'prepare')
-        ?.output?.find((snippet) => snippet.key == 'javascript:template');
+      const dedicated = getSnippet(context, 'javascript:template');
 
       const ast = t.cloneNode(
         t.file(
@@ -191,12 +177,7 @@ export const javascript = (options) => {
         .trim();
     })();
 
-    const title = context.filePath
-      .split(/[/|\\]/g)
-      .slice(0, -1)
-      .slice(-2)
-      .map(capitalCase)
-      .join(' | ');
+    const title = getTitle(context);
 
     const patterns = ['templates/**/*.*'];
 

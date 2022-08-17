@@ -4,15 +4,7 @@ import { camelCase, capitalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-const indent = (input, value) => {
-  if (!input) return input;
-  let space = '';
-  for (let i = 0; i < value; i++) space += '  ';
-  return input
-    .split('\n')
-    .map((line, index) => `${index ? space : ''}${line}`)
-    .join('\n');
-};
+import { getSnippet, getTitle, indent, isEvent } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -136,7 +128,7 @@ export const vue = (options) => {
 
           if (!value) return;
 
-          if (name.name.match(/on[A-Z]/)) {
+          if (isEvent(name.name)) {
             name.name = '@' + camelCase(name.name.slice(2));
           }
 
@@ -201,9 +193,7 @@ export const vue = (options) => {
       return print(ast);
     })();
 
-    const style = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'style');
+    const style = getSnippet(context, 'style');
 
     const template = (() => {
       const ast = t.cloneNode(
@@ -220,12 +210,7 @@ export const vue = (options) => {
       return raw;
     })();
 
-    const title = context.filePath
-      .split(/[/|\\]/g)
-      .slice(0, -1)
-      .slice(-2)
-      .map(capitalCase)
-      .join(' | ');
+    const title = getTitle(context);
 
     const patterns = ['templates/**/*.*'];
 

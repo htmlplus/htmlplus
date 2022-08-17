@@ -4,6 +4,8 @@ import { camelCase, capitalCase, paramCase, pascalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
+import { getSnippet, getTitle } from '../../utils.js';
+
 export const svelte = (options) => {
   const name = 'svelte';
   const next = (context) => {
@@ -23,12 +25,7 @@ export const svelte = (options) => {
 
     visitor(ast, visitors.script);
 
-    const title = context.filePath
-      .split(/[/|\\]/g)
-      .slice(0, -1)
-      .slice(-2)
-      .map(capitalCase)
-      .join(' | ');
+    const title = getTitle(context);
 
     const patterns = ['templates/**/*.*'];
 
@@ -40,9 +37,7 @@ export const svelte = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const style = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'style');
+    const style = getSnippet(context, 'style');
 
     const model = {
       title,

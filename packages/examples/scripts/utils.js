@@ -1,0 +1,64 @@
+import { capitalCase } from 'change-case';
+
+export const getSnippet = (context, key) => {
+  return context.outputs
+    ?.find((output) => output.name == 'prepare')
+    ?.output
+    ?.find((snippet) => snippet.key == key);
+}
+
+export const getTitle = (context) => {
+  return context.filePath
+    .split(/[/|\\]/g)
+    .slice(0, -1)
+    .slice(-2)
+    .map(capitalCase)
+    .join(' | ');
+}
+
+export const indent = (input, value) => {
+  if (!input) return input;
+  let space = '';
+  for (let i = 0; i < value; i++) space += '  ';
+  return input
+    .split('\n')
+    .map((line, index) => `${index ? space : ''}${line}`)
+    .join('\n');
+};
+
+export const isEvent = (input) => {
+  return !!input?.match(/on[A-Z]\w+/g);
+};
+
+export const scoped = (styles, className) => {
+  try {
+    var classLen = className.length,
+      char,
+      nextChar,
+      isAt,
+      isIn;
+    className += ' ';
+    styles = styles.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '');
+    styles = styles.replace(/}(\s*)@/g, '}@');
+    styles = styles.replace(/}(\s*)}/g, '}}');
+    for (var i = 0; i < styles.length - 2; i++) {
+      char = styles[i];
+      nextChar = styles[i + 1];
+      if (char === '@') isAt = true;
+      if (!isAt && char === '{') isIn = true;
+      if (isIn && char === '}') isIn = false;
+      if (
+        !isIn &&
+        nextChar !== '@' &&
+        nextChar !== '}' &&
+        (char === '}' || char === ',' || ((char === '{' || char === ';') && isAt))
+      ) {
+        styles = styles.slice(0, i + 1) + className + styles.slice(i + 1);
+        i += classLen;
+        isAt = false;
+      }
+    }
+    if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
+    return styles;
+  } catch { }
+};

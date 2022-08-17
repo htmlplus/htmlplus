@@ -2,6 +2,8 @@ import t from '@babel/types';
 import { __dirname, print, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { camelCase, paramCase, pascalCase } from 'change-case';
 
+import { getSnippet, isEvent, scoped } from '../../utils.js';
+
 export const preview = (options) => {
   const name = 'preview';
   const next = (context) => {
@@ -13,39 +15,6 @@ export const preview = (options) => {
       dependencies.set(imported, locals);
     };
 
-    const scoped = (styles, className) => {
-      try {
-        var classLen = className.length,
-          char,
-          nextChar,
-          isAt,
-          isIn;
-        className += ' ';
-        styles = styles.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '');
-        styles = styles.replace(/}(\s*)@/g, '}@');
-        styles = styles.replace(/}(\s*)}/g, '}}');
-        for (var i = 0; i < styles.length - 2; i++) {
-          char = styles[i];
-          nextChar = styles[i + 1];
-          if (char === '@') isAt = true;
-          if (!isAt && char === '{') isIn = true;
-          if (isIn && char === '}') isIn = false;
-          if (
-            !isIn &&
-            nextChar !== '@' &&
-            nextChar !== '}' &&
-            (char === '}' || char === ',' || ((char === '{' || char === ';') && isAt))
-          ) {
-            styles = styles.slice(0, i + 1) + className + styles.slice(i + 1);
-            i += classLen;
-            isAt = false;
-          }
-        }
-        if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
-        return styles;
-      } catch {}
-    };
-
     const classNamePrefix =
       'ex-' +
       context.filePath
@@ -54,9 +23,7 @@ export const preview = (options) => {
         .slice(-2)
         .join('-');
 
-    const style = context.outputs
-      ?.find((output) => output.name == 'prepare')
-      ?.output?.find((snippet) => snippet.key == 'style');
+    const style = getSnippet(context, 'style');
 
     const visitors = {
       script: {
@@ -166,7 +133,7 @@ export const preview = (options) => {
         JSXAttribute(path) {
           const { name } = path.node;
 
-          if (/on[A-Z]/g.test(name.name)) {
+          if (isEvent(name.name)) {
             name.name = options?.eventNameConvertor?.(name.name, context) || name.name;
             return;
           }

@@ -4,7 +4,16 @@ import glob from 'fast-glob';
 import path from 'path';
 import { codesandbox, document, download, javascript, prepare, preview, react, vue } from './plugins/index.js';
 
-const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
+const componentNameConvertor = (name) => {
+  const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
+  const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
+  if (exception) name = name.replace(exception, pascalCase(exception));
+  return name.replace('plus-', '').split('-').map(pascalCase).join('.');
+}
+
+const eventNameConvertor = (name) => {
+  return name.replace('onPlus', 'on');
+}
 
 const { start, next, finish } = compiler(
   read(),
@@ -23,28 +32,16 @@ const { start, next, finish } = compiler(
   }),
   preview({
     componentRefrence: '@htmlplus/react',
-    componentNameConvertor(name) {
-      const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
-      if (exception) name = name.replace(exception, pascalCase(exception));
-      return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-    },
-    eventNameConvertor(name) {
-      return name.replace('onPlus', 'on');
-    }
+    componentNameConvertor,
+    eventNameConvertor,
   }),
   react({
     componentRefrence: '@htmlplus/react',
-    componentNameConvertor(name) {
-      const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
-      if (exception) name = name.replace(exception, pascalCase(exception));
-      return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-    },
+    componentNameConvertor,
     destination(context) {
       return path.join(context.directoryPath, 'react-dedicated');
     },
-    eventNameConvertor(name) {
-      return name.replace('onPlus', 'on');
-    }
+    eventNameConvertor,
   }),
   vue({
     dedicated: false,
@@ -55,13 +52,6 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'vue');
     }
   }),
-  // TODO
-  // vue({
-  //   dedicated: true,
-  //   destination(context) {
-  //     return path.join(context.directoryPath, 'vue-dedicated');
-  //   }
-  // }),
   codesandbox({
     sources(context) {
       return [

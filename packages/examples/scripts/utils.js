@@ -1,3 +1,4 @@
+import t from '@babel/types';
 import { capitalCase } from 'change-case';
 
 export const getSnippet = (context, key) => {
@@ -62,3 +63,7 @@ export const scoped = (styles, className) => {
     return styles;
   } catch { }
 };
+
+export const toFile = (node) => {
+  return t.file(t.program([t.classDeclaration(t.identifier('Test'), null, t.classBody([node]))], [], 'module'));
+}

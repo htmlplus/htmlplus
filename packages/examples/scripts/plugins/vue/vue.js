@@ -4,7 +4,7 @@ import { camelCase, capitalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { getSnippet, getTitle, indent, isEvent } from '../../utils.js';
+import { getSnippet, getTitle, indent, isEvent, toFile } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -196,12 +196,7 @@ export const vue = (options) => {
     const style = getSnippet(context, 'style');
 
     const template = (() => {
-      const ast = t.cloneNode(
-        t.file(
-          t.program([t.classDeclaration(t.identifier('Test'), null, t.classBody([context.classRender]))], [], 'module')
-        ),
-        true
-      );
+      const ast = t.cloneNode(toFile(context.classRender), true);
 
       visitor(ast, visitors.template);
 

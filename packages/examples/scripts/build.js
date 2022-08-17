@@ -9,11 +9,11 @@ const componentNameConvertor = (name) => {
   const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
   if (exception) name = name.replace(exception, pascalCase(exception));
   return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-}
+};
 
 const eventNameConvertor = (name) => {
   return name.replace('onPlus', 'on');
-}
+};
 
 const { start, next, finish } = compiler(
   read(),
@@ -33,7 +33,7 @@ const { start, next, finish } = compiler(
   preview({
     componentRefrence: '@htmlplus/react',
     componentNameConvertor,
-    eventNameConvertor,
+    eventNameConvertor
   }),
   react({
     componentRefrence: '@htmlplus/react',
@@ -41,7 +41,7 @@ const { start, next, finish } = compiler(
     destination(context) {
       return path.join(context.directoryPath, 'react-dedicated');
     },
-    eventNameConvertor,
+    eventNameConvertor
   }),
   vue({
     dedicated: false,

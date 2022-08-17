@@ -2,11 +2,8 @@ import t from '@babel/types';
 import { capitalCase } from 'change-case';
 
 export const getSnippet = (context, key) => {
-  return context.outputs
-    ?.find((output) => output.name == 'prepare')
-    ?.output
-    ?.find((snippet) => snippet.key == key);
-}
+  return context.outputs?.find((output) => output.name == 'prepare')?.output?.find((snippet) => snippet.key == key);
+};
 
 export const getTitle = (context) => {
   return context.filePath
@@ -15,7 +12,7 @@ export const getTitle = (context) => {
     .slice(-2)
     .map(capitalCase)
     .join(' | ');
-}
+};
 
 export const indent = (input, value) => {
   if (!input) return input;
@@ -61,9 +58,9 @@ export const scoped = (styles, className) => {
     }
     if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
     return styles;
-  } catch { }
+  } catch {}
 };
 
 export const toFile = (node) => {
   return t.file(t.program([t.classDeclaration(t.identifier('Test'), null, t.classBody([node]))], [], 'module'));
-}
+};

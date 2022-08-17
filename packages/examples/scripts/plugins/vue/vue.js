@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { camelCase, capitalCase } from 'change-case';
+import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -18,8 +18,7 @@ export const vue = (options) => {
 
           if (!body.body.length) return path.remove();
 
-          context
-            .customElementNames
+          context.customElementNames
             .map((name) => options?.componentRefrence(name))
             .forEach((dependency) => {
               return body.body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
@@ -138,11 +137,7 @@ export const vue = (options) => {
           if (!name.name.match(/@|:/)) name.name = `:${name.name}`;
         },
         JSXExpressionContainer(path) {
-          // TODO
-          const code = print(path.node.expression);
-
-          // TODO
-          path.replaceWithSourceString(`[[${code.replace('this.', '')}]]`);
+          path.replaceWithSourceString(`[[[${print(path.node.expression)}]]]`);
         },
         JSXText(path) {
           const { value } = path.node;
@@ -175,6 +170,11 @@ export const vue = (options) => {
           const end = endIndex !== -1 && to <= endIndex;
 
           path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
+        },
+        MemberExpression(path) {
+          const { object, property } = path.node;
+          if (object.type != 'ThisExpression') return;
+          path.replaceWith(property);
         }
       }
     };
@@ -192,7 +192,14 @@ export const vue = (options) => {
 
       visitor(ast, visitors.template);
 
-      let raw = print(ast).trim();
+      let raw = print(ast)
+        .trim()
+        .replace(/\[\[\[/g, '{{')
+        .replace(/\]\]\]/g, '}}');
+      // TODO
+      // .split('\n')
+      // .map((line, index) => (index ? line.slice(6) : line))
+      // .join('\n');
 
       return raw;
     })();

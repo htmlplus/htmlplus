@@ -50,7 +50,20 @@ export const extract = (options?: ExtractOptions) => {
 
           return;
         }
-      }
+      },
+      JSXElement(path) {
+        const { openingElement } = path.node;
+
+        const name = openingElement.name.name;
+
+        if (!/-/g.test(name)) return;
+
+        context.customElementNames ??= [];
+
+        context.customElementNames.push(name);
+
+        context.customElementNames = context.customElementNames.filter((item, index, items) => items.indexOf(item) === index).sort();
+      },
     });
 
     context.directoryPath = path.dirname(context.filePath!);

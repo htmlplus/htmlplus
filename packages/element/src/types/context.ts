@@ -2,6 +2,7 @@ import { ClassBody, ClassDeclaration, ClassMethod, ClassProperty, File } from '@
 
 export interface Context {
   // TODO
+  customElementNames?: Array<string>;
   dependencies?: Array<Context>;
   dependenciesUnresolved?: Array<string>;
   isInvalid?: boolean;

@@ -23,7 +23,7 @@ const getValue = (path) => {
 export const javascript = (options) => {
   const name = 'javascript';
   const next = (context) => {
-    const dependencies = new Set();
+    const dependencies = context.customElementNames?.map((name) => options?.componentRefrence(name));
 
     const state = {
       elements: new Set()
@@ -72,15 +72,6 @@ export const javascript = (options) => {
             setId(path);
             path.remove();
           }
-        },
-        JSXElement(path) {
-          const { openingElement } = path.node;
-
-          const name = openingElement.name.name;
-
-          if (!/-/g.test(name)) return;
-
-          dependencies.add(options?.componentRefrence(name));
         },
         JSXExpressionContainer(path) {
           const value = getValue(path);
@@ -151,12 +142,11 @@ export const javascript = (options) => {
     const template = (() => {
       const dedicated = getSnippet(context, 'javascript:template');
 
+      if (dedicated) return dedicated.content;
+
       const ast = t.cloneNode(toFile(context.classRender), true);
 
       visitor(ast, visitors.template);
-
-      // TODO: related to add dependencies
-      if (dedicated) return dedicated.content;
 
       let raw = print(ast).trim();
 
@@ -186,7 +176,7 @@ export const javascript = (options) => {
 
     const model = {
       title,
-      dependencies: Array.from(dependencies).sort(),
+      dependencies,
       script: indent(script?.content, 3),
       style: indent(style?.content, 3),
       template: indent(template, 2)

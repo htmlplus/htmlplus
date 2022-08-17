@@ -9,8 +9,6 @@ import { getSnippet, getTitle, indent, isEvent, toFile } from '../../utils.js';
 export const vue = (options) => {
   const name = 'vue';
   const next = (context) => {
-    const dependencies = new Set();
-
     const visitors = {
       script: {
         ClassDeclaration(path) {
@@ -20,9 +18,12 @@ export const vue = (options) => {
 
           if (!body.body.length) return path.remove();
 
-          Array.from(dependencies)
-            .sort()
-            .forEach((dependency) => body.body.unshift(t.importDeclaration([], t.stringLiteral(dependency))));
+          context
+            .customElementNames
+            .map((name) => options?.componentRefrence(name))
+            .forEach((dependency) => {
+              return body.body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
+            });
 
           if (context.classStates.length)
             body.body.unshift(
@@ -63,15 +64,6 @@ export const vue = (options) => {
           }
 
           if (!isProperty && !isState) path.remove();
-        },
-        JSXElement(path) {
-          const { openingElement } = path.node;
-
-          const name = openingElement.name.name;
-
-          if (!/-/g.test(name)) return;
-
-          dependencies.add(options?.componentRefrence(name));
         },
         ImportDeclaration(path) {
           // TODO

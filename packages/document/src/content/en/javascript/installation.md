@@ -20,10 +20,8 @@ You can utilize `{CONSTANTS.PLATFORM_NAME}` simply by adding a simple scirpt in 
 </html>
 ```
 
-<br/>
-
 <Alert type="warning">
-  type="module" just works on the modern browsers. it's not compatible with "IE 11" or "Edge 12-18".
+  JavaScript modules via script tag just work on modern browsers. It's not compatible with some browsers click [here](https://caniuse.com/es6-module) to check compatibility.
 </Alert>
 
 ## Properties
@@ -32,7 +30,7 @@ You can use these two examples to set properteis and attributes to web component
 
 ```html
 <plus-switch reverse></plus-switch>
-or
+Or
 <plus-switch reverse="true"></plus-switch>
 ```
 
@@ -53,7 +51,7 @@ To add event to components you can use this format.
 <plus-switch id="element"></plus-switch>
 <script>
   element.addEventListener('plusChange', () => {
-    alert('plusChange event fired!');
+    alert('The plusChange event fired!');
   })
 </script>
 ```
@@ -61,5 +59,5 @@ To add event to components you can use this format.
 <br/>
 
 <Alert type="info">
-  Most of events such as click and change, etc. are prereserved by explorers. To avoid conflict occuring you need to use "{CONSTANTS.PLATFORM_PREFIX}" prefix.
+  Most of events such as click and change, etc. are prereserved by explorers. To avoid conflict occuring you need to use `{CONSTANTS.PLATFORM_PREFIX}` prefix.
 </Alert>

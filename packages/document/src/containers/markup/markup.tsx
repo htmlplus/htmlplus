@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
+import remarkGfm from 'remark-gfm';
+
 import * as CONSTANTS from '@app/constants';
 
 import { tokens } from './markup.tokens';
@@ -27,7 +29,7 @@ export const Markup = ({ scope, value }: MarkupProps) => {
         }
       });
 
-    serialize(value).then(setSource);
+    serialize(value, { mdxOptions: { remarkPlugins: [remarkGfm] } }).then(setSource);
   }, [value]);
 
   if (!source) return null;

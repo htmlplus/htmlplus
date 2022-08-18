@@ -1,5 +1,24 @@
 import t from '@babel/types';
 import { capitalCase } from 'change-case';
+import prettier from 'prettier';
+
+export const format = (source, options = {}) => {
+  return prettier.format(
+    source,
+    Object.assign(
+      {},
+      {
+        embeddedLanguageFormatting: 'off',
+        printWidth: 120,
+        quoteProps: 'consistent',
+        singleQuote: true,
+        trailingComma: 'none',
+        vueIndentScriptAndStyle: true,
+      },
+      options
+    )
+  );
+};
 
 export const getSnippet = (context, key) => {
   return context.outputs?.find((output) => output.name == 'prepare')?.output?.find((snippet) => snippet.key == key);
@@ -58,7 +77,7 @@ export const scoped = (styles, className) => {
     }
     if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
     return styles;
-  } catch {}
+  } catch { }
 };
 
 export const toFile = (node) => {

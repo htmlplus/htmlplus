@@ -1,5 +1,4 @@
 import { pascalCase } from 'change-case';
-import { indent } from '../utils.js';
 
 export const prepare = () => {
   const name = 'prepare';
@@ -34,7 +33,7 @@ export const prepare = () => {
         const content = lines.slice(1, -1).join('\n').trim();
 
         snippets.push({ key, type, content });
-      } catch {}
+      } catch { }
     });
 
     const template = snippets.find((snippet) => snippet.key == 'template');
@@ -47,18 +46,18 @@ export const prepare = () => {
       .join('');
 
     if (template)
-      context.fileContent = [
-        `import { Element } from '@htmlplus/element';`,
-        '',
-        '@Element()',
-        `class ${className} {`,
-        '  render() {',
-        '    return (',
-        `      ${indent(template.content, 3)}`, // TODO
-        '    );',
-        '  }',
-        '}'
-      ].join('\n');
+      context.fileContent = `
+        import { Element } from '@htmlplus/element';
+
+        @Element()
+        class ${className} {
+          render() {
+            return (
+              ${template.content} 
+            );
+          }
+        }
+      `;
 
     const script = snippets.find((snippet) => snippet.key == 'script');
 

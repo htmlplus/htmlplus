@@ -4,7 +4,7 @@ import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { getSnippet, getTitle, indent, isEvent, toFile } from '../../utils.js';
+import { format, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -139,38 +139,6 @@ export const vue = (options) => {
         JSXExpressionContainer(path) {
           path.replaceWithSourceString(`[[[${print(path.node.expression)}]]]`);
         },
-        JSXText(path) {
-          const { value } = path.node;
-
-          let level = -2;
-
-          let parent = path.parentPath;
-
-          while (parent && parent.type !== 'ClassBody') {
-            level++;
-            parent = parent.parentPath;
-          }
-
-          let space = '';
-
-          for (let i = 0; i < level; i++) space += '  ';
-
-          const trim = value.trim();
-
-          const from = value.indexOf(trim);
-
-          const to = trim.length;
-
-          const startIndex = value.indexOf('\n');
-
-          const endIndex = value.lastIndexOf('\n');
-
-          const start = startIndex !== -1 && from > startIndex;
-
-          const end = endIndex !== -1 && to <= endIndex;
-
-          path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
-        },
         MemberExpression(path) {
           const { object, property } = path.node;
           if (object.type != 'ThisExpression') return;
@@ -181,27 +149,38 @@ export const vue = (options) => {
 
     const script = (() => {
       const ast = t.cloneNode(context.fileAST, true);
+
       visitor(ast, visitors.script);
-      return print(ast);
+
+      const raw = `<script setup>${print(ast)}</script>`;
+
+      const formatted = format(raw, { parser: 'vue' });
+
+      return formatted;
     })();
 
-    const style = getSnippet(context, 'style');
+    const style = (() => {
+      const content = getSnippet(context, 'style')?.content;
+
+      if (!content) return;
+
+      const raw = `<style scoped>${content}</style>`;
+
+      const formatted = format(raw, { parser: 'vue' });
+
+      return formatted;
+    })()
 
     const template = (() => {
       const ast = t.cloneNode(toFile(context.classRender), true);
 
       visitor(ast, visitors.template);
 
-      let raw = print(ast)
-        .trim()
-        .replace(/\[\[\[/g, '{{')
-        .replace(/\]\]\]/g, '}}');
-      // TODO
-      // .split('\n')
-      // .map((line, index) => (index ? line.slice(6) : line))
-      // .join('\n');
+      let raw = `<template>${print(ast).trim().replace(/\[\[\[/g, '{{').replace(/\]\]\]/g, '}}')}</template>`;
 
-      return raw;
+      const formatted = format(raw, { parser: 'vue' });
+
+      return formatted;
     })();
 
     const title = getTitle(context);
@@ -217,19 +196,15 @@ export const vue = (options) => {
     };
 
     const model = {
+      script,
+      style,
+      template,
       title,
-      script: indent(script, 1),
-      template: indent(template, 1),
-      style: indent(style?.content, 1)
     };
 
     renderTemplate(patterns, destination, config)(model);
 
-    return {
-      script,
-      style: style?.content,
-      template
-    };
+    return model;
   };
   return {
     name,

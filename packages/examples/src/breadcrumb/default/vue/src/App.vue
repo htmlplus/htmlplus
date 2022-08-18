@@ -1,13 +1,11 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-breadcrumb separator="/">      
-        <a href="#">        HTMLPLUS</a>      
-        <a href="#">        Core</a>      
-        <a href="#">        UI Components</a>      
-        <span>        Breadcrumb</span>      
-      </plus-breadcrumb>    
-    </div>  
+  <div class="center">
+    <plus-breadcrumb separator="/">
+      <a href="#">HTMLPLUS</a>
+      <a href="#">Core</a>
+      <a href="#">UI Components</a>
+      <span>Breadcrumb</span>
+    </plus-breadcrumb>
   </div>
 </template>
 

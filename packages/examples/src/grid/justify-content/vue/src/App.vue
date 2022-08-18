@@ -1,23 +1,15 @@
 <template>
-  <div>  
-    <plus-grid justify-content="center">    
-      <plus-grid-item xs="2">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="2">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="2">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid justify-content="center">
+    <plus-grid-item xs="2">
+      <div>Item</div>
+    </plus-grid-item>
+    <plus-grid-item xs="2">
+      <div>Item</div>
+    </plus-grid-item>
+    <plus-grid-item xs="2">
+      <div>Item</div>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

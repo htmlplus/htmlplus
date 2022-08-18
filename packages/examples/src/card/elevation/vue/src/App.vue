@@ -1,26 +1,23 @@
 <template>
-  <div>  
-    <plus-card :elevation="elevation"></plus-card>  
-    <br />  
-    <input type="range" :value="elevation" min="1" max="24" @change="onChange($event)" />  
-  </div>
+  <plus-card :elevation="elevation"></plus-card>
+  <br />
+  <input
+    type="range"
+    :value="elevation"
+    min="1"
+    max="24"
+    @change="onChange($event)"
+  />
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        elevation: "12"
-      };
-    },
-  
-    methods: {
-      onChange(event) {
-        this.elevation = event.target.value;
-      }
-  
-    }
-  };
+<script setup>
+  import { ref } from "vue";
+  import "@htmlplus/core/card.js";
+  const elevation = ref("12");
+
+  function onChange(event) {
+    elevation.value = event.target.value;
+  }
 </script>
 
 <style scoped>

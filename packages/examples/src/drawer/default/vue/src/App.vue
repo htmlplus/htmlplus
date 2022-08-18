@@ -1,22 +1,18 @@
 <template>
-  <div>  
-    <plus-grid>    
-      <plus-grid-item xs="auto">      
-        <plus-drawer animation="fade" size="200px" connector="drawer-default">        
-          <plus-card>
-            Drawer Content
-          </plus-card>        
-        </plus-drawer>      
-      </plus-grid-item>    
-      <plus-grid-item xs="grow">      
-        <plus-card>        
-          <plus-drawer-toggler connector="drawer-default">
-            Toggle
-          </plus-drawer-toggler>        
-        </plus-card>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid>
+    <plus-grid-item xs="auto">
+      <plus-drawer animation="fade" size="200px" connector="drawer-default">
+        <plus-card> Drawer Content </plus-card>
+      </plus-drawer>
+    </plus-grid-item>
+    <plus-grid-item xs="grow">
+      <plus-card>
+        <plus-drawer-toggler connector="drawer-default">
+          Toggle
+        </plus-drawer-toggler>
+      </plus-card>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

@@ -1,8 +1,6 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-icon>      home</plus-icon>    
-    </div>  
+  <div class="center">
+    <plus-icon>home</plus-icon>
   </div>
 </template>
 

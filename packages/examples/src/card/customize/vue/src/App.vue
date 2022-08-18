@@ -1,8 +1,4 @@
-<template>
-  <div>  
-    <plus-card elevation="12" outlined></plus-card>  
-  </div>
-</template>
+<template><plus-card elevation="12" outlined></plus-card></template>
 
 <style scoped>
   plus-card {

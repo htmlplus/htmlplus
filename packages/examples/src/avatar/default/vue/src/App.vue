@@ -1,8 +1,6 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-avatar></plus-avatar>    
-    </div>  
+  <div class="center">
+    <plus-avatar></plus-avatar>
   </div>
 </template>
 

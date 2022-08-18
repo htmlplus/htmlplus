@@ -1,23 +1,15 @@
 <template>
-  <div>  
-    <plus-grid align-items="center">    
-      <plus-grid-item xs="grow" align-self="start">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="grow">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="grow" align-self="end">      
-        <div>
-          Item
-        </div>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid align-items="center">
+    <plus-grid-item xs="grow" align-self="start">
+      <div>Item</div>
+    </plus-grid-item>
+    <plus-grid-item xs="grow">
+      <div>Item</div>
+    </plus-grid-item>
+    <plus-grid-item xs="grow" align-self="end">
+      <div>Item</div>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

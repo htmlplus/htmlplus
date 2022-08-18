@@ -1,22 +1,19 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-counter to="1000" :play="play" @plusComplete="play = false"></plus-counter>    
-      <br />    
-      <button @click="play = true">      Start</button>    
-    </div>  
+  <div class="center">
+    <plus-counter
+      to="1000"
+      :play="play"
+      @plusComplete="play = false"
+    ></plus-counter>
+    <br />
+    <button @click="play = true">Start</button>
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        play: false
-      };
-    }
-  
-  };
+<script setup>
+  import { ref } from "vue";
+  import "@htmlplus/core/counter.js";
+  const play = ref(false);
 </script>
 
 <style scoped>

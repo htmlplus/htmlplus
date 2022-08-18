@@ -1,39 +1,42 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-dialog-toggler connector="dialog-cropper">
-        Open
-      </plus-dialog-toggler>    
-    </div>  
-    <plus-dialog animation="fade" connector="dialog-cropper" @plusOpened="change(false)" @plusClosed="change(true)">    
-      <plus-dialog-content>      
-        <plus-dialog-header>        Cropper</plus-dialog-header>      
-        <plus-dialog-body>        
-          <plus-cropper :disabled="disabled" src="/assets/images/panda.jpg"></plus-cropper>        
-        </plus-dialog-body>      
-        <plus-dialog-footer>        
-          <plus-dialog-toggler>          Close</plus-dialog-toggler>        
-        </plus-dialog-footer>      
-      </plus-dialog-content>    
-    </plus-dialog>  
+  <div class="center">
+    <plus-dialog-toggler connector="dialog-cropper"> Open </plus-dialog-toggler>
   </div>
+  <plus-dialog
+    animation="fade"
+    connector="dialog-cropper"
+    @plusOpened="change(false)"
+    @plusClosed="change(true)"
+  >
+    <plus-dialog-content>
+      <plus-dialog-header>Cropper</plus-dialog-header>
+      <plus-dialog-body>
+        <plus-cropper
+          :disabled="disabled"
+          src="/assets/images/panda.jpg"
+        ></plus-cropper>
+      </plus-dialog-body>
+      <plus-dialog-footer>
+        <plus-dialog-toggler>Close</plus-dialog-toggler>
+      </plus-dialog-footer>
+    </plus-dialog-content>
+  </plus-dialog>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        disabled: true
-      };
-    },
-  
-    methods: {
-      change(disabled) {
-        this.disabled = disabled;
-      }
-  
-    }
-  };
+<script setup>
+  import { ref } from "vue";
+  import "@htmlplus/core/dialog-toggler.js";
+  import "@htmlplus/core/dialog-header.js";
+  import "@htmlplus/core/dialog-footer.js";
+  import "@htmlplus/core/dialog-content.js";
+  import "@htmlplus/core/dialog-body.js";
+  import "@htmlplus/core/dialog.js";
+  import "@htmlplus/core/cropper.js";
+  const disabled = ref(true);
+
+  function change(disabled) {
+    disabled.value = disabled;
+  }
 </script>
 
 <style scoped>

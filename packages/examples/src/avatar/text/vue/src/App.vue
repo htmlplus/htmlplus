@@ -1,8 +1,6 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-avatar>      MA</plus-avatar>    
-    </div>  
+  <div class="center">
+    <plus-avatar>MA</plus-avatar>
   </div>
 </template>
 

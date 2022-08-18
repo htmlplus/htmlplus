@@ -1,8 +1,6 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-spinner type="dual-ring"></plus-spinner>    
-    </div>  
+  <div class="center">
+    <plus-spinner type="dual-ring"></plus-spinner>
   </div>
 </template>
 

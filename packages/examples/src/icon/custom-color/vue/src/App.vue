@@ -1,10 +1,8 @@
 <template>
-  <div>  
-    <div class="center">    
-      <plus-icon color="primary">      home</plus-icon>    
-      <plus-icon color="secondary">      home</plus-icon>    
-      <plus-icon color="tertiary">      home</plus-icon>    
-    </div>  
+  <div class="center">
+    <plus-icon color="primary">home</plus-icon>
+    <plus-icon color="secondary">home</plus-icon>
+    <plus-icon color="tertiary">home</plus-icon>
   </div>
 </template>
 

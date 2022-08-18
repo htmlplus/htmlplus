@@ -1,7 +1,5 @@
 <template>
-  <div>  
-    <plus-animation name="fade-in" iterations="Infinity" play></plus-animation>  
-  </div>
+  <plus-animation name="fade-in" iterations="Infinity" play></plus-animation>
 </template>
 
 <style scoped>

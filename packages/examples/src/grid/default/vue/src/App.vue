@@ -1,23 +1,15 @@
 <template>
-  <div>  
-    <plus-grid>    
-      <plus-grid-item xs="12" md="4">      
-        <div>
-          xs=12, md=4
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="12" md="4">      
-        <div>
-          xs=12, md=4
-        </div>      
-      </plus-grid-item>    
-      <plus-grid-item xs="12" md="4">      
-        <div>
-          xs=12, md=4
-        </div>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid>
+    <plus-grid-item xs="12" md="4">
+      <div>xs=12, md=4</div>
+    </plus-grid-item>
+    <plus-grid-item xs="12" md="4">
+      <div>xs=12, md=4</div>
+    </plus-grid-item>
+    <plus-grid-item xs="12" md="4">
+      <div>xs=12, md=4</div>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

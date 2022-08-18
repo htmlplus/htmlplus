@@ -1,6 +1,6 @@
 <template>
-  <div>  
-    <plus-switch checked></plus-switch>  
-  </div>
+  <preview>
+    <plus-switch checked></plus-switch>
+  </preview>
 </template>
 

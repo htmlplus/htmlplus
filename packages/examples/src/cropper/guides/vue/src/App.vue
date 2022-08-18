@@ -1,6 +1,4 @@
 <template>
-  <div>  
-    <plus-cropper guides src="/assets/images/panda.jpg"></plus-cropper>  
-  </div>
+  <plus-cropper guides src="/assets/images/panda.jpg"></plus-cropper>
 </template>
 

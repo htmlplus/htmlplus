@@ -1,8 +1,6 @@
 <template>
-  <div>  
-    <div class="container">    
-      <plus-card></plus-card>    
-    </div>  
+  <div class="container">
+    <plus-card></plus-card>
   </div>
 </template>
 

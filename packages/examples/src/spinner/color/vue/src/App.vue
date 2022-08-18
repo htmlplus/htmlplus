@@ -1,23 +1,21 @@
 <template>
-  <div>  
-    <plus-grid justify-content="evenly">    
-      <plus-grid-item>      
-        <plus-spinner class="spinner-1"></plus-spinner>      
-      </plus-grid-item>    
-      <plus-grid-item>      
-        <plus-spinner class="spinner-2"></plus-spinner>      
-      </plus-grid-item>    
-      <plus-grid-item>      
-        <plus-spinner class="spinner-3"></plus-spinner>      
-      </plus-grid-item>    
-      <plus-grid-item>      
-        <plus-spinner class="spinner-4"></plus-spinner>      
-      </plus-grid-item>    
-      <plus-grid-item>      
-        <plus-spinner class="spinner-5"></plus-spinner>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid justify-content="evenly">
+    <plus-grid-item>
+      <plus-spinner class="spinner-1"></plus-spinner>
+    </plus-grid-item>
+    <plus-grid-item>
+      <plus-spinner class="spinner-2"></plus-spinner>
+    </plus-grid-item>
+    <plus-grid-item>
+      <plus-spinner class="spinner-3"></plus-spinner>
+    </plus-grid-item>
+    <plus-grid-item>
+      <plus-spinner class="spinner-4"></plus-spinner>
+    </plus-grid-item>
+    <plus-grid-item>
+      <plus-spinner class="spinner-5"></plus-spinner>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

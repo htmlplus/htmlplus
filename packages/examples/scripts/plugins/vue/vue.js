@@ -97,12 +97,6 @@ export const vue = (options) => {
 
           const children = [];
 
-          // TODO: check the examples
-          // card             -> default
-          // card             -> tile
-          // counter          -> default
-          // scroll-indecator -> default
-          // tooltip          -> default
           if (element.openingElement.name.name.match(/fragment/)) {
             for (const child of element.children) {
               if (child.type == 'JSXText') continue;
@@ -152,7 +146,11 @@ export const vue = (options) => {
 
       visitor(ast, visitors.script);
 
-      const raw = `<script setup>${print(ast)}</script>`;
+      const printed = print(ast);
+
+      if (!printed) return;
+
+      const raw = `<script setup>${printed}</script>`;
 
       const formatted = format(raw, { parser: 'vue' });
 
@@ -176,7 +174,11 @@ export const vue = (options) => {
 
       visitor(ast, visitors.template);
 
-      let raw = `<template>${print(ast).trim().replace(/\[\[\[/g, '{{').replace(/\]\]\]/g, '}}')}</template>`;
+      const printed = print(ast);
+
+      if (!printed) return;
+
+      let raw = `<template>${printed.trim().replace(/\[\[\[/g, '{{').replace(/\]\]\]/g, '}}')}</template>`;
 
       const formatted = format(raw, { parser: 'vue' });
 

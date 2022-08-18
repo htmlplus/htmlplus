@@ -1,17 +1,15 @@
 <template>
-  <div>  
-    <plus-grid justify-content="evenly" gutter="md">    
-      <plus-grid-item xs="12" sm="auto">      
-        <plus-card class="pink" outlined></plus-card>      
-      </plus-grid-item>    
-      <plus-grid-item xs="12" sm="auto">      
-        <plus-card class="yellow" outlined></plus-card>      
-      </plus-grid-item>    
-      <plus-grid-item xs="12" sm="auto">      
-        <plus-card class="blue" outlined></plus-card>      
-      </plus-grid-item>    
-    </plus-grid>  
-  </div>
+  <plus-grid justify-content="evenly" gutter="md">
+    <plus-grid-item xs="12" sm="auto">
+      <plus-card class="pink" outlined></plus-card>
+    </plus-grid-item>
+    <plus-grid-item xs="12" sm="auto">
+      <plus-card class="yellow" outlined></plus-card>
+    </plus-grid-item>
+    <plus-grid-item xs="12" sm="auto">
+      <plus-card class="blue" outlined></plus-card>
+    </plus-grid-item>
+  </plus-grid>
 </template>
 
 <style scoped>

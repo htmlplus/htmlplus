@@ -20,6 +20,8 @@ You can utilize `{CONSTANTS.PLATFORM_NAME}` simply by adding a simple scirpt in 
 </html>
 ```
 
+<br/>
+
 <Alert type="warning">
   JavaScript modules via script tag just work on modern browsers. It's not compatible with some browsers click [here](https://caniuse.com/es6-module) to check compatibility.
 </Alert>

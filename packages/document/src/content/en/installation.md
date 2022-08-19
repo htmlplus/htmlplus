@@ -1,9 +1,13 @@
 # Overview
 
-Most libraries are designed for one framework, But `{CONSTANTS.PLATFORM_NAME}` supports most frameworks so The installation steps for each Framework are explained Separately. Click on the links below to see the details of the installation flow.
+`{CONSTANTS.PLATFORM_NAME}` supports a large range of javascript frameworks listed below. Choose one of them and flow the instructions. In addition, is gotten familiar with the pros and cons of each.
 
 - [Javascript](/javascript/installation)
 - [React](/react/installation)
+- [React Dedicated](/react-dedicated/installation)
 - [Vue](/vue/installation)
+- [Vue Dedicated](/vue-dedicated/installation)
 
-Click [here](/differences) to leran more about differences between packages.
+<Alert type="info">
+[What are the differences between packages?](/differences)
+</Alert>

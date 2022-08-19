@@ -30,7 +30,7 @@ export const tokens = {
   Playground: () => null,
   a: ({ children, href }: any) => {
     return (
-      <Button to={href} link>
+      <Button to={href} link="underline">
         {children}
       </Button>
     );

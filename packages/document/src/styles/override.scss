@@ -202,3 +202,28 @@ plus-drawer-toggler[connector='main'] {
   margin-left: 20px;
   color: $color-primary;
 }
+
+.alert {
+  border-left: solid 4px currentColor;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  p {
+    margin: 0;
+  }
+  &.type-error {
+    color: #ef5350;
+    background: #ffebee;
+  }
+  &.type-info {
+    color: #29b6f6;
+    background: #e1f5fe;
+  }
+  &.type-success {
+    color: #66bb6a;
+    background: #e8f5e9;
+  }
+  &.type-warning {
+    color: #ffb74d;
+    background: #fff8e1;
+  }
+}

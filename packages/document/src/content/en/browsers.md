@@ -1,7 +1,13 @@
 # Browser Support
 
-`{CONSTANTS.PLATFORM_NAME}` supports the latest, stable releases of all major browsers and platforms, including Chrome, Safari, Firefox, Edge, and Internet Explorer. We provide a small polyfill to help developers who use browsers which don't handle native support. `{CONSTANTS.PLATFORM_NAME}` uses an efficient mechanism that loads the polyfill just only when it's required.
+`{CONSTANTS.PLATFORM_NAME}` supports all modern browsers and platforms, including Chrome, Safari, Firefox, and Edge. Consider it `{CONSTANTS.PLATFORM_NAME}` supports only [JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-#### Full native support
+<br/>
 
 <Browsers version />
+
+<br/>
+
+<Alert type="error">
+    RequireJs is not supported.
+</Alert>

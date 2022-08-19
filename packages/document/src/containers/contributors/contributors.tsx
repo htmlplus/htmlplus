@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+
 import { useRouter } from 'next/router';
 
 import axios from 'axios';
@@ -17,8 +18,8 @@ export const Contributors = () => {
     switch (router.route) {
       case '/[...content]':
         return `${base}packages/document/src/content/en/${(router.query?.content as string[])?.join('/')}.md`;
-      case '/animations':
-        return `${base}packages/document/src/pages/animations.tsx`;
+      case '/component/animation/names':
+        return `${base}packages/document/src/pages/component/animation/names.tsx`;
       case '/[framework]/api/[component]':
         return `${base}packages/core/src/components/${router.query?.component}`;
       case '/[framework]/component/[component]':
@@ -28,16 +29,17 @@ export const Contributors = () => {
 
   useEffect(() => {
     if (!url) return;
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
-        return response
-          .data
+        return response.data
           .map((commit: any) => commit.author?.login)
           .filter((contributor: string, index: number, contributors: string[]) => {
-            return contributor && contributors.indexOf(contributor) === index
-          })
-      }).then(setContributors);
-  }, [url])
+            return contributor && contributors.indexOf(contributor) === index;
+          });
+      })
+      .then(setContributors);
+  }, [url]);
 
   if (!contributors?.length) return null;
 

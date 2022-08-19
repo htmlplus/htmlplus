@@ -2,7 +2,7 @@ import * as CONSTANTS from '@app/constants';
 
 export const ROUTE = {
   HOME: '/',
-  ANIMATIONS: '/animations',
+  ANIMATIONS: '/component/animation/names',
   BIDIRECTIONALITY: '/bidirectionality',
   INTRODUCTION_WHAT: `/introduction/what-is-${CONSTANTS.PLATFORM_KEY}`,
   INTRODUCTION_WHY: `/introduction/why-${CONSTANTS.PLATFORM_KEY}`,

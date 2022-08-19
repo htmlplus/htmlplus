@@ -1,4 +1,4 @@
-import { Alert, Code as CoreCode } from '@app/components';
+import { Alert, Button, Code as CoreCode } from '@app/components';
 import { Api, Browsers, Example, Examples, Toc, Usage } from '@app/containers';
 
 const Code = ({ children, className }: any) => {
@@ -28,6 +28,13 @@ export const tokens = {
   Examples,
   Usage: () => <Usage />,
   Playground: () => null,
+  a: ({ children, href }: any) => {
+    return (
+      <Button to={href} link>
+        {children}
+      </Button>
+    );
+  },
   code: Code,
   pre: Pre,
   h1: (props: any) => <Heading level={1} {...props} />,

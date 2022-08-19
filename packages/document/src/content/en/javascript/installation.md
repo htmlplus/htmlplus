@@ -24,9 +24,9 @@ You can utilize `{CONSTANTS.PLATFORM_NAME}` simply by adding a simple scirpt in 
   JavaScript modules via script tag just work on modern browsers. It's not compatible with some browsers click [here](https://caniuse.com/es6-module) to check compatibility.
 </Alert>
 
-## Properties
+## Attributes
 
-You can use these two examples to set properteis and attributes to web components.
+To set attribute.
 
 ```html
 <plus-switch reverse></plus-switch>
@@ -34,7 +34,9 @@ Or
 <plus-switch reverse="true"></plus-switch>
 ```
 
-All Standard JavaScript APIs are supported. Feel free to use them.
+## Properties
+
+To set property. All Standard JavaScript APIs are supported. Feel free to use them.
 
 ```html
 <plus-switch id="element"></plus-switch>

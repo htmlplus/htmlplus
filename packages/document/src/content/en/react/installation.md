@@ -1,135 +1,65 @@
 # React
 
-To utilize `{CONSTANTS.PLATFORM_NAME}` components in your React application, you can opt for one of these two ways. (Click each title to show more).
+To utilize UI components based on [Standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) in React applications, follow the below steps.
 
-<br/>
+<Alert type="warning">
+  React is not fully compatible with custom elements, check the compatibility [here]({CONSTANTS.WEBCOMPONENT_COMPATIBILITY}).
+</Alert>
 
-<details>
-
-  <summary>
-    Using <code>React</code> library <small>(Recommanded)</small>
-  </summary>
-
-To avoid [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) having problem with non-scalar data we recommand that you use custom events, You can follow these steps.
-
-1- Create React App
-
-With an application built using the [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) script the easiest way to include the component library
-
-2- Install
-
-Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
-
-```shell
-npm install {CONSTANTS.PORT_REACT_PACKAGE_NAME}
-```
-
-3- Usage
-
-Finally you can easily use the web components in your application in this format.
-
-```jsx
-import React from 'react';
-import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
-
-const App = () => <Switch/>;
-
-export default App;
-```
-
-4- Properties
-
-You can use this example to set properteis and attributes to web components.
-
-```jsx
-import React from 'react';
-import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
-
-const App = () => <Switch reverse/>;
-
-export default App;
-```
-
-5- Events
-
-Events should be written in this format.
-
-```jsx
-import React from 'react';
-import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
-
-const App = () => <Switch onChange={() => alert('The switch toggled!')} />;
-
-export default App;
-```
-
- </details>
-
- <br/>
-
-<details>
-
-  <summary>
-    Using <code>Web Components</code> directly
-  </summary>
-
-In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
-
-1- Create React App
+## Create React App
 
 With an application built using the [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) script the easiest way to include the component library.
 
-2- Install
+## Install
 
 Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
 
 ```shell
-npm install {CONSTANTS.PORT_REACT_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 ```
 
-3- Usage
+## Usage
 
 Finally you can easily use the web components in your application in this format.
 
 ```jsx
 import React from 'react';
+import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
 const App = () => <plus-switch/>;
 
 export default App;
 ```
 
-4- Properties
+## Properties
 
 You can use this example to set properteis and attributes to web components.
 
 ```jsx
 import React from 'react';
+import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
 const App = () => <plus-switch reverse/>;
 
 export default App;
 ```
 
-5- Events
+## Events
 
 Events should be written in this format.
 
 ```jsx
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
 const App = () => {
-
   const switchRef = useRef(null);
 
   const callback = () => alert('The switch toggled!');
 
   useEffect(() => {
-
     switchRef.current.addEventListener('plusChange', callback);
-
     return () => switchRef.current.removeEventListener('plusChange', callback);
-
   }, []);
 
   return <plus-switch ref={switchRef}/>
@@ -137,5 +67,3 @@ const App = () => {
 
 export default App;
 ```
-
-</details>

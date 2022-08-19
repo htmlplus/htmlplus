@@ -1,6 +1,6 @@
 # Browser Support
 
-`{CONSTANTS.PLATFORM_NAME}` supports all modern browsers and platforms, including Chrome, Safari, Firefox, and Edge. Consider it `{CONSTANTS.PLATFORM_NAME}` supports only [JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+`{CONSTANTS.PLATFORM_NAME}` supports all modern browsers and platforms, including Chrome, Safari, Firefox, and Edge. Consider `{CONSTANTS.PLATFORM_NAME}` supports only [JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
 <br/>
 

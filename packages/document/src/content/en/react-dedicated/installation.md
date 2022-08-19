@@ -51,4 +51,11 @@ export default App;
 
 ## Pros
 
+- Handles event's callbacks easily.
+- Supports primitive and complex types.
+- No need `{CONSTANTS.PLATFORM_PREFIX}` prefix for the component's name.
+- No need `{CONSTANTS.PLATFORM_PREFIX}` prefix for the event's name.
+
 ## Cons
+
+- Is used dedicated package.

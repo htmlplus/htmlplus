@@ -56,7 +56,13 @@ const App = () => {
   const ref = useRef(null);
 
   useEffect(() => {
-    ref.current.keyframes = [];
+    ref.current.keyframes = [
+      { offset: 0.00, opacity: '1' },
+      { offset: 0.25, opacity: '0' },
+      { offset: 0.50, opacity: '1' },
+      { offset: 0.75, opacity: '0' },
+      { offset: 1.00, opacity: '1' }
+    ];
   }, []);
 
   return <plus-animation name="fade-in" iterations="Infinity" ref={ref} play></plus-animation>

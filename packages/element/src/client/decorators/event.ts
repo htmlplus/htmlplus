@@ -1,3 +1,5 @@
+import { paramCase } from 'change-case';
+
 import { PlusElement } from '../../types/index.js';
 import { defineProperty, dispatch, host } from '../utils/index.js';
 
@@ -28,7 +30,7 @@ export function Event<T = any>(options: EventOptions = {}) {
       get() {
         return (detail?: T): CustomEvent<T> => {
           options.bubbles ??= false;
-          const name = options.name || String(propertyKey);
+          const name = paramCase(options.name || String(propertyKey));
           const event = new CustomEvent(name, { ...options, detail });
           dispatch(host(this), event);
           return event;

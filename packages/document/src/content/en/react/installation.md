@@ -85,8 +85,8 @@ const App = () => {
   const callback = () => alert('The switch toggled!');
 
   useEffect(() => {
-    ref.current.addEventListener('plusChange', callback);
-    return () => ref.current.removeEventListener('plusChange', callback);
+    ref.current.addEventListener('plus-change', callback);
+    return () => ref.current.removeEventListener('plus-change', callback);
   }, []);
 
   return <plus-switch ref={ref}/>

@@ -1,285 +1,74 @@
 # Vue
 
-`{CONSTANTS.PLATFORM_NAME}` web components are fully compatible with Vue framework. To utilize `{CONSTANTS.PLATFORM_NAME}` components in your Vue application, you can opt for one of these 4 ways. (Click each title to show more).
+`{CONSTANTS.PLATFORM_NAME}` web components are fully [compatible](https://custom-elements-everywhere.com/#vue) with Vue framework.
 
-<br/>
+## Install
 
-<details>
-
-<summary>
-  Using <code>dedicated</code> library for <code>Vue 3.x.x</code> <small>(Recommanded)</small>
-</summary>
-
-1- Create Vue App
-
-With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html) script the easiest way to include the component library.
-
-2- Install
-
-Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
-
-```shell
-npm install {CONSTANTS.PORT_VUE_PACKAGE_NAME}
-```
-
-3- Usage
-
-All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
-
-```html
-<template>
-  <plus-switch/>
-  or
-  <PlusSwitch/>
-</template>
-
-<script>
-import { defineComponent } from 'vue';
-import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
-
-export default defineComponent({
-  components: {
-    PlusSwitch
-  }
-})
-</script>
-```
-
-4- Properties
-
-You can use this example to set properteis and attributes to web components.
-
-```html
-<template>
-  <plus-switch reverse/>
-  or
-  <plus-switch :reverse="true"/>
-</template>
-
-<script>
-import { defineComponent } from 'vue';
-import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
-
-export default defineComponent({
-  components: {
-    PlusSwitch
-  }
-})
-</script>
-```
-
-5- Events
-
-Events should be written in this format.
-
-```html
-<template>
-  <plus-switch @change="change"/>
-</template>
-
-<script>
-import { defineComponent } from 'vue';
-import { PlusSwitch } from '{CONSTANTS.PORT_VUE_PACKAGE_NAME}';
-
-export default defineComponent({
-  components: {
-    PlusSwitch
-  },
-  methods: {
-    change: () => alert('The switch toggled!')
-  }
-})
-</script>
-```
-
-</details>
-
-<br/>
-
-<details>
-
-<summary>
-  Using <code>Web Components</code> directly in <code>Vue 3.x.x</code>
-</summary>
-
-In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
-
-1- Create Vue App
-
-With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html) script the easiest way to include the component library.
-
-2- Install
-
-Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
+Install `{CONSTANTS.PLATFORM_NAME}` package into Vue application.
 
 ```shell
 npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 ```
 
-3- Update `vue.config.js` file
+## Update Vue Compiler Options
 
-Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`. The `vue.config.js` would be something like this finally.
+Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`. So, follow the instructions [here](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue).
 
 ```js
-module.exports = {
-  chainWebpack: config => {
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap((options) => {
-        options.compilerOptions = {
-          ...options.compilerOptions,
-          isCustomElement: (tag) => tag.startsWith('{CONSTANTS.PLATFORM_PREFIX}-')
-        }
-        return options
-      })
-  }
+// The compiler options would be something like this.
+compilerOptions: {
+  isCustomElement: (tag) => tag.startsWith('{CONSTANTS.PLATFORM_PREFIX}-')
 }
 ```
 
-4- Usage
+## Usage
 
-All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
+Import the reference of components.
 
 ```html
 <template>
-  <plus-switch/>
+  <plus-switch />
 </template>
+
+<script setup>
+  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+</script>
 ```
 
-5- Properties
+<br/>
 
-You can use this example to set properteis and attributes to web components.
+<Alert type="info">
+All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project.
+</Alert>
+
+## Properties
+
+To use set properties and attributes.
 
 ```html
 <template>
   <plus-switch reverse/>
-  or
-  <plus-switch :reverse="true"/>
-</template>
-```
-
-6- Events
-
-Events should be written in this format.
-
-```html
-<template>
-  <plus-switch @plus-change="change"/>
 </template>
 
-<script>
-export default {
-  methods: {
-    change: () => alert('The switch toggled!')
-  }
-}
+<script setup>
+  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 </script>
 ```
 
-</details>
+## Events
 
-<br/>
-
-<details>
-
-<summary>
-  Using <code>dedicated</code> library for <code>Vue 2.x.x</code>
-</summary>
-
-Dedicated library for Vue 2.x.x is not supported.
-
-</details>
-
-<br/>
-
-<details>
-
-  <summary>
-    Using <code>Web Components</code> directly in <code>Vue 2.x.x</code>
-  </summary>
-
-In this way we use [standard HTML Custom Elements]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly, You can follow these steps.
-
-1- Create Vue App
-
-With an application built using the [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html) script the easiest way to include the component library.
-
-2- Install
-
-Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
-
-```shell
-npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
-```
-
-3- Import
-
-The `main.js` would be something like this finally. Add the given values based on the example in your `main.js` file.
-
-```js
-import Vue from 'vue';
-import App from './App.vue';
-
-// Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`
-Vue.config.ignoredElements = [/{CONSTANTS.PLATFORM_PREFIX}-\w*/];
-
-new Vue({
-  render: h => h(App)
-}).$mount('#app');
-```
-
-4- Usage
-
-All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the vue project. Add below code in the vue's template section and see the result.
+To handle event's callback.
 
 ```html
 <template>
-  <plus-switch/>
-</template>
-```
-
-5- Properties
-
-You can use this example to set properteis and attributes to web components.
-
-```html
-<template>
-  <plus-switch reverse/>
-  or
-  <plus-switch :reverse="true"/>
-</template>
-```
-
-6- Events
-
-Events should be written in this format.
-
-```html
-<template>
-  <plus-switch @plusChange="change"/>
+  <plus-switch @plus-change="onChange" />
 </template>
 
-<script>
-export default {
-  methods: {
-    change: () => alert('The switch toggled!')
+<script setup>
+  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+
+  function onChange() {
+    alert('The switch toggled!')
   }
-}
 </script>
 ```
-
-</details>
-
-<br/>
-
-## Compare
-
-What are the differences between the 4 ways ?
-
-| Type                                                                   | Event Prefix | Support v-model |
-| ---------------------------------------------------------------------- | ------------ | --------------- |
-| Using `dedicated` library for `Vue 3.x.x` <small>(Recommanded)</small> | No           | Yes             |
-| Using `Web Components` directly in `Vue 3.x.x`                         | Yes          | No              |
-| Using `dedicated` library for `Vue 2.x.x`                              | N/A          | N/A             |
-| Using `Web Components` directly in `Vue 2.x.x`                         | Yes          | No              |

@@ -15,7 +15,6 @@ npm install {CONSTANTS.PORT_REACT_PACKAGE_NAME}
 Import the reference of components.
 
 ```jsx
-import React from 'react';
 import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch/>;
@@ -25,10 +24,9 @@ export default App;
 
 ## Properties
 
-To use set properteis and attributes.
+To use set properties and attributes.
 
 ```jsx
-import React from 'react';
 import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch reverse/>;
@@ -41,7 +39,6 @@ export default App;
 To handle event's callback.
 
 ```jsx
-import React from 'react';
 import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
 const App = () => <Switch onChange={() => alert('The switch toggled!')} />;

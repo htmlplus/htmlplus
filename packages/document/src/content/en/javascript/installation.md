@@ -32,8 +32,6 @@ To set attribute.
 
 ```html
 <plus-switch reverse></plus-switch>
-Or
-<plus-switch reverse="true"></plus-switch>
 ```
 
 ## Properties
@@ -54,8 +52,8 @@ To add event to components you can use this format.
 ```html
 <plus-switch id="element"></plus-switch>
 <script>
-  element.addEventListener('plusChange', () => {
-    alert('The plusChange event fired!');
+  element.addEventListener('plus-change', () => {
+    alert('The event fired!');
   })
 </script>
 ```

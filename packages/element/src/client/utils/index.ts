@@ -1,5 +1,6 @@
 export * from './appendToMethod.js';
 export * from './call.js';
+export * from './config.js';
 export * from './defineProperty.js';
 export * from './event.js';
 export * from './getMembers.js';

@@ -4,7 +4,7 @@
     <title>HTMLPLUS | Core</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="/components.underdevelopment/index.ts"></script>
+    <script type="module" src="/components/index.ts"></script>
   </head>
   <body>
     <!-- idle      -> running
@@ -23,8 +23,8 @@ paused    -> stopped
 stopped   -> running 
 stopped   -> completed  -->
     <div class="center">
-      <plus-counter id="counter" from="5000" to="100000" duration="5000" play></plus-counter>
-      <plus-counter id="counter1" from="5000" to="100000" duration="5000"></plus-counter>
+      <plus-counter id="counter" from="5000" to="100000" duration="2000" play></plus-counter>
+      <plus-counter id="counter1" from="5000" to="100000" duration="2000"></plus-counter>
       <br />
       <br />
       <button id="button1">Start</button>
@@ -45,6 +45,8 @@ stopped   -> completed  -->
       button4.addEventListener('click', () => {
         counter1.complete()
       });
+      counter.addEventListener('plusComplete', (e) => console.log('plusComplete', e))
+      counter.addEventListener('plus-complete', (e) => console.log('plus-complete', e))
     </script>
   </body>
 </html>

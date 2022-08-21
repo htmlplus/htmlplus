@@ -1,7 +1,9 @@
+import { getConfig } from './config.js';
+
 type Target = Window | Document | Element;
 
 export const dispatch = (target: Target, event: Event): boolean => {
-  return target.dispatchEvent(event);
+  return getConfig().event?.dispatch?.(target, event) || target.dispatchEvent(event);
 }
 
 export const on = (

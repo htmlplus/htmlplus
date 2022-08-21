@@ -1,5 +1,6 @@
 import t from '@babel/types';
 import { capitalCase } from 'change-case';
+import fs from 'fs';
 import prettier from 'prettier';
 
 export const format = (source, options = {}) => {
@@ -12,11 +13,15 @@ export const format = (source, options = {}) => {
         quoteProps: 'consistent',
         singleQuote: true,
         trailingComma: 'none',
-        vueIndentScriptAndStyle: true,
+        vueIndentScriptAndStyle: true
       },
       options
     )
   );
+};
+
+export const formatFile = (file, options = {}) => {
+  fs.writeFileSync(file, format(fs.readFileSync(file, 'utf8'), options), 'utf8');
 };
 
 export const getSnippet = (context, key) => {
@@ -76,7 +81,7 @@ export const scoped = (styles, className) => {
     }
     if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
     return styles;
-  } catch { }
+  } catch {}
 };
 
 export const toFile = (node) => {

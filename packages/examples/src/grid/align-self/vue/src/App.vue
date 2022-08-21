@@ -25,4 +25,3 @@
     text-align: center;
   }
 </style>
-

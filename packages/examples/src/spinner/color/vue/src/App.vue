@@ -25,4 +25,3 @@
   .spinner-4 { --plus-spinner-color: #ffc903 }
   .spinner-5 { --plus-spinner-color: #9073c1 }
 </style>
-

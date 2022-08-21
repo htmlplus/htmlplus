@@ -33,4 +33,3 @@
     </plus-tabs-panels>
   </plus-tabs>
 </template>
-

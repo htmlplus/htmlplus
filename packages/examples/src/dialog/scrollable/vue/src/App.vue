@@ -153,4 +153,3 @@
     text-align: center;
   }
 </style>
-

@@ -1,4 +1,6 @@
-<template><plus-card outlined></plus-card></template>
+<template>
+  <plus-card outlined></plus-card>
+</template>
 
 <style scoped>
   plus-card {
@@ -7,4 +9,3 @@
     margin: auto;
   }
 </style>
-

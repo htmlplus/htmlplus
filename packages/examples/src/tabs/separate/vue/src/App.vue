@@ -37,4 +37,3 @@
     </plus-tabs-panels>
   </section>
 </template>
-

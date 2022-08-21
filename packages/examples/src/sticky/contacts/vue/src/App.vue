@@ -31,4 +31,3 @@
     padding: 0.5rem 1.0rem;
   }
 </style>
-

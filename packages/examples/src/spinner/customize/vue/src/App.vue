@@ -14,4 +14,3 @@
     --plus-spinner-color: purple;
   }
 </style>
-

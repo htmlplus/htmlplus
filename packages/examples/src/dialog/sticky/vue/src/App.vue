@@ -19,4 +19,3 @@
     text-align: center;
   }
 </style>
-

@@ -32,4 +32,3 @@
     text-align: center;
   }
 </style>
-

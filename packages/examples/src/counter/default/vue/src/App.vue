@@ -24,4 +24,3 @@
     margin: 1rem 0.5rem;
   }
 </style>
-

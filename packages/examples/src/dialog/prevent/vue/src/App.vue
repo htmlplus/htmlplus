@@ -42,4 +42,3 @@
     text-align: center;
   }
 </style>
-

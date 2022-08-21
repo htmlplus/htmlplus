@@ -108,4 +108,3 @@
     --plus-cropper-viewport-style: dashed;
   }
 </style>
-

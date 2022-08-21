@@ -4,7 +4,7 @@ import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { format, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
+import { formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -146,43 +146,22 @@ export const vue = (options) => {
 
       visitor(ast, visitors.script);
 
-      const printed = print(ast);
-
-      if (!printed) return;
-
-      const raw = `<script setup>${printed}</script>`;
-
-      const formatted = format(raw, { parser: 'vue' });
-
-      return formatted;
+      return print(ast);
     })();
 
     const style = (() => {
-      const content = getSnippet(context, 'style')?.content;
-
-      if (!content) return;
-
-      const raw = `<style scoped>${content}</style>`;
-
-      const formatted = format(raw, { parser: 'vue' });
-
-      return formatted;
-    })()
+      return getSnippet(context, 'style')?.content;
+    })();
 
     const template = (() => {
       const ast = t.cloneNode(toFile(context.classRender), true);
 
       visitor(ast, visitors.template);
 
-      const printed = print(ast);
-
-      if (!printed) return;
-
-      let raw = `<template>${printed.trim().replace(/\[\[\[/g, '{{').replace(/\]\]\]/g, '}}')}</template>`;
-
-      const formatted = format(raw, { parser: 'vue' });
-
-      return formatted;
+      return print(ast)
+        ?.trim()
+        ?.replace(/\[\[\[/g, '{{')
+        ?.replace(/\]\]\]/g, '}}');
     })();
 
     const title = getTitle(context);
@@ -201,10 +180,13 @@ export const vue = (options) => {
       script,
       style,
       template,
-      title,
+      title
     };
 
     renderTemplate(patterns, destination, config)(model);
+
+    // TODO
+    formatFile(path.join(destination, 'src', 'App.vue'), { parser: 'vue' });
 
     return model;
   };

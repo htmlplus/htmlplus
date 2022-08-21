@@ -5,4 +5,3 @@
   <br />
   <plus-divider placement="end">End</plus-divider>
 </template>
-

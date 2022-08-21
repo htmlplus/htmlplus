@@ -32,4 +32,3 @@
     margin: auto;
   }
 </style>
-

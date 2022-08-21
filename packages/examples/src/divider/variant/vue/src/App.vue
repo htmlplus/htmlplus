@@ -5,4 +5,3 @@
   <br />
   <plus-divider variant="full"></plus-divider>
 </template>
-

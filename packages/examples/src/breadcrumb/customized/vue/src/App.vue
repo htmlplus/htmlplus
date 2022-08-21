@@ -37,4 +37,3 @@
     width: 0.75em;
   }
 </style>
-

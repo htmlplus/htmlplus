@@ -28,4 +28,3 @@
     --plus-card-border-color: #80cbc4;
   }
 </style>
-

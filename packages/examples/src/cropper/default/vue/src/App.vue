@@ -1,4 +1,3 @@
 <template>
   <plus-cropper src="/assets/images/panda.jpg"></plus-cropper>
 </template>
-

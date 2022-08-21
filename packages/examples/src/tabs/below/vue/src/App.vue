@@ -33,4 +33,3 @@
     </plus-tabs-bar>
   </plus-tabs>
 </template>
-

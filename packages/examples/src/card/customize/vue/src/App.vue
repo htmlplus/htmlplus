@@ -1,4 +1,6 @@
-<template><plus-card elevation="12" outlined></plus-card></template>
+<template>
+  <plus-card elevation="12" outlined></plus-card>
+</template>
 
 <style scoped>
   plus-card {
@@ -11,4 +13,3 @@
     margin: auto;
   }
 </style>
-

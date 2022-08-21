@@ -18,4 +18,3 @@
     height: 18rem;
   }
 </style>
-

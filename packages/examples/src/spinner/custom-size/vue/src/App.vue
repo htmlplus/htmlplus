@@ -23,4 +23,3 @@
     --plus-spinner-size: 72px;
   }
 </style>
-

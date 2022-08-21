@@ -34,4 +34,3 @@
     max-width: 20rem;
   }
 </style>
-

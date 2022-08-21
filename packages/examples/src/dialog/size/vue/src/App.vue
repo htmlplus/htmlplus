@@ -53,4 +53,3 @@
     text-align: center;
   }
 </style>
-

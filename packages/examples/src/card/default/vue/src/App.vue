@@ -15,4 +15,3 @@
     margin: auto;
   }
 </style>
-

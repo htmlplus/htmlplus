@@ -11,4 +11,3 @@
     text-align: center;
   }
 </style>
-

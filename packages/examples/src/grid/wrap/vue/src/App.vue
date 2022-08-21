@@ -24,4 +24,3 @@
     text-align: center;
   }
 </style>
-

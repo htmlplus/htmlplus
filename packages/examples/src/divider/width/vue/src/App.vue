@@ -5,4 +5,3 @@
   <br />
   <plus-divider Width="thick"></plus-divider>
 </template>
-

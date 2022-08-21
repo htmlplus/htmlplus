@@ -3,4 +3,3 @@
     <plus-switch></plus-switch>
   </preview>
 </template>
-

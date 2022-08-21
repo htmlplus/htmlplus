@@ -6,4 +6,3 @@
     </plus-switch>
   </preview>
 </template>
-

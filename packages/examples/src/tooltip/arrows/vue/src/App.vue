@@ -24,4 +24,3 @@
     <plus-tooltip placement="top" arrow="narrow">Tooltip</plus-tooltip>
   </button>
 </template>
-

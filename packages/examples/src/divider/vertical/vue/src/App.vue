@@ -19,4 +19,3 @@
     </plus-grid-item>
   </plus-grid>
 </template>
-

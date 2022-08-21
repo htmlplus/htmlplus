@@ -44,4 +44,3 @@
     text-align: center;
   }
 </style>
-

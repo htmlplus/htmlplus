@@ -14,6 +14,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/breadcrumb.js';
+</script>
+
 <style scoped>
   .center {
     text-align: center;

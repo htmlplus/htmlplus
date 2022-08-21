@@ -132,6 +132,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/scroll-indicator.js';
+</script>
+
 <style scoped>
   .container {
     position: relative;

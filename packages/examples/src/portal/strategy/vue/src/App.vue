@@ -40,6 +40,11 @@
   </plus-card>
 </template>
 
+<script setup>
+  import '@htmlplus/core/portal.js';
+  import '@htmlplus/core/card.js';
+</script>
+
 <style scoped>
   .title {
     color: deeppink;

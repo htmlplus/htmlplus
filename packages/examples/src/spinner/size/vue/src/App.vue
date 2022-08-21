@@ -11,3 +11,9 @@
     </plus-grid-item>
   </plus-grid>
 </template>
+
+<script setup>
+  import '@htmlplus/core/spinner.js';
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+</script>

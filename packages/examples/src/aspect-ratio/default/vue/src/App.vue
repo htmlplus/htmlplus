@@ -6,6 +6,11 @@
   </plus-aspect-ratio>
 </template>
 
+<script setup>
+  import '@htmlplus/core/card.js';
+  import '@htmlplus/core/aspect-ratio.js';
+</script>
+
 <style scoped>
   plus-card {
     --plus-card-background-color: #c5cae9;

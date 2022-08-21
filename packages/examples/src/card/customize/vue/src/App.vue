@@ -2,6 +2,10 @@
   <plus-card elevation="12" outlined></plus-card>
 </template>
 
+<script setup>
+  import '@htmlplus/core/card.js';
+</script>
+
 <style scoped>
   plus-card {
     --plus-card-border-radius: 3rem 0;

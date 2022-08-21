@@ -13,6 +13,12 @@
   </plus-grid>
 </template>
 
+<script setup>
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+  import '@htmlplus/core/cropper.js';
+</script>
+
 <style scoped>
   plus-cropper {
     height: 18rem;

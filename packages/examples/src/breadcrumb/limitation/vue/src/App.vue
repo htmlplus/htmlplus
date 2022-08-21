@@ -37,6 +37,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/breadcrumb.js';
+</script>
+
 <style scoped>
   .container {
     text-align: center;

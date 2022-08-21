@@ -7,6 +7,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/tooltip.js';
+</script>
+
 <style scoped>
   .center {
     text-align: center;

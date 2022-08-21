@@ -20,6 +20,12 @@
   </plus-grid>
 </template>
 
+<script setup>
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+  import '@htmlplus/core/divider.js';
+</script>
+
 <style scoped>
   plus-divider {
     --plus-divider-color: #5f9ee9;

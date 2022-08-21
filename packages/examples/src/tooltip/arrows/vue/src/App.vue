@@ -24,3 +24,7 @@
     <plus-tooltip placement="top" arrow="narrow">Tooltip</plus-tooltip>
   </button>
 </template>
+
+<script setup>
+  import '@htmlplus/core/tooltip.js';
+</script>

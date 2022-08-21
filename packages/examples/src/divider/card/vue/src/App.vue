@@ -12,6 +12,11 @@
   </plus-card>
 </template>
 
+<script setup>
+  import '@htmlplus/core/divider.js';
+  import '@htmlplus/core/card.js';
+</script>
+
 <style scoped>
   plus-card {
     padding: 0 1rem;

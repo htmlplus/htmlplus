@@ -15,6 +15,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/sticky.js';
+</script>
+
 <style scoped>
   .container {
     height: 20rem;

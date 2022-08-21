@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/card.js';
+</script>
+
 <style scoped>
   .container {
     padding: 2rem 0;

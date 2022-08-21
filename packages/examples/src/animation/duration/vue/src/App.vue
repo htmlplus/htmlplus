@@ -7,6 +7,10 @@
   ></plus-animation>
 </template>
 
+<script setup>
+  import '@htmlplus/core/animation.js';
+</script>
+
 <style scoped>
   plus-animation {
     background: lightgray;

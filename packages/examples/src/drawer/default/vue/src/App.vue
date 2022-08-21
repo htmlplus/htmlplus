@@ -15,6 +15,14 @@
   </plus-grid>
 </template>
 
+<script setup>
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+  import '@htmlplus/core/drawer-toggler.js';
+  import '@htmlplus/core/drawer.js';
+  import '@htmlplus/core/card.js';
+</script>
+
 <style scoped>
   plus-card {
     --plus-card-background-color: #e0e0e0;

@@ -12,6 +12,10 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/portal.js';
+</script>
+
 <style scoped>
   #target {
     color: blue;

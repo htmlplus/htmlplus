@@ -12,6 +12,10 @@
   </plus-breadcrumb>
 </template>
 
+<script setup>
+  import '@htmlplus/core/breadcrumb.js';
+</script>
+
 <style scoped>
   plus-breadcrumb {
     --plus-breadcrumb-gutter-x: 0.75em;

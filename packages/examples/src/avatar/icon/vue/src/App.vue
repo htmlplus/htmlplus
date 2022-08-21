@@ -6,6 +6,11 @@
   </div>
 </template>
 
+<script setup>
+  import '@htmlplus/core/icon.js';
+  import '@htmlplus/core/avatar.js';
+</script>
+
 <style scoped>
   .center {
     text-align: center;

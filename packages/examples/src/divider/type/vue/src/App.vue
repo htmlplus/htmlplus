@@ -5,3 +5,7 @@
   <br />
   <plus-divider type="dotted"></plus-divider>
 </template>
+
+<script setup>
+  import '@htmlplus/core/divider.js';
+</script>

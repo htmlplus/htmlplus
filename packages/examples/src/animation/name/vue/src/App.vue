@@ -17,6 +17,12 @@
   </plus-grid>
 </template>
 
+<script setup>
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+  import '@htmlplus/core/animation.js';
+</script>
+
 <style scoped>
   plus-animation {
     background: lightgray;

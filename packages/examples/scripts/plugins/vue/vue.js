@@ -18,12 +18,6 @@ export const vue = (options) => {
 
           if (!body.body.length) return path.remove();
 
-          context.customElementNames
-            .map((name) => options?.componentRefrence(name))
-            .forEach((dependency) => {
-              return body.body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
-            });
-
           if (context.classStates.length)
             body.body.unshift(
               t.importDeclaration([t.importSpecifier(t.identifier('ref'), t.identifier('ref'))], t.stringLiteral('vue'))
@@ -81,6 +75,14 @@ export const vue = (options) => {
           } else {
             path.replaceWith(property);
           }
+        },
+        Program(path) {
+          const { body } = path.node;
+          context.customElementNames
+            .map((name) => options?.componentRefrence(name))
+            .forEach((dependency) => {
+              return body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
+            });
         }
       },
       template: {

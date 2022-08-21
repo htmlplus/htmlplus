@@ -5,3 +5,7 @@
   <br />
   <plus-divider variant="full"></plus-divider>
 </template>
+
+<script setup>
+  import '@htmlplus/core/divider.js';
+</script>

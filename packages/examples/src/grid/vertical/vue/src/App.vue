@@ -12,6 +12,11 @@
   </plus-grid>
 </template>
 
+<script setup>
+  import '@htmlplus/core/grid-item.js';
+  import '@htmlplus/core/grid.js';
+</script>
+
 <style scoped>
   plus-grid {
     height: 12rem;

@@ -27,7 +27,6 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
   import '@htmlplus/core/grid-item.js';
   import '@htmlplus/core/grid.js';
   import '@htmlplus/core/dialog-header.js';
@@ -35,6 +34,7 @@
   import '@htmlplus/core/dialog-content.js';
   import '@htmlplus/core/dialog-body.js';
   import '@htmlplus/core/dialog.js';
+  import { ref } from 'vue';
   const open = ref(false);
   const size = ref('md');
 

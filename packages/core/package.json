@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/core",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "license": "",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "HTMLPlus UI Components",
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/htmlplus/core#readme",
   "devDependencies": {
-    "@htmlplus/element": "latest",
+    "@htmlplus/element": "0.4.2",
     "@popperjs/core": "^2.11.5",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",

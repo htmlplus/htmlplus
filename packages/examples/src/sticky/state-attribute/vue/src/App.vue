@@ -130,10 +130,10 @@
     padding: 1rem;
     text-align: justify;
   }
-  plus-sticky[state="normal"] {
+  plus-sticky[state='normal'] {
     background-color: gold;
   }
-  plus-sticky[state="sticky"] {
+  plus-sticky[state='sticky'] {
     background-color: greenyellow;
   }
 </style>

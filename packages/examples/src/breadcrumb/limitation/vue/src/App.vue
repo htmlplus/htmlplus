@@ -40,7 +40,7 @@
 <style scoped>
   .container {
     text-align: center;
-    margin: 0.75em
+    margin: 0.75em;
   }
   plus-breadcrumb {
     display: inline-block;

@@ -27,7 +27,7 @@
 </template>
 
 <style scoped>
-  plus-cropper[shape="rectangle"] {
+  plus-cropper[shape='rectangle'] {
     height: 100%;
   }
 </style>

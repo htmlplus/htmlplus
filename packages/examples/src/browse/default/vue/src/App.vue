@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  import "@htmlplus/core/browse.js";
+  import '@htmlplus/core/browse.js';
 
   function onChange(event) {
     const name = event.detail.files[0].file.name;
@@ -20,7 +20,7 @@
     padding: 3rem;
     text-align: center;
   }
-  plus-browse[dragging]:not([dragging=false]) {
+  plus-browse[dragging]:not([dragging='false']) {
     border-color: #0087f7;
   }
 </style>

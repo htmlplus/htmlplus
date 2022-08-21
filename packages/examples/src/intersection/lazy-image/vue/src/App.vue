@@ -14,9 +14,9 @@
 </template>
 
 <script setup>
-  import "@htmlplus/core/spinner.js";
-  import "@htmlplus/core/intersection.js";
-  import "@htmlplus/core/card.js";
+  import '@htmlplus/core/spinner.js';
+  import '@htmlplus/core/intersection.js';
+  import '@htmlplus/core/card.js';
 
   function onChange(event) {
     if (!event.detail.isIntersecting) return;

@@ -17,12 +17,12 @@
 
 <style scoped>
   plus-card {
-    --plus-card-background-color: #E0E0E0;
+    --plus-card-background-color: #e0e0e0;
     padding: 10rem 0;
     text-align: center;
   }
   plus-drawer plus-card {
-    --plus-card-background-color: #AACAFF;
+    --plus-card-background-color: #aacaff;
     margin-right: 0.5rem;
   }
 </style>

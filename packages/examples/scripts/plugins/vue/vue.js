@@ -4,7 +4,7 @@ import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -146,11 +146,19 @@ export const vue = (options) => {
 
       visitor(ast, visitors.script);
 
-      return print(ast);
+      const content = print(ast);
+
+      if (!content) return;
+
+      return format(content, { parser: 'babel' });
     })();
 
     const style = (() => {
-      return getSnippet(context, 'style')?.content;
+      const content = getSnippet(context, 'style')?.content;
+
+      if (!content) return;
+
+      return format(content, { parser: 'css' });
     })();
 
     const template = (() => {
@@ -158,10 +166,14 @@ export const vue = (options) => {
 
       visitor(ast, visitors.template);
 
-      return print(ast)
+      const content = print(ast)
         ?.trim()
         ?.replace(/\[\[\[/g, '{{')
         ?.replace(/\]\]\]/g, '}}');
+
+      if (!content) return;
+
+      return format(content, { parser: 'html' });
     })();
 
     const title = getTitle(context);

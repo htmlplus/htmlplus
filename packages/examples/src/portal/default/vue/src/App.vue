@@ -13,6 +13,10 @@
 </template>
 
 <style scoped>
-  #target { color: blue }
-  #source { color: red  }
+  #target {
+    color: blue;
+  }
+  #source {
+    color: red;
+  }
 </style>

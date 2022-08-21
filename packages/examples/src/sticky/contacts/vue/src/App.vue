@@ -28,6 +28,6 @@
   }
   plus-sticky {
     background-color: lightgray;
-    padding: 0.5rem 1.0rem;
+    padding: 0.5rem 1rem;
   }
 </style>

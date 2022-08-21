@@ -11,9 +11,9 @@
 </template>
 
 <script setup>
-  import { ref } from "vue";
-  import "@htmlplus/core/card.js";
-  const elevation = ref("12");
+  import { ref } from 'vue';
+  import '@htmlplus/core/card.js';
+  const elevation = ref('12');
 
   function onChange(event) {
     elevation.value = event.target.value;
@@ -26,7 +26,7 @@
     width: 12rem;
     margin: auto;
   }
-  input[type="range"] {
+  input[type='range'] {
     display: block;
     width: 12rem;
     margin: auto;

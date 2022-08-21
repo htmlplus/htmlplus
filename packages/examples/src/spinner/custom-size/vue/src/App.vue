@@ -13,13 +13,13 @@
 </template>
 
 <style scoped>
-  plus-spinner[size=sm] {
+  plus-spinner[size='sm'] {
     --plus-spinner-size: 24px;
   }
-  plus-spinner[size=md] {
+  plus-spinner[size='md'] {
     --plus-spinner-size: 48px;
   }
-  plus-spinner[size=lg] {
+  plus-spinner[size='lg'] {
     --plus-spinner-size: 72px;
   }
 </style>

@@ -13,13 +13,13 @@
   plus-icon {
     margin: 0 1rem;
   }
-  [color="primary"] {
-    color: #FF5449;
+  [color='primary'] {
+    color: #ff5449;
   }
-  [color="secondary"] {
-    color: #08DFC8;
+  [color='secondary'] {
+    color: #08dfc8;
   }
-  [color="tertiary"] {
-    color: #5F9EE9;
+  [color='tertiary'] {
+    color: #5f9ee9;
   }
 </style>

@@ -46,9 +46,19 @@
     width: 40.625%;
     float: right;
   }
-  .one   { background: #08DFC8 }
-  .two   { background: #FF5449 }
-  .three { background: #5F9EE9 }
-  .four  { background: #FFC903 }
-  .five  { background: #9073C1 }
+  .one {
+    background: #08dfc8;
+  }
+  .two {
+    background: #ff5449;
+  }
+  .three {
+    background: #5f9ee9;
+  }
+  .four {
+    background: #ffc903;
+  }
+  .five {
+    background: #9073c1;
+  }
 </style>

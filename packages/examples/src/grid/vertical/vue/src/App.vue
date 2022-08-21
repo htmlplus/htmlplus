@@ -17,9 +17,9 @@
     height: 12rem;
   }
   plus-grid div {
-    color: #00BCD4;
-    border: 1px solid #FFFFFF;
-    background-color: #E0F7FA;
+    color: #00bcd4;
+    border: 1px solid #ffffff;
+    background-color: #e0f7fa;
     height: 100%;
     padding: 0.5em;
     text-align: center;

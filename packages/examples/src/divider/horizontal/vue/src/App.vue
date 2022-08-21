@@ -1,7 +1,4 @@
-<template>
-  <plus-divider></plus-divider>
-  <plus-divider></plus-divider>
-</template>
+<template><plus-divider></plus-divider> <plus-divider></plus-divider></template>
 
 <style scoped>
   plus-divider {

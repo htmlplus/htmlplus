@@ -56,14 +56,14 @@ export class Switch {
 
   render() {
     return (
-      <div class="root" part="on">
-        <div class="slot on" part="on">
+      <div class="root" part="root">
+        <div class="slot on" part="slot on">
           <slot name="on" />
         </div>
         <div class="handle" part="handle">
           <slot name="handle" />
         </div>
-        <div class="slot off" part="off">
+        <div class="slot off" part="slot off">
           <slot name="off" />
         </div>
       </div>

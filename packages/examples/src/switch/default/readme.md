@@ -1,5 +1,11 @@
+```css [style]
+.center {
+  text-align: center;
+}
+```
+
 ```html [template]
-<preview>
+<div class="center">
   <plus-switch></plus-switch>
-</preview>
+</div>
 ```

@@ -1,8 +1,11 @@
+```css [style]
+.center {
+  text-align: center;
+}
+```
+
 ```html [template]
-<preview>
-  <plus-switch checked disabled>
-    <span slot="on">Yes</span>
-    <span slot="off">No</span>
-  </plus-switch>
-</preview>
+<div class="center">
+  <plus-switch disabled></plus-switch>
+</div>
 ```

@@ -1,0 +1,79 @@
+```css [style]
+/*
+ * switch-1
+ */
+
+.switch-1[aria-checked='false']  {
+  background: #28292c;
+}
+
+.switch-1[aria-checked='false']::part(handle) {
+  background: #28292c;
+  box-shadow: inset calc(1.25em *  0.35) calc(1.25em * -0.075) 0 0 #d8dbe0;
+}
+
+.switch-1[aria-checked='true'] {
+  background: #d8dbe0;
+}
+
+.switch-1[aria-checked='true']::part(handle) {
+  background: #28292c;
+  box-shadow: none;
+}
+
+/*
+ * switch-2
+ */
+
+.switch-2 {
+  border-radius: 2px;
+  background: #ebf7fc;
+  transition: 0.6s ease all;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.switch-2[aria-checked]:not([aria-checked='false']) {
+  background: #fcebeb;
+}
+
+.switch-2::part(handle) {
+  background: #03a9f4;
+  transform: translateY(-50%) rotateY(-000deg);
+  transform-origin: 0% 50%;
+}
+
+.switch-2[aria-checked]:not([aria-checked='false'])::part(handle) {
+  background-color: #f44336;
+  transform: translateY(-50%) rotateY(-180deg);
+}
+
+.switch-2::part(root) {
+  perspective: 70px;
+}
+
+.switch-2::part(slot) {
+  opacity: 1;
+  color: #4e4e4e;
+  font-size: 0.625em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+
+.switch-2::part(on)::before {
+  content: "YES";
+  left: 0.25em;
+}
+
+.switch-2::part(off)::before {
+  content: "NO";
+  right: 0.25em;
+}
+```
+
+```html [template]
+<div>
+  <plus-switch class="switch-1"></plus-switch>
+  <plus-switch class="switch-2"></plus-switch>
+</div>
+```

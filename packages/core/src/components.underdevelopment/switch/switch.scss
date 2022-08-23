@@ -1,20 +1,9 @@
-:host {
-  --plus-switch-width: 3em;
-  --plus-switch-height: 1.5em;
-  --plus-switch-background: lightgray;
-  --plus-switch-transition: 0.3s;
-  --plus-switch-handle-background: white;
-  --plus-switch-handle-width: 1.25em;
-  --plus-switch-handle-height: 1.25em;
-  --plus-switch-handle-offset: 0.125em;
-  --plus-switch-on-padding: 0 0 0 0.5em;
-  --plus-switch-off-padding: 0 0.5em 0 0;
-}
+@import 'switch.variables';
 
 :host {
-  width: var(--plus-switch-width);
-  height: var(--plus-switch-height);
-  background: var(--plus-switch-background);
+  height: $switch-height;
+  width: $switch-width;
+  transition: $switch-transition;
   border-radius: 1.5em;
   cursor: pointer;
   display: inline-block;
@@ -26,26 +15,25 @@
   opacity: 0.5;
 }
 
-*,
-:host {
-  transition: var(--plus-switch-transition);
+* {
+  transition: inherit;
 }
 
 .root {
-  display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  user-select: none;
-  position: relative;
-  justify-content: space-between;
-  height: 100%;
   border-radius: inherit;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  user-select: none;
 }
 
 .handle {
-  width: var(--plus-switch-handle-width);
-  height: var(--plus-switch-handle-height);
-  background: var(--plus-switch-handle-background);
+  width: $switch-handle-width;
+  height: $switch-handle-height;
+  background: white;
   border-radius: inherit;
   position: absolute;
   top: 50%;
@@ -59,20 +47,21 @@
 }
 
 .off {
-  padding: var(--plus-switch-off-padding);
+  padding: $switch-off-padding;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 .on {
-  padding: var(--plus-switch-on-padding);
+  padding: $switch-on-padding;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-:host([aria-checked='false']) {
+:host {
+  background: lightgray;
   .handle {
-    transform: translate(calc(var(--plus-switch-width) / -2 + var(--plus-switch-handle-offset)), -50%);
+    transform: translate(calc($switch-width / -2 + $switch-handle-offset - 000%), -50%);
   }
   .on {
     opacity: 0;
@@ -82,10 +71,10 @@
   }
 }
 
-:host([aria-checked='true']) {
+:host(#{boolean(aria-checked)}) {
   background-color: #2196f3;
   .handle {
-    transform: translate(calc(var(--plus-switch-width) / +2 - var(--plus-switch-handle-offset) - 100%), -50%);
+    transform: translate(calc($switch-width / +2 - $switch-handle-offset - 100%), -50%);
   }
   .on {
     opacity: 1;

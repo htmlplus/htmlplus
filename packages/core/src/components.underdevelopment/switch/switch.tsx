@@ -13,13 +13,7 @@ export class Switch {
    * Disables the switch.
    */
   @Property({ reflect: true })
-  disabled?: boolean; 
-
-  /**
-   * Switches the location of yes and no options.
-   */
-  @Property({ reflect: true })
-  reverse?: boolean;
+  disabled?: boolean;
 
   /**
    * When the switch state is changed this event triggers.
@@ -41,6 +35,7 @@ export class Switch {
   }
 
   toggle() {
+    if (this.disabled) return;
     const { defaultPrevented } = this.plusChange();
     if (defaultPrevented) return;
     this.checked = !this.checked;
@@ -49,7 +44,6 @@ export class Switch {
   @Bind()
   onClick(event) {
     event.preventDefault();
-    if (this.disabled) return;
     this.toggle();
   }
 

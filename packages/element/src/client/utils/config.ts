@@ -1,14 +1,29 @@
 // TODO
 
+// setConfig({
+//   event: {
+//     emit() {
+
+//     },
+//     rename(name) {
+//       return name;
+//     }
+//   },
+//   components: {
+//     dialog: {
+//       property: {
+//         placement: 'center'
+//       }
+//     }
+//   }
+// })
+
 interface Options {
-  event?: OptionsEvent;
+  event?: {
+    // emit?: () => void;
+    rename?: (name: string) => string;
+  };
 }
-
-interface OptionsEvent {
-  dispatch?: (target: OptionsEventTarget, event: Event) => boolean;
-}
-
-type OptionsEventTarget = Window | Document | Element;
 
 let options: Options = {};
 

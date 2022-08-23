@@ -1,7 +1,9 @@
 import { paramCase } from 'change-case';
 
 import { PlusElement } from '../../types/index.js';
-import { defineProperty, dispatch, host } from '../utils/index.js';
+import { defineProperty, host } from '../utils/index.js';
+
+import { getConfig } from '../utils/config.js';
 
 export type EventEmitter<T = any> = (data?: T) => CustomEvent<T>;
 
@@ -30,9 +32,10 @@ export function Event<T = any>(options: EventOptions = {}) {
       get() {
         return (detail?: T): CustomEvent<T> => {
           options.bubbles ??= false;
-          const name = paramCase(options.name || String(propertyKey));
-          const event = new CustomEvent(name, { ...options, detail });
-          dispatch(host(this), event);
+          const name = options.name || String(propertyKey);
+          const renamed = getConfig().event?.rename?.(name) || paramCase(name);
+          const event = new CustomEvent(renamed, { ...options, detail });
+          host(this).dispatchEvent(event)
           return event;
         };
       }

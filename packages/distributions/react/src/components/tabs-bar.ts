@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const TabsBar = /*@__PURE__*/ proxy<HTMLPlusTabsBarElement, Renamed>(
+export const TabsBar = proxy<HTMLPlusTabsBarElement, Renamed>(
   'plus-tabs-bar', 
   ['grow', 'justify', 'reverse', ], 
   [],

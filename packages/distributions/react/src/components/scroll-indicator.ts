@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusScroll: 'onScroll',
 }>
 
-export const ScrollIndicator = /*@__PURE__*/ proxy<HTMLPlusScrollIndicatorElement, Renamed>(
+export const ScrollIndicator = proxy<HTMLPlusScrollIndicatorElement, Renamed>(
   'plus-scroll-indicator', 
   ['disabled', 'source', ], 
   ['plusScroll', ],

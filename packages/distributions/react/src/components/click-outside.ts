@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusClickOutside: 'onClickOutside',
 }>
 
-export const ClickOutside = /*@__PURE__*/ proxy<HTMLPlusClickOutsideElement, Renamed>(
+export const ClickOutside = proxy<HTMLPlusClickOutsideElement, Renamed>(
   'plus-click-outside', 
   ['disabled', 'once', ], 
   ['plusClickOutside', ],

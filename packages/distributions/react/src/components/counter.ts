@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusComplete: 'onComplete',
 }>
 
-export const Counter = /*@__PURE__*/ proxy<HTMLPlusCounterElement, Renamed>(
+export const Counter = proxy<HTMLPlusCounterElement, Renamed>(
   'plus-counter', 
   ['easing', 'decimal', 'decimals', 'delay', 'duration', 'from', 'play', 'separator', 'to', ], 
   ['plusComplete', ],

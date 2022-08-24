@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -18,7 +15,7 @@ type Renamed = Rename<Type, {
   plusSuccess: 'onSuccess',
 }>
 
-export const Browse = /*@__PURE__*/ proxy<HTMLPlusBrowseElement, Renamed>(
+export const Browse = proxy<HTMLPlusBrowseElement, Renamed>(
   'plus-browse', 
   ['accept', 'disabled', 'droppable', 'min', 'max', 'minSize', 'maxSize', 'multiple', ], 
   ['plusChange', 'plusError', 'plusSuccess', ],

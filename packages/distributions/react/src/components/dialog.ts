@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -19,7 +16,7 @@ type Renamed = Rename<Type, {
   plusOpened: 'onOpened',
 }>
 
-export const Dialog = /*@__PURE__*/ proxy<HTMLPlusDialogElement, Renamed>(
+export const Dialog = proxy<HTMLPlusDialogElement, Renamed>(
   'plus-dialog', 
   ['animation', 'backdrop', 'connector', 'fullHeight', 'fullWidth', 'fullscreen', 'keyboard', 'open', 'persistent', 'placement', 'portal', 'portalStrategy', 'portalTarget', 'scrollable', 'size', 'sticky', ], 
   ['plusClose', 'plusClosed', 'plusOpen', 'plusOpened', ],

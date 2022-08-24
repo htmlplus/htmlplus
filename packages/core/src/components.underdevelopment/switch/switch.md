@@ -14,10 +14,6 @@ TODO
 
 <Example value="checked" />
 
-<Example value="labels" />
-
 <Example value="disabled" />
 
-<Example value="reverse" />
-
-<Example value="inset" />
+<Example value="customized" />

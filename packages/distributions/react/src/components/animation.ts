@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -18,7 +15,7 @@ type Renamed = Rename<Type, {
   plusStart: 'onStart',
 }>
 
-export const Animation = /*@__PURE__*/ proxy<HTMLPlusAnimationElement, Renamed>(
+export const Animation = proxy<HTMLPlusAnimationElement, Renamed>(
   'plus-animation', 
   ['composite', 'delay', 'direction', 'duration', 'easing', 'endDelay', 'fill', 'iterationComposite', 'iterations', 'iterationStart', 'keyframes', 'name', 'play', 'playbackRate', ], 
   ['plusCancel', 'plusFinish', 'plusStart', ],

@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -18,7 +15,7 @@ type Renamed = Rename<Type, {
   plusZoom: 'onZoom',
 }>
 
-export const Cropper = /*@__PURE__*/ proxy<HTMLPlusCropperElement, Renamed>(
+export const Cropper = proxy<HTMLPlusCropperElement, Renamed>(
   'plus-cropper', 
   ['area', 'aspectRatio', 'backdrop', 'background', 'disabled', 'guides', 'indicator', 'mode', 'resizer', 'resizerShape', 'responsive', 'shape', 'src', 'value', 'view', 'zoomable', 'zoomRatio', ], 
   ['plusReady', 'plusCrop', 'plusZoom', ],

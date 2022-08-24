@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const DialogToggler = /*@__PURE__*/ proxy<HTMLPlusDialogTogglerElement, Renamed>(
+export const DialogToggler = proxy<HTMLPlusDialogTogglerElement, Renamed>(
   'plus-dialog-toggler', 
   ['connector', ], 
   [],

@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -12,7 +9,7 @@ import { DialogFooter } from './dialog-footer';
 import { DialogHeader } from './dialog-header';
 import { DialogToggler } from './dialog-toggler';
 
-const All = /*@__PURE__*/ Object.assign(Dialog, {
+const All = Object.assign(Dialog, {
   Body: DialogBody,
   Content: DialogContent,
   Footer: DialogFooter,

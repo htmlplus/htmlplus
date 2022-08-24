@@ -159,13 +159,13 @@ const setEvent = (element: Element, name: string, handler: EventHandlerType) => 
 
   const previous = events[name];
 
-  previous && element.removeEventListener(name, previous);
+  previous && element.removeEventListener(paramCase(name), previous);
 
   function callback(event: Event) {
     handler && handler.call(this, event);
   }
 
-  element.addEventListener(name, (events[name] = callback));
+  element.addEventListener(paramCase(name), (events[name] = callback));
 };
 
 const setProps = <ElementType>(element: ElementType, props: PropsType<ElementType>, extra: ExtraType) => {
@@ -243,7 +243,7 @@ export const proxy = <ElementType, PropType>(
       Object.keys(events).forEach((name) => {
         const handler = events[name];
 
-        (this.element as any).removeEventListener(name, handler);
+        (this.element as any).removeEventListener(paramCase(name), handler);
       });
 
       delete this.element['$events'];

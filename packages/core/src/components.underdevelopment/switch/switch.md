@@ -16,4 +16,8 @@ TODO
 
 <Example value="disabled" />
 
+<Example value="prevent" />
+
 <Example value="customized" />
+
+<Example value="3D" />

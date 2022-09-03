@@ -1,9 +1,15 @@
 ```css [style]
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 /*
  * switch-1
  */
 
-.switch-1[aria-checked='false']  {
+.switch-1[aria-checked='false']::part(root)  {
   background: #28292c;
 }
 
@@ -12,7 +18,7 @@
   box-shadow: inset calc(1.25em *  0.35) calc(1.25em * -0.075) 0 0 #d8dbe0;
 }
 
-.switch-1[aria-checked='true'] {
+.switch-1[aria-checked='true']::part(root) {
   background: #d8dbe0;
 }
 
@@ -27,12 +33,15 @@
 
 .switch-2 {
   border-radius: 2px;
-  background: #ebf7fc;
   transition: 0.6s ease all;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.switch-2[aria-checked]:not([aria-checked='false']) {
+.switch-2::part(root) {
+  background: #ebf7fc;
+}
+
+.switch-2[aria-checked]:not([aria-checked='false'])::part(root) {
   background: #fcebeb;
 }
 
@@ -72,7 +81,7 @@
 ```
 
 ```html [template]
-<div>
+<div class="container">
   <plus-switch class="switch-1"></plus-switch>
   <plus-switch class="switch-2"></plus-switch>
 </div>

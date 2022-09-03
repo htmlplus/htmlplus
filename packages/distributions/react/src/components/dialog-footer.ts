@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const DialogFooter = /*@__PURE__*/ proxy<HTMLPlusDialogFooterElement, Renamed>(
+export const DialogFooter = proxy<HTMLPlusDialogFooterElement, Renamed>(
   'plus-dialog-footer', 
   [], 
   [],

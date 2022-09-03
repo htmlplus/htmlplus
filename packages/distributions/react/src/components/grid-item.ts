@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const GridItem = /*@__PURE__*/ proxy<HTMLPlusGridItemElement, Renamed>(
+export const GridItem = proxy<HTMLPlusGridItemElement, Renamed>(
   'plus-grid-item', 
   ['alignSelf', 'alignSelfXs', 'alignSelfSm', 'alignSelfMd', 'alignSelfLg', 'alignSelfXl', 'alignSelfXxl', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'hideXs', 'hideSm', 'hideMd', 'hideLg', 'hideXl', 'hideXxl', 'hide', 'hideSmUp', 'hideMdUp', 'hideLgUp', 'hideXlUp', 'hideSmDown', 'hideMdDown', 'hideLgDown', 'hideXlDown', 'hideXxlDown', 'offsetXs', 'offsetSm', 'offsetMd', 'offsetLg', 'offsetXl', 'offsetXxl', 'orderXs', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl', ], 
   [],

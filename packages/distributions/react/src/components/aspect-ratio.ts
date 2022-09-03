@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const AspectRatio = /*@__PURE__*/ proxy<HTMLPlusAspectRatioElement, Renamed>(
+export const AspectRatio = proxy<HTMLPlusAspectRatioElement, Renamed>(
   'plus-aspect-ratio', 
   ['value', ], 
   [],

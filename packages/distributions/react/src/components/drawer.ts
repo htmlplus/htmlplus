@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -19,7 +16,7 @@ type Renamed = Rename<Type, {
   plusOpened: 'onOpened',
 }>
 
-export const Drawer = /*@__PURE__*/ proxy<HTMLPlusDrawerElement, Renamed>(
+export const Drawer = proxy<HTMLPlusDrawerElement, Renamed>(
   'plus-drawer', 
   ['animation', 'backdrop', 'breakpoint', 'connector', 'mini', 'miniSize', 'open', 'persistent', 'placement', 'flexible', 'size', 'temporary', ], 
   ['plusClose', 'plusClosed', 'plusOpen', 'plusOpened', ],

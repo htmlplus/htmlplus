@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const DialogBody = /*@__PURE__*/ proxy<HTMLPlusDialogBodyElement, Renamed>(
+export const DialogBody = proxy<HTMLPlusDialogBodyElement, Renamed>(
   'plus-dialog-body', 
   ['scrollable', ], 
   [],

@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusChange: 'onChange',
 }>
 
-export const Tabs = /*@__PURE__*/ proxy<HTMLPlusTabsElement, Renamed>(
+export const Tabs = proxy<HTMLPlusTabsElement, Renamed>(
   'plus-tabs', 
   ['value', 'vertical', 'connector', ], 
   ['plusChange', ],

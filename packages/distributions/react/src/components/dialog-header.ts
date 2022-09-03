@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -15,7 +12,7 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<Type, { 
 }>
 
-export const DialogHeader = /*@__PURE__*/ proxy<HTMLPlusDialogHeaderElement, Renamed>(
+export const DialogHeader = proxy<HTMLPlusDialogHeaderElement, Renamed>(
   'plus-dialog-header', 
   [], 
   [],

@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusChange: 'onChange',
 }>
 
-export const Sticky = /*@__PURE__*/ proxy<HTMLPlusStickyElement, Renamed>(
+export const Sticky = proxy<HTMLPlusStickyElement, Renamed>(
   'plus-sticky', 
   ['disabled', 'top', 'watcher', 'zIndex', ], 
   ['plusChange', ],

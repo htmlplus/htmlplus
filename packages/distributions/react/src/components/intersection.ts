@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
@@ -16,7 +13,7 @@ type Renamed = Rename<Type, {
   plusChange: 'onChange',
 }>
 
-export const Intersection = /*@__PURE__*/ proxy<HTMLPlusIntersectionElement, Renamed>(
+export const Intersection = proxy<HTMLPlusIntersectionElement, Renamed>(
   'plus-intersection', 
   ['behavior', 'disabled', 'once', 'root', 'rootMargin', 'threshold', ], 
   ['plusChange', ],

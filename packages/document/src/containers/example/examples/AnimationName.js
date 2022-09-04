@@ -1,7 +1,7 @@
 import { Animation, Grid } from "@htmlplus/react";
 
 const AnimationName = () => {
-  return <div className="ex-animation-name">    
+  return <>    
     <Grid justifyContent="evenly" gutter="md">      
       <Grid.Item xs="12" sm="auto">        
         <Animation name="fade-in" iterations="Infinity" play></Animation>        
@@ -10,7 +10,16 @@ const AnimationName = () => {
         <Animation name="fade-out" iterations="Infinity" play></Animation>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-animation-name plus-animation {  background: lightgray;  width: 100px;  height: 100px;  margin: auto;}"}</style></div>;
+  </>;
 };
 
-export default AnimationName;
+const AnimationNameExample = () => {
+  return (
+    <div className="ex-animation-name">
+      <AnimationName />
+      <style>{`.ex-animation-name plus-animation {  background: lightgray;  width: 100px;  height: 100px;  margin: auto;}`}</style>
+    </div>
+  )
+};
+
+export default AnimationNameExample;

@@ -103,12 +103,12 @@ export const StickyContacts = dynamic<any>(() => import('./StickyContacts').then
 export const StickyDefault = dynamic<any>(() => import('./StickyDefault').then((component) => component), { ssr: false });
 export const StickyStateAttribute = dynamic<any>(() => import('./StickyStateAttribute').then((component) => component), { ssr: false });
 export const StickyTop = dynamic<any>(() => import('./StickyTop').then((component) => component), { ssr: false });
+export const Switch3D = dynamic<any>(() => import('./Switch3D').then((component) => component), { ssr: false });
 export const SwitchChecked = dynamic<any>(() => import('./SwitchChecked').then((component) => component), { ssr: false });
+export const SwitchCustomized = dynamic<any>(() => import('./SwitchCustomized').then((component) => component), { ssr: false });
 export const SwitchDefault = dynamic<any>(() => import('./SwitchDefault').then((component) => component), { ssr: false });
 export const SwitchDisabled = dynamic<any>(() => import('./SwitchDisabled').then((component) => component), { ssr: false });
-export const SwitchInset = dynamic<any>(() => import('./SwitchInset').then((component) => component), { ssr: false });
-export const SwitchLabels = dynamic<any>(() => import('./SwitchLabels').then((component) => component), { ssr: false });
-export const SwitchReverse = dynamic<any>(() => import('./SwitchReverse').then((component) => component), { ssr: false });
+export const SwitchPrevent = dynamic<any>(() => import('./SwitchPrevent').then((component) => component), { ssr: false });
 export const TabsBelow = dynamic<any>(() => import('./TabsBelow').then((component) => component), { ssr: false });
 export const TabsDefault = dynamic<any>(() => import('./TabsDefault').then((component) => component), { ssr: false });
 export const TabsGrow = dynamic<any>(() => import('./TabsGrow').then((component) => component), { ssr: false });

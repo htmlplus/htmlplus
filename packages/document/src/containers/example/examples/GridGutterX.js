@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridGutterX = () => {
-  return <div className="ex-grid-gutter-x">    
+  return <>    
     <Grid gutterX="md">      
       <Grid.Item xs="12" sm="6" lg="5">        
         <div>
@@ -34,7 +34,16 @@ const GridGutterX = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-grid-gutter-x plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default GridGutterX;
+const GridGutterXExample = () => {
+  return (
+    <div className="ex-grid-gutter-x">
+      <GridGutterX />
+      <style>{`.ex-grid-gutter-x plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default GridGutterXExample;

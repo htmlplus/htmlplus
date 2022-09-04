@@ -1,13 +1,22 @@
 import { Divider } from "@htmlplus/react";
 
 const DividerWidth = () => {
-  return <div className="ex-divider-width">    
+  return <>    
     <Divider width="thin"></Divider>    
     <br />    
     <Divider width="medium"></Divider>    
     <br />    
     <Divider width="thick"></Divider>    
-  </div>;
+  </>;
 };
 
-export default DividerWidth;
+const DividerWidthExample = () => {
+  return (
+    <div className="ex-divider-width">
+      <DividerWidth />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default DividerWidthExample;

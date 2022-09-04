@@ -1,11 +1,20 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchChecked = () => {
-  return <div className="ex-switch-checked">    
-    <preview>      
+  return <>    
+    <div className="center">      
       <Switch checked></Switch>      
-    </preview>    
-  </div>;
+    </div>    
+  </>;
 };
 
-export default SwitchChecked;
+const SwitchCheckedExample = () => {
+  return (
+    <div className="ex-switch-checked">
+      <SwitchChecked />
+      <style>{`.ex-switch-checked .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default SwitchCheckedExample;

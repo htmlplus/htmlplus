@@ -1,7 +1,7 @@
 import { Breadcrumb } from "@htmlplus/react";
 
 const BreadcrumbSeparator = () => {
-  return <div className="ex-breadcrumb-separator">    
+  return <>    
     <div className="center">      
       <Breadcrumb separator="-">        
         <a href="#">          First</a>        
@@ -11,7 +11,16 @@ const BreadcrumbSeparator = () => {
         <a href="#">          Fifth</a>        
       </Breadcrumb>      
     </div>    
-    <style>{".ex-breadcrumb-separator .center {  text-align: center;}.ex-breadcrumb-separator plus-breadcrumb {  display: inline-block;  color: #707070;}.ex-breadcrumb-separator plus-breadcrumb a {  color: inherit;  text-decoration: none;}.ex-breadcrumb-separator plus-breadcrumb a:hover {  text-decoration: underline;}"}</style></div>;
+  </>;
 };
 
-export default BreadcrumbSeparator;
+const BreadcrumbSeparatorExample = () => {
+  return (
+    <div className="ex-breadcrumb-separator">
+      <BreadcrumbSeparator />
+      <style>{`.ex-breadcrumb-separator .center {  text-align: center;}.ex-breadcrumb-separator plus-breadcrumb {  display: inline-block;  color: #707070;}.ex-breadcrumb-separator plus-breadcrumb a {  color: inherit;  text-decoration: none;}.ex-breadcrumb-separator plus-breadcrumb a:hover {  text-decoration: underline;}`}</style>
+    </div>
+  )
+};
+
+export default BreadcrumbSeparatorExample;

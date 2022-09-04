@@ -1,13 +1,22 @@
 import { Avatar, Icon } from "@htmlplus/react";
 
 const AvatarIcon = () => {
-  return <div className="ex-avatar-icon">    
+  return <>    
     <div className="center">      
       <Avatar>        
         <Icon>          user</Icon>        
       </Avatar>      
     </div>    
-    <style>{".ex-avatar-icon .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default AvatarIcon;
+const AvatarIconExample = () => {
+  return (
+    <div className="ex-avatar-icon">
+      <AvatarIcon />
+      <style>{`.ex-avatar-icon .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default AvatarIconExample;

@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridDefault = () => {
-  return <div className="ex-grid-default">    
+  return <>    
     <Grid>      
       <Grid.Item xs="12" md="4">        
         <div>
@@ -19,7 +19,16 @@ const GridDefault = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-grid-default plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default GridDefault;
+const GridDefaultExample = () => {
+  return (
+    <div className="ex-grid-default">
+      <GridDefault />
+      <style>{`.ex-grid-default plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default GridDefaultExample;

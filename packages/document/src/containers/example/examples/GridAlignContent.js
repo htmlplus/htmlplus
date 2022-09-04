@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridAlignContent = () => {
-  return <div className="ex-grid-align-content">    
+  return <>    
     <Grid alignContent="center">      
       <Grid.Item xs="6">        
         <div>
@@ -34,7 +34,16 @@ const GridAlignContent = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-grid-align-content plus-grid {  background-color: #EEEEEE;  height: 8rem;}.ex-grid-align-content plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default GridAlignContent;
+const GridAlignContentExample = () => {
+  return (
+    <div className="ex-grid-align-content">
+      <GridAlignContent />
+      <style>{`.ex-grid-align-content plus-grid {  background-color: #EEEEEE;  height: 8rem;}.ex-grid-align-content plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default GridAlignContentExample;

@@ -1,7 +1,7 @@
 import { Card, Divider } from "@htmlplus/react";
 
 const DividerCard = () => {
-  return <div className="ex-divider-card">    
+  return <>    
     <Card elevation="10">
       Item 1
       <Divider></Divider>
@@ -13,7 +13,16 @@ const DividerCard = () => {
       <Divider></Divider>
       Item 5
     </Card>    
-    <style>{".ex-divider-card plus-card {  padding: 0 1rem;  line-height: 3rem;}"}</style></div>;
+  </>;
 };
 
-export default DividerCard;
+const DividerCardExample = () => {
+  return (
+    <div className="ex-divider-card">
+      <DividerCard />
+      <style>{`.ex-divider-card plus-card {  padding: 0 1rem;  line-height: 3rem;}`}</style>
+    </div>
+  )
+};
+
+export default DividerCardExample;

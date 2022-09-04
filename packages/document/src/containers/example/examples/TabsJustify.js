@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsJustify = () => {
-  return <div className="ex-tabs-justify">    
+  return <>    
     <Tabs>      
       <Tabs.Bar justify="start">        
         <Tabs.Tab>
@@ -43,7 +43,16 @@ const TabsJustify = () => {
         </Tabs.Tab>        
       </Tabs.Bar>      
     </Tabs>    
-  </div>;
+  </>;
 };
 
-export default TabsJustify;
+const TabsJustifyExample = () => {
+  return (
+    <div className="ex-tabs-justify">
+      <TabsJustify />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TabsJustifyExample;

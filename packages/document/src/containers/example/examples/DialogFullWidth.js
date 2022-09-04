@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogFullWidth = () => {
-  return <div className="ex-dialog-full-width">    
+  return <>    
     <div className="center">      
       <Dialog.Toggler connector="dialog-full-width">
         Open
@@ -14,7 +14,16 @@ const DialogFullWidth = () => {
         </Dialog.Body>        
       </Dialog.Content>      
     </Dialog>    
-    <style>{".ex-dialog-full-width .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default DialogFullWidth;
+const DialogFullWidthExample = () => {
+  return (
+    <div className="ex-dialog-full-width">
+      <DialogFullWidth />
+      <style>{`.ex-dialog-full-width .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default DialogFullWidthExample;

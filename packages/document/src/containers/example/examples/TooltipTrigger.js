@@ -1,7 +1,7 @@
 import { Grid, Tooltip } from "@htmlplus/react";
 
 const TooltipTrigger = () => {
-  return <div className="ex-tooltip-trigger">    
+  return <>    
     <Grid justifyContent="evenly">      
       <Grid.Item>        
         <button>
@@ -28,7 +28,16 @@ const TooltipTrigger = () => {
         </button>        
       </Grid.Item>      
     </Grid>    
-  </div>;
+  </>;
 };
 
-export default TooltipTrigger;
+const TooltipTriggerExample = () => {
+  return (
+    <div className="ex-tooltip-trigger">
+      <TooltipTrigger />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TooltipTriggerExample;

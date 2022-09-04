@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridAutoSizing = () => {
-  return <div className="ex-grid-auto-sizing">    
+  return <>    
     <Grid>      
       <Grid.Item xs="grow">        
         <div>
@@ -36,7 +36,16 @@ const GridAutoSizing = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-grid-auto-sizing plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default GridAutoSizing;
+const GridAutoSizingExample = () => {
+  return (
+    <div className="ex-grid-auto-sizing">
+      <GridAutoSizing />
+      <style>{`.ex-grid-auto-sizing plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default GridAutoSizingExample;

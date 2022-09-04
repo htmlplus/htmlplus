@@ -1,7 +1,7 @@
 import { Sticky } from "@htmlplus/react";
 
 const StickyTop = () => {
-  return <div className="ex-sticky-top dock">    
+  return <>    
     <div className="container">      
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh eros, luctus in lacus eu, eleifend
@@ -89,7 +89,16 @@ const StickyTop = () => {
       nec semper.
       </p>      
     </div>    
-    <style>{".ex-sticky-top .container {  height: 20rem;  overflow: auto;}.ex-sticky-top .container p {  margin: 0;  padding: 1rem;  text-align: justify;}.ex-sticky-top plus-sticky {  background-color: gold;}"}</style></div>;
+  </>;
 };
 
-export default StickyTop;
+const StickyTopExample = () => {
+  return (
+    <div className="ex-sticky-top">
+      <StickyTop />
+      <style>{`.ex-sticky-top .container {  height: 20rem;  overflow: auto;}.ex-sticky-top .container p {  margin: 0;  padding: 1rem;  text-align: justify;}.ex-sticky-top plus-sticky {  background-color: gold;}`}</style>
+    </div>
+  )
+};
+
+export default StickyTopExample;

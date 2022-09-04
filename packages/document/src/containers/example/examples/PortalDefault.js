@@ -1,7 +1,7 @@
 import { Portal } from "@htmlplus/react";
 
 const PortalDefault = () => {
-  return <div className="ex-portal-default">    
+  return <>    
     <div id="target"></div>    
     <div id="source">      
       <Portal target="#target">        
@@ -12,7 +12,16 @@ const PortalDefault = () => {
         </p>        
       </Portal>      
     </div>    
-    <style>{".ex-portal-default #target { color: blue }.ex-portal-default #source { color: red  }"}</style></div>;
+  </>;
 };
 
-export default PortalDefault;
+const PortalDefaultExample = () => {
+  return (
+    <div className="ex-portal-default">
+      <PortalDefault />
+      <style>{`.ex-portal-default #target { color: blue }.ex-portal-default #source { color: red  }`}</style>
+    </div>
+  )
+};
+
+export default PortalDefaultExample;

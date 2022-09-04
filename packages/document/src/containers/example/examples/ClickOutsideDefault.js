@@ -13,7 +13,7 @@ const ClickOutsideDefault = () => {
     setOutside(outside + 1);
   };
 
-  return <div className="ex-click-outside-default">    
+  return <>    
     <ClickOutside onClick={() => onClick()} onClickOutside={() => onClickOutside()}>      
       <Card elevation="10">        
         <Card.Body>          
@@ -23,7 +23,16 @@ const ClickOutsideDefault = () => {
         </Card.Body>        
       </Card>      
     </ClickOutside>    
-    <style>{".ex-click-outside-default plus-click-outside {  margin: auto;  display: block;  max-width: 20rem;}"}</style></div>;
+  </>;
 };
 
-export default ClickOutsideDefault;
+const ClickOutsideDefaultExample = () => {
+  return (
+    <div className="ex-click-outside-default">
+      <ClickOutsideDefault />
+      <style>{`.ex-click-outside-default plus-click-outside {  margin: auto;  display: block;  max-width: 20rem;}`}</style>
+    </div>
+  )
+};
+
+export default ClickOutsideDefaultExample;

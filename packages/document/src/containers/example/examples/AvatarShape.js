@@ -1,7 +1,7 @@
 import { Avatar } from "@htmlplus/react";
 
 const AvatarShape = () => {
-  return <div className="ex-avatar-shape">    
+  return <>    
     <div className="center">      
       <Avatar.Group>        
         <Avatar shape="circle">          C</Avatar>        
@@ -9,7 +9,16 @@ const AvatarShape = () => {
         <Avatar shape="tile">          T</Avatar>        
       </Avatar.Group>      
     </div>    
-    <style>{".ex-avatar-shape .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default AvatarShape;
+const AvatarShapeExample = () => {
+  return (
+    <div className="ex-avatar-shape">
+      <AvatarShape />
+      <style>{`.ex-avatar-shape .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default AvatarShapeExample;

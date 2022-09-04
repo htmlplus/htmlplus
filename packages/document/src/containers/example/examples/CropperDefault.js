@@ -1,9 +1,18 @@
 import { Cropper } from "@htmlplus/react";
 
 const CropperDefault = () => {
-  return <div className="ex-cropper-default dock">    
+  return <>    
     <Cropper src="/assets/images/panda.jpg"></Cropper>    
-  </div>;
+  </>;
 };
 
-export default CropperDefault;
+const CropperDefaultExample = () => {
+  return (
+    <div className="ex-cropper-default">
+      <CropperDefault />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default CropperDefaultExample;

@@ -1,7 +1,7 @@
 import { Card, Portal } from "@htmlplus/react";
 
 const PortalStrategy = () => {
-  return <div className="ex-portal-strategy">    
+  return <>    
     <Portal target="#before" strategy="before">      
       <h1 className="title">
         Before the card
@@ -49,7 +49,16 @@ const PortalStrategy = () => {
       magna aliqua.
       </p>      
     </Card>    
-    <style>{".ex-portal-strategy .title {  color: deeppink;  margin: 0;  font-weight: normal;  font-size: 1em;  margin: 1em 0;}.ex-portal-strategy plus-card {  padding: 1em;}.ex-portal-strategy plus-card p {  margin: 0;}"}</style></div>;
+  </>;
 };
 
-export default PortalStrategy;
+const PortalStrategyExample = () => {
+  return (
+    <div className="ex-portal-strategy">
+      <PortalStrategy />
+      <style>{`.ex-portal-strategy .title {  color: deeppink;  margin: 0;  font-weight: normal;  font-size: 1em;  margin: 1em 0;}.ex-portal-strategy plus-card {  padding: 1em;}.ex-portal-strategy plus-card p {  margin: 0;}`}</style>
+    </div>
+  )
+};
+
+export default PortalStrategyExample;

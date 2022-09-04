@@ -13,7 +13,7 @@ const IntersectionLazyImage = () => {
     }, 1000);
   };
 
-  return <div className="ex-intersection-lazy-image dock">    
+  return <>    
     <div className="container">      
       <Intersection once onChange={event => onChange(event)}>        
         <Card elevation="10">          
@@ -22,7 +22,16 @@ const IntersectionLazyImage = () => {
         </Card>        
       </Intersection>      
     </div>    
-    <style>{".ex-intersection-lazy-image .container {  position: relative;  height: 20rem;  overflow: auto;  background-color: #eeeeee;}.ex-intersection-lazy-image plus-intersection {  text-align: center;  margin: 1000px auto;}.ex-intersection-lazy-image [data-hidden] {  display: none;}.ex-intersection-lazy-image img {  display: block;  width: 12rem;  height: 12rem;  object-fit: cover;}.ex-intersection-lazy-image plus-card {  display: inline-block;}.ex-intersection-lazy-image plus-spinner {  margin: 1rem;}"}</style></div>;
+  </>;
 };
 
-export default IntersectionLazyImage;
+const IntersectionLazyImageExample = () => {
+  return (
+    <div className="ex-intersection-lazy-image">
+      <IntersectionLazyImage />
+      <style>{`.ex-intersection-lazy-image .container {  position: relative;  height: 20rem;  overflow: auto;  background-color: #eeeeee;}.ex-intersection-lazy-image plus-intersection {  text-align: center;  margin: 1000px auto;}.ex-intersection-lazy-image [data-hidden] {  display: none;}.ex-intersection-lazy-image img {  display: block;  width: 12rem;  height: 12rem;  object-fit: cover;}.ex-intersection-lazy-image plus-card {  display: inline-block;}.ex-intersection-lazy-image plus-spinner {  margin: 1rem;}`}</style>
+    </div>
+  )
+};
+
+export default IntersectionLazyImageExample;

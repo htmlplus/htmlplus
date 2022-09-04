@@ -1,7 +1,7 @@
 import { Avatar } from "@htmlplus/react";
 
 const AvatarGroup = () => {
-  return <div className="ex-avatar-group">    
+  return <>    
     <div className="center">      
       <Avatar.Group>        
         <Avatar>          
@@ -15,7 +15,16 @@ const AvatarGroup = () => {
         </Avatar>        
       </Avatar.Group>      
     </div>    
-    <style>{".ex-avatar-group .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default AvatarGroup;
+const AvatarGroupExample = () => {
+  return (
+    <div className="ex-avatar-group">
+      <AvatarGroup />
+      <style>{`.ex-avatar-group .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default AvatarGroupExample;

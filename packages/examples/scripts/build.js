@@ -30,11 +30,6 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'javascript');
     }
   }),
-  preview({
-    componentRefrence: '@htmlplus/react',
-    componentNameConvertor,
-    eventNameConvertor
-  }),
   react({
     componentRefrence: '@htmlplus/react',
     componentNameConvertor,
@@ -52,6 +47,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'vue');
     }
   }),
+  preview(),
   document({
     destination: 'src/db.json'
   })

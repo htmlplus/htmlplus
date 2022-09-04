@@ -1,14 +1,20 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchDisabled = () => {
-  return <div className="ex-switch-disabled">    
-    <preview>      
-      <Switch checked disabled>        
-        <span slot="on">          Yes</span>        
-        <span slot="off">          No</span>        
-      </Switch>      
-    </preview>    
-  </div>;
+  return <>    
+    <div className="center">      
+      <Switch disabled></Switch>      
+    </div>    
+  </>;
 };
 
-export default SwitchDisabled;
+const SwitchDisabledExample = () => {
+  return (
+    <div className="ex-switch-disabled">
+      <SwitchDisabled />
+      <style>{`.ex-switch-disabled .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default SwitchDisabledExample;

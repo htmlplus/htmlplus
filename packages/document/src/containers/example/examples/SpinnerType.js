@@ -1,7 +1,7 @@
 import { Grid, Spinner } from "@htmlplus/react";
 
 const SpinnerType = () => {
-  return <div className="ex-spinner-type">    
+  return <>    
     <Grid justifyContent="evenly">      
       <Grid.Item>        
         <Spinner type="default"></Spinner>        
@@ -22,7 +22,16 @@ const SpinnerType = () => {
         <Spinner type="square"></Spinner>        
       </Grid.Item>      
     </Grid>    
-  </div>;
+  </>;
 };
 
-export default SpinnerType;
+const SpinnerTypeExample = () => {
+  return (
+    <div className="ex-spinner-type">
+      <SpinnerType />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default SpinnerTypeExample;

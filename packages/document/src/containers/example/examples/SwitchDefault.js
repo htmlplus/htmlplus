@@ -1,11 +1,20 @@
 import { Switch } from "@htmlplus/react";
 
 const SwitchDefault = () => {
-  return <div className="ex-switch-default">    
-    <preview>      
+  return <>    
+    <div className="center">      
       <Switch></Switch>      
-    </preview>    
-  </div>;
+    </div>    
+  </>;
 };
 
-export default SwitchDefault;
+const SwitchDefaultExample = () => {
+  return (
+    <div className="ex-switch-default">
+      <SwitchDefault />
+      <style>{`.ex-switch-default .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default SwitchDefaultExample;

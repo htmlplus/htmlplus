@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsReverse = () => {
-  return <div className="ex-tabs-reverse">    
+  return <>    
     <Tabs>      
       <Tabs.Bar reverse>        
         <Tabs.Tab>
@@ -15,7 +15,16 @@ const TabsReverse = () => {
         </Tabs.Tab>        
       </Tabs.Bar>      
     </Tabs>    
-  </div>;
+  </>;
 };
 
-export default TabsReverse;
+const TabsReverseExample = () => {
+  return (
+    <div className="ex-tabs-reverse">
+      <TabsReverse />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TabsReverseExample;

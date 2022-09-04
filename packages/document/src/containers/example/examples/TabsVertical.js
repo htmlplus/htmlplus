@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsVertical = () => {
-  return <div className="ex-tabs-vertical">    
+  return <>    
     <Tabs value="1" vertical>      
       <Tabs.Bar>        
         <Tabs.Tab value="1">
@@ -32,7 +32,16 @@ const TabsVertical = () => {
         </Tabs.Panel>        
       </Tabs.Panels>      
     </Tabs>    
-  </div>;
+  </>;
 };
 
-export default TabsVertical;
+const TabsVerticalExample = () => {
+  return (
+    <div className="ex-tabs-vertical">
+      <TabsVertical />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TabsVerticalExample;

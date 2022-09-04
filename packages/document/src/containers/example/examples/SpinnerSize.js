@@ -1,7 +1,7 @@
 import { Grid, Spinner } from "@htmlplus/react";
 
 const SpinnerSize = () => {
-  return <div className="ex-spinner-size">    
+  return <>    
     <Grid alignItems="center" justifyContent="evenly">      
       <Grid.Item>        
         <Spinner size="sm"></Spinner>        
@@ -13,7 +13,16 @@ const SpinnerSize = () => {
         <Spinner size="lg"></Spinner>        
       </Grid.Item>      
     </Grid>    
-  </div>;
+  </>;
 };
 
-export default SpinnerSize;
+const SpinnerSizeExample = () => {
+  return (
+    <div className="ex-spinner-size">
+      <SpinnerSize />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default SpinnerSizeExample;

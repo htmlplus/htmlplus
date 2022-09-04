@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsDefault = () => {
-  return <div className="ex-tabs-default">    
+  return <>    
     <Tabs value="1">      
       <Tabs.Bar>        
         <Tabs.Tab value="1">
@@ -32,7 +32,16 @@ const TabsDefault = () => {
         </Tabs.Panel>        
       </Tabs.Panels>      
     </Tabs>    
-  </div>;
+  </>;
 };
 
-export default TabsDefault;
+const TabsDefaultExample = () => {
+  return (
+    <div className="ex-tabs-default">
+      <TabsDefault />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TabsDefaultExample;

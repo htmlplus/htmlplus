@@ -1,7 +1,7 @@
 import { ScrollIndicator } from "@htmlplus/react";
 
 const ScrollIndicatorDefault = () => {
-  return <div className="ex-scroll-indicator-default dock">    
+  return <>    
     <div className="container">      
       <ScrollIndicator source=".scrollable"></ScrollIndicator>      
       <div className="scrollable">        
@@ -105,7 +105,16 @@ const ScrollIndicatorDefault = () => {
         </p>        
       </div>      
     </div>    
-    <style>{".ex-scroll-indicator-default .container {  position: relative;}.ex-scroll-indicator-default .scrollable {  height: 20em;  overflow-y: auto;}.ex-scroll-indicator-default plus-scroll-indicator {  position: absolute;  top: 0;}"}</style></div>;
+  </>;
 };
 
-export default ScrollIndicatorDefault;
+const ScrollIndicatorDefaultExample = () => {
+  return (
+    <div className="ex-scroll-indicator-default">
+      <ScrollIndicatorDefault />
+      <style>{`.ex-scroll-indicator-default .container {  position: relative;}.ex-scroll-indicator-default .scrollable {  height: 20em;  overflow-y: auto;}.ex-scroll-indicator-default plus-scroll-indicator {  position: absolute;  top: 0;}`}</style>
+    </div>
+  )
+};
+
+export default ScrollIndicatorDefaultExample;

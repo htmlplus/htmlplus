@@ -1,7 +1,7 @@
 import { Tabs } from "@htmlplus/react";
 
 const TabsSeparate = () => {
-  return <div className="ex-tabs-separate">    
+  return <>    
     <header>      
       <Tabs value="1" connector="tabs-separate">        
         <Tabs.Bar>          
@@ -36,7 +36,16 @@ const TabsSeparate = () => {
         </Tabs.Panel>        
       </Tabs.Panels>      
     </section>    
-  </div>;
+  </>;
 };
 
-export default TabsSeparate;
+const TabsSeparateExample = () => {
+  return (
+    <div className="ex-tabs-separate">
+      <TabsSeparate />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TabsSeparateExample;

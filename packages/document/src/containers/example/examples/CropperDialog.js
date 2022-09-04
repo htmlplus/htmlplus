@@ -8,7 +8,7 @@ const CropperDialog = () => {
     setDisabled(disabled);
   };
 
-  return <div className="ex-cropper-dialog">    
+  return <>    
     <div className="center">      
       <Dialog.Toggler connector="dialog-cropper">
         Open
@@ -25,7 +25,16 @@ const CropperDialog = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-    <style>{".ex-cropper-dialog .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default CropperDialog;
+const CropperDialogExample = () => {
+  return (
+    <div className="ex-cropper-dialog">
+      <CropperDialog />
+      <style>{`.ex-cropper-dialog .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default CropperDialogExample;

@@ -1,9 +1,18 @@
 import { Cropper } from "@htmlplus/react";
 
 const CropperArea = () => {
-  return <div className="ex-cropper-area dock">    
+  return <>    
     <Cropper area={1} src="/assets/images/panda.jpg"></Cropper>    
-  </div>;
+  </>;
 };
 
-export default CropperArea;
+const CropperAreaExample = () => {
+  return (
+    <div className="ex-cropper-area">
+      <CropperArea />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default CropperAreaExample;

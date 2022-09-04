@@ -1,7 +1,7 @@
 import { Avatar } from "@htmlplus/react";
 
 const AvatarHoverable = () => {
-  return <div className="ex-avatar-hoverable">    
+  return <>    
     <div className="center">      
       <Avatar.Group stacked hoverable>        
         <Avatar shape="circle">          
@@ -21,7 +21,16 @@ const AvatarHoverable = () => {
         </Avatar>        
       </Avatar.Group>      
     </div>    
-    <style>{".ex-avatar-hoverable .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default AvatarHoverable;
+const AvatarHoverableExample = () => {
+  return (
+    <div className="ex-avatar-hoverable">
+      <AvatarHoverable />
+      <style>{`.ex-avatar-hoverable .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default AvatarHoverableExample;

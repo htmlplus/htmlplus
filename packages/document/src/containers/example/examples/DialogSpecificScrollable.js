@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogSpecificScrollable = () => {
-  return <div className="ex-dialog-specific-scrollable">    
+  return <>    
     <div className="center">      
       <Dialog.Toggler connector="dialog-specific-scrollable">
         Open
@@ -51,7 +51,16 @@ const DialogSpecificScrollable = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-    <style>{".ex-dialog-specific-scrollable .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default DialogSpecificScrollable;
+const DialogSpecificScrollableExample = () => {
+  return (
+    <div className="ex-dialog-specific-scrollable">
+      <DialogSpecificScrollable />
+      <style>{`.ex-dialog-specific-scrollable .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default DialogSpecificScrollableExample;

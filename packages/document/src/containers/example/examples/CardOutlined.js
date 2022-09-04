@@ -1,9 +1,18 @@
 import { Card } from "@htmlplus/react";
 
 const CardOutlined = () => {
-  return <div className="ex-card-outlined">    
+  return <>    
     <Card outlined></Card>    
-    <style>{".ex-card-outlined plus-card {  height: 12rem;  width: 12rem;  margin: auto;}"}</style></div>;
+  </>;
 };
 
-export default CardOutlined;
+const CardOutlinedExample = () => {
+  return (
+    <div className="ex-card-outlined">
+      <CardOutlined />
+      <style>{`.ex-card-outlined plus-card {  height: 12rem;  width: 12rem;  margin: auto;}`}</style>
+    </div>
+  )
+};
+
+export default CardOutlinedExample;

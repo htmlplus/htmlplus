@@ -1,7 +1,7 @@
 import { Dialog } from "@htmlplus/react";
 
 const DialogFullscreen = () => {
-  return <div className="ex-dialog-fullscreen">    
+  return <>    
     <div className="center">      
       <Dialog.Toggler connector="dialog-fullscreen">
         Open
@@ -22,7 +22,16 @@ const DialogFullscreen = () => {
         </Dialog.Footer>        
       </Dialog.Content>      
     </Dialog>    
-    <style>{".ex-dialog-fullscreen .center {  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default DialogFullscreen;
+const DialogFullscreenExample = () => {
+  return (
+    <div className="ex-dialog-fullscreen">
+      <DialogFullscreen />
+      <style>{`.ex-dialog-fullscreen .center {  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default DialogFullscreenExample;

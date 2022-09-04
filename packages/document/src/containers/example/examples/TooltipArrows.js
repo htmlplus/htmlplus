@@ -1,7 +1,7 @@
 import { Tooltip } from "@htmlplus/react";
 
 const TooltipArrows = () => {
-  return <div className="ex-tooltip-arrows">    
+  return <>    
     <button className="btn" xs="12" sm="4">
       Default
       <Tooltip>        Tooltip</Tooltip>      
@@ -26,7 +26,16 @@ const TooltipArrows = () => {
       Narrow
       <Tooltip placement="top" arrow="narrow">        Tooltip</Tooltip>      
     </button>    
-  </div>;
+  </>;
 };
 
-export default TooltipArrows;
+const TooltipArrowsExample = () => {
+  return (
+    <div className="ex-tooltip-arrows">
+      <TooltipArrows />
+      <style>{`undefined`}</style>
+    </div>
+  )
+};
+
+export default TooltipArrowsExample;

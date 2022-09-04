@@ -1,7 +1,7 @@
 import { Grid } from "@htmlplus/react";
 
 const GridOffset = () => {
-  return <div className="ex-grid-offset">    
+  return <>    
     <Grid>      
       <Grid.Item xs="3">        
         <div>
@@ -19,7 +19,16 @@ const GridOffset = () => {
         </div>        
       </Grid.Item>      
     </Grid>    
-    <style>{".ex-grid-offset plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}"}</style></div>;
+  </>;
 };
 
-export default GridOffset;
+const GridOffsetExample = () => {
+  return (
+    <div className="ex-grid-offset">
+      <GridOffset />
+      <style>{`.ex-grid-offset plus-grid div {  color: #00BCD4;  border: 1px solid #FFFFFF;  background-color: #E0F7FA;  padding: 0.5em;  text-align: center;}`}</style>
+    </div>
+  )
+};
+
+export default GridOffsetExample;

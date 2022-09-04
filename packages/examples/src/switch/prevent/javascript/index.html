@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Switch | Prevent</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/switch.js"></script>
+    <style>
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <plus-switch id="element1"></plus-switch>
+    </div>
+    <script>
+      element1.addEventListener('plus-change', (event) => {
+        if (window.confirm('Are you sure you want to toggle it?')) return;
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

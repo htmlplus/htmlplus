@@ -11,9 +11,7 @@
     "@babel/types": "^7.18.9",
     "@htmlplus/element": "latest",
     "change-case": "^4.1.2",
-    "codesandbox": "^2.2.3",
     "fast-glob": "^3.2.11",
-    "jszip": "^3.10.0",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2"

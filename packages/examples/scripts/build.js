@@ -2,7 +2,7 @@ import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index
 import { pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
-import { codesandbox, document, download, javascript, prepare, preview, react, vue } from './plugins/index.js';
+import { document, javascript, prepare, preview, react, vue } from './plugins/index.js';
 
 const componentNameConvertor = (name) => {
   const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
@@ -50,30 +50,6 @@ const { start, next, finish } = compiler(
     },
     destination(context) {
       return path.join(context.directoryPath, 'vue');
-    }
-  }),
-  codesandbox({
-    sources(context) {
-      return [
-        `${context.directoryPath}/javascript`,
-        `${context.directoryPath}/react-dedicated`,
-        `${context.directoryPath}/vue`
-      ];
-    },
-    destination(context) {
-      return path.join(context.directoryPath, 'codesandbox');
-    }
-  }),
-  download({
-    sources(context) {
-      return [
-        `${context.directoryPath}/javascript`,
-        `${context.directoryPath}/react-dedicated`,
-        `${context.directoryPath}/vue`
-      ];
-    },
-    destination(context) {
-      return path.join(context.directoryPath, 'download');
     }
   }),
   document({

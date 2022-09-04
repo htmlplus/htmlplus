@@ -1,3 +1,3 @@
 export * from './classes';
-export * from './github';
+export * from './links';
 export * from './router';

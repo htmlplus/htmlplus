@@ -21,7 +21,6 @@ export const document = (options) => {
         }
         let name = output.name;
         if (name == 'react') name = 'react-dedicated';
-        if (name == 'vue' && output.options?.dedicated) name = 'vue-dedicated';
         outputs.push({
           key: example,
           category: name,

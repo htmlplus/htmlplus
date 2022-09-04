@@ -5,12 +5,6 @@ import * as Utils from '@app/utils';
 export const Parameter = (item: any) => {
   const type = item.detail ?? item.returns ?? item.type;
 
-  // TODO
-  const signatureReference = (() => {
-    if (!item.signatureReference) return;
-    return Utils.getTypeFromGithub(item.component.key, item.signatureReference);
-  })();
-
   const typeReference = (() => {
     let reference = '';
     switch (item.kind) {
@@ -25,7 +19,7 @@ export const Parameter = (item: any) => {
         break;
     }
     if (!reference) return;
-    return Utils.getTypeFromGithub(item.component.key, reference);
+    return Utils.getTypeGithubLink(item.component.key, reference);
   })();
 
   return (

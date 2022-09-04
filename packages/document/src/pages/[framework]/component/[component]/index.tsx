@@ -35,19 +35,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
             key: 'download',
             title: 'Download',
             icon: 'download',
-            url: `https://download-directory.github.io/?url=${Utils.getExampleFromGithub(framework as string, componentKey as string, example.key)}`,
+            url: Utils.getExampleDownloadLink(framework as string, componentKey as string, example.key)
           },
           {
             key: 'github',
             title: 'Github',
             icon: 'github',
-            url: Utils.getExampleFromGithub(framework as string, componentKey as string, example.key)
+            url: Utils.getExampleGithubLink(framework as string, componentKey as string, example.key)
           },
           {
             key: 'codesandbox',
             title: 'CodeSandbox',
             icon: 'sandbox',
-            url: `https://codesandbox.io/s/github/htmlplus/htmlplus/tree/main/packages/examples/src/${componentKey}/${example.key}/${framework == 'react' ? 'react-dedicated' : framework}`,
+            url: Utils.getExampleCodeSandboxLink(framework as string, componentKey as string, example.key)
           }
         ];
 

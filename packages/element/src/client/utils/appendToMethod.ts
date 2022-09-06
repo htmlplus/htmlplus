@@ -1,7 +1,5 @@
-import { PlusElement } from '../../types/index.js';
-
 export const appendToMethod = (
-  target: PlusElement,
+  target: any,
   propertyKey: PropertyKey,
   handler: (this, args: Array<any>) => void
 ) => {

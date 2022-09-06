@@ -13,10 +13,12 @@ export const request = (target: PlusElement, state?: { [key: string]: [any, any]
   if (run) return run(state);
   run = task({
     canStart: (states, state) => {
-      return /* hasChange */ true;
+      // TODO: hasChange
+      return true;
     },
     canRun: (states) => {
-      return /* shouldUpdate */ true;
+      // TODO: shouldUpdate
+      return true;
     },
     run: (states) => {
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);

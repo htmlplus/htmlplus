@@ -9,20 +9,24 @@ export function Element(tag?: string) {
   return function (constructor: PlusElement) {
     if (isServer()) return;
 
+    if (customElements.get(tag!)) return;
+
+    const instances = new Map();
+
     const members = getMembers(constructor);
 
     class Plus extends HTMLElement {
-      plus;
-
       constructor() {
         super();
+
         this.attachShadow({ mode: 'open' });
 
         // TODO
-        this.plus = new (constructor as any)();
-        this.plus[CONSTANTS.API_HOST] = () => this;
-        this.plus['uhtml'] = uhtml;
-        this.plus[CONSTANTS.API_STATUS] = 'initialize';
+        const instance = new (constructor as any)();
+        instances.set(this, instance);
+        instance[CONSTANTS.API_HOST] = () => this;
+        instance['uhtml'] = uhtml;
+        instance[CONSTANTS.API_STATUS] = 'initialize';
       }
 
       static get observedAttributes() {
@@ -32,24 +36,27 @@ export function Element(tag?: string) {
       }
 
       adoptedCallback() {
-        call(this.plus, CONSTANTS.LIFECYCLE_ADOPTED);
+        const instance = instances.get(this);
+        call(instance, CONSTANTS.LIFECYCLE_ADOPTED);
       }
 
       // TODO
       attributeChangedCallback(name, prev, next) {
+        const instance = instances.get(this);
         const key = camelCase(name);
         const [type] = members[key];
         const parsed = parseValue(next, type);
-        this.plus[key] = parsed;
+        instance[key] = parsed;
       }
 
       connectedCallback() {
-        this.plus[CONSTANTS.API_STATUS] = 'connected';
-        call(this.plus, CONSTANTS.LIFECYCLE_CONNECTED);
-        request(this.plus)
+        const instance = instances.get(this);
+        instance[CONSTANTS.API_STATUS] = 'connected';
+        call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
+        request(instance)
           .then(() => {
-            this.plus[CONSTANTS.API_STATUS] = 'loaded';
-            call(this.plus, CONSTANTS.LIFECYCLE_LOADED);
+            instance[CONSTANTS.API_STATUS] = 'loaded';
+            call(instance, CONSTANTS.LIFECYCLE_LOADED);
           })
           .catch((error) => {
             throw error;
@@ -57,12 +64,11 @@ export function Element(tag?: string) {
       }
 
       disconnectedCallback() {
-        this.plus[CONSTANTS.API_STATUS] = 'disconnected';
-        call(this.plus, CONSTANTS.LIFECYCLE_DISCONNECTED);
+        const instance = instances.get(this);
+        instance[CONSTANTS.API_STATUS] = 'disconnected';
+        call(instance, CONSTANTS.LIFECYCLE_DISCONNECTED);
       }
     }
-
-    if (customElements.get(tag!)) return;
 
     customElements.define(tag!, Plus);
   };

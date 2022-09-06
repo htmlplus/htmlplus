@@ -5,7 +5,7 @@ export interface QueueOptions {
 }
 
 export const task = (options: QueueOptions) => {
-  let states, isPending, updatePromise!: Promise<boolean>;
+  let isPending, states, updatePromise!: Promise<boolean>;
 
   const run = (state?) => {
     const newStates = Object.assign({}, states, state);

@@ -4,7 +4,7 @@ import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
 import {
   defineProperty,
-  getMembers,
+  getMemberType,
   host,
   parseValue,
   request,
@@ -27,7 +27,7 @@ export function Property(options?: PropertyOptions) {
 
     const attribute = paramCase(name);
 
-    const type = getMembers(target)[name][0];
+    const type = getMemberType(target, name);
 
     const values = new Map();
 

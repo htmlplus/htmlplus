@@ -2,7 +2,7 @@ import { camelCase, paramCase } from 'change-case';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types/index.js';
-import { call, getMembers, isServer, parseValue, request } from '../utils/index.js';
+import { call, getMembersKey, getMemberType, isServer, parseValue, request } from '../utils/index.js';
 import * as uhtml from '../vendor/uhtml.js';
 
 export function Element(tag?: string) {
@@ -12,9 +12,6 @@ export function Element(tag?: string) {
     if (customElements.get(tag!)) return;
 
     const instances = new Map();
-
-    const members = getMembers(constructor);
-
     class Plus extends HTMLElement {
       constructor() {
         super();
@@ -30,9 +27,8 @@ export function Element(tag?: string) {
       }
 
       static get observedAttributes() {
-        return Object.keys(members)
-          .filter((key) => members[key][0] != CONSTANTS.TYPE_FUNCTION)
-          .map((key) => paramCase(key));
+        // TODO: ignore functions
+        return getMembersKey(constructor).map((key) => paramCase(key));
       }
 
       adoptedCallback() {
@@ -44,7 +40,7 @@ export function Element(tag?: string) {
       attributeChangedCallback(name, prev, next) {
         const instance = instances.get(this);
         const key = camelCase(name);
-        const [type] = members[key];
+        const type = getMemberType(instance, key);
         const parsed = parseValue(next, type);
         instance[key] = parsed;
       }

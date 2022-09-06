@@ -12,6 +12,7 @@ export interface CustomElementOptions {
   typings?: boolean;
 }
 
+// TODO: support {variable && jsxElement}
 export const customElement = (options?: CustomElementOptions) => {
   const name = 'customElement';
 

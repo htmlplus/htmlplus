@@ -28,6 +28,16 @@ export const customElement = (options?: CustomElementOptions) => {
       }
     });
 
+    // replace className
+    visitor(ast, {
+      JSXAttribute(path) {
+        if (path.node.name.name != 'className') return;
+        const hasClass = path.parentPath.node.attributes.some((attribute) => attribute.name.name == 'class');
+        if (hasClass) return path.remove();
+        path.replaceWith(t.jsxAttribute(t.jsxIdentifier('class'), path.node.value));
+      }
+    });
+
     // jsx to uhtml syntax
     visitor(ast, {
       JSXAttribute: {

@@ -406,7 +406,7 @@ export class Toast {
     return (
       <>
         <div
-          class={this.classes}
+          className={this.classes}
           part="root"
           ref={this.$root}
         >

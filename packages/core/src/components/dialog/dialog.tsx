@@ -452,10 +452,10 @@ export class Dialog {
   render() {
     return (
       <>
-        {this.backdrop && (<div class="backdrop" part="backdrop"><div /></div>)}
-        <div class={this.classes}>
-          <div class="table">
-            <div class="cell" ref={this.$cell}>
+        {this.backdrop && (<div className="backdrop" part="backdrop"><div /></div>)}
+        <div className={this.classes}>
+          <div className="table">
+            <div className="cell" ref={this.$cell}>
               <slot />
             </div>
           </div>

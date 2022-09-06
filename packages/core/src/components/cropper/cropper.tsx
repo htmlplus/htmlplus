@@ -542,8 +542,8 @@ export class Cropper {
 
   render() {
     return (
-      <div class={this.classes}>
-        <img class="image" alt="cropper" ref={this.$image} src={this.src} />
+      <div className={this.classes}>
+        <img className="image" alt="cropper" ref={this.$image} src={this.src} />
       </div>
     );
   }

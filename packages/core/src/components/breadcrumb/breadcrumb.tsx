@@ -181,7 +181,7 @@ export class Breadcrumb {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         {this.items?.map((item) => {
           switch (item.type) {
             case 'item': {
@@ -196,7 +196,7 @@ export class Breadcrumb {
                 <div
                   aria-disabled="false"
                   aria-label={this.expanderText}
-                  class="expander"
+                  className="expander"
                   key={item.key}
                   part="expander"
                   role="button"
@@ -213,7 +213,7 @@ export class Breadcrumb {
               );
             }
             case 'separator': {
-              return <div key={item.key} aria-hidden="true" class="separator" part="separator" />;
+              return <div key={item.key} aria-hidden="true" className="separator" part="separator" />;
             }
           }
         })}

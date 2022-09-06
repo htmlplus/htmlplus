@@ -396,9 +396,9 @@ export class Drawer {
   render() {
     return (
       <>
-        {this.hasBackdrop ? <div class="backdrop" part="backdrop"><div /></div> : ''}
+        {this.hasBackdrop ? <div className="backdrop" part="backdrop"><div /></div> : ''}
         <div
-          class={this.classes}
+          className={this.classes}
           ref={this.$root}
         >
           <slot />

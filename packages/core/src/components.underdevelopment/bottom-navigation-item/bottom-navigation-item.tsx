@@ -74,7 +74,7 @@ export class BottomNavigationItem {
 
   render() {
     return (
-      <div class={this.classes}>
+      <div className={this.classes}>
         <slot />
         <slot name="label" />
       </div>

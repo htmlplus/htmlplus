@@ -125,7 +125,7 @@ export class ScrollIndicator {
   render() {
     return (
       <div
-        class="indicator"
+        className="indicator"
         part="indicator"
         ref={this.$indicator}
       />

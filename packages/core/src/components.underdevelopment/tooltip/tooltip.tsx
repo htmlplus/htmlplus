@@ -266,7 +266,7 @@ export class Tooltip {
 
   render() {
     return (
-      <div class="tooltip" ref={this.$tooltip}>
+      <div className="tooltip" ref={this.$tooltip}>
         <slot />
         <span x-arrow ref={this.$arrow} />
       </div>

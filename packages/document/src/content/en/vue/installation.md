@@ -14,8 +14,9 @@ npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 
 Tell Vue to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`. So, follow the instructions [here](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue).
 
+The compiler options would be something like this:
+
 ```js
-// The compiler options would be something like this.
 compilerOptions: {
   isCustomElement: (tag) => tag.startsWith('{CONSTANTS.PLATFORM_PREFIX}-')
 }

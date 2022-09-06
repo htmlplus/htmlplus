@@ -15,8 +15,6 @@ npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 Tell Angular to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`.
 
 ```js
-// The `app.module.ts` would be something like this.
-
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -36,8 +34,6 @@ export class AppModule { }
 Import the reference of components.
 
 ```js
-// The `app.component.ts` would be something like this.
-
 import { Component } from '@angular/core';
 import '@htmlplus/core';
 
@@ -50,7 +46,6 @@ export class AppComponent { }
 ```
 
 ```html
-<!-- The `app.component.html` would be something like this. -->
 <plus-switch />
 ```
 
@@ -65,7 +60,6 @@ All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag 
 To set properties and attributes.
 
 ```html
-<!-- The `app.component.html` would be something like this. -->
 <plus-switch disabled />
 ```
 
@@ -74,8 +68,6 @@ To set properties and attributes.
 To handle event's callback.
 
 ```js
-// The `app.component.ts` would be something like this.
-
 import { Component } from '@angular/core';
 import '@htmlplus/core';
 
@@ -92,6 +84,5 @@ export class AppComponent {
 ```
 
 ```html
-<!-- The `app.component.html` would be something like this. -->
 <plus-switch (plus-change)="onChange()" />
 ```

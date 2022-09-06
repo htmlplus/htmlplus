@@ -24,12 +24,12 @@ export default App;
 
 ## Properties
 
-To use set properties and attributes.
+To set properties and attributes.
 
 ```jsx
 import { Switch } from '{CONSTANTS.PORT_REACT_PACKAGE_NAME}';
 
-const App = () => <Switch reverse/>;
+const App = () => <Switch disabled/>;
 
 export default App;
 ```

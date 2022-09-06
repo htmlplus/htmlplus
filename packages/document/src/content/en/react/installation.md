@@ -30,7 +30,7 @@ export default App;
 
 ## Properties
 
-To use set properteis and attributes.
+To set properties and attributes.
 
 ### Primitive types
 
@@ -39,7 +39,7 @@ To use number, string, boolean, null, undefined, symbol and bigint types.
 ```jsx
 import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
-const App = () => <plus-switch reverse/>;
+const App = () => <plus-switch disabled/>;
 
 export default App;
 ```

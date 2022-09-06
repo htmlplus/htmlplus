@@ -43,11 +43,11 @@ All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag 
 
 ## Properties
 
-To use set properties and attributes.
+To set properties and attributes.
 
 ```html
 <template>
-  <plus-switch reverse/>
+  <plus-switch disabled/>
 </template>
 
 <script setup>

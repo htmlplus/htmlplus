@@ -31,7 +31,7 @@ You can utilize `{CONSTANTS.PLATFORM_NAME}` simply by adding a simple scirpt in 
 To set attribute.
 
 ```html
-<plus-switch reverse></plus-switch>
+<plus-switch disabled></plus-switch>
 ```
 
 ## Properties
@@ -41,7 +41,7 @@ To set property. All Standard JavaScript APIs are supported. Feel free to use th
 ```html
 <plus-switch id="element"></plus-switch>
 <script>
-  element.reverse = true;
+  element.disabled = true;
 </script>
 ```
 

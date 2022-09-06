@@ -1,67 +1,97 @@
 # Angular
 
-To utilize web components in your angular application follow these steps.
+`{CONSTANTS.PLATFORM_NAME}` web components are fully [compatible](https://custom-elements-everywhere.com/#angular) with Angular framework.
 
 ## Install
 
-Installing `{CONSTANTS.PLATFORM_NAME}` package using node package manager.
+Install `{CONSTANTS.PLATFORM_NAME}` package into Angular application.
 
 ```shell
-npm install {CONSTANTS.PORT_ANGULAR_PACKAGE_NAME}
+npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 ```
 
-## Import
+## Update Angular Module
 
-Finally the `main.ts` would be something like this.
-
-```js
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-// Import package
-import { applyPolyfills, defineCustomElements } from '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_LOADER}';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.log(err));
-
-// Bind the custom elements to the window object
-applyPolyfills().then(() =>  defineCustomElements());
-```
-
-TODO
+Tell Angular to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`.
 
 ```js
+// The `app.module.ts` would be something like this.
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [BrowserModule],
-  providers: [],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-}),
-export class AppModule {}
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppModule { }
 ```
 
 ## Usage
 
-TODO
+Import the reference of components.
+
+```js
+// The `app.component.ts` would be something like this.
+
+import { Component } from '@angular/core';
+import '@htmlplus/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent { }
+```
+
+```html
+<!-- The `app.component.html` would be something like this. -->
+<plus-switch />
+```
+
+<br/>
+
+<Alert type="info">
+All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the angular project.
+</Alert>
 
 ## Properties
 
-TODO
+To set properties and attributes.
+
+```html
+<!-- The `app.component.html` would be something like this. -->
+<plus-switch disabled />
+```
 
 ## Events
 
-TODO
+To handle event's callback.
+
+```js
+// The `app.component.ts` would be something like this.
+
+import { Component } from '@angular/core';
+import '@htmlplus/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  onChange() {
+    alert('The switch toggled!');
+  }
+}
+```
+
+```html
+<!-- The `app.component.html` would be something like this. -->
+<plus-switch (plus-change)="onChange()" />
+```

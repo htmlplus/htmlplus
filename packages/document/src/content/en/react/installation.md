@@ -65,7 +65,7 @@ const App = () => {
     ];
   }, []);
 
-  return <plus-animation name="fade-in" iterations="Infinity" ref={ref} play></plus-animation>
+  return <plus-animation iterations="Infinity" ref={ref} play></plus-animation>
 };
 
 export default App;

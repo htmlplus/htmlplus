@@ -46,6 +46,10 @@ All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag 
 
 To set properties and attributes.
 
+### Primitive types
+
+To use number, string, boolean, null, undefined, symbol and bigint types.
+
 ```html
 <template>
   <plus-switch disabled/>
@@ -53,6 +57,27 @@ To set properties and attributes.
 
 <script setup>
   import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+</script>
+```
+
+### Complex types
+
+To use object and array types.
+
+```html
+<template>
+  <plus-animation iterations="Infinity" :keyframes.prop="keyframes" play></plus-animation>
+</template>
+
+<script setup>
+  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+  const keyframes = [
+    { offset: 0.00, opacity: '1' },
+    { offset: 0.25, opacity: '0' },
+    { offset: 0.50, opacity: '1' },
+    { offset: 0.75, opacity: '0' },
+    { offset: 1.00, opacity: '1' }
+  ];
 </script>
 ```
 

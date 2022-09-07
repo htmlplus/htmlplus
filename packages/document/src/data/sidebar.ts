@@ -1,5 +1,5 @@
 import * as CONSTANTS from '@app/constants';
-import { components } from '@app/data';
+import { components, frameworks } from '@app/data';
 import * as Utils from '@app/utils';
 
 export const sidebar = (framework: string) => [
@@ -30,6 +30,14 @@ export const sidebar = (framework: string) => [
         url: Utils.getPath('BROWSERS')
       }
     ]
+  },
+  {
+    title: 'Frameworks',
+    icon: 'frameworks',
+    items: frameworks.map((framework) => ({
+      title: framework.title,
+      url: Utils.getPath('INSTALLATION_FRAMEWORK', { framework: framework.key })
+    }))
   },
   {
     title: 'UI Components',

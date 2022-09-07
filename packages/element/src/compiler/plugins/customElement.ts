@@ -169,7 +169,9 @@ export const customElement = (options?: CustomElementOptions) => {
                   t.tsInterfaceDeclaration(
                     t.identifier(context.componentInterfaceName!),
                     null,
-                    [],
+                    [
+                      t.tSExpressionWithTypeArguments(t.identifier('HTMLElement')) // TODO
+                    ],
                     t.tsInterfaceBody([
                       ...context.classProperties!.map((property) =>
                         Object.assign(

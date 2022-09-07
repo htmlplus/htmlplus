@@ -2,7 +2,7 @@ import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index
 import { pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
-import { document, javascript, prepare, preview, react, vue } from './plugins/index.js';
+import { document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
 
 const componentNameConvertor = (name) => {
   const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
@@ -13,6 +13,10 @@ const componentNameConvertor = (name) => {
 
 const eventNameConvertor = (name) => {
   return name.replace('onPlus', 'on');
+};
+
+const componentRefrence = (name) => {
+  return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
 };
 
 const { start, next, finish } = compiler(
@@ -38,11 +42,14 @@ const { start, next, finish } = compiler(
     },
     eventNameConvertor
   }),
+  // svelte({
+  //   componentRefrence,
+  //   destination(context) {
+  //     return path.join(context.directoryPath, 'svelte');
+  //   }
+  // }),
   vue({
-    dedicated: false,
-    componentRefrence(name) {
-      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
-    },
+    componentRefrence,
     destination(context) {
       return path.join(context.directoryPath, 'vue');
     }
@@ -55,7 +62,7 @@ const { start, next, finish } = compiler(
 
 (async () => {
   await start();
-  const files = glob.sync(['./src/*/*/readme.md']);
+  const files = glob.sync(['./src/animation/default/readme.md']);
   for (const file of files) await next(file);
   await finish();
 })();

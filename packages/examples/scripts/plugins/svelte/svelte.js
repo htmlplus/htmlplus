@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import {} from 'change-case';
+import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -11,67 +11,52 @@ export const svelte = (options) => {
   const next = (context) => {
     const visitors = {
       script: {
-        // ClassDeclaration(path) {
-        //   const { body } = path.node;
-        //   path.traverse(visitors.script);
-        //   if (!body.body.length) return path.remove();
-        //   if (context.classStates.length)
-        //     body.body.unshift(
-        //       t.importDeclaration([t.importSpecifier(t.identifier('ref'), t.identifier('ref'))], t.stringLiteral('vue'))
-        //     );
-        //   path.replaceWithMultiple(body.body);
-        // },
-        // ClassMethod: {
-        //   enter(path) {
-        //     const { body, key, params } = path.node;
-        //     if (key.name == context.classRender.key.name) return;
-        //     path.replaceWith(t.functionDeclaration(key, params, body));
-        //   },
-        //   exit(path) {
-        //     const { key } = path.node;
-        //     if (key.name != context.classRender.key.name) return;
-        //     path.remove();
-        //   }
-        // },
-        // ClassProperty(path) {
-        //   const { key, value } = path.node;
-        //   const isProperty = context.classProperties.some((property) => property.key.name == key.name);
-        //   if (isProperty) {
-        //     // TODO
-        //   }
-        //   const isState = context.classStates.some((state) => state.key.name == key.name);
-        //   if (isState) {
-        //     path.replaceWith(
-        //       t.variableDeclaration('const', [
-        //         t.variableDeclarator(key, t.callExpression(t.identifier('ref'), value ? [value] : []))
-        //       ])
-        //     );
-        //   }
-        //   if (!isProperty && !isState) path.remove();
-        // },
+        ClassDeclaration(path) {
+          const { body } = path.node;
+          path.traverse(visitors.script);
+          if (!body.body.length) return path.remove();
+          path.replaceWithMultiple(body.body);
+        },
+        ClassMethod: {
+          enter(path) {
+            const { body, key, params } = path.node;
+            if (key.name == context.classRender.key.name) return;
+            path.replaceWith(t.functionDeclaration(key, params, body));
+          },
+          exit(path) {
+            const { key } = path.node;
+            if (key.name != context.classRender.key.name) return;
+            path.remove();
+          }
+        },
+        ClassProperty(path) {
+          const { key, value } = path.node;
+          const variable = t.variableDeclaration('let', [t.variableDeclarator(key, value)]);
+          const isProperty = context.classProperties.some((property) => property.key.name == key.name);
+          if (isProperty) {
+            path.replaceWith(t.exportNamedDeclaration(variable));
+          } else {
+            path.replaceWith(variable);
+          }
+        },
         ImportDeclaration(path) {
           // TODO
           if (path.node.source.value != '@htmlplus/element') return;
           path.remove();
+        },
+        MemberExpression(path) {
+          const { object, property } = path.node;
+          if (object.type != 'ThisExpression') return;
+          path.replaceWith(property);
+        },
+        Program(path) {
+          const { body } = path.node;
+          context.customElementNames
+            ?.map((name) => options?.componentRefrence(name))
+            ?.forEach((dependency) => {
+              return body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
+            });
         }
-        // MemberExpression(path) {
-        //   const { object, property } = path.node;
-        //   if (object.type != 'ThisExpression') return;
-        //   const isState = context.classStates.some((state) => state.key.name == property.name);
-        //   if (isState) {
-        //     path.replaceWith(t.memberExpression(property, t.identifier('value')));
-        //   } else {
-        //     path.replaceWith(property);
-        //   }
-        // },
-        // Program(path) {
-        //   const { body } = path.node;
-        //   context.customElementNames
-        //     .map((name) => options?.componentRefrence(name))
-        //     .forEach((dependency) => {
-        //       return body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
-        //     });
-        // }
       },
       template: {
         ClassDeclaration(path) {
@@ -104,7 +89,7 @@ export const svelte = (options) => {
           if (!value) return;
 
           if (isEvent(name.name)) {
-            name.name = '@' + camelCase(name.name.slice(2));
+            name.name = 'on:' + camelCase(name.name.slice(2));
           }
 
           if (value.type !== 'JSXExpressionContainer') return;
@@ -113,12 +98,10 @@ export const svelte = (options) => {
           const code = print(value.expression.body || value.expression);
 
           // TODO
-          const newValue = code.replace(/this\.|;/, '').replace('event', '$event');
+          const newValue = code.replace(/this\.|;/, '');
 
           // TODO
-          path.node.value = t.stringLiteral(newValue);
-
-          if (!name.name.match(/@|:/)) name.name = `:${name.name}`;
+          path.node.value = t.stringLiteral(`{${newValue}}`);
         },
         JSXExpressionContainer(path) {
           path.replaceWithSourceString(`[[[${print(path.node.expression)}]]]`);
@@ -168,7 +151,7 @@ export const svelte = (options) => {
 
     const title = getTitle(context);
 
-    const patterns = ['templates/**/*.*'];
+    const patterns = ['templates/**/App.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 

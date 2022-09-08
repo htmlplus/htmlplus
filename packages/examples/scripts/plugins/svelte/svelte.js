@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { camelCase } from 'change-case';
+import { paramCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -89,13 +89,13 @@ export const svelte = (options) => {
           if (!value) return;
 
           if (isEvent(name.name)) {
-            name.name = 'on:' + camelCase(name.name.slice(2));
+            name.name = 'on:' + paramCase(name.name.slice(2));
           }
 
           if (value.type !== 'JSXExpressionContainer') return;
 
           // TODO
-          const code = print(value.expression.body || value.expression);
+          const code = print(value.expression);
 
           // TODO
           const newValue = code.replace(/this\.|;/, '');
@@ -151,7 +151,7 @@ export const svelte = (options) => {
 
     const title = getTitle(context);
 
-    const patterns = ['templates/**/App.*'];
+    const patterns = ['templates/**/*.*'];
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
@@ -170,8 +170,7 @@ export const svelte = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    // TODO
-    formatFile(path.join(destination, 'App.svelte'), { parser: 'vue' });
+    // formatFile(path.join(destination, 'App.svelte'), { parser: 'TODO' });
 
     return model;
   };

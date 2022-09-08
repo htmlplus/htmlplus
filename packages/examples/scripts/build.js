@@ -11,12 +11,12 @@ const componentNameConvertor = (name) => {
   return name.replace('plus-', '').split('-').map(pascalCase).join('.');
 };
 
-const eventNameConvertor = (name) => {
-  return name.replace('onPlus', 'on');
-};
-
 const componentRefrence = (name) => {
   return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+};
+
+const eventNameConvertor = (name) => {
+  return name.replace('onPlus', 'on');
 };
 
 const { start, next, finish } = compiler(
@@ -42,12 +42,12 @@ const { start, next, finish } = compiler(
     },
     eventNameConvertor
   }),
-  // svelte({
-  //   componentRefrence,
-  //   destination(context) {
-  //     return path.join(context.directoryPath, 'svelte');
-  //   }
-  // }),
+  svelte({
+    componentRefrence,
+    destination(context) {
+      return path.join(context.directoryPath, 'svelte');
+    }
+  }),
   vue({
     componentRefrence,
     destination(context) {
@@ -62,7 +62,7 @@ const { start, next, finish } = compiler(
 
 (async () => {
   await start();
-  const files = glob.sync(['./src/animation/default/readme.md']);
+  const files = glob.sync(['./src/*/*/readme.md']);
   for (const file of files) await next(file);
   await finish();
 })();

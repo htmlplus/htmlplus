@@ -23,8 +23,7 @@ export const frameworks = [
   {
     key: 'svelte',
     logo: '/assets/logo/svelte.svg',
-    title: 'Svelte',
-    disabled: true
+    title: 'Svelte'
   }
   // {
   //     key: 'backbonejs',

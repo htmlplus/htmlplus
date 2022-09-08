@@ -11,7 +11,7 @@ function onChange(event) {
 </script>
 
 <div class="container">
-  <div class="status">{{intersecting ? 'In Viewport' : 'Out of Viewport'}}</div>
+  <div class="status">{intersecting ? 'In Viewport' : 'Out of Viewport'}</div>
   <div class="content">
     <div class="spacer"></div>
     <plus-intersection on:plus-change="{event => onChange(event)}">

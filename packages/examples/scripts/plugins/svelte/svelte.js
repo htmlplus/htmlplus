@@ -141,8 +141,8 @@ export const svelte = (options) => {
 
       const content = print(ast)
         ?.trim()
-        ?.replace(/\[\[\[/g, '{{')
-        ?.replace(/\]\]\]/g, '}}');
+        ?.replace(/\[\[\[/g, '{')
+        ?.replace(/\]\]\]/g, '}');
 
       if (!content) return;
 

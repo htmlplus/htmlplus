@@ -1589,7 +1589,7 @@
     "detail": {
       "script": "import '@htmlplus/core/click-outside.js';\nimport '@htmlplus/core/card-body.js';\nimport '@htmlplus/core/card.js';\nlet inside = 0;\nlet outside = 0;\n\nfunction onClick() {\n  inside = inside + 1;\n}\n\nfunction onClickOutside() {\n  outside = outside + 1;\n}\n",
       "style": "plus-click-outside {\n  margin: auto;\n  display: block;\n  max-width: 20rem;\n}\n",
-      "template": "<plus-click-outside\n  on:click=\"{() => onClick()}\"\n  on:plus-click-outside=\"{() => onClickOutside()}\"\n>\n  <plus-card elevation=\"10\">\n    <plus-card-body>\n      <b>{{inside}}</b> time(s) inside clicked\n      <br />\n      <b>{{outside}}</b> time(s) outside clicked\n    </plus-card-body>\n  </plus-card>\n</plus-click-outside>\n",
+      "template": "<plus-click-outside\n  on:click=\"{() => onClick()}\"\n  on:plus-click-outside=\"{() => onClickOutside()}\"\n>\n  <plus-card elevation=\"10\">\n    <plus-card-body>\n      <b>{inside}</b> time(s) inside clicked\n      <br />\n      <b>{outside}</b> time(s) outside clicked\n    </plus-card-body>\n  </plus-card>\n</plus-click-outside>\n",
       "title": "Click Outside | Default"
     }
   },
@@ -4288,7 +4288,7 @@
     "detail": {
       "script": "import '@htmlplus/core/intersection.js';\nimport '@htmlplus/core/card-body.js';\nimport '@htmlplus/core/card.js';\nlet intersecting = false;\n\nfunction onChange(event) {\n  intersecting = event.detail.isIntersecting;\n}\n",
       "style": ".container {\n  position: relative;\n  background-color: #eeeeee;\n}\n\n.status {\n  color: #fafafa;\n  background-color: #212121;\n  position: absolute;\n  top: 1rem;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 0.5rem 1rem;\n  border-radius: 2rem;\n  z-index: 1;\n}\n\n.content {\n  height: 20rem;\n  overflow: auto;\n}\n\n.spacer {\n  padding: 500px 0;\n}\n\nplus-card {\n  width: 15rem;\n  margin: auto;\n}\n",
-      "template": "<div class=\"container\">\n  <div class=\"status\">{{intersecting ? 'In Viewport' : 'Out of Viewport'}}</div>\n  <div class=\"content\">\n    <div class=\"spacer\"></div>\n    <plus-intersection on:plus-change=\"{event => onChange(event)}\">\n      <plus-card elevation=\"10\">\n        <plus-card-body>\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n          eiusmod tempor incididunt ut labore et dolore magna aliqua.\n        </plus-card-body>\n      </plus-card>\n    </plus-intersection>\n    <div class=\"spacer\"></div>\n  </div>\n</div>\n",
+      "template": "<div class=\"container\">\n  <div class=\"status\">{intersecting ? 'In Viewport' : 'Out of Viewport'}</div>\n  <div class=\"content\">\n    <div class=\"spacer\"></div>\n    <plus-intersection on:plus-change=\"{event => onChange(event)}\">\n      <plus-card elevation=\"10\">\n        <plus-card-body>\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n          eiusmod tempor incididunt ut labore et dolore magna aliqua.\n        </plus-card-body>\n      </plus-card>\n    </plus-intersection>\n    <div class=\"spacer\"></div>\n  </div>\n</div>\n",
       "title": "Intersection | Default"
     }
   },

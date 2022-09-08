@@ -21,9 +21,9 @@ function onClickOutside() {
 >
   <plus-card elevation="10">
     <plus-card-body>
-      <b>{{inside}}</b> time(s) inside clicked
+      <b>{inside}</b> time(s) inside clicked
       <br />
-      <b>{{outside}}</b> time(s) outside clicked
+      <b>{outside}</b> time(s) outside clicked
     </plus-card-body>
   </plus-card>
 </plus-click-outside>

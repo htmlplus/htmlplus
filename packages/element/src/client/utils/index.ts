@@ -2,6 +2,7 @@ export * from './appendToMethod.js';
 export * from './call.js';
 export * from './config.js';
 export * from './defineProperty.js';
+export * from './getFramework.js';
 export * from './getMembersKey.js';
 export * from './getMemberType.js';
 export * from './getStyles.js';

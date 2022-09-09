@@ -7,7 +7,7 @@ interface Options {
   //   };
   // };
   // event?: {
-  //   nameTransformer?: 'camel-case' | 'kebab-case' | 'lower-case ' | 'pascal-case';
+  //   nameTransformer?: 'auto' | 'camel-case' | 'kebab-case' | 'lower-case ' | 'pascal-case';
   // };
 }
 

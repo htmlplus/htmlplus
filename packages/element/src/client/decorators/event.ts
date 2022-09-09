@@ -1,8 +1,8 @@
-import { paramCase } from 'change-case';
+import { camelCase, paramCase, pascalCase } from 'change-case';
 
 import { PlusElement } from '../../types/index.js';
 import { getConfig } from '../utils/config.js';
-import { defineProperty, host } from '../utils/index.js';
+import { defineProperty, getFramework, host } from '../utils/index.js';
 
 export type EventEmitter<T = any> = (data?: T) => CustomEvent<T>;
 
@@ -30,10 +30,30 @@ export function Event<T = any>(options: EventOptions = {}) {
     defineProperty(target, propertyKey, {
       get() {
         return (detail?: T): CustomEvent<T> => {
+          const element = host(this);
+
+          const framework = getFramework(element);
+
           options.bubbles ??= false;
-          const name = paramCase(options.name || String(propertyKey));
+
+          let name = options.name || String(propertyKey);
+
+          switch (framework) {
+            case 'angular':
+              name = camelCase(name);
+              break;
+            case 'react':
+              name = pascalCase(name);
+              break;
+            default:
+              name = paramCase(name);
+              break;
+          }
+
           const event = new CustomEvent(name, { ...options, detail });
-          host(this).dispatchEvent(event);
+
+          element.dispatchEvent(event);
+
           return event;
         };
       }

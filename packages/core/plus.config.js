@@ -7,7 +7,8 @@ import {
   parse,
   read,
   style,
-  validate
+  validate,
+  webTypes
 } from '@htmlplus/element/compiler/index.js';
 
 export default [
@@ -20,6 +21,12 @@ export default [
   style(),
   document({
     destination: 'dist/document.json'
+  }),
+  webTypes({
+    destination: 'dist/web-types.json',
+    packageName: '@htmlplus/core',
+    packageVersion: '0.4.0',
+    docUrl: () => ''
   }),
   external({
     destination(context) {

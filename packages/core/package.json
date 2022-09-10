@@ -7,6 +7,7 @@
   "type": "module",
   "main": "index.js",
   "types": "types/components/index.d.ts",
+  "web-types": "dist/web-types.json",
   "scripts": {
     "build": "npm run clean && node scripts/build.js",
     "postbuild": "node scripts/build.post.js",

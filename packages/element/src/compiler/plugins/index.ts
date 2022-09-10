@@ -7,3 +7,4 @@ export * from './parse.js';
 export * from './read.js';
 export * from './style.js';
 export * from './validate.js';
+export * from './webTypes.js';

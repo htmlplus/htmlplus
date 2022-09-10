@@ -1,23 +1,19 @@
 // TODO
 
 export const getExampleCodeSandboxLink = (frameworkKey: string, componentKey: string, exampleKey: string): string => {
-  return `https://codesandbox.io/s/github/htmlplus/htmlplus/tree/main/packages/examples/src/${componentKey}/${exampleKey}/${
-    frameworkKey == 'react' ? 'react-dedicated' : frameworkKey
-  }`;
+  return `https://codesandbox.io/s/github/htmlplus/htmlplus/tree/main/packages/examples/src/${componentKey}/${exampleKey}/${frameworkKey}`;
 };
 
 export const getExampleDownloadLink = (frameworkKey: string, componentKey: string, exampleKey: string): string => {
   return `https://minhaskamal.github.io/DownGit/#/home?url=${getExampleGithubLink(
-    frameworkKey == 'react' ? 'react-dedicated' : frameworkKey,
+    frameworkKey,
     componentKey,
     exampleKey
   )}`;
 };
 
 export const getExampleGithubLink = (frameworkKey: string, componentKey: string, exampleKey: string): string => {
-  return `https://github.com/htmlplus/htmlplus/tree/main/packages/examples/src/${componentKey}/${exampleKey}/${
-    frameworkKey == 'react' ? 'react-dedicated' : frameworkKey
-  }`;
+  return `https://github.com/htmlplus/htmlplus/tree/main/packages/examples/src/${componentKey}/${exampleKey}/${frameworkKey}`;
 };
 
 export const getTypeGithubLink = (componentKey: string, fileName: string): string => {

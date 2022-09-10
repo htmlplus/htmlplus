@@ -39,9 +39,6 @@ export function Event<T = any>(options: EventOptions = {}) {
           let name = options.name || String(propertyKey);
 
           switch (framework) {
-            case 'angular':
-              name = camelCase(name);
-              break;
             case 'react':
               name = pascalCase(name);
               break;

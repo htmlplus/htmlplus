@@ -38,7 +38,7 @@ const { start, next, finish } = compiler(
     componentRefrence: '@htmlplus/react',
     componentNameConvertor,
     destination(context) {
-      return path.join(context.directoryPath, 'react-dedicated');
+      return path.join(context.directoryPath, 'react');
     },
     eventNameConvertor
   }),

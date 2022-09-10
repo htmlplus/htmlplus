@@ -19,11 +19,9 @@ export const document = (options) => {
           });
           continue;
         }
-        let name = output.name;
-        if (name == 'react') name = 'react-dedicated';
         outputs.push({
           key: example,
-          category: name,
+          category: output.name,
           component,
           detail: output.output
         });

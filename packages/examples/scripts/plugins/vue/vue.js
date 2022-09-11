@@ -131,6 +131,21 @@ export const vue = (options) => {
 
           if (!name.name.match(/@|:/)) name.name = `:${name.name}`;
         },
+        JSXElement(path) {
+          const { openingElement, closingElement } = path.node;
+
+          const name = openingElement.name.name;
+
+          if (!/-/g.test(name)) return;
+
+          const newName = options?.componentNameConvertor?.(name) || name;
+
+          openingElement.name.name = newName;
+
+          if (!closingElement) return;
+
+          closingElement.name.name = newName;
+        },
         JSXExpressionContainer(path) {
           path.replaceWithSourceString(`[[[${print(path.node.expression)}]]]`);
         },

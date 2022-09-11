@@ -4,7 +4,7 @@ import { camelCase, paramCase, pascalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { getSnippet, getTitle, isEvent } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent } from '../../utils.js';
 
 export const react = (options) => {
   const name = 'react';
@@ -131,7 +131,7 @@ export const react = (options) => {
 
           const newName = options?.componentNameConvertor?.(name, context) || name;
 
-          addDependency(newName.split('.').shift(), options?.componentRefrence);
+          addDependency(newName.split('.').shift(), options?.componentRefrence?.(name));
 
           openingElement.name.name = newName;
 
@@ -178,13 +178,31 @@ export const react = (options) => {
       }
     };
 
-    const ast = t.cloneNode(context.fileAST, true);
+    const script = (() => {
+      const ast = t.cloneNode(context.fileAST, true);
 
-    visitor(ast, visitors.script);
+      visitor(ast, visitors.script);
+
+      const content = print(ast);
+
+      if (!content) return;
+
+      return format(content, { parser: 'babel' });
+    })();
+
+    const style = (() => {
+      const content = getSnippet(context, 'style')?.content;
+
+      if (!content) return;
+
+      return format(content, { parser: 'css' });
+    })();
 
     const title = getTitle(context);
 
     const patterns = ['templates/**/*.*'];
+
+    if (!style) patterns.push('!templates/src/index.css.*');
 
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
@@ -194,22 +212,17 @@ export const react = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const style = getSnippet(context, 'style');
-
-    if (!style) patterns.push('!templates/src/index.css.*');
-
     const model = {
-      title,
-      script: print(ast),
-      style: style?.content
+      script,
+      style,
+      title
     };
 
     renderTemplate(patterns, destination, config)(model);
 
-    return {
-      script: model.script,
-      style: model.style
-    };
+    formatFile(path.join(destination, 'src', 'App.js'), { parser: 'babel' });
+
+    return model;
   };
   return {
     name,

@@ -10,7 +10,7 @@
       <button @click="show('xl')">Extra large dialog</button>
     </plus-grid-item>
   </plus-grid>
-  <plus-dialog animation="fade" :open="open" :size="size" @plusClose="hide()">
+  <plus-dialog animation="fade" :open="open" :size="size" @plus-close="hide()">
     <plus-dialog-content>
       <plus-dialog-header>Dialog Title</plus-dialog-header>
       <plus-dialog-body>

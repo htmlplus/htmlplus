@@ -1,9 +1,11 @@
-import { Card } from "@htmlplus/react";
+import { Card } from '@htmlplus/react';
 
 const CardOutlined = () => {
-  return <>    
-    <Card outlined></Card>    
-  </>;
+  return (
+    <>
+      <Card outlined></Card>
+    </>
+  );
 };
 
 export default CardOutlined;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <plus-intersection once @plusChange="onChange($event)">
+    <plus-intersection once @plus-change="onChange($event)">
       <plus-card elevation="10">
         <plus-spinner></plus-spinner>
         <img

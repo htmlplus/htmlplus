@@ -1,11 +1,13 @@
-import { Switch } from "@htmlplus/react";
+import { Switch } from '@htmlplus/react';
 
 const SwitchDisabled = () => {
-  return <>    
-    <div className="center">      
-      <Switch disabled></Switch>      
-    </div>    
-  </>;
+  return (
+    <>
+      <div className="center">
+        <Switch disabled></Switch>
+      </div>
+    </>
+  );
 };
 
 export default SwitchDisabled;

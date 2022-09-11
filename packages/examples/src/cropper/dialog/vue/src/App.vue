@@ -5,8 +5,8 @@
   <plus-dialog
     animation="fade"
     connector="dialog-cropper"
-    @plusOpened="change(false)"
-    @plusClosed="change(true)"
+    @plus-opened="change(false)"
+    @plus-closed="change(true)"
   >
     <plus-dialog-content>
       <plus-dialog-header>Cropper</plus-dialog-header>

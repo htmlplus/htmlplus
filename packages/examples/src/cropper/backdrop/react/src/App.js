@@ -1,9 +1,11 @@
-import { Cropper } from "@htmlplus/react";
+import { Cropper } from '@htmlplus/react';
 
 const CropperBackdrop = () => {
-  return <>    
-    <Cropper backdrop={false} src="/assets/images/panda.jpg"></Cropper>    
-  </>;
+  return (
+    <>
+      <Cropper backdrop={false} src="/assets/images/panda.jpg"></Cropper>
+    </>
+  );
 };
 
 export default CropperBackdrop;

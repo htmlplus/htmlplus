@@ -3,7 +3,7 @@ plus-card {
   width: 12rem;
   margin: auto;
 }
-input[type="range"] {
+input[type='range'] {
   display: block;
   width: 12rem;
   margin: auto;

@@ -3,7 +3,7 @@
     <plus-counter
       to="1000"
       :play="play"
-      @plusComplete="play = false"
+      @plus-complete="play = false"
     ></plus-counter>
     <br />
     <button @click="play = true">Start</button>

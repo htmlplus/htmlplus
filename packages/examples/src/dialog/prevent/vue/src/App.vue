@@ -5,8 +5,8 @@
   <plus-dialog
     animation="fade"
     connector="dialog-prevent"
-    @plusOpen="ensure('open', $event)"
-    @plusClose="ensure('close', $event)"
+    @plus-open="ensure('open', $event)"
+    @plus-close="ensure('close', $event)"
   >
     <plus-dialog-content>
       <plus-dialog-header>Dialog Title</plus-dialog-header>

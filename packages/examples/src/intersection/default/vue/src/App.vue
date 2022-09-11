@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="spacer"></div>
-      <plus-intersection @plusChange="onChange($event)">
+      <plus-intersection @plus-change="onChange($event)">
         <plus-card elevation="10">
           <plus-card-body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

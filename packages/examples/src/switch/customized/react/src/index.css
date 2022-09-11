@@ -8,13 +8,13 @@
  * switch-1
  */
 
-.switch-1[aria-checked='false']::part(root)  {
+.switch-1[aria-checked='false']::part(root) {
   background: #28292c;
 }
 
 .switch-1[aria-checked='false']::part(handle) {
   background: #28292c;
-  box-shadow: inset calc(1.25em *  0.35) calc(1.25em * -0.075) 0 0 #d8dbe0;
+  box-shadow: inset calc(1.25em * 0.35) calc(1.25em * -0.075) 0 0 #d8dbe0;
 }
 
 .switch-1[aria-checked='true']::part(root) {
@@ -69,11 +69,11 @@
 }
 
 .switch-2::part(on)::before {
-  content: "YES";
+  content: 'YES';
   left: 0.25em;
 }
 
 .switch-2::part(off)::before {
-  content: "NO";
+  content: 'NO';
   right: 0.25em;
 }

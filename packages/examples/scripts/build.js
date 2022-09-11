@@ -33,7 +33,7 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'react');
     },
     eventNameConvertor(name) {
-      return name;
+      return name.replace('onPlus', 'on');
     }
   }),
   svelte({

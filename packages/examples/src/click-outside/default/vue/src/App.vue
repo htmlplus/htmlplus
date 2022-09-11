@@ -1,5 +1,5 @@
 <template>
-  <plus-click-outside @click="onClick()" @plusClickOutside="onClickOutside()">
+  <plus-click-outside @click="onClick()" @plus-click-outside="onClickOutside()">
     <plus-card elevation="10">
       <plus-card-body>
         <b>{{inside}}</b> time(s) inside clicked

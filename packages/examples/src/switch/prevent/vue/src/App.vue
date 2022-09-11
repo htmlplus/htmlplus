@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <plus-switch @plusChange="ensure($event)"></plus-switch>
+    <plus-switch @plus-change="ensure($event)"></plus-switch>
   </div>
 </template>
 

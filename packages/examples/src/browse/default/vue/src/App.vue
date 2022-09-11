@@ -1,5 +1,5 @@
 <template>
-  <plus-browse droppable @plusChange="onChange($event)"></plus-browse>
+  <plus-browse droppable @plus-change="onChange($event)"></plus-browse>
 </template>
 
 <script setup>

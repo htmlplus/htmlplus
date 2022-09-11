@@ -1,6 +1,5 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { camelCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -116,7 +115,7 @@ export const vue = (options) => {
           if (!value) return;
 
           if (isEvent(name.name)) {
-            name.name = '@' + camelCase(name.name.slice(2));
+            name.name = options?.eventNameConvertor?.(name.name) || name.name;
           }
 
           if (value.type !== 'JSXExpressionContainer') return;

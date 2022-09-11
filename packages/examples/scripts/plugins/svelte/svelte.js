@@ -1,6 +1,5 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { paramCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -89,7 +88,7 @@ export const svelte = (options) => {
           if (!value) return;
 
           if (isEvent(name.name)) {
-            name.name = 'on:' + paramCase(name.name.slice(2));
+            name.name = options?.eventNameConvertor?.(name.name) || name.name;
           }
 
           if (value.type !== 'JSXExpressionContainer') return;

@@ -1,6 +1,6 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { camelCase, capitalCase, paramCase, pascalCase } from 'change-case';
+import { camelCase, paramCase, pascalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
@@ -111,7 +111,7 @@ export const react = (options) => {
           const { name } = path.node;
 
           if (isEvent(name.name)) {
-            name.name = options?.eventNameConvertor?.(name.name, context) || name.name;
+            name.name = options?.eventNameConvertor?.(name.name) || name.name;
             return;
           }
 

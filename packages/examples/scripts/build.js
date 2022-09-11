@@ -1,23 +1,8 @@
 import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index.js';
-import { pascalCase } from 'change-case';
+import { paramCase, pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
 import { document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
-
-const componentNameConvertor = (name) => {
-  const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
-  const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
-  if (exception) name = name.replace(exception, pascalCase(exception));
-  return name.replace('plus-', '').split('-').map(pascalCase).join('.');
-};
-
-const componentRefrence = (name) => {
-  return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
-};
-
-const eventNameConvertor = (name) => {
-  return name.replace('onPlus', 'on');
-};
 
 const { start, next, finish } = compiler(
   read(),
@@ -35,23 +20,48 @@ const { start, next, finish } = compiler(
     }
   }),
   react({
-    componentRefrence: '@htmlplus/react',
-    componentNameConvertor,
+    componentRefrence() {
+      return '@htmlplus/react';
+    },
+    componentNameConvertor(name) {
+      const exceptions = ['aspect-ratio', 'button-navigation', 'click-outside', 'scroll-indicator'];
+      const exception = exceptions.find((exception) => name.indexOf(exception) != -1);
+      if (exception) name = name.replace(exception, pascalCase(exception));
+      return name.replace('plus-', '').split('-').map(pascalCase).join('.');
+    },
     destination(context) {
       return path.join(context.directoryPath, 'react');
     },
-    eventNameConvertor
+    eventNameConvertor(name) {
+      return name;
+    }
   }),
   svelte({
-    componentRefrence,
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
+    componentNameConvertor(name) {
+      return name;
+    },
     destination(context) {
       return path.join(context.directoryPath, 'svelte');
+    },
+    eventNameConvertor(name) {
+      return paramCase(name).replace('-', ':');
     }
   }),
   vue({
-    componentRefrence,
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
+    componentNameConvertor(name) {
+      return name;
+    },
     destination(context) {
       return path.join(context.directoryPath, 'vue');
+    },
+    eventNameConvertor(name) {
+      return paramCase(name).replace('on-', '@');
     }
   }),
   preview(),

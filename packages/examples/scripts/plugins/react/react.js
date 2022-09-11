@@ -11,7 +11,7 @@ export const react = (options) => {
   const next = (context) => {
     const dependencies = new Map();
 
-    const addDependency = (local, imported) => {
+    const addDependency = (path, local, imported) => {
       const locals = dependencies.get(imported) || new Set();
       locals.add(local);
       dependencies.set(imported, locals);
@@ -88,7 +88,7 @@ export const react = (options) => {
 
             path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
 
-            addDependency('useState', 'react');
+            addDependency(path, 'useState', 'react');
 
             path.replaceWith(
               t.variableDeclaration('const', [
@@ -129,9 +129,9 @@ export const react = (options) => {
 
           if (!/-/g.test(name)) return;
 
-          const newName = options?.componentNameConvertor?.(name, context) || name;
+          const newName = options?.componentNameConvertor?.(name) || name;
 
-          addDependency(newName.split('.').shift(), options?.componentRefrence?.(name));
+          addDependency(path, newName.split('.').shift(), options?.componentRefrence?.(name));
 
           openingElement.name.name = newName;
 

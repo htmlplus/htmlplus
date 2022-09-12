@@ -25,9 +25,9 @@ export const Example = ({ value }: ExampleProps) => {
 
   return (
     <>
-      <h2>
-        <Toc.Item level={2}>{title}</Toc.Item>
-      </h2>
+      <h3>
+        <Toc.Item level={3}>{title}</Toc.Item>
+      </h3>
       {description && <Markup value={description} />}
       {/* TODO: remove connector and example */}
       <Tabs className="example" connector={`example:${title}`} value="preview">

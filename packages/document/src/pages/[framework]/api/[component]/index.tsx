@@ -50,7 +50,7 @@ const ComponentAPI = ({ component }: any) => {
         .map((section) => (
           <React.Fragment key={section.key}>
             <h2>
-              <Toc.Item level={1}>{section.title}</Toc.Item>
+              <Toc.Item level={2}>{section.title}</Toc.Item>
             </h2>
             {section.items.map((item: any, index: number) => (
               <React.Fragment key={item.name}>

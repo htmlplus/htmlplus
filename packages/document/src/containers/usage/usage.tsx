@@ -11,7 +11,7 @@ export const Usage = () => {
   return (
     <>
       <h2>
-        <Toc.Item level={1}>Usage</Toc.Item>
+        <Toc.Item level={2}>Usage</Toc.Item>
       </h2>
       <p>
         Follow the tutorials &nbsp;

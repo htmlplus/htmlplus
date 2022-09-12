@@ -10,7 +10,7 @@ export const Api = () => {
   return (
     <>
       <h2>
-        <Toc.Item level={1}>Api</Toc.Item>
+        <Toc.Item level={2}>Api</Toc.Item>
       </h2>
       <p>
         Click &nbsp;

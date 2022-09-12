@@ -46,7 +46,7 @@ export const Contributors = () => {
   return (
     <>
       <h2>
-        <Toc.Item level={1}>Contributors</Toc.Item>
+        <Toc.Item level={2}>Contributors</Toc.Item>
       </h2>
       <Avatar.Group hoverable stacked>
         {contributors.reverse().map((contributor) => (

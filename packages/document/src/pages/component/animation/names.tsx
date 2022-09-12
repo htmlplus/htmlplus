@@ -15,7 +15,7 @@ const Animations = ({ categories }: any) => {
       <h1>Animations</h1>
       <p>TODO</p>
       <h2>
-        <Toc.Item level={1}>Usage</Toc.Item>
+        <Toc.Item level={2}>Usage</Toc.Item>
       </h2>
       <p>Chose one of the ways.</p>
       <p>1) If you need a transition from a category</p>
@@ -43,7 +43,7 @@ const Animations = ({ categories }: any) => {
       <p>3) If you need all categories</p>
       <Code language="js">{["import '@htmlplus/core/animation/transition/all.js';"].join('\n')}</Code>
       <h2>
-        <Toc.Item level={1}>Categories</Toc.Item>
+        <Toc.Item level={2}>Categories</Toc.Item>
       </h2>
       <p>
         Animations are based on those found in the popular{' '}

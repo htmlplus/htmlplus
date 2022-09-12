@@ -9,7 +9,19 @@ import { format, formatFile, getSnippet, getTitle, isEvent } from '../../utils.j
 export const react = (options) => {
   const name = 'react';
   const next = (context) => {
+    const config = {
+      cwd: __dirname(import.meta.url)
+    };
+
     const dependencies = new Map();
+
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
+
+    const patterns = ['templates/**/*.*'];
+
+    const title = getTitle(context);
+
+    fs.rmSync(destination, { recursive: true, force: true });
 
     const addDependency = (path, local, imported) => {
       const locals = dependencies.get(imported) || new Set();
@@ -198,19 +210,7 @@ export const react = (options) => {
       return format(content, { parser: 'css' });
     })();
 
-    const title = getTitle(context);
-
-    const patterns = ['templates/**/*.*'];
-
     if (!style) patterns.push('!templates/src/index.css.*');
-
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
-
-    fs.rmSync(destination, { recursive: true, force: true });
-
-    const config = {
-      cwd: __dirname(import.meta.url)
-    };
 
     const model = {
       script,

@@ -8,6 +8,18 @@ import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../..
 export const svelte = (options) => {
   const name = 'svelte';
   const next = (context) => {
+    const config = {
+      cwd: __dirname(import.meta.url)
+    };
+
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
+
+    const patterns = ['templates/**/*.*'];
+
+    const title = getTitle(context);
+
+    fs.rmSync(destination, { recursive: true, force: true });
+
     const visitors = {
       script: {
         ClassDeclaration(path) {
@@ -162,18 +174,6 @@ export const svelte = (options) => {
 
       return format(content, { parser: 'html' });
     })();
-
-    const title = getTitle(context);
-
-    const patterns = ['templates/**/*.*'];
-
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
-
-    fs.rmSync(destination, { recursive: true, force: true });
-
-    const config = {
-      cwd: __dirname(import.meta.url)
-    };
 
     const model = {
       script,

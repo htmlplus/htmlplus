@@ -8,6 +8,18 @@ import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../..
 export const vue = (options) => {
   const name = 'vue';
   const next = (context) => {
+    const config = {
+      cwd: __dirname(import.meta.url)
+    };
+
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
+
+    const patterns = ['templates/**/*.*'];
+
+    const title = getTitle(context);
+
+    fs.rmSync(destination, { recursive: true, force: true });
+
     const visitors = {
       script: {
         ClassDeclaration(path) {
@@ -192,18 +204,6 @@ export const vue = (options) => {
       return format(content, { parser: 'html' });
     })();
 
-    const title = getTitle(context);
-
-    const patterns = ['templates/**/*.*'];
-
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
-
-    fs.rmSync(destination, { recursive: true, force: true });
-
-    const config = {
-      cwd: __dirname(import.meta.url)
-    };
-
     const model = {
       script,
       style,
@@ -213,7 +213,6 @@ export const vue = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    // TODO
     formatFile(path.join(destination, 'src', 'App.vue'), { parser: 'vue' });
 
     return model;

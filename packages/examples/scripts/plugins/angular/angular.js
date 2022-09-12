@@ -3,7 +3,7 @@ import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/com
 import fs from 'fs';
 import path from 'path';
 
-import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
+import { format, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 export const angular = (options) => {
   const name = 'angular';

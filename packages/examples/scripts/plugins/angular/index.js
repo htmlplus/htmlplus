@@ -1,1 +1,1 @@
-export * from './svelte.js';
+export * from './angular.js';

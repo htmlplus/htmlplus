@@ -2,7 +2,7 @@ import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index
 import { paramCase, pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
-import { document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
+import { angular, document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
 
 const { start, next, finish } = compiler(
   read(),
@@ -10,6 +10,20 @@ const { start, next, finish } = compiler(
   parse(),
   extract({
     prefix: 'plus'
+  }),
+  angular({
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
+    componentNameConvertor(name) {
+      return name;
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'angular');
+    },
+    eventNameConvertor(name) {
+      return '(' + paramCase(name).replace('on-', '') + ')';
+    }
   }),
   javascript({
     componentRefrence(name) {

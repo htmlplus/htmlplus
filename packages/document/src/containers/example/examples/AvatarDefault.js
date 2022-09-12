@@ -1,11 +1,13 @@
-import { Avatar } from "@htmlplus/react";
+import { Avatar } from '@htmlplus/react';
 
 const AvatarDefault = () => {
-  return <>    
-    <div className="center">      
-      <Avatar></Avatar>      
-    </div>    
-  </>;
+  return (
+    <>
+      <div className="center">
+        <Avatar></Avatar>
+      </div>
+    </>
+  );
 };
 
 const AvatarDefaultExample = () => {

@@ -1,14 +1,16 @@
-import { Cropper } from "@htmlplus/react";
+import { Cropper } from '@htmlplus/react';
 
 const CropperBackdrop = () => {
-  return <>    
-    <Cropper backdrop={false} src="/assets/images/panda.jpg"></Cropper>    
-  </>;
+  return (
+    <>
+      <Cropper backdrop={false} src="/assets/images/panda.jpg"></Cropper>
+    </>
+  );
 };
 
 const CropperBackdropExample = () => {
   return (
-    <div className="ex-cropper-backdrop">
+    <div className="ex-cropper-backdrop dock">
       <CropperBackdrop />
       <style>{`undefined`}</style>
     </div>

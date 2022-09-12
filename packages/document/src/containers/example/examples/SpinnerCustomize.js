@@ -1,11 +1,13 @@
-import { Spinner } from "@htmlplus/react";
+import { Spinner } from '@htmlplus/react';
 
 const SpinnerCustomize = () => {
-  return <>    
-    <div className="center">      
-      <Spinner type="dual-ring"></Spinner>      
-    </div>    
-  </>;
+  return (
+    <>
+      <div className="center">
+        <Spinner type="dual-ring"></Spinner>
+      </div>
+    </>
+  );
 };
 
 const SpinnerCustomizeExample = () => {

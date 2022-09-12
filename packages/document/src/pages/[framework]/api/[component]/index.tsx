@@ -79,7 +79,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = frameworks
-    .filter((framework) => !framework.disabled)
     .map((framework) =>
       components.map(
         (component) =>

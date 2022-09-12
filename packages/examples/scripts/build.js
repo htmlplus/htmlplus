@@ -11,20 +11,20 @@ const { start, next, finish } = compiler(
   extract({
     prefix: 'plus'
   }),
-  // angular({
-  //   componentRefrence(name) {
-  //     return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
-  //   },
-  //   componentNameConvertor(name) {
-  //     return name;
-  //   },
-  //   destination(context) {
-  //     return path.join(context.directoryPath, 'angular');
-  //   },
-  //   eventNameConvertor(name) {
-  //     return '(' + paramCase(name).replace('on-', '') + ')';
-  //   }
-  // }),
+  angular({
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
+    componentNameConvertor(name) {
+      return name;
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'angular');
+    },
+    eventNameConvertor(name) {
+      return '(' + paramCase(name).replace('on-', '') + ')';
+    }
+  }),
   javascript({
     componentRefrence(name) {
       return `https://cdn.jsdelivr.net/npm/@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;

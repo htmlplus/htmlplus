@@ -1,0 +1,9 @@
+<div class="center">
+  <plus-counter
+    to="1000"
+    [play]="play"
+    (plus-complete)="play = false"
+  ></plus-counter>
+  <br />
+  <button (click)="play = true">Start</button>
+</div>

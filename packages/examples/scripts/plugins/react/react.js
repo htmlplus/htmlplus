@@ -64,30 +64,11 @@ export const react = (options) => {
         ClassMethod(path) {
           const { body, key, params } = path.node;
 
-          if (key.name !== 'render') {
+          if (key.name != context.classRender.key.name) {
             path.replaceWith(
               t.variableDeclaration('const', [t.variableDeclarator(key, t.arrowFunctionExpression(params, body))])
             );
             return;
-          }
-
-          const statement = body.body.find((element) => element.type === 'ReturnStatement');
-
-          if (statement && statement.argument && statement.argument.type === 'JSXElement') {
-            let element = statement.argument;
-
-            let children = [t.jsxText('\n'), element, t.jsxText('\n')];
-
-            if (element.openingElement.name.name.match(/fragment/)) {
-              children = element.children;
-              element = element.children.find((element) => element.type === 'JSXElement');
-            }
-
-            statement.argument = t.jsxElement(
-              t.jsxOpeningElement(t.jsxIdentifier(''), []),
-              t.jSXClosingElement(t.jsxIdentifier('')),
-              children
-            );
           }
 
           path.replaceWithMultiple(body.body);

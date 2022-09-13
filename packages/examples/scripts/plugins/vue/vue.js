@@ -110,7 +110,7 @@ export const vue = (options) => {
 
           const children = [];
 
-          if (element.openingElement.name.name.match(/fragment/)) {
+          if (element.type == 'JSXFragment') {
             for (const child of element.children) {
               if (child.type == 'JSXText') continue;
               children.push(child);

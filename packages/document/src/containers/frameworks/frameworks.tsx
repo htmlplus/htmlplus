@@ -35,13 +35,11 @@ export const Frameworks = () => {
 
   const items = useMemo(
     () =>
-      frameworks
-        .filter((framework) => !framework.disabled)
-        .map((framework) => ({
-          value: framework.key,
-          label: framework.title,
-          logo: framework.logo
-        })),
+      frameworks.map((framework) => ({
+        value: framework.key,
+        label: framework.title,
+        logo: framework.logo
+      })),
     [frameworks]
   );
 

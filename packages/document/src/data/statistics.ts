@@ -1,7 +1,6 @@
 /**************************************************
-* THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
-**************************************************/
-
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
 import { components, examples, frameworks } from '@app/data';
 
 export const statistics = {
@@ -26,6 +25,6 @@ export const statistics = {
     return examples.filter((example) => example.category == 'preview').length;
   },
   get frameworks(): number {
-    return frameworks.filter((framework) => !framework.disabled).length;
+    return frameworks.length;
   }
 };

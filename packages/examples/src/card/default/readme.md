@@ -10,10 +10,8 @@ plus-card {
 }
 ```
 
-```html [template]
-<fragment dock>
-  <div class="container">
-    <plus-card></plus-card>
-  </div>
-</fragment>
+```html [template] [dock]
+<div class="container">
+  <plus-card></plus-card>
+</div>
 ```

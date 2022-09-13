@@ -26,7 +26,7 @@ class DialogSize {
 
   render() {
     return (
-      <fragment>
+      <>
         <plus-grid justify-content="center" gutter="md">
           <plus-grid-item xs="12" sm="auto">
             <button onClick={() => this.show('sm')}>Small dialog</button>
@@ -57,7 +57,7 @@ class DialogSize {
             </plus-dialog-footer>
           </plus-dialog-content>
         </plus-dialog>
-      </fragment>
+      </>
     );
   }
 }

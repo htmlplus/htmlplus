@@ -15,21 +15,19 @@ plus-sticky {
 }
 ```
 
-```html [template]
-<fragment dock>
-  <div class="container">
-    <plus-sticky>A</plus-sticky>
-    <p>A</p>
-    <plus-sticky>B</plus-sticky>
-    <p>B</p>
-    <plus-sticky>C</plus-sticky>
-    <p>C</p>
-    <plus-sticky>D</plus-sticky>
-    <p>D</p>
-    <plus-sticky>E</plus-sticky>
-    <p>E</p>
-    <plus-sticky>F</plus-sticky>
-    <p>F</p>
-  </div>
-</fragment>
+```html [template] [dock]
+<div class="container">
+  <plus-sticky>A</plus-sticky>
+  <p>A</p>
+  <plus-sticky>B</plus-sticky>
+  <p>B</p>
+  <plus-sticky>C</plus-sticky>
+  <p>C</p>
+  <plus-sticky>D</plus-sticky>
+  <p>D</p>
+  <plus-sticky>E</plus-sticky>
+  <p>E</p>
+  <plus-sticky>F</plus-sticky>
+  <p>F</p>
+</div>
 ```

@@ -4,7 +4,7 @@
 }
 ```
 
-```tsx [script]
+```tsx [script] [dock]
 import { Element, State } from '@htmlplus/element';
 
 @Element()
@@ -18,7 +18,7 @@ class CropperDialog {
 
   render() {
     return (
-      <fragment>
+      <>
         <div class="center">
           <plus-dialog-toggler connector="dialog-cropper">
             Open
@@ -43,7 +43,7 @@ class CropperDialog {
             </plus-dialog-footer>
           </plus-dialog-content>
         </plus-dialog>
-      </fragment>
+      </>
     );
   }
 }

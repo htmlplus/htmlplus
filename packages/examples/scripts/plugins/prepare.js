@@ -30,10 +30,18 @@ export const prepare = () => {
           ?.pop()
           ?.replace('```', '');
 
+        const dock = !!first
+          ?.match(/\[dock]/)
+          ?.shift()
+          ?.replace('[', '')
+          ?.replace(']', '');
+
+        const options = { dock };
+
         const content = lines.slice(1, -1).join('\n').trim();
 
-        snippets.push({ key, type, content });
-      } catch { }
+        snippets.push({ key, type, options, content });
+      } catch {}
     });
 
     const template = snippets.find((snippet) => snippet.key == 'template');

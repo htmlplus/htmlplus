@@ -17,7 +17,7 @@ plus-breadcrumb a:hover {
 ```
 
 ```html [template]
-<fragment>
+<>
   <div class="container">
     <plus-breadcrumb separator="/" max={4} offset={0}>
       <a href="#">Item 1</a>
@@ -54,5 +54,5 @@ plus-breadcrumb a:hover {
       <a href="#">Item 8</a>
     </plus-breadcrumb>
   </div>
-</fragment>
+</>
 ```

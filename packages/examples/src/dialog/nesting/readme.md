@@ -5,7 +5,7 @@ plus-grid-item {
 ```
 
 ```html [template]
-<fragment>
+<>
   <plus-grid justify-content="center" gutter="md">
     <plus-grid-item xs="12" sm="auto">
       <plus-dialog-toggler connector="dialog-nesting-1">
@@ -99,5 +99,5 @@ plus-grid-item {
       </plus-dialog-footer>
     </plus-dialog-content>
   </plus-dialog>
-</fragment>
+</>
 ```

@@ -4,7 +4,7 @@
 ```
 
 ```html [template]
-<fragment>
+<>
   <div id="target"></div>
   <div id="source">
     <plus-portal target="#target">
@@ -15,5 +15,5 @@
       </p>
     </plus-portal>
   </div>
-</fragment>
+</>
 ```

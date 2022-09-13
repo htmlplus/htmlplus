@@ -1,5 +1,5 @@
 ```html [template]
-<fragment>
+<>
   <header>
     <plus-tabs value="1" connector="tabs-separate">
       <plus-tabs-bar>
@@ -34,5 +34,5 @@
       </plus-tabs-panel>
     </plus-tabs-panels>
   </section>
-</fragment>
+</>
 ```

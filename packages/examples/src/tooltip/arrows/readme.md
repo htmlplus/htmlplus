@@ -1,5 +1,5 @@
 ```html [template]
-<fragment>
+<>
   <button class="btn"  xs="12" sm="4">
     Default
     <plus-tooltip>Tooltip</plus-tooltip>
@@ -24,5 +24,5 @@
     Narrow
     <plus-tooltip placement="top" arrow="narrow">Tooltip</plus-tooltip>
   </button>
-</fragment>
+</>
 ```

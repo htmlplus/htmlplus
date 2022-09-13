@@ -1,5 +1,5 @@
 ```html [template]
-<fragment>
+<>
   <plus-tabs>
     <plus-tabs-bar justify="start">
       <plus-tabs-tab>
@@ -41,5 +41,5 @@
       </plus-tabs-tab>
     </plus-tabs-bar>
   </plus-tabs>
-</fragment>
+</>
 ```

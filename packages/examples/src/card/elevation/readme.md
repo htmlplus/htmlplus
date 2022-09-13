@@ -27,7 +27,7 @@ class CardElevation {
 
   render() {
     return (
-      <fragment>
+      <>
         <plus-card elevation={this.elevation}></plus-card>
         <br />
         <input
@@ -37,7 +37,7 @@ class CardElevation {
           max="24"
           onChange={(event) => this.onChange(event)}
         />
-      </fragment>
+      </>
     );
   }
 }

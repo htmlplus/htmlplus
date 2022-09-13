@@ -15,7 +15,7 @@ plus-card p {
 ```
 
 ```html [template]
-<fragment>
+<>
   <plus-portal target="#before" strategy="before">
     <h1 class="title">
       Before the card
@@ -63,5 +63,5 @@ plus-card p {
       magna aliqua.
     </p>
   </plus-card>
-</fragment>
+</>
 ```

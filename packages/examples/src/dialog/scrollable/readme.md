@@ -5,7 +5,7 @@
 ```
 
 ```html [template]
-<fragment>
+<>
   <div class="center">
     <plus-dialog-toggler connector="dialog-scrollable">
       Open
@@ -55,5 +55,5 @@
       </plus-dialog-footer>
     </plus-dialog-content>
   </plus-dialog>
-</fragment>
+</>
 ```

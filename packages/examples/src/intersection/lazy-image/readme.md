@@ -33,7 +33,7 @@ plus-spinner {
 }
 ```
 
-```tsx [script]
+```tsx [script] [dock]
 import { Element } from '@htmlplus/element';
 
 @Element()
@@ -58,23 +58,21 @@ class IntersectionLazyImage {
 
   render() {
     return (
-      <fragment dock>
-        <div class="container">
-          <plus-intersection
-            once
-            onPlusChange={(event) => this.onChange(event)}
-          >
-            <plus-card elevation="10">
-              <plus-spinner></plus-spinner>
-              <img
-                data-hidden="true"
-                data-src="https://placekitten.com/200/200"
-                alt="Lazy Image"
-              />
-            </plus-card>
-          </plus-intersection>
-        </div>
-      </fragment>
+      <div class="container">
+        <plus-intersection
+          once
+          onPlusChange={(event) => this.onChange(event)}
+        >
+          <plus-card elevation="10">
+            <plus-spinner></plus-spinner>
+            <img
+              data-hidden="true"
+              data-src="https://placekitten.com/200/200"
+              alt="Lazy Image"
+            />
+          </plus-card>
+        </plus-intersection>
+      </div>
     );
   }
 }

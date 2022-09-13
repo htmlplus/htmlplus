@@ -34,7 +34,7 @@ plus-card {
 }
 ```
 
-```tsx [script]
+```tsx [script] [dock]
 import { Element, State } from '@htmlplus/element';
 
 @Element()
@@ -48,25 +48,23 @@ class IntersectionDefault {
 
   render() {
     return (
-      <fragment dock>
-        <div class="container">
-          <div class="status">
-            {this.intersecting ? 'In Viewport' : 'Out of Viewport'}
-          </div>
-          <div class="content">
-            <div class="spacer"></div>
-            <plus-intersection onPlusChange={(event) => this.onChange(event)}>
-              <plus-card elevation="10">
-                <plus-card-body>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </plus-card-body>
-              </plus-card>
-            </plus-intersection>
-            <div class="spacer"></div>
-          </div>
+      <div class="container">
+        <div class="status">
+          {this.intersecting ? 'In Viewport' : 'Out of Viewport'}
         </div>
-      </fragment>
+        <div class="content">
+          <div class="spacer"></div>
+          <plus-intersection onPlusChange={(event) => this.onChange(event)}>
+            <plus-card elevation="10">
+              <plus-card-body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </plus-card-body>
+            </plus-card>
+          </plus-intersection>
+          <div class="spacer"></div>
+        </div>
+      </div>
     );
   }
 }

@@ -15,7 +15,7 @@ class DialogPrevent {
   }
   render() {
     return (
-      <fragment>
+      <>
         <div class="center">
           <plus-dialog-toggler connector="dialog-prevent">
             Open
@@ -40,7 +40,7 @@ class DialogPrevent {
             </plus-dialog-footer>
           </plus-dialog-content>
         </plus-dialog>
-      </fragment>
+      </>
     );
   }
 }

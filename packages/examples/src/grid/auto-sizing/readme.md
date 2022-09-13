@@ -9,7 +9,7 @@ plus-grid div {
 ```
 
 ```html [template]
-<fragment>
+<>
   <plus-grid>
     <plus-grid-item xs="grow">
       <div>
@@ -44,5 +44,5 @@ plus-grid div {
       </div>
     </plus-grid-item>
   </plus-grid>
-</fragment>
+</>
 ```

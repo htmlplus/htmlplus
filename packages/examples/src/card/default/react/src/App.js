@@ -2,11 +2,9 @@ import { Card } from '@htmlplus/react';
 
 const CardDefault = () => {
   return (
-    <>
-      <div className="container">
-        <Card></Card>
-      </div>
-    </>
+    <div className="container">
+      <Card></Card>
+    </div>
   );
 };
 

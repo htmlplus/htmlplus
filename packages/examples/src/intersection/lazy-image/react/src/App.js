@@ -14,20 +14,18 @@ const IntersectionLazyImage = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <Intersection once onChange={(event) => onChange(event)}>
-          <Card elevation="10">
-            <Spinner></Spinner>
-            <img
-              data-hidden="true"
-              data-src="https://placekitten.com/200/200"
-              alt="Lazy Image"
-            />
-          </Card>
-        </Intersection>
-      </div>
-    </>
+    <div className="container">
+      <Intersection once onChange={(event) => onChange(event)}>
+        <Card elevation="10">
+          <Spinner></Spinner>
+          <img
+            data-hidden="true"
+            data-src="https://placekitten.com/200/200"
+            alt="Lazy Image"
+          />
+        </Card>
+      </Intersection>
+    </div>
   );
 };
 

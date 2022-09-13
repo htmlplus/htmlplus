@@ -6,11 +6,7 @@ const BrowseDefault = () => {
     alert(`File '${name}' selected.`);
   };
 
-  return (
-    <>
-      <Browse droppable onChange={(event) => onChange(event)}></Browse>
-    </>
-  );
+  return <Browse droppable onChange={(event) => onChange(event)}></Browse>;
 };
 
 export default BrowseDefault;

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-
-import '@htmlplus/core/aspect-ratio.js';
-import '@htmlplus/core/grid.js';
 import '@htmlplus/core/grid-item.js';
-
+import '@htmlplus/core/grid.js';
+import '@htmlplus/core/aspect-ratio.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -50,6 +50,7 @@ To use object and array types.
 
 ```jsx
 import { useEffect, useRef } from 'react';
+
 import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
 const App = () => {
@@ -77,6 +78,7 @@ To handle event's callback.
 
 ```jsx
 import { useEffect, useRef } from 'react';
+
 import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
 
 const App = () => {

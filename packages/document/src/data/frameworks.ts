@@ -1,9 +1,9 @@
 export const frameworks = [
-  // {
-  //   key: 'angular',
-  //   logo: '/assets/logo/angular.svg',
-  //   title: 'Angular'
-  // },
+  {
+    key: 'angular',
+    logo: '/assets/logo/angular.svg',
+    title: 'Angular'
+  },
   {
     key: 'javascript',
     logo: '/assets/logo/javascript.svg',

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-
-import '@htmlplus/core/animation.js';
-import '@htmlplus/core/grid.js';
 import '@htmlplus/core/grid-item.js';
-
+import '@htmlplus/core/grid.js';
+import '@htmlplus/core/animation.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

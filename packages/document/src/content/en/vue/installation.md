@@ -71,6 +71,7 @@ To use object and array types.
 
 <script setup>
   import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+
   const keyframes = [
     { offset: 0.00, opacity: '1' },
     { offset: 0.25, opacity: '0' },

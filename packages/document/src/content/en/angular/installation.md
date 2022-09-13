@@ -35,6 +35,7 @@ Import the reference of components.
 
 ```js
 import { Component } from '@angular/core';
+
 import '@htmlplus/core';
 
 @Component({
@@ -69,6 +70,7 @@ To handle event's callback.
 
 ```js
 import { Component } from '@angular/core';
+
 import '@htmlplus/core';
 
 @Component({

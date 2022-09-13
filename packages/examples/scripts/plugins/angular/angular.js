@@ -12,8 +12,6 @@ export const angular = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const dependencies = context.customElementNames.map((name) => options?.componentRefrence(name));
-
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     const patterns = ['templates/**/*.*'];
@@ -24,9 +22,36 @@ export const angular = (options) => {
 
     const visitors = {
       script: {
-        ClassDeclaration(path) {
-          const { id } = path.node;
-          id.name = 'AppComponent';
+        ClassDeclaration: {
+          enter(path) {
+            const { id } = path.node;
+            if (context.class.id.name == id.name) return;
+            path.skip();
+          },
+          exit(path) {
+            const { id } = path.node;
+
+            id.name = 'AppComponent';
+
+            path.node.decorators.push(
+              t.decorator(
+                t.callExpression(t.identifier('Component'), [
+                  t.objectExpression([
+                    t.objectProperty(t.identifier('selector'), t.stringLiteral('app-root')),
+                    t.objectProperty(t.identifier('templateUrl'), t.stringLiteral('./app.component.html')),
+                    t.objectProperty(
+                      t.identifier('styleUrls'),
+                      t.arrayExpression([t.stringLiteral('./app.component.css')])
+                    )
+                  ])
+                ])
+              )
+            );
+
+            path.replaceWith(t.exportNamedDeclaration(path.node));
+
+            path.skip();
+          }
         },
         ClassMethod(path) {
           const { key } = path.node;
@@ -40,6 +65,22 @@ export const angular = (options) => {
           // TODO
           if (path.node.source.value != '@htmlplus/element') return;
           path.remove();
+        },
+        Program(path) {
+          const { body } = path.node;
+
+          context.customElementNames
+            .map((name) => options?.componentRefrence(name))
+            .forEach((dependency) => {
+              return body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
+            });
+
+          body.unshift(
+            t.importDeclaration(
+              [t.importSpecifier(t.identifier('Component'), t.identifier('Component'))],
+              t.stringLiteral('@angular/core')
+            )
+          );
         }
       },
       template: {
@@ -152,7 +193,6 @@ export const angular = (options) => {
     })();
 
     const model = {
-      dependencies,
       script,
       style,
       template,

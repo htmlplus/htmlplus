@@ -1,6 +1,6 @@
 # Bidirectionality
 
-`{CONSTANTS.PLATFORM_NAME}` supports bidirectionality and it can set RTL (Right to left) and LTR (Left to Right). In `{CONSTANTS.PLATFORM_NAME}`, it is possible to set it globally and specifically for each component.
+`HTMLPLUS` supports bidirectionality and it can set RTL (Right to left) and LTR (Left to Right). In `HTMLPLUS`, it is possible to set it globally and specifically for each component.
 
 RTL format is used for languages such as Arabic and Persian. For more information click [here](https://material.io/design/usability/bidirectionality.html).
 

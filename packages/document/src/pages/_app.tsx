@@ -3,15 +3,13 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import * as CONSTANTS from '@app/constants';
-
 import '../styles/index.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <React.StrictMode>
       <Head>
-        <title>{CONSTANTS.PLATFORM_NAME}</title>
+        <title>HTMLPLUS</title>
 
         <link rel="icon" href="/favicon.ico" />
         {/* <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> */}

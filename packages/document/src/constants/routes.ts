@@ -1,11 +1,9 @@
-import * as CONSTANTS from '@app/constants';
-
 export const ROUTE = {
   HOME: '/',
   ANIMATIONS: '/component/animation/names',
   BIDIRECTIONALITY: '/bidirectionality',
-  INTRODUCTION_WHAT: `/introduction/what-is-${CONSTANTS.PLATFORM_KEY}`,
-  INTRODUCTION_WHY: `/introduction/why-${CONSTANTS.PLATFORM_KEY}`,
+  INTRODUCTION_WHAT: `/introduction/what-is-htmlplus`,
+  INTRODUCTION_WHY: `/introduction/why-htmlplus`,
   INSTALLATION: '/installation',
   INSTALLATION_FRAMEWORK: '/[framework]/installation',
   BROWSERS: '/browsers',

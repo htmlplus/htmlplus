@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 import { Card, Drawer, Grid, Sticky } from '@app/components';
-import * as CONSTANTS from '@app/constants';
 import { Contributors, Frameworks, Header, Navigation, Sidebar, Toc } from '@app/containers';
 
 interface LayoutDefaultProps {
@@ -14,7 +13,7 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
       <Header menu />
       <Drawer open={false} animation="fade" connector="main" temporary>
         <Card tile elevation="10" style={{ height: '100%', overflowY: 'auto' }}>
-          {CONSTANTS.PLATFORM_NAME}
+          HTMLPLUS
           <Sidebar />
         </Card>
       </Drawer>

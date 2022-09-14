@@ -1,28 +1,32 @@
-import * as CONSTANTS from '@app/constants';
-
 export const socials = [
   {
     key: 'twitter',
     icon: 'twitter',
     title: 'Twitter',
-    url: CONSTANTS.SOCIAL_TWITTER
+    url: 'https://www.twitter.com/htmlplusio'
   },
   {
     key: 'linkedin',
     icon: 'linkedin',
     title: 'Linkedin',
-    url: CONSTANTS.SOCIAL_LINKEDIN
+    url: 'https://www.linkedin.com/company/htmlplus'
   },
   {
     key: 'instagram',
     icon: 'instagram',
     title: 'Instagram',
-    url: CONSTANTS.SOCIAL_INSTAGRAM
+    url: 'https://www.instagram.com/htmlplus.io'
   },
   {
     key: 'github',
     icon: 'github',
     title: 'Github',
-    url: CONSTANTS.SOCIAL_GITHUB
+    url: 'https://github.com/htmlplus/htmlplus'
+  },
+  {
+    key: 'youtube',
+    icon: 'youtube',
+    title: 'YouTube',
+    url: 'https://www.youtube.com/channel/UCsNkxDmLU7vK_L1jgSVWWCA'
   }
 ];

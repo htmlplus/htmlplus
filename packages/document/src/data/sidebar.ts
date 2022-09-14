@@ -1,25 +1,22 @@
-import * as CONSTANTS from '@app/constants';
 import { components, frameworks } from '@app/data';
 import * as Utils from '@app/utils';
 
 export const sidebar = (framework: string) => [
   {
     title: 'Introduction',
-    icon: 'introduction',
     items: [
       {
-        title: `What's ${CONSTANTS.PLATFORM_NAME}?`,
+        title: `What's HTMLPLUS?`,
         url: Utils.getPath('INTRODUCTION_WHAT')
       },
       {
-        title: `Why ${CONSTANTS.PLATFORM_NAME}?`,
+        title: `Why HTMLPLUS?`,
         url: Utils.getPath('INTRODUCTION_WHY')
       }
     ]
   },
   {
     title: 'Getting started',
-    icon: 'getting-started',
     items: [
       {
         title: 'Installation',
@@ -33,7 +30,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'Frameworks',
-    icon: 'frameworks',
     items: frameworks.map((framework) => ({
       title: framework.title,
       url: Utils.getPath('INSTALLATION_FRAMEWORK', { framework: framework.key })
@@ -41,7 +37,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'UI Components',
-    icon: 'components',
     items: components
       // TODO: detect sub components
       .filter((component) => !!component.readme)
@@ -52,7 +47,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'UI Components API',
-    icon: 'components',
     items: components.map((component) => ({
       title: component.title,
       url: Utils.getPath('API_DETAILS', { framework, component: component.key })
@@ -60,7 +54,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'About',
-    icon: 'htmlplus',
     items: [
       {
         title: 'Code Of Conduct',
@@ -70,7 +63,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'Features',
-    icon: 'htmlplus',
     items: [
       {
         title: 'Bidirectionality',
@@ -80,7 +72,6 @@ export const sidebar = (framework: string) => [
   },
   {
     title: 'Utils',
-    icon: 'htmlplus',
     items: [
       {
         title: 'Animations',

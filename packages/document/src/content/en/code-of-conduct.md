@@ -1,6 +1,6 @@
 # Code Of Conduct
 
-The [{CONSTANTS.PLATFORM_NAME}]() Code of Conduct is one of the ways we put {CONSTANTS.PLATFORM_NAME}’s values into practice. It’s built around the recognition that everything we do in connection with our contributing at {CONSTANTS.PLATFORM_NAME} will be, and should be, measured against the highest possible standards of ethical business conduct. We set the bar that high for practical as well as aspirational reasons: Our commitment to the highest standards helps us build great products, and attract loyal users. Respect for our users, for the opportunity, and for each other are foundational to our success, and are something we need to support every day.
+The [HTMLPLUS]() Code of Conduct is one of the ways we put HTMLPLUS’s values into practice. It’s built around the recognition that everything we do in connection with our contributing at HTMLPLUS will be, and should be, measured against the highest possible standards of ethical business conduct. We set the bar that high for practical as well as aspirational reasons: Our commitment to the highest standards helps us build great products, and attract loyal users. Respect for our users, for the opportunity, and for each other are foundational to our success, and are something we need to support every day.
 
 Please read this text and if you have any questions, you may refer to the [FAQ](./FAQ.md) section
 
@@ -54,4 +54,4 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 
 ## Final Note
 
-{CONSTANTS.PLATFORM_NAME} wishes to be a different company. We trust each other to maintain transparency and voice for ourselves and those around us.
+HTMLPLUS wishes to be a different company. We trust each other to maintain transparency and voice for ourselves and those around us.

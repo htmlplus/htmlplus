@@ -1,18 +1,18 @@
 # Angular
 
-`{CONSTANTS.PLATFORM_NAME}` web components are fully [compatible](https://custom-elements-everywhere.com/#angular) with Angular framework.
+`HTMLPLUS` web components are fully [compatible](https://custom-elements-everywhere.com/#angular) with Angular framework.
 
 ## Install
 
-Install `{CONSTANTS.PLATFORM_NAME}` package into Angular application.
+Install `HTMLPLUS` package into Angular application.
 
 ```shell
-npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
+npm install @htmlplus/core
 ```
 
 ## Update Angular Module
 
-Tell Angular to ignore all custom element tags defined in the `{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}`.
+Tell Angular to ignore all custom element tags defined in the `@htmlplus/core`.
 
 ```js
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -53,7 +53,7 @@ export class AppComponent { }
 <br/>
 
 <Alert type="info">
-All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the angular project.
+All `HTMLPLUS` components are available as same as a local tag (div, video, etc.) in the angular project.
 </Alert>
 
 ## Properties

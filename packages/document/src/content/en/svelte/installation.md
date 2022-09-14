@@ -1,13 +1,13 @@
 # Svelte
 
-`{CONSTANTS.PLATFORM_NAME}` web components are fully [compatible](https://custom-elements-everywhere.com/#svelte) with Svelte framework.
+`HTMLPLUS` web components are fully [compatible](https://custom-elements-everywhere.com/#svelte) with Svelte framework.
 
 ## Install
 
-Install `{CONSTANTS.PLATFORM_NAME}` package into Svelte application.
+Install `HTMLPLUS` package into Svelte application.
 
 ```shell
-npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
+npm install @htmlplus/core
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ Import the reference of components.
 
 ```html
 <script>
-  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+  import '@htmlplus/core';
 </script>
 
 <plus-switch />
@@ -25,7 +25,7 @@ Import the reference of components.
 <br/>
 
 <Alert type="info">
-All `{CONSTANTS.PLATFORM_NAME}` components are available as same as a local tag (div, video, etc.) in the svelte project.
+All `HTMLPLUS` components are available as same as a local tag (div, video, etc.) in the svelte project.
 </Alert>
 
 ## Properties
@@ -34,7 +34,7 @@ To set properties and attributes.
 
 ```html
 <script>
-  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+  import '@htmlplus/core';
 </script>
 
 <plus-switch disabled/>
@@ -46,7 +46,7 @@ To handle event's callback.
 
 ```html
 <script>
-  import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+  import '@htmlplus/core';
 
   function onChange() {
     alert('The switch toggled!')

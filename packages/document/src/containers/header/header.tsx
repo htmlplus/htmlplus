@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
-import * as CONSTANTS from '@app/constants';
 import * as Utils from '@app/utils';
 
 import { HeaderProps } from './header.types';
@@ -9,11 +8,11 @@ import { HeaderProps } from './header.types';
 export const Header = ({ menu }: HeaderProps) => {
   const links = [
     {
-      title: `What\'s ${CONSTANTS.PLATFORM_NAME}?`,
+      title: `What\'s HTMLPLUS?`,
       url: Utils.getPath('INTRODUCTION_WHAT')
     },
     {
-      title: `Why ${CONSTANTS.PLATFORM_NAME}?`,
+      title: `Why HTMLPLUS?`,
       url: Utils.getPath('INTRODUCTION_WHY')
     },
     {

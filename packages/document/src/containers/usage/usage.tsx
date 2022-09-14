@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { Button } from '@app/components';
-import * as CONSTANTS from '@app/constants';
+import { Button, Code } from '@app/components';
 import { Toc } from '@app/containers';
 import * as Utils from '@app/utils';
 
@@ -19,11 +18,28 @@ export const Usage = () => {
           here
         </Button>
         &nbsp; to use the &nbsp;
-        <b>{CONSTANTS.PLATFORM_NAME}</b>
+        <b>HTMLPLUS</b>
         &nbsp; library on &nbsp;
         <b>{framework}-based</b>
         &nbsp; projects.
       </p>
+      <Code language="shell">
+        npm install
+        {(() => {
+          switch (framework) {
+            case 'angular':
+              return '@htmlplus/core';
+            case 'javascript':
+              return '@htmlplus/core';
+            case 'react':
+              return '@htmlplus/react';
+            case 'svelte':
+              return '@htmlplus/core';
+            case 'vue':
+              return '@htmlplus/core';
+          }
+        })()}
+      </Code>
     </>
   );
 };

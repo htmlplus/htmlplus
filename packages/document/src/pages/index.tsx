@@ -6,7 +6,6 @@ import NextLink from 'next/link';
 import '@htmlplus/core/animation/attention-seekers/pulse.js';
 
 import { Animation, Button, Grid, Icon, Intersection } from '@app/components';
-import * as CONSTANTS from '@app/constants';
 import { Browsers, Header } from '@app/containers';
 import { features, frameworks, statistics } from '@app/data';
 import * as Utils from '@app/utils';
@@ -31,12 +30,12 @@ const Home: NextPage = () => {
           <Grid justifyContent="center" justifyContentMd="end" gutterX="md">
             <Grid.Item>
               <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHAT')}>
-                <b>{`What\'s ${CONSTANTS.PLATFORM_NAME}?`}</b>
+                <b>{`What\'s HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
             <Grid.Item>
               <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHY')}>
-                <b>{`Why ${CONSTANTS.PLATFORM_NAME}?`}</b>
+                <b>{`Why HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
           </Grid>
@@ -59,14 +58,12 @@ const Home: NextPage = () => {
               </g>
             </svg>
             &nbsp; &nbsp;
-            <h1 style={{ border: 'none', display: 'inline', verticalAlign: 'middle', padding: 0 }}>
-              {CONSTANTS.PLATFORM_NAME}
-            </h1>
+            <h1 style={{ border: 'none', display: 'inline', verticalAlign: 'middle', padding: 0 }}>HTMLPLUS</h1>
           </div>
           <h1 style={{ border: 'none' }}>The Most Flexible Open Source Web Component Library!</h1>
           <p style={{ maxWidth: '700px', margin: 'auto' }}>
-            {CONSTANTS.PLATFORM_NAME} is framework-less and lightweight. It's totally native and developed purely with
-            javascript. All {CONSTANTS.PLATFORM_NAME} components are customizable and configurable
+            HTMLPLUS is framework-less and lightweight. It's totally native and developed purely with javascript. All
+            HTMLPLUS components are customizable and configurable
           </p>
           <div>
             <NextLink

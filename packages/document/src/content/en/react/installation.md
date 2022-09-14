@@ -1,19 +1,19 @@
 # React
 
-To use UI components based on [Web Components]({CONSTANTS.WEBCOMPONENT_REFERENCE}) in React applications, follow the below steps.
+To use UI components based on [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) in React applications, follow the below steps.
 
 <br/>
 
 <Alert type="warning">
-  React is not fully compatible with [Web Components]({CONSTANTS.WEBCOMPONENT_REFERENCE}), check the compatibility [here]({CONSTANTS.WEBCOMPONENT_COMPATIBILITY}).
+  React is not fully compatible with [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements), check the compatibility [here](https://custom-elements-everywhere.com).
 </Alert>
 
 ## Install
 
-Install `{CONSTANTS.PLATFORM_NAME}` package into React application.
+Install `HTMLPLUS` package into React application.
 
 ```shell
-npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
+npm install @htmlplus/core
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install {CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}
 Import the reference of components.
 
 ```jsx
-import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+import '@htmlplus/core';
 
 const App = () => <plus-switch/>;
 
@@ -37,7 +37,7 @@ To set properties and attributes.
 To use number, string, boolean, null, undefined, symbol and bigint types.
 
 ```jsx
-import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+import '@htmlplus/core';
 
 const App = () => <plus-switch disabled/>;
 
@@ -51,7 +51,7 @@ To use object and array types.
 ```jsx
 import { useEffect, useRef } from 'react';
 
-import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+import '@htmlplus/core';
 
 const App = () => {
   const ref = useRef(null);
@@ -79,7 +79,7 @@ To handle event's callback.
 ```jsx
 import { useEffect, useRef } from 'react';
 
-import '{CONSTANTS.PORT_JAVASCRIPT_PACKAGE_NAME}';
+import '@htmlplus/core';
 
 const App = () => {
   const ref = useRef(null);
@@ -99,11 +99,11 @@ export default App;
 
 ## Pros
 
-- Is used [Web Components]({CONSTANTS.WEBCOMPONENT_REFERENCE}) directly.
+- Is used [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) directly.
 
 ## Cons
 
 - Handles event's callbacks difficult.
 - Handles complex types difficult.
-- `{CONSTANTS.PLATFORM_PREFIX}` prefix is required for the component's name.
-- `{CONSTANTS.PLATFORM_PREFIX}` prefix is required for the event's name.
+- `plus-` prefix is required for the component's name.
+- `plus-` prefix is required for the event's name.

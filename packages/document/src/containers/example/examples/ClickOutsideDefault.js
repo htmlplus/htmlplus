@@ -14,20 +14,18 @@ const ClickOutsideDefault = () => {
   };
 
   return (
-    <>
-      <ClickOutside
-        onClick={() => onClick()}
-        onClickOutside={() => onClickOutside()}
-      >
-        <Card elevation="10">
-          <Card.Body>
-            <b>{inside}</b> time(s) inside clicked
-            <br />
-            <b>{outside}</b> time(s) outside clicked
-          </Card.Body>
-        </Card>
-      </ClickOutside>
-    </>
+    <ClickOutside
+      onClick={() => onClick()}
+      onClickOutside={() => onClickOutside()}
+    >
+      <Card elevation="10">
+        <Card.Body>
+          <b>{inside}</b> time(s) inside clicked
+          <br />
+          <b>{outside}</b> time(s) outside clicked
+        </Card.Body>
+      </Card>
+    </ClickOutside>
   );
 };
 

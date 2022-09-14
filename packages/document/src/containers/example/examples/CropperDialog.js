@@ -38,7 +38,7 @@ const CropperDialog = () => {
 
 const CropperDialogExample = () => {
   return (
-    <div className="ex-cropper-dialog">
+    <div className="ex-cropper-dialog dock">
       <CropperDialog />
       <style>{`.ex-cropper-dialog .center {  text-align: center;}`}</style>
     </div>

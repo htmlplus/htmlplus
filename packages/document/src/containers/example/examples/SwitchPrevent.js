@@ -7,11 +7,9 @@ const SwitchPrevent = () => {
   };
 
   return (
-    <>
-      <div className="center">
-        <Switch onChange={(event) => ensure(event)}></Switch>
-      </div>
-    </>
+    <div className="center">
+      <Switch onChange={(event) => ensure(event)}></Switch>
+    </div>
   );
 };
 

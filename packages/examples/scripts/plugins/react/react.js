@@ -203,7 +203,10 @@ export const react = (options) => {
 
     formatFile(path.join(destination, 'src', 'App.js'), { parser: 'babel' });
 
-    return model;
+    return {
+      script,
+      style,
+    };
   };
   return {
     name,

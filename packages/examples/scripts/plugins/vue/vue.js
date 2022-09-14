@@ -215,7 +215,11 @@ export const vue = (options) => {
 
     formatFile(path.join(destination, 'src', 'App.vue'), { parser: 'vue' });
 
-    return model;
+    return {
+      script,
+      style,
+      template,
+    };
   };
   return {
     name,

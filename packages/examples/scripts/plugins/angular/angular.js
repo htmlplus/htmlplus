@@ -201,7 +201,11 @@ export const angular = (options) => {
 
     renderTemplate(patterns, destination, config)(model);
 
-    return model;
+    return {
+      script,
+      style,
+      template,
+    };
   };
   return {
     name,

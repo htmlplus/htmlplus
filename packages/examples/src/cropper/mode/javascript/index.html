@@ -4,9 +4,18 @@
     <title>Cropper | Mode</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js"
+    ></script>
     <style>
       plus-cropper {
         height: 18rem;
@@ -14,13 +23,17 @@
     </style>
   </head>
   <body>
-    <plus-grid gutter="md">  
-      <plus-grid-item xs="12" sm="6">    
-        <plus-cropper mode="move" src="/assets/images/panda.jpg" view="none"></plus-cropper>    
-      </plus-grid-item>  
-      <plus-grid-item xs="12" sm="6">    
-        <plus-cropper mode="crop" src="/assets/images/panda.jpg"></plus-cropper>    
-      </plus-grid-item>  
+    <plus-grid gutter="md">
+      <plus-grid-item xs="12" sm="6">
+        <plus-cropper
+          mode="move"
+          src="/assets/images/panda.jpg"
+          view="none"
+        ></plus-cropper>
+      </plus-grid-item>
+      <plus-grid-item xs="12" sm="6">
+        <plus-cropper mode="crop" src="/assets/images/panda.jpg"></plus-cropper>
+      </plus-grid-item>
     </plus-grid>
   </body>
 </html>

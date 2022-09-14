@@ -81,7 +81,7 @@ export const scoped = (styles, className) => {
     }
     if (styles.indexOf(className) !== 0 && styles.indexOf('@') !== 0) styles = className + styles;
     return styles;
-  } catch {}
+  } catch { }
 };
 
 export const toFile = (node) => {

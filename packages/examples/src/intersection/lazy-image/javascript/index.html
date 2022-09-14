@@ -4,9 +4,18 @@
     <title>Intersection | Lazy Image</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js"
+    ></script>
     <style>
       .container {
         position: relative;
@@ -14,27 +23,27 @@
         overflow: auto;
         background-color: #eeeeee;
       }
-      
+
       plus-intersection {
         text-align: center;
         margin: 1000px auto;
       }
-      
+
       [data-hidden] {
         display: none;
       }
-      
+
       img {
         display: block;
         width: 12rem;
         height: 12rem;
         object-fit: cover;
       }
-      
+
       plus-card {
         display: inline-block;
       }
-      
+
       plus-spinner {
         margin: 1rem;
       }
@@ -56,18 +65,18 @@
     <script>
       element1.addEventListener('plusChange', (event) => {
         if (!event.detail.isIntersecting) return;
-      
+
         setTimeout(() => {
           const image = event.target.querySelector('img');
-      
+
           const spinner = event.target.querySelector('plus-spinner');
-      
+
           const src = image.getAttribute('data-src');
-      
+
           image.setAttribute('src', src);
-      
+
           image.removeAttribute('data-hidden');
-      
+
           spinner.setAttribute('data-hidden', 'true');
         }, 1000);
       });

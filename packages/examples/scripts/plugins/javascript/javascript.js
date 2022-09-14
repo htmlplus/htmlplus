@@ -1,9 +1,9 @@
 import t from '@babel/types';
 import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
-import { capitalCase } from 'change-case';
 import fs from 'fs';
+import path from 'path';
 
-import { getSnippet, getTitle, indent, isEvent, toFile } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 const getValue = (path) => {
   switch (path.node.expression.type) {
@@ -23,36 +23,24 @@ const getValue = (path) => {
 export const javascript = (options) => {
   const name = 'javascript';
   const next = (context) => {
+    const config = {
+      cwd: __dirname(import.meta.url)
+    };
+
     const dependencies = context.customElementNames?.map((name) => options?.componentRefrence(name));
 
-    const state = {
-      elements: new Set()
-    };
+    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
-    const setId = (path) => {
-      const element = path.find((element) => element.type === 'JSXElement');
+    const patterns = ['templates/**/*.*'];
 
-      state.elements.add(element.node);
+    const title = getTitle(context);
 
-      const attributes = element.node.openingElement.attributes;
-
-      if (attributes.some((attribute) => attribute.name.name === 'id')) return;
-
-      attributes.unshift(t.jsxAttribute(t.jsxIdentifier('id'), t.stringLiteral(`element${state.elements.size}`)));
-    };
+    fs.rmSync(destination, { recursive: true, force: true });
 
     const visitors = {
       template: {
         ClassDeclaration(path) {
-          const { body } = path.node;
-
-          path.traverse(visitors.template);
-
-          const render = body.body.slice(-1)[0];
-
-          path.replaceWith(render);
-
-          state.elements.clear();
+          path.replaceWithMultiple(path.node.body.body);
         },
         ClassMethod(path) {
           const { body } = path.node;
@@ -61,17 +49,40 @@ export const javascript = (options) => {
 
           const element = statement.argument;
 
-          path.replaceWith(element);
+          const children = [];
+
+          if (element.type == 'JSXFragment') {
+            for (const child of element.children) {
+              if (child.type == 'JSXText') continue;
+              children.push(child);
+            }
+          } else {
+            children.push(element);
+          }
+
+          path.replaceWithMultiple(children);
         },
         JSXAttribute(path) {
           const { name, value } = path.node;
 
           if (!value) return;
 
-          if (isEvent(name.name)) {
-            setId(path);
-            path.remove();
-          }
+          if (isEvent(name.name)) path.remove();
+        },
+        JSXElement(path) {
+          const { openingElement, closingElement } = path.node;
+
+          const name = openingElement.name.name;
+
+          if (!/-/g.test(name)) return;
+
+          const newName = options?.componentNameConvertor?.(name) || name;
+
+          openingElement.name.name = newName;
+
+          if (!closingElement) return;
+
+          closingElement.name.name = newName;
         },
         JSXExpressionContainer(path) {
           const value = getValue(path);
@@ -100,44 +111,39 @@ export const javascript = (options) => {
             }
           }
         },
-        JSXText(path) {
-          const { value } = path.node;
-
-          let level = -2;
-
-          let parent = path.parentPath;
-
-          while (parent && parent.type !== 'ClassBody') {
-            level++;
-            parent = parent.parentPath;
-          }
-
-          let space = '';
-
-          for (let i = 0; i < level; i++) space += '  ';
-
-          const trim = value.trim();
-
-          const from = value.indexOf(trim);
-
-          const to = trim.length;
-
-          const startIndex = value.indexOf('\n');
-
-          const endIndex = value.lastIndexOf('\n');
-
-          const start = startIndex !== -1 && from > startIndex;
-
-          const end = endIndex !== -1 && to <= endIndex;
-
-          path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
+        MemberExpression(path) {
+          const { object, property } = path.node;
+          if (object.type != 'ThisExpression') return;
+          path.replaceWith(property);
         }
       }
     };
 
-    const script = getSnippet(context, 'javascript:script');
+    const script = (() => {
+      const dedicated = getSnippet(context, 'javascript:script');
 
-    const style = getSnippet(context, 'style');
+      if (dedicated) return dedicated.content;
+
+      // TODO
+
+      // const ast = t.cloneNode(context.fileAST, true);
+
+      // visitor(ast, visitors.script);
+
+      // const content = print(ast);
+
+      // if (!content) return;
+
+      // return format(content, { parser: 'babel' });
+    })();
+
+    const style = (() => {
+      const content = getSnippet(context, 'style')?.content;
+
+      if (!content) return;
+
+      return format(content, { parser: 'css' });
+    })();
 
     const template = (() => {
       const dedicated = getSnippet(context, 'javascript:template');
@@ -148,45 +154,28 @@ export const javascript = (options) => {
 
       visitor(ast, visitors.template);
 
-      let raw = print(ast).trim();
+      const content = print(ast)?.trim();
 
-      if (raw.endsWith(';')) raw = raw.slice(0, -1);
+      if (!content) return;
 
-      if (raw.indexOf('fragment') == -1) return raw;
-
-      return raw
-        .split('\n')
-        .slice(1, -1)
-        .map((line) => line.slice(2))
-        .join('\n')
-        .trim();
+      return format(content, { parser: 'html' });
     })();
 
-    const title = getTitle(context);
-
-    const patterns = ['templates/**/*.*'];
-
-    const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
-
-    fs.rmSync(destination, { recursive: true, force: true });
-
-    const config = {
-      cwd: __dirname(import.meta.url)
-    };
-
     const model = {
-      title,
       dependencies,
-      script: indent(script?.content, 3),
-      style: indent(style?.content, 3),
-      template: indent(template, 2)
+      script,
+      style,
+      template,
+      title
     };
 
     renderTemplate(patterns, destination, config)(model);
 
+    formatFile(path.join(destination, 'index.html'), { parser: 'html', embeddedLanguageFormatting: 'auto' });
+
     return {
-      script: script?.content,
-      style: style?.content,
+      script,
+      style,
       template
     };
   };

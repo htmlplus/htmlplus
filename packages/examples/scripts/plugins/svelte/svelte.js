@@ -186,7 +186,11 @@ export const svelte = (options) => {
 
     // formatFile(path.join(destination, 'App.svelte'), { parser: 'TODO' });
 
-    return model;
+    return {
+      script,
+      style,
+      template,
+    };
   };
   return {
     name,

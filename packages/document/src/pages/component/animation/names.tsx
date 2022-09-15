@@ -81,7 +81,7 @@ const Animations = ({ categories }: any) => {
 
 export default Animations;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const categories: any[] = [];
 
   const cwd = 'node_modules/@htmlplus/core/animation';

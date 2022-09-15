@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { paramCase, pascalCase } from 'change-case';
 
-import { Divider } from '@app/components';
+import { Alert, Divider } from '@app/components';
 import { Parameter, Toc } from '@app/containers';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
@@ -15,21 +15,23 @@ const ComponentAPI = ({ component, sections }: any) => {
     <LayoutDefault>
       <h1>{component.title}</h1>
       <p>See below to learn more about properties, slots, events, style variables, CSS parts, and methods.</p>
-      {sections
-        .filter((section: any) => section.items?.length)
-        .map((section: any) => (
-          <React.Fragment key={section.key}>
-            <h2>
-              <Toc.Item level={2}>{section.title}</Toc.Item>
-            </h2>
-            {section.items.map((item: any, index: number) => (
-              <React.Fragment key={item.name}>
-                <Parameter component={component} kind={section.key} {...item} />
-                {section.items.length - 1 > index && <Divider />}
-              </React.Fragment>
-            ))}
-          </React.Fragment>
-        ))}
+      <Alert type="info">
+        There is no difference between the APIs of the components, And the only difference is in the names of the events
+      </Alert>
+      {sections.map((section: any) => (
+        <React.Fragment key={section.key}>
+          <h2>
+            <Toc.Item level={2}>{section.title}</Toc.Item>
+          </h2>
+          {!section.items?.length && <p>There are no {section.title}.</p>}
+          {section.items.map((item: any, index: number) => (
+            <React.Fragment key={item.name}>
+              <Parameter component={component} kind={section.key} {...item} />
+              {section.items.length - 1 > index && <Divider />}
+            </React.Fragment>
+          ))}
+        </React.Fragment>
+      ))}
     </LayoutDefault>
   );
 };

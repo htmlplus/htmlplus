@@ -24,17 +24,16 @@ export const Usage = () => {
         &nbsp; projects.
       </p>
       <Code language="shell">
-        npm install
         {(() => {
           switch (framework) {
             case 'angular':
-              return '@htmlplus/core';
+              return 'npm install @htmlplus/core';
             case 'javascript':
-              return '@htmlplus/core';
+              return 'npm install @htmlplus/core';
             case 'react':
-              return '@htmlplus/react';
+              return 'npm install @htmlplus/react';
             case 'svelte':
-              return '@htmlplus/core';
+              return 'npm install @htmlplus/core';
             case 'vue':
               return '@htmlplus/core';
           }

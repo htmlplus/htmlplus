@@ -94,7 +94,7 @@ export class Animation {
 
   /**
    * Specifies what kind of animation you want to play. 
-   * click [here](/animations) to see the list of available animations.
+   * click [here](/component/animation/names) to see the list of available animations.
    */
   @Property()
   name?: string;

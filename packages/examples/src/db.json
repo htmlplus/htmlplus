@@ -115,7 +115,7 @@
     "key": "name",
     "category": "description",
     "component": "animation",
-    "detail": "To see all animations click [here](/animations)."
+    "detail": "To see all animations click [here](/component/animation/names)."
   },
   {
     "key": "name",
@@ -1303,7 +1303,7 @@
     "category": "javascript",
     "component": "browse",
     "detail": {
-      "script": "const onChange = (event) => {\n  const name = event.detail.files[0].file.name;\n  alert(`File '${name}' selected.`);\n};\nelement.addEventListener('plusChange', onChange);",
+      "script": "const onChange = (event) => {\r\n  const name = event.detail.files[0].file.name;\r\n  alert(`File '${name}' selected.`);\r\n};\r\nelement.addEventListener('plusChange', onChange);",
       "style": "plus-browse {\n  background: white;\n  border: 2px dashed #e0e0e0;\n  border-radius: 4px;\n  display: block;\n  padding: 3rem;\n  text-align: center;\n}\nplus-browse[dragging]:not([dragging='false']) {\n  border-color: #0087f7;\n}\n",
       "template": "<plus-browse id=\"element\" droppable></plus-browse>"
     }
@@ -1652,9 +1652,9 @@
     "category": "javascript",
     "component": "card",
     "detail": {
-      "script": "input.addEventListener(\"change\", (event) => {\n  card.elevation = event.target.value;\n});",
+      "script": "input.addEventListener(\"change\", (event) => {\r\n  card.elevation = event.target.value;\r\n});",
       "style": "plus-card {\n  height: 12rem;\n  width: 12rem;\n  margin: auto;\n}\ninput[type='range'] {\n  display: block;\n  width: 12rem;\n  margin: auto;\n}\n",
-      "template": "<plus-card id=\"card\" elevation=\"12\"></plus-card>\n<br />\n<input id=\"input\" type=\"range\" value=\"12\" min=\"1\" max=\"24\" />"
+      "template": "<plus-card id=\"card\" elevation=\"12\"></plus-card>\r\n<br />\r\n<input id=\"input\" type=\"range\" value=\"12\" min=\"1\" max=\"24\" />"
     }
   },
   {
@@ -1833,9 +1833,9 @@
     "category": "javascript",
     "component": "click-outside",
     "detail": {
-      "script": "let inside = 0;\nlet outside = 0;\nelement1.addEventListener('click', (event) => {\n  inside = inside + 1;\n  element2.innerHTML = inside;\n});\nelement1.addEventListener('plusClickOutside', (event) => {\n  outside = outside + 1;\n  element3.innerHTML = outside;\n});",
+      "script": "let inside = 0;\r\nlet outside = 0;\r\nelement1.addEventListener('click', (event) => {\r\n  inside = inside + 1;\r\n  element2.innerHTML = inside;\r\n});\r\nelement1.addEventListener('plusClickOutside', (event) => {\r\n  outside = outside + 1;\r\n  element3.innerHTML = outside;\r\n});",
       "style": "plus-click-outside {\n  margin: auto;\n  display: block;\n  max-width: 20rem;\n}\n",
-      "template": "<plus-click-outside id=\"element1\">\n  <plus-card elevation=\"10\">\n    <plus-card-body>\n      <b id=\"element2\">0</b> time(s) inside clicked\n      <br />\n      <b id=\"element3\">0</b> time(s) outside clicked\n    </plus-card-body>\n  </plus-card>\n</plus-click-outside>"
+      "template": "<plus-click-outside id=\"element1\">\r\n  <plus-card elevation=\"10\">\r\n    <plus-card-body>\r\n      <b id=\"element2\">0</b> time(s) inside clicked\r\n      <br />\r\n      <b id=\"element3\">0</b> time(s) outside clicked\r\n    </plus-card-body>\r\n  </plus-card>\r\n</plus-click-outside>"
     }
   },
   {
@@ -1890,9 +1890,9 @@
     "category": "javascript",
     "component": "counter",
     "detail": {
-      "script": "button1.addEventListener('click', () => {\n  counter1.play = true;\n});",
+      "script": "button1.addEventListener('click', () => {\r\n  counter1.play = true;\r\n});",
       "style": ".center {\n  text-align: center;\n}\nbutton {\n  margin: 1rem 0.5rem;\n}\n",
-      "template": "<div class=\"center\">\n    <plus-counter id=\"counter1\" to=\"1000\"></plus-counter>\n    <br />\n    <button id=\"button1\">Start</button>\n</div>"
+      "template": "<div class=\"center\">\r\n    <plus-counter id=\"counter1\" to=\"1000\"></plus-counter>\r\n    <br />\r\n    <button id=\"button1\">Start</button>\r\n</div>"
     }
   },
   {
@@ -2202,9 +2202,9 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "const change = (disabled) => {\n  element2.disabled = disabled;\n};\nelement1.addEventListener('plusOpened', () => change(false));\nelement1.addEventListener('plusClosed', () => change(true));",
+      "script": "const change = (disabled) => {\r\n  element2.disabled = disabled;\r\n};\r\nelement1.addEventListener('plusOpened', () => change(false));\r\nelement1.addEventListener('plusClosed', () => change(true));",
       "style": ".center {\n  text-align: center;\n}\n",
-      "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-cropper\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-cropper\">\n  <plus-dialog-content>\n    <plus-dialog-header> Cropper </plus-dialog-header>\n    <plus-dialog-body>\n      <plus-cropper\n        id=\"element2\"\n        disabled\n        src=\"/assets/images/panda.jpg\"\n      ></plus-cropper>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>"
+      "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-cropper\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-cropper\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Cropper </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      <plus-cropper\r\n        id=\"element2\"\r\n        disabled\r\n        src=\"/assets/images/panda.jpg\"\r\n      ></plus-cropper>\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
   },
   {
@@ -3033,9 +3033,9 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "const ensure = (type, event) => {\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\n  event.preventDefault();\n};\nelement1.addEventListener('plusOpen', (event) => ensure('open', event));\nelement1.addEventListener('plusClose', (event) => ensure('close', event));",
+      "script": "const ensure = (type, event) => {\r\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\r\n  event.preventDefault();\r\n};\r\nelement1.addEventListener('plusOpen', (event) => ensure('open', event));\r\nelement1.addEventListener('plusClose', (event) => ensure('close', event));",
       "style": ".center {\n  text-align: center;\n}\n",
-      "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-prevent\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-prevent\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>"
+      "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-prevent\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-prevent\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\r\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\r\n      commodo consequat.\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
   },
   {
@@ -3146,9 +3146,9 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "const hide = () => {\n  element4.open = false;\n};\nconst show = (size) => {\n  element4.size = size;\n  element4.open = true;\n};\nelement1.addEventListener('click', (event) => show('sm'));\nelement2.addEventListener('click', (event) => show('md'));\nelement3.addEventListener('click', (event) => show('lg'));\nelement4.addEventListener('click', () => hide());\nelement5.addEventListener('click', () => hide());",
+      "script": "const hide = () => {\r\n  element4.open = false;\r\n};\r\nconst show = (size) => {\r\n  element4.size = size;\r\n  element4.open = true;\r\n};\r\nelement1.addEventListener('click', (event) => show('sm'));\r\nelement2.addEventListener('click', (event) => show('md'));\r\nelement3.addEventListener('click', (event) => show('lg'));\r\nelement4.addEventListener('click', () => hide());\r\nelement5.addEventListener('click', () => hide());",
       "style": "plus-grid-item {\n  text-align: center;\n}\n",
-      "template": "<plus-grid justify-content=\"center\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <button id=\"element1\">Small dialog</button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <button id=\"element2\">Large dialog</button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <button id=\"element3\">Extra large dialog</button>\n  </plus-grid-item>\n</plus-grid>\n<plus-dialog id=\"element4\" animation=\"fade\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <button id=\"element5\">Close</button>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>"
+      "template": "<plus-grid justify-content=\"center\" gutter=\"md\">\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element1\">Small dialog</button>\r\n  </plus-grid-item>\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element2\">Large dialog</button>\r\n  </plus-grid-item>\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element3\">Extra large dialog</button>\r\n  </plus-grid-item>\r\n</plus-grid>\r\n<plus-dialog id=\"element4\" animation=\"fade\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\r\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\r\n      commodo consequat.\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <button id=\"element5\">Close</button>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
   },
   {
@@ -4959,7 +4959,7 @@
     "key": "default",
     "category": "description",
     "component": "intersection",
-    "detail": "The intersection component observes the viewport and updates the status when the card component\nenters or exits the viewport. (Its a component for detecting when elements are visible within the user's viewport)."
+    "detail": "The intersection component observes the viewport and updates the status when the card component\r\nenters or exits the viewport. (Its a component for detecting when elements are visible within the user's viewport)."
   },
   {
     "key": "default",
@@ -4976,9 +4976,9 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "element2.addEventListener('plusChange', (event) => {\n  element1.innerHTML = event.detail.isIntersecting\n    ? 'In Viewport'\n    : 'Out of Viewport';\n});",
+      "script": "element2.addEventListener('plusChange', (event) => {\r\n  element1.innerHTML = event.detail.isIntersecting\r\n    ? 'In Viewport'\r\n    : 'Out of Viewport';\r\n});",
       "style": ".container {\n  position: relative;\n  background-color: #eeeeee;\n}\n\n.status {\n  color: #fafafa;\n  background-color: #212121;\n  position: absolute;\n  top: 1rem;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 0.5rem 1rem;\n  border-radius: 2rem;\n  z-index: 1;\n}\n\n.content {\n  height: 20rem;\n  overflow: auto;\n}\n\n.spacer {\n  padding: 500px 0;\n}\n\nplus-card {\n  width: 15rem;\n  margin: auto;\n}\n",
-      "template": "<div class=\"container\">\n  <div id=\"element1\" class=\"status\"></div>\n  <div class=\"content\">\n    <div class=\"spacer\"></div>\n    <plus-intersection id=\"element2\">\n      <plus-card elevation=\"10\">\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua.\n      </plus-card>\n    </plus-intersection>\n    <div class=\"spacer\"></div>\n  </div>\n</div>"
+      "template": "<div class=\"container\">\r\n  <div id=\"element1\" class=\"status\"></div>\r\n  <div class=\"content\">\r\n    <div class=\"spacer\"></div>\r\n    <plus-intersection id=\"element2\">\r\n      <plus-card elevation=\"10\">\r\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.\r\n      </plus-card>\r\n    </plus-intersection>\r\n    <div class=\"spacer\"></div>\r\n  </div>\r\n</div>"
     }
   },
   {
@@ -5039,9 +5039,9 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "element1.addEventListener('plusChange', (event) => {\n  if (!event.detail.isIntersecting) return;\n\n  setTimeout(() => {\n    const image = event.target.querySelector('img');\n\n    const spinner = event.target.querySelector('plus-spinner');\n\n    const src = image.getAttribute('data-src');\n\n    image.setAttribute('src', src);\n\n    image.removeAttribute('data-hidden');\n\n    spinner.setAttribute('data-hidden', 'true');\n  }, 1000);\n});",
+      "script": "element1.addEventListener('plusChange', (event) => {\r\n  if (!event.detail.isIntersecting) return;\r\n\r\n  setTimeout(() => {\r\n    const image = event.target.querySelector('img');\r\n\r\n    const spinner = event.target.querySelector('plus-spinner');\r\n\r\n    const src = image.getAttribute('data-src');\r\n\r\n    image.setAttribute('src', src);\r\n\r\n    image.removeAttribute('data-hidden');\r\n\r\n    spinner.setAttribute('data-hidden', 'true');\r\n  }, 1000);\r\n});",
       "style": ".container {\n  position: relative;\n  height: 20rem;\n  overflow: auto;\n  background-color: #eeeeee;\n}\n\nplus-intersection {\n  text-align: center;\n  margin: 1000px auto;\n}\n\n[data-hidden] {\n  display: none;\n}\n\nimg {\n  display: block;\n  width: 12rem;\n  height: 12rem;\n  object-fit: cover;\n}\n\nplus-card {\n  display: inline-block;\n}\n\nplus-spinner {\n  margin: 1rem;\n}\n",
-      "template": "<div class=\"container\">\n  <plus-intersection id=\"element1\" once>\n    <plus-card elevation=\"10\">\n      <plus-spinner></plus-spinner>\n      <img\n        data-hidden=\"true\"\n        data-src=\"https://placekitten.com/200/200\"\n        alt=\"Lazy Image\"\n      />\n    </plus-card>\n  </plus-intersection>\n</div>"
+      "template": "<div class=\"container\">\r\n  <plus-intersection id=\"element1\" once>\r\n    <plus-card elevation=\"10\">\r\n      <plus-spinner></plus-spinner>\r\n      <img\r\n        data-hidden=\"true\"\r\n        data-src=\"https://placekitten.com/200/200\"\r\n        alt=\"Lazy Image\"\r\n      />\r\n    </plus-card>\r\n  </plus-intersection>\r\n</div>"
     }
   },
   {
@@ -6112,9 +6112,9 @@
     "category": "javascript",
     "component": "switch",
     "detail": {
-      "script": "element1.addEventListener('plus-change', (event) => {\n  if (window.confirm('Are you sure you want to toggle it?')) return;\n  event.preventDefault();\n});",
+      "script": "element1.addEventListener('plus-change', (event) => {\r\n  if (window.confirm('Are you sure you want to toggle it?')) return;\r\n  event.preventDefault();\r\n});",
       "style": ".center {\n  text-align: center;\n}\n",
-      "template": "<div class=\"center\">\n  <plus-switch id=\"element1\"></plus-switch>\n</div>"
+      "template": "<div class=\"center\">\r\n  <plus-switch id=\"element1\"></plus-switch>\r\n</div>"
     }
   },
   {

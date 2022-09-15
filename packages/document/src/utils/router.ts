@@ -1,8 +1,21 @@
-import * as CONSTANTS from '@app/constants';
-import { ROUTE } from '@app/types';
+const ROUTES = {
+  HOME: '/',
+  ANIMATIONS: '/component/animation/names',
+  BIDIRECTIONALITY: '/bidirectionality',
+  INTRODUCTION_WHAT: `/introduction/what-is-htmlplus`,
+  INTRODUCTION_WHY: `/introduction/why-htmlplus`,
+  INSTALLATION: '/installation',
+  INSTALLATION_FRAMEWORK: '/[framework]/installation',
+  BROWSERS: '/browsers',
+  COMPONENT_DETAILS: '/[framework]/component/[component]',
+  API_DETAILS: '/[framework]/api/[component]',
+  CODEOFCONDUCT: '/code-of-conduct'
+} as const;
 
-export const getPath = (route: ROUTE | string, params?: any): string | undefined => {
-  let url: string = (CONSTANTS.ROUTE as any)[route] ?? route;
+type ROUTE = keyof typeof ROUTES;
+
+export const getPath = (route: ROUTE, params?: any): string | undefined => {
+  let url: string = (ROUTES as any)[route] ?? route;
   if (!url) return;
   const keys = Object.keys(params || {});
   for (const key of keys) url = url.replace(`[${key}]`, params[key]);

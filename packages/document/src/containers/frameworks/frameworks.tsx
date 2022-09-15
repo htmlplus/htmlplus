@@ -65,7 +65,7 @@ export const Frameworks = () => {
     store.setFramework(framework.value);
     const query = Object.assign({}, router.query, { framework: framework.value });
     const prev = router.asPath;
-    const next = getPath(router.route, query);
+    const next = getPath(router.route as any, query);
     if (next == prev) return;
     if (next != router.route) return router.replace(next!);
     if (!frameworks.some((framework) => prev.startsWith(`/${framework.key}`))) return;

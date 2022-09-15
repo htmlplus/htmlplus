@@ -20,7 +20,7 @@ export const Usage = () => {
         &nbsp; to use the &nbsp;
         <b>HTMLPLUS</b>
         &nbsp; library on &nbsp;
-        <b>{framework}-based</b>
+        <b>{(framework as string).toUpperCase()}</b>
         &nbsp; projects.
       </p>
       <Code language="shell">

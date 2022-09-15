@@ -55,7 +55,7 @@ const Animations = ({ categories }: any) => {
       {categories.map((category: any) => (
         <Fragment key={category.key}>
           <h3>
-            <Toc.Item level={2}>{category.title}</Toc.Item>
+            <Toc.Item level={3}>{category.title}</Toc.Item>
           </h3>
           <Grid gutter="md">
             {category.items.map((item: any) => (

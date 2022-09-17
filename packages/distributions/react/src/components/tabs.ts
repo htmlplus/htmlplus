@@ -10,7 +10,7 @@ import type { PlusTabsJSX as Type } from '@htmlplus/core/types/components/tabs/t
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 
 type Renamed = Rename<Type, { 
-  plusChange: 'onChange',
+  onPlusChange: 'onChange',
 }>
 
 export const Tabs = proxy<HTMLPlusTabsElement, Renamed>(

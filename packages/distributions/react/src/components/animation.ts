@@ -10,9 +10,9 @@ import type { PlusAnimationJSX as Type } from '@htmlplus/core/types/components/a
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 
 type Renamed = Rename<Type, { 
-  plusCancel: 'onCancel',
-  plusFinish: 'onFinish',
-  plusStart: 'onStart',
+  onPlusCancel: 'onCancel',
+  onPlusFinish: 'onFinish',
+  onPlusStart: 'onStart',
 }>
 
 export const Animation = proxy<HTMLPlusAnimationElement, Renamed>(

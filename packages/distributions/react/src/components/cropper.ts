@@ -10,9 +10,9 @@ import type { PlusCropperJSX as Type } from '@htmlplus/core/types/components/cro
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 
 type Renamed = Rename<Type, { 
-  plusReady: 'onReady',
-  plusCrop: 'onCrop',
-  plusZoom: 'onZoom',
+  onPlusReady: 'onReady',
+  onPlusCrop: 'onCrop',
+  onPlusZoom: 'onZoom',
 }>
 
 export const Cropper = proxy<HTMLPlusCropperElement, Renamed>(

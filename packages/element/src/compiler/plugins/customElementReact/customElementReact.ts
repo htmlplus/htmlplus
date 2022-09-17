@@ -1,10 +1,14 @@
+import { camelCase, pascalCase } from 'change-case';
+
 import { Global } from '../../../types/index.js';
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
 const defaults: CustomElementReactOptions = {
   compact: false,
   destination: '',
-  eventName: undefined,
+  eventName(eventName) {
+    return eventName;
+  },
   importerComponent(context) {
     return `YOUR_CORE_PACKAGE_NAME#${context.componentClassName}`;
   },
@@ -56,10 +60,12 @@ export const customElementReact = (options: CustomElementReactOptions) => {
       };
 
       const classEvents = context.classEvents.map((classEvent) => {
-        const name = options.eventName?.(classEvent.key.name) || classEvent.key.name;
+        const from = 'on' + pascalCase(classEvent.key.name);
+        const to = options.eventName!(from);
         return {
           ...classEvent,
-          converted: 'on' + name.charAt(0).toUpperCase() + name.slice(1)
+          from,
+          to
         };
       });
 

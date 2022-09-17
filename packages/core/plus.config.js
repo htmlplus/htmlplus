@@ -38,7 +38,7 @@ export default [
     compact: true,
     destination: '../distributions/react',
     eventName(eventName) {
-      return eventName.replace(/plus(\S*)/g, (match, group) => group.charAt(0).toLowerCase() + group.substr(1));
+      return eventName.replace(/Plus/, '');
     },
     importerComponent(context) {
       return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;

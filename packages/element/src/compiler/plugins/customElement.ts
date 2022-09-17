@@ -1,4 +1,5 @@
 import t, { TSTypeAnnotation } from '@babel/types';
+import { pascalCase } from 'change-case';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
@@ -162,6 +163,51 @@ export const customElement = (options?: CustomElementOptions) => {
       visitor(ast, {
         Program(path) {
           path.node.body.push(
+            t.exportNamedDeclaration(
+              t.tsInterfaceDeclaration(
+                // TODO
+                t.identifier(context.componentClassName! + 'JSX'),
+                null,
+                [],
+                t.tsInterfaceBody([
+                  ...context.classProperties!.map((property) =>
+                    Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
+                      optional: property.optional,
+                      leadingComments: t.cloneNode(property, true).leadingComments
+                    })
+                  ),
+                  ...context.classEvents!.map((event) =>
+                    Object.assign(
+                      t.tSPropertySignature(
+                        t.identifier('on' + pascalCase(event.key['name'])),
+                        t.tsTypeAnnotation(
+                          t.tsFunctionType(
+                            undefined,
+                            [
+                              Object.assign({}, t.identifier('event'), {
+                                typeAnnotation: t.tsTypeAnnotation(
+                                  t.tsTypeReference(
+                                    t.identifier('CustomEvent'),
+                                    event.typeAnnotation?.['typeAnnotation']?.typeParameters
+                                  )
+                                )
+                              })
+                            ],
+                            t.tsTypeAnnotation(t.tsVoidKeyword())
+                          )
+                        )
+                      ),
+                      {
+                        optional: true,
+                        leadingComments: t.cloneNode(event, true).leadingComments
+                      }
+                    )
+                  )
+                ])
+              )
+            )
+          );
+          path.node.body.push(
             Object.assign(
               t.tsModuleDeclaration(
                 t.identifier('global'),
@@ -215,6 +261,36 @@ export const customElement = (options?: CustomElementOptions) => {
                         )
                       )
                     ])
+                  ),
+                  t.tSModuleDeclaration(
+                    t.identifier('JSX'),
+                    t.tSModuleBlock([
+                      t.tSInterfaceDeclaration(
+                        t.identifier('IntrinsicElements'),
+                        undefined,
+                        undefined,
+                        t.tSInterfaceBody([
+                          t.tSPropertySignature(
+                            t.stringLiteral(context.componentTag!),
+                            t.tSTypeAnnotation(
+                              t.tSIntersectionType([
+                                t.tSTypeReference(t.identifier(context.componentClassName! + 'JSX')),
+                                t.tSTypeLiteral([
+                                  t.tSIndexSignature(
+                                    [
+                                      Object.assign({}, t.identifier('key'), {
+                                        typeAnnotation: t.tSTypeAnnotation(t.tSStringKeyword())
+                                      })
+                                    ],
+                                    t.tSTypeAnnotation(t.tSAnyKeyword())
+                                  )
+                                ])
+                              ])
+                            )
+                          )
+                        ])
+                      )
+                    ])
                   )
                 ])
               ),
@@ -222,51 +298,6 @@ export const customElement = (options?: CustomElementOptions) => {
                 declare: true,
                 global: true
               }
-            )
-          );
-          path.node.body.push(
-            t.exportNamedDeclaration(
-              t.tsInterfaceDeclaration(
-                // TODO
-                t.identifier(context.componentClassName! + 'JSX'),
-                null,
-                [],
-                t.tsInterfaceBody([
-                  ...context.classProperties!.map((property) =>
-                    Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
-                      optional: property.optional,
-                      leadingComments: t.cloneNode(property, true).leadingComments
-                    })
-                  ),
-                  ...context.classEvents!.map((event) =>
-                    Object.assign(
-                      t.tSPropertySignature(
-                        event.key,
-                        t.tsTypeAnnotation(
-                          t.tsFunctionType(
-                            undefined,
-                            [
-                              Object.assign({}, t.identifier('event'), {
-                                typeAnnotation: t.tsTypeAnnotation(
-                                  t.tsTypeReference(
-                                    t.identifier('CustomEvent'),
-                                    event.typeAnnotation?.['typeAnnotation']?.typeParameters
-                                  )
-                                )
-                              })
-                            ],
-                            t.tsTypeAnnotation(t.tsVoidKeyword())
-                          )
-                        )
-                      ),
-                      {
-                        optional: true,
-                        leadingComments: t.cloneNode(event, true).leadingComments
-                      }
-                    )
-                  )
-                ])
-              )
             )
           );
         }

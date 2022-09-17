@@ -178,7 +178,7 @@ export const customElement = (options?: CustomElementOptions) => {
                           t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation),
                           {
                             optional: property.optional,
-                            leadingComments: property.leadingComments
+                            leadingComments: t.cloneNode(property, true).leadingComments
                           }
                         )
                       )
@@ -235,7 +235,7 @@ export const customElement = (options?: CustomElementOptions) => {
                   ...context.classProperties!.map((property) =>
                     Object.assign(t.tSPropertySignature(property.key, property.typeAnnotation as TSTypeAnnotation), {
                       optional: property.optional,
-                      leadingComments: property.leadingComments
+                      leadingComments: t.cloneNode(property, true).leadingComments
                     })
                   ),
                   ...context.classEvents!.map((event) =>
@@ -261,7 +261,7 @@ export const customElement = (options?: CustomElementOptions) => {
                       ),
                       {
                         optional: true,
-                        leadingComments: event.leadingComments
+                        leadingComments: t.cloneNode(event, true).leadingComments
                       }
                     )
                   )

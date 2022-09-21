@@ -230,3 +230,10 @@ plus-drawer-toggler[connector='main'] {
     background: #fff8e1;
   }
 }
+
+.code-toolbar pre + .toolbar .copy-to-clipboard-button {
+  display: none;
+}
+.code-toolbar pre.copy + .toolbar .copy-to-clipboard-button {
+  display: inline-block;
+}

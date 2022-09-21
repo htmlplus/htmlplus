@@ -21,7 +21,6 @@ export const Contributors = () => {
       case '/component/animation/names':
         return `packages/document/src/pages/component/animation/names.tsx`;
       case '/[framework]/api/[component]':
-        return `packages/core/src/components/${router.query?.component}`;
       case '/[framework]/component/[component]':
         return `packages/core/src/components/${router.query?.component}`;
     }

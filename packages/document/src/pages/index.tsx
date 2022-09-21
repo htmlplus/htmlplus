@@ -94,7 +94,7 @@ const Home: NextPage = () => {
                 borderRadius: '4px',
                 fontWeight: 700
               }}
-              href="https://github.com/htmlplus/htmlplus"
+              href={getPath(ROUTES.GITHUB_URL)}
               target="_blank"
             >
               Github

@@ -1,32 +1,34 @@
+import { ROUTES, getPath } from '@app/utils';
+
 export const socials = [
   {
     key: 'twitter',
     icon: 'twitter',
     title: 'Twitter',
-    url: 'https://www.twitter.com/htmlplusio'
+    url: getPath(ROUTES.SOCIAL_TWITTER)
   },
   {
     key: 'linkedin',
     icon: 'linkedin',
     title: 'Linkedin',
-    url: 'https://www.linkedin.com/company/htmlplus'
+    url: getPath(ROUTES.SOCIAL_LINKEDIN)
   },
   {
     key: 'instagram',
     icon: 'instagram',
     title: 'Instagram',
-    url: 'https://www.instagram.com/htmlplus.io'
+    url: getPath(ROUTES.SOCIAL_INSTAGRAM)
   },
   {
     key: 'github',
     icon: 'github',
     title: 'Github',
-    url: 'https://github.com/htmlplus/htmlplus'
+    url: getPath(ROUTES.SOCIAL_GITHUB)
   },
   {
     key: 'youtube',
     icon: 'youtube',
     title: 'YouTube',
-    url: 'https://www.youtube.com/channel/UCsNkxDmLU7vK_L1jgSVWWCA'
+    url: getPath(ROUTES.SOCIAL_YOUTUBE)
   }
 ];

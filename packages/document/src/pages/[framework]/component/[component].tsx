@@ -5,7 +5,7 @@ import { headerCase, pascalCase } from 'change-case';
 import { Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
-import { ROUTES, getExampleCodeSandboxLink, getExampleDownloadLink, getExampleGithubLink, getPath } from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 const ComponentDetails = ({ component, example }: any) => {
   return (
@@ -18,36 +18,36 @@ const ComponentDetails = ({ component, example }: any) => {
 export default ComponentDetails;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { component: componentKey, framework } = context.params || {};
+  const { component, framework } = context.params! as any;
 
-  const component = components.find((component) => component.key == componentKey);
+  const current = components.find((x) => x.key == component);
 
-  if (component)
-    component.readme = component.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
+  if (current)
+    current.readme = current.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
   // TODO
   const example = (() => {
     return examples
-      ?.filter((example) => example.category.startsWith(framework) && example.component == componentKey)
+      ?.filter((example) => example.category.startsWith(framework) && example.component == component)
       ?.reduce((result, example) => {
         const links = [
           {
             key: 'download',
             title: 'Download',
             icon: 'download',
-            url: getExampleDownloadLink(framework as string, componentKey as string, example.key)
+            url: getPath(ROUTES.EXAMPLE_DOWNLOAD_LINK, { component, framework, example: example.key })
           },
           {
             key: 'github',
             title: 'Github',
             icon: 'github',
-            url: getExampleGithubLink(framework as string, componentKey as string, example.key)
+            url: getPath(ROUTES.EXAMPLE_GITHUB_LINK, { component, framework, example: example.key })
           },
           {
             key: 'codesandbox',
             title: 'CodeSandbox',
             icon: 'sandbox',
-            url: getExampleCodeSandboxLink(framework as string, componentKey as string, example.key)
+            url: getPath(ROUTES.EXAMPLE_CODE_SANDBOX_LINK, { component, framework, example: example.key })
           }
         ];
 
@@ -59,8 +59,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         // TODO
         const description =
-          examples?.find((x) => x.category == 'description' && x.component == componentKey && x.key == example.key)
-            ?.detail || null;
+          examples?.find((x) => {
+            return x.category == 'description' && x.component == component && x.key == example.key;
+          })?.detail || null;
 
         result[example.key] = {
           componentName,
@@ -87,7 +88,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      component,
+      component: current,
       example
     }
   };

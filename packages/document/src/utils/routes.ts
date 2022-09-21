@@ -55,7 +55,14 @@ export const ROUTES = {
   BROWSERS: '/browsers',
   COMPONENT_DETAILS: '/[framework]/component/[component]',
   API_DETAILS: '/[framework]/api/[component]',
-  CODEOFCONDUCT: '/code-of-conduct'
+  CODEOFCONDUCT: '/code-of-conduct',
+  EXAMPLE_CODE_SANDBOX_LINK:
+    'https://codesandbox.io/s/github/htmlplus/htmlplus/tree/main/packages/examples/src/[component]/[example]/[framework]',
+  EXAMPLE_GITHUB_LINK:
+    'https://github.com/htmlplus/htmlplus/tree/main/packages/examples/src/[component]/[example]/[framework]',
+  EXAMPLE_DOWNLOAD_LINK:
+    'https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/htmlplus/htmlplus/tree/main/packages/examples/src/[component]/[example]/[framework]',
+  TYPE_GITHUB_LINK: 'https://github.com/htmlplus/htmlplus/tree/main/packages/core/src/components/[component]/[fileName]'
 } as const;
 
 export const getPath = <K extends ExtractKey<typeof ROUTES>, P extends ExtractParams<K>>(

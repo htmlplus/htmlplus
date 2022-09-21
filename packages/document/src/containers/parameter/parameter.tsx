@@ -1,6 +1,6 @@
 import { Button, Code, Grid } from '@app/components';
 import { Markup } from '@app/containers';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 export const Parameter = (item: any) => {
   const type = item.detail ?? item.returns ?? item.type;
@@ -19,7 +19,7 @@ export const Parameter = (item: any) => {
         break;
     }
     if (!reference) return;
-    return Utils.getTypeGithubLink(item.component.key, reference);
+    return getPath(ROUTES.TYPE_GITHUB_LINK, { component: item.component.key, fileName: `${reference.slice(2)}.ts` });
   })();
 
   return (

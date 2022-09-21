@@ -35,7 +35,7 @@ export const Usage = () => {
             case 'svelte':
               return 'npm install @htmlplus/core';
             case 'vue':
-              return '@htmlplus/core';
+              return 'npm install @htmlplus/core';
           }
         })()}
       </Code>

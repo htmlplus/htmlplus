@@ -5,7 +5,7 @@ import { headerCase, pascalCase } from 'change-case';
 import { Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
-import * as Utils from '@app/utils';
+import { ROUTES, getExampleCodeSandboxLink, getExampleDownloadLink, getExampleGithubLink, getPath } from '@app/utils';
 
 const ComponentDetails = ({ component, example }: any) => {
   return (
@@ -35,19 +35,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
             key: 'download',
             title: 'Download',
             icon: 'download',
-            url: Utils.getExampleDownloadLink(framework as string, componentKey as string, example.key)
+            url: getExampleDownloadLink(framework as string, componentKey as string, example.key)
           },
           {
             key: 'github',
             title: 'Github',
             icon: 'github',
-            url: Utils.getExampleGithubLink(framework as string, componentKey as string, example.key)
+            url: getExampleGithubLink(framework as string, componentKey as string, example.key)
           },
           {
             key: 'codesandbox',
             title: 'CodeSandbox',
             icon: 'sandbox',
-            url: Utils.getExampleCodeSandboxLink(framework as string, componentKey as string, example.key)
+            url: getExampleCodeSandboxLink(framework as string, componentKey as string, example.key)
           }
         ];
 
@@ -98,7 +98,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((framework) =>
       components.map(
         (component) =>
-          Utils.getPath('COMPONENT_DETAILS', {
+          getPath(ROUTES.COMPONENT_DETAILS, {
             framework: framework.key,
             component: component.key
           })!

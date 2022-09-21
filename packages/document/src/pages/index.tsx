@@ -8,7 +8,7 @@ import '@htmlplus/core/animation/attention-seekers/pulse.js';
 import { Animation, Button, Grid, Icon, Intersection } from '@app/components';
 import { Browsers, Header } from '@app/containers';
 import { features, frameworks, statistics } from '@app/data';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 const Home: NextPage = () => {
   return (
@@ -29,12 +29,12 @@ const Home: NextPage = () => {
         <div style={{ width: '100%' }}>
           <Grid justifyContent="center" justifyContentMd="end" gutterX="md">
             <Grid.Item>
-              <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHAT')}>
+              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHAT)}>
                 <b>{`What\'s HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
             <Grid.Item>
-              <Button size="sm" link to={Utils.getPath('INTRODUCTION_WHY')}>
+              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHY)}>
                 <b>{`Why HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
           </p>
           <div>
             <NextLink
-              href={Utils.getPath('COMPONENT_DETAILS', { framework: 'react', component: 'animation' })!}
+              href={getPath(ROUTES.COMPONENT_DETAILS, { framework: 'react', component: 'animation' })!}
               passHref
             >
               <a

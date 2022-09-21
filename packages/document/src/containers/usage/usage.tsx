@@ -2,11 +2,11 @@ import { useRouter } from 'next/router';
 
 import { Button, Code } from '@app/components';
 import { Toc } from '@app/containers';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 export const Usage = () => {
   const router = useRouter();
-  const { framework } = router.query;
+  const { framework } = router.query as any;
   return (
     <>
       <h2>
@@ -14,7 +14,7 @@ export const Usage = () => {
       </h2>
       <p>
         Follow the tutorials &nbsp;
-        <Button link="underline" to={Utils.getPath('INSTALLATION_FRAMEWORK', { framework })}>
+        <Button link="underline" to={getPath(ROUTES.INSTALLATION_FRAMEWORK, { framework })}>
           here
         </Button>
         &nbsp; to use the &nbsp;

@@ -1,5 +1,5 @@
 import { components, frameworks } from '@app/data';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 export const sidebar = (framework: string) => [
   {
@@ -7,11 +7,11 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: `What's HTMLPLUS?`,
-        url: Utils.getPath('INTRODUCTION_WHAT')
+        url: getPath(ROUTES.INTRODUCTION_WHAT)
       },
       {
         title: `Why HTMLPLUS?`,
-        url: Utils.getPath('INTRODUCTION_WHY')
+        url: getPath(ROUTES.INTRODUCTION_WHY)
       }
     ]
   },
@@ -20,11 +20,11 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Installation',
-        url: Utils.getPath('INSTALLATION')
+        url: getPath(ROUTES.INSTALLATION)
       },
       {
         title: 'Browser support',
-        url: Utils.getPath('BROWSERS')
+        url: getPath(ROUTES.BROWSERS)
       }
     ]
   },
@@ -32,7 +32,7 @@ export const sidebar = (framework: string) => [
     title: 'Frameworks',
     items: frameworks.map((framework) => ({
       title: framework.title,
-      url: Utils.getPath('INSTALLATION_FRAMEWORK', { framework: framework.key })
+      url: getPath(ROUTES.INSTALLATION_FRAMEWORK, { framework: framework.key })
     }))
   },
   {
@@ -42,14 +42,14 @@ export const sidebar = (framework: string) => [
       .filter((component) => !!component.readme)
       .map((component) => ({
         title: component.title,
-        url: Utils.getPath('COMPONENT_DETAILS', { framework, component: component.key })
+        url: getPath(ROUTES.COMPONENT_DETAILS, { framework, component: component.key })
       }))
   },
   {
     title: 'UI Components API',
     items: components.map((component) => ({
       title: component.title,
-      url: Utils.getPath('API_DETAILS', { framework, component: component.key })
+      url: getPath(ROUTES.API_DETAILS, { framework, component: component.key })
     }))
   },
   {
@@ -57,7 +57,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Code Of Conduct',
-        url: Utils.getPath('CODEOFCONDUCT')
+        url: getPath(ROUTES.CODEOFCONDUCT)
       }
     ]
   },
@@ -66,7 +66,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Bidirectionality',
-        url: Utils.getPath('BIDIRECTIONALITY')
+        url: getPath(ROUTES.BIDIRECTIONALITY)
       }
     ]
   },
@@ -75,7 +75,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Animations',
-        url: Utils.getPath('ANIMATIONS')
+        url: getPath(ROUTES.ANIMATIONS)
       }
     ]
   }

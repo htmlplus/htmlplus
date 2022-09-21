@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
 import { Button, Card, Divider, Drawer, Grid, Icon } from '@app/components';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 import { HeaderProps } from './header.types';
 
@@ -9,17 +9,15 @@ export const Header = ({ menu }: HeaderProps) => {
   const links = [
     {
       title: `What\'s HTMLPLUS?`,
-      url: Utils.getPath('INTRODUCTION_WHAT')
+      url: getPath(ROUTES.INTRODUCTION_WHAT)
     },
     {
       title: `Why HTMLPLUS?`,
-      url: Utils.getPath('INTRODUCTION_WHY')
+      url: getPath(ROUTES.INTRODUCTION_WHY)
     },
     {
       title: 'UI Components',
-      url: Utils.getPath('COMPONENT_DETAILS', {
-        component: 'aspect-ratio'
-      })
+      url: getPath(ROUTES.COMPONENT_DETAILS, { component: 'aspect-ratio', framework: 'react' })
     }
   ];
   return (
@@ -34,7 +32,7 @@ export const Header = ({ menu }: HeaderProps) => {
             </Grid.Item>
           )}
           <Grid.Item>
-            <Button block link to={Utils.getPath('HOME')}>
+            <Button block link to={getPath(ROUTES.HOME)}>
               <svg
                 className="logo"
                 version="1.1"

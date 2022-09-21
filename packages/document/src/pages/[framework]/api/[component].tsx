@@ -8,7 +8,7 @@ import { Alert, Divider } from '@app/components';
 import { Parameter, Toc } from '@app/containers';
 import { components, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
-import * as Utils from '@app/utils';
+import { ROUTES, getPath } from '@app/utils';
 
 const ComponentAPI = ({ component, sections }: any) => {
   return (
@@ -93,7 +93,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((framework) =>
       components.map(
         (component) =>
-          Utils.getPath('API_DETAILS', {
+          getPath(ROUTES.API_DETAILS, {
             component: component.key,
             framework: framework.key
           })!

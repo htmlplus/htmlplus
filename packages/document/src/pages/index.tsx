@@ -29,12 +29,12 @@ const Home: NextPage = () => {
         <div style={{ width: '100%' }}>
           <Grid justifyContent="center" justifyContentMd="end" gutterX="md">
             <Grid.Item>
-              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHAT)}>
+              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHAT, {})}>
                 <b>{`What\'s HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
             <Grid.Item>
-              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHY)}>
+              <Button size="sm" link to={getPath(ROUTES.INTRODUCTION_WHY, {})}>
                 <b>{`Why HTMLPLUS?`}</b>
               </Button>
             </Grid.Item>
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
                 borderRadius: '4px',
                 fontWeight: 700
               }}
-              href={getPath(ROUTES.GITHUB_URL)}
+              href={getPath(ROUTES.GITHUB_URL, {})}
               target="_blank"
             >
               Github

@@ -9,11 +9,11 @@ export const Header = ({ menu }: HeaderProps) => {
   const links = [
     {
       title: `What\'s HTMLPLUS?`,
-      url: getPath(ROUTES.INTRODUCTION_WHAT)
+      url: getPath(ROUTES.INTRODUCTION_WHAT, {})
     },
     {
       title: `Why HTMLPLUS?`,
-      url: getPath(ROUTES.INTRODUCTION_WHY)
+      url: getPath(ROUTES.INTRODUCTION_WHY, {})
     },
     {
       title: 'UI Components',
@@ -32,7 +32,7 @@ export const Header = ({ menu }: HeaderProps) => {
             </Grid.Item>
           )}
           <Grid.Item>
-            <Button block link to={getPath(ROUTES.HOME)}>
+            <Button block link to={getPath(ROUTES.HOME, {})}>
               <svg
                 className="logo"
                 version="1.1"

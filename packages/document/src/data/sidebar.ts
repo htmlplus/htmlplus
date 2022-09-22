@@ -7,11 +7,11 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: `What's HTMLPLUS?`,
-        url: getPath(ROUTES.INTRODUCTION_WHAT)
+        url: getPath(ROUTES.INTRODUCTION_WHAT, {})
       },
       {
         title: `Why HTMLPLUS?`,
-        url: getPath(ROUTES.INTRODUCTION_WHY)
+        url: getPath(ROUTES.INTRODUCTION_WHY, {})
       }
     ]
   },
@@ -20,11 +20,11 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Installation',
-        url: getPath(ROUTES.INSTALLATION)
+        url: getPath(ROUTES.INSTALLATION, {})
       },
       {
         title: 'Browser support',
-        url: getPath(ROUTES.BROWSERS)
+        url: getPath(ROUTES.BROWSERS, {})
       }
     ]
   },
@@ -57,7 +57,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Code Of Conduct',
-        url: getPath(ROUTES.CODEOFCONDUCT)
+        url: getPath(ROUTES.CODEOFCONDUCT, {})
       }
     ]
   },
@@ -66,7 +66,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Bidirectionality',
-        url: getPath(ROUTES.BIDIRECTIONALITY)
+        url: getPath(ROUTES.BIDIRECTIONALITY, {})
       }
     ]
   },
@@ -75,7 +75,7 @@ export const sidebar = (framework: string) => [
     items: [
       {
         title: 'Animations',
-        url: getPath(ROUTES.ANIMATIONS)
+        url: getPath(ROUTES.ANIMATIONS, {})
       }
     ]
   }

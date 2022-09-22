@@ -231,9 +231,18 @@ plus-drawer-toggler[connector='main'] {
   }
 }
 
-.code-toolbar pre + .toolbar .copy-to-clipboard-button {
-  display: none;
-}
-.code-toolbar pre.copy + .toolbar .copy-to-clipboard-button {
-  display: inline-block;
+pre {
+  position: relative;
+  .button {
+    position: absolute;
+    right: 0.7rem;
+    top: 0.7rem;
+    cursor: pointer;
+  }
+  code + .button {
+    display: none;
+  }
+  &:hover code + button {
+    display: inline-block;
+  }
 }

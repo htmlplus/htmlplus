@@ -1,4 +1,5 @@
 export * from './__dirname.js';
+export * from './addDependency.js';
 export * from './getInitializer.js';
 export * from './getType.js';
 export * from './getTypeReference.js';

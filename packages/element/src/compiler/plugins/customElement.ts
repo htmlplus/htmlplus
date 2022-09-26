@@ -3,7 +3,7 @@ import { pascalCase } from 'change-case';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
-import { print, visitor } from '../utils/index.js';
+import { addDependency, print, visitor } from '../utils/index.js';
 
 const defaults: CustomElementOptions = {
   typings: true
@@ -21,6 +21,30 @@ export const customElement = (options?: CustomElementOptions) => {
 
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
+
+    // TODO
+    visitor(ast, {
+      JSXAttribute(path) {
+        const { name, value } = path.node;
+
+        if (name.name != 'style') return;
+
+        if (!value) return;
+
+        if (value.type != 'JSXExpressionContainer') return;
+
+        const local = addDependency(ast, '@htmlplus/element', 'styles');
+
+        path.replaceWith(
+          t.jsxAttribute(
+            t.jsxIdentifier('style'),
+            t.jsxExpressionContainer(t.callExpression(t.identifier(local), [value.expression]))
+          )
+        );
+
+        path.skip();
+      }
+    });
 
     // TODO
     visitor(ast, {

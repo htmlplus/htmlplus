@@ -224,8 +224,8 @@ export class Menu {
       top,
       left,
       transform: `translate(${x}, ${y})`,
-      position: this.fixed ? 'fixed' : 'absolute',
-      'z-index': '1',
+      position: (this.fixed ? 'fixed' : 'absolute') as any,
+      zIndex: '1',
     };
   }
 

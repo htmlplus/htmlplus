@@ -146,7 +146,7 @@ export class Sticky {
           <div
             className="sizer"
             ref={this.$element}
-            style={`top: ${this.sizer}`}
+            style={{ top: this.sizer }}
           />
         </div>
         <slot />

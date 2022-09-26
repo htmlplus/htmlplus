@@ -28,13 +28,15 @@ export class AspectRatio {
 
     if (!ratio) return;
 
-    return `padding-top: ${100 / ratio}%`;
+    return {
+      paddingTop: (100 / ratio) + '%'
+    };
   }
 
   render() {
     return (
       <>
-        <div class="sizer" style={this.style} />
+        <div className="sizer" style={this.style} />
         <slot />
       </>
     );

@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import path, { basename } from 'path';
+import path from 'path';
 
 import { Context } from '../../types/index.js';
 
@@ -19,12 +19,19 @@ export type ExternalOptions = {
 
 export const external = (options: ExternalOptions) => {
   const name = 'external';
-  options = { ...defaults, ...options };
+
+  options = Object.assign({}, defaults, options);
+
   const next = (context: Context) => {
     const source = options.source?.(context);
-    if (!source || !fs.existsSync(source)) return;
+
+    if (!source) return;
+
+    if (!fs.existsSync(source)) return;
+
     fs.copySync(source, options.destination(context));
   };
+
   return {
     name,
     next

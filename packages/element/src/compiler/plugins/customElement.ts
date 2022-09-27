@@ -22,7 +22,7 @@ export const customElement = (options?: CustomElementOptions) => {
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
 
-    // TODO
+    // attach style mapper for 'style' attribute
     visitor(ast, {
       JSXAttribute(path) {
         const { name, value } = path.node;
@@ -33,7 +33,7 @@ export const customElement = (options?: CustomElementOptions) => {
 
         if (value.type != 'JSXExpressionContainer') return;
 
-        const local = addDependency(ast, '@htmlplus/element', 'styles');
+        const local = addDependency(ast, CONSTANTS.PACKAGE_NAME, CONSTANTS.UTILS_STYLE_MAP);
 
         path.replaceWith(
           t.jsxAttribute(
@@ -49,22 +49,24 @@ export const customElement = (options?: CustomElementOptions) => {
     // TODO
     visitor(ast, {
       ClassDeclaration(path) {
-        if (path.node.id.name != context.className) return;
-        path.node.body.body.unshift(t.classProperty(t.identifier('uhtml')));
+        const { body, id } = path.node;
+        if (id.name != context.className) return;
+        body.body.unshift(t.classProperty(t.identifier('uhtml')));
       }
     });
 
-    // replace className
+    // replace 'className' attribute to 'class'
     visitor(ast, {
       JSXAttribute(path) {
-        if (path.node.name.name != 'className') return;
+        const { name, value } = path.node;
+        if (name.name != 'className') return;
         const hasClass = path.parentPath.node.attributes.some((attribute) => attribute.name.name == 'class');
         if (hasClass) return path.remove();
-        path.replaceWith(t.jsxAttribute(t.jsxIdentifier('class'), path.node.value));
+        path.replaceWith(t.jsxAttribute(t.jsxIdentifier('class'), value));
       }
     });
 
-    // jsx to uhtml syntax
+    // TODO: convert 'jsx' to 'uhtml' syntax
     visitor(ast, {
       JSXAttribute: {
         exit(path) {
@@ -136,8 +138,9 @@ export const customElement = (options?: CustomElementOptions) => {
     // attach members
     visitor(ast, {
       ClassDeclaration(path) {
-        if (path.node.id.name != context.className) return;
-        path.node.body.body.unshift(
+        const { body, id } = path.node;
+        if (id.name != context.className) return;
+        body.body.unshift(
           t.classProperty(
             t.identifier(CONSTANTS.STATIC_MEMBERS),
             t.objectExpression([
@@ -186,7 +189,8 @@ export const customElement = (options?: CustomElementOptions) => {
     if (options?.typings) {
       visitor(ast, {
         Program(path) {
-          path.node.body.push(
+          const { body } = path.node;
+          body.push(
             t.exportNamedDeclaration(
               t.tsInterfaceDeclaration(
                 // TODO
@@ -231,7 +235,7 @@ export const customElement = (options?: CustomElementOptions) => {
               )
             )
           );
-          path.node.body.push(
+          body.push(
             Object.assign(
               t.tsModuleDeclaration(
                 t.identifier('global'),

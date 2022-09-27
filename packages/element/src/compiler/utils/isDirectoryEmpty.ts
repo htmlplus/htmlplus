@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 
 export const isDirectoryEmpty = (directory: string) => {
   try {

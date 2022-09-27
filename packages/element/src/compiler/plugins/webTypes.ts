@@ -1,19 +1,23 @@
 import { camelCase, paramCase } from 'change-case';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 
-import { Context, Global } from '../../types/index.js';
-import { getTags, getType, printType, print } from '../utils/index.js';
+import { Global } from '../../types/index.js';
+import { getTags, print } from '../utils/index.js';
+
+const defaults: Partial<WebTypesOptions> = {};
 
 export interface WebTypesOptions {
   destination: string;
-  docUrl: () => string;
   packageName: string;
   packageVersion: string;
+  docUrl: () => string;
 }
 
 export const webTypes = (options: WebTypesOptions) => {
   const name = 'webTypes';
+
+  options = Object.assign({}, defaults, options);
 
   const finish = (global: Global) => {
     const json = {
@@ -73,6 +77,8 @@ export const webTypes = (options: WebTypesOptions) => {
     const raw = JSON.stringify(json, null, 2);
 
     fs.writeFileSync(options.destination, raw, 'utf8');
+
+    fs;
   };
 
   return { name, finish };

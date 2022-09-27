@@ -3,7 +3,7 @@ import path from 'path';
 
 import { Context } from '../../types/index.js';
 
-const defaults: AssetsOptions = {
+const defaults: Partial<AssetsOptions> = {
   destination(context: Context) {
     return `assets/${context.fileName}`;
   },

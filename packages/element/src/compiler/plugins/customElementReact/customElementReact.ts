@@ -1,9 +1,9 @@
-import { camelCase, pascalCase } from 'change-case';
+import { pascalCase } from 'change-case';
 
 import { Global } from '../../../types/index.js';
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
-const defaults: CustomElementReactOptions = {
+const defaults: Partial<CustomElementReactOptions> = {
   compact: false,
   destination: '',
   eventName(eventName) {
@@ -28,9 +28,9 @@ export interface CustomElementReactOptions {
 export const customElementReact = (options: CustomElementReactOptions) => {
   const name = 'customElementReact';
 
-  const finish = (global: Global) => {
-    options = { ...defaults, ...options };
+  options = Object.assign({}, defaults, options);
 
+  const finish = (global: Global) => {
     // TODO
     const globalNew: any = {
       contexts: global.contexts.reduce((previous, current) => ({ ...previous, [current.filePath!]: current }), {}),

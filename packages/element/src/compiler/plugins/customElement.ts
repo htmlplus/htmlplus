@@ -5,7 +5,7 @@ import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
 import { addDependency, print, visitor } from '../utils/index.js';
 
-const defaults: CustomElementOptions = {
+const defaults: Partial<CustomElementOptions> = {
   typings: true
 };
 

@@ -1,6 +1,6 @@
 import { parse } from '@babel/parser';
 import { File } from '@babel/types';
-import fs from 'fs';
+import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
 
 import { visitor } from './visitor.js';
@@ -59,7 +59,7 @@ export const getType = (file: File, node: any, options) => {
           result = getType(path.$ast, node, {
             directory: dirname(filePath)
           });
-        } catch { }
+        } catch {}
 
         path.stop();
 

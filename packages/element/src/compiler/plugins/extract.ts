@@ -7,12 +7,16 @@ import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
 import { hasDecorator, visitor } from '../utils/index.js';
 
+const defaults: Partial<ExtractOptions> = {};
+
 export interface ExtractOptions {
   prefix?: string;
 }
 
 export const extract = (options?: ExtractOptions) => {
   const name = 'extract';
+
+  options = Object.assign({}, defaults, options);
 
   const next = (context: Context) => {
     visitor(context.fileAST as any, {

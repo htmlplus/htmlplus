@@ -1,12 +1,12 @@
 import t from '@babel/types';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
 import { addDependency } from '../utils/index.js';
 
-const defaults: StyleOptions = {
+const defaults: Partial<StyleOptions> = {
   references(context: Context) {
     return [
       path.join(context.directoryPath!, `${context.fileName!}.css`),

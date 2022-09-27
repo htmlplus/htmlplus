@@ -1,19 +1,21 @@
 import { capitalCase, paramCase } from 'change-case';
-import fs from 'fs';
+import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
 
 import { Context } from '../../types/index.js';
 import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
+const defaults: Partial<DocumentOptions> = {};
+
 export interface DocumentOptions {
-  // TODO
-  // bundle?: boolean;
   destination: string;
 }
 
 export const document = (options: DocumentOptions) => {
   const name = 'document';
+
+  options = Object.assign({}, defaults, options);
 
   const start = (global) => {
     global.document = {

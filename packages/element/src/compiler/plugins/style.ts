@@ -9,8 +9,11 @@ import { addDependency } from '../utils/index.js';
 const defaults: StyleOptions = {
   references(context: Context) {
     return [
+      path.join(context.directoryPath!, `${context.fileName!}.css`),
+      path.join(context.directoryPath!, `${context.fileName!}.less`),
+      path.join(context.directoryPath!, `${context.fileName!}.sass`),
       path.join(context.directoryPath!, `${context.fileName!}.scss`),
-      path.join(context.directoryPath!, `${context.fileName!}.css`)
+      path.join(context.directoryPath!, `${context.fileName!}.styl`)
     ];
   }
 };

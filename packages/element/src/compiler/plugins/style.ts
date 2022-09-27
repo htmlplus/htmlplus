@@ -4,6 +4,7 @@ import path from 'path';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types/index.js';
+import { addDependency } from '../utils/index.js';
 
 const defaults: StyleOptions = {
   extensions: ['scss', 'css'],
@@ -40,22 +41,10 @@ export const style = (options: StyleOptions) => {
 
     if (!context.stylePath) return;
 
-    context.fileAST!.program.body.unshift(
-      t.importDeclaration(
-        [t.importDefaultSpecifier(t.identifier('AUTO_IMPORT_STYLE'))],
-        t.stringLiteral(context.stylePath)
-      )
-    );
+    const local = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE', undefined, true);
 
     context.class!.body.body.unshift(
-      t.classProperty(
-        t.identifier(CONSTANTS.STATIC_STYLES),
-        t.identifier('AUTO_IMPORT_STYLE'),
-        undefined,
-        null,
-        undefined,
-        true
-      )
+      t.classProperty(t.identifier(CONSTANTS.STATIC_STYLES), t.identifier(local), undefined, null, undefined, true)
     );
   };
 

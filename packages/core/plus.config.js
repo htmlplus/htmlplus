@@ -18,6 +18,11 @@ export default [
   extract({
     prefix: 'plus'
   }),
+  assets({
+    destination(context) {
+      return `dist/${context.fileName}`;
+    }
+  }),
   style(),
   document({
     destination: 'dist/document.json'
@@ -27,11 +32,6 @@ export default [
     packageName: '@htmlplus/core',
     packageVersion: '0.4.0',
     docUrl: () => ''
-  }),
-  assets({
-    destination(context) {
-      return `dist/${context.fileName}`;
-    }
   }),
   customElement(),
   customElementReact({

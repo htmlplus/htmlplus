@@ -4,8 +4,8 @@ import { AnimationComposite, AnimationDirection, AnimationFill, AnimationIterati
 import { ANIMATION_EASINGS } from './animation.constants';
 
 // TODO
-import './external/fading-entrance/fade-in.js';
-import './external/fading-exits/fade-out.js';
+import './assets/fading-entrance/fade-in.js';
+import './assets/fading-exits/fade-out.js';
 
 /**
  * @slot default - The default slot.

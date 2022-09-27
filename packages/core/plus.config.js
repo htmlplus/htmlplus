@@ -1,8 +1,8 @@
 import {
+  assets,
   customElement,
   customElementReact,
   document,
-  external,
   extract,
   parse,
   read,
@@ -28,7 +28,7 @@ export default [
     packageVersion: '0.4.0',
     docUrl: () => ''
   }),
-  external({
+  assets({
     destination(context) {
       return `dist/${context.fileName}`;
     }

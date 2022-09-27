@@ -3,22 +3,22 @@ import path from 'path';
 
 import { Context } from '../../types/index.js';
 
-const defaults: ExternalOptions = {
+const defaults: AssetsOptions = {
   destination(context: Context) {
-    return `externals/${context.fileName}`;
+    return `assets/${context.fileName}`;
   },
   source(context: Context) {
-    return path.join(context.directoryPath!, 'external');
+    return path.join(context.directoryPath!, 'assets');
   }
 };
 
-export type ExternalOptions = {
+export type AssetsOptions = {
   destination: (context: Context) => string;
   source?: (context: Context) => string;
 };
 
-export const external = (options: ExternalOptions) => {
-  const name = 'external';
+export const assets = (options: AssetsOptions) => {
+  const name = 'assets';
 
   options = Object.assign({}, defaults, options);
 
@@ -30,6 +30,8 @@ export const external = (options: ExternalOptions) => {
     if (!source) return;
 
     if (!fs.existsSync(source)) return;
+
+    context.assets = source;
 
     fs.copySync(source, destination);
   };

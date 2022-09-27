@@ -75,8 +75,5 @@ export const webTypes = (options: WebTypesOptions) => {
     fs.writeFileSync(options.destination, raw, 'utf8');
   };
 
-  return {
-    name,
-    finish
-  };
+  return { name, finish };
 };

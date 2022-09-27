@@ -172,8 +172,5 @@ export const customElementReact = (options: CustomElementReactOptions) => {
     }
   };
 
-  return {
-    name,
-    finish
-  };
+  return { name, finish };
 };

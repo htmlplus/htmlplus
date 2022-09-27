@@ -51,8 +51,5 @@ export const style = (options: StyleOptions) => {
     context.class!.body.body.unshift(property);
   };
 
-  return {
-    name,
-    next
-  };
+  return { name, next };
 };

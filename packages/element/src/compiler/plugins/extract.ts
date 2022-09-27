@@ -62,8 +62,10 @@ export const extract = (options?: ExtractOptions) => {
 
         context.customElementNames.push(name);
 
-        context.customElementNames = context.customElementNames.filter((item, index, items) => items.indexOf(item) === index).sort();
-      },
+        context.customElementNames = context.customElementNames
+          .filter((item, index, items) => items.indexOf(item) === index)
+          .sort();
+      }
     });
 
     context.directoryPath = path.dirname(context.filePath!);
@@ -111,8 +113,5 @@ export const extract = (options?: ExtractOptions) => {
     ) as ClassMethod;
   };
 
-  return {
-    name,
-    next
-  };
+  return { name, next };
 };

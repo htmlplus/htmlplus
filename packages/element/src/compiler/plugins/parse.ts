@@ -13,8 +13,5 @@ export const parse = () => {
     });
   };
 
-  return {
-    name,
-    next
-  };
+  return { name, next };
 };

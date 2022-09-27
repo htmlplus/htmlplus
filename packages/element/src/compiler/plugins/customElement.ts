@@ -332,11 +332,9 @@ export const customElement = (options?: CustomElementOptions) => {
       });
     }
 
+    // TODO
     context.script = print(ast);
   };
 
-  return {
-    name,
-    next
-  };
+  return { name, next };
 };

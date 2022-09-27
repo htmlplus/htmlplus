@@ -34,8 +34,5 @@ export const validate = () => {
     context.isInvalid = !hasValidImport || !hasValidExport;
   };
 
-  return {
-    name,
-    next
-  };
+  return { name, next };
 };

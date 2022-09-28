@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TODO": {
+    "sample": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -34,7 +34,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "TODO:build:development"
+              "browserTarget": "sample:build:development"
             }
           },
           "defaultConfiguration": "development"

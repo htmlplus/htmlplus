@@ -18,7 +18,7 @@ for (const example of db) {
   const name = `${pascalCase(example.component)}${pascalCase(example.key)}`;
 
   lines.push(
-    `export const ${name} = dynamic<any>(() => import('./${name}').then((component) => component), { ssr: false });`
+    `export const ${name} = dynamic(() => import('./${name}').then((component) => component), { ssr: false });`
   );
 
   fs.writeFileSync(`${EXAMPLES_DESTINATION}/${name}.js`, example.detail.script);

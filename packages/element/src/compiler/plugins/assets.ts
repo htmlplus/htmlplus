@@ -31,9 +31,9 @@ export const assets = (options: AssetsOptions) => {
 
     if (!fs.existsSync(source)) return;
 
-    context.assets = source;
-
     fs.copySync(source, destination);
+
+    context.assets = source;
   };
 
   return { name, next };

@@ -72,13 +72,9 @@ export const webTypes = (options: WebTypesOptions) => {
 
     const dirname = path.dirname(options.destination);
 
-    if (!fs.existsSync(dirname)) fs.mkdirSync(dirname, { recursive: true });
+    fs.ensureDirSync(dirname);
 
-    const raw = JSON.stringify(json, null, 2);
-
-    fs.writeFileSync(options.destination, raw, 'utf8');
-
-    fs;
+    fs.writeJSONSync(options.destination, json, { encoding: 'utf8', spaces: 2 });
   };
 
   return { name, finish };

@@ -27,9 +27,7 @@ export const renderTemplate = (source: string | Array<string>, destination: stri
 
     const template = handlebars.compile(raw)(context);
 
-    if (!fs.existsSync(directory)) {
-      fs.mkdirSync(directory, { recursive: true });
-    }
+    fs.ensureDirSync(directory);
 
     fs.writeFileSync(to, template, 'utf8');
   }

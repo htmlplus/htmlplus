@@ -203,11 +203,3 @@ export const TabsSeparate =
   dynamic < any > (() => import('./TabsSeparate').then((component) => component), { ssr: false });
 export const TabsVertical =
   dynamic < any > (() => import('./TabsVertical').then((component) => component), { ssr: false });
-export const TooltipArrows =
-  dynamic < any > (() => import('./TooltipArrows').then((component) => component), { ssr: false });
-export const TooltipDefault =
-  dynamic < any > (() => import('./TooltipDefault').then((component) => component), { ssr: false });
-export const TooltipPlacement =
-  dynamic < any > (() => import('./TooltipPlacement').then((component) => component), { ssr: false });
-export const TooltipTrigger =
-  dynamic < any > (() => import('./TooltipTrigger').then((component) => component), { ssr: false });

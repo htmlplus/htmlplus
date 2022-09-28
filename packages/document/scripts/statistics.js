@@ -11,10 +11,10 @@ Promise.all([
 ]).then((responses) => {
   const [first, second, third, fourth] = responses;
 
-  const raw = [
+  const lines = [
     '/**************************************************',
-    '* THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY',
-    '**************************************************/',
+    ' * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY',
+    ' **************************************************/',
     '',
     "import { components, examples, frameworks } from '@app/data';",
     '',
@@ -43,7 +43,9 @@ Promise.all([
     '    return frameworks.length;',
     '  }',
     '};'
-  ].join('\n');
+  ];
 
-  fs.writeFileSync('./src/data/statistics.ts', raw, 'utf8');
+  const content = lines.join('\n');
+
+  fs.writeFileSync('./src/data/statistics.ts', content, 'utf8');
 });

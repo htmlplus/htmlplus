@@ -1,6 +1,7 @@
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
+
 import { components, examples, frameworks } from '@app/data';
 
 export const statistics = {
@@ -9,9 +10,9 @@ export const statistics = {
   forks: 2,
   stars: 22,
   watchers: 5,
-  dowanloads: 7162,
-  downloadsLastWeek: 107,
-  downloadsLastMonth: 423,
+  dowanloads: 6019,
+  downloadsLastWeek: 110,
+  downloadsLastMonth: 1138,
   get components(): number {
     return this.componentsPerFramework * this.frameworks;
   },

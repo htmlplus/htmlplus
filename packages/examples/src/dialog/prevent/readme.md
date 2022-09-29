@@ -71,6 +71,6 @@ const ensure = (type, event) => {
   if (window.confirm(`Are you sure you want to ${type} it?`)) return;
   event.preventDefault();
 };
-element1.addEventListener('plusOpen', (event) => ensure('open', event));
-element1.addEventListener('plusClose', (event) => ensure('close', event));
+element1.addEventListener('plus-open', (event) => ensure('open', event));
+element1.addEventListener('plus-close', (event) => ensure('close', event));
 ```

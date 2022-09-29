@@ -63,7 +63,7 @@ element1.addEventListener('click', (event) => {
   inside = inside + 1;
   element2.innerHTML = inside;
 });
-element1.addEventListener('plusClickOutside', (event) => {
+element1.addEventListener('plus-click-outside', (event) => {
   outside = outside + 1;
   element3.innerHTML = outside;
 });

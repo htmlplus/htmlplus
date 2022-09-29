@@ -94,7 +94,7 @@ class IntersectionLazyImage {
 ```
 
 ```js [javascript:script]
-element1.addEventListener('plusChange', (event) => {
+element1.addEventListener('plus-change', (event) => {
   if (!event.detail.isIntersecting) return;
 
   setTimeout(() => {

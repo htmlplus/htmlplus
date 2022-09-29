@@ -74,6 +74,6 @@ class CropperDialog {
 const change = (disabled) => {
   element2.disabled = disabled;
 };
-element1.addEventListener('plusOpened', () => change(false));
-element1.addEventListener('plusClosed', () => change(true));
+element1.addEventListener('plus-opened', () => change(false));
+element1.addEventListener('plus-closed', () => change(true));
 ```

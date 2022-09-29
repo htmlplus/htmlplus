@@ -87,7 +87,7 @@ class IntersectionDefault {
 ```
 
 ```js [javascript:script]
-element2.addEventListener('plusChange', (event) => {
+element2.addEventListener('plus-change', (event) => {
   element1.innerHTML = event.detail.isIntersecting
     ? 'In Viewport'
     : 'Out of Viewport';

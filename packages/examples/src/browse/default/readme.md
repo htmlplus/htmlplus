@@ -41,5 +41,5 @@ const onChange = (event) => {
   const name = event.detail.files[0].file.name;
   alert(`File '${name}' selected.`);
 };
-element.addEventListener('plusChange', onChange);
+element.addEventListener('plus-change', onChange);
 ```

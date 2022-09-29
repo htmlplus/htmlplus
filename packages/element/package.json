@@ -36,12 +36,12 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/htmlplus/element.git"
+    "url": "git+https://github.com/htmlplus/htmlplus.git"
   },
   "bugs": {
-    "url": "https://github.com/htmlplus/element/issues"
+    "url": "https://github.com/htmlplus/htmlplus/issues"
   },
-  "homepage": "https://github.com/htmlplus/element#readme",
+  "homepage": "https://github.com/htmlplus/htmlplus#readme",
   "dependencies": {
     "@babel/generator": "^7.18.9",
     "@babel/parser": "^7.18.9",

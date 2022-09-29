@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/core",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "HTMLPlus UI Components",
@@ -29,14 +29,14 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/htmlplus/core.git"
+    "url": "git+https://github.com/htmlplus/htmlplus.git"
   },
   "bugs": {
-    "url": "https://github.com/htmlplus/core/issues"
+    "url": "https://github.com/htmlplus/htmlplus/issues"
   },
-  "homepage": "https://github.com/htmlplus/core#readme",
+  "homepage": "https://github.com/htmlplus/htmlplus#readme",
   "dependencies": {
-    "@htmlplus/element": "^0.4.4"
+    "@htmlplus/element": "0.4.5"
   },
   "devDependencies": {
     "@popperjs/core": "^2.11.5",

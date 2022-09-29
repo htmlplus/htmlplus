@@ -3,7 +3,7 @@ import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/com
 import fs from 'fs';
 import path from 'path';
 
-import { format, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
+import { format, getSnippet, getTitle, isEvent, toFile, removeUnusedImport } from '../../utils.js';
 
 export const angular = (options) => {
   const name = 'angular';
@@ -59,11 +59,6 @@ export const angular = (options) => {
           path.remove();
         },
         Decorator(path) {
-          path.remove();
-        },
-        ImportDeclaration(path) {
-          // TODO
-          if (path.node.source.value != '@htmlplus/element') return;
           path.remove();
         },
         Program(path) {
@@ -162,6 +157,8 @@ export const angular = (options) => {
 
       visitor(ast, visitors.script);
 
+      removeUnusedImport(ast);
+
       const content = print(ast);
 
       if (!content) return;
@@ -204,7 +201,7 @@ export const angular = (options) => {
     return {
       script,
       style,
-      template,
+      template
     };
   };
   return {

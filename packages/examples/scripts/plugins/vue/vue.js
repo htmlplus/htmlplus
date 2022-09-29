@@ -3,7 +3,7 @@ import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/com
 import fs from 'fs';
 import path from 'path';
 
-import { format, formatFile, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent, toFile, removeUnusedImport } from '../../utils.js';
 
 export const vue = (options) => {
   const name = 'vue';
@@ -68,11 +68,6 @@ export const vue = (options) => {
           }
 
           if (!isProperty && !isState) path.remove();
-        },
-        ImportDeclaration(path) {
-          // TODO
-          if (path.node.source.value != '@htmlplus/element') return;
-          path.remove();
         },
         MemberExpression(path) {
           const { object, property } = path.node;
@@ -174,6 +169,8 @@ export const vue = (options) => {
 
       visitor(ast, visitors.script);
 
+      removeUnusedImport(ast);
+
       const content = print(ast);
 
       if (!content) return;
@@ -218,7 +215,7 @@ export const vue = (options) => {
     return {
       script,
       style,
-      template,
+      template
     };
   };
   return {

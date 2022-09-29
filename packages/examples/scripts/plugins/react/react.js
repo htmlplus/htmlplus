@@ -4,7 +4,7 @@ import { camelCase, paramCase, pascalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { format, formatFile, getSnippet, getTitle, isEvent } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent, removeUnusedImport } from '../../utils.js';
 
 export const react = (options) => {
   const name = 'react';
@@ -95,11 +95,6 @@ export const react = (options) => {
             path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
           }
         },
-        ImportDeclaration(path) {
-          // TODO
-          if (path.node.source.value != '@htmlplus/element') return;
-          path.remove();
-        },
         JSXAttribute(path) {
           const { name } = path.node;
 
@@ -176,6 +171,8 @@ export const react = (options) => {
 
       visitor(ast, visitors.script);
 
+      removeUnusedImport(ast);
+
       const content = print(ast);
 
       if (!content) return;
@@ -205,7 +202,7 @@ export const react = (options) => {
 
     return {
       script,
-      style,
+      style
     };
   };
   return {

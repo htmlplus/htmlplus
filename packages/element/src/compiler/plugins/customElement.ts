@@ -33,7 +33,7 @@ export const customElement = (options?: CustomElementOptions) => {
 
         if (value.type != 'JSXExpressionContainer') return;
 
-        const local = addDependency(ast, CONSTANTS.PACKAGE_NAME, CONSTANTS.UTILS_STYLE_MAP);
+        const local = addDependency(path, CONSTANTS.PACKAGE_NAME, CONSTANTS.UTILS_STYLE_MAP, CONSTANTS.UTILS_STYLE_MAP);
 
         path.replaceWith(
           t.jsxAttribute(

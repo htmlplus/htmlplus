@@ -37,7 +37,7 @@ export const style = (options: StyleOptions) => {
 
     if (!context.stylePath) return;
 
-    const local = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE', undefined, true);
+    const local = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE');
 
     const property = t.classProperty(
       t.identifier(CONSTANTS.STATIC_STYLES),

@@ -1,10 +1,16 @@
 import t from '@babel/types';
-import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
+import {
+  __dirname,
+  print,
+  removeUnusedImport,
+  renderTemplate,
+  visitor
+} from '@htmlplus/element/compiler/utils/index.js';
 import { camelCase, paramCase, pascalCase } from 'change-case';
 import fs from 'fs';
 import path from 'path';
 
-import { format, formatFile, getSnippet, getTitle, isEvent, removeUnusedImport } from '../../utils.js';
+import { format, formatFile, getSnippet, getTitle, isEvent } from '../../utils.js';
 
 export const react = (options) => {
   const name = 'react';

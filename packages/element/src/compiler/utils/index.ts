@@ -7,6 +7,7 @@ export * from './hasDecorator.js';
 export * from './isDirectoryEmpty.js';
 export * from './printType.js';
 export * from './print.js';
+export * from './removeUnusedImport.js';
 export * from './renderTemplate.js';
 export * from './tags.js';
 export * from './visitor.js';

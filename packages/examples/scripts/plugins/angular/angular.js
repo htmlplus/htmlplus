@@ -1,9 +1,16 @@
 import t from '@babel/types';
-import { __dirname, addDependency, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
+import {
+  __dirname,
+  addDependency,
+  print,
+  removeUnusedImport,
+  renderTemplate,
+  visitor
+} from '@htmlplus/element/compiler/utils/index.js';
 import fs from 'fs';
 import path from 'path';
 
-import { format, getSnippet, getTitle, isEvent, toFile, removeUnusedImport } from '../../utils.js';
+import { format, getSnippet, getTitle, isEvent, toFile } from '../../utils.js';
 
 export const angular = (options) => {
   const name = 'angular';

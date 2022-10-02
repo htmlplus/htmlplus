@@ -1,5 +1,5 @@
 import t from '@babel/types';
-import { __dirname, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
+import { __dirname, addDependency, print, renderTemplate, visitor } from '@htmlplus/element/compiler/utils/index.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -54,14 +54,6 @@ export const svelte = (options) => {
           const { object, property } = path.node;
           if (object.type != 'ThisExpression') return;
           path.replaceWith(property);
-        },
-        Program(path) {
-          const { body } = path.node;
-          context.customElementNames
-            ?.map((name) => options?.componentRefrence(name))
-            ?.forEach((dependency) => {
-              return body.unshift(t.importDeclaration([], t.stringLiteral(dependency)));
-            });
         }
       },
       template: {
@@ -139,6 +131,8 @@ export const svelte = (options) => {
       const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.script);
+
+      context.customElementNames.forEach((name) => addDependency(ast, options?.componentRefrence(name)));
 
       removeUnusedImport(ast);
 

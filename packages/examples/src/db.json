@@ -1303,7 +1303,7 @@
     "category": "javascript",
     "component": "browse",
     "detail": {
-      "script": "const onChange = (event) => {\r\n  const name = event.detail.files[0].file.name;\r\n  alert(`File '${name}' selected.`);\r\n};\r\nelement.addEventListener('plusChange', onChange);",
+      "script": "const onChange = (event) => {\r\n  const name = event.detail.files[0].file.name;\r\n  alert(`File '${name}' selected.`);\r\n};\r\nelement.addEventListener('plus-change', onChange);",
       "style": "plus-browse {\n  background: white;\n  border: 2px dashed #e0e0e0;\n  border-radius: 4px;\n  display: block;\n  padding: 3rem;\n  text-align: center;\n}\nplus-browse[dragging]:not([dragging='false']) {\n  border-color: #0087f7;\n}\n",
       "template": "<plus-browse id=\"element\" droppable></plus-browse>"
     }
@@ -1833,7 +1833,7 @@
     "category": "javascript",
     "component": "click-outside",
     "detail": {
-      "script": "let inside = 0;\r\nlet outside = 0;\r\nelement1.addEventListener('click', (event) => {\r\n  inside = inside + 1;\r\n  element2.innerHTML = inside;\r\n});\r\nelement1.addEventListener('plusClickOutside', (event) => {\r\n  outside = outside + 1;\r\n  element3.innerHTML = outside;\r\n});",
+      "script": "let inside = 0;\r\nlet outside = 0;\r\nelement1.addEventListener('click', (event) => {\r\n  inside = inside + 1;\r\n  element2.innerHTML = inside;\r\n});\r\nelement1.addEventListener('plus-click-outside', (event) => {\r\n  outside = outside + 1;\r\n  element3.innerHTML = outside;\r\n});",
       "style": "plus-click-outside {\n  margin: auto;\n  display: block;\n  max-width: 20rem;\n}\n",
       "template": "<plus-click-outside id=\"element1\">\r\n  <plus-card elevation=\"10\">\r\n    <plus-card-body>\r\n      <b id=\"element2\">0</b> time(s) inside clicked\r\n      <br />\r\n      <b id=\"element3\">0</b> time(s) outside clicked\r\n    </plus-card-body>\r\n  </plus-card>\r\n</plus-click-outside>"
     }
@@ -2202,7 +2202,7 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "const change = (disabled) => {\r\n  element2.disabled = disabled;\r\n};\r\nelement1.addEventListener('plusOpened', () => change(false));\r\nelement1.addEventListener('plusClosed', () => change(true));",
+      "script": "const change = (disabled) => {\r\n  element2.disabled = disabled;\r\n};\r\nelement1.addEventListener('plus-opened', () => change(false));\r\nelement1.addEventListener('plus-closed', () => change(true));",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-cropper\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-cropper\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Cropper </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      <plus-cropper\r\n        id=\"element2\"\r\n        disabled\r\n        src=\"/assets/images/panda.jpg\"\r\n      ></plus-cropper>\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
@@ -3033,7 +3033,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "const ensure = (type, event) => {\r\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\r\n  event.preventDefault();\r\n};\r\nelement1.addEventListener('plusOpen', (event) => ensure('open', event));\r\nelement1.addEventListener('plusClose', (event) => ensure('close', event));",
+      "script": "const ensure = (type, event) => {\r\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\r\n  event.preventDefault();\r\n};\r\nelement1.addEventListener('plus-open', (event) => ensure('open', event));\r\nelement1.addEventListener('plus-close', (event) => ensure('close', event));",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-prevent\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-prevent\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\r\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\r\n      commodo consequat.\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
@@ -4976,7 +4976,7 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "element2.addEventListener('plusChange', (event) => {\r\n  element1.innerHTML = event.detail.isIntersecting\r\n    ? 'In Viewport'\r\n    : 'Out of Viewport';\r\n});",
+      "script": "element2.addEventListener('plus-change', (event) => {\r\n  element1.innerHTML = event.detail.isIntersecting\r\n    ? 'In Viewport'\r\n    : 'Out of Viewport';\r\n});",
       "style": ".container {\n  position: relative;\n  background-color: #eeeeee;\n}\n\n.status {\n  color: #fafafa;\n  background-color: #212121;\n  position: absolute;\n  top: 1rem;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 0.5rem 1rem;\n  border-radius: 2rem;\n  z-index: 1;\n}\n\n.content {\n  height: 20rem;\n  overflow: auto;\n}\n\n.spacer {\n  padding: 500px 0;\n}\n\nplus-card {\n  width: 15rem;\n  margin: auto;\n}\n",
       "template": "<div class=\"container\">\r\n  <div id=\"element1\" class=\"status\"></div>\r\n  <div class=\"content\">\r\n    <div class=\"spacer\"></div>\r\n    <plus-intersection id=\"element2\">\r\n      <plus-card elevation=\"10\">\r\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.\r\n      </plus-card>\r\n    </plus-intersection>\r\n    <div class=\"spacer\"></div>\r\n  </div>\r\n</div>"
     }
@@ -5039,7 +5039,7 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "element1.addEventListener('plusChange', (event) => {\r\n  if (!event.detail.isIntersecting) return;\r\n\r\n  setTimeout(() => {\r\n    const image = event.target.querySelector('img');\r\n\r\n    const spinner = event.target.querySelector('plus-spinner');\r\n\r\n    const src = image.getAttribute('data-src');\r\n\r\n    image.setAttribute('src', src);\r\n\r\n    image.removeAttribute('data-hidden');\r\n\r\n    spinner.setAttribute('data-hidden', 'true');\r\n  }, 1000);\r\n});",
+      "script": "element1.addEventListener('plus-change', (event) => {\r\n  if (!event.detail.isIntersecting) return;\r\n\r\n  setTimeout(() => {\r\n    const image = event.target.querySelector('img');\r\n\r\n    const spinner = event.target.querySelector('plus-spinner');\r\n\r\n    const src = image.getAttribute('data-src');\r\n\r\n    image.setAttribute('src', src);\r\n\r\n    image.removeAttribute('data-hidden');\r\n\r\n    spinner.setAttribute('data-hidden', 'true');\r\n  }, 1000);\r\n});",
       "style": ".container {\n  position: relative;\n  height: 20rem;\n  overflow: auto;\n  background-color: #eeeeee;\n}\n\nplus-intersection {\n  text-align: center;\n  margin: 1000px auto;\n}\n\n[data-hidden] {\n  display: none;\n}\n\nimg {\n  display: block;\n  width: 12rem;\n  height: 12rem;\n  object-fit: cover;\n}\n\nplus-card {\n  display: inline-block;\n}\n\nplus-spinner {\n  margin: 1rem;\n}\n",
       "template": "<div class=\"container\">\r\n  <plus-intersection id=\"element1\" once>\r\n    <plus-card elevation=\"10\">\r\n      <plus-spinner></plus-spinner>\r\n      <img\r\n        data-hidden=\"true\"\r\n        data-src=\"https://placekitten.com/200/200\"\r\n        alt=\"Lazy Image\"\r\n      />\r\n    </plus-card>\r\n  </plus-intersection>\r\n</div>"
     }

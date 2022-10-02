@@ -1,5 +1,4 @@
 import t from '@babel/types';
-import { visitor } from '@htmlplus/element/compiler/utils/index.js';
 import { capitalCase } from 'change-case';
 import fs from 'fs';
 import prettier from 'prettier';
@@ -36,16 +35,6 @@ export const getTitle = (context) => {
     .slice(-2)
     .map(capitalCase)
     .join(' | ');
-};
-
-export const indent = (input, value) => {
-  if (!input) return input;
-  let space = '';
-  for (let i = 0; i < value; i++) space += '  ';
-  return input
-    .split('\n')
-    .map((line, index) => `${index ? space : ''}${line}`)
-    .join('\n');
 };
 
 export const isEvent = (input) => {

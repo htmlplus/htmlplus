@@ -53,7 +53,8 @@ export function addDependency(path: File | any, source: string, local?: string, 
       declaration.specifiers.push(specifier);
     }
   } else {
-    file.program.body.unshift(t.importDeclaration(specifier ? [specifier] : [], t.stringLiteral(source)));
+    // TODO
+    (file.program || file).body.unshift(t.importDeclaration(specifier ? [specifier] : [], t.stringLiteral(source)));
   }
 
   return local;

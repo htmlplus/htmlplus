@@ -1,6 +1,7 @@
 import t from '@babel/types';
 import {
   __dirname,
+  addDependency,
   print,
   removeUnusedImport,
   renderTemplate,
@@ -19,8 +20,6 @@ export const react = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const dependencies = new Map();
-
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     const patterns = ['templates/**/*.*'];
@@ -29,17 +28,11 @@ export const react = (options) => {
 
     fs.rmSync(destination, { recursive: true, force: true });
 
-    const addDependency = (path, local, imported) => {
-      const locals = dependencies.get(imported) || new Set();
-      locals.add(local);
-      dependencies.set(imported, locals);
-    };
-
     const visitors = {
       script: {
         AssignmentExpression(path) {
           const { left, right } = path.node;
-          if (left && left.object && left.object.type === 'ThisExpression') {
+          if (left?.object?.type === 'ThisExpression') {
             const setter = 'set' + pascalCase(left.property.name);
             path.replaceWith(t.callExpression(t.identifier(setter), [right]));
           }
@@ -48,14 +41,6 @@ export const react = (options) => {
           path.traverse(visitors.script);
 
           const body = [
-            ...Array.from(dependencies).map(([imported, locals]) =>
-              t.importDeclaration(
-                Array.from(locals)
-                  .sort()
-                  .map((local) => t.importSpecifier(t.identifier(local), t.identifier(local))),
-                t.stringLiteral(imported)
-              )
-            ),
             t.variableDeclaration('const', [
               t.variableDeclarator(
                 t.identifier(context.className),
@@ -82,17 +67,11 @@ export const react = (options) => {
         ClassProperty(path) {
           const { decorators, key, value } = path.node;
 
-          if (decorators && decorators[0] && decorators[0].expression.callee.name === 'State') {
-            const setter = 'set' + pascalCase(key.name);
-
-            path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
-
-            addDependency(path, 'useState', 'react');
-
+          if (decorators?.[0]?.expression?.callee?.name === 'State') {
             path.replaceWith(
               t.variableDeclaration('const', [
                 t.variableDeclarator(
-                  t.arrayPattern([key, t.identifier(setter)]),
+                  t.arrayPattern([key, t.identifier(`set${pascalCase(key.name)}`)]),
                   t.callExpression(t.identifier('useState'), value ? [value] : [])
                 )
               ])
@@ -100,6 +79,9 @@ export const react = (options) => {
           } else {
             path.replaceWith(t.variableDeclaration('let', [t.variableDeclarator(key, value)]));
           }
+        },
+        Decorator(path) {
+          path.remove();
         },
         JSXAttribute(path) {
           const { name } = path.node;
@@ -125,49 +107,16 @@ export const react = (options) => {
 
           const newName = options?.componentNameConvertor?.(name) || name;
 
-          addDependency(path, newName.split('.').shift(), options?.componentRefrence?.(name));
-
           openingElement.name.name = newName;
 
           if (!closingElement) return;
 
           closingElement.name.name = newName;
         },
-        JSXText(path) {
-          const { value } = path.node;
-
-          let level = 1;
-
-          let parent = path.parentPath;
-
-          while (parent.type !== 'ReturnStatement') {
-            level++;
-            parent = parent.parentPath;
-          }
-
-          let space = '';
-
-          for (let i = 0; i < level; i++) space += '  ';
-
-          const trim = value.trim();
-
-          const from = value.indexOf(trim);
-
-          const to = trim.length;
-
-          const startIndex = value.indexOf('\n');
-
-          const endIndex = value.lastIndexOf('\n');
-
-          const start = startIndex !== -1 && from > startIndex;
-
-          const end = endIndex !== -1 && to <= endIndex;
-
-          path.node.value = `${start ? '\n' : ''}${space}${value.trim()}${end ? '\n' : ''}`;
-        },
         MemberExpression(path) {
           const { property, object } = path.node;
-          if (object.type === 'ThisExpression') path.replaceWith(property);
+          if (object.type != 'ThisExpression') return;
+          path.replaceWith(property);
         }
       }
     };
@@ -176,6 +125,19 @@ export const react = (options) => {
       const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.script);
+
+      context
+        .customElementNames
+        .forEach((name) => {
+          const newName = options?.componentNameConvertor?.(name) || name;
+
+          const [root] = newName.split('.');
+
+          addDependency(ast, options?.componentRefrence?.(name), root, root);
+        });
+
+      if (context.classStates.length)
+        addDependency(ast, 'react', 'useState', 'useState');
 
       removeUnusedImport(ast);
 

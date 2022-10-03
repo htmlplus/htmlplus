@@ -11,7 +11,7 @@ const CounterDefault = () => {
         onComplete={() => setPlay(false)}
       ></Counter>
       <br />
-      <button onClick={() => setPlay(true)}> Start</button>
+      <button onClick={() => setPlay(true)}>Start</button>
     </div>
   );
 };

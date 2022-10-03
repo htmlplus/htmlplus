@@ -18,7 +18,7 @@ const DialogPrevent = () => {
         onClose={(event) => ensure('close', event)}
       >
         <Dialog.Content>
-          <Dialog.Header> Dialog Title</Dialog.Header>
+          <Dialog.Header>Dialog Title</Dialog.Header>
           <Dialog.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -26,7 +26,7 @@ const DialogPrevent = () => {
             aliquip ex ea commodo consequat.
           </Dialog.Body>
           <Dialog.Footer>
-            <Dialog.Toggler> Close</Dialog.Toggler>
+            <Dialog.Toggler>Close</Dialog.Toggler>
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>

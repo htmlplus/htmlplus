@@ -4,7 +4,7 @@ const AvatarIcon = () => {
   return (
     <div className="center">
       <Avatar>
-        <Icon> user</Icon>
+        <Icon>user</Icon>
       </Avatar>
     </div>
   );

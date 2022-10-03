@@ -3,7 +3,7 @@ import { Icon } from '@htmlplus/react';
 const IconDefault = () => {
   return (
     <div className="center">
-      <Icon> home</Icon>
+      <Icon>home</Icon>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 {
   "name": "@htmlplus/react",
   "version": "0.3.10",
+  "license": "MIT",
+  "author": "Masood Abdolian <m.abdolian@gmail.com>",
+  "description": "React output target for @htmlplus/core.",
   "type": "module",
-  "description": "React output target for your custom element.",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -17,6 +19,18 @@
   "publishConfig": {
     "directory": "dist"
   },
+  "engines": {
+    "node": ">= 12.7.0"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htmlplus/htmlplus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/htmlplus/htmlplus/issues"
+  },
+  "homepage": "https://github.com/htmlplus/htmlplus#readme",
   "dependencies": {
     "@htmlplus/core": "^0.4.2",
     "change-case": "^4.1.2"

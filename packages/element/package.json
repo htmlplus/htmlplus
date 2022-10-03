@@ -19,13 +19,7 @@
     "dev:build:watch": "nodemon src/dev/scripts/build.ts"
   },
   "files": [
-    "client",
-    "compiler",
-    "constants",
-    "runtime",
-    "types",
-    "package.json",
-    "README.md"
+    "**/*.*"
   ],
   "publishConfig": {
     "directory": "dist"

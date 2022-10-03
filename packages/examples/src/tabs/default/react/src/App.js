@@ -10,7 +10,7 @@ const TabsDefault = () => {
       </Tabs.Bar>
       <Tabs.Panels>
         <Tabs.Panel value="1">
-          <b> Tab One</b>
+          <b>Tab One</b>
           <br />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
           nibh eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit
@@ -19,7 +19,7 @@ const TabsDefault = () => {
           posuere consequat.
         </Tabs.Panel>
         <Tabs.Panel value="2">
-          <b> Tab Two</b>
+          <b>Tab Two</b>
           <br />
           Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet.
           Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,
@@ -28,7 +28,7 @@ const TabsDefault = () => {
           vestibulum.
         </Tabs.Panel>
         <Tabs.Panel value="3">
-          <b> Tab Three</b>
+          <b>Tab Three</b>
           <br />
           Integer facilisis tincidunt urna vel accumsan. Orci varius natoque
           penatibus et magnis dis parturient montes, nascetur ridiculus mus.

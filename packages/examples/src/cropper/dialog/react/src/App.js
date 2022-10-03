@@ -20,7 +20,7 @@ const CropperDialog = () => {
         onClosed={() => change(true)}
       >
         <Dialog.Content>
-          <Dialog.Header> Cropper</Dialog.Header>
+          <Dialog.Header>Cropper</Dialog.Header>
           <Dialog.Body>
             <Cropper
               disabled={disabled}
@@ -28,7 +28,7 @@ const CropperDialog = () => {
             ></Cropper>
           </Dialog.Body>
           <Dialog.Footer>
-            <Dialog.Toggler> Close</Dialog.Toggler>
+            <Dialog.Toggler>Close</Dialog.Toggler>
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>

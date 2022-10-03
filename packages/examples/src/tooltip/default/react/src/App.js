@@ -5,7 +5,7 @@ const TooltipDefault = () => {
     <div className="center">
       <button>
         Button
-        <Tooltip> Tooltip</Tooltip>
+        <Tooltip>Tooltip</Tooltip>
       </button>
     </div>
   );

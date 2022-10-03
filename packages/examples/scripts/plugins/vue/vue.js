@@ -34,12 +34,12 @@ export const vue = (options) => {
 
           path.traverse(visitors.script);
 
+          context.customElementNames.reverse().forEach((name) => addDependency(path, options?.componentRefrence(name)));
+
           if (!body.body.length) return path.remove();
 
           if (context.classStates.length)
-            body.body.unshift(
-              t.importDeclaration([t.importSpecifier(t.identifier('ref'), t.identifier('ref'))], t.stringLiteral('vue'))
-            );
+            addDependency(path, 'path', 'ref', 'ref');
 
           path.replaceWithMultiple(body.body);
         },
@@ -167,8 +167,6 @@ export const vue = (options) => {
       const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.script);
-
-      context.customElementNames.forEach((name) => addDependency(ast, options?.componentRefrence(name)));
 
       removeUnusedImport(ast);
 

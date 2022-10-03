@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-  import '@htmlplus/core/intersection.js';
-  import '@htmlplus/core/card-body.js';
+  import { ref } from 'path';
   import '@htmlplus/core/card.js';
-  import { ref } from 'vue';
+  import '@htmlplus/core/card-body.js';
+  import '@htmlplus/core/intersection.js';
   const intersecting = ref(false);
 
   function onChange(event) {

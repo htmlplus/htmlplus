@@ -24,14 +24,14 @@
 </template>
 
 <script setup>
-  import '@htmlplus/core/dialog-toggler.js';
-  import '@htmlplus/core/dialog-header.js';
-  import '@htmlplus/core/dialog-footer.js';
-  import '@htmlplus/core/dialog-content.js';
-  import '@htmlplus/core/dialog-body.js';
-  import '@htmlplus/core/dialog.js';
+  import { ref } from 'path';
   import '@htmlplus/core/cropper.js';
-  import { ref } from 'vue';
+  import '@htmlplus/core/dialog.js';
+  import '@htmlplus/core/dialog-body.js';
+  import '@htmlplus/core/dialog-content.js';
+  import '@htmlplus/core/dialog-footer.js';
+  import '@htmlplus/core/dialog-header.js';
+  import '@htmlplus/core/dialog-toggler.js';
   const disabled = ref(true);
 
   function change(disabled) {

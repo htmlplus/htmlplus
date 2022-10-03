@@ -41,8 +41,8 @@
 </template>
 
 <script setup>
-  import '@htmlplus/core/portal.js';
   import '@htmlplus/core/card.js';
+  import '@htmlplus/core/portal.js';
 </script>
 
 <style scoped>

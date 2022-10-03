@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
+  import { ref } from 'path';
   import '@htmlplus/core/card.js';
-  import { ref } from 'vue';
   const elevation = ref('12');
 
   function onChange(event) {

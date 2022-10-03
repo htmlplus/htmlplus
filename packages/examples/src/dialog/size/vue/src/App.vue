@@ -27,14 +27,14 @@
 </template>
 
 <script setup>
-  import '@htmlplus/core/grid-item.js';
-  import '@htmlplus/core/grid.js';
-  import '@htmlplus/core/dialog-header.js';
-  import '@htmlplus/core/dialog-footer.js';
-  import '@htmlplus/core/dialog-content.js';
-  import '@htmlplus/core/dialog-body.js';
+  import { ref } from 'path';
   import '@htmlplus/core/dialog.js';
-  import { ref } from 'vue';
+  import '@htmlplus/core/dialog-body.js';
+  import '@htmlplus/core/dialog-content.js';
+  import '@htmlplus/core/dialog-footer.js';
+  import '@htmlplus/core/dialog-header.js';
+  import '@htmlplus/core/grid.js';
+  import '@htmlplus/core/grid-item.js';
   const open = ref(false);
   const size = ref('md');
 

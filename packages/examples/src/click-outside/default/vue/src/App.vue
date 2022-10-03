@@ -11,10 +11,10 @@
 </template>
 
 <script setup>
-  import '@htmlplus/core/click-outside.js';
-  import '@htmlplus/core/card-body.js';
+  import { ref } from 'path';
   import '@htmlplus/core/card.js';
-  import { ref } from 'vue';
+  import '@htmlplus/core/card-body.js';
+  import '@htmlplus/core/click-outside.js';
   const inside = ref(0);
   const outside = ref(0);
 

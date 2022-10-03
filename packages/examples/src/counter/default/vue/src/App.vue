@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
+  import { ref } from 'path';
   import '@htmlplus/core/counter.js';
-  import { ref } from 'vue';
   const play = ref(false);
 </script>
 

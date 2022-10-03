@@ -117,6 +117,20 @@ export const react = (options) => {
           const { property, object } = path.node;
           if (object.type != 'ThisExpression') return;
           path.replaceWith(property);
+        },
+        Program(path) {
+          context
+            .customElementNames
+            .forEach((name) => {
+              const newName = options?.componentNameConvertor?.(name) || name;
+
+              const [root] = newName.split('.');
+
+              addDependency(path, options?.componentRefrence?.(name), root, root);
+            });
+
+          if (context.classStates.length)
+            addDependency(path, 'react', 'useState', 'useState');
         }
       }
     };
@@ -125,19 +139,6 @@ export const react = (options) => {
       const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.script);
-
-      context
-        .customElementNames
-        .forEach((name) => {
-          const newName = options?.componentNameConvertor?.(name) || name;
-
-          const [root] = newName.split('.');
-
-          addDependency(ast, options?.componentRefrence?.(name), root, root);
-        });
-
-      if (context.classStates.length)
-        addDependency(ast, 'react', 'useState', 'useState');
 
       removeUnusedImport(ast);
 

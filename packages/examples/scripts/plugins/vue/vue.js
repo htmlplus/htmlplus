@@ -34,12 +34,7 @@ export const vue = (options) => {
 
           path.traverse(visitors.script);
 
-          context.customElementNames.reverse().forEach((name) => addDependency(path, options?.componentRefrence(name)));
-
           if (!body.body.length) return path.remove();
-
-          if (context.classStates.length)
-            addDependency(path, 'path', 'ref', 'ref');
 
           path.replaceWithMultiple(body.body);
         },
@@ -88,6 +83,15 @@ export const vue = (options) => {
           } else {
             path.replaceWith(property);
           }
+        },
+        Program(path) {
+          context
+            .customElementNames
+            .reverse()
+            .forEach((name) => addDependency(path, options?.componentRefrence(name)));
+
+          if (context.classStates.length)
+            addDependency(path, 'path', 'ref', 'ref');
         }
       },
       template: {

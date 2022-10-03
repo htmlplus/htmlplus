@@ -67,6 +67,10 @@ export const angular = (options) => {
         },
         Decorator(path) {
           path.remove();
+        },
+        Program(path) {
+          context.customElementNames.forEach((name) => addDependency(path, options?.componentRefrence(name)));
+          addDependency(path, '@angular/core', 'Component', 'Component');
         }
       },
       template: {
@@ -147,10 +151,6 @@ export const angular = (options) => {
       const ast = t.cloneNode(context.fileAST, true);
 
       visitor(ast, visitors.script);
-
-      context.customElementNames.forEach((name) => addDependency(ast, options?.componentRefrence(name)));
-
-      addDependency(ast, '@angular/core', 'Component', 'Component');
 
       removeUnusedImport(ast);
 

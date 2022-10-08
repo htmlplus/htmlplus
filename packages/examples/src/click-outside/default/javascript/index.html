@@ -4,18 +4,6 @@
     <title>Click Outside | Default</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/click-outside.js"
-    ></script>
     <style>
       plus-click-outside {
         margin: auto;
@@ -34,7 +22,11 @@
         </plus-card-body>
       </plus-card>
     </plus-click-outside>
-    <script>
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/click-outside.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';
+
       let inside = 0;
       let outside = 0;
       element1.addEventListener('click', (event) => {

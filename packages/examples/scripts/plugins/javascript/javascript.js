@@ -27,8 +27,6 @@ export const javascript = (options) => {
       cwd: __dirname(import.meta.url)
     };
 
-    const dependencies = context.customElementNames?.map((name) => options?.componentRefrence(name));
-
     const destination = options?.destination?.(context) || path.join(context.directoryPath, name);
 
     const patterns = ['templates/**/*.*'];
@@ -120,9 +118,17 @@ export const javascript = (options) => {
     };
 
     const script = (() => {
-      const dedicated = getSnippet(context, 'javascript:script');
+      let content = getSnippet(context, 'javascript:script')?.content || '';
 
-      if (dedicated) return dedicated.content;
+      if (content && context.customElementNames?.length) {
+        content = '\n' + content;
+      }
+
+      context.customElementNames?.forEach((name) => {
+        content = `import '${options?.componentRefrence(name)}';\n${content}`;
+      });
+
+      return content;
 
       // TODO
 
@@ -162,7 +168,6 @@ export const javascript = (options) => {
     })();
 
     const model = {
-      dependencies,
       script,
       style,
       template,

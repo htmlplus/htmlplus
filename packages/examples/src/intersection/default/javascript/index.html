@@ -4,18 +4,6 @@
     <title>Intersection | Default</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js"
-    ></script>
     <style>
       .container {
         position: relative;
@@ -63,7 +51,11 @@
         <div class="spacer"></div>
       </div>
     </div>
-    <script>
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';
+
       element2.addEventListener('plus-change', (event) => {
         element1.innerHTML = event.detail.isIntersecting
           ? 'In Viewport'

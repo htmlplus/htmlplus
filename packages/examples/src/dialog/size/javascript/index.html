@@ -4,34 +4,6 @@
     <title>Dialog | Size</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js"
-    ></script>
     <style>
       plus-grid-item {
         text-align: center;
@@ -64,7 +36,15 @@
         </plus-dialog-footer>
       </plus-dialog-content>
     </plus-dialog>
-    <script>
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';
+
       const hide = () => {
         element4.open = false;
       };

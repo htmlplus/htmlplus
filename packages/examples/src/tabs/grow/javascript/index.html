@@ -4,18 +4,6 @@
     <title>Tabs | Grow</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js"
-    ></script>
   </head>
   <body>
     <plus-tabs>
@@ -25,5 +13,11 @@
         <plus-tabs-tab> Tab 3 </plus-tabs-tab>
       </plus-tabs-bar>
     </plus-tabs>
+
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';
+    </script>
   </body>
 </html>

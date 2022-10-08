@@ -4,14 +4,6 @@
     <title>Grid | Auto Sizing</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js"
-    ></script>
     <style>
       plus-grid div {
         color: #00bcd4;
@@ -45,5 +37,10 @@
         <div>xs=12, md=2</div>
       </plus-grid-item>
     </plus-grid>
+
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';
+    </script>
   </body>
 </html>

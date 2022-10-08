@@ -4,10 +4,6 @@
     <title>Card | Elevation</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js"
-    ></script>
     <style>
       plus-card {
         height: 12rem;
@@ -25,7 +21,9 @@
     <plus-card id="card" elevation="12"></plus-card>
     <br />
     <input id="input" type="range" value="12" min="1" max="24" />
-    <script>
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';
+
       input.addEventListener('change', (event) => {
         card.elevation = event.target.value;
       });

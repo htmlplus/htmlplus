@@ -4,26 +4,6 @@
     <title>Tabs | Separate</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js"
-    ></script>
   </head>
   <body>
     <header>
@@ -64,5 +44,13 @@
         </plus-tabs-panel>
       </plus-tabs-panels>
     </section>
+
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';
+      import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';
+    </script>
   </body>
 </html>

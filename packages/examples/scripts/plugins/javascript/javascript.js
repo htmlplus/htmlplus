@@ -124,11 +124,13 @@ export const javascript = (options) => {
         content = '\n' + content;
       }
 
+      let dependencies = '';
+
       context.customElementNames?.forEach((name) => {
-        content = `import '${options?.componentRefrence(name)}';\n${content}`;
+        dependencies += `import '${options?.componentRefrence(name)}';\n`;
       });
 
-      return content;
+      return dependencies + content;
 
       // TODO
 

@@ -134,7 +134,7 @@
     "category": "javascript",
     "component": "animation",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/animation.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/animation.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-animation {\n  background: lightgray;\n  width: 100px;\n  height: 100px;\n  margin: auto;\n}\n",
       "template": "<plus-grid justify-content=\"evenly\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-animation name=\"fade-in\" iterations=\"Infinity\" play></plus-animation>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-animation name=\"fade-out\" iterations=\"Infinity\" play></plus-animation>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -191,7 +191,7 @@
     "category": "javascript",
     "component": "aspect-ratio",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/aspect-ratio.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/aspect-ratio.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
       "style": "plus-card {\n  --plus-card-background-color: #c5cae9;\n  padding: 1rem;\n}\n",
       "template": "<plus-aspect-ratio value=\"16/9\">\n  <plus-card tile>\n    This box will always be 16/9 (unless you put more stuff in it)\n  </plus-card>\n</plus-aspect-ratio>\n"
     }
@@ -248,7 +248,7 @@
     "category": "javascript",
     "component": "aspect-ratio",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/aspect-ratio.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/aspect-ratio.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": ".box {\n  color: white;\n  padding: 0.75rem;\n  margin: 0.25rem;\n}\n.ratio-one {\n  width: 40.625%;\n  float: right;\n}\n.one {\n  background: #08dfc8;\n}\n.two {\n  background: #ff5449;\n}\n.three {\n  background: #5f9ee9;\n}\n.four {\n  background: #ffc903;\n}\n.five {\n  background: #9073c1;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-grid>\n      <plus-grid-item xs=\"12\">\n        <plus-aspect-ratio value=\"3/2\" class=\"ratio-one\">\n          <div class=\"box one\">3/2</div>\n        </plus-aspect-ratio>\n      </plus-grid-item>\n      <plus-grid-item xs=\"12\">\n        <plus-aspect-ratio value=\"16/9\">\n          <div class=\"box two\">16/9</div>\n        </plus-aspect-ratio>\n      </plus-grid-item>\n    </plus-grid>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-grid>\n      <plus-grid-item xs=\"6\">\n        <plus-aspect-ratio value=\"1\">\n          <div class=\"box three\">1/1</div>\n        </plus-aspect-ratio>\n      </plus-grid-item>\n      <plus-grid-item xs=\"6\" align-self=\"end\">\n        <plus-aspect-ratio value=\"4/3\">\n          <div class=\"box four\">4/3</div>\n        </plus-aspect-ratio>\n      </plus-grid-item>\n      <plus-grid-item xs=\"12\">\n        <plus-aspect-ratio value=\"18/6\">\n          <div class=\"box five\">18/6</div>\n        </plus-aspect-ratio>\n      </plus-grid-item>\n    </plus-grid>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -414,7 +414,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar-group>\n    <plus-avatar>\n      <img src=\"http://placeimg.com/91/91/people\" />\n    </plus-avatar>\n    <plus-avatar>\n      <img src=\"http://placeimg.com/92/92/people\" />\n    </plus-avatar>\n    <plus-avatar>\n      <img src=\"http://placeimg.com/93/93/people\" />\n    </plus-avatar>\n  </plus-avatar-group>\n</div>\n"
     }
@@ -471,7 +471,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar-group stacked hoverable>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/97/97/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/98/98/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/99/99/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/99/99/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\"> +2 </plus-avatar>\n  </plus-avatar-group>\n</div>\n"
     }
@@ -528,7 +528,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/icon.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/icon.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar>\n    <plus-icon>user</plus-icon>\n  </plus-avatar>\n</div>\n"
     }
@@ -699,7 +699,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar-group>\n    <plus-avatar shape=\"circle\">C</plus-avatar>\n    <plus-avatar shape=\"round\">R</plus-avatar>\n    <plus-avatar shape=\"tile\">T</plus-avatar>\n  </plus-avatar-group>\n</div>\n"
     }
@@ -756,7 +756,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar-group>\n    <plus-avatar size=\"xs\">xs</plus-avatar>\n    <plus-avatar size=\"sm\">sm</plus-avatar>\n    <plus-avatar size=\"md\">md</plus-avatar>\n    <plus-avatar size=\"lg\">lg</plus-avatar>\n    <plus-avatar size=\"xl\">xl</plus-avatar>\n  </plus-avatar-group>\n</div>\n"
     }
@@ -813,7 +813,7 @@
     "category": "javascript",
     "component": "avatar",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/avatar-group.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-avatar-group stacked>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/94/94/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/95/95/people\" />\n    </plus-avatar>\n    <plus-avatar shape=\"circle\">\n      <img src=\"http://placeimg.com/96/96/people\" />\n    </plus-avatar>\n  </plus-avatar-group>\n</div>\n"
     }
@@ -1383,7 +1383,7 @@
     "category": "javascript",
     "component": "card",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-card {\n  height: 12rem;\n  width: 12rem;\n  margin: auto;\n}\nplus-card.pink {\n  --plus-card-background-color: #ef9a9a;\n}\nplus-card.yellow {\n  --plus-card-background-color: #fff59d;\n}\nplus-card.blue {\n  --plus-card-background-color: #80cbc4;\n}\n",
       "template": "<plus-grid justify-content=\"evenly\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"pink\"></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"yellow\"></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"blue\"></plus-card>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -1440,7 +1440,7 @@
     "category": "javascript",
     "component": "card",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-card {\n  height: 8rem;\n  width: 8rem;\n  margin: auto;\n}\nplus-card.pink {\n  --plus-card-border-color: #ef9a9a;\n}\nplus-card.yellow {\n  --plus-card-border-color: #fff59d;\n}\nplus-card.blue {\n  --plus-card-border-color: #80cbc4;\n}\n",
       "template": "<plus-grid justify-content=\"evenly\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"pink\" outlined></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"yellow\" outlined></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"blue\" outlined></plus-card>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -1503,7 +1503,7 @@
     "category": "javascript",
     "component": "card",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-card {\n  height: 8rem;\n  width: 8rem;\n  margin: auto;\n}\nplus-card.size-1 {\n  --plus-card-border-width: 1px;\n}\nplus-card.size-2 {\n  --plus-card-border-width: 2px;\n}\nplus-card.size-3 {\n  --plus-card-border-width: 3px;\n}\n",
       "template": "<plus-grid justify-content=\"evenly\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"size-1\" outlined></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"size-2\" outlined></plus-card>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-card class=\"size-3\" outlined></plus-card>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -1806,7 +1806,7 @@
     "category": "javascript",
     "component": "card",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": ".container {\n  padding: 2rem 0;\n  background-color: #eeeeee;\n}\nplus-card {\n  height: 8rem;\n  width: 8rem;\n  margin: auto;\n}\n",
       "template": "<div class=\"container\">\n  <plus-grid justify-content=\"evenly\" gutter=\"md\">\n    <plus-grid-item xs=\"12\" sm=\"auto\">\n      <plus-card tile></plus-card>\n    </plus-grid-item>\n    <plus-grid-item xs=\"12\" sm=\"auto\">\n      <plus-card tile outlined></plus-card>\n    </plus-grid-item>\n    <plus-grid-item xs=\"12\" sm=\"auto\">\n      <plus-card tile elevation=\"5\"></plus-card>\n    </plus-grid-item>\n  </plus-grid>\n</div>\n"
     }
@@ -1863,7 +1863,7 @@
     "category": "javascript",
     "component": "click-outside",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/click-outside.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n\nlet inside = 0;\r\nlet outside = 0;\r\nelement1.addEventListener('click', (event) => {\r\n  inside = inside + 1;\r\n  element2.innerHTML = inside;\r\n});\r\nelement1.addEventListener('plus-click-outside', (event) => {\r\n  outside = outside + 1;\r\n  element3.innerHTML = outside;\r\n});",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/click-outside.js';\n\nlet inside = 0;\r\nlet outside = 0;\r\nelement1.addEventListener('click', (event) => {\r\n  inside = inside + 1;\r\n  element2.innerHTML = inside;\r\n});\r\nelement1.addEventListener('plus-click-outside', (event) => {\r\n  outside = outside + 1;\r\n  element3.innerHTML = outside;\r\n});",
       "style": "plus-click-outside {\n  margin: auto;\n  display: block;\n  max-width: 20rem;\n}\n",
       "template": "<plus-click-outside id=\"element1\">\r\n  <plus-card elevation=\"10\">\r\n    <plus-card-body>\r\n      <b id=\"element2\">0</b> time(s) inside clicked\r\n      <br />\r\n      <b id=\"element3\">0</b> time(s) outside clicked\r\n    </plus-card-body>\r\n  </plus-card>\r\n</plus-click-outside>"
     }
@@ -2237,7 +2237,7 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\n\nconst change = (disabled) => {\r\n  element2.disabled = disabled;\r\n};\r\nelement1.addEventListener('plus-opened', () => change(false));\r\nelement1.addEventListener('plus-closed', () => change(true));",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n\nconst change = (disabled) => {\r\n  element2.disabled = disabled;\r\n};\r\nelement1.addEventListener('plus-opened', () => change(false));\r\nelement1.addEventListener('plus-closed', () => change(true));",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-cropper\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-cropper\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Cropper </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      <plus-cropper\r\n        id=\"element2\"\r\n        disabled\r\n        src=\"/assets/images/panda.jpg\"\r\n      ></plus-cropper>\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
@@ -2398,7 +2398,7 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-cropper {\n  height: 18rem;\n}\n",
       "template": "<plus-grid gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-cropper\n      mode=\"move\"\n      src=\"/assets/images/panda.jpg\"\n      view=\"none\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-cropper mode=\"crop\" src=\"/assets/images/panda.jpg\"></plus-cropper>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -2455,7 +2455,7 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-cropper[shape='rectangle'] {\n  height: 100%;\n}\n",
       "template": "<plus-grid gutter=\"md\">\n  <plus-grid-item xs=\"6\">\n    <plus-cropper\n      shape=\"rectangle\"\n      aspect-ratio=\"2\"\n      src=\"/assets/images/panda.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"6\">\n    <plus-grid gutter=\"md\">\n      <plus-grid-item xs=\"12\">\n        <plus-cropper\n          shape=\"square\"\n          src=\"/assets/images/panda.jpg\"\n        ></plus-cropper>\n      </plus-grid-item>\n      <plus-grid-item xs=\"12\">\n        <plus-cropper\n          shape=\"circle\"\n          src=\"/assets/images/panda.jpg\"\n        ></plus-cropper>\n      </plus-grid-item>\n    </plus-grid>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -2512,7 +2512,7 @@
     "category": "javascript",
     "component": "cropper",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/cropper.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-cropper {\n  height: 250px;\n}\nplus-cropper.style-1 {\n  --plus-cropper-resizer-size: 20px;\n  --plus-cropper-viewport-opacity: 0;\n  --plus-cropper-viewport-style: dashed;\n}\nplus-cropper.style-2 {\n  --plus-cropper-indicator-color: #e6f018;\n  --plus-cropper-indicator-size: 15px;\n  --plus-cropper-indicator-weight: 2px;\n  --plus-cropper-resizer-color: black;\n  --plus-cropper-resizer-offset: -27px;\n  --plus-cropper-resizer-size: 21px;\n  --plus-cropper-viewport-color: #e6f018;\n}\nplus-cropper.style-3 {\n  --plus-cropper-indicator-color: #5499c7;\n  --plus-cropper-guides-color: black;\n  --plus-cropper-resizer-color: #5499c7;\n  --plus-cropper-resizer-size: 15px;\n  --plus-cropper-viewport-color: #5499c7;\n  --plus-cropper-viewport-weight: 2px;\n}\nplus-cropper.style-4 {\n  --plus-cropper-guides-weight: 2px;\n  --plus-cropper-resizer-size: 22px;\n  --plus-cropper-resizer-weight: 2px;\n  --plus-cropper-viewport-style: dashed;\n  --plus-cropper-viewport-weight: 2px;\n}\nplus-cropper.style-5 {\n  --plus-cropper-backdrop-color: white;\n  --plus-cropper-backdrop-opacity: 0.7;\n  --plus-cropper-resizer-color: #a93226;\n  --plus-cropper-resizer-size: 20px;\n  --plus-cropper-resizer-weight: 3px;\n}\nplus-cropper.style-6 {\n  --plus-cropper-viewport-opacity: 0;\n  --plus-cropper-viewport-style: dashed;\n}\n",
       "template": "<plus-grid gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"5\">\n    <plus-cropper\n      class=\"style-1\"\n      indicator\n      mode=\"crop\"\n      shape=\"circle\"\n      resizer=\"main\"\n      resizer-shape=\"line\"\n      src=\"/assets/images/penguin.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\">\n    <plus-cropper\n      class=\"style-2\"\n      indicator\n      mode=\"crop\"\n      resizer=\"both\"\n      resizer-shape=\"line\"\n      src=\"/assets/images/penguin.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-cropper\n      class=\"style-3\"\n      guides\n      indicator\n      mode=\"crop\"\n      resizer=\"main\"\n      resizer-shape=\"circle\"\n      shape=\"circle\"\n      src=\"/assets/images/cat.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\">\n    <plus-cropper\n      class=\"style-4\"\n      guides\n      mode=\"crop\"\n      resizer=\"edge\"\n      resizer-shape=\"line\"\n      src=\"/assets/images/cat.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\">\n    <plus-cropper\n      class=\"style-5\"\n      backdrop\n      background\n      mode=\"crop\"\n      resizer=\"edge\"\n      resizer-shape=\"line\"\n      src=\"/assets/images/ladybug.jpg\"\n    ></plus-cropper>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\">\n    <plus-cropper class=\"style-6\" src=\"/assets/images/bear.jpg\"></plus-cropper>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -2569,7 +2569,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-animation\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-animation\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2626,7 +2626,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-backdrop\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-backdrop\" backdrop=\"false\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2683,7 +2683,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-default\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog connector=\"dialog-default\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2740,7 +2740,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-full-height\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog\n  animation=\"fade\"\n  connector=\"dialog-full-height\"\n  placement=\"center\"\n  full-height\n>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2797,7 +2797,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-full-width\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-full-width\" full-width>\n  <plus-dialog-content>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2854,7 +2854,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-fullscreen\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog\n  animation=\"fade\"\n  connector=\"dialog-fullscreen\"\n  placement=\"bottom\"\n  fullscreen\n>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2911,7 +2911,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid-item {\n  text-align: center;\n}\n",
       "template": "<plus-grid justify-content=\"center\" gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-dialog-toggler connector=\"dialog-nesting-1\">\n      Open Dialog 1\n    </plus-dialog-toggler>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-dialog-toggler connector=\"dialog-nesting-2\">\n      Open Dialog 2\n    </plus-dialog-toggler>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"auto\">\n    <plus-dialog-toggler connector=\"dialog-nesting-3\">\n      Open Dialog 3\n    </plus-dialog-toggler>\n  </plus-grid-item>\n</plus-grid>\n<plus-dialog animation=\"fade\" connector=\"dialog-nesting-1\" size=\"xl\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog 1 </plus-dialog-header>\n    <plus-dialog-body>\n      <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n        eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam\n        et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere\n        lacus, gravida semper libero. Praesent sed nisi sed lorem posuere\n        consequat. Nunc vehicula fermentum hendrerit. Mauris aliquam ornare\n        laoreet. Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,\n        pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et\n        gravida. Suspendisse aliquam leo ac leo fermentum, ac accumsan purus\n        vestibulum. Integer facilisis tincidunt urna vel accumsan. Orci varius\n        natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n        mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n      </p>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler connector=\"dialog-nesting-2\">\n        Open Dialog 2\n      </plus-dialog-toggler>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n<plus-dialog animation=\"fade\" connector=\"dialog-nesting-2\" size=\"lg\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog 2 </plus-dialog-header>\n    <plus-dialog-body>\n      <p>\n        Nam a gravida lorem. Curabitur sagittis vitae quam vitae dignissim.\n        Curabitur eget sollicitudin urna, vitae venenatis massa. Aliquam nulla\n        dolor, lobortis at mauris non, gravida dignissim nulla. Integer ac\n        ultricies nisl. Duis aliquam sem eu dui porttitor lobortis. Ut luctus\n        rhoncus tincidunt. Vestibulum consequat risus non diam consectetur,\n        bibendum molestie enim placerat. Morbi pretium sem sit amet dictum\n        feugiat. Fusce gravida, eros ac bibendum ullamcorper, sapien nunc\n        vulputate elit, quis iaculis sapien ligula eget nisi. Duis erat urna,\n        porttitor non massa at, porttitor varius mauris. In lobortis massa dui,\n        et consectetur mauris iaculis vitae. Vivamus suscipit, risus vitae\n        viverra auctor, enim sem lacinia nisl, vel dictum risus dolor at felis.\n        In hac habitasse platea dictumst. Donec ac urna ac sapien euismod\n        vulputate.\n      </p>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler connector=\"dialog-nesting-3\">\n        Open Dialog 3\n      </plus-dialog-toggler>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n<plus-dialog animation=\"fade\" connector=\"dialog-nesting-3\" size=\"sm\">\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog 3 </plus-dialog-header>\n    <plus-dialog-body>\n      <p>\n        Proin sapien enim, pellentesque eget urna ut, mollis tincidunt quam.\n        Pellentesque eu orci et leo dapibus sagittis in nec tellus. Vivamus\n        porta felis turpis, ac vehicula felis tristique at. Integer at lacus\n        odio. Donec ornare turpis eu cursus finibus. Suspendisse cursus\n        vestibulum lacus vel porta. Nam eget nibh eu ante ultrices aliquet.\n        Nullam quis ligula faucibus, aliquam tellus quis, accumsan tortor.\n        Integer at leo dictum, luctus dui ac, suscipit turpis. Sed pharetra\n        finibus sapien sed fermentum. In viverra est sagittis sagittis maximus.\n      </p>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -2968,7 +2968,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-persistent\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-persistent\" persistent>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -3025,7 +3025,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-placement\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog\n  animation=\"fade\"\n  connector=\"dialog-placement\"\n  placement=\"center-bottom\"\n>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -3082,7 +3082,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n\nconst ensure = (type, event) => {\r\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\r\n  event.preventDefault();\r\n};\r\nelement1.addEventListener('plus-open', (event) => ensure('open', event));\r\nelement1.addEventListener('plus-close', (event) => ensure('close', event));",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n\nconst ensure = (type, event) => {\r\n  if (window.confirm(`Are you sure you want to ${type} it?`)) return;\r\n  event.preventDefault();\r\n};\r\nelement1.addEventListener('plus-open', (event) => ensure('open', event));\r\nelement1.addEventListener('plus-close', (event) => ensure('close', event));",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\r\n  <plus-dialog-toggler connector=\"dialog-prevent\"> Open </plus-dialog-toggler>\r\n</div>\r\n<plus-dialog id=\"element1\" animation=\"fade\" connector=\"dialog-prevent\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\r\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\r\n      commodo consequat.\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
@@ -3139,7 +3139,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-scrollable\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-scrollable\" scrollable>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body>\n      <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n        eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam\n        et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere\n        lacus, gravida semper libero. Praesent sed nisi sed lorem posuere\n        consequat. Nunc vehicula fermentum hendrerit. Mauris aliquam ornare\n        laoreet. Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,\n        pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et\n        gravida. Suspendisse aliquam leo ac leo fermentum, ac accumsan purus\n        vestibulum. Integer facilisis tincidunt urna vel accumsan. Orci varius\n        natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n        mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n      </p>\n      <p>\n        Nam a gravida lorem. Curabitur sagittis vitae quam vitae dignissim.\n        Curabitur eget sollicitudin urna, vitae venenatis massa. Aliquam nulla\n        dolor, lobortis at mauris non, gravida dignissim nulla. Integer ac\n        ultricies nisl. Duis aliquam sem eu dui porttitor lobortis. Ut luctus\n        rhoncus tincidunt. Vestibulum consequat risus non diam consectetur,\n        bibendum molestie enim placerat. Morbi pretium sem sit amet dictum\n        feugiat. Fusce gravida, eros ac bibendum ullamcorper, sapien nunc\n        vulputate elit, quis iaculis sapien ligula eget nisi. Duis erat urna,\n        porttitor non massa at, porttitor varius mauris. In lobortis massa dui,\n        et consectetur mauris iaculis vitae. Vivamus suscipit, risus vitae\n        viverra auctor, enim sem lacinia nisl, vel dictum risus dolor at felis.\n        In hac habitasse platea dictumst. Donec ac urna ac sapien euismod\n        vulputate.\n      </p>\n      <p>\n        Proin sapien enim, pellentesque eget urna ut, mollis tincidunt quam.\n        Pellentesque eu orci et leo dapibus sagittis in nec tellus. Vivamus\n        porta felis turpis, ac vehicula felis tristique at. Integer at lacus\n        odio. Donec ornare turpis eu cursus finibus. Suspendisse cursus\n        vestibulum lacus vel porta. Nam eget nibh eu ante ultrices aliquet.\n        Nullam quis ligula faucibus, aliquam tellus quis, accumsan tortor.\n        Integer at leo dictum, luctus dui ac, suscipit turpis. Sed pharetra\n        finibus sapien sed fermentum. In viverra est sagittis sagittis maximus.\n      </p>\n      <p>\n        Maecenas quis lorem rutrum, convallis purus ac, hendrerit dui. Etiam\n        consectetur molestie eros sed lacinia. Maecenas ipsum est, consectetur\n        et rutrum et, convallis quis metus. Praesent est eros, semper sed velit\n        sit amet, gravida vestibulum justo. Class aptent taciti sociosqu ad\n        litora torquent per conubia nostra, per inceptos himenaeos. Aenean\n        varius, erat vel ullamcorper consequat, tellus massa gravida arcu, et\n        blandit nisl justo vitae tellus. Suspendisse id metus aliquam, dignissim\n        massa et, facilisis ex. Sed suscipit nunc elit, id dictum velit ultrices\n        hendrerit. Nunc sit amet dui ultrices, sollicitudin justo quis, lacinia\n        tortor. Sed viverra libero facilisis lectus pharetra, vel porttitor sem\n        bibendum. Praesent non nibh quis ante viverra aliquet eu nec nisl.\n        Mauris ante mauris, molestie eget feugiat in, semper quis massa.\n      </p>\n      <p>\n        Maecenas vulputate finibus odio, vitae dignissim nibh ultricies rhoncus.\n        Aenean in dictum justo. Vestibulum pellentesque lorem aliquam lectus\n        finibus, id sagittis ex molestie. Duis rhoncus risus molestie ligula\n        consequat efficitur. Aenean vel nisl vel sem pretium ultrices nec quis\n        mi. Donec enim elit, tristique non sodales quis, iaculis ut justo. In\n        laoreet sodales leo, vel maximus purus volutpat quis. Maecenas ac\n        tincidunt nisl, vitae sodales nibh. Morbi tellus libero, feugiat vitae\n        convallis pretium, fermentum in mi. Etiam dignissim vitae massa nec\n        semper.\n      </p>\n      <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n        eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam\n        et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere\n        lacus, gravida semper libero. Praesent sed nisi sed lorem posuere\n        consequat. Nunc vehicula fermentum hendrerit. Mauris aliquam ornare\n        laoreet. Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,\n        pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et\n        gravida. Suspendisse aliquam leo ac leo fermentum, ac accumsan purus\n        vestibulum. Integer facilisis tincidunt urna vel accumsan. Orci varius\n        natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n        mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n      </p>\n      <p>\n        Nam a gravida lorem. Curabitur sagittis vitae quam vitae dignissim.\n        Curabitur eget sollicitudin urna, vitae venenatis massa. Aliquam nulla\n        dolor, lobortis at mauris non, gravida dignissim nulla. Integer ac\n        ultricies nisl. Duis aliquam sem eu dui porttitor lobortis. Ut luctus\n        rhoncus tincidunt. Vestibulum consequat risus non diam consectetur,\n        bibendum molestie enim placerat. Morbi pretium sem sit amet dictum\n        feugiat. Fusce gravida, eros ac bibendum ullamcorper, sapien nunc\n        vulputate elit, quis iaculis sapien ligula eget nisi. Duis erat urna,\n        porttitor non massa at, porttitor varius mauris. In lobortis massa dui,\n        et consectetur mauris iaculis vitae. Vivamus suscipit, risus vitae\n        viverra auctor, enim sem lacinia nisl, vel dictum risus dolor at felis.\n        In hac habitasse platea dictumst. Donec ac urna ac sapien euismod\n        vulputate.\n      </p>\n      <p>\n        Proin sapien enim, pellentesque eget urna ut, mollis tincidunt quam.\n        Pellentesque eu orci et leo dapibus sagittis in nec tellus. Vivamus\n        porta felis turpis, ac vehicula felis tristique at. Integer at lacus\n        odio. Donec ornare turpis eu cursus finibus. Suspendisse cursus\n        vestibulum lacus vel porta. Nam eget nibh eu ante ultrices aliquet.\n        Nullam quis ligula faucibus, aliquam tellus quis, accumsan tortor.\n        Integer at leo dictum, luctus dui ac, suscipit turpis. Sed pharetra\n        finibus sapien sed fermentum. In viverra est sagittis sagittis maximus.\n      </p>\n      <p>\n        Maecenas quis lorem rutrum, convallis purus ac, hendrerit dui. Etiam\n        consectetur molestie eros sed lacinia. Maecenas ipsum est, consectetur\n        et rutrum et, convallis quis metus. Praesent est eros, semper sed velit\n        sit amet, gravida vestibulum justo. Class aptent taciti sociosqu ad\n        litora torquent per conubia nostra, per inceptos himenaeos. Aenean\n        varius, erat vel ullamcorper consequat, tellus massa gravida arcu, et\n        blandit nisl justo vitae tellus. Suspendisse id metus aliquam, dignissim\n        massa et, facilisis ex. Sed suscipit nunc elit, id dictum velit ultrices\n        hendrerit. Nunc sit amet dui ultrices, sollicitudin justo quis, lacinia\n        tortor. Sed viverra libero facilisis lectus pharetra, vel porttitor sem\n        bibendum. Praesent non nibh quis ante viverra aliquet eu nec nisl.\n        Mauris ante mauris, molestie eget feugiat in, semper quis massa.\n      </p>\n      <p>\n        Maecenas vulputate finibus odio, vitae dignissim nibh ultricies rhoncus.\n        Aenean in dictum justo. Vestibulum pellentesque lorem aliquam lectus\n        finibus, id sagittis ex molestie. Duis rhoncus risus molestie ligula\n        consequat efficitur. Aenean vel nisl vel sem pretium ultrices nec quis\n        mi. Donec enim elit, tristique non sodales quis, iaculis ut justo. In\n        laoreet sodales leo, vel maximus purus volutpat quis. Maecenas ac\n        tincidunt nisl, vitae sodales nibh. Morbi tellus libero, feugiat vitae\n        convallis pretium, fermentum in mi. Etiam dignissim vitae massa nec\n        semper.\n      </p>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -3196,7 +3196,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n\nconst hide = () => {\r\n  element4.open = false;\r\n};\r\nconst show = (size) => {\r\n  element4.size = size;\r\n  element4.open = true;\r\n};\r\nelement1.addEventListener('click', (event) => show('sm'));\r\nelement2.addEventListener('click', (event) => show('md'));\r\nelement3.addEventListener('click', (event) => show('lg'));\r\nelement4.addEventListener('click', () => hide());\r\nelement5.addEventListener('click', () => hide());",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n\nconst hide = () => {\r\n  element4.open = false;\r\n};\r\nconst show = (size) => {\r\n  element4.size = size;\r\n  element4.open = true;\r\n};\r\nelement1.addEventListener('click', (event) => show('sm'));\r\nelement2.addEventListener('click', (event) => show('md'));\r\nelement3.addEventListener('click', (event) => show('lg'));\r\nelement4.addEventListener('click', () => hide());\r\nelement5.addEventListener('click', () => hide());",
       "style": "plus-grid-item {\n  text-align: center;\n}\n",
       "template": "<plus-grid justify-content=\"center\" gutter=\"md\">\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element1\">Small dialog</button>\r\n  </plus-grid-item>\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element2\">Large dialog</button>\r\n  </plus-grid-item>\r\n  <plus-grid-item xs=\"12\" sm=\"auto\">\r\n    <button id=\"element3\">Extra large dialog</button>\r\n  </plus-grid-item>\r\n</plus-grid>\r\n<plus-dialog id=\"element4\" animation=\"fade\">\r\n  <plus-dialog-content>\r\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\r\n    <plus-dialog-body>\r\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\r\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\r\n      commodo consequat.\r\n    </plus-dialog-body>\r\n    <plus-dialog-footer>\r\n      <button id=\"element5\">Close</button>\r\n    </plus-dialog-footer>\r\n  </plus-dialog-content>\r\n</plus-dialog>"
     }
@@ -3253,7 +3253,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-footer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-header.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-specific-scrollable\">\n    Open\n  </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-specific-scrollable\" scrollable>\n  <plus-dialog-content>\n    <plus-dialog-header> Dialog Title </plus-dialog-header>\n    <plus-dialog-body scrollable>\n      <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n        eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam\n        et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere\n        lacus, gravida semper libero. Praesent sed nisi sed lorem posuere\n        consequat. Nunc vehicula fermentum hendrerit. Mauris aliquam ornare\n        laoreet. Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,\n        pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et\n        gravida. Suspendisse aliquam leo ac leo fermentum, ac accumsan purus\n        vestibulum. Integer facilisis tincidunt urna vel accumsan. Orci varius\n        natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n        mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n      </p>\n      <p>\n        Nam a gravida lorem. Curabitur sagittis vitae quam vitae dignissim.\n        Curabitur eget sollicitudin urna, vitae venenatis massa. Aliquam nulla\n        dolor, lobortis at mauris non, gravida dignissim nulla. Integer ac\n        ultricies nisl. Duis aliquam sem eu dui porttitor lobortis. Ut luctus\n        rhoncus tincidunt. Vestibulum consequat risus non diam consectetur,\n        bibendum molestie enim placerat. Morbi pretium sem sit amet dictum\n        feugiat. Fusce gravida, eros ac bibendum ullamcorper, sapien nunc\n        vulputate elit, quis iaculis sapien ligula eget nisi. Duis erat urna,\n        porttitor non massa at, porttitor varius mauris. In lobortis massa dui,\n        et consectetur mauris iaculis vitae. Vivamus suscipit, risus vitae\n        viverra auctor, enim sem lacinia nisl, vel dictum risus dolor at felis.\n        In hac habitasse platea dictumst. Donec ac urna ac sapien euismod\n        vulputate.\n      </p>\n      <p>\n        Proin sapien enim, pellentesque eget urna ut, mollis tincidunt quam.\n        Pellentesque eu orci et leo dapibus sagittis in nec tellus. Vivamus\n        porta felis turpis, ac vehicula felis tristique at. Integer at lacus\n        odio. Donec ornare turpis eu cursus finibus. Suspendisse cursus\n        vestibulum lacus vel porta. Nam eget nibh eu ante ultrices aliquet.\n        Nullam quis ligula faucibus, aliquam tellus quis, accumsan tortor.\n        Integer at leo dictum, luctus dui ac, suscipit turpis. Sed pharetra\n        finibus sapien sed fermentum. In viverra est sagittis sagittis maximus.\n      </p>\n      <p>\n        Maecenas quis lorem rutrum, convallis purus ac, hendrerit dui. Etiam\n        consectetur molestie eros sed lacinia. Maecenas ipsum est, consectetur\n        et rutrum et, convallis quis metus. Praesent est eros, semper sed velit\n        sit amet, gravida vestibulum justo. Class aptent taciti sociosqu ad\n        litora torquent per conubia nostra, per inceptos himenaeos. Aenean\n        varius, erat vel ullamcorper consequat, tellus massa gravida arcu, et\n        blandit nisl justo vitae tellus. Suspendisse id metus aliquam, dignissim\n        massa et, facilisis ex. Sed suscipit nunc elit, id dictum velit ultrices\n        hendrerit. Nunc sit amet dui ultrices, sollicitudin justo quis, lacinia\n        tortor. Sed viverra libero facilisis lectus pharetra, vel porttitor sem\n        bibendum. Praesent non nibh quis ante viverra aliquet eu nec nisl.\n        Mauris ante mauris, molestie eget feugiat in, semper quis massa.\n      </p>\n      <p>\n        Maecenas vulputate finibus odio, vitae dignissim nibh ultricies rhoncus.\n        Aenean in dictum justo. Vestibulum pellentesque lorem aliquam lectus\n        finibus, id sagittis ex molestie. Duis rhoncus risus molestie ligula\n        consequat efficitur. Aenean vel nisl vel sem pretium ultrices nec quis\n        mi. Donec enim elit, tristique non sodales quis, iaculis ut justo. In\n        laoreet sodales leo, vel maximus purus volutpat quis. Maecenas ac\n        tincidunt nisl, vitae sodales nibh. Morbi tellus libero, feugiat vitae\n        convallis pretium, fermentum in mi. Etiam dignissim vitae massa nec\n        semper.\n      </p>\n      <p>\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n        eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam\n        et erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere\n        lacus, gravida semper libero. Praesent sed nisi sed lorem posuere\n        consequat. Nunc vehicula fermentum hendrerit. Mauris aliquam ornare\n        laoreet. Maecenas cursus nec ipsum et tempus. Sed pretium odio bibendum,\n        pharetra nisl sed, scelerisque ipsum. Nam egestas interdum risus et\n        gravida. Suspendisse aliquam leo ac leo fermentum, ac accumsan purus\n        vestibulum. Integer facilisis tincidunt urna vel accumsan. Orci varius\n        natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n        mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n      </p>\n      <p>\n        Nam a gravida lorem. Curabitur sagittis vitae quam vitae dignissim.\n        Curabitur eget sollicitudin urna, vitae venenatis massa. Aliquam nulla\n        dolor, lobortis at mauris non, gravida dignissim nulla. Integer ac\n        ultricies nisl. Duis aliquam sem eu dui porttitor lobortis. Ut luctus\n        rhoncus tincidunt. Vestibulum consequat risus non diam consectetur,\n        bibendum molestie enim placerat. Morbi pretium sem sit amet dictum\n        feugiat. Fusce gravida, eros ac bibendum ullamcorper, sapien nunc\n        vulputate elit, quis iaculis sapien ligula eget nisi. Duis erat urna,\n        porttitor non massa at, porttitor varius mauris. In lobortis massa dui,\n        et consectetur mauris iaculis vitae. Vivamus suscipit, risus vitae\n        viverra auctor, enim sem lacinia nisl, vel dictum risus dolor at felis.\n        In hac habitasse platea dictumst. Donec ac urna ac sapien euismod\n        vulputate.\n      </p>\n      <p>\n        Proin sapien enim, pellentesque eget urna ut, mollis tincidunt quam.\n        Pellentesque eu orci et leo dapibus sagittis in nec tellus. Vivamus\n        porta felis turpis, ac vehicula felis tristique at. Integer at lacus\n        odio. Donec ornare turpis eu cursus finibus. Suspendisse cursus\n        vestibulum lacus vel porta. Nam eget nibh eu ante ultrices aliquet.\n        Nullam quis ligula faucibus, aliquam tellus quis, accumsan tortor.\n        Integer at leo dictum, luctus dui ac, suscipit turpis. Sed pharetra\n        finibus sapien sed fermentum. In viverra est sagittis sagittis maximus.\n      </p>\n      <p>\n        Maecenas quis lorem rutrum, convallis purus ac, hendrerit dui. Etiam\n        consectetur molestie eros sed lacinia. Maecenas ipsum est, consectetur\n        et rutrum et, convallis quis metus. Praesent est eros, semper sed velit\n        sit amet, gravida vestibulum justo. Class aptent taciti sociosqu ad\n        litora torquent per conubia nostra, per inceptos himenaeos. Aenean\n        varius, erat vel ullamcorper consequat, tellus massa gravida arcu, et\n        blandit nisl justo vitae tellus. Suspendisse id metus aliquam, dignissim\n        massa et, facilisis ex. Sed suscipit nunc elit, id dictum velit ultrices\n        hendrerit. Nunc sit amet dui ultrices, sollicitudin justo quis, lacinia\n        tortor. Sed viverra libero facilisis lectus pharetra, vel porttitor sem\n        bibendum. Praesent non nibh quis ante viverra aliquet eu nec nisl.\n        Mauris ante mauris, molestie eget feugiat in, semper quis massa.\n      </p>\n      <p>\n        Maecenas vulputate finibus odio, vitae dignissim nibh ultricies rhoncus.\n        Aenean in dictum justo. Vestibulum pellentesque lorem aliquam lectus\n        finibus, id sagittis ex molestie. Duis rhoncus risus molestie ligula\n        consequat efficitur. Aenean vel nisl vel sem pretium ultrices nec quis\n        mi. Donec enim elit, tristique non sodales quis, iaculis ut justo. In\n        laoreet sodales leo, vel maximus purus volutpat quis. Maecenas ac\n        tincidunt nisl, vitae sodales nibh. Morbi tellus libero, feugiat vitae\n        convallis pretium, fermentum in mi. Etiam dignissim vitae massa nec\n        semper.\n      </p>\n    </plus-dialog-body>\n    <plus-dialog-footer>\n      <plus-dialog-toggler> Close </plus-dialog-toggler>\n    </plus-dialog-footer>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -3310,7 +3310,7 @@
     "category": "javascript",
     "component": "dialog",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-content.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/dialog-toggler.js';\n",
       "style": ".center {\n  text-align: center;\n}\n",
       "template": "<div class=\"center\">\n  <plus-dialog-toggler connector=\"dialog-sticky\"> Open </plus-dialog-toggler>\n</div>\n<plus-dialog animation=\"fade\" connector=\"dialog-sticky\" full-width sticky>\n  <plus-dialog-content>\n    <plus-dialog-body>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n      commodo consequat.\n    </plus-dialog-body>\n  </plus-dialog-content>\n</plus-dialog>\n"
     }
@@ -3367,7 +3367,7 @@
     "category": "javascript",
     "component": "divider",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\n",
       "style": "plus-card {\n  padding: 0 1rem;\n  line-height: 3rem;\n}\n",
       "template": "<plus-card elevation=\"10\">\n  Item 1\n  <plus-divider></plus-divider>\n  Item 2\n  <plus-divider></plus-divider>\n  Item 3\n  <plus-divider></plus-divider>\n  Item 4\n  <plus-divider></plus-divider>\n  Item 5\n</plus-card>\n"
     }
@@ -3424,7 +3424,7 @@
     "category": "javascript",
     "component": "divider",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-divider {\n  --plus-divider-color: #5f9ee9;\n  --plus-divider-width: 3px;\n  margin: 2rem 0;\n}\n",
       "template": "<plus-grid align-items=\"center\" justify-content=\"evenly\">\n  <plus-grid-item xs=\"5\">\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n    eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n    erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n    gravida semper libero. Praesent sed nisi sed lorem posuere consequat. Nunc\n    vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas cursus\n    nec ipsum et tempus.\n  </plus-grid-item>\n  <plus-divider vertical></plus-divider>\n  <plus-grid-item xs=\"5\">\n    Sed pretium odio bibendum, pharetra nisl sed, scelerisque ipsum. Nam egestas\n    interdum risus et gravida. Suspendisse aliquam leo ac leo fermentum, ac\n    accumsan purus vestibulum. Integer facilisis tincidunt urna vel accumsan.\n    Orci varius natoque penatibus et magnis dis parturient montes, nascetur\n    ridiculus mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla\n    nisl.\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -3693,7 +3693,7 @@
     "category": "javascript",
     "component": "divider",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/divider.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "template": "<plus-grid align-items=\"center\" justify-content=\"evenly\">\n  <plus-grid-item xs=\"5\">\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n    eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n    erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n    gravida semper libero. Praesent sed nisi sed lorem posuere consequat. Nunc\n    vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas cursus\n    nec ipsum et tempus.\n  </plus-grid-item>\n  <plus-divider vertical></plus-divider>\n  <plus-grid-item xs=\"5\">\n    Sed pretium odio bibendum, pharetra nisl sed, scelerisque ipsum. Nam egestas\n    interdum risus et gravida. Suspendisse aliquam leo ac leo fermentum, ac\n    accumsan purus vestibulum. Integer facilisis tincidunt urna vel accumsan.\n    Orci varius natoque penatibus et magnis dis parturient montes, nascetur\n    ridiculus mus. Maecenas et elit imperdiet, gravida urna tempus, fringilla\n    nisl.\n  </plus-grid-item>\n</plus-grid>\n"
     }
   },
@@ -3798,7 +3798,7 @@
     "category": "javascript",
     "component": "drawer",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/drawer-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/drawer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/drawer.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/drawer-toggler.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-card {\n  --plus-card-background-color: #e0e0e0;\n  padding: 10rem 0;\n  text-align: center;\n}\nplus-drawer plus-card {\n  --plus-card-background-color: #aacaff;\n  margin-right: 0.5rem;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item xs=\"auto\">\n    <plus-drawer animation=\"fade\" size=\"200px\" connector=\"drawer-default\">\n      <plus-card> Drawer Content </plus-card>\n    </plus-drawer>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <plus-card>\n      <plus-drawer-toggler connector=\"drawer-default\">\n        Toggle\n      </plus-drawer-toggler>\n    </plus-card>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -3855,7 +3855,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid {\n  background-color: #eeeeee;\n  height: 8rem;\n}\nplus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid align-content=\"center\">\n  <plus-grid-item xs=\"6\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>Item</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -3912,7 +3912,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid {\n  background-color: #eeeeee;\n  height: 8rem;\n}\nplus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid align-items=\"center\">\n  <plus-grid-item xs=\"6\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>Item</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -3969,7 +3969,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid {\n  background-color: #eeeeee;\n  height: 8rem;\n}\nplus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid align-items=\"center\">\n  <plus-grid-item xs=\"grow\" align-self=\"start\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\" align-self=\"end\">\n    <div>Item</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4026,7 +4026,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item xs=\"grow\">\n    <div>xs=grow</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>xs=grow</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>xs=grow</div>\n  </plus-grid-item>\n</plus-grid>\n<plus-grid>\n  <plus-grid-item xs=\"12\" md=\"2\">\n    <div>xs=12, md=2</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>xs=grow</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" md=\"2\">\n    <div>xs=12, md=2</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4083,7 +4083,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item xs=\"12\" md=\"4\">\n    <div>xs=12, md=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" md=\"4\">\n    <div>xs=12, md=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" md=\"4\">\n    <div>xs=12, md=4</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4140,7 +4140,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid gutter=\"lg\">\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"5\">\n    <div>xs=12, sm=6, lg=5</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"4\">\n    <div>xs=12, sm=6, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"3\">\n    <div>xs=12, sm=7, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"3\">\n    <div>xs=12, sm=5, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"4\">\n    <div>xs=12, sm=5, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"5\">\n    <div>xs=12, sm=7, lg=5</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4197,7 +4197,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid gutter-x=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"5\">\n    <div>xs=12, sm=6, lg=5</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"4\">\n    <div>xs=12, sm=6, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"3\">\n    <div>xs=12, sm=7, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"3\">\n    <div>xs=12, sm=5, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"4\">\n    <div>xs=12, sm=5, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"5\">\n    <div>xs=12, sm=7, lg=5</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4254,7 +4254,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid gutter-y=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"5\">\n    <div>xs=12, sm=6, lg=5</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"6\" lg=\"4\">\n    <div>xs=12, sm=6, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"3\">\n    <div>xs=12, sm=7, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"3\">\n    <div>xs=12, sm=5, lg=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"5\" lg=\"4\">\n    <div>xs=12, sm=5, lg=4</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"7\" lg=\"5\">\n    <div>xs=12, sm=7, lg=5</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4311,7 +4311,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item hide-sm xs=\"3\">\n    <div>xs=3, hide-sm</div>\n  </plus-grid-item>\n  <plus-grid-item hide-md xs=\"4\">\n    <div>xs=4, hide-md</div>\n  </plus-grid-item>\n  <plus-grid-item hide-lg xs=\"5\">\n    <div>xs=5, hide-lg</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4368,7 +4368,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid justify-content=\"center\">\n  <plus-grid-item xs=\"2\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>Item</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4425,7 +4425,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item xs=\"3\">\n    <div>xs=3</div>\n  </plus-grid-item>\n  <plus-grid-item offset-xs=\"3\" xs=\"3\">\n    <div>offset-xs=\"3\", xs=3</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>xs=3</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4482,7 +4482,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid>\n  <plus-grid-item order-xs=\"3\" xs=\"grow\">\n    <div>order=3</div>\n  </plus-grid-item>\n  <plus-grid-item order-xs=\"2\" xs=\"grow\">\n    <div>order=2</div>\n  </plus-grid-item>\n  <plus-grid-item order-xs=\"1\" xs=\"grow\">\n    <div>order=1</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4539,7 +4539,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid reverse>\n  <plus-grid-item xs=\"2\">\n    <div>Item 1</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>Item 2</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>Item 3</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4596,7 +4596,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid {\n  height: 12rem;\n}\nplus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  height: 100%;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid align-items=\"center\" vertical>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"grow\">\n    <div>Item</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"3\">\n    <div>Item</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -4653,7 +4653,7 @@
     "category": "javascript",
     "component": "grid",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\n",
       "style": "plus-grid div {\n  color: #00bcd4;\n  border: 1px solid #ffffff;\n  background-color: #e0f7fa;\n  padding: 0.5em;\n  text-align: center;\n}\n",
       "template": "<plus-grid wrap=\"off\">\n  <plus-grid-item xs=\"6\">\n    <div>xs=6</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>xs=2</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"6\">\n    <div>xs=6</div>\n  </plus-grid-item>\n  <plus-grid-item xs=\"2\">\n    <div>xs=2</div>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -5058,7 +5058,7 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n\nelement2.addEventListener('plus-change', (event) => {\r\n  element1.innerHTML = event.detail.isIntersecting\r\n    ? 'In Viewport'\r\n    : 'Out of Viewport';\r\n});",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card-body.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js';\n\nelement2.addEventListener('plus-change', (event) => {\r\n  element1.innerHTML = event.detail.isIntersecting\r\n    ? 'In Viewport'\r\n    : 'Out of Viewport';\r\n});",
       "style": ".container {\n  position: relative;\n  background-color: #eeeeee;\n}\n\n.status {\n  color: #fafafa;\n  background-color: #212121;\n  position: absolute;\n  top: 1rem;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 0.5rem 1rem;\n  border-radius: 2rem;\n  z-index: 1;\n}\n\n.content {\n  height: 20rem;\n  overflow: auto;\n}\n\n.spacer {\n  padding: 500px 0;\n}\n\nplus-card {\n  width: 15rem;\n  margin: auto;\n}\n",
       "template": "<div class=\"container\">\r\n  <div id=\"element1\" class=\"status\"></div>\r\n  <div class=\"content\">\r\n    <div class=\"spacer\"></div>\r\n    <plus-intersection id=\"element2\">\r\n      <plus-card elevation=\"10\">\r\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.\r\n      </plus-card>\r\n    </plus-intersection>\r\n    <div class=\"spacer\"></div>\r\n  </div>\r\n</div>"
     }
@@ -5121,7 +5121,7 @@
     "category": "javascript",
     "component": "intersection",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n\nelement1.addEventListener('plus-change', (event) => {\r\n  if (!event.detail.isIntersecting) return;\r\n\r\n  setTimeout(() => {\r\n    const image = event.target.querySelector('img');\r\n\r\n    const spinner = event.target.querySelector('plus-spinner');\r\n\r\n    const src = image.getAttribute('data-src');\r\n\r\n    image.setAttribute('src', src);\r\n\r\n    image.removeAttribute('data-hidden');\r\n\r\n    spinner.setAttribute('data-hidden', 'true');\r\n  }, 1000);\r\n});",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/intersection.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\n\nelement1.addEventListener('plus-change', (event) => {\r\n  if (!event.detail.isIntersecting) return;\r\n\r\n  setTimeout(() => {\r\n    const image = event.target.querySelector('img');\r\n\r\n    const spinner = event.target.querySelector('plus-spinner');\r\n\r\n    const src = image.getAttribute('data-src');\r\n\r\n    image.setAttribute('src', src);\r\n\r\n    image.removeAttribute('data-hidden');\r\n\r\n    spinner.setAttribute('data-hidden', 'true');\r\n  }, 1000);\r\n});",
       "style": ".container {\n  position: relative;\n  height: 20rem;\n  overflow: auto;\n  background-color: #eeeeee;\n}\n\nplus-intersection {\n  text-align: center;\n  margin: 1000px auto;\n}\n\n[data-hidden] {\n  display: none;\n}\n\nimg {\n  display: block;\n  width: 12rem;\n  height: 12rem;\n  object-fit: cover;\n}\n\nplus-card {\n  display: inline-block;\n}\n\nplus-spinner {\n  margin: 1rem;\n}\n",
       "template": "<div class=\"container\">\r\n  <plus-intersection id=\"element1\" once>\r\n    <plus-card elevation=\"10\">\r\n      <plus-spinner></plus-spinner>\r\n      <img\r\n        data-hidden=\"true\"\r\n        data-src=\"https://placekitten.com/200/200\"\r\n        alt=\"Lazy Image\"\r\n      />\r\n    </plus-card>\r\n  </plus-intersection>\r\n</div>"
     }
@@ -5235,7 +5235,7 @@
     "category": "javascript",
     "component": "portal",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/portal.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/card.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/portal.js';\n",
       "style": ".title {\n  color: deeppink;\n  margin: 0;\n  font-weight: normal;\n  font-size: 1em;\n  margin: 1em 0;\n}\nplus-card {\n  padding: 1em;\n}\nplus-card p {\n  margin: 0;\n}\n",
       "template": "<plus-portal target=\"#before\" strategy=\"before\">\n  <h1 class=\"title\">Before the card</h1>\n</plus-portal>\n<plus-card outlined id=\"before\">\n  <p>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n    tempor incididunt ut labore et dolore magna aliqua.\n  </p>\n</plus-card>\n<br />\n<plus-portal target=\"#prepend\" strategy=\"prepend\">\n  <h1 class=\"title\">Prepend the card</h1>\n</plus-portal>\n<plus-card outlined id=\"prepend\">\n  <p>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n    tempor incididunt ut labore et dolore magna aliqua.\n  </p>\n</plus-card>\n<br />\n<plus-portal target=\"#append\" strategy=\"append\">\n  <h1 class=\"title\">Append the card</h1>\n</plus-portal>\n<plus-card outlined id=\"append\">\n  <p>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n    tempor incididunt ut labore et dolore magna aliqua.\n  </p>\n</plus-card>\n<br />\n<plus-portal target=\"#after\" strategy=\"after\">\n  <h1 class=\"title\">After the card</h1>\n</plus-portal>\n<plus-card outlined id=\"after\">\n  <p>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n    tempor incididunt ut labore et dolore magna aliqua.\n  </p>\n</plus-card>\n"
     }
@@ -5355,7 +5355,7 @@
     "category": "javascript",
     "component": "spinner",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\n",
       "style": ".spinner-1 {\n  --plus-spinner-color: #08dfc8;\n}\n.spinner-2 {\n  --plus-spinner-color: #ff5449;\n}\n.spinner-3 {\n  --plus-spinner-color: #5f9ee9;\n}\n.spinner-4 {\n  --plus-spinner-color: #ffc903;\n}\n.spinner-5 {\n  --plus-spinner-color: #9073c1;\n}\n",
       "template": "<plus-grid justify-content=\"evenly\">\n  <plus-grid-item>\n    <plus-spinner class=\"spinner-1\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner class=\"spinner-2\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner class=\"spinner-3\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner class=\"spinner-4\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner class=\"spinner-5\"></plus-spinner>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -5412,7 +5412,7 @@
     "category": "javascript",
     "component": "spinner",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\n",
       "style": "plus-spinner[size='sm'] {\n  --plus-spinner-size: 24px;\n}\nplus-spinner[size='md'] {\n  --plus-spinner-size: 48px;\n}\nplus-spinner[size='lg'] {\n  --plus-spinner-size: 72px;\n}\n",
       "template": "<plus-grid align-items=\"center\" justify-content=\"evenly\">\n  <plus-grid-item>\n    <plus-spinner size=\"sm\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner size=\"md\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner size=\"lg\"></plus-spinner>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -5588,7 +5588,7 @@
     "category": "javascript",
     "component": "spinner",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\n",
       "template": "<plus-grid align-items=\"center\" justify-content=\"evenly\">\n  <plus-grid-item>\n    <plus-spinner size=\"sm\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner size=\"md\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner size=\"lg\"></plus-spinner>\n  </plus-grid-item>\n</plus-grid>\n"
     }
   },
@@ -5646,7 +5646,7 @@
     "category": "javascript",
     "component": "spinner",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/spinner.js';\n",
       "template": "<plus-grid justify-content=\"evenly\">\n  <plus-grid-item>\n    <plus-spinner type=\"default\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner type=\"double-bounce\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner type=\"ring\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner type=\"ripple\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner type=\"dual-ring\"></plus-spinner>\n  </plus-grid-item>\n  <plus-grid-item>\n    <plus-spinner type=\"square\"></plus-spinner>\n  </plus-grid-item>\n</plus-grid>\n"
     }
   },
@@ -6268,7 +6268,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs value=\"1\">\n  <plus-tabs-panels>\n    <plus-tabs-panel value=\"1\">\n      <b>Tab One</b>\n      <br />\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n      eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n      erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n      gravida semper libero. Praesent sed nisi sed lorem posuere consequat.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"2\">\n      <b>Tab Two</b>\n      <br />\n      Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas\n      cursus nec ipsum et tempus. Sed pretium odio bibendum, pharetra nisl sed,\n      scelerisque ipsum. Nam egestas interdum risus et gravida. Suspendisse\n      aliquam leo ac leo fermentum, ac accumsan purus vestibulum.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"3\">\n      <b>Tab Three</b>\n      <br />\n      Integer facilisis tincidunt urna vel accumsan. Orci varius natoque\n      penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n      Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n    </plus-tabs-panel>\n  </plus-tabs-panels>\n  <plus-tabs-bar>\n    <plus-tabs-tab value=\"1\"> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab value=\"2\"> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab value=\"3\"> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n"
     }
   },
@@ -6320,7 +6320,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs value=\"1\">\n  <plus-tabs-bar>\n    <plus-tabs-tab value=\"1\"> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab value=\"2\"> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab value=\"3\"> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n  <plus-tabs-panels>\n    <plus-tabs-panel value=\"1\">\n      <b>Tab One</b>\n      <br />\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n      eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n      erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n      gravida semper libero. Praesent sed nisi sed lorem posuere consequat.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"2\">\n      <b>Tab Two</b>\n      <br />\n      Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas\n      cursus nec ipsum et tempus. Sed pretium odio bibendum, pharetra nisl sed,\n      scelerisque ipsum. Nam egestas interdum risus et gravida. Suspendisse\n      aliquam leo ac leo fermentum, ac accumsan purus vestibulum.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"3\">\n      <b>Tab Three</b>\n      <br />\n      Integer facilisis tincidunt urna vel accumsan. Orci varius natoque\n      penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n      Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n    </plus-tabs-panel>\n  </plus-tabs-panels>\n</plus-tabs>\n"
     }
   },
@@ -6372,7 +6372,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs>\n  <plus-tabs-bar grow>\n    <plus-tabs-tab> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n"
     }
   },
@@ -6424,7 +6424,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs>\n  <plus-tabs-bar justify=\"start\">\n    <plus-tabs-tab> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n<br />\n<plus-tabs>\n  <plus-tabs-bar justify=\"center\">\n    <plus-tabs-tab> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n<br />\n<plus-tabs>\n  <plus-tabs-bar justify=\"end\">\n    <plus-tabs-tab> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n"
     }
   },
@@ -6476,7 +6476,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs>\n  <plus-tabs-bar reverse>\n    <plus-tabs-tab> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n</plus-tabs>\n"
     }
   },
@@ -6528,7 +6528,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<header>\n  <plus-tabs value=\"1\" connector=\"tabs-separate\">\n    <plus-tabs-bar>\n      <plus-tabs-tab value=\"1\"> Tab 1 </plus-tabs-tab>\n      <plus-tabs-tab value=\"2\"> Tab 2 </plus-tabs-tab>\n      <plus-tabs-tab value=\"3\"> Tab 3 </plus-tabs-tab>\n    </plus-tabs-bar>\n  </plus-tabs>\n</header>\n<section>\n  <plus-tabs-panels connector=\"tabs-separate\">\n    <plus-tabs-panel value=\"1\">\n      <b>Tab One</b>\n      <br />\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n      eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n      erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n      gravida semper libero. Praesent sed nisi sed lorem posuere consequat.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"2\">\n      <b>Tab Two</b>\n      <br />\n      Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas\n      cursus nec ipsum et tempus. Sed pretium odio bibendum, pharetra nisl sed,\n      scelerisque ipsum. Nam egestas interdum risus et gravida. Suspendisse\n      aliquam leo ac leo fermentum, ac accumsan purus vestibulum.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"3\">\n      <b>Tab Three</b>\n      <br />\n      Integer facilisis tincidunt urna vel accumsan. Orci varius natoque\n      penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n      Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n    </plus-tabs-panel>\n  </plus-tabs-panels>\n</section>\n"
     }
   },
@@ -6580,7 +6580,7 @@
     "category": "javascript",
     "component": "tabs",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-bar.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panel.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-panels.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tabs-tab.js';\n",
       "template": "<plus-tabs value=\"1\" vertical>\n  <plus-tabs-bar>\n    <plus-tabs-tab value=\"1\"> Tab 1 </plus-tabs-tab>\n    <plus-tabs-tab value=\"2\"> Tab 2 </plus-tabs-tab>\n    <plus-tabs-tab value=\"3\"> Tab 3 </plus-tabs-tab>\n  </plus-tabs-bar>\n  <plus-tabs-panels>\n    <plus-tabs-panel value=\"1\">\n      <b>Tab One</b>\n      <br />\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh\n      eros, luctus in lacus eu, eleifend ultricies ipsum. Morbi sit amet diam et\n      erat pulvinar ultricies in vel erat. Vestibulum sit amet posuere lacus,\n      gravida semper libero. Praesent sed nisi sed lorem posuere consequat.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"2\">\n      <b>Tab Two</b>\n      <br />\n      Nunc vehicula fermentum hendrerit. Mauris aliquam ornare laoreet. Maecenas\n      cursus nec ipsum et tempus. Sed pretium odio bibendum, pharetra nisl sed,\n      scelerisque ipsum. Nam egestas interdum risus et gravida. Suspendisse\n      aliquam leo ac leo fermentum, ac accumsan purus vestibulum.\n    </plus-tabs-panel>\n    <plus-tabs-panel value=\"3\">\n      <b>Tab Three</b>\n      <br />\n      Integer facilisis tincidunt urna vel accumsan. Orci varius natoque\n      penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n      Maecenas et elit imperdiet, gravida urna tempus, fringilla nisl.\n    </plus-tabs-panel>\n  </plus-tabs-panels>\n</plus-tabs>\n"
     }
   },
@@ -6742,7 +6742,7 @@
     "category": "javascript",
     "component": "tooltip",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tooltip.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tooltip.js';\n",
       "style": "button {\n  display: block;\n  width: 100%;\n  padding: 0.5rem;\n}\n",
       "template": "<plus-grid gutter=\"md\">\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Top\n      <plus-tooltip placement=\"top\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Top Start\n      <plus-tooltip placement=\"top-start\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Top End\n      <plus-tooltip placement=\"top-end\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Right\n      <plus-tooltip placement=\"right\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Right Start\n      <plus-tooltip placement=\"right-start\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Right End\n      <plus-tooltip placement=\"right-end\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Bottom\n      <plus-tooltip placement=\"bottom\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Bottom Start\n      <plus-tooltip placement=\"bottom-start\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Bottom End\n      <plus-tooltip placement=\"bottom-end\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Left\n      <plus-tooltip placement=\"left\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Left Start\n      <plus-tooltip placement=\"left-start\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item xs=\"12\" sm=\"4\">\n    <button>\n      Left End\n      <plus-tooltip placement=\"left-end\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n</plus-grid>\n"
     }
@@ -6798,7 +6798,7 @@
     "category": "javascript",
     "component": "tooltip",
     "detail": {
-      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tooltip.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\n",
+      "script": "import 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/grid-item.js';\nimport 'https://cdn.jsdelivr.net/npm/@htmlplus/core/tooltip.js';\n",
       "template": "<plus-grid justify-content=\"evenly\">\n  <plus-grid-item>\n    <button>\n      Hover\n      <plus-tooltip trigger=\"hover\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item>\n    <button>\n      Focus\n      <plus-tooltip trigger=\"focus\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n  <plus-grid-item>\n    <button>\n      Click\n      <plus-tooltip trigger=\"click\"> Tooltip </plus-tooltip>\n    </button>\n  </plus-grid-item>\n</plus-grid>\n"
     }
   },

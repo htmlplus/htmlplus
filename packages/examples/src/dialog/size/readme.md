@@ -102,6 +102,6 @@ const show = (size) => {
 element1.addEventListener('click', (event) => show('sm'));
 element2.addEventListener('click', (event) => show('md'));
 element3.addEventListener('click', (event) => show('lg'));
-element4.addEventListener('click', () => hide());
+element4.addEventListener('plus-close', () => hide());
 element5.addEventListener('click', () => hide());
 ```

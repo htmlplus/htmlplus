@@ -5,7 +5,6 @@
     "packages/distributions/react",
     "packages/document",
     "packages/element",
-    "packages/examples",
-    "packages/playground/react"
+    "packages/examples"
   ]
 }

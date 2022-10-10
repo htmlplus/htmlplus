@@ -15,6 +15,11 @@ export const frameworks = [
     title: 'React'
   },
   {
+    key: 'react@experimental',
+    logo: '/assets/logo/react.svg',
+    title: 'React (experimental)'
+  },
+  {
     key: 'vue',
     logo: '/assets/logo/vue.svg',
     title: 'Vue'

@@ -69,7 +69,7 @@ const { start, next, finish } = compiler(
       return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
     },
     destination(context) {
-      return path.join(context.directoryPath, 'reactExperimental');
+      return path.join(context.directoryPath, 'react@experimental');
     },
     eventNameConvertor(name) {
       if (name.indexOf('Plus') == -1) return name;

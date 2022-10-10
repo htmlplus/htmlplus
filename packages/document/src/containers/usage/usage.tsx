@@ -32,6 +32,8 @@ export const Usage = () => {
               return 'npm install @htmlplus/core';
             case 'react':
               return 'npm install @htmlplus/react';
+            case 'react@experimental':
+              return 'npm install @htmlplus/core';
             case 'svelte':
               return 'npm install @htmlplus/core';
             case 'vue':

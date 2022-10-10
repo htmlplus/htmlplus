@@ -1,6 +1,6 @@
 import { register } from '../register.js';
 
-register('rubber-rand', [
+register('rubber-band', [
   { offset: 0, transform: 'scale3d(1, 1, 1)' },
   { offset: 0.3, transform: 'scale3d(1.25, 0.75, 1)' },
   { offset: 0.4, transform: 'scale3d(0.75, 1.25, 1)' },

@@ -3,7 +3,17 @@ import { paramCase, pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
 
-import { angular, document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
+import {
+  angular,
+  document,
+  javascript,
+  prepare,
+  preview,
+  react,
+  reactExperimental,
+  svelte,
+  vue
+} from './plugins/index.js';
 
 const { start, next, finish } = compiler(
   read(),
@@ -52,6 +62,17 @@ const { start, next, finish } = compiler(
     },
     eventNameConvertor(name) {
       return name.replace('onPlus', 'on');
+    }
+  }),
+  reactExperimental({
+    componentRefrence(name) {
+      return `@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+    },
+    destination(context) {
+      return path.join(context.directoryPath, 'reactExperimental');
+    },
+    eventNameConvertor(name) {
+      return name;
     }
   }),
   svelte({

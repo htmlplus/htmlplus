@@ -23,7 +23,7 @@ const SingleValue = (props: any) => (
       src={props.data.logo}
       alt={`${props.data.label} logo`}
     />
-    &nbsp;
+    &nbsp;&nbsp;
     {props.data.label}
   </components.Placeholder>
 );

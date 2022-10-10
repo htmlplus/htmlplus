@@ -2,6 +2,7 @@ import compiler, { extract, parse, read } from '@htmlplus/element/compiler/index
 import { paramCase, pascalCase } from 'change-case';
 import glob from 'fast-glob';
 import path from 'path';
+
 import { angular, document, javascript, prepare, preview, react, svelte, vue } from './plugins/index.js';
 
 const { start, next, finish } = compiler(
@@ -27,7 +28,7 @@ const { start, next, finish } = compiler(
   }),
   javascript({
     componentRefrence(name) {
-      return `https://cdn.jsdelivr.net/npm/@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
+      return `https://unpkg.com/@htmlplus/core/${name.split('-').slice(1).join('-')}.js`;
     },
     componentNameConvertor(name) {
       return name;

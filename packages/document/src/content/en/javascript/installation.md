@@ -12,10 +12,12 @@ You can utilize `HTMLPLUS` simply by adding a simple scirpt in your main html li
   <head>
     <title>HTMLPLUS in JavaScript</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="https://unpkg.com/@htmlplus/core"></script>
   </head>
   <body>
     <plus-switch></plus-switch>
+    <script type="module">
+      import "https://unpkg.com/@htmlplus/core";
+    </script>
   </body>
 </html>
 ```

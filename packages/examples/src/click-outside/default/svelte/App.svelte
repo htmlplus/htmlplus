@@ -1,7 +1,7 @@
 <script>
-import '@htmlplus/core/click-outside.js';
-import '@htmlplus/core/card-body.js';
 import '@htmlplus/core/card.js';
+import '@htmlplus/core/card-body.js';
+import '@htmlplus/core/click-outside.js';
 let inside = 0;
 let outside = 0;
 

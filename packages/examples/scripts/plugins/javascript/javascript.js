@@ -126,7 +126,7 @@ export const javascript = (options) => {
 
       let dependencies = '';
 
-      context.customElementNames?.forEach((name) => {
+      context.customElementNames.forEach((name) => {
         dependencies += `import '${options?.componentRefrence(name)}';\n`;
       });
 

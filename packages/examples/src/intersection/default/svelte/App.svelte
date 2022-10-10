@@ -1,7 +1,7 @@
 <script>
-import '@htmlplus/core/intersection.js';
-import '@htmlplus/core/card-body.js';
 import '@htmlplus/core/card.js';
+import '@htmlplus/core/card-body.js';
+import '@htmlplus/core/intersection.js';
 let intersecting = false;
 
 function onChange(event) {

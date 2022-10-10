@@ -85,13 +85,11 @@ export const vue = (options) => {
           }
         },
         Program(path) {
-          context
-            .customElementNames
+          JSON.parse(JSON.stringify(context.customElementNames))
             .reverse()
             .forEach((name) => addDependency(path, options?.componentRefrence(name)));
 
-          if (context.classStates.length)
-            addDependency(path, 'path', 'ref', 'ref');
+          if (context.classStates.length) addDependency(path, 'path', 'ref', 'ref');
         }
       },
       template: {

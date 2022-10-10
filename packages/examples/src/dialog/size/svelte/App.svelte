@@ -1,11 +1,11 @@
 <script>
-import '@htmlplus/core/grid-item.js';
-import '@htmlplus/core/grid.js';
-import '@htmlplus/core/dialog-header.js';
-import '@htmlplus/core/dialog-footer.js';
-import '@htmlplus/core/dialog-content.js';
-import '@htmlplus/core/dialog-body.js';
 import '@htmlplus/core/dialog.js';
+import '@htmlplus/core/dialog-body.js';
+import '@htmlplus/core/dialog-content.js';
+import '@htmlplus/core/dialog-footer.js';
+import '@htmlplus/core/dialog-header.js';
+import '@htmlplus/core/grid.js';
+import '@htmlplus/core/grid-item.js';
 let open = false;
 let size = 'md';
 

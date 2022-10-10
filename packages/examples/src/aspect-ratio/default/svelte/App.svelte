@@ -1,6 +1,6 @@
 <script>
-import '@htmlplus/core/card.js';
 import '@htmlplus/core/aspect-ratio.js';
+import '@htmlplus/core/card.js';
 
 </script>
 

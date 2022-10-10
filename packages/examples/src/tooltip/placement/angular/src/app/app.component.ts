@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import '@htmlplus/core/tooltip.js';
-import '@htmlplus/core/grid-item.js';
 import '@htmlplus/core/grid.js';
+import '@htmlplus/core/grid-item.js';
+import '@htmlplus/core/tooltip.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

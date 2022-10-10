@@ -119,18 +119,15 @@ export const react = (options) => {
           path.replaceWith(property);
         },
         Program(path) {
-          context
-            .customElementNames
-            .forEach((name) => {
-              const newName = options?.componentNameConvertor?.(name) || name;
+          context.customElementNames.forEach((name) => {
+            const newName = options?.componentNameConvertor?.(name) || name;
 
-              const [root] = newName.split('.');
+            const [root] = newName.split('.');
 
-              addDependency(path, options?.componentRefrence?.(name), root, root);
-            });
+            addDependency(path, options?.componentRefrence?.(name), root, root);
+          });
 
-          if (context.classStates.length)
-            addDependency(path, 'react', 'useState', 'useState');
+          if (context.classStates.length) addDependency(path, 'react', 'useState', 'useState');
         }
       }
     };

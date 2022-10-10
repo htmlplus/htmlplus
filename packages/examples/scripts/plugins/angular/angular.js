@@ -69,7 +69,10 @@ export const angular = (options) => {
           path.remove();
         },
         Program(path) {
-          context.customElementNames.forEach((name) => addDependency(path, options?.componentRefrence(name)));
+          JSON.parse(JSON.stringify(context.customElementNames))
+            .reverse()
+            .forEach((name) => addDependency(path, options?.componentRefrence(name)));
+
           addDependency(path, '@angular/core', 'Component', 'Component');
         }
       },

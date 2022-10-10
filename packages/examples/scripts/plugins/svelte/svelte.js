@@ -63,7 +63,9 @@ export const svelte = (options) => {
           path.replaceWith(property);
         },
         Program(path) {
-          context.customElementNames.forEach((name) => addDependency(path, options?.componentRefrence(name)));
+          JSON.parse(JSON.stringify(context.customElementNames))
+            .reverse()
+            .forEach((name) => addDependency(path, options?.componentRefrence(name)));
         }
       },
       template: {

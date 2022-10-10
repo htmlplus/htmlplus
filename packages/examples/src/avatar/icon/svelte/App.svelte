@@ -1,6 +1,6 @@
 <script>
-import '@htmlplus/core/icon.js';
 import '@htmlplus/core/avatar.js';
+import '@htmlplus/core/icon.js';
 
 </script>
 

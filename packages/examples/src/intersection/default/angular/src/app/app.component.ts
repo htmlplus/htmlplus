@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import '@htmlplus/core/intersection.js';
-import '@htmlplus/core/card-body.js';
 import '@htmlplus/core/card.js';
+import '@htmlplus/core/card-body.js';
+import '@htmlplus/core/intersection.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

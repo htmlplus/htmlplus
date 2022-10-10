@@ -1,6 +1,6 @@
 <script>
-import '@htmlplus/core/divider.js';
 import '@htmlplus/core/card.js';
+import '@htmlplus/core/divider.js';
 
 </script>
 

@@ -10,7 +10,6 @@
   "devDependencies": {
     "@babel/types": "^7.18.9",
     "@htmlplus/element": "latest",
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "change-case": "^4.1.2",
     "fast-glob": "^3.2.11",
     "nodemon": "^2.0.19",

@@ -1,4 +1,4 @@
-import { Global } from '../../types/index.js';
+import { Global } from '../../types';
 
 const defaults: Partial<VisualStudioCodeOptions> = {};
 

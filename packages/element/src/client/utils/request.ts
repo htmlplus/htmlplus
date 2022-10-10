@@ -1,7 +1,8 @@
+import { PlusElement } from '../../types';
+
 import * as CONSTANTS from '../../constants/index.js';
-import { PlusElement } from '../../types/index.js';
-import { call } from '../utils/call';
-import { task } from '../utils/task';
+import { call } from '../utils/call.js';
+import { task } from '../utils/task.js';
 import { html, render } from '../vendor/uhtml.js';
 import { getStyles } from './getStyles.js';
 import { host } from './host.js';

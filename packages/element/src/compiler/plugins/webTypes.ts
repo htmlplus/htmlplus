@@ -2,7 +2,8 @@ import { camelCase, paramCase } from 'change-case';
 import fs from 'fs-extra';
 import path from 'path';
 
-import { Global } from '../../types/index.js';
+import { Global } from '../../types';
+
 import { getTags, print } from '../utils/index.js';
 
 const defaults: Partial<WebTypesOptions> = {};

@@ -1,5 +1,5 @@
-import * as CONSTANTS from '../../constants/index.js';
-import { PlusElement } from '../../types/index.js';
+import { PlusElement } from '../../types';
+
 import { defineProperty, request } from '../utils/index.js';
 
 export function State() {

@@ -1,6 +1,6 @@
 import ora from 'ora';
 
-import { Context, Global, Plugin } from '../types/index.js';
+import { Context, Global, Plugin } from '../types';
 
 const logger = ora({
   color: 'yellow'

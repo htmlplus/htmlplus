@@ -1,4 +1,4 @@
-import { Context } from './context.js';
+import { Context } from './context';
 import { Global } from './global';
 
 export type Return<T> = void | T | Promise<T>;

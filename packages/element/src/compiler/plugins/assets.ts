@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-import { Context } from '../../types/index.js';
+import { Context } from '../../types';
 
 const defaults: Partial<AssetsOptions> = {
   destination(context: Context) {

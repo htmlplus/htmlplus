@@ -1,5 +1,6 @@
+import { Context } from '../../types';
+
 import * as CONSTANTS from '../../constants/index.js';
-import { Context } from '../../types/index.js';
 import { hasDecorator, visitor } from '../utils/index.js';
 
 export const validate = () => {

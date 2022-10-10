@@ -1,8 +1,9 @@
 import t, { TSTypeAnnotation } from '@babel/types';
 import { pascalCase } from 'change-case';
 
+import { Context } from '../../types';
+
 import * as CONSTANTS from '../../constants/index.js';
-import { Context } from '../../types/index.js';
 import { addDependency, print, visitor } from '../utils/index.js';
 
 const defaults: Partial<CustomElementOptions> = {

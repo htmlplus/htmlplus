@@ -1,4 +1,5 @@
-import { PlusElement } from '../../types/index.js';
+import { PlusElement } from '../../types';
+
 import { defineProperty } from '../utils/index.js';
 import { queryAll } from './queryAll.js';
 

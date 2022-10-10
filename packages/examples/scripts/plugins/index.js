@@ -4,5 +4,6 @@ export * from './javascript/index.js';
 export * from './prepare/index.js';
 export * from './preview/index.js';
 export * from './react/index.js';
+export * from './reactExperimental/index.js';
 export * from './svelte/index.js';
 export * from './vue/index.js';

@@ -1,4 +1,4 @@
-import compiler from '@htmlplus/element/compiler/index.js';
+import { rollup as htmlplus } from '@htmlplus/element/bundler/index.js';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import path from 'path';
@@ -9,8 +9,6 @@ import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 
 import plugins from '../plus.config.js';
-
-const { start, next, finish } = compiler(...plugins);
 
 /**
  * @type {import('rollup').RollupOptions}
@@ -51,21 +49,7 @@ const options = {
       }
     }),
 
-    {
-      name: 'htmlplus',
-      async buildStart() {
-        await start();
-      },
-      async load(id) {
-        if (!id.endsWith('.tsx')) return;
-        const { isInvalid, script } = await next(id);
-        if (isInvalid) return;
-        return script;
-      },
-      async buildEnd() {
-        await finish();
-      }
-    },
+    htmlplus(...plugins),
 
     resolve({
       browser: true
@@ -73,7 +57,7 @@ const options = {
 
     commonjs(),
 
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({ useTsconfigDeclarationDir: true })
 
     // terser({
     //   format: {

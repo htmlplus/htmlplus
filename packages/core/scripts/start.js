@@ -1,10 +1,8 @@
-import compiler from '@htmlplus/element/compiler/index.js';
+import { vite as htmlplus } from '@htmlplus/element/bundler/index.js';
 import path from 'path';
 import { createServer } from 'vite';
 
 import plugins from '../plus.config.js';
-
-const { start, next, finish } = compiler(...plugins);
 
 createServer({
   root: 'src',
@@ -31,23 +29,7 @@ createServer({
       }
     }
   },
-  plugins: [
-    {
-      name: 'htmlplus',
-      async buildStart() {
-        await start();
-      },
-      async load(id) {
-        if (!id.endsWith('.tsx')) return;
-        const { isInvalid, script } = await next(id);
-        if (isInvalid) return;
-        return script.replace('.scss', '.scss?inline');
-      },
-      async buildEnd() {
-        await finish();
-      }
-    }
-  ]
+  plugins: [htmlplus(...plugins)]
 })
   .then((server) => server.listen())
   .catch((error) => console.log(error));

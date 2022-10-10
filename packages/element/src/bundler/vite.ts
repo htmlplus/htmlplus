@@ -1,8 +1,9 @@
+import path from 'path';
+
 import compiler from '../compiler/index.js';
+import { Plugin } from '../types';
 
-const plugins = [];
-
-export const vite = () => {
+export const vite = (...plugins: Array<Plugin>) => {
   const { start, next, finish } = compiler(...plugins);
   return {
     name: 'htmlplus',
@@ -11,12 +12,15 @@ export const vite = () => {
     },
     async load(id) {
       if (!id.endsWith('.tsx')) return;
-      const { isInvalid, script } = await next(id);
+      let { isInvalid, script, stylePath } = await next(id);
       if (isInvalid) return;
-      return script!.replace('.scss', '.scss?inline');
+      if (script && stylePath) {
+        script = script.replace(path.basename(stylePath), `${path.basename(stylePath)}?inline`);
+      }
+      return script;
     },
     async buildEnd() {
       await finish();
     }
-  }
-}
+  };
+};

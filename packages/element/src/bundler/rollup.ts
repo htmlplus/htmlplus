@@ -1,8 +1,7 @@
 import compiler from '../compiler/index.js';
+import { Plugin } from '../types';
 
-const plugins = [];
-
-export const rollup = () => {
+export const rollup = (...plugins: Array<Plugin>) => {
   const { start, next, finish } = compiler(...plugins);
   return {
     name: 'htmlplus',
@@ -18,5 +17,5 @@ export const rollup = () => {
     async buildEnd() {
       await finish();
     }
-  }
-}
+  };
+};

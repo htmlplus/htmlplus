@@ -19,7 +19,7 @@ const SingleValue = (props: any) => (
   <components.Placeholder {...props}>
     {/* TODO */}
     <img
-      style={{ width: '1.5rem', height: '1.5rem', objectFit: 'contain', verticalAlign: 'middle', margin: '0' }}
+      style={{ width: '1.25rem', height: '1.25rem', objectFit: 'contain', verticalAlign: 'middle', margin: '0' }}
       src={props.data.logo}
       alt={`${props.data.label} logo`}
     />

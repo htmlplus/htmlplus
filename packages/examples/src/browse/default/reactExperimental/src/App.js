@@ -9,7 +9,7 @@ const BrowseDefault = () => {
   return (
     <plus-browse
       droppable
-      onPlusChange={(event) => onChange(event)}
+      onplus-change={(event) => onChange(event)}
     ></plus-browse>
   );
 };

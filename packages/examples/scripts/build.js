@@ -72,7 +72,8 @@ const { start, next, finish } = compiler(
       return path.join(context.directoryPath, 'reactExperimental');
     },
     eventNameConvertor(name) {
-      return name;
+      if (name.indexOf('Plus') == -1) return name;
+      return paramCase(name).replace('on-', 'on');
     }
   }),
   svelte({

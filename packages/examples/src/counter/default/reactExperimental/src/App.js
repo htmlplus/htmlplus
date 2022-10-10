@@ -8,7 +8,7 @@ const CounterDefault = () => {
       <plus-counter
         to="1000"
         play={play}
-        onPlusComplete={() => setPlay(false)}
+        onplus-complete={() => setPlay(false)}
       ></plus-counter>
       <br />
       <button onClick={() => setPlay(true)}>Start</button>

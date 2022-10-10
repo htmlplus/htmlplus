@@ -18,7 +18,7 @@ const ClickOutsideDefault = () => {
   return (
     <plus-click-outside
       onClick={() => onClick()}
-      onPlusClickOutside={() => onClickOutside()}
+      onplus-click-outside={() => onClickOutside()}
     >
       <plus-card elevation="10">
         <plus-card-body>

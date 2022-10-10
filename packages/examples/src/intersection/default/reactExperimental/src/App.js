@@ -17,7 +17,7 @@ const IntersectionDefault = () => {
       </div>
       <div className="content">
         <div className="spacer"></div>
-        <plus-intersection onPlusChange={(event) => onChange(event)}>
+        <plus-intersection onplus-change={(event) => onChange(event)}>
           <plus-card elevation="10">
             <plus-card-body>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -8,7 +8,7 @@ const SwitchPrevent = () => {
 
   return (
     <div className="center">
-      <plus-switch onPlusChange={(event) => ensure(event)}></plus-switch>
+      <plus-switch onplus-change={(event) => ensure(event)}></plus-switch>
     </div>
   );
 };

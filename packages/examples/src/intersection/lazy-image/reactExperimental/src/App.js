@@ -17,7 +17,7 @@ const IntersectionLazyImage = () => {
 
   return (
     <div className="container">
-      <plus-intersection once onPlusChange={(event) => onChange(event)}>
+      <plus-intersection once onplus-change={(event) => onChange(event)}>
         <plus-card elevation="10">
           <plus-spinner></plus-spinner>
           <img

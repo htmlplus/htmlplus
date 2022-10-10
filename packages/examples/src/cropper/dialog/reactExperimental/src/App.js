@@ -24,8 +24,8 @@ const CropperDialog = () => {
       <plus-dialog
         animation="fade"
         connector="dialog-cropper"
-        onPlusOpened={() => change(false)}
-        onPlusClosed={() => change(true)}
+        onplus-opened={() => change(false)}
+        onplus-closed={() => change(true)}
       >
         <plus-dialog-content>
           <plus-dialog-header>Cropper</plus-dialog-header>

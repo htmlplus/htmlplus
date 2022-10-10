@@ -37,7 +37,7 @@ const DialogSize = () => {
         animation="fade"
         open={open}
         size={size}
-        onPlusClose={() => hide()}
+        onplus-close={() => hide()}
       >
         <plus-dialog-content>
           <plus-dialog-header>Dialog Title</plus-dialog-header>

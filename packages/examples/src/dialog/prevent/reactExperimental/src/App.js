@@ -21,8 +21,8 @@ const DialogPrevent = () => {
       <plus-dialog
         animation="fade"
         connector="dialog-prevent"
-        onPlusOpen={(event) => ensure('open', event)}
-        onPlusClose={(event) => ensure('close', event)}
+        onplus-open={(event) => ensure('open', event)}
+        onplus-close={(event) => ensure('close', event)}
       >
         <plus-dialog-content>
           <plus-dialog-header>Dialog Title</plus-dialog-header>

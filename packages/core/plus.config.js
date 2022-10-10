@@ -11,7 +11,6 @@ import {
   validate,
   webTypes
 } from '@htmlplus/element/compiler/index.js';
-
 import cpy from 'cpy';
 import fs from 'fs';
 
@@ -29,10 +28,10 @@ export default [
   }),
   style(),
   document({
-    destination: 'dist/document.json'
+    destination: 'dist/json/document.json'
   }),
   webTypes({
-    destination: 'dist/web-types.json',
+    destination: 'dist/json/web-types.json',
     packageName: '@htmlplus/core',
     packageVersion: '0.4.0',
     docUrl: () => ''

@@ -7,7 +7,7 @@
   "type": "module",
   "main": "index.js",
   "types": "types/components/index.d.ts",
-  "web-types": "dist/web-types.json",
+  "web-types": "json/web-types.json",
   "scripts": {
     "build": "npm run clean && node scripts/build.js",
     "clean": "rimraf .cache dist public/build",

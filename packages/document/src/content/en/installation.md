@@ -6,6 +6,7 @@
 - [Javascript](/javascript/installation)
 - [React Dedicated](/react-dedicated/installation)
 - [React (Not Recommended)](/react/installation)
+- [React (experimental)](/react@experimental/installation)
 - [Svelte](/svelte/installation)
 - [Vue](/vue/installation)
 

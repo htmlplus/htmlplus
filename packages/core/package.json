@@ -10,7 +10,6 @@
   "web-types": "dist/web-types.json",
   "scripts": {
     "build": "npm run clean && node scripts/build.js",
-    "postbuild": "node scripts/build.post.js",
     "clean": "rimraf .cache dist public/build",
     "format": "prettier --write .",
     "start": "node scripts/start.js",

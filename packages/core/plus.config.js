@@ -4,12 +4,16 @@ import {
   customElementReact,
   document,
   extract,
+  finish,
   parse,
   read,
   style,
   validate,
   webTypes
 } from '@htmlplus/element/compiler/index.js';
+
+import cpy from 'cpy';
+import fs from 'fs';
 
 export default [
   read(),
@@ -46,5 +50,18 @@ export default [
     importerComponentType(context) {
       return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
     }
+  }),
+  finish(() => {
+    cpy(['package-lock.json', 'README.md'], 'dist');
+
+    const raw = fs.readFileSync('package.json', 'utf8');
+
+    const parsed = JSON.parse(raw);
+
+    delete parsed.scripts;
+
+    const stringified = JSON.stringify(parsed, null, 2);
+
+    fs.writeFileSync('dist/package.json', stringified);
   })
 ];

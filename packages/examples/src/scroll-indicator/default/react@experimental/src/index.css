@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+}
+
+.scrollable {
+  height: 20em;
+  overflow-y: auto;
+}
+
+plus-scroll-indicator {
+  position: absolute;
+  top: 0;
+}

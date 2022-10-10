@@ -27,7 +27,7 @@ export const reactExperimental = (options) => {
     const title = getTitle(context);
 
     fs.rmSync(destination, { recursive: true, force: true });
-    return;
+
     const visitors = {
       script: {
         AssignmentExpression(path) {

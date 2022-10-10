@@ -1,0 +1,24 @@
+.box {
+  color: white;
+  padding: 0.75rem;
+  margin: 0.25rem;
+}
+.ratio-one {
+  width: 40.625%;
+  float: right;
+}
+.one {
+  background: #08dfc8;
+}
+.two {
+  background: #ff5449;
+}
+.three {
+  background: #5f9ee9;
+}
+.four {
+  background: #ffc903;
+}
+.five {
+  background: #9073c1;
+}

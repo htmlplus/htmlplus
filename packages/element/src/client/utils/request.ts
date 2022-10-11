@@ -1,6 +1,5 @@
-import { PlusElement } from '../../types';
-
 import * as CONSTANTS from '../../constants/index.js';
+import { PlusElement } from '../../types';
 import { call } from '../utils/call.js';
 import { task } from '../utils/task.js';
 import { html, render } from '../vendor/uhtml.js';

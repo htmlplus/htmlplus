@@ -3,7 +3,6 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import { Global } from '../../types';
-
 import { getTags, print } from '../utils/index.js';
 
 const defaults: Partial<WebTypesOptions> = {};

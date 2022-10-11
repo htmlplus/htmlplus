@@ -36,7 +36,7 @@ export default (...plugins: Array<Plugin>) => {
       filePath
     };
 
-    let timeout
+    let timeout;
 
     for (const plugin of plugins) {
       if (!plugin.next) continue;

@@ -3,9 +3,8 @@ import { ClassMethod, ClassProperty } from '@babel/types';
 import { pascalCase, paramCase } from 'change-case';
 import path from 'path';
 
-import { Context } from '../../types';
-
 import * as CONSTANTS from '../../constants/index.js';
+import { Context } from '../../types';
 import { hasDecorator, visitor } from '../utils/index.js';
 
 const defaults: Partial<ExtractOptions> = {};

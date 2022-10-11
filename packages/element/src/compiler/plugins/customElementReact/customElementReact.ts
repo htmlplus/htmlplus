@@ -1,7 +1,6 @@
 import { pascalCase } from 'change-case';
 
 import { Global } from '../../../types';
-
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
 const defaults: Partial<CustomElementReactOptions> = {

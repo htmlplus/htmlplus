@@ -3,7 +3,7 @@ export const finish = (callback: () => void) => {
 
   const finish = () => {
     callback();
-  }
+  };
 
   return { name, finish };
 };

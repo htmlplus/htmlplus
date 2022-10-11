@@ -4,7 +4,6 @@ import glob from 'glob';
 import path from 'path';
 
 import { Global } from '../../types';
-
 import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
 const defaults: Partial<DocumentOptions> = {};
@@ -38,7 +37,7 @@ export const document = (options: DocumentOptions) => {
                 }
               }
             }
-          } catch { }
+          } catch {}
           return false;
         })();
 
@@ -164,7 +163,7 @@ export const document = (options: DocumentOptions) => {
                 }
               }
             }
-          } catch { }
+          } catch {}
           return false;
         })();
 
@@ -207,7 +206,7 @@ export const document = (options: DocumentOptions) => {
         try {
           const source = path.join(context.directoryPath!, `${context.fileName}.md`);
           return fs.readFileSync(source, 'utf8');
-        } catch { }
+        } catch {}
       })();
 
       const readmeDescription = (() => {

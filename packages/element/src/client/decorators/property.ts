@@ -1,8 +1,7 @@
 import { paramCase } from 'change-case';
 
-import { PlusElement } from '../../types';
-
 import * as CONSTANTS from '../../constants/index.js';
+import { PlusElement } from '../../types';
 import {
   defineProperty,
   getMemberType,

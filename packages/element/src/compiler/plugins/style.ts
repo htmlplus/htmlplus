@@ -2,9 +2,8 @@ import t from '@babel/types';
 import fs from 'fs-extra';
 import path from 'path';
 
-import { Context } from '../../types';
-
 import * as CONSTANTS from '../../constants/index.js';
+import { Context } from '../../types';
 import { addDependency } from '../utils/index.js';
 
 const defaults: Partial<StyleOptions> = {

@@ -1,7 +1,6 @@
 import { camelCase, paramCase, pascalCase } from 'change-case';
 
 import { PlusElement } from '../../types';
-
 import { defineProperty, getFramework, host } from '../utils/index.js';
 
 export type EventEmitter<T = any> = (data?: T) => CustomEvent<T>;

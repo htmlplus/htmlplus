@@ -10,8 +10,5 @@
   "dependencies": {
     "lerna": "^3.20.2",
     "next": "^12.2.2"
-  },
-  "devDependencies": {
-    "remark-gfm": "^3.0.1"
   }
 }

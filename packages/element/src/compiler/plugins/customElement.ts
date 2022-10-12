@@ -1,4 +1,4 @@
-import t, { TSTypeAnnotation } from '@babel/types';
+import t, { ObjectProperty, TSTypeAnnotation } from '@babel/types';
 import { pascalCase } from 'change-case';
 
 import * as CONSTANTS from '../../constants/index.js';
@@ -132,36 +132,42 @@ export const customElement = (options?: CustomElementOptions) => {
             t.identifier(CONSTANTS.STATIC_MEMBERS),
             t.objectExpression([
               ...context.classProperties!.map((property) => {
-                const type = (property as any).typeAnnotation?.typeAnnotation?.type;
+                const properties: ObjectProperty[] = [];
 
-                const elements: Array<any> = [];
-
-                switch (type) {
-                  case 'TSBooleanKeyword':
-                    elements.push(t.stringLiteral(CONSTANTS.TYPE_BOOLEAN));
-                    break;
-
-                  case 'TSStringKeyword':
-                    elements.push(t.stringLiteral(CONSTANTS.TYPE_STRING));
-                    break;
-
-                  case 'TSNumberKeyword':
-                    elements.push(t.stringLiteral(CONSTANTS.TYPE_NUMBER));
-                    break;
-
-                  default:
-                    elements.push(t.nullLiteral());
-                    break;
+                if (property.value) {
+                  properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_INITIALIZER), property.value));
                 }
 
-                if (property.value) elements.push(property.value);
+                const type = (() => {
+                  switch ((property as any).typeAnnotation?.typeAnnotation?.type) {
+                    case 'TSBooleanKeyword':
+                      return t.stringLiteral(CONSTANTS.TYPE_BOOLEAN);
+                    case 'TSStringKeyword':
+                      return t.stringLiteral(CONSTANTS.TYPE_STRING);
+                    case 'TSNumberKeyword':
+                      return t.stringLiteral(CONSTANTS.TYPE_NUMBER);
+                    default:
+                      return t.nullLiteral();
+                  }
+                })();
 
-                return t.objectProperty(t.identifier(property.key['name']), t.arrayExpression(elements));
+                if (type) {
+                  properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE), type));
+                }
+
+                return t.objectProperty(t.identifier(property.key['name']), t.objectExpression(properties));
               }),
-              ...context.classMethods!.map((method) => {
-                const elements: Array<any> = [t.stringLiteral(CONSTANTS.TYPE_FUNCTION)];
-                return t.objectProperty(t.identifier(method.key['name']), t.arrayExpression(elements));
-              })
+              ...context.classMethods!.map((method) =>
+                t.objectProperty(
+                  t.identifier(method.key['name']),
+                  t.objectExpression([
+                    t.objectProperty(
+                      t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE),
+                      t.stringLiteral(CONSTANTS.TYPE_FUNCTION)
+                    )
+                  ])
+                )
+              )
             ]),
             undefined,
             undefined,

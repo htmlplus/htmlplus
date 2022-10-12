@@ -26,6 +26,8 @@ export const METHOD_RENDER = 'render';
 
 // statics
 export const STATIC_MEMBERS = 'members';
+export const STATIC_MEMBERS_INITIALIZER = 'default';
+export const STATIC_MEMBERS_TYPE = 'type';
 export const STATIC_STYLES = 'styles';
 
 // types

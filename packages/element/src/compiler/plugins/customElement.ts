@@ -33,12 +33,18 @@ export const customElement = (options?: CustomElementOptions) => {
 
         if (value.type != 'JSXExpressionContainer') return;
 
-        const local = addDependency(path, CONSTANTS.PACKAGE_NAME, CONSTANTS.UTILS_STYLE_MAP, CONSTANTS.UTILS_STYLE_MAP);
+        const { local } = addDependency(
+          path,
+          CONSTANTS.PACKAGE_NAME,
+          CONSTANTS.UTILS_STYLE_MAP,
+          CONSTANTS.UTILS_STYLE_MAP
+        );
 
+        // TODO: remove 'local!'
         path.replaceWith(
           t.jsxAttribute(
             t.jsxIdentifier('style'),
-            t.jsxExpressionContainer(t.callExpression(t.identifier(local), [value.expression]))
+            t.jsxExpressionContainer(t.callExpression(t.identifier(local!), [value.expression]))
           )
         );
 
@@ -47,7 +53,8 @@ export const customElement = (options?: CustomElementOptions) => {
     });
 
     // TODO
-    addDependency(ast, CONSTANTS.VENDOR_UHTML, 'uhtml');
+    const { node } = addDependency(ast, CONSTANTS.VENDOR_UHTML, 'uhtml');
+    t.addComment(node, 'leading', ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
 
     // replace 'className' attribute to 'class'
     visitor(ast, {
@@ -126,55 +133,57 @@ export const customElement = (options?: CustomElementOptions) => {
     visitor(ast, {
       ClassDeclaration(path) {
         const { body, id } = path.node;
+
         if (id.name != context.className) return;
-        body.body.unshift(
-          t.classProperty(
-            t.identifier(CONSTANTS.STATIC_MEMBERS),
-            t.objectExpression([
-              ...context.classProperties!.map((property) => {
-                const properties: ObjectProperty[] = [];
 
-                if (property.value) {
-                  properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_INITIALIZER), property.value));
+        const node = t.classProperty(
+          t.identifier(CONSTANTS.STATIC_MEMBERS),
+          t.objectExpression([
+            ...context.classProperties!.map((property) => {
+              const properties: ObjectProperty[] = [];
+
+              if (property.value) {
+                properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_INITIALIZER), property.value));
+              }
+
+              const type = (() => {
+                switch ((property as any).typeAnnotation?.typeAnnotation?.type) {
+                  case 'TSBooleanKeyword':
+                    return t.stringLiteral(CONSTANTS.TYPE_BOOLEAN);
+                  case 'TSStringKeyword':
+                    return t.stringLiteral(CONSTANTS.TYPE_STRING);
+                  case 'TSNumberKeyword':
+                    return t.stringLiteral(CONSTANTS.TYPE_NUMBER);
                 }
+              })();
 
-                const type = (() => {
-                  switch ((property as any).typeAnnotation?.typeAnnotation?.type) {
-                    case 'TSBooleanKeyword':
-                      return t.stringLiteral(CONSTANTS.TYPE_BOOLEAN);
-                    case 'TSStringKeyword':
-                      return t.stringLiteral(CONSTANTS.TYPE_STRING);
-                    case 'TSNumberKeyword':
-                      return t.stringLiteral(CONSTANTS.TYPE_NUMBER);
-                    default:
-                      return t.nullLiteral();
-                  }
-                })();
+              if (type) {
+                properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE), type));
+              }
 
-                if (type) {
-                  properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE), type));
-                }
-
-                return t.objectProperty(t.identifier(property.key['name']), t.objectExpression(properties));
-              }),
-              ...context.classMethods!.map((method) =>
-                t.objectProperty(
-                  t.identifier(method.key['name']),
-                  t.objectExpression([
-                    t.objectProperty(
-                      t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE),
-                      t.stringLiteral(CONSTANTS.TYPE_FUNCTION)
-                    )
-                  ])
-                )
+              return t.objectProperty(t.identifier(property.key['name']), t.objectExpression(properties));
+            }),
+            ...context.classMethods!.map((method) =>
+              t.objectProperty(
+                t.identifier(method.key['name']),
+                t.objectExpression([
+                  t.objectProperty(
+                    t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE),
+                    t.stringLiteral(CONSTANTS.TYPE_FUNCTION)
+                  )
+                ])
               )
-            ]),
-            undefined,
-            undefined,
-            undefined,
-            true
-          )
+            )
+          ]),
+          undefined,
+          undefined,
+          undefined,
+          true
         );
+
+        t.addComment(node, 'leading', ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+
+        body.body.unshift(node);
       }
     });
 

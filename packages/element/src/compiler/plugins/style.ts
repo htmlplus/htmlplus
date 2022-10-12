@@ -37,16 +37,21 @@ export const style = (options: StyleOptions) => {
 
     if (!context.stylePath) return;
 
-    const local = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE');
+    const { local, node } = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE');
 
+    t.addComment(node, 'leading', ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+
+    // TODO: remove 'local!'
     const property = t.classProperty(
       t.identifier(CONSTANTS.STATIC_STYLES),
-      t.identifier(local),
+      t.identifier(local!),
       undefined,
       null,
       undefined,
       true
     );
+
+    t.addComment(property, 'leading', ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
 
     context.class!.body.body.unshift(property);
   };

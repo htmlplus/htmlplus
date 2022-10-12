@@ -1,12 +1,22 @@
-import t, { File } from '@babel/types';
+import t, { File, ImportDeclaration } from '@babel/types';
 
 import { visitor } from './visitor.js';
 
-export function addDependency(path: File | any, source: string): void;
-export function addDependency(path: File | any, source: string, local: string): string;
-export function addDependency(path: File | any, source: string, local: string, imported: string): string;
+interface AddDependencyReturns {
+  local?: string;
+  node: ImportDeclaration;
+}
 
-export function addDependency(path: File | any, source: string, local?: string, imported?: string): string | void {
+export function addDependency(path: File | any, source: string): AddDependencyReturns;
+export function addDependency(path: File | any, source: string, local: string): AddDependencyReturns;
+export function addDependency(path: File | any, source: string, local: string, imported: string): AddDependencyReturns;
+
+export function addDependency(
+  path: File | any,
+  source: string,
+  local?: string,
+  imported?: string
+): AddDependencyReturns {
   const isDefault = local && !imported;
 
   const isImport = local && imported;
@@ -28,7 +38,10 @@ export function addDependency(path: File | any, source: string, local?: string, 
     }
   });
 
-  if (isNormal && declaration) return;
+  if (isNormal && declaration)
+    return {
+      node: declaration
+    };
 
   let specifier = declaration?.specifiers.find((specifier) => {
     if (isDefault) {
@@ -38,7 +51,11 @@ export function addDependency(path: File | any, source: string, local?: string, 
     }
   });
 
-  if (specifier) return specifier.local.name;
+  if (specifier)
+    return {
+      local: specifier.local.name,
+      node: declaration
+    };
 
   if (isDefault) {
     specifier = t.importDefaultSpecifier(t.identifier(local));
@@ -53,9 +70,13 @@ export function addDependency(path: File | any, source: string, local?: string, 
       declaration.specifiers.push(specifier);
     }
   } else {
+    declaration = t.importDeclaration(specifier ? [specifier] : [], t.stringLiteral(source));
     // TODO
-    (file.program || file).body.unshift(t.importDeclaration(specifier ? [specifier] : [], t.stringLiteral(source)));
+    (file.program || file).body.unshift(declaration);
   }
 
-  return local;
+  return {
+    local,
+    node: declaration
+  };
 }

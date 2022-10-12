@@ -13,7 +13,7 @@ export * from './off.js';
 export * from './on.js';
 export * from './parseValue.js';
 export * from './request.js';
-export * from './sync.js';
+export * from './syncAttributes.js';
 export * from './task.js';
 export * from './toBoolean.js';
 export * from './toEvent.js';

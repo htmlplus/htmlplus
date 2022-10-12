@@ -4,7 +4,7 @@ import { on } from './on.js';
 import { toEvent } from './toEvent.js';
 import { updateAttribute } from './updateAttribute.js';
 
-export const sync = (node: HTMLElement) => {
+export const syncAttributes = (node: HTMLElement) => {
   let prev: any = {};
   return (next: any = {}) => {
     const prevClass = (prev.class || '').split(' ');

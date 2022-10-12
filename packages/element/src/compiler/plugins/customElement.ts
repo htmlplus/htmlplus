@@ -54,7 +54,7 @@ export const customElement = (options?: CustomElementOptions) => {
 
     // TODO
     const { node } = addDependency(ast, CONSTANTS.VENDOR_UHTML, 'uhtml');
-    t.addComment(node, 'leading', ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+    t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
 
     // replace 'className' attribute to 'class'
     visitor(ast, {
@@ -181,7 +181,7 @@ export const customElement = (options?: CustomElementOptions) => {
           true
         );
 
-        t.addComment(node, 'leading', ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+        t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_PROPERTY, true);
 
         body.body.unshift(node);
       }

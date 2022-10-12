@@ -42,3 +42,6 @@ export const UTILS_STYLE_MAP = 'styles';
 
 // TODO
 export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';
+export const AUTO_IMPORT_STYLE = 'AUTO_IMPORT_STYLE';
+export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';
+export const COMMENT_AUTO_ADDED_PROPERTY = ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY';

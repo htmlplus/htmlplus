@@ -19,7 +19,7 @@ const defaults: Partial<StyleOptions> = {
 };
 
 export type StyleOptions = {
-  references?: (context: Context) => string[];
+  references?: (context: Context) => string | string[];
 };
 
 export const style = (options: StyleOptions) => {
@@ -28,18 +28,19 @@ export const style = (options: StyleOptions) => {
   options = Object.assign({}, defaults, options);
 
   const next = (context: Context) => {
-    const references = options.references!(context);
+    const references = [options.references!(context)].flat();
 
     for (const reference of references) {
       if (!fs.existsSync(reference)) continue;
       context.stylePath = reference;
+      break;
     }
 
     if (!context.stylePath) return;
 
-    const { local, node } = addDependency(context.fileAST!, context.stylePath, 'AUTO_IMPORT_STYLE');
+    const { local, node } = addDependency(context.fileAST!, context.stylePath, CONSTANTS.AUTO_IMPORT_STYLE);
 
-    t.addComment(node, 'leading', ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+    t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
 
     // TODO: remove 'local!'
     const property = t.classProperty(
@@ -51,7 +52,7 @@ export const style = (options: StyleOptions) => {
       true
     );
 
-    t.addComment(property, 'leading', ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY', true);
+    t.addComment(property, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_PROPERTY, true);
 
     context.class!.body.body.unshift(property);
   };

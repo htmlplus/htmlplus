@@ -729,3 +729,5 @@ const html = tag('html');
 const svg = tag('svg');
 
 export { Hole, html, render, svg };
+
+export default { Hole, html, render, svg };

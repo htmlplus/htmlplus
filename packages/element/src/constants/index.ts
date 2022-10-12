@@ -1,9 +1,10 @@
 export const PACKAGE_NAME = '@htmlplus/element';
 
 // apis
-export const API_HOST = '$host$';
+export const API_HOST = Symbol();
+export const API_INSTANCE = Symbol();
 // TODO
-export const API_STATUS = '$status$';
+export const API_STATUS = Symbol();
 
 // decorators
 export const DECORATOR_ELEMENT = 'Element';
@@ -36,3 +37,6 @@ export const TYPE_NUMBER = 'number';
 
 // utils
 export const UTILS_STYLE_MAP = 'styles';
+
+// TODO
+export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';

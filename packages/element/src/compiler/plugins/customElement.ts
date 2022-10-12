@@ -47,13 +47,7 @@ export const customElement = (options?: CustomElementOptions) => {
     });
 
     // TODO
-    visitor(ast, {
-      ClassDeclaration(path) {
-        const { body, id } = path.node;
-        if (id.name != context.className) return;
-        body.body.unshift(t.classProperty(t.identifier('uhtml')));
-      }
-    });
+    addDependency(ast, CONSTANTS.VENDOR_UHTML, 'uhtml');
 
     // replace 'className' attribute to 'class'
     visitor(ast, {
@@ -97,15 +91,8 @@ export const customElement = (options?: CustomElementOptions) => {
         exit(path) {
           if (path.parent.type == 'JSXElement' || path.parent.type == 'JSXFragment') {
             path.replaceWith(t.identifier(print(path.node)));
-            return;
           } else {
-            path.replaceWith(
-              t.memberExpression(
-                t.memberExpression(t.thisExpression(), t.identifier('uhtml')),
-                t.identifier(`html\`${print(path.node)}\``)
-              )
-            );
-            return;
+            path.replaceWith(t.memberExpression(t.identifier('uhtml'), t.identifier(`html\`${print(path.node)}\``)));
           }
         }
       },
@@ -113,7 +100,7 @@ export const customElement = (options?: CustomElementOptions) => {
         exit(path) {
           path.replaceWith(
             t.memberExpression(
-              t.memberExpression(t.thisExpression(), t.identifier('uhtml')),
+              t.identifier('uhtml'),
               t.identifier(['html`', ...path.node.children.map((child) => print(child)), '`'].join(''))
             )
           );

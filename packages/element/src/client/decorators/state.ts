@@ -5,18 +5,18 @@ export function State() {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     const name = String(propertyKey);
 
-    const values = new Map();
+    const symbol = Symbol();
 
     function get(this) {
-      return values.get(this);
+      return this[symbol];
     }
 
     function set(this, input) {
-      const value = values.get(this);
+      const value = this[symbol];
 
       if (input === value) return;
 
-      values.set(this, input);
+      this[symbol] = input;
 
       request(this, { [name]: [input, value] })
         .then(() => undefined)

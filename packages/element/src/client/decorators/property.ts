@@ -27,20 +27,20 @@ export function Property(options?: PropertyOptions) {
 
     const attribute = paramCase(name);
 
+    const symbol = Symbol();
+
     const type = getMemberType(target, name);
 
-    const values = new Map();
-
     function get(this) {
-      return values.get(this);
+      return this[symbol];
     }
 
     function set(this, input) {
-      const value = values.get(this);
+      const value = this[symbol];
 
       if (input === value) return;
 
-      values.set(this, input);
+      this[symbol] = input;
 
       const isReady = this[CONSTANTS.API_STATUS] == 'initialize';
 

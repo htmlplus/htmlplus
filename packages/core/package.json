@@ -44,7 +44,6 @@
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@types/react": "^18.0.15",
     "change-case": "^4.1.2",
-    "cpy": "^9.0.1",
     "cropperjs": "^1.5.12",
     "cypress": "^10.3.1",
     "cypress-file-upload": "^5.0.8",

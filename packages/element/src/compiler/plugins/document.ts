@@ -164,7 +164,7 @@ export const document = (options: DocumentOptions) => {
         const name = property.key['name'];
 
         // TODO
-        const reflected = (() => {
+        const reflects = (() => {
           if (!property.decorators) return false;
           try {
             for (const decorator of property.decorators) {
@@ -197,7 +197,7 @@ export const document = (options: DocumentOptions) => {
           initializer,
           model,
           name,
-          reflected,
+          reflects,
           required,
           tags,
           type,

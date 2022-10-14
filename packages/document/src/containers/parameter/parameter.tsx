@@ -79,7 +79,7 @@ export const Parameter = (item: any) => {
             </Grid.Item>
             <Grid.Item xs="12" sm="grow">
               <b>Reflect</b>
-              <div>{`${!!item.reflected}`}</div>
+              <div>{`${!!item.reflects}`}</div>
             </Grid.Item>
           </>
         )}

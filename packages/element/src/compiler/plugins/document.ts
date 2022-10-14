@@ -23,8 +23,10 @@ export const document = (options: DocumentOptions) => {
     };
 
     for (const context of global.contexts) {
+      const deprecated = hasTag(context.class!, 'deprecated');
+
       const events = context.classEvents!.map((event) => {
-        const isCancelable = (() => {
+        const cancelable = (() => {
           if (!event.decorators) return false;
           try {
             for (const decorator of event.decorators) {
@@ -41,6 +43,8 @@ export const document = (options: DocumentOptions) => {
           return false;
         })();
 
+        const deprecated = hasTag(event, 'deprecated');
+
         const description = getTags(event).find((tag) => !tag.key)?.value;
 
         const detail = print(event.typeAnnotation?.['typeAnnotation']);
@@ -50,31 +54,30 @@ export const document = (options: DocumentOptions) => {
           event.typeAnnotation?.['typeAnnotation'].typeParameters.params[0]
         );
 
-        const isExperimental = hasTag(event, 'experimental');
+        const experimental = hasTag(event, 'experimental');
 
-        const isModel = hasTag(event, 'model');
+        const model = hasTag(event, 'model');
 
         const name = event.key['name'];
 
         const tags = getTags(event);
 
         return {
+          cancelable,
+          deprecated,
           description,
           detail,
           detailReference,
-          isCancelable,
-          isExperimental,
-          isModel,
+          experimental,
+          model,
           name,
           tags
         };
       });
 
+      const experimental = hasTag(context.class!, 'experimental');
+
       const group = getTag(context.class!, 'group')?.value;
-
-      const isDeprecated = hasTag(context.class!, 'deprecated');
-
-      const isExperimental = hasTag(context.class!, 'experimental');
 
       const lastModified = glob
         .sync(path.join(context.directoryPath!, '**/*.*'))
@@ -83,32 +86,32 @@ export const document = (options: DocumentOptions) => {
         .pop();
 
       const methods = context.classMethods!.map((method) => {
+        const async = method.async;
+
         const description = getTags(method).find((tag) => !tag.key)?.value;
 
-        const isAsync = method.async;
+        const deprecated = hasTag(method, 'deprecated');
 
-        const isDeprecated = hasTag(method, 'deprecated');
-
-        const isExperimental = hasTag(method, 'experimental');
+        const experimental = hasTag(method, 'experimental');
 
         const name = method.key['name'];
-
-        const returns = print(method.returnType?.['typeAnnotation']) || 'void';
-
-        const returnsReference = getTypeReference(context.fileAST!, method.returnType?.['typeAnnotation']);
-
-        const tags = getTags(method);
 
         // TODO
         const parameters = method.params.map((param) => ({
           description: getTags(method, 'param')
             .map((tag) => parseTag(tag, ' '))
             .find((tag) => tag.name == param['name'])?.description,
-          isOptional: !!param['optional'],
+          required: !param['optional'],
           name: param['name'],
           type: print(param?.['typeAnnotation']?.typeAnnotation) || undefined,
           typeReference: getTypeReference(context.fileAST!, param?.['typeAnnotation']?.typeAnnotation)
         }));
+
+        const returns = print(method.returnType?.['typeAnnotation']) || 'void';
+
+        const returnsReference = getTypeReference(context.fileAST!, method.returnType?.['typeAnnotation']);
+
+        const tags = getTags(method);
 
         const signature = [
           method.key['name'],
@@ -117,7 +120,7 @@ export const document = (options: DocumentOptions) => {
             .map((parameter) => {
               let string = '';
               string += parameter.name;
-              string += parameter.isOptional ? '?' : '';
+              string += parameter.required ? '' : '?';
               string += parameter.type ? ': ' : '';
               string += parameter.type ?? '';
               return string;
@@ -129,15 +132,15 @@ export const document = (options: DocumentOptions) => {
         ].join('');
 
         return {
+          async,
           description,
-          isAsync,
-          isDeprecated,
-          isExperimental,
+          deprecated,
+          experimental,
           name,
+          parameters,
           returns,
           returnsReference,
           tags,
-          parameters,
           signature
         };
       });
@@ -147,10 +150,21 @@ export const document = (options: DocumentOptions) => {
       const properties = context.classProperties!.map((property) => {
         const attribute = paramCase(property.key['name']);
 
+        const deprecated = hasTag(property, 'deprecated');
+
         const description = getTags(property).find((tag) => !tag.key)?.value;
 
+        const experimental = hasTag(property, 'experimental');
+
         // TODO
-        const hasReflect = (() => {
+        const initializer = getInitializer(property.value!);
+
+        const model = hasTag(property, 'model');
+
+        const name = property.key['name'];
+
+        // TODO
+        const reflected = (() => {
           if (!property.decorators) return false;
           try {
             for (const decorator of property.decorators) {
@@ -167,18 +181,7 @@ export const document = (options: DocumentOptions) => {
           return false;
         })();
 
-        // TODO
-        const initializer = getInitializer(property.value!);
-
-        const isDeprecated = hasTag(property, 'deprecated');
-
-        const isExperimental = hasTag(property, 'experimental');
-
-        const isModel = hasTag(property, 'model');
-
-        const isRequired = !property.optional;
-
-        const name = property.key['name'];
+        const required = !property.optional;
 
         const tags = getTags(property);
 
@@ -188,14 +191,14 @@ export const document = (options: DocumentOptions) => {
 
         return {
           attribute,
+          deprecated,
           description,
-          hasReflect,
+          experimental,
           initializer,
-          isDeprecated,
-          isExperimental,
-          isModel,
-          isRequired,
+          model,
           name,
+          reflected,
+          required,
           tags,
           type,
           typeReference
@@ -269,8 +272,8 @@ export const document = (options: DocumentOptions) => {
 
         events,
         group,
-        isDeprecated,
-        isExperimental,
+        deprecated,
+        experimental,
         key: context.componentKey!,
         lastModified,
         methods,

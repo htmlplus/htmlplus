@@ -29,7 +29,7 @@ export const Parameter = (item: any) => {
           <b>Name</b>
           <div>
             {item.name}
-            {item.isExperimental && <span> (Experimental)</span>}
+            {item.experimental && <span> (Experimental)</span>}
           </div>
         </Grid.Item>
         {['event', 'method', 'property'].includes(item.kind) && (
@@ -68,7 +68,7 @@ export const Parameter = (item: any) => {
         {['event'].includes(item.kind) && (
           <Grid.Item xs="12">
             <b>Cancelable</b>
-            <div>{`${!!item.isCancelable}`}</div>
+            <div>{`${!!item.cancelable}`}</div>
           </Grid.Item>
         )}
         {['property'].includes(item.kind) && (
@@ -79,7 +79,7 @@ export const Parameter = (item: any) => {
             </Grid.Item>
             <Grid.Item xs="12" sm="grow">
               <b>Reflect</b>
-              <div>{`${!!item.hasReflect}`}</div>
+              <div>{`${!!item.reflected}`}</div>
             </Grid.Item>
           </>
         )}

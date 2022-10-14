@@ -67,22 +67,7 @@ export const webTypes = (options: WebTypesOptions) => {
             // required: TODO
             // default: TODO
           },
-          /**
-           * For Example
-           * 01) default: "''"
-           * 02) default: "null"
-           * 03) default: "undefined"
-           * 04) default: "true"
-           * 05) default: "false"
-           * 06) default: "0"
-           * 07) default: "'1'"
-           * 08) default: "'value'"
-           * 09) default: "[]"
-           * 10) default: "[0, 1, 'value-1', 'value-2', 'value-3']"
-           * 11) default: "{}"
-           * 12) default: "{'key-1': false, 'key-2': 1, 'key-3': 'value'}"
-           */
-          default: getInitializer(property.value!) // TODO
+          default: getInitializer(property.value!)
         })
       );
 
@@ -102,6 +87,7 @@ export const webTypes = (options: WebTypesOptions) => {
       const properties = context.classProperties?.map((property) =>
         Object.assign({}, extract(property), {
           // 'value': TODO
+          default: getInitializer(property.value!)
         })
       );
 

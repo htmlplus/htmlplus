@@ -12,7 +12,6 @@ import { BrowseEvent, BrowseEventFile } from './browse.types';
 
 /**
  * @slot default - The default slot.
- * @examples default
  */
 @Element()
 export class Browse {

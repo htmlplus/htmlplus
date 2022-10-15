@@ -73,7 +73,7 @@ export class Dialog {
   persistent?: boolean;
 
   /**
-   * Specifies where to show the dialog box by choosing two values, one for horizontal and another for vertical.
+   * Specifies where to show the dialog box by choosing two values, one for horizontal and another for vertical. 
    * Horizontal has a range of `left`, `center`, `right`, `start`, `end`, and vertical values are `top`, `center` and `bottom`.
    */
   @Property()

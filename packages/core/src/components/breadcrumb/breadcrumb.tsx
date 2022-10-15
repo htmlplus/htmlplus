@@ -22,7 +22,7 @@ export class Breadcrumb {
   expanderText?: string = 'Show path';
 
   /**
-   * The expander button is displayed when the number of the items reached the maximum limit.
+   * The expander button is displayed when the number of the items reached the maximum limit. 
    * The offset property specifies the position of the expander button.
    */
   @Property()

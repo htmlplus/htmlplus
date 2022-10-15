@@ -15,48 +15,37 @@ export const getTag = (node: Node, key?: string): Tag | undefined => {
 };
 
 export const getTags = (node: Node, filter?: string): Array<Tag> => {
-  let tags: Array<Tag> = node['tags'] ?? [];
+  const tags: Array<Tag> = [];
 
-  if (!node['tags']) {
-    const lines: Array<string> = [];
+  const lines = node.leadingComments
+    ?.map((comment) => {
+      const { type, value } = comment;
+      if (type == 'CommentLine') return value;
+      return value.replace(/\r\n/g, '\n').split('\n');
+    })
+    ?.flat()
+    ?.filter((line) => line.trim().replace(/\*/g, ''))
+    ?.map((line) => line.replace(/^( +)?(\*+)?( +)?/, ''));
 
-    const comments = (node.leadingComments || [])
-      .slice(-1)
-      .map((comment) => comment.value)
-      .join('\r\n')
-      .split('\r\n');
+  for (const line of lines || []) {
+    const has = !!tags.length;
 
-    for (const comment of comments) {
-      let line = comment.trimStart();
+    const isTag = line.startsWith('@');
 
-      if (line.startsWith('*')) line = line.slice(1);
+    if (isTag) {
+      const [key, ...values] = line.split(' ');
 
-      if (!line) continue;
+      tags.push({
+        key: key.slice(1).trim(),
+        value: values.join(' ').trimStart()
+      });
 
-      const isTag = line.trim().startsWith('@');
-
-      if (isTag || !lines.length) lines.push(line);
-      else lines[lines.length - 1] += line;
+      continue;
     }
 
-    for (const line of lines) {
-      let value = line.trim();
+    if (!has) tags.push({ key: '', value: '' });
 
-      if (!value.startsWith('@')) {
-        tags.push({ value });
-        continue;
-      }
-
-      const sections = value.split(' ');
-
-      const key = sections[0].slice(1);
-
-      value = sections.slice(1).join(' ').trim();
-
-      tags.push({ key, value });
-    }
-
-    node['tags'] = tags;
+    tags[tags.length - 1].value += line;
   }
 
   return tags.filter((tag) => !filter || filter === tag.key);

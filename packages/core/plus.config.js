@@ -31,8 +31,10 @@ export default [
   webTypes({
     destination: 'dist/json/web-types.json',
     packageName: '@htmlplus/core',
-    packageVersion: '0.4.0',
-    docUrl: () => ''
+    packageVersion: '0.4.4',
+    reference: (componentTag) => {
+      return `https://www.htmlplus.io/javascript/component/${componentTag.replace('plus-', '')}`;
+    }
   }),
   customElement(),
   customElementReact({

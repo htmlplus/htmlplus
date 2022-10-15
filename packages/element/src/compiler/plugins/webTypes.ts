@@ -37,7 +37,7 @@ export const webTypes = (options: WebTypesOptions) => {
       }
     };
 
-    const extract = (member) => ({
+    const common = (member) => ({
       name: member.key['name'],
       description: getTags(member).find((tag) => !tag.key)?.value,
       deprecated: hasTag(member, 'deprecated'),
@@ -46,7 +46,7 @@ export const webTypes = (options: WebTypesOptions) => {
 
     for (const context of global.contexts) {
       const attributes = context.classProperties?.map((property) =>
-        Object.assign({}, extract(property), {
+        Object.assign(common(property), {
           name: paramCase(property.key['name']),
           value: {
             // kind: TODO
@@ -72,20 +72,20 @@ export const webTypes = (options: WebTypesOptions) => {
       );
 
       const events = context.classEvents?.map((event) =>
-        Object.assign({}, extract(event), {
+        Object.assign(common(event), {
           name: paramCase(event.key['name']) // TODO
           // 'value': TODO
         })
       );
 
       const methods = context.classMethods?.map((method) =>
-        Object.assign({}, extract(method), {
+        Object.assign(common(method), {
           // 'value': TODO
         })
       );
 
       const properties = context.classProperties?.map((property) =>
-        Object.assign({}, extract(property), {
+        Object.assign(common(property), {
           // 'value': TODO
           default: getInitializer(property.value!)
         })
@@ -94,17 +94,39 @@ export const webTypes = (options: WebTypesOptions) => {
       const slots = getTags(context.class!, 'slot').map((tag) => {
         const { description, name } = parseTag(tag);
         return {
-          'name': name,
-          'description': description,
-          'doc-url': undefined,
-          'deprecated': false,
-          'experimental': false
+          name,
+          description
         };
       });
 
+      // TODO
+      const description = (() => {
+        try {
+          const description = getTags(context.class!).find((tag) => !tag.key)?.value;
+
+          if (description) return description;
+
+          const source = path.join(context.directoryPath!, `${context.fileName}.md`);
+
+          const content = fs.readFileSync(source, 'utf8');
+
+          if (!content) return;
+
+          if (!content.startsWith('# ')) return;
+
+          const sections = content.split('\n');
+
+          for (let i = 1; i < sections.length; i++) {
+            const section = sections[i].trim();
+            if (!section) continue;
+            return section;
+          }
+        } catch {}
+      })();
+
       json.contributions.html.elements.push({
         'name': context.componentTag,
-        'description': 'TODO',
+        'description': description,
         'doc-url': options.reference?.(context.componentTag!),
         'deprecated': hasTag(context.class!, 'deprecated'),
         'experimental': hasTag(context.class!, 'experimental'),

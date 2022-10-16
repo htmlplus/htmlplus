@@ -10,7 +10,7 @@ import { ROUTES, getPath } from '@app/utils';
 const ComponentDetails = ({ component, example }: any) => {
   return (
     <LayoutDefault>
-      <Markup value={component?.readme} scope={{ example }} />
+      <Markup value={component?.readmeContent} scope={{ example }} />
     </LayoutDefault>
   );
 };
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const current = components.find((x) => x.key == component);
 
   if (current)
-    current.readme = current.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
+    current.readmeContent = current.readmeContent?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
   // TODO
   const example = (() => {

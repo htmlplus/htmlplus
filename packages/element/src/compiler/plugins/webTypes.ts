@@ -1,8 +1,8 @@
-import { camelCase, paramCase } from 'change-case';
+import { paramCase } from 'change-case';
 import fs from 'fs-extra';
 import path from 'path';
 
-import { Global } from '../../types';
+import { Context, Global } from '../../types';
 import { getInitializer, getTags, hasTag, parseTag, print } from '../utils/index.js';
 
 const defaults: Partial<WebTypesOptions> = {};
@@ -11,7 +11,8 @@ export interface WebTypesOptions {
   destination: string;
   packageName: string;
   packageVersion: string;
-  reference?: (componentTag: string) => string;
+  reference?: (context: Context) => string;
+  transformer?: (context: Context, component: any) => any;
 }
 
 export const webTypes = (options: WebTypesOptions) => {
@@ -71,6 +72,8 @@ export const webTypes = (options: WebTypesOptions) => {
         })
       );
 
+      const description = getTags(context.class!).find((tag) => !tag.key)?.value;
+
       const events = context.classEvents?.map((event) =>
         Object.assign(common(event), {
           name: paramCase(event.key['name']) // TODO
@@ -99,35 +102,10 @@ export const webTypes = (options: WebTypesOptions) => {
         };
       });
 
-      // TODO
-      const description = (() => {
-        try {
-          const description = getTags(context.class!).find((tag) => !tag.key)?.value;
-
-          if (description) return description;
-
-          const source = path.join(context.directoryPath!, `${context.fileName}.md`);
-
-          const content = fs.readFileSync(source, 'utf8');
-
-          if (!content) return;
-
-          if (!content.startsWith('# ')) return;
-
-          const sections = content.split('\n');
-
-          for (let i = 1; i < sections.length; i++) {
-            const section = sections[i].trim();
-            if (!section) continue;
-            return section;
-          }
-        } catch {}
-      })();
-
-      json.contributions.html.elements.push({
+      const component = {
         'name': context.componentTag,
         'description': description,
-        'doc-url': options.reference?.(context.componentTag!),
+        'doc-url': options.reference?.(context),
         'deprecated': hasTag(context.class!, 'deprecated'),
         'experimental': hasTag(context.class!, 'experimental'),
         'js': {
@@ -136,7 +114,11 @@ export const webTypes = (options: WebTypesOptions) => {
         },
         attributes,
         slots
-      });
+      };
+
+      const transformed = options.transformer?.(context, component) || component;
+
+      json.contributions.html.elements.push(transformed);
     }
 
     const dirname = path.dirname(options.destination);

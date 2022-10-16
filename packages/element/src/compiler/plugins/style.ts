@@ -7,7 +7,7 @@ import { Context } from '../../types';
 import { addDependency } from '../utils/index.js';
 
 const defaults: Partial<StyleOptions> = {
-  source(context: Context) {
+  source(context) {
     return [
       path.join(context.directoryPath!, `${context.fileName!}.css`),
       path.join(context.directoryPath!, `${context.fileName!}.less`),

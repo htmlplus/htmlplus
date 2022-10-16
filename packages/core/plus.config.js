@@ -7,6 +7,7 @@ import {
   extract,
   parse,
   read,
+  readme,
   style,
   validate,
   webTypes
@@ -25,6 +26,7 @@ export default [
     }
   }),
   style(),
+  readme(),
   document({
     destination: 'dist/json/document.json'
   }),
@@ -32,8 +34,31 @@ export default [
     destination: 'dist/json/web-types.json',
     packageName: '@htmlplus/core',
     packageVersion: '0.4.4',
-    reference: (componentTag) => {
-      return `https://www.htmlplus.io/javascript/component/${componentTag.replace('plus-', '')}`;
+    reference(context) {
+      return `https://www.htmlplus.io/javascript/component/${context.componentTag.replace('plus-', '')}`;
+    },
+    transformer(context, element) {
+      if (element.description) return;
+
+      const content = context.readmeContent?.trim();
+
+      if (!content) return;
+
+      if (!content.startsWith('#')) return;
+
+      const sections = content.split('\n');
+
+      for (let i = 1; i < sections.length; i++) {
+        const section = sections[i].trim();
+
+        if (!section) continue;
+
+        element.description = section;
+
+        break;
+      }
+
+      return element;
     }
   }),
   customElement(),
@@ -64,7 +89,7 @@ export default [
     at: 'finish',
     source: 'package.json',
     destination: 'dist/package.json',
-    transformer({ content }) {
+    transformer(content) {
       const parsed = JSON.parse(content);
       delete parsed.scripts;
       return JSON.stringify(parsed, null, 2);

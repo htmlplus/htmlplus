@@ -4,7 +4,7 @@ import path from 'path';
 import { Context, Global } from '../../types';
 
 const defaults: Partial<ReadmeOptions> = {
-  source(context: Context) {
+  source(context) {
     return path.join(context.directoryPath!, `${context.fileName}.md`);
   }
 };
@@ -20,10 +20,13 @@ export const readme = (options: ReadmeOptions) => {
 
   const finish = (global: Global) => {
     for (const context of global.contexts) {
-      try {
-        // TODO
-        // context.readme = fs.readFileSync(options.source?.(context), 'utf8');
-      } catch {}
+      context.readmePath = options.source?.(context);
+
+      if (!context.readmePath) continue;
+
+      if (!fs.existsSync(context.readmePath)) return;
+
+      context.readmeContent = fs.readFileSync(context.readmePath, 'utf8');
     }
   };
 

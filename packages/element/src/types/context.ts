@@ -14,6 +14,10 @@ export interface Context {
     output?: any;
   }>;
 
+  // readme
+  readmeContent?: string;
+  readmePath?: string;
+
   // component
   componentClassName?: string;
   componentClassNamePrune?: string;

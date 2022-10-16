@@ -9,7 +9,7 @@ export interface CopyOptions {
   at?: 'start' | 'next' | 'finish';
   destination: string;
   source: string;
-  transformer?: (parameters: { content: string }) => string;
+  transformer?: (content: string) => string;
 }
 
 export const copy = (options: CopyOptions) => {
@@ -24,7 +24,7 @@ export const copy = (options: CopyOptions) => {
 
     content = fs.readFileSync(options.source, 'utf8');
 
-    if (options.transformer) content = options.transformer({ content });
+    if (options.transformer) content = options.transformer(content);
 
     fs.ensureDirSync(path.dirname(options.destination));
 

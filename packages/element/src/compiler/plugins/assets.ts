@@ -5,10 +5,10 @@ import { Context } from '../../types';
 
 const defaults: Partial<AssetsOptions> = {
   once: true,
-  destination(context: Context) {
+  destination(context) {
     return `assets/${context.fileName}`;
   },
-  source(context: Context) {
+  source(context) {
     return path.join(context.directoryPath!, 'assets');
   }
 };

@@ -1,6 +1,6 @@
 import { pascalCase } from 'change-case';
 
-import { Global } from '../../../types';
+import { Context, Global } from '../../../types';
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
 const defaults: Partial<CustomElementReactOptions> = {
@@ -21,8 +21,8 @@ export interface CustomElementReactOptions {
   compact?: boolean;
   destination: string;
   eventName?: (eventName: string) => string;
-  importerComponent?: (context) => string;
-  importerComponentType?: (context) => string;
+  importerComponent?: (context: Context) => string;
+  importerComponentType?: (context: Context) => string;
 }
 
 export const customElementReact = (options: CustomElementReactOptions) => {

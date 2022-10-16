@@ -4,6 +4,7 @@ import path from 'path';
 import { Context } from '../../types';
 
 const defaults: Partial<AssetsOptions> = {
+  once: true,
   destination(context: Context) {
     return `assets/${context.fileName}`;
   },
@@ -13,6 +14,7 @@ const defaults: Partial<AssetsOptions> = {
 };
 
 export type AssetsOptions = {
+  once?: boolean;
   destination: (context: Context) => string;
   source?: (context: Context) => string;
 };
@@ -22,14 +24,20 @@ export const assets = (options: AssetsOptions) => {
 
   options = Object.assign({}, defaults, options);
 
-  const next = (context: Context) => {
-    const destination = options.destination?.(context);
+  const sources = new Set<string>();
 
+  const next = (context: Context) => {
     const source = options.source?.(context);
 
     if (!source) return;
 
     if (!fs.existsSync(source)) return;
+
+    if (options.once) {
+      if (sources.has(source)) return;
+      sources.add(source);
+    }
+    const destination = options.destination?.(context);
 
     fs.copySync(source, destination);
 

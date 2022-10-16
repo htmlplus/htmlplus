@@ -20,12 +20,46 @@ export default [
   extract({
     prefix: 'plus'
   }),
+  style(),
+  customElement(),
+  customElementReact({
+    compact: true,
+    destination: '../distributions/react',
+    eventName(eventName) {
+      return eventName.replace(/Plus/, '');
+    },
+    importerComponent(context) {
+      return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;
+    },
+    importerComponentType(context) {
+      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
+    }
+  }),
   assets({
     destination(context) {
       return `dist/${context.fileName}`;
     }
   }),
-  style(),
+  copy({
+    at: 'finish',
+    source: 'package-lock.json',
+    destination: 'dist/package-lock.json'
+  }),
+  copy({
+    at: 'finish',
+    source: 'README.md',
+    destination: 'dist/README.md'
+  }),
+  copy({
+    at: 'finish',
+    source: 'package.json',
+    destination: 'dist/package.json',
+    transformer(content) {
+      const parsed = JSON.parse(content);
+      delete parsed.scripts;
+      return JSON.stringify(parsed, null, 2);
+    }
+  }),
   readme(),
   document({
     destination: 'dist/json/document.json'
@@ -59,40 +93,6 @@ export default [
       }
 
       return element;
-    }
-  }),
-  customElement(),
-  customElementReact({
-    compact: true,
-    destination: '../distributions/react',
-    eventName(eventName) {
-      return eventName.replace(/Plus/, '');
-    },
-    importerComponent(context) {
-      return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;
-    },
-    importerComponentType(context) {
-      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
-    }
-  }),
-  copy({
-    at: 'finish',
-    source: 'package-lock.json',
-    destination: 'dist/package-lock.json'
-  }),
-  copy({
-    at: 'finish',
-    source: 'README.md',
-    destination: 'dist/README.md'
-  }),
-  copy({
-    at: 'finish',
-    source: 'package.json',
-    destination: 'dist/package.json',
-    transformer(content) {
-      const parsed = JSON.parse(content);
-      delete parsed.scripts;
-      return JSON.stringify(parsed, null, 2);
     }
   })
 ];

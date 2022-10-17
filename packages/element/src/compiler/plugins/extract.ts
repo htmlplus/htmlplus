@@ -82,32 +82,10 @@ export const extract = (options?: ExtractOptions) => {
 
     context.className = context.class?.id?.name!;
 
-    // TODO
-    /**
-     * className                => DialogBody
-     * 
-     * componentKey             => dialog-body
-     * 
-     * componentTag             => plus-dialog-body
-     *   - customElement
-     *   - customElementReact
-     *   - document
-     *   - webTypes
-     *
-     * componentClassName       => PlusDialogBody
-     *   - plus.config
-     *   - customElement
-     *   - customElementReact
-     *   - document
-     *   - webTypes
-     *
-     * componentInterfaceName   => HTMLPlusDialogBodyElement
-     *   - customElement
-     *   - customElementReact
-     */
-    context.componentClassName = pascalCase(context.componentTag!);
-    context.componentInterfaceName = `HTML${context.componentClassName}Element`;
     context.componentKey = paramCase(context.className);
+
+    // TODO => HTMLPlusDialogBodyElement
+    context.componentInterfaceName = `HTML${pascalCase(context.componentTag!)}Element`;
 
     context.classEvents = (context.classMembers || []).filter((member) =>
       hasDecorator(member, CONSTANTS.DECORATOR_EVENT)

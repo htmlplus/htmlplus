@@ -29,10 +29,10 @@ export default [
       return eventName.replace(/Plus/, '');
     },
     importerComponent(context) {
-      return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;
+      return `@htmlplus/core/${context.fileName}#${context.className}`;
     },
     importerComponentType(context) {
-      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
+      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.className}JSX`;
     }
   }),
   assets({

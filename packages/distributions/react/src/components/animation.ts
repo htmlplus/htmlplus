@@ -5,7 +5,7 @@
 import { proxy } from '../proxy';
 
 import '@htmlplus/core/animation';
-import type { PlusAnimationJSX as Type } from '@htmlplus/core/types/components/animation/animation';
+import type { AnimationJSX as Type } from '@htmlplus/core/types/components/animation/animation';
 
 type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 

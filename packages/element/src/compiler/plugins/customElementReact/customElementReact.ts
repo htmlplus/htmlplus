@@ -10,10 +10,10 @@ const defaults: Partial<CustomElementReactOptions> = {
     return eventName;
   },
   importerComponent(context) {
-    return `YOUR_CORE_PACKAGE_NAME#${context.componentClassName}`;
+    return `YOUR_CORE_PACKAGE_NAME#${context.className}`;
   },
   importerComponentType(context) {
-    return `YOUR_CORE_PACKAGE_NAME#JSX.${context.componentClassName}`;
+    return `YOUR_CORE_PACKAGE_NAME#JSX.${context.className}`;
   }
 };
 
@@ -43,7 +43,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
 
     const skip: Array<string> = [];
 
-    const getKey = (component) => component.componentClassName;
+    const getKey = (component) => component.className;
 
     for (const key in globalNew.contexts) {
       const context = globalNew.contexts[key];
@@ -135,7 +135,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
               };
             })
             // TODO: experimental
-            .sort((a, b) => (b.componentClassName < a.componentClassName ? 0 : -1));
+            .sort((a, b) => (getKey(b) < getKey(a) ? 0 : -1));
           return {
             all,
             filterd: all.slice(1),

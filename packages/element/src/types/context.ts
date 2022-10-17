@@ -19,7 +19,6 @@ export interface Context {
   readmePath?: string;
 
   // component
-  componentClassName?: string;
   componentInterfaceName?: string;
   componentKey?: string;
   componentTag?: string;

@@ -198,7 +198,7 @@ export const customElement = (options?: CustomElementOptions) => {
             t.exportNamedDeclaration(
               t.tsInterfaceDeclaration(
                 // TODO
-                t.identifier(context.componentClassName! + 'JSX'),
+                t.identifier(context.className! + 'JSX'),
                 null,
                 [],
                 t.tsInterfaceBody([
@@ -306,7 +306,7 @@ export const customElement = (options?: CustomElementOptions) => {
                             t.stringLiteral(context.componentTag!),
                             t.tSTypeAnnotation(
                               t.tSIntersectionType([
-                                t.tSTypeReference(t.identifier(context.componentClassName! + 'JSX')),
+                                t.tSTypeReference(t.identifier(context.className! + 'JSX')),
                                 t.tSTypeLiteral([
                                   t.tSIndexSignature(
                                     [

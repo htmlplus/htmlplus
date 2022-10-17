@@ -6,10 +6,12 @@ import { Context } from '../../types';
 import { addDependency, print, visitor } from '../utils/index.js';
 
 const defaults: Partial<CustomElementOptions> = {
+  // prefix: undefined,
   typings: true
 };
 
 export interface CustomElementOptions {
+  // prefix?: string;
   typings?: boolean;
 }
 

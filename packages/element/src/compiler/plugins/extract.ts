@@ -83,6 +83,31 @@ export const extract = (options?: ExtractOptions) => {
     context.className = context.class?.id?.name!;
 
     // TODO
+    /**
+     * componentTag
+     *   - plusConfig.config
+     *   - customElement
+     *   - customElementReact
+     *   - document
+     *   - webTypes
+     *
+     * componentClassName
+     *   - plusConfig.config
+     *   - customElement
+     *   - customElementReact
+     *   - document
+     *   - webTypes
+     *
+     * componentClassNamePrune
+     *   - customElementReact
+     *
+     * componentInterfaceName
+     *   - customElement
+     *   - customElementReact
+     *
+     * componentKey
+     *   - document
+     */
     context.componentClassName = pascalCase(context.componentTag!);
     context.componentClassNamePrune = pascalCase(context.componentTag!.split('-').slice(1).join('-'));
     context.componentInterfaceName = `HTML${context.componentClassName}Element`;

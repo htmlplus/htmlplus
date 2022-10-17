@@ -69,7 +69,7 @@ export default [
     packageName: '@htmlplus/core',
     packageVersion: '0.4.4',
     reference(context) {
-      return `https://www.htmlplus.io/javascript/component/${context.componentTag.replace('plus-', '')}`;
+      return `https://www.htmlplus.io/javascript/component/${context.componentKey}`;
     },
     transformer(context, element) {
       if (element.description) return;

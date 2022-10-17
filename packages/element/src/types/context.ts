@@ -20,7 +20,6 @@ export interface Context {
 
   // component
   componentClassName?: string;
-  componentClassNamePrune?: string;
   componentInterfaceName?: string;
   componentKey?: string;
   componentTag?: string;

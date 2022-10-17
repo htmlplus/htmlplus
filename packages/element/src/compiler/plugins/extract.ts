@@ -84,34 +84,30 @@ export const extract = (options?: ExtractOptions) => {
 
     // TODO
     /**
-     * componentTag
-     *   - plusConfig.config
+     * className                => DialogBody
+     * 
+     * componentKey             => dialog-body
+     * 
+     * componentTag             => plus-dialog-body
      *   - customElement
      *   - customElementReact
      *   - document
      *   - webTypes
      *
-     * componentClassName
-     *   - plusConfig.config
+     * componentClassName       => PlusDialogBody
+     *   - plus.config
      *   - customElement
      *   - customElementReact
      *   - document
      *   - webTypes
      *
-     * componentClassNamePrune
-     *   - customElementReact
-     *
-     * componentInterfaceName
+     * componentInterfaceName   => HTMLPlusDialogBodyElement
      *   - customElement
      *   - customElementReact
-     *
-     * componentKey
-     *   - document
      */
     context.componentClassName = pascalCase(context.componentTag!);
-    context.componentClassNamePrune = pascalCase(context.componentTag!.split('-').slice(1).join('-'));
     context.componentInterfaceName = `HTML${context.componentClassName}Element`;
-    context.componentKey = paramCase(context.componentClassNamePrune);
+    context.componentKey = paramCase(context.className);
 
     context.classEvents = (context.classMembers || []).filter((member) =>
       hasDecorator(member, CONSTANTS.DECORATOR_EVENT)

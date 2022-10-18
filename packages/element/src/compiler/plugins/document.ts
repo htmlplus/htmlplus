@@ -236,8 +236,6 @@ export const document = (options: DocumentOptions) => {
           });
       })();
 
-      const tag = context.componentTag;
-
       const tags = getTags(context.class!);
 
       const title = capitalCase(context.componentKey!);
@@ -256,7 +254,6 @@ export const document = (options: DocumentOptions) => {
         readmeContent: context.readmeContent,
         slots,
         styles,
-        tag,
         tags,
         title
       };

@@ -37,8 +37,8 @@ export default [
       return {
         source: `@htmlplus/core/types/components/${context.fileName}/${context.fileName}`,
         imported: `${context.className}JSX`,
-        local: `${context.className}JSX`,
-      }
+        local: `${context.className}JSX`
+      };
     }
   }),
   assets({
@@ -61,9 +61,14 @@ export default [
     source: 'package.json',
     destination: 'dist/package.json',
     transformer(content) {
-      const parsed = JSON.parse(content);
-      delete parsed.scripts;
-      return JSON.stringify(parsed, null, 2);
+      return JSON.stringify(
+        {
+          ...JSON.parse(content),
+          scripts: undefined
+        },
+        null,
+        2
+      );
     }
   }),
   readme(),
@@ -78,8 +83,7 @@ export default [
       return `https://www.htmlplus.io/javascript/component/${context.componentKey}`;
     },
     transformer(context, element) {
-      element.description ||= context
-        ?.readmeContent
+      element.description ||= context?.readmeContent
         ?.split('#')[1]
         ?.split('\n')
         ?.slice(1)

@@ -1,4 +1,5 @@
 import ora from 'ora';
+import path from 'path';
 
 import { Context, Global, Plugin } from '../types';
 
@@ -6,27 +7,33 @@ const logger = ora({
   color: 'yellow'
 });
 
+const log = (message, persist?) => {
+  logger.start(`${new Date().toLocaleTimeString()} [HTMLPLUS] ${message}`)[persist ? 'succeed' : '']?.();
+};
+
 export default (...plugins: Array<Plugin>) => {
   let global: Global = {
     contexts: []
   };
 
-  logger.start(`${plugins.length} Plugins found.`).succeed();
+  log(`Starting...`, true);
+
+  log(`${plugins.length} plugins found.`, true);
 
   const start = async () => {
-    logger.start('Starting...').succeed();
+    log(`Plugins are starting...`, true);
 
     for (const plugin of plugins) {
       if (!plugin.start) continue;
 
-      logger.start(`Plugin '${plugin.name}' starting...`);
+      log(`Plugin '${plugin.name}' is starting...`);
 
       await plugin.start(global);
 
-      logger.start(`Plugin '${plugin.name}' started successfully.`);
+      log(`Plugin '${plugin.name}' started successfully.`);
     }
 
-    logger.start(`Plugins started successfully.`).succeed();
+    log(`Plugins started successfully.`, true);
   };
 
   const next = async (filePath: string) => {
@@ -36,20 +43,12 @@ export default (...plugins: Array<Plugin>) => {
       filePath
     };
 
-    let timeout;
-
     for (const plugin of plugins) {
       if (!plugin.next) continue;
 
-      clearTimeout(timeout);
-
-      logger.start(`Plugin '${plugin.name}' executing...`);
+      log(`Plugin '${plugin.name}' is executing on '${path.basename(filePath)}' file.`);
 
       const output = await plugin.next(context, global);
-
-      logger.start(`Plugin '${plugin.name}' executed successfully.`);
-
-      timeout = setTimeout(() => logger.stop(), 1500);
 
       // TODO
       if (output) {
@@ -67,33 +66,35 @@ export default (...plugins: Array<Plugin>) => {
 
       global.contexts = global.contexts.filter((current) => current.filePath != context.filePath).concat(context);
 
+      log(`Plugin '${plugin.name}' executed successfully on '${path.basename(filePath)}' file.`);
+
       if (context.isInvalid) break;
     }
 
-    if (context.isInvalid) logger.start(`File '${key}' break executing because file is invalid.`).succeed();
+    logger.stop();
+
+    if (context.isInvalid) log(`File '${key}' break executing because file is invalid.`, true);
 
     return context;
   };
 
   const finish = async () => {
-    logger.start('Finishing...').succeed();
+    log(`Plugins are finishing...`, true);
 
     for (const plugin of plugins) {
       if (!plugin.finish) continue;
 
-      logger.start(`Plugin '${plugin.name}' finishing...`);
+      log(`Plugin '${plugin.name}' is finishing...`);
 
       await plugin.finish(global);
 
-      logger.start(`Plugin '${plugin.name}' finished successfully.`);
+      log(`Plugin '${plugin.name}' finished successfully.`);
     }
 
-    logger.start(`Plugins finished successfully.`).succeed();
+    log(`Plugins finished successfully.`, true);
+
+    log(`Finished.`, true);
   };
 
-  return {
-    start,
-    next,
-    finish
-  };
+  return { start, next, finish };
 };

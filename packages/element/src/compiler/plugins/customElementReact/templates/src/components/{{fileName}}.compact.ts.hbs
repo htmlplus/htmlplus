@@ -4,14 +4,13 @@
  
 {{#each all}}
 import { {{className}} } from './{{fileName}}';
-import type { {{importerComponentType.imported}} as {{importerComponentType.local}} } from '{{importerComponentType.source}}';
-
 {{/each}}
+
 const All = Object.assign(
-  {{root.className}} as {{root.importerComponentType.local}},
+  {{root.className}},
   {
     {{#each filterd}}
-    {{componentClassNameInCategory}}: {{className}} as {{importerComponentType.local}},
+    {{componentClassNameInCategory}}: {{className}},
     {{/each}}
   }
 );

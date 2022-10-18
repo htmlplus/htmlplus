@@ -3,10 +3,17 @@
  **************************************************/
  
 import { Avatar } from './avatar';
-import { AvatarGroup } from './avatar-group';
+import type { AvatarJSX as AvatarJSX } from '@htmlplus/core/types/components/avatar/avatar';
 
-const All = Object.assign(Avatar, {
-  Group: AvatarGroup,
-});
+import { AvatarGroup } from './avatar-group';
+import type { AvatarGroupJSX as AvatarGroupJSX } from '@htmlplus/core/types/components/avatar-group/avatar-group';
+
+
+const All = Object.assign(
+  Avatar as AvatarJSX,
+  {
+    Group: AvatarGroup as AvatarGroupJSX,
+  }
+);
 
 export { All as Avatar }

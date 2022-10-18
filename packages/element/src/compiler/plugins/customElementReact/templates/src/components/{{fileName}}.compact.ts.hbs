@@ -4,12 +4,16 @@
  
 {{#each all}}
 import { {{className}} } from './{{fileName}}';
-{{/each}}
+import type { {{importerComponentType.imported}} as {{importerComponentType.local}} } from '{{importerComponentType.source}}';
 
-const All = Object.assign({{root.className}}, {
-  {{#each filterd}}
-  {{componentClassNameInCategory}}: {{className}},
-  {{/each}}
-});
+{{/each}}
+const All = Object.assign(
+  {{root.className}} as {{root.importerComponentType.local}},
+  {
+    {{#each filterd}}
+    {{componentClassNameInCategory}}: {{className}} as {{importerComponentType.local}},
+    {{/each}}
+  }
+);
 
 export { All as {{root.className}} }

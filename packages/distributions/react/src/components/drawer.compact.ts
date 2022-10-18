@@ -3,10 +3,17 @@
  **************************************************/
  
 import { Drawer } from './drawer';
-import { DrawerToggler } from './drawer-toggler';
+import type { DrawerJSX as DrawerJSX } from '@htmlplus/core/types/components/drawer/drawer';
 
-const All = Object.assign(Drawer, {
-  Toggler: DrawerToggler,
-});
+import { DrawerToggler } from './drawer-toggler';
+import type { DrawerTogglerJSX as DrawerTogglerJSX } from '@htmlplus/core/types/components/drawer-toggler/drawer-toggler';
+
+
+const All = Object.assign(
+  Drawer as DrawerJSX,
+  {
+    Toggler: DrawerToggler as DrawerTogglerJSX,
+  }
+);
 
 export { All as Drawer }

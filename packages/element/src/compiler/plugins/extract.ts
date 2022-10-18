@@ -84,7 +84,7 @@ export const extract = (options?: ExtractOptions) => {
 
     context.componentKey = paramCase(context.className);
 
-    // TODO => HTMLPlusDialogBodyElement
+    // TODO
     context.componentInterfaceName = `HTML${pascalCase(context.componentTag!)}Element`;
 
     context.classEvents = (context.classMembers || []).filter((member) =>

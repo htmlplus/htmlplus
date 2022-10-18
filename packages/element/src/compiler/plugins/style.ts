@@ -22,15 +22,16 @@ export type StyleOptions = {
   source?: (context: Context) => string | string[];
 };
 
-export const style = (options: StyleOptions) => {
+export const style = (options?: StyleOptions) => {
   const name = 'style';
 
   options = Object.assign({}, defaults, options);
 
   const next = (context: Context) => {
-    const sources = [options.source!(context)].flat();
+    const sources = [options?.source?.(context)].flat();
 
     for (const source of sources) {
+      if (!source) continue;
       if (!fs.existsSync(source)) continue;
       context.stylePath = source;
       break;

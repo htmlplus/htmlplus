@@ -9,7 +9,7 @@ const defaults: Partial<ParseOptions> = {
 
 export type ParseOptions = ParserOptions;
 
-export const parse = (options: ParseOptions) => {
+export const parse = (options?: ParseOptions) => {
   const name = 'parse';
 
   options = Object.assign({}, defaults, options);

@@ -78,27 +78,13 @@ export default [
       return `https://www.htmlplus.io/javascript/component/${context.componentKey}`;
     },
     transformer(context, element) {
-      if (element.description) return;
-
-      const content = context.readmeContent?.trim();
-
-      if (!content) return;
-
-      if (!content.startsWith('#')) return;
-
-      const sections = content.split('\n');
-
-      for (let i = 1; i < sections.length; i++) {
-        const section = sections[i].trim();
-
-        if (!section) continue;
-
-        element.description = section;
-
-        break;
-      }
-
-      return element;
+      element.description ||= context
+        ?.readmeContent
+        ?.split('#')[1]
+        ?.split('\n')
+        ?.slice(1)
+        ?.filter((line) => !!line.trim())[0]
+        ?.trim();
     }
   })
 ];

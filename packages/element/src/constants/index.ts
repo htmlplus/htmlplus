@@ -3,7 +3,6 @@ export const PACKAGE_NAME = '@htmlplus/element';
 // apis
 export const API_HOST = Symbol();
 export const API_INSTANCE = Symbol();
-// TODO
 export const API_STATUS = Symbol();
 
 // decorators
@@ -31,16 +30,17 @@ export const STATIC_MEMBERS_TYPE = 'type';
 export const STATIC_STYLES = 'styles';
 
 // types
-export const TYPE_BOOLEAN = 'boolean';
-export const TYPE_DATE = 'date';
-export const TYPE_FUNCTION = 'function';
-export const TYPE_STRING = 'string';
-export const TYPE_NUMBER = 'number';
+export const TYPE_BOOLEAN = 'Boolean';
+export const TYPE_DATE = 'Date';
+export const TYPE_FUNCTION = 'Function';
+export const TYPE_STRING = 'String';
+export const TYPE_NUMBER = 'Number';
 
 // utils
 export const UTILS_STYLE_MAP = 'styles';
 
 // TODO
+export const SYNC = Symbol();
 export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';
 export const AUTO_IMPORT_STYLE = 'AUTO_IMPORT_STYLE';
 export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';

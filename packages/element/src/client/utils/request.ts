@@ -4,7 +4,7 @@ import { call } from '../utils/call.js';
 import { task } from '../utils/task.js';
 import { html, render } from '../vendors/uhtml.js';
 import { getStyles } from './getStyles.js';
-import { host } from './host.js';
+import { shadowRoot } from './shadowRoot.js';
 
 export const request = (target: PlusElement, state?: { [key: string]: [any, any] }): Promise<boolean> => {
   target[CONSTANTS.REQUEST] ||= task({
@@ -18,8 +18,7 @@ export const request = (target: PlusElement, state?: { [key: string]: [any, any]
     },
     run: (states) => {
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);
-      const element = host(target);
-      render(element.shadowRoot!, () => {
+      render(shadowRoot(target), () => {
         const markup = call(target, CONSTANTS.METHOD_RENDER);
         const styles = getStyles(target);
         if (!styles && !markup) return html``;

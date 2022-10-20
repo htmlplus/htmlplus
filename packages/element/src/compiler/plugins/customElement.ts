@@ -163,6 +163,19 @@ export const customElement = (options?: CustomElementOptions) => {
                 properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE), type));
               }
 
+              // TODO
+              // prettier-ignore
+              property
+                ?.decorators
+                ?.find((decorator) => {
+                  return decorator.expression?.['callee']?.name == CONSTANTS.DECORATOR_PROPERTY;
+                })
+                ?.expression
+                ?.['arguments']
+                ?.[0]
+                ?.properties
+                ?.forEach((property) => properties.push(property));
+
               return t.objectProperty(t.identifier(property.key['name']), t.objectExpression(properties));
             }),
             ...context.classMethods!.map((method) =>

@@ -1,17 +1,17 @@
 import { createServer } from 'vite';
 
-import { vite as htmlplus } from '../../../dist/bundlers/index.js';
+import { vite as htmlplus } from '../../bundlers/index.js';
 import plugins from '../plus.config.js';
 
 createServer({
-  root: 'src/dev',
   server: {
-    open: true,
+    open: '/src/dev/index.html',
     port: 3500
   },
   resolve: {
     alias: {
-      '@htmlplus/element': '../../../dist'
+      '@htmlplus/element/client': '/src/client/',
+      '@htmlplus/element': '/src/client/index.js'
     }
   },
   css: {

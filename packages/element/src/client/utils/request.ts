@@ -6,12 +6,8 @@ import { html, render } from '../vendors/uhtml.js';
 import { getStyles } from './getStyles.js';
 import { host } from './host.js';
 
-const targets = new Map();
-
 export const request = (target: PlusElement, state?: { [key: string]: [any, any] }): Promise<boolean> => {
-  let run = targets.get(target);
-  if (run) return run(state);
-  run = task({
+  target[CONSTANTS.REQUEST] ||= task({
     canStart: (states, state) => {
       // TODO: hasChange
       return true;
@@ -34,6 +30,5 @@ export const request = (target: PlusElement, state?: { [key: string]: [any, any]
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);
     }
   });
-  targets.set(target, run);
-  return run(state);
+  return target[CONSTANTS.REQUEST](state);
 };

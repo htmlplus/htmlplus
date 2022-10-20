@@ -41,6 +41,7 @@ export const UTILS_STYLE_MAP = 'styles';
 
 // TODO
 export const SYNC = Symbol();
+export const REQUEST = Symbol();
 export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';
 export const AUTO_IMPORT_STYLE = 'AUTO_IMPORT_STYLE';
 export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';

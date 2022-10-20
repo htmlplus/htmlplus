@@ -19,11 +19,9 @@ export const request = (target: PlusElement, state?: { [key: string]: [any, any]
     run: (states) => {
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);
       render(shadowRoot(target), () => {
-        const markup = call(target, CONSTANTS.METHOD_RENDER);
+        const markup = call(target, CONSTANTS.METHOD_RENDER) || html``;
         const styles = getStyles(target);
-        if (!styles && !markup) return html``;
         if (!styles) return markup;
-        if (!markup) return html`<style>${styles}</style>`;
         return html`<style>${styles}</style>${markup}`;
       });
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);

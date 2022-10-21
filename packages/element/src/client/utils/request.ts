@@ -11,7 +11,7 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
 
   const stack = stacks.get(name) || { callbacks: [], previous };
 
-  stack.callbacks.push(callback);
+  callback && stack.callbacks.push(callback);
 
   stacks.set(name, stack);
 

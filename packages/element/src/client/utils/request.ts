@@ -4,18 +4,28 @@ import { call } from '../utils/call.js';
 import { task } from '../utils/task.js';
 import { html, render } from '../vendors/uhtml.js';
 import { getStyles } from './getStyles.js';
-import { host } from './host.js';
 import { shadowRoot } from './shadowRoot.js';
-import { updateAttribute } from './updateAttribute.js';
 
-export const request = (target: PlusElement, name?: string, value?: any, options?) => {
-  const states = (target[CONSTANTS.API_STATES] ||= new Map<string, any>());
+export const request = (target: PlusElement, name?: string, previous?: any, callback?: Function) => {
+  const stacks = (target[CONSTANTS.API_STACKS] ||= new Map());
 
-  name && states.set(name, { value, options });
+  const stack = stacks.get(name) || { callbacks: [], previous };
+
+  stack.callbacks.push(callback);
+
+  stacks.set(name, stack);
 
   target[CONSTANTS.API_REQUEST] ||= task({
     run: () => {
+      const states = new Map(
+        Array.from(stacks)
+          .filter((stack: any) => stack[0])
+          .map((stack: any) => [stack[0], stack[1].previous])
+      );
+
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);
+
+      target[CONSTANTS.API_IS_RENDERING] = true;
 
       render(shadowRoot(target), () => {
         const markup = call(target, CONSTANTS.METHOD_RENDER);
@@ -24,21 +34,17 @@ export const request = (target: PlusElement, name?: string, value?: any, options
         return html`<style>${styles}</style>${markup}`;
       });
 
-      target[CONSTANTS.API_IS_RENDERING] = true;
-      states.forEach((value, key) => {
-        if (!value?.options?.reflect) return;
-        updateAttribute(host(target), key, target[key]);
+      stacks.forEach((state) => {
+        state.callbacks.forEach((callback, index, callbacks) => {
+          callback(callbacks.length - 1 != index);
+        });
       });
-      target[CONSTANTS.API_IS_RENDERING] = false;
 
-      if (!target[CONSTANTS.API_IS_LOADED]) {
-        target[CONSTANTS.API_IS_LOADED] = true;
-        call(target, CONSTANTS.LIFECYCLE_LOADED, states);
-      }
+      target[CONSTANTS.API_IS_RENDERING] = false;
 
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);
 
-      states.clear();
+      stacks.clear();
     }
   });
 

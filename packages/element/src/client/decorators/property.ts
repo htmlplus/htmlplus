@@ -1,6 +1,6 @@
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import { defineProperty, host, request, appendToMethod } from '../utils/index.js';
+import { defineProperty, host, request, appendToMethod, updateAttribute } from '../utils/index.js';
 
 export interface PropertyOptions {
   /**
@@ -19,14 +19,17 @@ export function Property(options?: PropertyOptions) {
       return this[symbol];
     }
 
-    function set(this, input) {
-      const value = this[symbol];
+    function set(this, next) {
+      const previous = this[symbol];
 
-      if (input === value) return;
+      if (next === previous) return;
 
-      this[symbol] = input;
+      this[symbol] = next;
 
-      request(this, name, value, options);
+      request(this, name, previous, (skip) => {
+        if (!options?.reflect || skip) return;
+        updateAttribute(host(this), name, next);
+      });
     }
 
     defineProperty(target, propertyKey, { get, set });

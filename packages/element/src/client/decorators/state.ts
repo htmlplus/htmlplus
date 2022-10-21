@@ -11,14 +11,14 @@ export function State() {
       return this[symbol];
     }
 
-    function set(this, input) {
-      const value = this[symbol];
+    function set(this, next) {
+      const previous = this[symbol];
 
-      if (input === value) return;
+      if (next === previous) return;
 
-      this[symbol] = input;
+      this[symbol] = next;
 
-      request(this, name, value);
+      request(this, name, previous);
     }
 
     // TODO: configurable

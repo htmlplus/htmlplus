@@ -58,7 +58,10 @@ export function Element(tag?: string) {
           this.attributeChangedCallback.apply(this, parameters);
         });
 
-        request(instance);
+        request(instance, undefined, undefined, () => {
+          instance[CONSTANTS.API_IS_LOADED] = true;
+          call(instance, CONSTANTS.LIFECYCLE_LOADED);
+        });
       }
 
       disconnectedCallback() {

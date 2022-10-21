@@ -17,7 +17,7 @@ export function Watch(keys?: Array<string>, immediate?: boolean) {
         // TODO
         if (keys?.length && !keys.includes(key)) return;
         // TODO
-        if (!immediate && !this[CONSTANTS.LOADED]) return;
+        if (!immediate && !this[CONSTANTS.API_IS_LOADED]) return;
         // Invokes the method with parameters.
         this[propertyKey](this[key], prev, key);
       });

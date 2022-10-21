@@ -3,7 +3,12 @@ export const PACKAGE_NAME = '@htmlplus/element';
 // apis
 export const API_HOST = Symbol();
 export const API_INSTANCE = Symbol();
-export const API_STATUS = Symbol();
+export const API_IS_LOADED = Symbol();
+export const API_IS_RENDERING = Symbol();
+export const API_ATTRIBUTES_PRIMARY = Symbol();
+export const API_ATTRIBUTES_SYNCER = Symbol();
+export const API_REQUEST = Symbol();
+export const API_STATES = Symbol();
 
 // decorators
 export const DECORATOR_ELEMENT = 'Element';
@@ -40,12 +45,6 @@ export const TYPE_NUMBER = 'Number';
 export const UTILS_STYLE_MAP = 'styles';
 
 // TODO
-export const SYNC = Symbol();
-export const REQUEST = Symbol();
-export const LOADED = Symbol();
-export const STATES = Symbol();
-export const ATTRIBUTE_CHANGED_CALLBACK = Symbol();
-export const ATTRIBUTES_STACK = Symbol();
 export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';
 export const AUTO_IMPORT_STYLE = 'AUTO_IMPORT_STYLE';
 export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';

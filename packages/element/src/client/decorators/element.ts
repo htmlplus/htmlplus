@@ -29,10 +29,10 @@ export function Element(tag?: string) {
         const instance = this[CONSTANTS.API_INSTANCE];
 
         if (!instance) {
-          return (this[CONSTANTS.ATTRIBUTES_STACK] ||= []).push([attribute, prev, next]);
+          return (this[CONSTANTS.API_ATTRIBUTES_PRIMARY] ||= []).push([attribute, prev, next]);
         }
 
-        if (instance[CONSTANTS.ATTRIBUTE_CHANGED_CALLBACK]) return;
+        if (instance[CONSTANTS.API_IS_RENDERING]) return;
 
         const name = camelCase(attribute);
 
@@ -54,7 +54,7 @@ export function Element(tag?: string) {
 
         call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 
-        this[CONSTANTS.ATTRIBUTES_STACK]?.forEach((parameters) => {
+        this[CONSTANTS.API_ATTRIBUTES_PRIMARY]?.forEach((parameters) => {
           this.attributeChangedCallback.apply(this, parameters);
         });
 

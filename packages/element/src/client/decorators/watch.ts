@@ -11,20 +11,16 @@ import { appendToMethod } from '../utils/index.js';
 export function Watch(keys?: Array<string>, immediate?: boolean) {
   return function (target: PlusElement, propertyKey: PropertyKey): void {
     // Registers a lifecycle to detect changes.
-    appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function ([states]) {
+    appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function (states: Map<string, any>) {
       // Loops the keys
-      for (const key of Object.keys(states)) {
+      states.forEach((prev, key) => {
         // TODO
-        if (keys?.length && !keys.includes(key)) continue;
-        // Checks the existence of key
-        if (keys?.length && !(key in states)) continue;
-        // Gets the current state
-        const [next, prev] = states[key];
+        if (keys?.length && !keys.includes(key)) return;
         // TODO
-        if (!immediate && this[CONSTANTS.API_STATUS] != 'loaded') continue;
+        if (!immediate && !this[CONSTANTS.LOADED]) return;
         // Invokes the method with parameters.
-        this[propertyKey](next, prev, key);
-      }
+        this[propertyKey](this[key], prev, key);
+      });
     });
   };
 }

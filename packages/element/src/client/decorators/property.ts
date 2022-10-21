@@ -1,16 +1,6 @@
-import { paramCase } from 'change-case';
-
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import {
-  defineProperty,
-  getMemberType,
-  host,
-  parseValue,
-  request,
-  updateAttribute,
-  appendToMethod
-} from '../utils/index.js';
+import { defineProperty, host, request, appendToMethod } from '../utils/index.js';
 
 export interface PropertyOptions {
   /**
@@ -23,11 +13,7 @@ export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     const name = String(propertyKey);
 
-    const attribute = paramCase(name);
-
     const symbol = Symbol();
-
-    const type = getMemberType(target, name);
 
     function get(this) {
       return this[symbol];
@@ -40,18 +26,7 @@ export function Property(options?: PropertyOptions) {
 
       this[symbol] = input;
 
-      const isReady = this[CONSTANTS.API_STATUS] == 'initialize';
-
-      request(this, { [name]: [input, value] }).then(() => {
-        const element = host(this);
-        const has = element.hasAttribute(attribute);
-        if (!isReady && has) return;
-        if (!options?.reflect) return;
-        const raw = element.getAttribute(attribute);
-        const parsed = parseValue(raw, type);
-        if (input === parsed) return;
-        updateAttribute(element, attribute, input);
-      });
+      request(this, name, value, options);
     }
 
     defineProperty(target, propertyKey, { get, set });

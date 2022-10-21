@@ -18,11 +18,7 @@ export function State() {
 
       this[symbol] = input;
 
-      request(this, { [name]: [input, value] })
-        .then(() => undefined)
-        .catch((error) => {
-          throw error;
-        });
+      request(this, name, value);
     }
 
     // TODO: configurable

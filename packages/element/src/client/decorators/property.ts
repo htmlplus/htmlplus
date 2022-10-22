@@ -28,7 +28,12 @@ export function Property(options?: PropertyOptions) {
 
       request(this, name, previous, (skip) => {
         if (!options?.reflect || skip) return;
+
+        target[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK] = true;
+
         updateAttribute(host(this), name, next);
+
+        target[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK] = false;
       });
     }
 

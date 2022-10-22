@@ -33,7 +33,7 @@ export function Element(tag?: string) {
       attributeChangedCallback(attribute, prev, next) {
         const instance = this[CONSTANTS.API_INSTANCE];
 
-        if (instance[CONSTANTS.API_IS_RENDERING]) return;
+        if (instance[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK]) return;
 
         const name = camelCase(attribute);
 

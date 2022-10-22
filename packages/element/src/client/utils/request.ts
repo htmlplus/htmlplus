@@ -27,8 +27,6 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
 
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);
 
-      target[CONSTANTS.API_IS_RENDERING] = true;
-
       render(shadowRoot(target), () => {
         const markup = call(target, CONSTANTS.METHOD_RENDER);
         const styles = getStyles(target);
@@ -41,8 +39,6 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
           callback(callbacks.length - 1 != index);
         });
       });
-
-      target[CONSTANTS.API_IS_RENDERING] = false;
 
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);
 

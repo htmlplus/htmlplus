@@ -52,11 +52,11 @@ export function Element(tag?: string) {
 
         instance[CONSTANTS.API_HOST] = () => this;
 
-        call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
-
         this[CONSTANTS.API_ATTRIBUTES_PRIMARY]?.forEach((parameters) => {
           this.attributeChangedCallback.apply(this, parameters);
         });
+
+        call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 
         request(instance, undefined, undefined, () => {
           instance[CONSTANTS.API_IS_LOADED] = true;

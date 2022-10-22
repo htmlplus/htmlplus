@@ -24,7 +24,7 @@ export const readme = (options: ReadmeOptions) => {
 
       if (!context.readmePath) continue;
 
-      if (!fs.existsSync(context.readmePath)) return;
+      if (!fs.existsSync(context.readmePath)) continue;
 
       context.readmeContent = fs.readFileSync(context.readmePath, 'utf8');
     }

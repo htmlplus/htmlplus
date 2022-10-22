@@ -5,7 +5,6 @@ export const API_HOST = Symbol();
 export const API_INSTANCE = Symbol();
 export const API_IS_LOADED = Symbol();
 export const API_IS_RENDERING = Symbol();
-export const API_ATTRIBUTES_PRIMARY = Symbol();
 export const API_ATTRIBUTES_SYNCER = Symbol();
 export const API_REQUEST = Symbol();
 export const API_STACKS = Symbol();

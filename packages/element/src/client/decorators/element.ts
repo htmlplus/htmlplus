@@ -13,7 +13,12 @@ export function Element(tag?: string) {
     class Plus extends HTMLElement {
       constructor() {
         super();
+
         this.attachShadow({ mode: 'open' });
+
+        this[CONSTANTS.API_INSTANCE] = new (constructor as any)();
+
+        this[CONSTANTS.API_INSTANCE][CONSTANTS.API_HOST] = () => this;
       }
 
       // TODO: ignore functions
@@ -27,10 +32,6 @@ export function Element(tag?: string) {
 
       attributeChangedCallback(attribute, prev, next) {
         const instance = this[CONSTANTS.API_INSTANCE];
-
-        if (!instance) {
-          return (this[CONSTANTS.API_ATTRIBUTES_PRIMARY] ||= []).push([attribute, prev, next]);
-        }
 
         if (instance[CONSTANTS.API_IS_RENDERING]) return;
 
@@ -46,15 +47,7 @@ export function Element(tag?: string) {
       }
 
       connectedCallback() {
-        this[CONSTANTS.API_INSTANCE] = new (constructor as any)();
-
         const instance = this[CONSTANTS.API_INSTANCE];
-
-        instance[CONSTANTS.API_HOST] = () => this;
-
-        this[CONSTANTS.API_ATTRIBUTES_PRIMARY]?.forEach((parameters) => {
-          this.attributeChangedCallback.apply(this, parameters);
-        });
 
         call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 

@@ -49,6 +49,8 @@ export function Element(tag?: string) {
       connectedCallback() {
         const instance = this[CONSTANTS.API_INSTANCE];
 
+        instance[CONSTANTS.API_IS_CONNECTED] = true;
+
         call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 
         request(instance, undefined, undefined, () => {

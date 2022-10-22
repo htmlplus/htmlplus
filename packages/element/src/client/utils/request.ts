@@ -17,6 +17,8 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
 
   target[CONSTANTS.API_REQUEST] ||= task({
     run: () => {
+      if (!target[CONSTANTS.API_IS_CONNECTED]) return;
+
       const states = new Map(
         Array.from(stacks)
           .filter((stack: any) => stack[0])

@@ -15,3 +15,17 @@ This component helps to specify a fixed ratio for the width and height sizes of 
 <Example value="video" />
 
 <Example value="more" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

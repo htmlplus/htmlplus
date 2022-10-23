@@ -11,3 +11,17 @@ Allows you to select file or files by using click or drag & drop functionality.
 <Examples />
 
 <Example value="default" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

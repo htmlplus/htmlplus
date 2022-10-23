@@ -15,3 +15,17 @@ This component allows you to apply an animation on your component such as fade o
 <Example value="name" />
 
 <Example value="duration" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

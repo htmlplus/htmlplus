@@ -21,3 +21,17 @@ It's an indicator of progress and activity in order to show the loading state of
 <Example value="type" />
 
 <Example value="customize" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

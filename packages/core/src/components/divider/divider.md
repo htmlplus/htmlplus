@@ -25,3 +25,17 @@ It's a thin line that can divide the content vertically or horizontally.
 <Example value="card" />
 
 <Example value="customize" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

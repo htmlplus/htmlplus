@@ -37,3 +37,17 @@ A dialog is a `conversation` between the system and the user. It is prompted whe
 <Example value="nesting" />
 
 <Example value="prevent" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

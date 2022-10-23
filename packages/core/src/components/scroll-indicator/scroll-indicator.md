@@ -11,3 +11,17 @@ Scroll Indicator is a responsive reading progress bar that increases with the sc
 <Examples />
 
 <Example value="default" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    properties={false}
+    slots={false}
+/>

@@ -125,16 +125,39 @@ export class Animation {
   plusFinish!: EventEmitter<void>;
 
   /**
+   * TODO.
+   */
+  @Event()
+  plusRemove!: EventEmitter<void>;
+
+  /**
    * Fires when the animation starts playing.
    */
   @Event()
   plusStart!: EventEmitter<void>;
 
-  private animation?;
+  animation?: globalThis.Animation;
 
   get $host() {
     return Helpers.host(this);
   }
+
+  get options() {
+    return {
+      composite: this.composite,
+      delay: this.delay,
+      direction: this.direction,
+      duration: this.duration,
+      easing: ANIMATION_EASINGS[this.easing] ?? this.easing,
+      endDelay: this.endDelay,
+      fill: this.fill,
+      iterationComposite: this.iterationComposite,
+      iterations: this.iterations,
+      iterationStart: this.iterationStart,
+      keyframes: this.keyframes ?? window['PLUS_ANIMATION_KEYFRAME']?.[this.name],
+      playbackRate: this.playbackRate,
+    }
+  } 
 
   /**
    * External Methods
@@ -162,41 +185,28 @@ export class Animation {
    */
 
   bind() {
-    const easing = ANIMATION_EASINGS[this.easing] ?? this.easing;
-
-    const keyframes = this.keyframes ?? window['PLUS_ANIMATION_KEYFRAME']?.[this.name];
+    const { keyframes, ...options } = this.options; 
 
     if (!keyframes) return;
 
     this.unbind();
 
-    this.animation = this.$host.animate(keyframes, {
-      composite: this.composite,
-      delay: this.delay,
-      direction: this.direction,
-      duration: this.duration,
-      easing,
-      endDelay: this.endDelay,
-      fill: this.fill,
-      iterationComposite: this.iterationComposite,
-      iterations: this.iterations,
-      iterationStart: this.iterationStart,
-      playbackRate: this.playbackRate,
-    });
+    this.animation = this.$host.animate(keyframes, options);
 
     if (!this.play) return this.animation.cancel();
 
     this.animation.addEventListener('cancel', this.onCancel);
     this.animation.addEventListener('finish', this.onFinish);
+    this.animation.addEventListener('remove', this.onRemove);
 
     this.plusStart();
   }
 
   unbind() {
-    if (!this.animation) return
-    this.animation.cancel();
-    this.animation.removeEventListener('cancel', this.onCancel);
-    this.animation.removeEventListener('finish', this.onFinish);
+    this.animation?.cancel();
+    this.animation?.removeEventListener('cancel', this.onCancel);
+    this.animation?.removeEventListener('finish', this.onFinish);
+    this.animation?.removeEventListener('remove', this.onFinish);
   }
 
   /**
@@ -234,6 +244,11 @@ export class Animation {
   onFinish() {
     this.play = false;
     this.plusFinish();
+  }
+
+  @Bind()
+  onRemove() {
+    this.plusRemove();
   }
 
   /**

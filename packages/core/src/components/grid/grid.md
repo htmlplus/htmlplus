@@ -50,6 +50,8 @@ It's the most flexible and powerful grid system which you need to build simple t
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

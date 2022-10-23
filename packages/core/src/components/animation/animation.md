@@ -26,6 +26,8 @@ This component allows you to apply an animation on your component such as fade o
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

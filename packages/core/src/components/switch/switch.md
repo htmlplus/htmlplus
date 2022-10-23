@@ -32,6 +32,8 @@ Toggles the state of a single item on or off.
     events={true}
     keyboard={true}
     methods="N/A"
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={true}
 />

@@ -32,6 +32,8 @@ It's an indicator of progress and activity in order to show the loading state of
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

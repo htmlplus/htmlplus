@@ -22,6 +22,8 @@ This component lets you add collapsible side contents like navigation alongside 
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

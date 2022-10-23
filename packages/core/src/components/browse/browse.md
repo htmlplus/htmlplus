@@ -22,6 +22,8 @@ Allows you to select file or files by using click or drag & drop functionality.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

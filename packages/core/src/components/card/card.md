@@ -36,6 +36,8 @@ Cards contain content and actions about a single subject.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

@@ -41,6 +41,8 @@ an area of images before they're uploaded to the server.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

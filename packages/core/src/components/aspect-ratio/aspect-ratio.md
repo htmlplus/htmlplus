@@ -26,6 +26,8 @@ This component helps to specify a fixed ratio for the width and height sizes of 
     events="N/A"
     keyboard="N/A"
     methods="N/A"
+    playground={false}
     properties={true}
+    skeleton={false}
     slots={true}
 />

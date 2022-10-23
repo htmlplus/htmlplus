@@ -22,6 +22,8 @@ Scroll Indicator is a responsive reading progress bar that increases with the sc
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

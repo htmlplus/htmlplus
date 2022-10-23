@@ -139,6 +139,8 @@ In the case of focusable interactive elements, there are various options to incl
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

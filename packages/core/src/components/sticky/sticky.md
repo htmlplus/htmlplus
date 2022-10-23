@@ -28,6 +28,8 @@ Component content is positioned based on the user's scroll position.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

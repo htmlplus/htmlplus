@@ -24,6 +24,8 @@ This component provides a way to asynchronously observe changes in the intersect
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

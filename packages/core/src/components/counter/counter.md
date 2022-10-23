@@ -22,6 +22,8 @@ Can be used to quickly create animations that display numerical data in a more i
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

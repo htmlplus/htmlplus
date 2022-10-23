@@ -36,6 +36,8 @@ It's a thin line that can divide the content vertically or horizontally.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

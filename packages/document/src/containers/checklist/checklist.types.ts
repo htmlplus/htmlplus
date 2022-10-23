@@ -8,6 +8,8 @@ export interface ChecklistProps {
   events?: boolean;
   keyboard?: boolean;
   methods?: boolean;
+  playground?: boolean;
   properties?: boolean;
+  skeleton?: boolean;
   slots?: boolean;
 }

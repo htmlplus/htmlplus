@@ -25,6 +25,8 @@ they're placed in the DOM tree.
     events={false}
     keyboard={false}
     methods={false}
+    playground={false}
     properties={false}
+    skeleton={false}
     slots={false}
 />

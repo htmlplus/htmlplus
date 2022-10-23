@@ -155,9 +155,7 @@ export class Breadcrumb {
 
   @Bind()
   onChange() {
-    request(this)
-      .then(() => undefined)
-      .catch(() => undefined)
+    request(this);
   }
 
   /**

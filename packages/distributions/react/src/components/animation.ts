@@ -12,11 +12,12 @@ type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Er
 type Renamed = Rename<AnimationJSX, { 
   onPlusCancel: 'onCancel',
   onPlusFinish: 'onFinish',
+  onPlusRemove: 'onRemove',
   onPlusStart: 'onStart',
 }>
 
 export const Animation = proxy<HTMLPlusAnimationElement, Renamed>(
   'plus-animation', 
-  ['composite', 'delay', 'direction', 'duration', 'easing', 'endDelay', 'fill', 'iterationComposite', 'iterations', 'iterationStart', 'keyframes', 'name', 'play', 'playbackRate', ], 
-  ['plusCancel', 'plusFinish', 'plusStart', ],
+  ['composite', 'delay', 'direction', 'duration', 'easing', 'endDelay', 'fill', 'iterationComposite', 'iterations', 'iterationStart', 'keyframes', 'name', 'play', 'playbackRate', 'state', ], 
+  ['plusCancel', 'plusFinish', 'plusRemove', 'plusStart', ],
 );

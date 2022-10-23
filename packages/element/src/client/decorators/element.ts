@@ -54,7 +54,6 @@ export function Element(tag?: string) {
         call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 
         request(instance, undefined, undefined, () => {
-          instance[CONSTANTS.API_IS_LOADED] = true;
           call(instance, CONSTANTS.LIFECYCLE_LOADED);
         });
       }

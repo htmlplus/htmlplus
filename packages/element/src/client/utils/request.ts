@@ -8,6 +8,10 @@ import { shadowRoot } from './shadowRoot.js';
 
 /**
  * Updates the DOM with a scheduled task.
+ * @param target The component instance.
+ * @param name Property/State name.
+ * @param previous The previous value of Property/State.
+ * @param callback Invoked when the rendering phase is completed.
  */
 export const request = (target: PlusElement, name?: string, previous?: any, callback?: Function): void => {
   // Creates/Gets a stacks.
@@ -51,7 +55,7 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
 
         // Returns the markup and styles together.
         return html`<style>${styles}</style>${markup}`;
-      }
+      };
 
       // Renders template to the DOM.
       render(shadowRoot(target), template);

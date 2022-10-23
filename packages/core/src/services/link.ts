@@ -186,12 +186,11 @@ const setValue = (property: LinkProperty, value: any): void => {
    * extra render should be removed. callback 'attributeChangedCallback' in '@Element'
    * should use the 'request' method inside itself to update properties.
    */
-  if (property.type == 'INJECT' && property.options)
-    request(property.instance)
-      .then(() => {
-        // render(property.instance)
-      })
-      .catch(() => undefined);
+  if (property.type == 'INJECT' && property.options) request(property.instance);
+  // .then(() => {
+  //   // render(property.instance)
+  // })
+  // .catch(() => undefined);
 };
 
 const unregister = (property: LinkProperty): void => {

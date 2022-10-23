@@ -2,7 +2,7 @@ import { Switch } from '@htmlplus/react';
 
 const SwitchEvent = () => {
   const onChange = (event) => {
-    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);
+    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);
   };
 
   return (

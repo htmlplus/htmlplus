@@ -7168,8 +7168,8 @@
     "category": "angular",
     "component": "switch",
     "detail": {
-      "script": "import { Component } from '@angular/core';\nimport '@htmlplus/core/switch.js';\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n  onChange(event) {\n    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n  }\n}\n",
-      "style": ".center {\n  text-align: center;\n}\n",
+      "script": "import { Component } from '@angular/core';\nimport '@htmlplus/core/switch.js';\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n  onChange(event) {\n    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n  }\n}\n",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n",
       "template": "<div class=\"center\">\n  <plus-switch (plus-change)=\"onChange($event)\"></plus-switch>\n</div>\n"
     }
   },
@@ -7178,8 +7178,8 @@
     "category": "javascript",
     "component": "switch",
     "detail": {
-      "script": "import 'https://unpkg.com/@htmlplus/core/switch.js';\n\nelement1.addEventListener('plus-change', (event) => {\r\n  window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\r\n});",
-      "style": ".center {\n  text-align: center;\n}\n",
+      "script": "import 'https://unpkg.com/@htmlplus/core/switch.js';\n\nelement1.addEventListener('plus-change', (event) => {\r\n  window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\r\n});",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n",
       "template": "<div class=\"center\">\r\n  <plus-switch id=\"element1\"></plus-switch>\r\n</div>"
     }
   },
@@ -7188,8 +7188,8 @@
     "category": "react",
     "component": "switch",
     "detail": {
-      "script": "import { Switch } from '@htmlplus/react';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <Switch onChange={(event) => onChange(event)}></Switch>\n    </div>\n  );\n};\n\nexport default SwitchEvent;\n",
-      "style": ".center {\n  text-align: center;\n}\n"
+      "script": "import { Switch } from '@htmlplus/react';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <Switch onChange={(event) => onChange(event)}></Switch>\n    </div>\n  );\n};\n\nexport default SwitchEvent;\n",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n"
     }
   },
   {
@@ -7197,8 +7197,8 @@
     "category": "react@experimental",
     "component": "switch",
     "detail": {
-      "script": "import '@htmlplus/core/switch.js';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <plus-switch onplus-change={(event) => onChange(event)}></plus-switch>\n    </div>\n  );\n};\n\nexport default SwitchEvent;\n",
-      "style": ".center {\n  text-align: center;\n}\n"
+      "script": "import '@htmlplus/core/switch.js';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <plus-switch onplus-change={(event) => onChange(event)}></plus-switch>\n    </div>\n  );\n};\n\nexport default SwitchEvent;\n",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n"
     }
   },
   {
@@ -7206,8 +7206,8 @@
     "category": "svelte",
     "component": "switch",
     "detail": {
-      "script": "import '@htmlplus/core/switch.js';\n\nfunction onChange(event) {\n  window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n}\n",
-      "style": ".center {\n  text-align: center;\n}\n",
+      "script": "import '@htmlplus/core/switch.js';\n\nfunction onChange(event) {\n  window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n}\n",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n",
       "template": "<div class=\"center\">\n  <plus-switch on:plus-change=\"{event => onChange(event)}\"></plus-switch>\n</div>\n"
     }
   },
@@ -7216,8 +7216,8 @@
     "category": "vue",
     "component": "switch",
     "detail": {
-      "script": "import '@htmlplus/core/switch.js';\n\nfunction onChange(event) {\n  window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n}\n",
-      "style": ".center {\n  text-align: center;\n}\n",
+      "script": "import '@htmlplus/core/switch.js';\n\nfunction onChange(event) {\n  window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n}\n",
+      "style": ".center {\n  text-align: center;\n  padding: 2.5rem 0;\n}\n",
       "template": "<div class=\"center\">\n  <plus-switch @plus-change=\"onChange($event)\"></plus-switch>\n</div>\n"
     }
   },
@@ -7226,7 +7226,7 @@
     "category": "preview",
     "component": "switch",
     "detail": {
-      "script": "import { Switch } from '@htmlplus/react';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <Switch onChange={(event) => onChange(event)}></Switch>\n    </div>\n  );\n};\n\nconst SwitchEventExample = () => {\n  return (\n    <div className=\"ex-switch-event\">\n      <SwitchEvent />\n      <style>{`.ex-switch-event .center {  text-align: center;}`}</style>\n    </div>\n  )\n};\n\nexport default SwitchEventExample;"
+      "script": "import { Switch } from '@htmlplus/react';\n\nconst SwitchEvent = () => {\n  const onChange = (event) => {\n    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);\n  };\n\n  return (\n    <div className=\"center\">\n      <Switch onChange={(event) => onChange(event)}></Switch>\n    </div>\n  );\n};\n\nconst SwitchEventExample = () => {\n  return (\n    <div className=\"ex-switch-event\">\n      <SwitchEvent />\n      <style>{`.ex-switch-event .center {  text-align: center;  padding: 2.5rem 0;}`}</style>\n    </div>\n  )\n};\n\nexport default SwitchEventExample;"
     }
   },
   {

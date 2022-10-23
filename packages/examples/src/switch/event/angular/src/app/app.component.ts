@@ -7,6 +7,6 @@ import '@htmlplus/core/switch.js';
 })
 export class AppComponent {
   onChange(event) {
-    window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);
+    window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);
   }
 }

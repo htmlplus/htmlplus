@@ -18,6 +18,6 @@ type Renamed = Rename<AnimationJSX, {
 
 export const Animation = proxy<HTMLPlusAnimationElement, Renamed>(
   'plus-animation', 
-  ['composite', 'delay', 'direction', 'duration', 'easing', 'endDelay', 'fill', 'iterationComposite', 'iterations', 'iterationStart', 'keyframes', 'name', 'play', 'playbackRate', 'state', ], 
+  ['composite', 'delay', 'direction', 'duration', 'easing', 'endDelay', 'fill', 'iterationComposite', 'iterations', 'iterationStart', 'keyframes', 'name', 'play', 'playbackRate', ], 
   ['plusCancel', 'plusFinish', 'plusRemove', 'plusStart', ],
 );

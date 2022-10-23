@@ -2,7 +2,7 @@
 import '@htmlplus/core/switch.js';
 
 function onChange(event) {
-  window.alert(`Changed state to ${event.target.checked ? 'On' : 'Off'}`);
+  window.alert(`Will be changed to ${event.target.checked ? 'On' : 'Off'}`);
 }
 
 </script>
@@ -15,6 +15,7 @@ function onChange(event) {
 <style>
 .center {
   text-align: center;
+  padding: 2.5rem 0;
 }
 
 </style>

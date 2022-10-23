@@ -6,45 +6,71 @@ import { html, render } from '../vendors/uhtml.js';
 import { getStyles } from './getStyles.js';
 import { shadowRoot } from './shadowRoot.js';
 
-export const request = (target: PlusElement, name?: string, previous?: any, callback?: Function) => {
+/**
+ * Updates the DOM with a scheduled task.
+ */
+export const request = (target: PlusElement, name?: string, previous?: any, callback?: Function): void => {
+  // Creates/Gets a stacks.
   const stacks = (target[CONSTANTS.API_STACKS] ||= new Map());
 
+  // Creates/Updates a stack
   const stack = stacks.get(name) || { callbacks: [], previous };
 
+  // Adds the callback to the stack, if exists.
   callback && stack.callbacks.push(callback);
 
+  // Stores the stack.
   stacks.set(name, stack);
 
+  // Creates/Gets a micro task function.
   target[CONSTANTS.API_REQUEST] ||= task({
     run: () => {
+      // Skips the rendering phase if DOM isn't ready.
       if (!target[CONSTANTS.API_IS_CONNECTED]) return;
 
+      // Calculates the states to pass into lifecycles' callbacks.
       const states = new Map(
         Array.from(stacks)
           .filter((stack: any) => stack[0])
           .map((stack: any) => [stack[0], stack[1].previous])
       );
 
+      // Calls the lifecycle's callback before the rendering phase.
       call(target, CONSTANTS.LIFECYCLE_UPDATE, states);
 
-      render(shadowRoot(target), () => {
+      // Calculates the template.
+      const template = () => {
+        // Calculates the markup.
         const markup = call(target, CONSTANTS.METHOD_RENDER);
-        const styles = getStyles(target);
-        if (!styles) return markup;
-        return html`<style>${styles}</style>${markup}`;
-      });
 
+        // Calculates the styles.
+        const styles = getStyles(target);
+
+        // Returns the markup if styles don't exist.
+        if (!styles) return markup;
+
+        // Returns the markup and styles together.
+        return html`<style>${styles}</style>${markup}`;
+      }
+
+      // Renders template to the DOM.
+      render(shadowRoot(target), template);
+
+      // Invokes requests' callback.
       stacks.forEach((state) => {
         state.callbacks.forEach((callback, index, callbacks) => {
           callback(callbacks.length - 1 != index);
         });
       });
 
+      // Calls the lifecycle's callback after the rendering phase.
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);
 
+      // Clears stacks.
       stacks.clear();
     }
   });
 
-  return call(target, CONSTANTS.API_REQUEST);
+  // Calls the micro task.
+  call(target, CONSTANTS.API_REQUEST);
 };

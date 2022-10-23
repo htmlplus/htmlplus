@@ -18,14 +18,14 @@ This component helps to specify a fixed ratio for the width and height sizes of 
 
 <Checklist 
     accessibility={false}
-    bidirectionality={false}
-    cssParts={false}
-    cssVariables={false}
-    documentation={false}
-    examples={false}
-    events={false}
-    keyboard={false}
-    methods={false}
-    properties={false}
-    slots={false}
+    bidirectionality="N/A"
+    cssParts="N/A"
+    cssVariables="N/A"
+    documentation={true}
+    examples={true}
+    events="N/A"
+    keyboard="N/A"
+    methods="N/A"
+    properties={true}
+    slots={true}
 />

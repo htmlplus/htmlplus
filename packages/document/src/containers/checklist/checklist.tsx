@@ -35,39 +35,40 @@ export const Checklist = ({
       <h2>
         <Toc.Item level={2}>Checklist</Toc.Item>
       </h2>
+      <p>List of done</p>
       <Grid gutterX="sm">
         <Grid.Item xs="12" md="6" className={className(accessibility)}>
-          Accessibility
+          <small>Accessibility</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(bidirectionality)}>
-          Bidirectionality
+          <small>Bidirectionality</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(cssParts)}>
-          CSS Parts
+          <small>CSS Parts</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(cssVariables)}>
-          CSS Variables
+          <small>CSS Variables</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(documentation)}>
-          Documentation
+          <small>Documentation</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(examples)}>
-          Examples
+          <small>Examples</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(events)}>
-          Events
+          <small>Events</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(keyboard)}>
-          Keyboard interactions
+          <small>Keyboard interactions</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(methods)}>
-          Methods
+          <small>Methods</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(properties)}>
-          Properties
+          <small>Properties</small>
         </Grid.Item>
         <Grid.Item xs="12" md="6" className={className(slots)}>
-          Slots
+          <small>Slots</small>
         </Grid.Item>
       </Grid>
     </>

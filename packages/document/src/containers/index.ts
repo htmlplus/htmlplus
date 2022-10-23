@@ -7,6 +7,7 @@ export * from './examples';
 export * from './footer';
 export * from './frameworks';
 export * from './header';
+export * from './last-modified';
 export * from './markup';
 export * from './navigation';
 export * from './parameter';

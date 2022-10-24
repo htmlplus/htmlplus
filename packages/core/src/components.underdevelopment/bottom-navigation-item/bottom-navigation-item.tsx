@@ -1,7 +1,7 @@
-import { Attributes, Bind, Element, Property, State, createLink } from '@htmlplus/element';
+import { Attributes, Bind, Element, Property, State } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 
-const { Inject } = createLink('BottomNavigation');
+// const { Inject } = createLink('BottomNavigation');
 
 /**
  * @development 
@@ -23,10 +23,10 @@ export class BottomNavigationItem {
   @Property()
   value?: any;
 
-  @Inject()
+  // @Inject()
   request?: Function = () => console.log('TODO: can not use out of bottom navigation');
 
-  @Inject()
+  // @Inject()
   @State()
   tunnel?: any;
 

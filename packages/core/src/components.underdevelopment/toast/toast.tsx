@@ -1,9 +1,9 @@
-import { Attributes, Element, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element';
+import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { Animation } from '@app/services';
 import { ToastPlacement, ToastType } from './toast.types';
 
-const { Action, Observable, reconnect } = createLink('Toast');
+// const { Action, Observable, reconnect } = createLink('Toast');
 
 /**
  * @development
@@ -119,7 +119,7 @@ export class Toast {
   // TODO
   timeout?;
 
-  @Observable()
+  // @Observable()
   tunnel?: boolean;
 
   get $host() {
@@ -183,7 +183,7 @@ export class Toast {
     this.tryShow(true, false);
   }
 
-  @Action()
+  // @Action()
   toggle() {
     this.isOpen ? this.hide() : this.show();
   }
@@ -333,7 +333,7 @@ export class Toast {
 
       case 'connector':
 
-        reconnect(this);
+        // reconnect(this);
 
         break;
 

@@ -1,8 +1,8 @@
-import { Attributes, Element, Event, EventEmitter, Property, Watch, createLink } from '@htmlplus/element';
+import { Attributes, Element, Event, EventEmitter, Property, Watch } from '@htmlplus/element';
 import * as Helpers from '@app/helpers';
 import { Animation } from '@app/services';
 
-const { Action, Observable } = createLink('BottomNavigation');
+// const { Action, Observable } = createLink('BottomNavigation');
 
 /**
  * @development
@@ -70,7 +70,7 @@ export class BottomNavigation {
 
   animate?: Animation;
 
-  @Observable()
+  // @Observable()
   tunnel?: any;
 
   @Attributes()
@@ -97,7 +97,7 @@ export class BottomNavigation {
     }
   }
 
-  @Action()
+  // @Action()
   request(value: any) {
 
     const event = this.plusChange(value);

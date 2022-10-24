@@ -32,6 +32,9 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
               <div style={{ padding: '16px', maxWidth: '768px', margin: 'auto', minHeight: 'calc(100vh - 154px)' }}>
                 {children}
                 <Contributors />
+                <br />
+                <br />
+                <br />
                 <Navigation />
               </div>
             </Grid.Item>

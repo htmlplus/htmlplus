@@ -7,7 +7,7 @@ import { Context } from '../../types';
 import { addDependency } from '../utils/index.js';
 
 const defaults: Partial<StyleOptions> = {
-  references(context: Context) {
+  source(context) {
     return [
       path.join(context.directoryPath!, `${context.fileName!}.css`),
       path.join(context.directoryPath!, `${context.fileName!}.less`),
@@ -19,20 +19,21 @@ const defaults: Partial<StyleOptions> = {
 };
 
 export type StyleOptions = {
-  references?: (context: Context) => string | string[];
+  source?: (context: Context) => string | string[];
 };
 
-export const style = (options: StyleOptions) => {
+export const style = (options?: StyleOptions) => {
   const name = 'style';
 
   options = Object.assign({}, defaults, options);
 
   const next = (context: Context) => {
-    const references = [options.references!(context)].flat();
+    const sources = [options?.source?.(context)].flat();
 
-    for (const reference of references) {
-      if (!fs.existsSync(reference)) continue;
-      context.stylePath = reference;
+    for (const source of sources) {
+      if (!source) continue;
+      if (!fs.existsSync(source)) continue;
+      context.stylePath = source;
       break;
     }
 

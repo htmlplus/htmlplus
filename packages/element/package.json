@@ -1,6 +1,6 @@
 {
   "name": "@htmlplus/element",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "license": "MIT",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
   "description": "Compiler of HTMLPlus",
@@ -14,7 +14,7 @@
     "postbuild": "node scripts/build.post.js",
     "clean": "rimraf dist",
     "format": "prettier --write .",
-    "dev:start": "node src/dev/scripts/start.js",
+    "dev:start": "ts-node --esm src/dev/scripts/start.ts",
     "dev:build": "ts-node --esm src/dev/scripts/build.ts",
     "dev:build:watch": "nodemon src/dev/scripts/build.ts"
   },

@@ -3,13 +3,14 @@ import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
 
-import { Global } from '../../types';
+import { Context, Global } from '../../types';
 import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
 const defaults: Partial<DocumentOptions> = {};
 
 export interface DocumentOptions {
   destination: string;
+  transformer?: (context: Context, element: any) => any;
 }
 
 export const document = (options: DocumentOptions) => {
@@ -24,6 +25,8 @@ export const document = (options: DocumentOptions) => {
 
     for (const context of global.contexts) {
       const deprecated = hasTag(context.class!, 'deprecated');
+
+      const description = getTags(context.class!).find((tag) => !tag.key)?.value;
 
       const events = context.classEvents!.map((event) => {
         const cancelable = (() => {
@@ -205,31 +208,6 @@ export const document = (options: DocumentOptions) => {
         };
       });
 
-      const readme = (() => {
-        try {
-          const source = path.join(context.directoryPath!, `${context.fileName}.md`);
-          return fs.readFileSync(source, 'utf8');
-        } catch {}
-      })();
-
-      const readmeDescription = (() => {
-        const content = readme || '';
-
-        if (!content.startsWith('# ')) return '';
-
-        const sections = content.split('\n');
-
-        for (let i = 1; i < sections.length; i++) {
-          const section = sections[i].trim();
-
-          if (!section) continue;
-
-          return section;
-        }
-
-        return '';
-      })();
-
       const slots = getTags(context.class!, 'slot').map((tag) => parseTag(tag));
 
       // TODO
@@ -258,35 +236,31 @@ export const document = (options: DocumentOptions) => {
           });
       })();
 
-      const tag = context.componentTag;
-
       const tags = getTags(context.class!);
 
       const title = capitalCase(context.componentKey!);
 
-      json.components.push({
-        // TODO
-        // main
-        // development
-        // source
-
+      const component = {
         events,
         group,
         deprecated,
+        description,
         experimental,
         key: context.componentKey!,
         lastModified,
         methods,
         parts,
         properties,
-        readme,
-        readmeDescription,
+        readmeContent: context.readmeContent,
         slots,
         styles,
-        tag,
         tags,
         title
-      });
+      };
+
+      const transformed = options.transformer?.(context, component) || component;
+
+      json.components.push(transformed);
     }
 
     json.components = json.components.sort((a, b) => (a.title > b.title ? 1 : -1));

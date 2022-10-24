@@ -1,4 +1,5 @@
 # Card
+
 Cards contain content and actions about a single subject.
 
 <Playground />
@@ -24,3 +25,19 @@ Cards contain content and actions about a single subject.
 <Example value="background-color" />
 
 <Example value="customize" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    playground={false}
+    properties={false}
+    skeleton={false}
+    slots={false}
+/>

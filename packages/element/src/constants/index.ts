@@ -3,8 +3,12 @@ export const PACKAGE_NAME = '@htmlplus/element';
 // apis
 export const API_HOST = Symbol();
 export const API_INSTANCE = Symbol();
-// TODO
-export const API_STATUS = Symbol();
+export const API_IS_CONNECTED = Symbol();
+export const API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK = Symbol();
+export const API_IS_LOADED = Symbol();
+export const API_ATTRIBUTES_SYNCER = Symbol();
+export const API_REQUEST = Symbol();
+export const API_STACKS = Symbol();
 
 // decorators
 export const DECORATOR_ELEMENT = 'Element';
@@ -31,11 +35,11 @@ export const STATIC_MEMBERS_TYPE = 'type';
 export const STATIC_STYLES = 'styles';
 
 // types
-export const TYPE_BOOLEAN = 'boolean';
-export const TYPE_DATE = 'date';
-export const TYPE_FUNCTION = 'function';
-export const TYPE_STRING = 'string';
-export const TYPE_NUMBER = 'number';
+export const TYPE_BOOLEAN = 'Boolean';
+export const TYPE_DATE = 'Date';
+export const TYPE_FUNCTION = 'Function';
+export const TYPE_STRING = 'String';
+export const TYPE_NUMBER = 'Number';
 
 // utils
 export const UTILS_STYLE_MAP = 'styles';

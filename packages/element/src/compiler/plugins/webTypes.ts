@@ -1,8 +1,8 @@
-import { camelCase, paramCase } from 'change-case';
+import { paramCase } from 'change-case';
 import fs from 'fs-extra';
 import path from 'path';
 
-import { Global } from '../../types';
+import { Context, Global } from '../../types';
 import { getInitializer, getTags, hasTag, parseTag, print } from '../utils/index.js';
 
 const defaults: Partial<WebTypesOptions> = {};
@@ -11,7 +11,8 @@ export interface WebTypesOptions {
   destination: string;
   packageName: string;
   packageVersion: string;
-  reference?: (componentTag: string) => string;
+  reference?: (context: Context) => string;
+  transformer?: (context: Context, component: any) => any;
 }
 
 export const webTypes = (options: WebTypesOptions) => {
@@ -37,7 +38,7 @@ export const webTypes = (options: WebTypesOptions) => {
       }
     };
 
-    const extract = (member) => ({
+    const common = (member) => ({
       name: member.key['name'],
       description: getTags(member).find((tag) => !tag.key)?.value,
       deprecated: hasTag(member, 'deprecated'),
@@ -46,7 +47,7 @@ export const webTypes = (options: WebTypesOptions) => {
 
     for (const context of global.contexts) {
       const attributes = context.classProperties?.map((property) =>
-        Object.assign({}, extract(property), {
+        Object.assign(common(property), {
           name: paramCase(property.key['name']),
           value: {
             // kind: TODO
@@ -71,21 +72,23 @@ export const webTypes = (options: WebTypesOptions) => {
         })
       );
 
+      const description = getTags(context.class!).find((tag) => !tag.key)?.value;
+
       const events = context.classEvents?.map((event) =>
-        Object.assign({}, extract(event), {
+        Object.assign(common(event), {
           name: paramCase(event.key['name']) // TODO
           // 'value': TODO
         })
       );
 
       const methods = context.classMethods?.map((method) =>
-        Object.assign({}, extract(method), {
+        Object.assign(common(method), {
           // 'value': TODO
         })
       );
 
       const properties = context.classProperties?.map((property) =>
-        Object.assign({}, extract(property), {
+        Object.assign(common(property), {
           // 'value': TODO
           default: getInitializer(property.value!)
         })
@@ -94,18 +97,15 @@ export const webTypes = (options: WebTypesOptions) => {
       const slots = getTags(context.class!, 'slot').map((tag) => {
         const { description, name } = parseTag(tag);
         return {
-          'name': name,
-          'description': description,
-          'doc-url': undefined,
-          'deprecated': false,
-          'experimental': false
+          name,
+          description
         };
       });
 
-      json.contributions.html.elements.push({
+      const component = {
         'name': context.componentTag,
-        'description': 'TODO',
-        'doc-url': options.reference?.(context.componentTag!),
+        'description': description,
+        'doc-url': options.reference?.(context),
         'deprecated': hasTag(context.class!, 'deprecated'),
         'experimental': hasTag(context.class!, 'experimental'),
         'js': {
@@ -114,7 +114,11 @@ export const webTypes = (options: WebTypesOptions) => {
         },
         attributes,
         slots
-      });
+      };
+
+      const transformed = options.transformer?.(context, component) || component;
+
+      json.contributions.html.elements.push(transformed);
     }
 
     const dirname = path.dirname(options.destination);

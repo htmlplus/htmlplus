@@ -13,3 +13,19 @@ This component provides a way to asynchronously observe changes in the intersect
 <Example value="default" />
 
 <Example value="lazy-image" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    playground={false}
+    properties={false}
+    skeleton={false}
+    slots={false}
+/>

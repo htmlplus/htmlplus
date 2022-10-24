@@ -2,10 +2,7 @@ import { ClassBody, ClassDeclaration, ClassMethod, ClassProperty, File } from '@
 
 export interface Context {
   // TODO
-  assets?: string;
   customElementNames?: Array<string>;
-  dependencies?: Array<Context>;
-  dependenciesUnresolved?: Array<string>;
   isInvalid?: boolean;
   script?: string;
   outputs?: Array<{
@@ -14,9 +11,22 @@ export interface Context {
     output?: any;
   }>;
 
+  // assets
+  assets?: string;
+
+  // class
+  class?: ClassDeclaration;
+  classEvents?: Array<ClassProperty>;
+  classHasMount?: boolean;
+  classHasUnmount?: boolean;
+  classMembers?: ClassBody['body'];
+  classMethods?: Array<ClassMethod>;
+  className?: string;
+  classProperties?: Array<ClassProperty>;
+  classRender?: ClassMethod;
+  classStates?: Array<ClassProperty>;
+
   // component
-  componentClassName?: string;
-  componentClassNamePrune?: string;
   componentInterfaceName?: string;
   componentKey?: string;
   componentTag?: string;
@@ -32,21 +42,13 @@ export interface Context {
   fileName?: string;
   filePath?: string;
 
+  // readme
+  readmeContent?: string;
+  readmePath?: string;
+
   // style
   styleContent?: string;
   styleDependencies?: Array<string>;
   styleParsed?: string;
   stylePath?: string;
-
-  // class
-  class?: ClassDeclaration;
-  classEvents?: Array<ClassProperty>;
-  classHasMount?: boolean;
-  classHasUnmount?: boolean;
-  classMembers?: ClassBody['body'];
-  classMethods?: Array<ClassMethod>;
-  className?: string;
-  classProperties?: Array<ClassProperty>;
-  classRender?: ClassMethod;
-  classStates?: Array<ClassProperty>;
 }

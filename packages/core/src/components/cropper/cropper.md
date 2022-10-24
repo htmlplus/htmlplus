@@ -30,3 +30,19 @@ an area of images before they're uploaded to the server.
 <Example value="shape" />
 
 <Example value="styles" />
+
+<Checklist 
+    accessibility={false}
+    bidirectionality={false}
+    cssParts={false}
+    cssVariables={false}
+    documentation={false}
+    examples={false}
+    events={false}
+    keyboard={false}
+    methods={false}
+    playground={false}
+    properties={false}
+    skeleton={false}
+    slots={false}
+/>

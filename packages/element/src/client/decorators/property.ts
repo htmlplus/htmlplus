@@ -1,20 +1,8 @@
-import { paramCase } from 'change-case';
-
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import {
-  defineProperty,
-  getMemberType,
-  host,
-  parseValue,
-  request,
-  updateAttribute,
-  appendToMethod
-} from '../utils/index.js';
+import { defineProperty, host, request, appendToMethod, updateAttribute } from '../utils/index.js';
 
 export interface PropertyOptions {
-  // TODO
-  // attribute?: boolean | string;
   /**
    * Whether property value is reflected back to the associated attribute. default is `false`.
    */
@@ -25,34 +13,27 @@ export function Property(options?: PropertyOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey) {
     const name = String(propertyKey);
 
-    const attribute = paramCase(name);
-
     const symbol = Symbol();
-
-    const type = getMemberType(target, name);
 
     function get(this) {
       return this[symbol];
     }
 
-    function set(this, input) {
-      const value = this[symbol];
+    function set(this, next) {
+      const previous = this[symbol];
 
-      if (input === value) return;
+      if (next === previous) return;
 
-      this[symbol] = input;
+      this[symbol] = next;
 
-      const isReady = this[CONSTANTS.API_STATUS] == 'initialize';
+      request(this, name, previous, (skip) => {
+        if (!options?.reflect || skip) return;
 
-      request(this, { [name]: [input, value] }).then(() => {
-        const element = host(this);
-        const has = element.hasAttribute(attribute);
-        if (!isReady && has) return;
-        if (!options?.reflect) return;
-        const raw = element.getAttribute(attribute);
-        const parsed = parseValue(raw, type);
-        if (input === parsed) return;
-        updateAttribute(element, attribute, input);
+        target[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK] = true;
+
+        updateAttribute(host(this), name, next);
+
+        target[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK] = false;
       });
     }
 

@@ -39,7 +39,7 @@ export const sidebar = (framework: string) => [
     title: 'UI Components',
     items: components
       // TODO: detect sub components
-      .filter((component) => !!component.readme)
+      .filter((component) => !!component.readmeContent)
       .map((component) => ({
         title: component.title,
         url: getPath(ROUTES.COMPONENT_DETAILS, { framework, component: component.key })

@@ -6,10 +6,12 @@ import { Context } from '../../types';
 import { addDependency, print, visitor } from '../utils/index.js';
 
 const defaults: Partial<CustomElementOptions> = {
+  // prefix: undefined,
   typings: true
 };
 
 export interface CustomElementOptions {
+  // prefix?: string;
   typings?: boolean;
 }
 
@@ -161,6 +163,19 @@ export const customElement = (options?: CustomElementOptions) => {
                 properties.push(t.objectProperty(t.identifier(CONSTANTS.STATIC_MEMBERS_TYPE), type));
               }
 
+              // TODO
+              // prettier-ignore
+              property
+                ?.decorators
+                ?.find((decorator) => {
+                  return decorator.expression?.['callee']?.name == CONSTANTS.DECORATOR_PROPERTY;
+                })
+                ?.expression
+                ?.['arguments']
+                ?.[0]
+                ?.properties
+                ?.forEach((property) => properties.push(property));
+
               return t.objectProperty(t.identifier(property.key['name']), t.objectExpression(properties));
             }),
             ...context.classMethods!.map((method) =>
@@ -196,7 +211,7 @@ export const customElement = (options?: CustomElementOptions) => {
             t.exportNamedDeclaration(
               t.tsInterfaceDeclaration(
                 // TODO
-                t.identifier(context.componentClassName! + 'JSX'),
+                t.identifier(context.className! + 'JSX'),
                 null,
                 [],
                 t.tsInterfaceBody([
@@ -304,7 +319,7 @@ export const customElement = (options?: CustomElementOptions) => {
                             t.stringLiteral(context.componentTag!),
                             t.tSTypeAnnotation(
                               t.tSIntersectionType([
-                                t.tSTypeReference(t.identifier(context.componentClassName! + 'JSX')),
+                                t.tSTypeReference(t.identifier(context.className! + 'JSX')),
                                 t.tSTypeLiteral([
                                   t.tSIndexSignature(
                                     [

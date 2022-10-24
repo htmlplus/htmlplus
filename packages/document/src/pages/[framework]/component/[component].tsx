@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { headerCase, pascalCase } from 'change-case';
 
-import { Markup } from '@app/containers';
+import { LastModified, Markup } from '@app/containers';
 import { components, examples, frameworks } from '@app/data';
 import { LayoutDefault } from '@app/layouts';
 import { ROUTES, getPath } from '@app/utils';
@@ -10,7 +10,8 @@ import { ROUTES, getPath } from '@app/utils';
 const ComponentDetails = ({ component, example }: any) => {
   return (
     <LayoutDefault>
-      <Markup value={component?.readme} scope={{ example }} />
+      <Markup value={component?.readmeContent} scope={{ example }} />
+      <LastModified value={component.lastModified} />
     </LayoutDefault>
   );
 };
@@ -23,7 +24,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const current = components.find((x) => x.key == component);
 
   if (current)
-    current.readme = current.readme?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
+    current.readmeContent =
+      current.readmeContent?.replace(/<Example value=(".*") /g, `<Example value={example[$1]} `) || null;
 
   // TODO
   const example = (() => {

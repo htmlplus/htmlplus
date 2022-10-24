@@ -2,34 +2,45 @@ import { Attributes, Element, Property, Watch } from '@htmlplus/element';
 
 @Element()
 export class MyElement {
-  @Property({ })
-  a: number;
 
-  @Property({reflect: true})
-  selfAlign: number = 9;
+  @Property({ reflect: true })
+  value: number = 9;
 
-  // @Property({reflect: true})
-  // p1: string = 'init'
+  @Property({ reflect: true })
+  maxSize: number;
 
-  toggle?: Function = () => console.log('TODO: can not use out of drawer');
+  @Property({ reflect: true })
+  size: number = 98;
 
-   @Attributes()
+  @Property()
+  minSize: number = 4;
+
+  @Property()
+  min: number;
+
+  @Attributes()
   get attributes() {
     return {
-      onClick: () => this.selfAlign++
+      onClick: () => {
+        this.value++
+        this.maxSize = this.value + 1;
+        this.maxSize = this.value + 2;
+        this.maxSize = this.value + 3;
+        console.log('onClick')
+      }
     };
   }
 
-   @Watch(['selfAlign'])
-  w(...a) {
-    console.log(1, a);
+  @Watch(['value'])
+  watcher(...args) {
+    console.log("@Watch(['value'])", args);
   }
 
   render() {
     console.log('renderd in the component');
     return (
       <div>
-        <slot /> {this.selfAlign}
+        <slot /> {this.value}
       </div>
     );
   }

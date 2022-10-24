@@ -16,10 +16,9 @@ export function Element(tag?: string) {
 
         this.attachShadow({ mode: 'open' });
 
-        // TODO
         this[CONSTANTS.API_INSTANCE] = new (constructor as any)();
+
         this[CONSTANTS.API_INSTANCE][CONSTANTS.API_HOST] = () => this;
-        this[CONSTANTS.API_INSTANCE][CONSTANTS.API_STATUS] = 'initialize';
       }
 
       // TODO: ignore functions
@@ -31,29 +30,35 @@ export function Element(tag?: string) {
         call(this[CONSTANTS.API_INSTANCE], CONSTANTS.LIFECYCLE_ADOPTED);
       }
 
-      // TODO
-      attributeChangedCallback(name, prev, next) {
-        const key = camelCase(name);
-        const type = getMemberType(this[CONSTANTS.API_INSTANCE], key);
-        const parsed = parseValue(next, type);
-        this[CONSTANTS.API_INSTANCE][key] = parsed;
+      attributeChangedCallback(attribute, prev, next) {
+        const instance = this[CONSTANTS.API_INSTANCE];
+
+        if (instance[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK]) return;
+
+        const name = camelCase(attribute);
+
+        const type = getMemberType(instance, name);
+
+        const value = parseValue(next, type);
+
+        if (instance[name] === value) return;
+
+        instance[name] = value;
       }
 
       connectedCallback() {
-        this[CONSTANTS.API_INSTANCE][CONSTANTS.API_STATUS] = 'connected';
-        call(this[CONSTANTS.API_INSTANCE], CONSTANTS.LIFECYCLE_CONNECTED);
-        request(this[CONSTANTS.API_INSTANCE])
-          .then(() => {
-            this[CONSTANTS.API_INSTANCE][CONSTANTS.API_STATUS] = 'loaded';
-            call(this[CONSTANTS.API_INSTANCE], CONSTANTS.LIFECYCLE_LOADED);
-          })
-          .catch((error) => {
-            throw error;
-          });
+        const instance = this[CONSTANTS.API_INSTANCE];
+
+        instance[CONSTANTS.API_IS_CONNECTED] = true;
+
+        call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
+
+        request(instance, undefined, undefined, () => {
+          call(instance, CONSTANTS.LIFECYCLE_LOADED);
+        });
       }
 
       disconnectedCallback() {
-        this[CONSTANTS.API_INSTANCE][CONSTANTS.API_STATUS] = 'disconnected';
         call(this[CONSTANTS.API_INSTANCE], CONSTANTS.LIFECYCLE_DISCONNECTED);
       }
     }

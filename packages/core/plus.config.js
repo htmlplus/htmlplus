@@ -7,6 +7,7 @@ import {
   extract,
   parse,
   read,
+  readme,
   style,
   validate,
   webTypes
@@ -19,23 +20,7 @@ export default [
   extract({
     prefix: 'plus'
   }),
-  assets({
-    destination(context) {
-      return `dist/${context.fileName}`;
-    }
-  }),
   style(),
-  document({
-    destination: 'dist/json/document.json'
-  }),
-  webTypes({
-    destination: 'dist/json/web-types.json',
-    packageName: '@htmlplus/core',
-    packageVersion: '0.4.4',
-    reference: (componentTag) => {
-      return `https://www.htmlplus.io/javascript/component/${componentTag.replace('plus-', '')}`;
-    }
-  }),
   customElement(),
   customElementReact({
     compact: true,
@@ -44,10 +29,21 @@ export default [
       return eventName.replace(/Plus/, '');
     },
     importerComponent(context) {
-      return `@htmlplus/core/${context.fileName}#${context.componentClassName}`;
+      return {
+        source: `@htmlplus/core/${context.fileName}`
+      };
     },
     importerComponentType(context) {
-      return `@htmlplus/core/types/components/${context.fileName}/${context.fileName}#${context.componentClassName}JSX`;
+      return {
+        source: `@htmlplus/core/types/components/${context.fileName}/${context.fileName}`,
+        imported: `${context.className}JSX`,
+        local: `${context.className}JSX`
+      };
+    }
+  }),
+  assets({
+    destination(context) {
+      return `dist/${context.fileName}`;
     }
   }),
   copy({
@@ -64,10 +60,35 @@ export default [
     at: 'finish',
     source: 'package.json',
     destination: 'dist/package.json',
-    transformer({ content }) {
-      const parsed = JSON.parse(content);
-      delete parsed.scripts;
-      return JSON.stringify(parsed, null, 2);
+    transformer(content) {
+      return JSON.stringify(
+        {
+          ...JSON.parse(content),
+          scripts: undefined
+        },
+        null,
+        2
+      );
+    }
+  }),
+  readme(),
+  document({
+    destination: 'dist/json/document.json'
+  }),
+  webTypes({
+    destination: 'dist/json/web-types.json',
+    packageName: '@htmlplus/core',
+    packageVersion: '0.4.4',
+    reference(context) {
+      return `https://www.htmlplus.io/javascript/component/${context.componentKey}`;
+    },
+    transformer(context, element) {
+      element.description ||= context?.readmeContent
+        ?.split('#')[1]
+        ?.split('\n')
+        ?.slice(1)
+        ?.filter((line) => !!line.trim())[0]
+        ?.trim();
     }
   })
 ];

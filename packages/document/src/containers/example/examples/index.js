@@ -108,7 +108,7 @@ export const SwitchChecked = dynamic(() => import('./SwitchChecked').then((compo
 export const SwitchCustomized = dynamic(() => import('./SwitchCustomized').then((component) => component), { ssr: false });
 export const SwitchDefault = dynamic(() => import('./SwitchDefault').then((component) => component), { ssr: false });
 export const SwitchDisabled = dynamic(() => import('./SwitchDisabled').then((component) => component), { ssr: false });
-export const SwitchPrevent = dynamic(() => import('./SwitchPrevent').then((component) => component), { ssr: false });
+export const SwitchEvent = dynamic(() => import('./SwitchEvent').then((component) => component), { ssr: false });
 export const TabsBelow = dynamic(() => import('./TabsBelow').then((component) => component), { ssr: false });
 export const TabsDefault = dynamic(() => import('./TabsDefault').then((component) => component), { ssr: false });
 export const TabsGrow = dynamic(() => import('./TabsGrow').then((component) => component), { ssr: false });

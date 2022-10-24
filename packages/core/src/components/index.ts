@@ -29,6 +29,7 @@ export * from './portal/portal';
 export * from './scroll-indicator/scroll-indicator';
 export * from './spinner/spinner';
 export * from './sticky/sticky';
+export * from './switch/switch';
 export * from './tabs/tabs';
 export * from './tabs-bar/tabs-bar';
 export * from './tabs-panel/tabs-panel';

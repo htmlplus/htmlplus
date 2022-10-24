@@ -82,11 +82,10 @@ export const extract = (options?: ExtractOptions) => {
 
     context.className = context.class?.id?.name!;
 
+    context.componentKey = paramCase(context.className);
+
     // TODO
-    context.componentClassName = pascalCase(context.componentTag!);
-    context.componentClassNamePrune = pascalCase(context.componentTag!.split('-').slice(1).join('-'));
-    context.componentInterfaceName = `HTML${context.componentClassName}Element`;
-    context.componentKey = paramCase(context.componentClassNamePrune);
+    context.componentInterfaceName = `HTML${pascalCase(context.componentTag!)}Element`;
 
     context.classEvents = (context.classMembers || []).filter((member) =>
       hasDecorator(member, CONSTANTS.DECORATOR_EVENT)

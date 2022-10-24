@@ -1,28 +1,16 @@
 import { pascalCase } from 'change-case';
 
-import { Global } from '../../../types';
+import { Context, Global } from '../../../types';
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
-const defaults: Partial<CustomElementReactOptions> = {
-  compact: false,
-  destination: '',
-  eventName(eventName) {
-    return eventName;
-  },
-  importerComponent(context) {
-    return `YOUR_CORE_PACKAGE_NAME#${context.componentClassName}`;
-  },
-  importerComponentType(context) {
-    return `YOUR_CORE_PACKAGE_NAME#JSX.${context.componentClassName}`;
-  }
-};
+const defaults: Partial<CustomElementReactOptions> = {};
 
 export interface CustomElementReactOptions {
   compact?: boolean;
   destination: string;
   eventName?: (eventName: string) => string;
-  importerComponent?: (context) => string;
-  importerComponentType?: (context) => string;
+  importerComponent: (context: Context) => { source: string };
+  importerComponentType: (context: Context) => { source: string, imported: string, local: string };
 }
 
 export const customElementReact = (options: CustomElementReactOptions) => {
@@ -43,25 +31,14 @@ export const customElementReact = (options: CustomElementReactOptions) => {
 
     const skip: Array<string> = [];
 
-    const getKey = (component) => component.componentClassName;
+    const getKey = (component) => component.className;
 
     for (const key in globalNew.contexts) {
       const context = globalNew.contexts[key];
 
-      const parse = (input) => {
-        const [source, key] = input.split('#');
-        const [root, ...sub] = key.split('.');
-        const variable = ['Type', ...sub].join('.');
-        return {
-          source,
-          variable,
-          root
-        };
-      };
-
       const classEvents = context.classEvents.map((classEvent) => {
         const from = 'on' + pascalCase(classEvent.key.name);
-        const to = options.eventName!(from);
+        const to = options.eventName?.(from) ?? from;
         return {
           ...classEvent,
           from,
@@ -71,9 +48,9 @@ export const customElementReact = (options: CustomElementReactOptions) => {
 
       const fileName = context.fileName;
 
-      const importerComponent = parse(options.importerComponent!(context));
+      const importerComponent = options.importerComponent(context);
 
-      const importerComponentType = parse(options.importerComponentType!(context));
+      const importerComponentType = options.importerComponentType(context);
 
       const state = {
         ...context,
@@ -111,21 +88,9 @@ export const customElementReact = (options: CustomElementReactOptions) => {
             .map((component, index) => {
               const componentClassNameInCategory = getKey(component).replace(group.key, '');
 
-              const parse = (input) => {
-                const [source, key] = input.split('#');
-                const [root, ...sub] = key.split('.');
-                const local = root + (index + 1);
-                const variable = [local, ...sub].join('.');
-                return {
-                  source,
-                  variable,
-                  root,
-                  local
-                };
-              };
+              const importerComponent = options.importerComponent(component);
 
-              const importerComponent = parse(options.importerComponent!(component));
-              const importerComponentType = parse(options.importerComponentType!(component));
+              const importerComponentType = options.importerComponentType(component);
 
               return {
                 ...component,
@@ -135,7 +100,7 @@ export const customElementReact = (options: CustomElementReactOptions) => {
               };
             })
             // TODO: experimental
-            .sort((a, b) => (b.componentClassName < a.componentClassName ? 0 : -1));
+            .sort((a, b) => (getKey(b) < getKey(a) ? 0 : -1));
           return {
             all,
             filterd: all.slice(1),

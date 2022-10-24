@@ -1,5 +1,5 @@
 import { Alert, Button, Code as CoreCode } from '@app/components';
-import { Api, Browsers, Example, Examples, Toc, Usage } from '@app/containers';
+import { Api, Browsers, Checklist, Example, Examples, Toc, Usage } from '@app/containers';
 
 const Code = ({ children, className }: any) => {
   const language = className?.split('-').pop();
@@ -24,6 +24,7 @@ export const tokens = {
   Alert,
   Api,
   Browsers,
+  Checklist,
   Example,
   Examples,
   Usage: () => <Usage />,

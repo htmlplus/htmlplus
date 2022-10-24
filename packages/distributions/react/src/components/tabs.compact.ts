@@ -8,11 +8,14 @@ import { TabsPanel } from './tabs-panel';
 import { TabsPanels } from './tabs-panels';
 import { TabsTab } from './tabs-tab';
 
-const All = Object.assign(Tabs, {
-  Bar: TabsBar,
-  Panel: TabsPanel,
-  Panels: TabsPanels,
-  Tab: TabsTab,
-});
+const All = Object.assign(
+  Tabs,
+  {
+    Bar: TabsBar,
+    Panel: TabsPanel,
+    Panels: TabsPanels,
+    Tab: TabsTab,
+  }
+);
 
 export { All as Tabs }

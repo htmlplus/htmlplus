@@ -1,4 +1,4 @@
-import { host } from '../utils/index.js';
+import { shadowRoot } from '../utils/index.js';
 
 // TODO: merge types
 export function queryAll<K extends keyof HTMLElementTagNameMap>(
@@ -11,5 +11,5 @@ export function queryAll<K extends keyof SVGElementTagNameMap>(
 ): NodeListOf<SVGElementTagNameMap[K]>;
 export function queryAll<E extends Element = Element>(target, selectors: string): NodeListOf<E>;
 export function queryAll(target, selectors) {
-  return host(target)?.shadowRoot?.querySelectorAll(selectors);
+  return shadowRoot(target)?.querySelectorAll(selectors);
 }

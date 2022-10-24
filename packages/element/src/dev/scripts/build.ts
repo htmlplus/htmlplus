@@ -1,14 +1,7 @@
 import compiler from '../../compiler/index.js';
-import { customElement, extract, parse, read, style, validate } from '../../compiler/index.js';
+import plugins from '../plus.config.js';
 
-const { start, next, finish } = compiler(
-  read(),
-  parse(),
-  validate(),
-  extract(),
-  style({}),
-  customElement({ typings: false })
-);
+const { start, next, finish } = compiler(...plugins);
 
 (async () => {
   await start();

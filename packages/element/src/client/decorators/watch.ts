@@ -7,24 +7,22 @@ import { appendToMethod } from '../utils/index.js';
  * The decorated method will be invoked after any
  * changes with the key, newValue, and oldValue as parameters.
  * If the arguments aren't defined, all of the properties and states are considered.
+ * @param keys Collection of Property/State names.
+ * @param immediate Triggers the callback immediately after initialization.
  */
 export function Watch(keys?: Array<string>, immediate?: boolean) {
   return function (target: PlusElement, propertyKey: PropertyKey): void {
     // Registers a lifecycle to detect changes.
-    appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function ([states]) {
+    appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function (states: Map<string, any>) {
+      // Skips the logic if 'immediate' wasn't passed.
+      if (!immediate && !this[CONSTANTS.API_IS_LOADED]) return;
       // Loops the keys
-      for (const key of Object.keys(states)) {
+      states.forEach((prev, key) => {
         // TODO
-        if (keys?.length && !keys.includes(key)) continue;
-        // Checks the existence of key
-        if (keys?.length && !(key in states)) continue;
-        // Gets the current state
-        const [next, prev] = states[key];
-        // TODO
-        if (!immediate && this[CONSTANTS.API_STATUS] != 'loaded') continue;
+        if (keys?.length && !keys.includes(key)) return;
         // Invokes the method with parameters.
-        this[propertyKey](next, prev, key);
-      }
+        this[propertyKey](this[key], prev, key);
+      });
     });
   };
 }

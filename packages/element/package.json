@@ -27,7 +27,12 @@
   "engines": {
     "node": ">= 12.7.0"
   },
-  "keywords": [],
+  "keywords": [
+    "components",
+    "custom elements",
+    "design systems",
+    "web components"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/htmlplus/htmlplus.git"

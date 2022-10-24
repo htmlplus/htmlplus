@@ -150,7 +150,7 @@ export class Menu {
 
   click(event) {
 
-    const elements = Helpers.eventPath(event);
+    const elements = event.composedPath();
 
     const index = elements.findIndex((element) => element === this.$activator);
 
@@ -248,7 +248,7 @@ export class Menu {
 
     if (!this.open) return;
 
-    const path = Helpers.eventPath(event);
+    const path = event.composedPath();
 
     const activator = this.$host.shadowRoot.querySelector('.activator');
 

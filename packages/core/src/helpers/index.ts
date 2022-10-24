@@ -13,7 +13,6 @@ export {
   off
 } from '@htmlplus/element';
 
-export * from './event-path';
-export * from './from-axis';
-export * from './get-computed-style';
-export * from './to-axis';
+export * from './fromAxis';
+export * from './getComputedStyle';
+export * from './toAxis';

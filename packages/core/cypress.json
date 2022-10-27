@@ -1,5 +1,0 @@
-{
-  "baseUrl": "http://localhost:3000",
-  "testFiles": "**/*.e2e.ts",
-  "pluginsFile": false
-}

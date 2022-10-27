@@ -16,7 +16,9 @@
     "format": "prettier --write .",
     "dev:start": "ts-node --esm src/dev/scripts/start.ts",
     "dev:build": "ts-node --esm src/dev/scripts/build.ts",
-    "dev:build:watch": "nodemon src/dev/scripts/build.ts"
+    "dev:build:watch": "nodemon src/dev/scripts/build.ts",
+    "test:open": "cypress open",
+    "test:run": "cypress run"
   },
   "files": [
     "**/*.*"
@@ -57,6 +59,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "cpy": "^9.0.1",
+    "cypress": "^10.11.0",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",

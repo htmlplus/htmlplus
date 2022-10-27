@@ -5,7 +5,7 @@ describe('plus-click-outside', () => {
   const trigger = (target: 'parent' | 'self' | 'child') => {
     return cy.get('@element').then(($element) => {
       const handler = cy.spy();
-      $element.on('plusClickOutside', handler);
+      $element.on('plus-click-outside', handler);
       const element = (() => {
         switch (target) {
           case 'parent':

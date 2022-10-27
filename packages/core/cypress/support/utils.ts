@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // TODO: problem with 'disabled' key
 // cy.get(selector).should('have.attr', key, `${init}`);
 // it(`"${key}" attribute should be updates "${key}" property`, () => {

@@ -45,7 +45,7 @@
     "@types/react": "^18.0.15",
     "change-case": "^4.1.2",
     "cropperjs": "^1.5.12",
-    "cypress": "^10.3.1",
+    "cypress": "^10.10.0",
     "cypress-file-upload": "^5.0.8",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",

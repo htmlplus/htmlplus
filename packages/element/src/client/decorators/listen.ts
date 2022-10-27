@@ -3,20 +3,31 @@ import { PlusElement } from '../../types';
 import { appendToMethod, host, on, off } from '../utils/index.js';
 import { Bind } from './bind.js';
 
-const defaults: ListenOptions = {
-  target: 'host'
-};
-
 export interface ListenOptions {
-  target?: 'host' | 'body' | 'document' | 'window';
+  capture?: boolean;
   once?: boolean;
   passive?: boolean;
   signal?: AbortSignal;
-  capture?: boolean;
+  target?: 'host' | 'body' | 'document' | 'window';
 }
 
-export function Listen(name: string, options: ListenOptions = defaults) {
+/**
+ * The default options.
+ */
+export const ListenOptionsDefault: ListenOptions = {
+  target: 'host'
+};
+
+/**
+ * Will be called whenever the specified event is delivered to the target.
+ * [More](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+ * @param type TODO
+ * @param options TODO
+ */
+export function Listen(type: string, options?: ListenOptions) {
   return function (target: PlusElement, propertyKey: PropertyKey, descriptor: PropertyDescriptor) {
+    options = Object.assign({}, ListenOptionsDefault, options);
+
     const element = (instance) => {
       switch (options.target) {
         case 'body':
@@ -33,11 +44,11 @@ export function Listen(name: string, options: ListenOptions = defaults) {
     };
 
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
-      on(element(this), name, this[propertyKey], options);
+      on(element(this), type, this[propertyKey], options);
     });
 
     appendToMethod(target, CONSTANTS.LIFECYCLE_DISCONNECTED, function () {
-      off(element(this), name, this[propertyKey], options);
+      off(element(this), type, this[propertyKey], options);
     });
 
     return Bind()(target, propertyKey, descriptor);

@@ -279,15 +279,24 @@ export class MyButton {
 </details>
 
 <details>
-  <summary>Watch</summary>
+<summary>Watch</summary>
 
-`@Watch` take the name of the `@Property` and `@State` variable to monitor as a parameter. Any time the value of that property changes the function decorated by `@Watch` will be invoked with the `key`, `newValue` and `oldValue` as parameters. This is called first out of the lifecycle callbacks after a property changes.
+Monitors `@Property` and `@State` to catch changes.
+The decorated method will be invoked after any
+changes with the `key`, `newValue`, and `oldValue` as parameters.
+If the arguments aren't defined, all of the `@Property` and `@State` are considered.
 
-- **name**: `String` property name
+Parameters:
+
+- **keys**: Collection of `@Property` and `@State` names.
+  - **type**: string | string[]
+  - **default**: undefined
+- **immediate**: Triggers the callback immediately after initialization.
+  - **type**: boolean
+  - **default**: undefined
 
 ```tsx
 import { Element, Property, Watch } from '@htmlplus/element';
-
 
 @Element()
 export class MyElement {

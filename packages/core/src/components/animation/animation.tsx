@@ -87,7 +87,8 @@ export class Animation {
   iterationStart?: number = 0;
 
   /**
-   * A [keyframes](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats) object or null.
+   * A [keyframes](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats) 
+   * object or null.
    */
   @Property()
   keyframes?: Keyframe[];

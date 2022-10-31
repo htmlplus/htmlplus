@@ -42,6 +42,9 @@ export function Property(options?: PropertyOptions) {
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
       const element = host(this);
 
+      // TODO: experimental
+      if (element === this) return;
+
       const get = () => {
         return this[propertyKey];
       };

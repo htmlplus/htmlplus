@@ -322,9 +322,8 @@ var udomdiff = (parentNode, a, b, get, before) => {
 const { isArray, prototype } = Array;
 const { indexOf } = prototype;
 
-const document = typeof window == 'undefined' ? {} : window.document;
 const { createDocumentFragment, createElement, createElementNS, createTextNode, createTreeWalker, importNode } =
-  new Proxy(document, {
+  new Proxy(typeof window == 'undefined' ? {} : window.document, {
     get: (target, method) => (target[method] || function () {}).bind(target)
   });
 

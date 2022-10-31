@@ -29,7 +29,7 @@ export function Listen(type: string, options?: ListenOptions) {
     options = Object.assign({}, ListenOptionsDefault, options);
 
     const element = (instance) => {
-      switch (options.target) {
+      switch (options?.target) {
         case 'body':
           return window.document.body;
         case 'document':

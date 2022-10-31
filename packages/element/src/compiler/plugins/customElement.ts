@@ -24,7 +24,7 @@ export const customElement = (options?: CustomElementOptions) => {
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
 
-    // attach style mapper for 'style' attribute
+    // attaches style mapper for 'style' attribute
     visitor(ast, {
       JSXAttribute(path) {
         const { name, value } = path.node;
@@ -54,11 +54,7 @@ export const customElement = (options?: CustomElementOptions) => {
       }
     });
 
-    // TODO
-    const { node } = addDependency(ast, CONSTANTS.VENDOR_UHTML, 'uhtml');
-    t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
-
-    // replace 'className' attribute to 'class'
+    // replaces 'className' attribute with 'class'
     visitor(ast, {
       JSXAttribute(path) {
         const { name, value } = path.node;
@@ -69,7 +65,7 @@ export const customElement = (options?: CustomElementOptions) => {
       }
     });
 
-    // TODO: convert 'jsx' to 'uhtml' syntax
+    // converts 'jsx' to 'uhtml' syntax
     visitor(ast, {
       JSXAttribute: {
         exit(path) {
@@ -128,10 +124,14 @@ export const customElement = (options?: CustomElementOptions) => {
           // TODO
           path.replaceWith(t.jsxAttribute(t.jsxIdentifier('.dataset'), t.jsxExpressionContainer(path.node.argument)));
         }
+      },
+      Program(path) {
+        const { node } = addDependency(path, CONSTANTS.VENDOR_UHTML, 'uhtml');
+        t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
       }
     });
 
-    // attach members
+    // attaches members
     visitor(ast, {
       ClassDeclaration(path) {
         const { body, id } = path.node;
@@ -202,7 +202,7 @@ export const customElement = (options?: CustomElementOptions) => {
       }
     });
 
-    // attach typings
+    // attaches typings
     if (options?.typings) {
       visitor(ast, {
         Program(path) {

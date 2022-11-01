@@ -1,6 +1,6 @@
 import { Global } from '../../types';
 
-const defaults: Partial<VisualStudioCodeOptions> = {};
+export const VISUAL_STUDIO_CODE_OPTIONS: Partial<VisualStudioCodeOptions> = {};
 
 export interface VisualStudioCodeOptions {
   destination: string;
@@ -9,7 +9,7 @@ export interface VisualStudioCodeOptions {
 export const visualStudioCode = (options: VisualStudioCodeOptions) => {
   const name = 'visualStudioCode';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, VISUAL_STUDIO_CODE_OPTIONS, options);
 
   const finish = (global: Global) => {
     // TODO

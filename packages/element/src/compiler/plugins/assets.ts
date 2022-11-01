@@ -3,7 +3,7 @@ import path from 'path';
 
 import { Context } from '../../types';
 
-const defaults: Partial<AssetsOptions> = {
+export const ASSETS_OPTIONS: Partial<AssetsOptions> = {
   once: true,
   destination(context) {
     return `assets/${context.fileName}`;
@@ -22,7 +22,7 @@ export type AssetsOptions = {
 export const assets = (options: AssetsOptions) => {
   const name = 'assets';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, ASSETS_OPTIONS, options);
 
   const sources = new Set<string>();
 

@@ -5,7 +5,7 @@ import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types';
 import { addDependency, print, visitor } from '../utils/index.js';
 
-const defaults: Partial<CustomElementOptions> = {
+export const CUSTOM_ELEMENT_OPTIONS: Partial<CustomElementOptions> = {
   // prefix: undefined,
   typings: true
 };
@@ -19,7 +19,7 @@ export interface CustomElementOptions {
 export const customElement = (options?: CustomElementOptions) => {
   const name = 'customElement';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, CUSTOM_ELEMENT_OPTIONS, options);
 
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);

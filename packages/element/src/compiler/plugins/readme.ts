@@ -3,7 +3,7 @@ import path from 'path';
 
 import { Context, Global } from '../../types';
 
-const defaults: Partial<ReadmeOptions> = {
+export const README_OPTIONS: Partial<ReadmeOptions> = {
   source(context) {
     return path.join(context.directoryPath!, `${context.fileName}.md`);
   }
@@ -16,7 +16,7 @@ export type ReadmeOptions = {
 export const readme = (options: ReadmeOptions) => {
   const name = 'readme';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, README_OPTIONS, options);
 
   const finish = (global: Global) => {
     for (const context of global.contexts) {

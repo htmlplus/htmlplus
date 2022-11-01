@@ -5,7 +5,7 @@ import path from 'path';
 import { Context, Global } from '../../types';
 import { getInitializer, getTags, hasTag, parseTag, print } from '../utils/index.js';
 
-const defaults: Partial<WebTypesOptions> = {};
+export const WEB_TYPES_OPTIONS: Partial<WebTypesOptions> = {};
 
 export interface WebTypesOptions {
   destination: string;
@@ -18,7 +18,7 @@ export interface WebTypesOptions {
 export const webTypes = (options: WebTypesOptions) => {
   const name = 'webTypes';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, WEB_TYPES_OPTIONS, options);
 
   const finish = (global: Global) => {
     const json = {

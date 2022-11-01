@@ -3,20 +3,20 @@ import { pascalCase } from 'change-case';
 import { Context, Global } from '../../../types';
 import { __dirname, isDirectoryEmpty, renderTemplate } from '../../utils/index.js';
 
-const defaults: Partial<CustomElementReactOptions> = {};
+export const CUSTOM_ELEMENT_REACT_OPTIONS: Partial<CustomElementReactOptions> = {};
 
 export interface CustomElementReactOptions {
   compact?: boolean;
   destination: string;
   eventName?: (eventName: string) => string;
   importerComponent: (context: Context) => { source: string };
-  importerComponentType: (context: Context) => { source: string, imported: string, local: string };
+  importerComponentType: (context: Context) => { source: string; imported: string; local: string };
 }
 
 export const customElementReact = (options: CustomElementReactOptions) => {
   const name = 'customElementReact';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, CUSTOM_ELEMENT_REACT_OPTIONS, options);
 
   const finish = (global: Global) => {
     // TODO

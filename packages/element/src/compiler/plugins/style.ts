@@ -6,7 +6,7 @@ import * as CONSTANTS from '../../constants/index.js';
 import { Context } from '../../types';
 import { addDependency } from '../utils/index.js';
 
-const defaults: Partial<StyleOptions> = {
+export const STYLE_OPTIONS: Partial<StyleOptions> = {
   source(context) {
     return [
       path.join(context.directoryPath!, `${context.fileName!}.css`),
@@ -25,7 +25,7 @@ export type StyleOptions = {
 export const style = (options?: StyleOptions) => {
   const name = 'style';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, STYLE_OPTIONS, options);
 
   const next = (context: Context) => {
     const sources = [options?.source?.(context)].flat();

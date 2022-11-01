@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-const defaults: Partial<CopyOptions> = {
+export const COPY_OPTIONS: Partial<CopyOptions> = {
   at: 'start'
 };
 
@@ -15,7 +15,7 @@ export interface CopyOptions {
 export const copy = (options: CopyOptions) => {
   const name = 'copy';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, COPY_OPTIONS, options);
 
   const copy = (caller) => {
     if (options.at != caller) return;

@@ -6,7 +6,7 @@ import path from 'path';
 import { Context, Global } from '../../types';
 import { getInitializer, getTag, getTags, getTypeReference, hasTag, parseTag, print } from '../utils/index.js';
 
-const defaults: Partial<DocumentOptions> = {};
+export const DOCUMENT_OPTIONS: Partial<DocumentOptions> = {};
 
 export interface DocumentOptions {
   destination: string;
@@ -16,7 +16,7 @@ export interface DocumentOptions {
 export const document = (options: DocumentOptions) => {
   const name = 'document';
 
-  options = Object.assign({}, defaults, options);
+  options = Object.assign({}, DOCUMENT_OPTIONS, options);
 
   const finish = (global: Global) => {
     const json = {

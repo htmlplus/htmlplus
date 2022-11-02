@@ -3,11 +3,10 @@
  **************************************************/
 
 import { proxy } from '../proxy';
+import type { Rename } from '../proxy';
 
 import '@htmlplus/core/grid-item';
 import type { GridItemJSX as GridItemJSX } from '@htmlplus/core/types/components/grid-item/grid-item';
-
-type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 
 type Renamed = Rename<GridItemJSX, { 
 }>

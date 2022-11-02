@@ -5,6 +5,10 @@
 import { camelCase, paramCase, pascalCase } from 'change-case';
 import React from 'react';
 
+export type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : 'Error: key not in T' }> = {
+  [P in keyof T as P extends keyof R ? R[P] : P]: T[P];
+};
+
 type EventHandlerType = (event: Event) => any;
 
 type FinalPropsType<ElementType> = Omit<PropsType<ElementType>, 'forwardedRef'>;

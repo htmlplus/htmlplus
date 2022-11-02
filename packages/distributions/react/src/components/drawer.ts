@@ -3,11 +3,10 @@
  **************************************************/
 
 import { proxy } from '../proxy';
+import type { Rename } from '../proxy';
 
 import '@htmlplus/core/drawer';
 import type { DrawerJSX as DrawerJSX } from '@htmlplus/core/types/components/drawer/drawer';
-
-type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : "Error: key not in T" }> = { [P in keyof T as P extends keyof R ? R[P] : P]: T[P] }
 
 type Renamed = Rename<DrawerJSX, { 
   onPlusClose: 'onClose',

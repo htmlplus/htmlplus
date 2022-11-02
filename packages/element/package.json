@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "license": "MIT",
   "author": "Masood Abdolian <m.abdolian@gmail.com>",
-  "description": "Compiler of HTMLPlus",
+  "description": "A powerful library for building scalable, reusable, fast, tastable and lightweight design system for any web technologies.",
   "type": "module",
   "main": "client/index.js",
   "types": "client/index.d.ts",

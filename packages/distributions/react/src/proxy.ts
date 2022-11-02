@@ -1,9 +1,9 @@
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
- 
-import { camelCase, paramCase, pascalCase } from 'change-case';
 import React from 'react';
+
+import { camelCase, paramCase, pascalCase } from 'change-case';
 
 export type Rename<T, R extends { [K in keyof R]: K extends keyof T ? PropertyKey : 'Error: key not in T' }> = {
   [P in keyof T as P extends keyof R ? R[P] : P]: T[P];
@@ -94,22 +94,22 @@ const getProps = <ElementType>(ref: React.Ref<ElementType>, props: PropsType<Ele
   Object.keys(props).forEach((name) => {
     if (name === 'children' || name === 'className' || name === 'forwardedRef' || name === 'ref') return;
 
-    const value = props[name];
+    const value = (props as any)[name];
 
     if (isEvent(name)) {
       if (typeof document === 'undefined') return;
 
-      const event = getCustomEvent(name, extra.events);
+      const event = getCustomEvent(name, extra.events || []);
 
       if (event) return;
 
-      result[name] = value;
-    } else if (extra.props.includes(name)) {
+      (result as any)[name] = value;
+    } else if (extra.props?.includes(name)) {
       if (!isPrimitive(value)) return;
 
-      result[paramCase(name)] = value;
+      (result as any)[paramCase(name)] = value;
     } else {
-      result[name] = value;
+      (result as any)[name] = value;
     }
   });
 
@@ -133,7 +133,7 @@ const setClass = <ElementType>(element: ElementType, props: PropsType<ElementTyp
 
   const current = arrayToMap((element as any).classList);
 
-  const prev: string = element['$class'];
+  const prev: string = (element as any)['$class'];
   const next: string = props.className || (props as any).class;
 
   const prevClass = arrayToMap(prev ? prev.split(' ') : []);
@@ -155,21 +155,22 @@ const setClass = <ElementType>(element: ElementType, props: PropsType<ElementTyp
 
   (element as any).className = className;
 
-  element['$class'] = className;
+  (element as any)['$class'] = className;
 };
 
 const setEvent = (element: Element, name: string, handler: EventHandlerType) => {
-  const events = element['$events'] || (element['$events'] = {});
+  const events = (element as any)['$events'] || ((element as any)['$events'] = {});
 
   const previous = events[name];
 
   previous && element.removeEventListener(paramCase(name), previous);
 
-  function callback(event: Event) {
-    handler && handler.call(this, event);
-  }
-
-  element.addEventListener(paramCase(name), (events[name] = callback));
+  element.addEventListener(
+    paramCase(name),
+    (events[name] = function callback(event: Event) {
+      handler && handler.call(this, event);
+    })
+  );
 };
 
 const setProps = <ElementType>(element: ElementType, props: PropsType<ElementType>, extra: ExtraType) => {
@@ -188,24 +189,24 @@ const setProps = <ElementType>(element: ElementType, props: PropsType<ElementTyp
     )
       return;
 
-    const value = props[name];
+    const value = (props as any)[name];
 
     if (isEvent(name)) {
       if (typeof document === 'undefined') return;
 
-      const event = getCustomEvent(name, extra.events);
+      const event = getCustomEvent(name, extra.events || []);
 
       if (!event) return;
 
       setEvent(element, event, value);
-    } else if (extra.props.includes(name)) {
+    } else if (extra.props?.includes(name)) {
       if (isPrimitive(value)) {
         element.setAttribute(paramCase(name), value);
       } else {
-        element[name] = value;
+        (element as any)[name] = value;
       }
     } else {
-      element[name] = value;
+      (element as any)[name] = value;
     }
   });
 };
@@ -242,7 +243,7 @@ export const proxy = <ElementType, PropType>(
     componentWillUnmount() {
       if (!this.element) return;
 
-      const events = this.element['$events'] || {};
+      const events = (this.element as any)['$events'] || {};
 
       Object.keys(events).forEach((name) => {
         const handler = events[name];
@@ -250,7 +251,7 @@ export const proxy = <ElementType, PropType>(
         (this.element as any).removeEventListener(paramCase(name), handler);
       });
 
-      delete this.element['$events'];
+      delete (this.element as any)['$events'];
     }
 
     render() {
@@ -262,21 +263,7 @@ export const proxy = <ElementType, PropType>(
     }
   };
 
-  // TODO
-  // const ReactComponentNew = (props: InternalPropsType<ElementType>) => {
-
-  //   const { children } = props;
-
-  //   const ref = useRef(null);
-
-  //   const newProps: FinalPropsType<ElementType> = getProps(ref, props, events);
-
-  //   useEffect(() => setProps(ref.current, props, events));
-
-  //   return React.createElement(tagName, newProps, children);
-  // }
-
-  ReactComponent['displayName'] = pascalCase(tagName);
+  (ReactComponent as any)['displayName'] = pascalCase(tagName);
 
   return forwardRef<ElementType, PropType>(ReactComponent);
 };

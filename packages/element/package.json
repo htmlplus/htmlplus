@@ -16,9 +16,7 @@
     "format": "prettier --write .",
     "dev:start": "ts-node --esm src/dev/scripts/start.ts",
     "dev:build": "ts-node --esm src/dev/scripts/build.ts",
-    "dev:build:watch": "nodemon src/dev/scripts/build.ts",
-    "test:open": "cypress open",
-    "test:run": "cypress run"
+    "dev:build:watch": "nodemon src/dev/scripts/build.ts"
   },
   "files": [
     "**/*.*"

@@ -42,25 +42,25 @@
   },
   "homepage": "https://github.com/htmlplus/htmlplus#readme",
   "dependencies": {
-    "@babel/generator": "^7.18.9",
-    "@babel/parser": "^7.18.9",
-    "@babel/traverse": "^7.18.9",
-    "@babel/types": "^7.18.9",
-    "@types/node": "^18.6.3",
+    "@babel/generator": "^7.20.1",
+    "@babel/parser": "^7.20.1",
+    "@babel/traverse": "^7.20.1",
+    "@babel/types": "^7.20.0",
+    "@types/node": "^18.11.9",
     "change-case": "^4.1.2",
-    "fast-glob": "^3.2.11",
+    "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
     "handlebars": "^4.7.7",
     "ora": "^6.1.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.4"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
     "cpy": "^9.0.1",
-    "nodemon": "^2.0.19",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "vite": "^3.0.4"
+    "vite": "^3.2.2"
   }
 }

@@ -2,14 +2,14 @@ import fs from 'fs-extra';
 
 import { Context } from '../../types';
 
-export const READ_OPTIONS: Partial<ReadOptions> = 'utf8';
+export const READ_OPTIONS: Partial<ReadOptions> = {
+  encoding: 'utf8'
+};
 
-export type ReadOptions =
-  | {
-      encoding: BufferEncoding;
-      flag?: string | undefined;
-    }
-  | BufferEncoding;
+export type ReadOptions = {
+  encoding: BufferEncoding;
+  flag?: string | undefined;
+};
 
 export const read = (options?: ReadOptions) => {
   const name = 'read';

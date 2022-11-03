@@ -38,8 +38,8 @@ export const customElement = (options?: CustomElementOptions) => {
         const { local } = addDependency(
           path,
           CONSTANTS.PACKAGE_NAME,
-          CONSTANTS.UTILS_STYLE_MAP,
-          CONSTANTS.UTILS_STYLE_MAP
+          CONSTANTS.UTIL_STYLE_MAPPER,
+          CONSTANTS.UTIL_STYLE_MAPPER
         );
 
         // TODO: remove 'local!'
@@ -126,7 +126,7 @@ export const customElement = (options?: CustomElementOptions) => {
         }
       },
       Program(path) {
-        const { node } = addDependency(path, CONSTANTS.VENDOR_UHTML, 'uhtml');
+        const { node } = addDependency(path, CONSTANTS.VENDOR_UHTML_PATH, 'uhtml');
         t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
       }
     });

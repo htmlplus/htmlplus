@@ -17,7 +17,7 @@ export function Watch(keys?: string | string[], immediate?: boolean) {
     // Registers a lifecycle to detect changes.
     appendToMethod(target, CONSTANTS.LIFECYCLE_UPDATED, function (states: Map<string, any>) {
       // Skips the logic if 'immediate' wasn't passed.
-      if (!immediate && !this[CONSTANTS.API_IS_LOADED]) return;
+      if (!immediate && !this[CONSTANTS.API_LOADED]) return;
       // Loops the keys.
       states.forEach((prev, key) => {
         // Skips the current key.

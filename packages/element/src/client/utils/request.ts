@@ -30,7 +30,7 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
   target[CONSTANTS.API_REQUEST] ||= task({
     run: () => {
       // Skips the rendering phase if DOM isn't ready.
-      if (!target[CONSTANTS.API_IS_CONNECTED]) return;
+      if (!target[CONSTANTS.API_CONNECTED]) return;
 
       // Calculates the states to pass into lifecycles' callbacks.
       const states = new Map(
@@ -71,7 +71,7 @@ export const request = (target: PlusElement, name?: string, previous?: any, call
       call(target, CONSTANTS.LIFECYCLE_UPDATED, states);
 
       // TODO: releated to the @Watch decorator.
-      target[CONSTANTS.API_IS_LOADED] = true;
+      target[CONSTANTS.API_LOADED] = true;
 
       // Clears stacks.
       stacks.clear();

@@ -1,14 +1,18 @@
 export const PACKAGE_NAME = '@htmlplus/element';
 
 // apis
+export const API_ATTRIBUTES_SYNCER = Symbol();
+export const API_CONNECTED = Symbol();
 export const API_HOST = Symbol();
 export const API_INSTANCE = Symbol();
-export const API_IS_CONNECTED = Symbol();
-export const API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK = Symbol();
-export const API_IS_LOADED = Symbol();
-export const API_ATTRIBUTES_SYNCER = Symbol();
+export const API_LOADED = Symbol();
+export const API_LOCKED = Symbol();
 export const API_REQUEST = Symbol();
 export const API_STACKS = Symbol();
+
+// comments
+export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';
+export const COMMENT_AUTO_ADDED_PROPERTY = ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY';
 
 // decorators
 export const DECORATOR_ELEMENT = 'Element';
@@ -34,6 +38,9 @@ export const STATIC_MEMBERS_INITIALIZER = 'default';
 export const STATIC_MEMBERS_TYPE = 'type';
 export const STATIC_STYLES = 'styles';
 
+// style
+export const STYLE_IMPORTED = 'STYLE_IMPORTED';
+
 // types
 export const TYPE_BOOLEAN = 'Boolean';
 export const TYPE_DATE = 'Date';
@@ -42,10 +49,7 @@ export const TYPE_STRING = 'String';
 export const TYPE_NUMBER = 'Number';
 
 // utils
-export const UTILS_STYLE_MAP = 'styles';
+export const UTIL_STYLE_MAPPER = 'styles';
 
-// TODO
-export const VENDOR_UHTML = '@htmlplus/element/client/vendors/uhtml.js';
-export const AUTO_IMPORT_STYLE = 'AUTO_IMPORT_STYLE';
-export const COMMENT_AUTO_ADDED_DEPENDENCY = ' THIS DEPENDENCY IS AUTO-ADDED, DO NOT EDIT MANUALY';
-export const COMMENT_AUTO_ADDED_PROPERTY = ' THIS PROPERTY IS AUTO-ADDED, DO NOT EDIT MANUALY';
+// vendors
+export const VENDOR_UHTML_PATH = '@htmlplus/element/client/vendors/uhtml.js';

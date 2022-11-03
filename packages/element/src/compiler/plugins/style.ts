@@ -39,7 +39,7 @@ export const style = (options?: StyleOptions) => {
 
     if (!context.stylePath) return;
 
-    const { local, node } = addDependency(context.fileAST!, context.stylePath, CONSTANTS.AUTO_IMPORT_STYLE);
+    const { local, node } = addDependency(context.fileAST!, context.stylePath, CONSTANTS.STYLE_IMPORTED);
 
     t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_DEPENDENCY, true);
 

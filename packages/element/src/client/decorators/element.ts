@@ -33,7 +33,7 @@ export function Element(tag?: string) {
       attributeChangedCallback(attribute, prev, next) {
         const instance = this[CONSTANTS.API_INSTANCE];
 
-        if (instance[CONSTANTS.API_IS_DISABLED_ATTRIBUTE_CHANGED_CALLBACK]) return;
+        if (instance[CONSTANTS.API_LOCKED]) return;
 
         const name = camelCase(attribute);
 
@@ -49,7 +49,7 @@ export function Element(tag?: string) {
       connectedCallback() {
         const instance = this[CONSTANTS.API_INSTANCE];
 
-        instance[CONSTANTS.API_IS_CONNECTED] = true;
+        instance[CONSTANTS.API_CONNECTED] = true;
 
         call(instance, CONSTANTS.LIFECYCLE_CONNECTED);
 

@@ -24,6 +24,28 @@ export const customElement = (options?: CustomElementOptions) => {
   const next = (context: Context) => {
     const ast = t.cloneNode(context.fileAST!, true);
 
+    // attaches name
+    visitor(ast, {
+      ClassDeclaration(path) {
+        const { body, id } = path.node;
+
+        if (id.name != context.className) return;
+
+        const node = t.classProperty(
+          t.identifier(CONSTANTS.STATIC_NAME),
+          t.stringLiteral(context.className!),
+          undefined,
+          undefined,
+          undefined,
+          true
+        );
+
+        t.addComment(node, 'leading', CONSTANTS.COMMENT_AUTO_ADDED_PROPERTY, true);
+
+        body.body.unshift(node);
+      }
+    });
+
     // attaches style mapper for 'style' attribute
     visitor(ast, {
       JSXAttribute(path) {

@@ -1,6 +1,6 @@
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import { defineProperty, host, request, appendToMethod, updateAttribute } from '../utils/index.js';
+import { defineProperty, host, request, appendToMethod, updateAttribute, getConfig, getName } from '../utils/index.js';
 
 export interface PropertyOptions {
   /**
@@ -42,7 +42,7 @@ export function Property(options?: PropertyOptions) {
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
       const element = host(this);
 
-      // TODO: experimental
+      // TODO: experimental for isolated options
       if (element === this) return;
 
       const get = () => {

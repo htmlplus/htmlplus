@@ -1,22 +1,59 @@
-interface Options {
-  // components?: {
-  //   [key: string]: {
-  //     property?: {
-  //       [key: string]: any;
-  //     };
-  //   };
-  // };
-  // event?: {
-  //   nameTransformer?: 'auto' | 'camel-case' | 'kebab-case' | 'lower-case ' | 'pascal-case';
-  // };
+interface ConfigOptions {
+  component?: {
+    [key: string]: {
+      property?: {
+        [key: string]: any;
+      };
+    };
+  };
 }
 
-let options: Options = {};
+/**
+ * 1- property/attribute
+ * 2- config
+ * 3- default
+ *
+ *
+ *
+ * undefined ?? 1 => 1
+ * null      ?? 1 => 1
+ * ''        ?? 1 => ''
+ * 0         ?? 1 => 0
+ * false     ?? 1 => false
+ *
+ *
+ *
+ * Property | Config | Default | Result
+ * ------------------------------------
+ *     -    |   -    |    -    | -
+ *     -    |   -    |    +    | Default
+ *     -    |   +    |    -    | Config
+ *     -    |   +    |    +    | Config
+ *     +    |   -    |    -    | Property
+ *     +    |   -    |    +    | Property
+ *     +    |   +    |    -    | Property
+ *     +    |   +    |    +    | Property
+ */
 
-export const getConfig = (): Options => {
-  return options;
+let options: ConfigOptions = {
+  component: {
+    MyElement: {
+      property: {
+        value: 900
+      }
+    }
+  }
 };
 
-export const setConfig = (config: Options) => {
-  options = config || {};
+export const getConfig = (...parameters: string[]): any => {
+  let config = options;
+  for (const parameter of parameters) {
+    if (!config) break;
+    config = config[parameter];
+  }
+  return config;
+};
+
+export const setConfig = (config: ConfigOptions, replace?: boolean) => {
+  options = Object.assign({ component: {} }, config);
 };

@@ -5,6 +5,7 @@ export * from './defineProperty.js';
 export * from './getFramework.js';
 export * from './getMembersKey.js';
 export * from './getMemberType.js';
+export * from './getName.js';
 export * from './getStyles.js';
 export * from './host.js';
 export * from './isEvent.js';

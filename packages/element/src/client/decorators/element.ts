@@ -2,7 +2,7 @@ import { camelCase, paramCase } from 'change-case';
 
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import { call, getMembersKey, getMemberType, isServer, parseValue, request } from '../utils/index.js';
+import { call, getMembers, isServer, parseValue, request } from '../utils/index.js';
 
 export function Element(tag?: string) {
   return function (constructor: PlusElement) {
@@ -23,7 +23,7 @@ export function Element(tag?: string) {
 
       // TODO: ignore functions
       static get observedAttributes() {
-        return getMembersKey(constructor).map((key) => paramCase(key));
+        return Object.keys(getMembers(constructor)).map((key) => paramCase(key));
       }
 
       adoptedCallback() {
@@ -37,7 +37,7 @@ export function Element(tag?: string) {
 
         const name = camelCase(attribute);
 
-        const type = getMemberType(instance, name);
+        const type = getMembers(instance)[name]?.type;
 
         const value = parseValue(next, type);
 

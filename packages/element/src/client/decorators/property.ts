@@ -1,6 +1,15 @@
 import * as CONSTANTS from '../../constants/index.js';
 import { PlusElement } from '../../types';
-import { defineProperty, host, request, appendToMethod, updateAttribute, getConfig, getName } from '../utils/index.js';
+import {
+  defineProperty,
+  host,
+  request,
+  appendToMethod,
+  updateAttribute,
+  getConfig,
+  getName,
+  getMembers
+} from '../utils/index.js';
 
 export interface PropertyOptions {
   /**
@@ -41,6 +50,12 @@ export function Property(options?: PropertyOptions) {
 
     appendToMethod(target, CONSTANTS.LIFECYCLE_CONNECTED, function () {
       const element = host(this);
+
+      // TODO: experimental for global config
+      if (getMembers(this)[name]?.default === this[name]) {
+        const config = getConfig('component', getName(target)!, 'property', name);
+        if (typeof config != 'undefined') this[name] = config;
+      }
 
       // TODO: experimental for isolated options
       if (element === this) return;

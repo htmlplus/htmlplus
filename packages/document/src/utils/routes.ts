@@ -58,6 +58,7 @@ export const ROUTES = {
   HOME: '/',
   ANIMATIONS: '/component/animation/names',
   BIDIRECTIONALITY: '/bidirectionality',
+  GLOBAL_CONFIG: '/global-config',
   INTRODUCTION_WHAT: `/introduction/what-is-htmlplus`,
   INTRODUCTION_WHY: `/introduction/why-htmlplus`,
   INSTALLATION: '/installation',

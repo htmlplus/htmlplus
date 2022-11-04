@@ -67,6 +67,10 @@ export const sidebar = (framework: string) => [
       {
         title: 'Bidirectionality',
         url: getPath(ROUTES.BIDIRECTIONALITY, {})
+      },
+      {
+        title: 'Global Config',
+        url: getPath(ROUTES.GLOBAL_CONFIG, {})
       }
     ]
   },

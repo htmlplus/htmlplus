@@ -33,11 +33,11 @@ export const LIFECYCLE_UPDATED = 'updatedCallback';
 export const METHOD_RENDER = 'render';
 
 // statics
-export const STATIC_MEMBERS = 'members';
+export const STATIC_MEMBERS = 'MEMBERS';
 export const STATIC_MEMBERS_INITIALIZER = 'default';
 export const STATIC_MEMBERS_TYPE = 'type';
-export const STATIC_NAME = 'name';
-export const STATIC_STYLES = 'styles';
+export const STATIC_NAME = 'NAME';
+export const STATIC_STYLES = 'STYLES';
 
 // style
 export const STYLE_IMPORTED = 'STYLE_IMPORTED';

@@ -6,8 +6,8 @@ export const getMembers = (
   target: PlusElement
 ): {
   [member: string]: {
-    default?: any;
-    type?: any;
+    [CONSTANTS.STATIC_MEMBERS_INITIALIZER]?: any;
+    [CONSTANTS.STATIC_MEMBERS_TYPE]?: any;
   };
 } => {
   return target.constructor[CONSTANTS.STATIC_MEMBERS] || target[CONSTANTS.STATIC_MEMBERS] || {};

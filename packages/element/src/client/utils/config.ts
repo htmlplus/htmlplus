@@ -8,41 +8,8 @@ interface ConfigOptions {
   };
 }
 
-/**
- * 1- property/attribute
- * 2- config
- * 3- default
- *
- *
- *
- * undefined ?? 1 => 1
- * null      ?? 1 => 1
- * ''        ?? 1 => ''
- * 0         ?? 1 => 0
- * false     ?? 1 => false
- *
- *
- *
- * Property | Config | Default | Result
- * ------------------------------------
- *     -    |   -    |    -    | -
- *     -    |   -    |    +    | Default
- *     -    |   +    |    -    | Config
- *     -    |   +    |    +    | Config
- *     +    |   -    |    -    | Property
- *     +    |   -    |    +    | Property
- *     +    |   +    |    -    | Property
- *     +    |   +    |    +    | Property
- */
-
 let options: ConfigOptions = {
-  component: {
-    MyElement: {
-      property: {
-        value: 900
-      }
-    }
-  }
+  component: {}
 };
 
 export const getConfig = (...parameters: string[]): any => {

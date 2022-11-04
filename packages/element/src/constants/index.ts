@@ -36,7 +36,7 @@ export const METHOD_RENDER = 'render';
 export const STATIC_MEMBERS = 'MEMBERS';
 export const STATIC_MEMBERS_INITIALIZER = 'default';
 export const STATIC_MEMBERS_TYPE = 'type';
-export const STATIC_NAME = 'NAME';
+export const STATIC_KEY = 'KEY';
 export const STATIC_STYLES = 'STYLES';
 
 // style

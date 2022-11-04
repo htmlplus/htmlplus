@@ -32,8 +32,8 @@ export const customElement = (options?: CustomElementOptions) => {
         if (id.name != context.className) return;
 
         const node = t.classProperty(
-          t.identifier(CONSTANTS.STATIC_NAME),
-          t.stringLiteral(context.className!),
+          t.identifier(CONSTANTS.STATIC_KEY),
+          t.stringLiteral(context.componentKey!),
           undefined,
           undefined,
           undefined,

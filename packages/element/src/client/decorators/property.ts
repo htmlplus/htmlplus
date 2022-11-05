@@ -7,8 +7,8 @@ import {
   appendToMethod,
   updateAttribute,
   getConfig,
-  getName,
-  getMembers
+  getMembers,
+  getTag
 } from '../utils/index.js';
 
 export interface PropertyOptions {
@@ -53,7 +53,7 @@ export function Property(options?: PropertyOptions) {
 
       // TODO: experimental for global config
       if (getMembers(this)[name]?.default === this[name]) {
-        const config = getConfig('component', getName(target)!, 'property', name);
+        const config = getConfig('component', getTag(target)!, 'property', name);
         if (typeof config != 'undefined') this[name] = config;
       }
 

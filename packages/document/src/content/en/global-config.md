@@ -46,7 +46,7 @@ Sets a global config for the `size` property of `spinner` component.
 
     <!-- Initializes the global config -->
     <script type="module">
-      import { setConfig } from 'https://unpkg.com/@htmlplus/core/config/index.js';
+      import { setConfig } from 'https://unpkg.com/@htmlplus/core/core.js';
       setConfig({
         component: {
           'plus-spinner': {

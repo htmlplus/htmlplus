@@ -43,7 +43,7 @@ export default [
   }),
   assets({
     destination(context) {
-      return `dist/${context.fileName}`;
+      return `dist/${context.fileName}/names`;
     }
   }),
   copy({

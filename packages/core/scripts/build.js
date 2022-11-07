@@ -21,8 +21,8 @@ const options = {
       .map((file) => {
         const filename = path.basename(file, path.extname(file));
         return [
-          [`components/${filename}/${filename}`, file],
-          [`components/${filename}/index`, file],
+          // [`components/${filename}/${filename}`, file],
+          // [`components/${filename}/index`, file],
           [`${filename}`, file]
         ];
       })
@@ -46,7 +46,7 @@ const options = {
 
         if (normalized.includes('@popperjs')) return 'vendors/popperjs';
 
-        return 'core';
+        return 'core/index';
       }
     }
   ],

@@ -35,7 +35,7 @@ Sets a global config for the `size` property of `spinner` component.
 <html>
   <head>
     <title>Global Config</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <!-- Gets 'lg' value for the 'size' property from global config -->
@@ -46,7 +46,7 @@ Sets a global config for the `size` property of `spinner` component.
 
     <!-- Initializes the global config -->
     <script type="module">
-      import { setConfig } from 'https://unpkg.com/@htmlplus/core/core.js';
+      import { setConfig } from 'https://unpkg.com/@htmlplus/core/config.js';
       setConfig({
         component: {
           'plus-spinner': {
@@ -60,7 +60,7 @@ Sets a global config for the `size` property of `spinner` component.
 
     <!-- Loads components after initialize the global config -->
     <script type="module">
-      import "https://unpkg.com/@htmlplus/core";
+      import "https://unpkg.com/@htmlplus/core/spinner";
     </script>
   </body>
 </html>

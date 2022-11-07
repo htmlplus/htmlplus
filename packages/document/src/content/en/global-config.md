@@ -34,7 +34,7 @@ Sets a global config for the `size` property of `spinner` component.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Global Config</title>
+    <title>Global Config Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>

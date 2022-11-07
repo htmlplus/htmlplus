@@ -1,18 +1,12 @@
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
+import '@htmlplus/core/dialog-body';
+import type { DialogBodyJSX } from '@htmlplus/core/types/components/dialog-body/dialog-body';
 
 import { proxy } from '../proxy';
 import type { Rename } from '../proxy';
 
-import '@htmlplus/core/dialog-body';
-import type { DialogBodyJSX as DialogBodyJSX } from '@htmlplus/core/types/components/dialog-body/dialog-body';
+type Renamed = Rename<DialogBodyJSX, {}>;
 
-type Renamed = Rename<DialogBodyJSX, { 
-}>
-
-export const DialogBody = proxy<HTMLPlusDialogBodyElement, Renamed>(
-  'plus-dialog-body', 
-  ['scrollable', ], 
-  [],
-);
+export const DialogBody = proxy<HTMLPlusDialogBodyElement, Renamed>('plus-dialog-body', ['scrollable'], []);

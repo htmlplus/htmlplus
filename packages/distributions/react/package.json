@@ -10,6 +10,7 @@
   "scripts": {
     "prebuild": "npm run clean",
     "build": "rollup -c",
+    "format": "prettier --write .",
     "postbuild": "node scripts/build.post.js",
     "clean": "rimraf dist"
   },

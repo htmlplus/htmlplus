@@ -9,13 +9,8 @@ export default {
   output: [
     {
       dir: 'dist',
-      format: 'esm',
-    },
+      format: 'esm'
+    }
   ],
-  plugins: [
-    peerDepsExternal(),
-    resolve(),
-    commonjs(),
-    typescript(),
-  ],
+  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript()]
 };

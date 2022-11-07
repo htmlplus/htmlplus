@@ -1,18 +1,20 @@
 /**************************************************
  * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
  **************************************************/
+import '{{importerComponent.source}}';
+import type { {{importerComponentType.imported}} as {{importerComponentType.local}} } from '{{importerComponentType.source}}';
 
 import { proxy } from '../proxy';
 import type { Rename } from '../proxy';
 
-import '{{importerComponent.source}}';
-import type { {{importerComponentType.imported}} as {{importerComponentType.local}} } from '{{importerComponentType.source}}';
-
-type Renamed = Rename<{{importerComponentType.local}}, { 
-  {{#each classEvents}}
-  {{from}}: '{{to}}',
-  {{/each}}
-}>
+type Renamed = Rename<
+  {{importerComponentType.local}},
+  {
+    {{#each classEvents}}
+    {{from}}: '{{to}}';
+    {{/each}}
+  }
+>;
 
 export const {{className}} = proxy<{{componentInterfaceName}}, Renamed>(
   '{{componentTag}}', 

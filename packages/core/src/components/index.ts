@@ -1,5 +1,3 @@
-export { setConfig } from '@htmlplus/element/client/utils';
-
 export * from './animation/animation';
 export * from './aspect-ratio/aspect-ratio';
 export * from './avatar/avatar';

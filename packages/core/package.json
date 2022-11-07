@@ -47,6 +47,7 @@
     "cropperjs": "^1.5.12",
     "cypress": "^10.11.0",
     "cypress-file-upload": "^5.0.8",
+    "fast-glob": "^3.2.12",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",

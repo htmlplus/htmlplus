@@ -8,15 +8,13 @@
   "main": "client/index.js",
   "types": "client/index.d.ts",
   "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc",
+    "build": "npm run clean && tsc && node scripts/build.post.js",
     "build:watch": "tsc -w",
-    "postbuild": "node scripts/build.post.js",
     "clean": "rimraf dist",
-    "format": "prettier --write .",
-    "dev:start": "ts-node --esm src/dev/scripts/start.ts",
-    "dev:build": "ts-node --esm src/dev/scripts/build.ts",
-    "dev:build:watch": "nodemon src/dev/scripts/build.ts"
+    "development:start": "ts-node --esm src/development/scripts/start.ts",
+    "development:build": "ts-node --esm src/development/scripts/build.ts",
+    "development:build:watch": "nodemon src/development/scripts/build.ts",
+    "format": "prettier --write ."
   },
   "files": [
     "**/*.*"
@@ -42,10 +40,10 @@
   },
   "homepage": "https://github.com/htmlplus/htmlplus#readme",
   "dependencies": {
-    "@babel/generator": "^7.20.1",
-    "@babel/parser": "^7.20.1",
+    "@babel/generator": "^7.20.3",
+    "@babel/parser": "^7.20.3",
     "@babel/traverse": "^7.20.1",
-    "@babel/types": "^7.20.0",
+    "@babel/types": "^7.20.2",
     "@types/node": "^18.11.9",
     "change-case": "^4.1.2",
     "fast-glob": "^3.2.12",
@@ -61,6 +59,6 @@
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "vite": "^3.2.2"
+    "vite": "^3.2.3"
   }
 }

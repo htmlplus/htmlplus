@@ -11,7 +11,7 @@ const log = (message, persist?) => {
   logger.start(`${new Date().toLocaleTimeString()} [HTMLPLUS] ${message}`)[persist ? 'succeed' : '']?.();
 };
 
-export default (...plugins: Array<Plugin>) => {
+export const compiler = (...plugins: Array<Plugin>) => {
   let global: Global = {
     contexts: []
   };

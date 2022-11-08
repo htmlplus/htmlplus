@@ -1,4 +1,4 @@
-import compiler from '../compiler/index.js';
+import { compiler } from '../compiler/index.js';
 import { Plugin } from '../types';
 
 export const rollup = (...plugins: Array<Plugin>) => {

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import compiler from '../compiler/index.js';
+import { compiler } from '../compiler/index.js';
 import { Plugin } from '../types';
 
 export const vite = (...plugins: Array<Plugin>) => {

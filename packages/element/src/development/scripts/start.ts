@@ -5,7 +5,7 @@ import plugins from '../plus.config.js';
 
 createServer({
   server: {
-    open: '/src/dev/index.html',
+    open: '/src/development/index.html',
     port: 3500
   },
   resolve: {

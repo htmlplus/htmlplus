@@ -1,6 +1,0 @@
-[submodule "packages/create-element"]
-	path = packages/create-element
-	url = git@github.com:htmlplus/create-element.git
-[submodule "packages/element"]
-	path = packages/element
-	url = git@github.com:htmlplus/element.git

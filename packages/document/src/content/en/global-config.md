@@ -7,7 +7,7 @@ Defines the properties of components as global. For instance `placement` propert
 A simple template for defining a collection of configs.
 
 ```js
-import { setConfig } from 'https://unpkg.com/@htmlplus/core/config/index.js';
+import { setConfig } from '@htmlplus/core/config.js';
 
 setConfig({
   component: {
@@ -26,42 +26,32 @@ setConfig({
 });
 ```
 
-## Real Example
+## Example
 
-Sets a global config for the `size` property of `spinner` component.
+A real example of a definition.
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Global Config Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <!-- Gets 'lg' value for the 'size' property from global config -->
-    <plus-spinner></plus-spinner>
+```js
+import { setConfig } from '@htmlplus/core/config.js';
 
-    <!-- Ignores the global config for the 'size' property -->
-    <plus-spinner size="sm"></plus-spinner>
-
-    <!-- Initializes the global config -->
-    <script type="module">
-      import { setConfig } from 'https://unpkg.com/@htmlplus/core/config.js';
-      setConfig({
-        component: {
-          'plus-spinner': {
-            property: {
-              size: 'lg',
-            }
-          }
-        }
-      });
-    </script>
-
-    <!-- Loads components after initialize the global config -->
-    <script type="module">
-      import "https://unpkg.com/@htmlplus/core/spinner";
-    </script>
-  </body>
-</html>
+setConfig({
+  component: {
+    'plus-spinner': {
+      property: {
+        size: 'lg',
+      }
+    }
+  }
+});
 ```
+
+## Frameworks
+
+Definition in each framework.
+
+- [Angular](/angular/global-config)
+- [Javascript](/javascript/global-config)
+- [React Dedicated](/react-dedicated/global-config)
+- [React (Not Recommended)](/react/global-config)
+- [React (experimental)](/react@experimental/global-config)
+- [Svelte](/svelte/global-config)
+- [Vue](/vue/global-config)

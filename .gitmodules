@@ -10,3 +10,7 @@
 	path = packages/examples
 	url = git@github.com:htmlplus/examples.git
 	branch = main
+[submodule "packages/core"]
+	path = packages/core
+	url = git@github.com:htmlplus/core.git
+	branch = main

@@ -78,7 +78,7 @@ export default [
   webTypes({
     destination: 'dist/json/web-types.json',
     packageName: '@htmlplus/core',
-    packageVersion: '0.4.6',
+    packageVersion: '0.5.1',
     reference(context) {
       return `https://www.htmlplus.io/javascript/component/${context.componentKey}`;
     },

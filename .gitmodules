@@ -6,3 +6,7 @@
 	path = packages/element
 	url = git@github.com:htmlplus/element.git
 	branch = main
+[submodule "packages/examples"]
+	path = packages/examples
+	url = git@github.com:htmlplus/examples.git
+	branch = main

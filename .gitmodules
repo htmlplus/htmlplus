@@ -14,3 +14,7 @@
 	path = packages/core
 	url = git@github.com:htmlplus/core.git
 	branch = main
+[submodule "packages/distributions/react"]
+	path = packages/distributions/react
+	url = git@github.com:htmlplus/react.git
+	branch = main

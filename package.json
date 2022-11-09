@@ -5,11 +5,10 @@
     "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
-    "postinstall": "npm run bootstrap && npm run build",
     "submodules:clone": "git submodule update --init"
   },
   "dependencies": {
-    "lerna": "^3.20.2",
-    "next": "^12.2.2"
+    "lerna": "^6.0.3",
+    "next": "^13.0.2"
   }
 }

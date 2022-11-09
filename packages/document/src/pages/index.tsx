@@ -69,20 +69,17 @@ const Home: NextPage = () => {
             <NextLink
               href={getPath(ROUTES.COMPONENT_DETAILS, { framework: 'react', component: 'animation' })!}
               passHref
+              style={{
+                padding: '0.75rem 2rem',
+                background: '#ee6e73',
+                color: 'white',
+                display: 'inline-block',
+                margin: '2rem 1rem',
+                borderRadius: '4px',
+                fontWeight: 700
+              }}
             >
-              <a
-                style={{
-                  padding: '0.75rem 2rem',
-                  background: '#ee6e73',
-                  color: 'white',
-                  display: 'inline-block',
-                  margin: '2rem 1rem',
-                  borderRadius: '4px',
-                  fontWeight: 700
-                }}
-              >
-                Get Started
-              </a>
+              Get Started
             </NextLink>
             <a
               style={{

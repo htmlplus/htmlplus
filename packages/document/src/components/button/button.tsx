@@ -10,8 +10,8 @@ const Link = ({ children, to, ...attributes }: any) => {
     attributes.rel = 'noopener noreferrer';
   }
   return (
-    <NextLink href={to} passHref>
-      <a {...attributes}>{children}</a>
+    <NextLink href={to} {...attributes}>
+      {children}
     </NextLink>
   );
 };

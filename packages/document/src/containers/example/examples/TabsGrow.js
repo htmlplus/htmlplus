@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { Tabs } from '@htmlplus/react';
 
 const TabsGrow = () => {

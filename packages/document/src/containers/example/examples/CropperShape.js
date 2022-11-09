@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { Cropper, Grid } from '@htmlplus/react';
 
 const CropperShape = () => {

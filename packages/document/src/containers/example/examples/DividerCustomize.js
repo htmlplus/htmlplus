@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { Divider, Grid } from '@htmlplus/react';
 
 const DividerCustomize = () => {

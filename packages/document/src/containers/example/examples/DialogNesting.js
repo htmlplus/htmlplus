@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { Dialog, Grid } from '@htmlplus/react';
 
 const DialogNesting = () => {

@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { Grid, Tooltip } from '@htmlplus/react';
 
 const TooltipPlacement = () => {

@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { AspectRatio, Card } from '@htmlplus/react';
 
 const AspectRatioDefault = () => {

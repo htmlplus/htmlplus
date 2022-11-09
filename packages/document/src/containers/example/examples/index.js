@@ -1,4 +1,9 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import dynamic from 'next/dynamic';
+
 export const AnimationDefault = dynamic(() => import('./AnimationDefault').then((component) => component), { ssr: false });
 export const AnimationDuration = dynamic(() => import('./AnimationDuration').then((component) => component), { ssr: false });
 export const AnimationName = dynamic(() => import('./AnimationName').then((component) => component), { ssr: false });

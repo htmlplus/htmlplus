@@ -1,29 +1,55 @@
 // TODO
 
 const fs = require('fs');
+const path = require('path');
 const { pascalCase } = require('change-case');
 const db = require('../../examples/src/db.json');
 
-const EXAMPLES_DESTINATION = './src/containers/example/examples';
+const header = [
+  '/**************************************************',
+  ' * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY',
+  ' **************************************************/',
+  ''
+];
 
-fs.rmSync(EXAMPLES_DESTINATION, { force: true, recursive: true });
+(() => {
+  const DESTINATION = './src/data/examples.ts';
 
-fs.mkdirSync(EXAMPLES_DESTINATION, { recursive: true });
+  fs.rmSync(DESTINATION, { force: true, recursive: true });
 
-const lines = [`import dynamic from 'next/dynamic';`];
+  fs.mkdirSync(path.dirname(DESTINATION), { recursive: true });
 
-for (const example of db) {
-  if (example.category != 'preview') continue;
+  const lines = [...header, `export const examples: any[] = ${JSON.stringify(db, null, 2)};`];
 
-  const name = `${pascalCase(example.component)}${pascalCase(example.key)}`;
+  const content = lines.join('\n');
 
-  lines.push(
-    `export const ${name} = dynamic(() => import('./${name}').then((component) => component), { ssr: false });`
-  );
+  fs.writeFileSync(DESTINATION, content, 'utf8');
+})();
 
-  fs.writeFileSync(`${EXAMPLES_DESTINATION}/${name}.js`, example.detail.script);
-}
+(() => {
+  const DESTINATION = './src/containers/example/examples';
 
-const content = lines.join('\n');
+  fs.rmSync(DESTINATION, { force: true, recursive: true });
 
-fs.writeFileSync(`${EXAMPLES_DESTINATION}/index.js`, content);
+  fs.mkdirSync(DESTINATION, { recursive: true });
+
+  const lines = [...header, `import dynamic from 'next/dynamic';`, ''];
+
+  for (const example of db) {
+    if (example.category != 'preview') continue;
+
+    const name = `${pascalCase(example.component)}${pascalCase(example.key)}`;
+
+    lines.push(
+      `export const ${name} = dynamic(() => import('./${name}').then((component) => component), { ssr: false });`
+    );
+
+    const script = [...header, example.detail.script].join('\n');
+
+    fs.writeFileSync(`${DESTINATION}/${name}.js`, script);
+  }
+
+  const content = lines.join('\n');
+
+  fs.writeFileSync(`${DESTINATION}/index.js`, content);
+})();

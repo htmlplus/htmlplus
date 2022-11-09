@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { ScrollIndicator } from '@htmlplus/react';
 
 const ScrollIndicatorDefault = () => {

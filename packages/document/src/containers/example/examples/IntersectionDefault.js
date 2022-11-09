@@ -1,3 +1,7 @@
+/**************************************************
+ * THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALY
+ **************************************************/
+
 import { useState } from 'react';
 import { Card, Intersection } from '@htmlplus/react';
 

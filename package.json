@@ -5,7 +5,8 @@
     "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/react && lerna run build --scope=@htmlplus/examples",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
-    "submodules:clone": "git submodule update --init"
+    "submodules:clone": "git submodule update --init --recursive",
+    "submodules:update": "git submodule update --remote --init"
   },
   "dependencies": {
     "lerna": "^6.0.3",

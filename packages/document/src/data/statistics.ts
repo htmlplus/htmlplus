@@ -9,10 +9,10 @@ export const statistics = {
   themes: 'TODO',
   forks: 2,
   stars: 22,
-  watchers: 5,
-  dowanloads: 6019,
-  downloadsLastWeek: 110,
-  downloadsLastMonth: 1138,
+  watchers: 22,
+  dowanloads: 6772,
+  downloadsLastWeek: 941,
+  downloadsLastMonth: 1517,
   get components(): number {
     return this.componentsPerFramework * this.frameworks;
   },

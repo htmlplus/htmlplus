@@ -4,10 +4,10 @@ const axios = require('axios');
 const fs = require('fs');
 
 Promise.all([
-  axios.default.get('https://api.npms.io/v2/package/%40htmlplus%2Fcore'),
-  axios.default.get('https://api.npmjs.org/downloads/point/2021-02-10:2050-01-01/@htmlplus%2Fcore'),
-  axios.default.get('https://api.npmjs.org/downloads/point/last-month/@htmlplus%2Fcore'),
-  axios.default.get('https://api.npmjs.org/downloads/point/last-week/@htmlplus%2Fcore')
+  axios.get('https://api.github.com/repos/htmlplus/core'),
+  axios.get('https://api.npmjs.org/downloads/point/2021-02-10:2050-01-01/@htmlplus%2Fcore'),
+  axios.get('https://api.npmjs.org/downloads/point/last-month/@htmlplus%2Fcore'),
+  axios.get('https://api.npmjs.org/downloads/point/last-week/@htmlplus%2Fcore')
 ]).then((responses) => {
   const [first, second, third, fourth] = responses;
 
@@ -21,9 +21,9 @@ Promise.all([
     'export const statistics = {',
     "  platforms: 'TODO',",
     "  themes: 'TODO',",
-    `  forks: ${first.data.collected.github.forksCount},`,
-    `  stars: ${first.data.collected.github.starsCount},`,
-    `  watchers: ${first.data.collected.github.subscribersCount},`,
+    `  forks: ${first.data.forks_count},`,
+    `  stars: ${first.data.stargazers_count},`,
+    `  watchers: ${first.data.watchers_count},`,
     `  dowanloads: ${second.data.downloads},`,
     `  downloadsLastWeek: ${fourth.data.downloads},`,
     `  downloadsLastMonth: ${third.data.downloads},`,

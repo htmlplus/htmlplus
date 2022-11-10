@@ -9,7 +9,6 @@
     "submodules:update": "git submodule update --remote --init"
   },
   "dependencies": {
-    "lerna": "^6.0.3",
-    "next": "^13.0.2"
+    "lerna": "^6.0.3"
   }
 }

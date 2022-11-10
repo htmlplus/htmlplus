@@ -18,3 +18,7 @@
 	path = packages/distributions/react
 	url = git@github.com:htmlplus/react.git
 	branch = main
+[submodule "packages/document"]
+	path = packages/document
+	url = git@github.com:htmlplus/document.git
+	branch = main

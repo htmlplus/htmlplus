@@ -251,7 +251,6 @@ border-radius
 breakpoints
 bundle-size
 cancelable-event
-changelog
 colors
 connector
 content
@@ -274,7 +273,6 @@ installation
 jobs
 languages
 learn
-license
 localization
 long-term-support
 migration
@@ -308,4 +306,4 @@ upgrade-guide
 usage
 versions
 vision
-z-inde
+z-index

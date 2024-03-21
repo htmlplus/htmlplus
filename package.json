@@ -3,7 +3,7 @@
   "description": "Includes all repositories for development mode.",
   "scripts": {
     "bootstrap": "lerna bootstrap --force-local",
-    "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/core && lerna run build --scope=@htmlplus/examples",
+    "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/ui && lerna run build --scope=@htmlplus/examples",
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
     "submodules:clone": "git submodule update --init --recursive",

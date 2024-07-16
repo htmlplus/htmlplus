@@ -7,10 +7,10 @@
     "clean": "lerna run clean",
     "clean:hard": "npm run clean && lerna clean",
     "submodules:clone": "git submodule update --init --recursive",
-    "submodules:pull": "git submodule foreach git pull origin main && git pull origin main",
+    "submodules:checkout": "git submodule foreach git checkout main && git checkout main",
     "submodules:update": "git submodule update --remote --init"
   },
   "dependencies": {
-    "lerna": "^6.0.3"
+    "lerna": "^6.6.2"
   }
 }

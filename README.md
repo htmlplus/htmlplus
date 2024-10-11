@@ -19,7 +19,7 @@ npm run submodules:checkout
 ## 4- Install root node modules
 
 ```bash
-npm run i
+npm i
 ```
 
 ## 5- Bootstrap packages

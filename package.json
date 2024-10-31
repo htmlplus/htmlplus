@@ -1,16 +1,18 @@
 {
   "name": "@htmlplus/htmlplus",
   "description": "Includes all repositories for development mode.",
+  "workspaces": [
+    "packages/create-element",
+    "packages/document",
+    "packages/element",
+    "packages/examples",
+    "packages/ui"
+  ],
   "scripts": {
-    "bootstrap": "lerna bootstrap --force-local",
-    "build": "lerna run build --scope=@htmlplus/element && lerna run build --scope=@htmlplus/ui && lerna run build --scope=@htmlplus/examples",
-    "clean": "lerna run clean",
-    "clean:hard": "npm run clean && lerna clean",
+    "build": "npm run build -w @htmlplus/element -w @htmlplus/ui && npm run generate -w @htmlplus/examples",
+    "clean": "npm run clean -ws --if-present",
     "submodules:clone": "git submodule update --init --recursive",
     "submodules:checkout": "git submodule foreach git checkout main && git checkout main",
     "submodules:update": "git submodule update --remote --init"
-  },
-  "dependencies": {
-    "lerna": "^6.6.2"
   }
 }

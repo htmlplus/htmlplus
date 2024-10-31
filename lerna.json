@@ -1,9 +1,0 @@
-{
-  "version": "independent",
-  "packages": [
-    "packages/document",
-    "packages/element",
-    "packages/examples",
-    "packages/ui"
-  ]
-}

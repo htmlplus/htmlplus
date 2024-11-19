@@ -1,5 +1,5 @@
 {
-  "name": "@htmlplus/htmlplus",
+  "name": "@htmlplus/platform",
   "description": "Includes all repositories for development mode.",
   "workspaces": [
     "packages/create-element",

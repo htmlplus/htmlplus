@@ -21,9 +21,3 @@ npm run submodules:checkout
 ```bash
 npm i
 ```
-
-## 5- Bootstrap packages
-
-```bash
-npm run bootstrap
-```
